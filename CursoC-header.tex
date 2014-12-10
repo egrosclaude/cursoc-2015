@@ -1,0 +1,284 @@
+
+\documentclass[11pt,a4paper]{book}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb,amsfonts,textcomp}
+\usepackage{color}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{hhline}
+\usepackage{hyperref}
+\usepackage{float}
+\usepackage{xkeyval}
+\usepackage[pdftex]{graphicx}
+\usepackage[yyyymmdd,hhmmss]{datetime}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{appendix}
+\usepackage{listings}
+\usepackage{enumitem}
+
+%\usepackage{wasysym}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+\definecolor{lstbackground}{rgb}{0.95,0.95,0.95}
+% \lstset{frame=tb,
+% 	backgroundcolor=\color{lstbackground},
+%   language=Bash,
+%   aboveskip=3mm,
+%   belowskip=3mm,
+%   showstringspaces=false,
+%   columns=flexible,
+%   basicstyle={\small\ttfamily},
+%   numbers=none,
+%   numberstyle=\tiny\color{gray},
+%   keywordstyle=\color{blue},
+%   %commentstyle=\color{dkgreen},
+%   stringstyle=\color{mauve},
+%   breaklines=true,
+%   breakatwhitespace=true,
+%   extendedchars=true,
+%   tabsize=3
+% }
+\lstset{
+	backgroundcolor=\color{lstbackground},
+%  language=Bash,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  xleftmargin=0.5cm,
+  xrightmargin=0.5cm,
+  frame=lr,framesep=0.5cm,framerule=0pt,
+%  numberstyle=\tiny\color{gray},
+%  keywordstyle=\color{blue},
+%  commentstyle=\color{dkgreen},
+%  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true
+  tabsize=4
+}
+\usepackage[font=small,skip=1cm]{caption}
+
+%\DeclareCaptionFont{black}{ \color{black} }
+%\DeclareCaptionFormat{listing}{
+%  \colorbox[cmyk]{0.93, 0.95, 0.95,0.01 }{
+%    \parbox{\textwidth}{\hspace{15pt}#1#2#3}
+%  }
+%}
+%\captionsetup[lstlisting]{ format=listing, labelfont=black, textfont=black, singlelinecheck=false, margin=0pt, font={bf,footnotesize} }
+%\captionsetup[lstlisting]{format=plain, font={footnotesize}}
+%\captionsetup[figure]{format=plain,font={footnotesize}}
+% ...
+
+
+%\renewcommand{\lstlistingname}{Code}
+\usepackage{verbatim}
+
+%\addto\captionsspanish {%
+%	\def\appendixname{Apéndices}
+%}
+% Outline numbering
+\setcounter{secnumdepth}{1}
+% Reset section numbering between parts
+\makeatletter
+\@addtoreset{section}{part}
+\makeatother  
+% List styles
+\newcommand\liststyleLi{%
+\renewcommand\labelitemi{\tiny${\blacksquare}$}
+\renewcommand\labelitemii{\tiny${\square}$}
+\renewcommand\labelitemiii{\tiny${\circ}$}
+\renewcommand\labelitemiv{\tiny${\circ}$}
+}
+\newcommand\liststyleLii{%
+\renewcommand\labelitemi{{\textbullet}}
+\renewcommand\labelitemii{${\circ}$}
+\renewcommand\labelitemiii{${\blacksquare}$}
+\renewcommand\labelitemiv{{\textbullet}}
+}
+\newcommand\liststyleLiii{%
+\renewcommand\labelitemi{{\textbullet}}
+\renewcommand\labelitemii{${\circ}$}
+\renewcommand\labelitemiii{${\blacksquare}$}
+\renewcommand\labelitemiv{{\textbullet}}
+}
+
+\liststyleLi
+
+% Page layout (geometry)
+\setlength\voffset{-1in}
+\setlength\hoffset{-1in}
+\setlength\topmargin{2cm}
+\setlength\oddsidemargin{2cm}
+\setlength\textheight{23.246668cm}
+\setlength\textwidth{17.006cm}
+\setlength\footskip{26.144882pt}
+\setlength\headheight{1.016cm}
+\setlength\headsep{0.508cm}
+% Footnote rule
+\setlength{\skip\footins}{0.119cm}
+\renewcommand\footnoterule{\vspace*{-0.018cm}\setlength\leftskip{0pt}\setlength\rightskip{0pt plus 1fil}\noindent\textcolor{black}{\rule{0.25\columnwidth}{0.018cm}}\vspace*{0.101cm}}
+% Pages styles
+\makeatletter
+\newcommand\ps@Standard{
+  \renewcommand\@oddhead{{\raggedleft Cabecera \ } {\raggedright \thepage{}}}
+  \renewcommand\@evenhead{\@oddhead}
+  \renewcommand\@oddfoot{}
+  \renewcommand\@evenfoot{\@oddfoot}
+  \renewcommand\thepage{\arabic{page}}
+}
+
+% \pagestyle{Standard}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+
+%%--------------------------------------
+% F O N T S 
+% \usepackage{dejavu}
+%\usepackage{librebaskerville}
+%\usepackage{sans}
+%\usepackage{libertine}
+%\usepackage{lmodern}
+%\usepackage{opensans}
+%\usepackage{helvet}
+%\usepackage{times}
+
+\usepackage{lmodern}
+\renewcommand*\familydefault{\sfdefault} %% Only if the base font of the document is to be sans serif
+
+
+%% LaTeX Preamble - Font choices
+%% Each block selects new math, roman (serif), sans serif, and typewriter fonts.
+%% Delete or comment out all but one to make your choice.
+
+% Fourier for math | Utopia (scaled) for rm | Helvetica for ss | Latin Modern for tt
+%\usepackage{fourier} % math & rm
+%\usepackage[scaled=0.875]{helvet} % ss
+%\renewcommand{\ttdefault}{lmtt} %tt
+
+% Latin Modern (similar to CM with more characters)
+%\usepackage{lmodern} % math, rm, ss, tt
+%\usepackage[T1]{fontenc}
+
+% Palatino for rm and math | Helvetica for ss | Courier for tt
+%\usepackage{mathpazo} % math & rm
+%\linespread{1.05}        % Palatino needs more leading (space between lines)
+%\usepackage[scaled]{helvet} % ss
+%\usepackage{courier} % tt
+%\normalfont
+%\usepackage[T1]{fontenc}
+
+% Euler for math | Palatino for rm | Helvetica for ss | Courier for tt
+%\renewcommand{\rmdefault}{ppl} % rm
+%\linespread{1.05}        % Palatino needs more leading
+%\usepackage[scaled]{helvet} % ss
+%\usepackage{courier} % tt
+%\usepackage{euler} % math
+%\usepackage{eulervm} % a better implementation of the euler package (not in gwTeX)
+
+%\normalfont
+%\usepackage[T1]{fontenc}
+
+% Times for rm and math | Helvetica for ss | Courier for tt
+%\usepackage{mathptmx} % rm & math
+%\usepackage[scaled=0.90]{helvet} % ss
+%\usepackage{courier} % tt
+%\normalfont
+%\usepackage[T1]{fontenc}
+
+% !! COMMERICAL FONT !! Lucida Bright (w/expert package)
+%\usepackage[T1]{fontenc}
+%\usepackage[expert,vargreek,altbullet]{lucidabr}
+
+%% END Font choices
+%%---------------------------------------------
+% \renewcommand*\familydefault{\sfdefault}
+% \pagestyle{Standard}
+\usepackage{mdframed}
+
+
+% footnotes configuration
+\makeatletter
+\renewcommand\thefootnote{\arabic{footnote}}
+\makeatother
+\title{Introducción al Lenguaje C}
+\author{Eduardo Grosclaude}
+\date{2014-12-09}
+\usepackage{graphicx}
+
+\usepackage{xkeyval}
+\usepackage{pifont}
+\usepackage{xcolor}
+\newcommand{\revisar}[1]{{\color{red}[#1]}}
+%\newcommand{\nota}[1]{{\color{red}[#1]}}
+%\newcommand{\revisar}[1]{}
+
+\newcommand{\borrador}{
+\revisar{\today, \currenttime  -  Material en preparación, se ruega no imprimir mientras aparezca esta nota}
+}
+
+
+
+
+\newcommand{\nota}[1]{}
+
+\newcommand{\nonota}[1]{#1}
+
+\newcommand{\quotes}[1]{``#1''}
+
+   
+\newcommand{\shade}[1]{\textcolor{black!50}{#1}}
+
+% ancho opcional, por defecto 15cm
+% \figura{copyleft}{Símbolo de Copyleft}{copyleft.png}
+% \figura[6]{copyleft}{Símbolo de Copyleft}{copyleft.png}
+\newcommand{\figura}[4][15]{
+ \begin{figure}[htb] 
+ \centering 
+ \includegraphics[width=#1cm]{./img/#4}
+ \caption{#3}
+ \label{fig:#2} 
+ \end{figure} 
+}
+
+
+
+% tabla{label}{caption}{columns}{contents}
+\newcommand{\tabla}[4]{
+ \begin{table} 
+ \centering 
+ \small
+ \begin{tabular}{#3}
+ #4
+ \end{tabular}
+ \caption{#2}
+ \label{tab:#1} 
+ \end{table} 
+}
+
+\usepackage{sectsty}
+%\usepackage[compact]{titlesec} 
+\definecolor{bl}{rgb}{0.0,0.2,0.6} 
+\allsectionsfont{\color{bl}\scshape\selectfont}
+
+
+\newcommand{\recuadro}[1]{
+\begin{minipage}[c]{0.84\textwidth}
+\begin{mdframed}
+#1
+\end{mdframed}
+\end{minipage}
+}
+
+\newcommand{\code}[1]{\lstinline$#1$}
+
+%\usepackage{C}
+%\clearpage\clearpage\setcounter{page}{1}\pagestyle{HTML}
+
+

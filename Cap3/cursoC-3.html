@@ -1,0 +1,585 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+  <meta http-equiv="CONTENT-TYPE"
+ content="text/html; charset=iso-8859-1">
+  <title>3. Tipos de datos y expresiones</title>
+  <meta name="GENERATOR" content="StarOffice/5.2 (Linux)">
+  <meta name="AUTHOR" content="Eduardo Grosclaude">
+  <meta name="CREATED" content="20010508;23334400">
+  <meta name="CHANGEDBY" content="Eduardo Grosclaude">
+  <meta name="CHANGED" content="20010816;17223300">
+  <style>
+	<!--
+		TD P { text-align: justify }
+		P { text-align: justify }
+		PRE { margin-left: 1cm; line-height: 0.35cm }
+	-->
+	</style>
+</head>
+<body>
+<p style="page-break-before: always;">
+</p>
+<h1 align="justify"><a name="tipos de datos y expresiones"></a>3. Tipos
+de datos y expresiones</h1>
+<p align="justify">Las <a
+ onmouseover="window.status='Definición y ejemplo de expresión'; return true"
+ onmouseout="window.status=' '" href="info/info3.html#info1">expresiones</a>
+se construyen, en general, conectando mediante operadores elementos
+diversos, tales como identificadores de variables, constantes e
+invocaciones de funciones. Cada uno de estos elementos debe ocupar -al
+menos temporariamente, mientras se calcula el resultado de la
+expresi&oacute;n- <strong><em>un lugar en memoria</em></strong> . Al
+evaluar cada expresi&oacute;n, el compilador crea, para
+alojar cada subexpresi&oacute;n de las que la constituyen, <b>objetos
+de datos</b>, que pueden pensarse como espacio de memoria reservado
+para contener valores. Estos espacios de memoria son de diferentes
+"tama&ntilde;os" (<strong>cantidades de bits</strong> ) de acuerdo al
+tipo de
+dato de la subexpresi&oacute;n.</p>
+<p align="justify">As&iacute;, las expresiones en C asumen siempre un
+tipo de datos: alguno de los tipos b&aacute;sicos del lenguaje, o uno
+definido por el usuario. Una expresi&oacute;n, seg&uacute;n las
+necesidades, puede convertirse de un tipo a otro. El compilador hace
+esto a veces en forma autom&aacute;tica. Otras veces, el programador
+fuerza una conversi&oacute;n de tipo para producir un determinado
+resultado.</p>
+<h2 align="justify"><a name="declaraci&oacute;n de variables"></a>Declaraci&oacute;n
+de variables</h2>
+<p align="justify">Los tipos b&aacute;sicos son:</p>
+<p
+ style="border: 1pt solid rgb(0, 0, 0); padding: 0.05cm; margin-bottom: 0cm; margin-left: 0.51cm; margin-right: 2.85cm; page-break-inside: avoid;"
+ align="justify">
+<b>char (un elemento de tama&ntilde;o "byte")</b></p>
+<p
+ style="border: 1pt solid rgb(0, 0, 0); padding: 0.05cm; margin-bottom: 0cm; margin-left: 0.51cm; margin-right: 2.85cm; page-break-inside: avoid;"
+ align="justify">
+<b>int (un n&uacute;mero entero con signo) </b>
+</p>
+<p
+ style="border: 1pt solid rgb(0, 0, 0); padding: 0.05cm; margin-bottom: 0cm; margin-left: 0.51cm; margin-right: 2.85cm; page-break-inside: avoid;"
+ align="justify">
+<b>long (un entero largo) </b>
+</p>
+<p
+ style="border: 1pt solid rgb(0, 0, 0); padding: 0.05cm; margin-bottom: 0cm; margin-left: 0.51cm; margin-right: 2.85cm; page-break-inside: avoid;"
+ align="justify">
+<b>float (un n&uacute;mero en punto flotante) </b>
+</p>
+<p
+ style="border: 1pt solid rgb(0, 0, 0); padding: 0.05cm; margin-bottom: 0cm; margin-left: 0.51cm; margin-right: 2.85cm; page-break-inside: avoid;"
+ align="justify">
+<b>double (un n&uacute;mero en punto flotante, doble precisi&oacute;n)</b></p>
+<p align="justify">Cuando declaramos una variable o forzamos una
+conversi&oacute;n de tipo, utilizamos una especificaci&oacute;n de
+tipo. Ejemplos de declaraci&oacute;n de variables:</p>
+<font style="color: rgb(0, 153, 0); font-weight: bold;" color="#008000"><font
+ size="+1">
+<pre>char a;<br>int alfa,beta;<br>float x1,x2;</pre>
+</font></font>
+<p align="justify">Los tipos enteros (char, int y long) admiten los
+modificadores <b>signed</b> (con signo) y <b>unsigned</b> (sin
+signo). Un objeto de datos <b>unsigned</b> utiliza todos sus bits
+para representar magnitud; un <b>signed</b> utiliza un bit para
+signo, en representaci&oacute;n complemento a dos.</p>
+<p align="justify">El modificador <b>signed</b> sirve sobre todo para
+explicitar el signo de los chars. El default para un int es signed;
+el default para char puede ser <b>signed</b> o <b>unsigned</b>,
+dependiendo del compilador.</p>
+<font style="font-weight: bold; color: rgb(0, 153, 0);" color="#008000"><font
+ size="+1">
+<pre>unsigned int edad;<br>signed char beta;</pre>
+</font></font>Un <b>int</b> puede afectarse con el modificador
+<b>short</b> (corto).
+<pre style="color: rgb(0, 153, 0); font-weight: bold;"><font size="+1">short i;<br>unsigned short k;</font></pre>
+<p align="justify">Cuando en una declaraci&oacute;n aparece s&oacute;lo
+el modificador unsigned o short, y no el tipo, se asume <b>int</b>.
+El tipo entero se supone el tipo b&aacute;sico manejable por el
+procesador, y es el tipo por omisi&oacute;n en varias otras
+situaciones. Por ejemplo, cuando no se especifica el tipo del valor
+devuelto por una funci&oacute;n.</p>
+<p align="justify">El modificador <b>long</b> puede aplicarse
+tambi&eacute;n
+a float y a double. Los tipos resultantes pueden tener m&aacute;s
+precisi&oacute;n que los no modificados.</p>
+<pre style="margin-bottom: 0.51cm; color: rgb(0, 153, 0);"><font
+ style="font-weight: bold;" size="+1">long float e; <br>long double pi;<br></font>&nbsp;</pre>
+<h2 align="justify"><a name="tama&ntilde;os de los objetos de datos"></a>Tama&ntilde;os
+de los objetos de datos</h2>
+<p align="justify">El lenguaje C no define el tama&ntilde;o de los
+objetos de datos de un tipo determinado. Es decir, un entero puede
+ocupar 16 bits en una implementaci&oacute;n, 32 en otra, o aun 64. Un
+long puede tener o no m&aacute;s bits que un int. Un short puede ser
+o no m&aacute;s corto que un int. Seg&uacute;n K&amp;R, lo &uacute;nico
+seguro es que <i><strong><font size="+1"><i><strong>"un short no es
+mayor que un int, que a su vez no es mayor que long".</strong> </i></font>
+</strong> </i></p>
+<p align="justify">Por supuesto, distintos tama&ntilde;os en bits
+implican diferentes rangos de valores. Si deseamos portar un
+programa, hecho bajo una implementaci&oacute;n del compilador, a
+otra, no es posible asegurar a priori el rango que tomar&aacute; un
+tipo de datos. La fuente ideal para conocer los rangos de los
+diferentes tipos, en una implementaci&oacute;n determinada, es
+-adem&aacute;s del manual del compilador- el header <b>limits.h</b>
+de la biblioteca standard. Debe recordarse que cualquier
+suposici&oacute;n
+que hagamos sobre el rango o tama&ntilde;o de un objeto de datos
+afecta la portabilidad de un programa en C.</p>
+<p align="justify">Las siguientes l&iacute;neas son parte de un archivo
+<b>limits.h</b> para una implementaci&oacute;n en particular:</p>
+<pre><font color="#0000a0">/* Minimum and maximum values a `signed short int' can hold. */<br>#  define SHRT_MIN      (-32768)<br>#  define SHRT_MAX      32767<br><br>/* Maximum value an `unsigned short int' can hold. (Minimum is 0.) */<br>#  define USHRT_MAX     65535<br><br>/* Minimum and maximum values a `signed int' can hold. */<br>#  define INT_MIN       (-INT_MAX - 1)<br>#  define INT_MAX       2147483647<br><br>/* Maximum value an `unsigned int' can hold. (Minimum is 0.) */<br>#  ifdef __STDC__<br>#   define UINT_MAX     4294967295U<br>#  else<br>#   define UINT_MAX     4294967295<br>#  endif<br><br>/* Minimum and maximum values a `signed long int' can hold. */<br>#  ifdef __alpha__<br>#   define LONG_MAX     9223372036854775807L<br>#  else<br>#   define LONG_MAX     2147483647L<br>#  endif<br>#  define LONG_MIN      (-LONG_MAX - 1L)<br><br>/* Maximum value an `unsigned long int' can hold. (Minimum is 0.) */<br>#  ifdef __alpha__<br>#   define ULONG_MAX    18446744073709551615UL<br>#  else<br>#   ifdef __STDC__<br>#    define ULONG_MAX   4294967295UL<br>#   else<br>#    define ULONG_MAX   4294967295L<br>#   endif<br>#  endif</font>           <br>         <br><br></pre>
+<p align="justify">Cuando una operaci&oacute;n sobre una variable
+provoca <i><a href="info/info3.html#info2"><i>overflow</i></a></i>,
+no se obtiene ninguna indicaci&oacute;n de error. El valor sufre
+truncamiento a la cantidad de bits que pueda alojar la variable.</p>
+<p align="justify">As&iacute;, en una implementaci&oacute;n donde los
+ints son de 16 bits, si tenemos en una variable entera el m&aacute;ximo
+valor positivo:</p>
+<pre><font
+ style="color: rgb(0, 153, 0); font-family: times new roman; font-weight: bold;"
+ color="#008000"><br><big><big>int a;<br>   <br>a=32767; /* a=0111111111111111 binario */ <br>   <br>a=a+1;</big></big>  </font>
+<span style="font-family: times new roman;"></span><br></pre>
+<p align="justify">
+Al calcular el nuevo valor de a, aparece un 1 en el bit m&aacute;s
+significativo, lo que lo transforma en un negativo (el menor negativo
+que soporta el tipo de datos, -32768).</p>
+<p>Si el int es sin signo:<span style="font-family: mon;"><br>
+</span></p>
+<div
+ style="margin-left: 40px; color: rgb(0, 153, 0); font-weight: bold;"><big>unsigned
+a;<br>
+a=65535;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; /* maximo
+valor de unsigned int */<br>
+a=a+1;</big></div>
+<p align="justify">el nuevo valor de <b>a</b> se trunca a 16 bits,
+volviendo a 0.</p>
+<p align="justify">Siempre se puede saber el tama&ntilde;o en bits de
+un tipo de datos aplicando el operador <b>sizeof()</b> a una variable
+o a la especificaci&oacute;n de tipo.<br>
+<br>
+<br>
+</p>
+<h2 align="left"><a name="operaciones con expresiones"></a><a
+ name="operaciones con expresiones"></a>
+Operaciones con expresiones de distintos tipos</h2>
+<p style="margin-bottom: 0cm;" align="justify">En una expresi&oacute;n
+en C pueden aparecer componentes de diferentes tipos. Durante la
+evaluaci&oacute;n de una expresi&oacute;n donde sus subexpresiones
+sean de tipos diferentes, deber&aacute; tener lugar una
+conversi&oacute;n,
+ya sea impl&iacute;cita o expl&iacute;cita, para llevar ambos
+operandos a un tipo de datos com&uacute;n con el que se pueda operar.
+La forma en que el compilador resuelve las conversiones
+impl&iacute;citas
+a veces provoca algunas sorpresas.</p>
+<h3 align="justify">Truncamiento en asignaciones</h3>
+<p align="justify">Para empezar, una asignaci&oacute;n de una
+expresi&oacute;n
+de un tipo dado a una variable de un tipo menor no s&oacute;lo es
+permitida en C sino que la conversi&oacute;n se hace en forma
+autom&aacute;tica y generalmente sin ning&uacute;n mensaje de tiempo
+de compilaci&oacute;n ni de ejecuci&oacute;n. Por ejemplo,</p>
+<pre><font color="#008000"><span
+ style="font-weight: bold; color: rgb(0, 153, 0);">int a;</span><br
+ style="font-weight: bold; color: rgb(0, 153, 0);"><span
+ style="font-weight: bold; color: rgb(0, 153, 0);">float b;</span><br
+ style="font-weight: bold; color: rgb(0, 153, 0);"><span
+ style="font-weight: bold; color: rgb(0, 153, 0);">  ...</span><br
+ style="font-weight: bold; color: rgb(0, 153, 0);"><span
+ style="font-weight: bold; color: rgb(0, 153, 0);">a=b; </span><br></font></pre>
+<p align="justify">En esta asignaci&oacute;n tenemos miembros de
+diferentes tama&ntilde;os.
+El resultado en <b>a</b> ser&aacute; el truncamiento del valor entero
+de <b>b</b> a la cantidad de bits que permita un int. Es decir, se
+tomar&aacute; la parte entera de <b>b</b> y de esa expresi&oacute;n
+se copiar&aacute;n en el objeto de datos de <b>a</b> tantos bits como
+quepan en un int, tom&aacute;ndose los menos significativos.</p>
+<p align="justify">Si el valor de <b>b</b> es, por ejemplo, 20.5, <b>a</b>
+terminar&aacute; valiendo 20, lo que es similar a aplicar una
+funci&oacute;n
+"parte entera" impl&iacute;citamente, y no demasiado
+incongruente. Pero si la parte entera de <b>b</b> excede el rango de
+un entero (por ejemplo si <b>b</b>=99232.5 con enteros de 16 bits),
+el resultado en <b>a</b> no tendr&aacute; l&oacute;gica aparente. En
+el primer caso, los bits menos significativos de <b>b</b> que "caben"
+en <b>a</b> conservan el valor de <b>b</b>; en el segundo caso, no.</p>
+<p style="margin-bottom: 0cm;" align="justify">En la sentencia:</p>
+<pre style="margin-bottom: 0.51cm; font-weight: bold;"><font
+ style="color: rgb(0, 153, 0);" color="#008000">a=19.27 * b;</font><span
+ style="color: rgb(0, 153, 0);">  </span> </pre>
+<p align="justify"><b>a</b> contendr&aacute; los sizeof(int) bits menos
+significativos del resultado de evaluar la expresi&oacute;n de la
+derecha, truncada sin decimales.<br>
+</p>
+<h6><br>
+</h6>
+<h3 align="justify">Promoci&oacute;n autom&aacute;tica de expresiones</h3>
+<p align="justify">Por otra parte, se tienen las reglas de
+promoci&oacute;n
+autom&aacute;tica de expresiones. Enunciadas en forma aproximada
+(m&aacute;s
+adelante las damos con precisi&oacute;n), estas reglas dicen que el
+compilador har&aacute; estrictamente las conversiones necesarias para
+llevar todos los operandos al tipo del mayor. El resultado de evaluar
+una operaci&oacute;n aritm&eacute;tica ser&aacute; del tipo del mayor
+de sus operandos, en el sentido del tama&ntilde;o en bits de cada
+objeto de datos.</p>
+<p align="justify">A veces esto no es lo deseado. Por ejemplo, dada la
+sentencia:</p>
+<pre
+ style="margin-bottom: 0.51cm; font-weight: bold; color: rgb(0, 153, 0);">a=3/2;</pre>
+<p align="justify">se tiene que tanto la constante 3 como la constante
+2 son vistas por el compilador como ints; el resultado de la
+divisi&oacute;n ser&aacute; tambi&eacute;n un entero (la parte entera
+de 3/2, o sea 1). Aun m&aacute;s llamativo es el hecho de que si
+declaramos previamente:
+</p>
+<pre
+ style="margin-bottom: 0.51cm; color: rgb(0, 153, 0); font-weight: bold;">float a; </pre>
+<p align="justify">el resultado es casi el mismo: <b>a</b>
+terminar&aacute; conteniendo el valor float 1.0, porque el problema de
+truncamiento se produce ya en la evaluaci&oacute;n del miembro derecho
+de la asignaci&oacute;n.
+</p>
+<p align="justify">C&oacute;mo recuperar el valor correcto, con
+decimales, de la divisi&oacute;n? Declarar <b>a</b> como float es
+necesario pero no suficiente. Para que la expresi&oacute;n del
+miembro derecho sea float es necesario que al menos uno de sus
+operandos sea float. Hay dos formas de lograr esto; la primera es
+escribir cualquiera de las constantes como constante en punto
+flotante (con punto decimal, o en notaci&oacute;n exponencial):</p>
+<pre
+ style="margin-bottom: 0.51cm; color: rgb(0, 153, 0); font-weight: bold;">a=3./2; </pre>
+<br>
+<h3>Operador <i>cast</i></h3>
+<p align="justify">La segunda consiste en forzar expl&iacute;citamente
+una conversi&oacute;n de tipo, con un importante operador llamado
+<b><i>cast</i></b>, as&iacute;:</p>
+<pre
+ style="margin-bottom: 0.51cm; color: rgb(0, 153, 0); font-weight: bold;">a=(float)3/2;</pre>
+<p align="justify">Da lo mismo aplicar el operador <b>cast</b> a
+cualquiera de las constantes. Sin embargo, lo siguiente no es
+&uacute;til:
+</p>
+<pre style="margin-bottom: 0.51cm; font-weight: bold;"><font
+ color="#008000">a=(float)(3/2);</font></pre>
+<p align="justify">Aqu&iacute; el operador <b>cast</b> se
+aplicar&aacute;
+a la expresi&oacute;n ya evaluada como entero, con lo que volvemos a
+tener un 1.0 float en <b>a</b>. <br>
+<br>
+</p>
+<h2 align="justify"><a name="reglas de promoci&oacute;n"></a>Reglas de
+promoci&oacute;n en expresiones</h2>
+<p align="justify">Son aplicadas por el compilador en el orden que se
+da m&aacute;s abajo (tomado de K&amp;R, 2a. ed.). Esta es una lista
+muy detallada de las comprobaciones y conversiones que tienen lugar;
+para la mayor&iacute;a de los prop&oacute;sitos pr&aacute;cticos
+basta tener en cuenta la regla de<b> <font size="+1">llevar ambos
+operandos al tipo del mayor de ellos</font> </b>.</p>
+<p align="justify">Entendemos por "promoci&oacute;n entera"
+el acto de llevar los objetos de tipo char, enum y campos de bits a
+int; o, si los bits de un int no alcanzan a representarlo, a unsigned
+int.</p>
+<p
+ style="border: 1pt solid rgb(0, 0, 0); padding: 0.05cm; margin-bottom: 0cm; margin-right: 1.83cm; page-break-inside: avoid;"
+ align="justify">
+<b>1.&nbsp; Si cualquier operando es long double, se convierte el otro
+a
+long double </b>
+</p>
+<p
+ style="border: 1pt solid rgb(0, 0, 0); padding: 0.05cm; margin-bottom: 0cm; margin-right: 1.83cm; page-break-inside: avoid;"
+ align="justify">
+<b>2.&nbsp; Si no, si cualquier operando es double, se convierte el
+otro a
+double </b>
+</p>
+<p
+ style="border: 1pt solid rgb(0, 0, 0); padding: 0.05cm; margin-bottom: 0cm; margin-right: 1.83cm; page-break-inside: avoid;"
+ align="justify">
+<b>3.&nbsp; Si no, si cualquier operando es float, se convierte el otro
+a
+float </b>
+</p>
+<p
+ style="border: 1pt solid rgb(0, 0, 0); padding: 0.05cm; margin-bottom: 0cm; margin-right: 1.83cm; page-break-inside: avoid;"
+ align="justify">
+<b>4.&nbsp; Si no, se realiza promoci&oacute;n entera sobre ambos
+operandos. </b>
+</p>
+<p
+ style="border: 1pt solid rgb(0, 0, 0); padding: 0.05cm; margin-bottom: 0cm; margin-right: 1.83cm; page-break-inside: avoid;"
+ align="justify">
+<b>5.&nbsp; Si cualquiera de ellos es unsigned long int, se convierte
+el
+otro a unsigned long int. </b>
+</p>
+<p
+ style="border: 1pt solid rgb(0, 0, 0); padding: 0.05cm; margin-bottom: 0cm; margin-right: 1.83cm; page-break-inside: avoid;"
+ align="justify">
+<b>6. Si un operando es long int y el otro es unsigned int, el efecto
+depende de si un long int puede representar a todos los valores de un
+unsigned int. </b>
+</p>
+<p
+ style="border: 1pt solid rgb(0, 0, 0); padding: 0.05cm; margin-bottom: 0cm; margin-right: 1.83cm; page-break-inside: avoid;"
+ align="justify">
+<b>7. &nbsp;Si es as&iacute;, el unsigned int es convertido a long int.
+</b></p>
+<p
+ style="border: 1pt solid rgb(0, 0, 0); padding: 0.05cm; margin-bottom: 0cm; margin-right: 1.83cm; page-break-inside: avoid;"
+ align="justify">
+<b>8.&nbsp; Si no, ambos se convierten a unsigned long int.</b></p>
+<p
+ style="border: 1pt solid rgb(0, 0, 0); padding: 0.05cm; margin-bottom: 0cm; margin-right: 1.83cm; page-break-inside: avoid;"
+ align="justify">
+<b>9.&nbsp; Si no, si cualquier operando es long int, se convierte el
+otro
+a long int.</b></p>
+<p
+ style="border: 1pt solid rgb(0, 0, 0); padding: 0.05cm; margin-bottom: 0cm; margin-right: 1.83cm; page-break-inside: avoid;"
+ align="justify">
+<b>10.&nbsp; Si no, si cualquier operando es unsigned int, se convierte
+el
+otro a unsigned int.</b></p>
+<p
+ style="border: 1pt solid rgb(0, 0, 0); padding: 0.05cm; margin-bottom: 0cm; margin-right: 1.83cm; page-break-inside: avoid;"
+ align="justify">
+<b>11.&nbsp; Si no, ambos operandos son int.</b></p>
+<p style="margin-bottom: 0cm;" align="justify"><br>
+</p>
+<h2 align="justify"><a name="observaciones"></a>Observaciones</h2>
+<ul>
+  <li>
+    <p style="margin-bottom: 0cm;" align="justify">N&oacute;tese que no
+existen tipos <b>boolean</b> ni <b>string</b>. M&aacute;s adelante
+veremos c&oacute;mo manejar datos de estas clases.</p>
+  </li>
+  <li>
+    <p style="margin-bottom: 0cm;" align="justify">El tipo char no
+est&aacute; restringido a la representaci&oacute;n de caracteres, como
+en Pascal. Por el contrario, un char tiene entidad aritm&eacute;tica,
+almacena una cantidad num&eacute;rica y puede intervenir en operaciones
+matem&aacute;ticas. En determinadas circunstancias, y sin perder estas
+propiedades, puede ser interpretado como un car&aacute;cter (el
+car&aacute;cter cuyo c&oacute;digo ASCII contiene).</p>
+  </li>
+  <li>
+    <p style="margin-bottom: 0cm;" align="justify">En general, en C es
+conveniente habituarse a pensar en los datos separando la <b>representaci&oacute;n</b>
+(la forma como se almacena un objeto) de la <b>presentaci&oacute;n</b>
+(la forma como se visualiza). <font color="#800000"><font size="+1"><font
+ color="#800000"><strong>Un mismo patr&oacute;n de bits almacenado en
+un objeto de datos puede ser visto como un n&uacute;mero decimal, un
+car&aacute;cter, un n&uacute;mero hexadecimal, octal, etc. </strong></font></font></font>
+La verdadera naturaleza del dato es la representaci&oacute;n de
+m&aacute;quina, el patr&oacute;n de bits almacenado.</p>
+  </li>
+</ul>
+<h2><a name="printf"></a>Una herramienta: printf()</h2>
+<p>Con el objeto de facilitar la pr&aacute;ctica, describimos
+aqu&iacute;
+la funci&oacute;n de biblioteca standard <b>printf().</b></p>
+<ul>
+  <li>
+    <p>La funci&oacute;n de salida printf() lleva un n&uacute;mero
+variable de argumentos.</p>
+  </li>
+  <li>
+    <p>Su primer argumento siempre es una cadena o constante string, la
+    <b>cadena de formato</b>, conteniendo texto que ser&aacute;
+impreso, m&aacute;s, opcionalmente, <b>especificaciones de
+conversi&oacute;n</b>.</p>
+  </li>
+  <li>
+    <p>Las especificaciones de conversi&oacute;n comienzan con un signo
+&#8220;%&#8221;. Todo otro conjunto de caracteres en la cadena de formato
+ser&aacute; impreso textualmente.</p>
+  </li>
+  <li>
+    <p>Cada especificaci&oacute;n de conversi&oacute;n determina la
+manera en que se imprimir&aacute;n los restantes argumentos de la
+funci&oacute;n.</p>
+  </li>
+  <li>
+    <p>Deben existir tantas especificaciones de conversi&oacute;n como
+argumentos luego de la cadena de formato.</p>
+  </li>
+  <li>
+    <p>Un mismo argumento de un tipo dado puede ser impreso o
+presentado de diferentes maneras seg&uacute;n la especificaci&oacute;n
+de conversi&oacute;n que le corresponda en la cadena de formato (de
+aqu&iacute; la importancia de separar representaci&oacute;n de
+presentaci&oacute;n)</p>
+  </li>
+  <li>
+    <p>Las especificaciones de conversi&oacute;n pueden estar afectadas
+por varios modificadores opcionales que determinan, por ejemplo, el
+ancho del campo sobre el cual se escribir&aacute; el argumento, la
+cantidad de decimales de un n&uacute;mero, etc.</p>
+  </li>
+  <li>
+    <p>Las principales especificaciones de conversi&oacute;n son:</p>
+  </li>
+</ul>
+<dl>
+  <dd>
+    <table border="1" cellpadding="4" cellspacing="4" width="375">
+      <colgroup><col width="87"><col width="258"></colgroup><thead> <tr
+ valign="top">
+        <td style="font-weight: bold; color: rgb(0, 0, 153);" width="87">
+        <p>%d</p>
+        </td>
+        <td style="color: rgb(51, 102, 255); font-weight: bold;"
+ width="258">
+        <p>entero, decimal</p>
+        </td>
+      </tr>
+      </thead> <tbody>
+        <tr valign="top">
+          <td style="font-weight: bold; color: rgb(0, 0, 153);"
+ width="87">
+          <p>%u</p>
+          </td>
+          <td style="color: rgb(51, 102, 255); font-weight: bold;"
+ width="258">
+          <p>entero sin signo, decimal</p>
+          </td>
+        </tr>
+        <tr valign="top">
+          <td style="font-weight: bold; color: rgb(0, 0, 153);"
+ width="87">
+          <p>%l</p>
+          </td>
+          <td style="color: rgb(51, 102, 255); font-weight: bold;"
+ width="258">
+          <p>long, decimal</p>
+          </td>
+        </tr>
+        <tr valign="top">
+          <td style="font-weight: bold; color: rgb(0, 0, 153);"
+ width="87">
+          <p>%c</p>
+          </td>
+          <td style="color: rgb(51, 102, 255); font-weight: bold;"
+ width="258">
+          <p>car&aacute;cter</p>
+          </td>
+        </tr>
+        <tr valign="top">
+          <td style="font-weight: bold; color: rgb(0, 0, 153);"
+ width="87">
+          <p>%s</p>
+          </td>
+          <td style="color: rgb(51, 102, 255); font-weight: bold;"
+ width="258">
+          <p>cadena</p>
+          </td>
+        </tr>
+        <tr valign="top">
+          <td style="font-weight: bold; color: rgb(0, 0, 153);"
+ width="87">
+          <p>%f</p>
+          </td>
+          <td style="color: rgb(51, 102, 255); font-weight: bold;"
+ width="258">
+          <p>float</p>
+          </td>
+        </tr>
+        <tr valign="top">
+          <td style="font-weight: bold; color: rgb(0, 0, 153);"
+ width="87">
+          <p>%lf</p>
+          </td>
+          <td style="color: rgb(51, 102, 255); font-weight: bold;"
+ width="258">
+          <p>double</p>
+          </td>
+        </tr>
+        <tr valign="top">
+          <td style="font-weight: bold; color: rgb(0, 0, 153);"
+ width="87">
+          <p>%x</p>
+          </td>
+          <td style="color: rgb(51, 102, 255); font-weight: bold;"
+ width="258">
+          <p>entero hexadecimal</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </dd>
+</dl>
+<h3>Ejemplos</h3>
+<ul>
+  <li>
+    <p>Este programa escribe algunos valores con dos especificaciones
+distintas.</p>
+  </li>
+</ul>
+<pre><font style="color: rgb(0, 153, 0); font-weight: bold;"
+ color="#008000">main()<br>{<br>   int i,j;<br> <br>   for(i=65, j=1; i&lt;70; i++, j++)<br>   printf("vuelta no. %d: i=%d, i=%c\n",j,i,i); <br>}</font>  </pre>
+<blockquote style="margin-right: 0px;" dir="ltr">
+  <p>Salida del programa:</p>
+</blockquote>
+<pre><font color="#408080">vuelta no. 1: i=65, i=A<br>vuelta no. 2: i=66, i=B<br>vuelta no. 3: i=67, i=C<br>vuelta no. 4: i=68, i=D<br>vuelta no. 5: i=69, i=E </font> </pre>
+<ul>
+  <li>
+    <p>El programa siguiente escribe el mismo valor en doble
+precisi&oacute;n pero con diferentes modificadores del campo
+correspondiente.</p>
+  </li>
+</ul>
+<pre style="color: rgb(0, 153, 0); font-weight: bold;">main()<br>{<br>    double d;<br>    d=3.141519/2.71728182;<br>    printf("d=%lf\n",d);<br>    printf("d=%20lf\n",d);<br>    printf("d=%20.10lf\n",d);<br>    printf("d=%.10lf\n",d);<br>}
+</pre>
+<blockquote style="margin-right: 0px;" dir="ltr">
+  <p>Salida:</p>
+</blockquote>
+<pre><font color="#408080">d=1.156126<br>d=1.156126<br>d=1.1561255726<br>d=1.1561255726        <br><br></font></pre>
+<hr>
+<h2><a name="ejercicios"></a>Ejercicios</h2>
+<p>1. &iquest;Cu&aacute;les de entre estas declaraciones contienen
+errores?</p>
+<pre>a. integer a;<br>b. short i,j,k;<br>c. long float (h);<br>d. double long d3;<br>e. unsigned float n;<br>f. char 2j;<br>g. int MY;<br>h. float ancho, alto, long;<br>i. bool i;</pre>
+<p>2. D&eacute; declaraciones de variables con tipos de datos adecuados
+para almacenar:</p>
+<pre>a. la edad de una persona<br>b. un n&uacute;mero de DNI<br>c. la distancia, en Km, entre dos puntos cualesquiera del globo	terrestre<br>d. el precio de un art&iacute;culo dom&eacute;stico<br>e. el valor de la constante PI expresada con 20 decimales<br></pre>
+<p>3. Prepare un programa con variables conteniendo los valores
+m&aacute;ximos de cada tipo entero, para comprobar el resultado de
+incrementarlas en una unidad. Imprima los valores de cada variable
+antes y despu&eacute;s del incremento. Incluya <b>unsigneds</b>.</p>
+<p>4. Lo mismo, pero dando a las variables los valores m&iacute;nimos
+posibles, e imprimi&eacute;ndolas antes y despu&eacute;s de
+decrementarlas en una unidad.</p>
+<p>5. Averig&uuml;e los tama&ntilde;os de todos los tipos
+b&aacute;sicos en su sistema aplicando el operador <b>sizeof()</b>.</p>
+<p>6. Si se asigna la expresi&oacute;n (3-5) a un <b>unsigned short</b>,
+&iquest;cu&aacute;l es el resultado?</p>
+<p>7. &iquest;Qu&eacute; hace falta corregir para que la variable <b>r</b><span>
+contenga la divisi&oacute;n exacta de a y b?</span></p>
+<pre>int a, b;<br>float r;<br>a = 5;<br>b = 2;<br>r = a / b;<br></pre>
+<p>8. &iquest;Qu&eacute; resultado puede esperarse del siguiente
+fragmento de c&oacute;digo?</p>
+<pre>int a, b, c, d;<br>a = 1;<br>b = 2;<br>c = a / b;<br>d = a / c;<br></pre>
+<p>9. &iquest;Cu&aacute;l es el resultado del siguiente fragmento de
+c&oacute;digo? Anticipe su respuesta en base a lo dicho en esta unidad
+y luego conf&iacute;rmela mediante un programa.
+</p>
+<pre>printf("%d\n", 20/3);<br>printf("%f\n", 20/3);<br>printf("%f\n", 20/3.);<br>printf("%d\n", 10%3);<br>printf("%d\n", 3.1416);<br>printf("%f\n", (double)20/3);<br>printf("%f\n", (int)3.1416);<br>printf("%d\n", (int)3.1416);<br></pre>
+<br>
+<p>
+10. Aplicar operador <b>cast </b>donde sea necesario para obtener
+resutlados apropiados:</p>
+<pre>int a; long b; float c; <br>a = 1; b = 2; c = a / b;<br>long a; int b,c;<br>b = 1000; c = 1000;<br>a = b * c;<br></pre>
+<br>
+<p style="margin-bottom: 0cm;" align="justify"><br>
+</p>
+<a href="adicionales/adic3.html#adic1">Ejercicios Adicionales<font
+ color="#000000"> </font> <br>
+</a><br>
+<a href="adicionales/adic3.html#adic2">Ejercicios Avanzados<br>
+<br>
+<hr></a>
+</body>
+</html>

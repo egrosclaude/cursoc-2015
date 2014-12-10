@@ -1,0 +1,462 @@
+
+\chapter{Tipos de datos y expresiones}
+
+En general, las \textbf{expresiones} en C se construyen conectando, mediante \textbf{operadores}, diversos elementos, tales
+como \textbf{identificadores} de variables, \textbf{constantes} e invocaciones de \textbf{funciones}. Cada uno de estos
+elementos tiene un valor al tiempo de ejecución, y debe ocupar -al menos temporariamente, mientras se calcula el resultado de la expresión- un
+lugar en memoria. Al evaluar cada expresión, el compilador crea, para alojar cada subexpresión de las
+que la constituyen, \textbf{objetos de datos}, que pueden pensarse como espacio de memoria reservado temporariamente para
+contener valores. Al completar el cálculo de la expresión, el resultado nuevamente debe ser alojado en un objeto de datos propio. Estos espacios de memoria son de diferentes \quotes{tamaños} (cantidades de bits) de
+acuerdo al \textbf{tipo de dato} de la subexpresión.
+
+Así, las expresiones y subexpresiones en C asumen siempre un \textbf{tipo de datos}: alguno de los tipos básicos del lenguaje, o
+uno definido por el usuario. Una expresión, según las necesidades, puede convertirse de un tipo a otro.
+El compilador hace esto a veces en forma \textbf{automática}. Otras veces, el programador fuerza una
+\textbf{conversión de tipo} para producir un determinado resultado.
+
+\section{Declaración de variables}
+
+Los \textbf{tipos básicos} son:
+\begin{itemize}
+	\item \texttt{char} (un elemento del tamaño de un byte)
+	\item \texttt{int} (un número entero con signo)
+	\item \texttt{long} (un entero largo)
+	\item \texttt{float} (un número en punto flotante)
+	\item \texttt{double} (un número en punto flotante, doble precisión)
+\end{itemize}
+
+Cuando declaramos una variable o forzamos una conversión de tipo, utilizamos una \textbf{especificación de
+tipo}. Ejemplos de declaración de variables:
+
+\begin{lstlisting}
+char a;
+int alfa,beta;
+float x1,x2;
+\end{lstlisting}
+
+Los \textbf{tipos enteros} (\texttt{char}, \texttt{int} y \texttt{long}) admiten los modificadores \texttt{signed} (con signo) y \texttt{unsigned} (sin signo). Un objeto de datos \textbf{unsigned} utiliza todos sus bits para representar magnitud; un \textbf{signed} utiliza un bit para signo, en representación complemento a dos.
+
+El modificador \texttt{signed} sirve sobre todo para explicitar el signo de los chars. El default para un \texttt{int} es
+signed; el default para \texttt{char} puede ser signed o unsigned, dependiendo del compilador.
+
+\begin{lstlisting}
+unsigned int edad;
+signed char beta;
+\end{lstlisting}
+
+
+Un int puede afectarse con el modificador \texttt{short} (corto).
+
+\begin{lstlisting}
+short i;
+unsigned short k;
+\end{lstlisting}
+
+
+Cuando en una declaración aparece sólo el modificador unsigned o short, y no el tipo, \textbf{se asume int}. El
+tipo entero se supone el tipo básico manejable por el procesador, y es el tipo por omisión en varias
+otras situaciones. Por ejemplo, cuando no se especifica el \textbf{tipo del valor devuelto} por una función.
+
+El modificador long puede aplicarse también a float y a double. Los tipos resultantes pueden tener más
+precisión que los no modificados.
+
+\begin{lstlisting}
+long float e; 
+long double pi;
+\end{lstlisting}
+
+\section{Tamaños de los objetos de datos}
+
+El lenguaje C no define el tamaño de los objetos de datos de un tipo determinado. Es decir, un entero
+puede ocupar 16 bits en una implementación del compilador, 32 en otra, o aun 64. Un long puede tener o no más bits
+que un int. Un short puede ser o no más corto que un int. Según K\&R, lo único seguro es que "\textit{un
+short no es mayor que un int, que a su vez no es mayor que long}".
+
+Por supuesto, distintos tamaños en bits implican diferentes rangos de valores. Si deseamos \textbf{portar} un
+programa, hecho bajo una implementación del compilador, a otra, no es posible asegurar a priori el
+rango que tomará un tipo de datos. La fuente ideal para conocer los rangos de los diferentes tipos, en
+una implementación determinada, es -además del manual del compilador- el header \texttt{limits.h} de la
+Biblioteca Standard. Debe recordarse que cualquier suposición que hagamos sobre el rango o tamaño
+de un objeto de datos afecta la portabilidad de un programa en C.
+
+Las siguientes líneas son parte de un archivo \texttt{limits.h} para una implementación en particular:
+
+\begin{lstlisting}
+/* Minimum and maximum values a 'signed short int' can hold. */
+#define SHRT_MIN	(-32768)
+#define SHRT_MAX	32767
+/* Maximum value an 'unsigned short int' can hold. (Minimum is 0.) */
+#define USHRT_MAX	65535
+/* Minimum and maximum values a 'signed int' can hold. */
+#define INT_MIN	(-INT_MAX - 1)
+#define INT_MAX	2147483647
+/* Maximum value an 'unsigned int' can hold. (Minimum is 0.) */
+#ifdef __STDC__
+#define UINT_MAX 	4294967295U
+#else
+#define UINT_MAX  	4294967295
+#endif
+/* Minimum and maximum values a 'signed long int' can hold. */
+#ifdef __alpha__
+#define LONG_MAX 	9223372036854775807L
+#else
+#define LONG_MAX	2147483647L
+#endif
+#define LONG_MIN 	(-LONG_MAX - 1L)
+/* Maximum value an 'unsigned long int' can hold. (Minimum is 0.) */
+# ifdef __alpha__
+#define ULONG_MAX	18446744073709551615UL
+#else
+#ifdef __STDC__
+#define ULONG_MAX 	4294967295UL
+#else
+#define ULONG_MAX 4294967295L
+#endif
+#endif
+\end{lstlisting}
+
+Cuando una operación sobre una variable provoca overflow, no se obtiene ninguna indicación de error.
+El valor sufre \textbf{truncamiento} a la cantidad de bits que pueda alojar la variable.
+
+Así, en una implementación donde los ints son de 16 bits, si tenemos en una variable entera el máximo
+valor positivo:
+
+\begin{lstlisting}
+int a; 
+a=32767; /* a=0111111111111111 binario */
+a=a+1;
+\end{lstlisting}
+
+Al calcular el nuevo valor de \texttt{a}, aparece un 1 en el bit más significativo, lo cual, según la representación de los enteros, lo transforma en un negativo (el menor negativo que soporta el tipo de datos, -32768).
+
+Si el int es sin signo:
+
+\begin{lstlisting}
+unsigned a;
+a=65535; /* maximo valor de unsigned int */
+a=a+1; 
+\end{lstlisting}
+
+el incremento de \texttt{a} provoca overflow, y el nuevo valor de \texttt{a} se trunca a 16 bits, volviendo así a 0.
+
+Siempre se puede saber el tamaño en bits de un tipo de datos aplicando el operador \texttt{sizeof()} a una
+variable o a la especificación de tipo.
+
+\section{Operaciones con distintos tipos}
+
+En una expresión en C pueden aparecer componentes de diferentes tipos. Durante la evaluación de una
+expresión cuyas subexpresiones sean de \textbf{tipos diferentes}, deberá tener lugar una \textbf{conversión}, ya sea
+implícita o explícita, para llevar ambos operandos a un \textbf{tipo de datos común} con el que se pueda
+operar. La forma en que el compilador resuelve las conversiones implícitas a veces provoca algunas
+sorpresas.
+
+\subsection{Truncamiento en asignaciones}
+
+Para empezar, una asignación de una expresión de un tipo dado a una variable de un tipo \quotes{menor} (en el sentido
+del tamaño en bits de cada objeto de datos), no
+sólo es permitida en C, sino que la conversión se hace en forma automática y generalmente sin ningún
+mensaje de tiempo de compilación ni de ejecución. Por ejemplo,
+\begin{lstlisting}
+int a;
+float b;
+...
+a=b;
+\end{lstlisting}
+
+En esta asignación tenemos miembros de diferentes tamaños. El resultado en \texttt{a} será el truncamiento
+del valor entero de \texttt{b} a la cantidad de bits que permita un int. Es decir, se tomará la parte entera de \texttt{b}, y
+de ese valor se copiarán en el objeto de datos de \texttt{a} tantos bits como quepan en un int, tomándose
+los menos significativos.
+
+Si el valor de \texttt{b} es, por ejemplo, 20.5, \texttt{a} terminará valiendo 20, lo que es similar a aplicar una función
+\quotes{parte entera} implícitamente, y no demasiado incongruente. Pero si la parte entera de \texttt{b} excede el
+rango de un entero (por ejemplo si \texttt{b=99232.5} en una plataforma donde los enteros son de 16 bits), el resultado en \texttt{a} no tendrá lógica aparente. En el primer caso, los bits menos significativos de \texttt{b} que \quotes{caben} en \texttt{a} conservan el valor de \texttt{b}; en el segundo caso, no.
+
+En la sentencia:
+\begin{lstlisting}
+a=19.27 * b;	
+\end{lstlisting}
+\texttt{a} contendrá los \texttt{sizeof(int)} bits menos significativos del resultado de evaluar la expresión de la
+derecha, truncada sin decimales.
+
+\subsection{Promoción automática de expresiones}
+
+Por otra parte, se tienen las reglas de promoción automática de expresiones. Enunciadas en forma
+aproximada (luego las daremos con más precisión), estas reglas dicen que el compilador hará
+estrictamente las conversiones necesarias para llevar todos los operandos al tipo del \quotes{mayor} entre ellos. El
+resultado de evaluar una operación aritmética será del tipo del \quotes{mayor} de sus operandos.
+
+A veces, esto no es lo que se desea. Por ejemplo, dada la sentencia:
+\begin{lstlisting}
+a=3/2;
+\end{lstlisting}
+
+se tiene que tanto la constante 3 como la constante 2 son vistas por el compilador como ints; el
+resultado de la división será también un entero (la parte entera de 3/2, o sea 1). Aun más llamativo es
+el hecho de que si declaramos previamente:
+\begin{lstlisting}
+float a;
+\end{lstlisting}
+el resultado es casi el mismo: \texttt{a} terminará conteniendo el valor float 1.0, porque el problema de
+truncamiento se produce ya en la evaluación del miembro derecho de la asignación.
+
+
+\subsection{Operador cast}
+En el ejemplo anterior, ¿cómo recuperar el valor correcto, con decimales, de la división? Declarar a la variable \texttt{a} como \textbf{float} es necesario,
+pero no suficiente. Para que la expresión del miembro derecho sea \textbf{float} es necesario que \textbf{al menos uno}
+de sus operandos sea \textbf{float}. Hay dos formas de lograr esto; la primera es escribir cualquiera de las
+subexpresiones como constante en punto flotante (con punto decimal, o en notación exponencial):
+\begin{lstlisting}
+a=3./2;
+\end{lstlisting}
+
+La segunda consiste en forzar explícitamente una conversión de tipo, con un importante operador
+llamado \textbf{cast}, de la siguiente manera.
+\begin{lstlisting}
+a=(float)3/2;
+\end{lstlisting}
+
+El operador \textbf{cast} es la aclaración, entre paréntesis, del tipo al cual queremos convertir la expresión (en este caso, la subexpresión \textbf{3}). Da lo mismo aplicarlo a cualquiera de las constantes. Sin embargo, lo siguiente \textbf{no funcionará}:
+\begin{lstlisting}
+a=(float)(3/2);
+\end{lstlisting}
+
+Aquí el operador \textbf{cast} se aplica a la expresión \textbf{ya evaluada como entero}, con lo que volvemos a tener
+un valor \textbf{1.0}, float, en \texttt{a}.
+
+\subsection{Reglas de promoción en expresiones}
+
+Son aplicadas por el compilador en el orden que se da más abajo (tomado de K\&R, 2a. ed.). Ésta es
+una lista muy detallada de las comprobaciones y conversiones que tienen lugar. Para la mayoría de los
+propósitos prácticos, basta tener en cuenta la regla de \textbf{llevar ambos operandos al tipo del \quotes{mayor}} de
+ellos.
+
+Entendemos por \quotes{promoción entera} el acto de llevar los objetos de tipo \texttt{char}, \texttt{enum} y \textbf{campos de bits} a \textbf{int}; o, si los bits de un int no alcanzan a representarlo, a \textbf{unsigned int}.
+\\
+\\
+\recuadro{
+\begin{enumerate}
+\item Si cualquier operando es long double, se convierte el otro a long double.
+\item Si no, si cualquier operando es double, se convierte el otro a double.
+\item Si no, si cualquier operando es float, se convierte el otro a float.
+\item Si no, se realiza promoción entera sobre ambos operandos.
+\item Si cualquiera de ellos es unsigned long int, se convierte el otro a unsigned long int.
+\item Si un operando es long int y el otro es unsigned int, el efecto depende de si un long int puede representar a todos los valores de un unsigned int.
+\item Si es así, el unsigned int es convertido a long int.
+\item Si no, ambos se convierten a unsigned long int.
+\item Si no, si cualquier operando es long int, se convierte el otro a long int.
+\item Si no, si cualquier operando es unsigned int, se convierte el otro a unsigned int.
+\item Si no, ambos operandos son int.
+\end{enumerate}
+}
+
+\section{Observaciones}
+Nótese que \textbf{no existen} tipos \texttt{boolean} ni \texttt{string}. Más adelante veremos cómo manejar datos de
+estas clases.
+
+El tipo \textbf{char}, pese a su nombre, no está restringido a la representación de caracteres. Por el contrario,
+un char \textbf{tiene entidad aritmética}. Almacena una cantidad \textbf{numérica} y puede intervenir en
+operaciones matemáticas. En determinadas circunstancias, y sin perder estas propiedades, puede
+ser interpretado como un carácter (el \textbf{carácter cuyo código ASCII contiene}).
+
+En general, en C es conveniente habituarse a pensar en los datos separando la \textbf{representación} (la
+forma como se almacena un objeto) de la \textbf{presentación} (la forma como se visualiza). Un mismo
+patrón de bits almacenado en un objeto de datos puede ser visto como un número decimal, un
+carácter, un número hexadecimal, octal, etc. La verdadera naturaleza del dato es la representación
+de máquina, el patrón de bits almacenado en el objeto de datos.
+
+
+\section{Una herramienta: printf()}
+Con el objeto de facilitar la práctica, describimos aquí la función de Biblioteca Standard \texttt{printf()}.
+
+\begin{itemize}
+	\item La función de salida \texttt{printf()} lleva un \textbf{número variable de argumentos}.
+	\item Su primer argumento siempre es una cadena o constante string, la \textbf{cadena de formato},
+conteniendo texto que será impreso, más, opcionalmente, \textbf{especificaciones de conversión}.
+	\item Las especificaciones de conversión comienzan con un signo \quotes{\lstinline$\%$}. Todo otro conjunto de
+caracteres en la cadena de formato será impreso textualmente.
+	\item Cada especificación de conversión determina la manera en que se imprimirán los restantes
+argumentos de la función.
+	\item Deben existir tantas especificaciones de conversión como argumentos luego de la cadena de
+formato.
+	\item Un mismo argumento de un tipo dado puede ser impreso o presentado de diferentes maneras
+según la especificación de conversión que le corresponda en la cadena de formato (de aquí la
+importancia de separar representación de presentación)
+	\item Las especificaciones de conversión pueden estar afectadas por varios \textbf{modificadores} opcionales
+que determinan, por ejemplo, el ancho del campo sobre el cual se escribirá el argumento, la
+cantidad de decimales de un número, etc.
+	\item Las principales especificaciones de conversión están dadas en el Cuadro \ref{tab:conv}.
+\end{itemize}
+
+\tabla{conv}{Especificaciones de conversión de printf().}{c|l}
+{
+\lstinline$\%d$ & entero, decimal\\
+\lstinline$\%u$ & entero sin signo, decimal\\
+\lstinline$\%l$ & long, decimal\\
+\lstinline$\%c$ & carácter\\
+\lstinline$\%s$ & cadena\\
+\lstinline$\%f$ & float\\
+\lstinline$\%lf$ & double\\
+\lstinline$\%x$ & entero hexadecimal\\
+}
+
+\subsection{Ejemplos}
+Este programa escribe algunos valores con dos especificaciones de formato distintas.
+
+\begin{lstlisting}
+main() {
+	int i,j;
+	for(i=65, j=1; i<70; i++, j++)
+		printf("vuelta no. %d: i=%d, i=%c\n",j,i,i);
+}
+\end{lstlisting}
+Salida del programa:
+\begin{lstlisting}
+vuelta no. 1: i=65, i=A
+vuelta no. 2: i=66, i=B
+vuelta no. 3: i=67, i=C
+vuelta no. 4: i=68, i=D
+vuelta no. 5: i=69, i=E
+\end{lstlisting}
+
+El programa siguiente escribe el mismo valor en doble precisión pero con diferentes
+modificadores del campo correspondiente, para incluir una cierta cantidad de decimales o alinear la impresión. 
+\begin{lstlisting}
+main() {
+	double d;
+	d=3.141519/2.71728182;
+	printf("d=%lf\n",d);
+	printf("d=%20lf\n",d);
+	printf("d=%20.10lf\n",d);
+	printf("d=%20.5lf\n",d);
+	printf("d=%.10lf\n",d);
+}	
+\end{lstlisting}
+Salida:
+\begin{lstlisting}
+d=1.156126
+d=            1.156126
+d=        1.1561255726
+d=             1.15613
+d=1.1561255726
+\end{lstlisting}
+
+\section{Ejercicios}
+
+\begin{enumerate}
+	\item ¿Cuáles de entre estas declaraciones contienen errores?
+	\begin{enumerate}[label=\alph*.]
+		\item integer a;
+		\item short i,j,k;
+		\item long float (h);
+		\item double long d3;
+		\item unsigned float n;
+		\item char 2j;
+		\item int MY;
+		\item float ancho, alto, long;
+		\item bool i;
+	\end{enumerate}
+	\item Dé declaraciones de variables con tipos de datos adecuados para almacenar:
+	\begin{enumerate}[label=\alph*.]
+		\item La edad de una persona.
+		\item Un número de DNI.
+		\item La distancia, en Km, entre dos puntos cualesquiera del globo terrestre.
+		\item El precio de un artículo doméstico.
+		\item El valor de la constante PI expresada con 20 decimales.
+	\end{enumerate}
+	\item Prepare un programa con variables conteniendo los valores máximos de cada tipo entero, para
+comprobar el resultado de incrementarlas en una unidad. Imprima los valores de cada variable antes y
+después del incremento. Incluya \textbf{unsigneds}.
+	\item Lo mismo, pero dando a las variables los valores mínimos posibles, e imprimiéndolas antes y
+después de decrementarlas en una unidad.
+	\item Averigüe los tamaños de todos los tipos básicos en su sistema aplicando el operador sizeof().
+	\item Si se asigna la expresión (3-5) a un unsigned short, ¿cuál es el resultado? ¿Depende de qué formato de conversión utilicemos para imprimirlo?
+	\item ¿Qué hace falta corregir para que la variable \texttt{r} contenga la división exacta de \texttt{a} y \texttt{b}?
+	\begin{lstlisting}
+int a, b;
+float r;
+a = 5;
+b = 2;
+r = a / b;		
+	\end{lstlisting}
+	\item ¿Qué resultado puede esperarse del siguiente fragmento de código?
+	\begin{lstlisting}
+int a, b, c, d;
+a = 1;
+b = 2;
+c = a / b;
+d = a / c;
+	\end{lstlisting}
+	\item ¿Cuál es el resultado del siguiente fragmento de código? Anticipe su respuesta en base a lo dicho en
+esta unidad y luego confírmela mediante un programa.
+	\begin{lstlisting}
+printf("%d\n", 20/3);
+printf("%f\n", 20/3);
+printf("%f\n", 20/3.);
+printf("%d\n", 10%3);
+printf("%d\n", 3.1416);
+printf("%f\n", (double)20/3);
+printf("%f\n", (int)3.1416);
+printf("%d\n", (int)3.1416);
+	\end{lstlisting}
+\item Escribir un programa que multiplique e imprima $100000 * 100000$. ¿De qué tamaño son los ints
+en su sistema?
+\item Convertir una moneda a otra sabiendo el valor de cambio. Dar el valor a dos decimales.
+\item Escriba y corra un programa que permita saber si los chars en su sistema son signed o unsigned.
+\item Escriba y corra un programa que asigne el valor 255 a un char, a un unsigned char y a un signed
+char, y muestre los valores almacenados. Repita la experiencia con el valor \lstinline$-1$ y luego con \lstinline$'\377'$.
+Explicar el resultado.
+\item Copiar y compilar el siguiente programa. Explicar el resultado.
+	\begin{lstlisting}
+main() {
+	double x;
+	int i;
+	i = 1400;
+	x = i; /* conversion de int a double */
+	printf("x = %10.6le\ti = %d\n",x,i);
+	x = 14.999;
+	i = x; /* conversion de double a int */
+	printf("x = %10.6le\ti = %d\n",x,i);
+	x = 1.0e+60;
+	i = x;
+	printf("x = %10.6le\ti = %d\n",x,i);
+}
+	\end{lstlisting}
+
+\item Escriba un programa que analice la variable \texttt{v} conteniendo el valor 347 y produzca la salida:
+	\begin{lstlisting}
+3 centenas
+4 decenas
+7 unidades
+\end{lstlisting}
+(y, por supuesto, salidas acordes si \texttt{v} toma otros valores).
+	\item Sumando los dígitos de un entero escrito en notación decimal se puede averiguar si es divisible por
+3 (se constata si la suma de los dígitos lo es). ¿Esto vale para números escritos en otras bases? ¿Cómo
+se puede averiguar esto?
+	\item Indicar el resultado final de los siguientes cálculos
+\begin{enumerate}[label=\alph*.]
+\item int a; float b = 12.2; a = b;
+\item int a, b; a = 9; b = 2; a /= b;
+\item long a, b; a = 9; b = 2; a /= b;
+\item float a; int b, c; b = 9; c = 2; a = b/c;
+\item float a; int b, c; b = 9; c = 2; a = (float)(b/c);
+\item float a; int b, c; b = 9; c = 2; a = (float)b/c;
+\item short a, b, c; b = -2; c = 3; a = b * c;
+\item short a, b, c; b = -2; c = 3; a = (unsigned)b * c;
+\end{enumerate}
+\item Aplicar operador cast donde sea necesario para obtener resultados apropiados:
+\begin{enumerate}[label=\alph*.] 
+	\item \
+	\begin{lstlisting}
+int a; long b; float c;
+a = 1; b = 2; c = a / b;
+	\end{lstlisting} 
+	\item \
+	\begin{lstlisting}
+long a; 
+int b,c;
+b = 1000; c = 1000;
+a = b * c;
+	\end{lstlisting}
+\end{enumerate}
+\end{enumerate}

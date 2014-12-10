@@ -1,0 +1,283 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+  <meta http-equiv="CONTENT-TYPE"
+ content="text/html; charset=iso-8859-1">
+  <title>12. Comunicaci&oacute;n con el ambiente</title>
+  <meta name="GENERATOR" content="StarOffice/5.2 (Linux)">
+  <meta name="AUTHOR" content="Eduardo Grosclaude">
+  <meta name="CREATED" content="20010527;10182100">
+  <meta name="CHANGEDBY" content="Eduardo Grosclaude">
+  <meta name="CHANGED" content="20010818;11194800">
+  <style>
+	<!--
+		PRE { margin-left: 0.4cm }
+	-->
+	</style>
+</head>
+<body>
+<h1>12. Comunicaci&oacute;n con el ambiente</h1>
+<p align="justify">Entendemos por comunicaci&oacute;n con el ambiente
+todas aquellas formas posibles de intercambiar datos entre el
+programa y el entorno, ya sea el sistema operativo, el shell del
+usuario u otro programa que lo haya lanzado. Una necesidad evidente
+de comunicaci&oacute;n ser&aacute; recibir par&aacute;metros,
+argumentos u opciones de trabajo. Otras necesidades ser&aacute;n
+generar archivos con resultados, o comunicar una condici&oacute;n de
+error a la entidad que puso en marcha el programa.</p>
+<h2 align="justify"><a name="redireccion"></a>Redirecci&oacute;n y
+piping</h2>
+<p align="justify">Esta forma de comunicaci&oacute;n en realidad no es
+espec&iacute;fica del C sino que est&aacute; implementada (hoy, en
+pr&aacute;cticamente todos los sistemas operativos) por el shell de
+usuario. Todos los programas en ejecuci&oacute;n (o procesos) nacen
+con tres canales de comunicaci&oacute;n abiertos: <b>entrada
+standard, salida standard y salida standard de errores</b>. Cuando el
+shell lanza un programa, por default le conecta estos tres canales
+con los dispositivos l&oacute;gicos teclado, pantalla y pantalla
+respectivamente. El resultado es que el programa puede recibir
+caracteres por teclado e imprimir cadenas por pantalla haciendo uso
+de las funciones de entrada/salida corrientes. </p>
+<p align="justify">Ahora bien, si el usuario indica al shell, en el
+momento de lanzar el programa, que desea reconectar alguno de estos
+canales con otros dispositivos l&oacute;gicos o archivos, tenemos un
+fen&oacute;meno de <b>redirecci&oacute;n</b>, que permite que el
+programa, sin cambio alguno, utilice las mismas funciones de
+entrada/salida para leer y generar archivos o comunicarse con
+dispositivos diferentes.</p>
+<table border="0" cellpadding="4" cellspacing="0" width="100%">
+  <col width="128*"> <col width="128*"> <thead> <tr>
+    <td width="50%">
+    <p align="right"><font size="2">Los procesos reciben tres canales
+de comunicaci&oacute;n abiertos por donde relacionarse con el ambiente.
+Mediante redirecci&oacute;n se pueden crear archivos con el producto de
+su salida, o alimentarlos con el contenido de archivos preexistentes.</font></p>
+    </td>
+    <td valign="top" width="50%">
+    <p><img alt="" src="img/stdio.gif" name="Imagen1"
+ style="border: 0px solid ; width: 346px; height: 346px;" align="left"><br
+ clear="left">
+    <br>
+    </p>
+    </td>
+  </tr>
+  </thead>
+</table>
+<p align="justify">Otra alternativa es el <b>piping,</b> o
+entubamiento, que permite, con un solo comando de shell, el
+lanzamiento (en forma concurrente, si lo soporta el sistema
+operativo) de dos o m&aacute;s procesos con sus entradas y salidas
+interconectadas para funcionar acopladas. El shell se apoya en el
+sistema operativo para construir un <b>pipe, </b>o tuber&iacute;a
+temporaria, para conducir el flujo de datos entre los procesos que se
+comunican.</p>
+<p align="justify">El C adhiere a las convenciones de
+redirecci&oacute;n
+y piping permitiendo manejar separadamente estos canales con sus
+funciones de biblioteca standard. Poder realizar piping entre
+procesos permite separar arquitecturalmente las funciones de un
+programa muy complejo, facilitando el desarrollo, aumentando la
+mantenibilidad y fomentando la reutilizaci&oacute;n de los programas
+escritos sin costo adicional de dise&ntilde;o o programaci&oacute;n. </p>
+<table border="0" cellpadding="4" cellspacing="0" width="100%">
+  <col width="128*"> <col width="128*"> <thead> <tr>
+    <td valign="top" width="50%">
+    <p><img alt="" src="img/piping.gif" name="Imagen2"
+ style="border: 0px solid ; width: 346px; height: 346px;" align="right"><br
+ clear="right">
+    <br>
+    </p>
+    </td>
+    <td width="50%">
+    <p><font size="2">Los procesos pueden comunicarse a trav&eacute;s
+de <i>pipes</i> o tuber&iacute;as. El sistema operativo UNIX hace uso
+extensivo de esta capacidad proveyendo una gran cantidad de comandos
+sencillos que, combinados mediante piping, permiten crear poderosas
+herramientas sin necesidad de programaci&oacute;n.</font></p>
+    </td>
+  </tr>
+  </thead>
+</table>
+<p align="justify">Para poder aprovechar estas capacidades solamente se
+requiere un protocolo com&uacute;n entre los programas que se
+comunicar&aacute;n. Un medio para lograrlo, en aquellos programas que
+no son naturalmente cooperativos, es a veces construir adaptadores a
+nivel de shell. Estos son scripts generalmente sencillos que
+transforman un formato de datos en otro, facilitando la flexibilidad
+que no da el C por tratarse de un lenguaje compilado. </p>
+<p align="justify">Los scripts, siendo interpretados, pueden ejecutarse
+directamente sin compilaci&oacute;n. Pueden modificarse y probarse
+m&aacute;s r&aacute;pidamente que los programas compilables, y la
+programaci&oacute;n suele ser m&aacute;s flexible y poderosa. El
+costo asociado con el scripting es una menor velocidad de
+ejecuci&oacute;n,
+lo que propone un estudio de cada caso, para optar entre scripting o
+programaci&oacute;n ad hoc.</p>
+<p align="justify">Ambientes como el moderno UNIX ofrecen numerosas
+herramientas y varios int&eacute;rpretes de lenguajes de scripting,
+cada cual con mayores ventajas en un &aacute;rea determinada.
+Herramientas que es &uacute;til conocer son <b>grep</b>, <b>sed</b>,
+<b>diff</b>, <b>comm</b>, etc. El shell de usuario es normalmente una
+buena elecci&oacute;n para scripting de tareas simples, poseyendo un
+lenguaje completo con manejo de variables, estructuras de control,
+arreglos, etc. Sin embargo, otros como <b>awk</b>, <b>Perl</b> o
+<b>Python</b> tienen mejores capacidades de manejo de cadenas,
+esencial para el trabajo que describimos, adem&aacute;s de una
+sintaxis sumamente sint&eacute;tica y poderosa.</p>
+<h2 align="justify"><a name="variables"></a>Variables de ambiente</h2>
+<p align="justify">El shell, responsable de recibir las &oacute;rdenes
+del usuario para lanzar nuevos procesos, mantiene &aacute;reas de
+memoria reservadas para variables de ambiente que son accesibles a
+los nuevos procesos. Estas variables son simplemente pares (nombre,
+valor) de cadenas asociadas. Las variables de ambiente se pueden
+establecer y consultar con comandos de shell, desde la l&iacute;nea
+de comandos o desde un script; y lo mismo con funciones de biblioteca
+standard C desde un programa compilado. Los programas pueden
+consultar una variable de ambiente y decidir el curso de
+ejecuci&oacute;n
+en funci&oacute;n de su contenido; y pueden establecer sus valores
+para los procesos hijos que originen. Las variables de ambiente son
+una forma flexible de configurar el comportamiento de los programas.</p>
+<p align="justify">Las funciones de manejo de variables de ambiente son
+<b>putenv() </b><span style="">y </span><b>getenv()
+</b><span style="">(POSIX). Ver tambi&eacute;n
+</span><b>setenv() </b><span style="">y </span><b>unsetenv()
+</b><span style="">(BSD 4.3).</span></p>
+<h3 align="justify">Ejemplo</h3>
+<p align="justify">Estos comandos a nivel de shell colocan una variable
+y su valor en el ambiente. El comando <b>export</b> la hace visible a
+los procesos hijos.</p>
+<pre
+ style="text-align: justify; color: rgb(0, 153, 0); font-weight: bold;">$ DIR=/usr/local/programa<br>$ export DIR</pre>
+<p align="justify">Para leer la variable desde un programa C:</p>
+<pre
+ style="text-align: justify; color: rgb(0, 153, 0); font-weight: bold;">char directorio[50];<br>strcpy(directorio, getenv("DIR"));<br><br></pre>
+<h2 align="justify"><a name="argumentos"></a>Argumentos de
+ejecuci&oacute;n</h2>
+<p align="justify">Un programa puede recibir argumentos al momento de
+ejecuci&oacute;n, dados en la l&iacute;nea de comandos. El protocolo
+para recibir argumentos se ha dise&ntilde;ado para ser lo m&aacute;s
+general posible. Cada argumento en la l&iacute;nea de comandos es una
+cadena, independientemente del tipo de los datos, y se accede desde
+el programa como un puntero a car&aacute;cter. Es responsabilidad del
+programa hacer las conversiones a los tipos esperados.</p>
+<p align="justify">Los argumentos son recibidos por main() con las
+siguientes convenciones:</p>
+<ul>
+  <li>
+    <p align="left">main() espera dos par&aacute;metros, un entero y un
+arreglo de punteros a car&aacute;cter.</p>
+  </li>
+  <li>
+    <p align="left">El primer par&aacute;metro representa la cantidad
+total de argumentos en la l&iacute;nea de comandos, incluido el nombre
+del programa.</p>
+  </li>
+  <li>
+    <p align="left">Los elementos del segundo par&aacute;metro son
+punteros a cadenas, terminadas en '\0', representando cada argumento
+recibido (incluyendo el nombre del programa).</p>
+  </li>
+</ul>
+<h3><a href="ejemplos/argumentos.c">Ejemplo</a></h3>
+<pre style="color: rgb(0, 153, 0); font-weight: bold;">main(int argc, char *argv[])<br>{<br>    if(argc != 3) <br>        printf("Debe dar nombre y edad del usuario\n");<br>    else<br>        printf("Nombre: %s Edad: %d\n", argv[1], atoi(argv[2]));<br>}</pre>
+<p>Este programa se invocar&iacute;a como:</p>
+<pre style="font-weight: bold; color: rgb(0, 153, 0);">$ programa Alicia 26<br>Nombre: Alicia Edad: 26<br></pre>
+<p><br>
+</p>
+<h2 align="justify"><a name="salida"></a>Salida del programa</h2>
+<p align="justify">Cada programa ha sido lanzado por alg&uacute;n otro,
+por lo com&uacute;n el shell del usuario. El programa puede seguir
+diferentes caminos de ejecuci&oacute;n, encontrar errores,
+condiciones en las cuales es imposible proseguir, etc. Al momento de
+finalizaci&oacute;n del programa, puede ser interesante que el
+programa que le dio origen recoja alguna indicaci&oacute;n de este
+estado final. El C tiene la capacidad (porque la tiene el sistema
+operativo) de devolver un entero, cuyo significado queda
+completamente librado al programador. El programa originador debe
+interpretar este c&oacute;digo de retorno, que es una convenci&oacute;n
+entre ambos programas. Es costumbre, aunque para nada obligatoria,
+devolver un 0 en caso de terminaci&oacute;n exitosa, y n&uacute;meros
+diferentes de cero para diferentes casos de terminaci&oacute;n con
+error, al estilo de los protocolos de las funciones de biblioteca
+standard. </p>
+<p align="justify">Esta caracter&iacute;stica es especialmente
+&uacute;til
+en el contexto de un script donde necesitamos determinar si se debe
+proseguir la ejecuci&oacute;n en base al estado retornado por un
+programa invocado.</p>
+<p align="justify">La funci&oacute;n para terminar el programa
+devolviendo una se&ntilde;al de estado es <b>exit</b>(). Si no se dan
+argumentos, el valor devuelto queda indefinido.</p>
+<h3><a href="ejemplos/salida.c">Ejemplo</a></h3>
+<pre style="color: rgb(0, 153, 0); font-weight: bold;">main(int argc, char *argv[])<br>{<br>    if(argc &lt; 3) {<br>        printf("Insuficientes argumentos\n");<br>        exit(1);<br>    }<br>    procesar(argv[1],argv[2]);<br>    exit(0);<br>}<br></pre>
+<p align="justify"><br>
+</p>
+<h2 align="justify"><a name="opciones"></a>Opciones</h2>
+<p align="justify">Es muy com&uacute;n encontrar comandos del sistema
+operativo que aceptan un conjunto, a veces muy vasto, de opciones.
+Las opciones, si est&aacute;n presentes, se reconocen por comenzar
+con guiones, y deben ser los primeros argumentos dados al programa. </p>
+<p align="justify">La convenci&oacute;n usual en UNIX de expresar las
+opciones con un signo gui&oacute;n y letras, y opcionalmente
+argumentos num&eacute;ricos, ha llevado a definir funciones de
+biblioteca standard para manejar conjuntos de opciones.</p>
+<h3><a href="ejemplos/opciones.c">Ejemplo </a><br>
+</h3>
+<pre style="color: rgb(0, 153, 0); font-weight: bold;">#include &lt;getopt.h&gt;  <br>#include &lt;unistd.h&gt;  <br>extern char *optarg;<br>extern int optind, opterr, optopt;<br><br>int debug;<br><br>main(int argc, char *argv[])<br>{<br>    char *optstring="RrTtV:v:";<br>    int c;<br><br>    opterr=0;<br>    while((c=getopt(argc, argv, optstring)) != EOF)<br>        switch(c) {<br>            case 'v':<br>            case 'V':<br>                debug=atoi(optarg);<br>                printf("Nivel de debugging: %d\n",debug);<br>                break;<br>            case ':': <br>                printf("Falta valor numerico\n");<br>                exit(1);<br>                break;<br>            case 'R':<br>            case 'r':<br>                printf("Recibiendo\n");<br>                recibir(argv[optind]);<br>                break;<br>            case 'T':<br>            case 't':<br>                printf("Transmitiendo\n");<br>                transmitir(argv[optind]);<br>                break;<br>            case '?':<br>                printf("Mal argumento\n");<br>                break;<br>        }<br><br>}</pre>
+<p align="justify">El programa podr&iacute;a usarse tanto para
+transmitir como para
+recibir archivos observando un nivel de salida de debugging
+conveniente. Podr&iacute;a invocarse como:</p>
+<pre
+ style="margin-bottom: 0.5cm; text-align: justify; color: rgb(0, 153, 0); font-weight: bold;">$ transferir -v 2 -T archivo.txt</pre>
+<p align="justify">La funci&oacute;n <b>getopt()</b> es quien va
+recogiendo las opciones
+vistas en la l&iacute;nea de comandos y devolvi&eacute;ndolas como
+caracteres separados. La variable string <b>optstring</b> contiene
+las opciones v&aacute;lidas. Para aquellas opciones (como V en el
+ejemplo) que pueden asumir un modificador num&eacute;rico, se ubica
+un s&iacute;mbolo "dos puntos" a continuaci&oacute;n en el
+string optstring. El valor para la opci&oacute;n num&eacute;rica se
+recibe en la variable <b>optarg</b>. </p>
+<p align="justify">Si ocurre un error sint&aacute;ctico en el
+procesamiento de las opciones, la rutina devuelve el car&aacute;cter
+'?' y emite un mensaje de error por salida de errores standard. Si no
+se desea emitir este mensaje, se hace <b>opterr</b>=0.</p>
+<p align="justify">Las funciones recibir() y transmitir() obtienen el
+nombre del archivo del arreglo de argumentos argv[], index&aacute;ndolo
+con la variable <b>optind</b>, que queda apuntando al siguiente
+elemento en la l&iacute;nea de comandos.<br>
+<br>
+</p>
+<hr>
+<h2><a name="ejercicios"></a>Ejercicios</h2>
+<p align="justify">1. Escribir un programa que imprima una secuencia de
+n&uacute;meros consecutivos donde el valor inicial, el valor final y
+el incremento son dados como argumentos.</p>
+<p align="justify">2. Mismo ejercicio pero donde los par&aacute;metros
+son pasados como variables de ambiente.</p>
+<p>3. Mismo ejercicio pero donde los par&aacute;metros son pasados
+como opciones.</p>
+<p>4. Programar una calculadora capaz de resolver c&aacute;lculos
+simples como los siguientes:</p>
+<pre>$ casio 3 + 5<br>8<br>$ casio 20 * 6<br>120<br>$ casio 5 / 3<br>1</pre>
+<p>5. Agregar la capacidad de fijar precisi&oacute;n (cantidad de
+decimales) como una opci&oacute;n:</p>
+<pre>$ casio -d2  5 / 3<br>1.66</pre>
+<p align="justify">6. Manteniendo la capacidad anterior, agregar la
+posibilidad de leer una variable de ambiente que establezca la
+precisi&oacute;n default. Si no se da la precisi&oacute;n como
+opci&oacute;n, se tomar&aacute; la establecida por la variable de
+ambiente, pero si se la especifica, &eacute;sta ser&aacute; la
+adoptada. Si no hay definida una precisi&oacute;n se tomar&aacute; 0.
+Ejemplo:</p>
+<pre>$ casio 10 / 7<br>1<br>$ PRECISION_CASIO=5<br>$ export PRECISION_CASIO<br>$ casio 10 / 7<br>1.42857<br>$ casio -d2 10 / 7<br>1.42</pre>
+<br>
+<pre><a href="adicionales/adic12.html#adic1">Ejercicios Adicionales<br><br></a><br><a
+ href="adicionales/adic12.html#adic2">Ejercicios Avanzados<br></a><br><br></pre>
+<hr style="width: 100%; height: 2px;">
+<br>
+<br>
+</body>
+</html>

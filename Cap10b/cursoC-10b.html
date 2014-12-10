@@ -1,0 +1,514 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+  <meta http-equiv="CONTENT-TYPE"
+ content="text/html; charset=iso-8859-1">
+  <title>10b. Temas avanzados de apuntadores y direcciones</title>
+  <meta name="GENERATOR" content="StarOffice/5.2 (Linux)">
+  <meta name="AUTHOR" content="Eduardo Grosclaude">
+  <meta name="CREATED" content="20010817;9344700">
+  <meta name="CHANGEDBY" content="Eduardo Grosclaude">
+  <meta name="CHANGED" content="20010822;9495200">
+  <style>
+	<!--
+		@page { margin-left: 2.5cm; margin-right: 1.5cm }
+		PRE { margin-left: 0.3cm }
+	-->
+	</style>
+</head>
+<body style="background-color: rgb(255, 255, 255);">
+<h1>10b. Temas avanzados de apuntadores y direcciones</h1>
+<p><br>
+</p>
+<h2><a name="observaciones"></a>Observaciones</h2>
+<p>Continuando la unidad, insistimos sobre las causas de errores
+m&aacute;s
+frecuentes.<br>
+<br>
+</p>
+<h3>1. Punteros sin inicializar</h3>
+<p>El utilizar un puntero sin inicializar parece estar entre las
+primeras causas de errores en C.</p>
+<h3>Ejemplo</h3>
+<pre>  <span style="color: rgb(0, 153, 0); font-weight: bold;"> /* Incorrecto */</span><br
+ style="color: rgb(0, 153, 0); font-weight: bold;"><span
+ style="color: rgb(0, 153, 0); font-weight: bold;">   int *p;</span><br
+ style="color: rgb(0, 153, 0); font-weight: bold;"><span
+ style="color: rgb(0, 153, 0); font-weight: bold;">   *p = 8;</span></pre>
+<p>Si bien sint&aacute;cticamente correctas, las l&iacute;neas del
+ejemplo presentan un problema muy com&uacute;n en C. Declaran un
+puntero a entero, p, y almacenan un valor entero en la direcci&oacute;n
+apuntada por el mismo. El problema es que el contenido de p es
+impredecible. Si p es una variable local, su clase de almacenamiento
+es <b>auto</b> y por lo tanto contiene <i>basura</i>, salvo
+inicializaci&oacute;n expl&iacute;cita. Si p es externa, es
+inicializada a 0, que en la mayor&iacute;a de los sistemas operativos
+conocidos es una direcci&oacute;n inaccesible para los procesos no
+privilegiados. En cualquier caso el programa compilar&aacute; pero se
+encontrar&aacute; con problemas de ejecuci&oacute;n. Lo que falta es
+hacer que p apunte a alguna zona v&aacute;lida. </p>
+<p><span style="">Direcciones v&aacute;lidas, que
+pueden ser manipuladas mediante punteros, son las de los objetos
+conocidos por el programa: variables, estructuras, arreglos,
+funciones, bloques de memoria asignados din&aacute;micamente, son
+todos objetos cuya direcci&oacute;n ha sido obtenida
+leg&iacute;timamente,
+ya sea al momento de carga o al momento de ejecuci&oacute;n. </span><b>Si
+un puntero no est&aacute; expl&iacute;citamente inicializado a alguna
+direcci&oacute;n v&aacute;lida dentro del espacio del programa</b>,
+se estar&aacute; escribiendo en alguna direcci&oacute;n
+potencialmente prohibida. En el mejor de los casos, el programa
+intentar&aacute; escribir en el espacio de memoria de otro proceso y
+el sistema operativo lo terminar&aacute;. En casos m&aacute;s
+sutiles, el programa continuar&aacute; funcionando pero luego de
+corromper alg&uacute;n &aacute;rea de memoria impredecible dentro del
+espacio del proceso. Este problema es a veces sumamente dif&iacute;cil
+de detectar porque el efecto puede no mostrar ninguna relaci&oacute;n
+con el origen del problema. El error puede estar en una
+instrucci&oacute;n
+que se ejecuta pero corrompe la memoria, y sin embargo manifestarse
+reci&eacute;n cuando se accede a esa zona de memoria corrupta. Para
+este momento el control del programa puede estar en un punto
+arbitrariamente lejano de la instrucci&oacute;n que caus&oacute; el
+problema.</p>
+<p>La soluci&oacute;n es asegurarse, siempre, que los punteros
+apuntan a lugares v&aacute;lidos del programa, asign&aacute;ndoles
+direcciones de objetos conocidos. Por ejemplo:</p>
+<pre style="color: rgb(0, 153, 0); font-weight: bold;">/* Correcto */<br>int a;<br>int *p;<br>p = &amp;a;<br>*p = 8;</pre>
+<h3>2. Confundir punteros con arreglos</h3>
+<p>Es imprescindible comprender rigurosamente la diferencia entre
+arreglos y punteros. Aunque son intercambiables en algunos contextos,
+suponer que son lo mismo lleva a graves errores. E<span style="">s
+frecuente confundirlos, y esta confusi&oacute;n es explicable a
+partir de algunos hechos que se exponen a continuaci&oacute;n. No hay
+que dejarse enga&ntilde;ar por ellos.</span></p>
+<p><b>a) Ambos se eval&uacute;an a direcciones</b></p>
+<p>El nombre de un arreglo equivale a una direcci&oacute;n, y usar un
+puntero equivale a usar la direcci&oacute;n que contiene. Es decir,
+tienen usos similares.</p>
+<pre style="color: rgb(0, 153, 0); font-weight: bold;">a) char formato[] = "%d %d\n";<br>   printf(formato, 5, -1);<br><br>b) char *formato = "%d %d\n";<br>   printf(formato, 5, -1);</pre>
+<p style="">Aqu&iacute; usamos como equivalentes a un arreglo y a un
+puntero,
+porque de cualquiera de las dos maneras estamos expresando una
+direcci&oacute;n en la invocaci&oacute;n a printf(). </p>
+<p><b>b) Como argumentos formales, son equivalentes</b></p>
+<p style="">En una funci&oacute;n, un argumento
+formal que sea una direcci&oacute;n puede ser declarado como puntero
+o como arreglo, intercambiablemente. Convirtamos los ejemplos de
+m&aacute;s
+arriba a funciones:</p>
+<pre style="font-weight: bold; color: rgb(0, 153, 0);">a) int fun(char *s, int x, int y)<br>   {<br>       printf(s, x, y);<br>   }<br><br>b) int fun(char s[], int x, int y)<br>   {<br>        printf(s, x, y);<br>   }</pre>
+<p style="">Ambas formas son v&aacute;lidas, porque lo &uacute;nico que
+estamos
+expresando es que un argumento es una direcci&oacute;n; y, como se ha
+dicho, tanto punteros como nombres de arreglos los representan.
+Adem&aacute;s, cualquiera de las funciones escritas puede usarse en
+cualquiera de las dos maneras siguientes, pasando punteros o arreglos
+en la llamada:</p>
+<pre style="color: rgb(0, 153, 0); font-weight: bold;">a) char formato[] = "%d %d\n";<br>   fun(formato, 5, -1);<br><br>b) char *formato = "%d %d\n";<br>   fun(formato, 5, -1);</pre>
+<p><b>c) Comparten operadores</b></p>
+<p style="">Se pueden aplicar los mismos
+operadores de acceso a ambos; a saber, se puede dereferenciar un
+arreglo (igual que un puntero) para acceder a un elemento y se puede
+indexar un puntero (como un arreglo) para acceder a una posici&oacute;n
+dentro del espacio al que apunta.</p>
+<pre style="font-weight: bold; color: rgb(0, 153, 0);">a) char cadena[] = "abcdefghijkl";<br>   char c;<br>   c = *(cadena + 4); /* c = 'e' */<br><br>b) char *cadena = "abcdefghijkl";<br>   char c;<br>   c = cadena[4];     /* c = 'e' */</pre>
+<p style="">En muchas formas, entonces, punteros y arreglos pueden ser
+intercambiados porque son dos maneras de acceder a direcciones de
+memoria, pero un arreglo <b>no</b> es un puntero, y ninguno de ellos
+es una direcci&oacute;n (aunque las representan), <b>porque</b>:</p>
+<ul>
+  <li>
+    <p style="" align="justify">Un arreglo <b>tiene memoria asignada
+para todos sus elementos </b>(desde la carga del programa, para
+arreglos globales o static, y desde la entrada a la funci&oacute;n
+donde se lo declara, para los arreglos locales). </p>
+  </li>
+  <li>
+    <p style="" align="justify">Un puntero, en cambio, <b>solamente
+contiene una direcci&oacute;n</b>, que puede ser o no v&aacute;lida en
+el sentido de apuntar o no a un objeto existente en el espacio
+direccionable por el programa. La validez de la direcci&oacute;n
+contenida en un puntero es responsabilidad del programador. </p>
+  </li>
+</ul>
+<h3>3. No analizar el nivel de indirecci&oacute;n</h3>
+<p style="">Una variable de un tipo b&aacute;sico
+cualquiera contiene un dato que puede ser directamente utilizado en
+una expresi&oacute;n para hacer c&aacute;lculos. Un puntero que
+apunte a esa variable contiene su direcci&oacute;n, es una <b>referencia
+</b>al dato, y necesita ser <b>dereferenciado</b> para acceder al
+dato. La variable y su puntero tienen <b>diferente nivel de
+indirecci&oacute;n</b>. </p>
+<p><span style="">Un char, un </span>int, un long,
+un double, una estructura de un tipo definido por el usuario, tienen
+un mismo nivel de indirecci&oacute;n, que podr&iacute;amos llamar "el
+nivel 0". Un puntero, una direcci&oacute;n, un nombre de
+arreglo, tienen un "nivel de indirecci&oacute;n 1". Aplicar
+el operador <b>&amp;</b><span style=""> a algo
+aumenta su nivel de indirecci&oacute;n. Aplicar el operador </span><b>*
+</b><span style="">lo decrementa.</span></p>
+<p style="">Cuando escribimos una expresi&oacute;n,
+o hacemos una asignaci&oacute;n, o proveemos argumentos reales para
+una funci&oacute;n, etc., necesitamos que los niveles de
+indirecci&oacute;n
+de los elementos que componen la expresi&oacute;n sean <b>consistentes</b>,
+es decir, que el resultado final de cada subexpresi&oacute;n tenga el
+nivel de indirecci&oacute;n necesario. </p>
+<p style="">Esto es an&aacute;logo a escribir una
+ecuaci&oacute;n con magnitudes f&iacute;sicas, donde ambos miembros
+de la ecuaci&oacute;n deben tener el mismo sentido f&iacute;sico. Por
+ejemplo, si V=velocidad, E=espacio, T=tiempo, no tiene sentido en
+F&iacute;sica escribir V=E*T, simplemente porque si <b>multiplicamos</b>
+metros por segundo <b>no</b> obtenemos <b>m/s</b> que son las
+unidades de V. Del mismo modo podemos verificar la consistencia de
+las expresiones en C pregunt&aacute;ndonos qu&eacute; nivel de
+indirecci&oacute;n debe tener cada subexpresi&oacute;n.</p>
+<h3>Ejemplos</h3>
+<pre style="color: rgb(0, 153, 0); font-weight: bold;">char *s = "cadena";<br>char *t;<br>char u;<br>t = s + 2; /* CORRECTO */<br>u = s;     /* INCORRECTO */<br>u = *s;    /* CORRECTO */<br>t = &amp;u;    /* CORRECTO */</pre>
+<p>La asignaci&oacute;n <b>t = s + 2 </b><span style="">es
+correcta porque la suma de una direcci&oacute;n m&aacute;s un entero
+est&aacute; definida y devuelve una direcci&oacute;n; con lo cual la
+expresi&oacute;n mantiene el mismo nivel de indirecci&oacute;n en
+ambos miembros</span> (puntero = direcci&oacute;n). La
+asignaci&oacute;n
+<b>u = s</b><span style=""> intenta asignar una
+direcci&oacute;n (la contenida en s) a un char. No se respeta el
+mismo nivel de indirecci&oacute;n en ambos miembros de la
+asignaci&oacute;n,
+de modo que &eacute;sta es incorrecta y ser&aacute; rechazada por el
+compilador. En las dos &uacute;ltimas asignaciones se usan los
+operadores de direcci&oacute;n y de indirecci&oacute;n para hacer
+consistentes los niveles de indirecci&oacute;n de ambos miembros.</span></p>
+<p style="">Este tipo de an&aacute;lisis es
+sumamente &uacute;til para prevenir errores de programaci&oacute;n.
+Conviene utilizarlo para dar una segunda mirada cr&iacute;tica a las
+expresiones que escribimos.</p>
+<p><br>
+</p>
+<h2><a name="arreglos de"></a>Arreglos de punteros</h2>
+<p>Una construcci&oacute;n especialmente &uacute;til es la de
+arreglos de punteros a car&aacute;cter. Esta construcci&oacute;n
+permite expresar una lista de r&oacute;tulos y navegar por ellos con
+la indexaci&oacute;n natural de los arreglos.</p>
+<h3>Ejemplo</h3>
+<pre style="font-weight: bold; color: rgb(0, 153, 0);">char *mes[] = { "Ene","Feb","Mar","Abr","May","Jun",<br>                "Jul","Ago","Sep","Oct","Nov","Dic" };<br><br>printf("Mes: %s\n",mes[6]);</pre>
+<p>Aqu&iacute; el tipo de los elementos del arreglo <b>mes</b><span
+ style="">
+es <b>puntero a car&aacute;cter</b>. Cada elemento se inicializa en
+la declaraci&oacute;n a una constante string.</span></p>
+<br>
+<h2><a name="estructuras ref"></a>Estructuras referenciadas por
+punteros</h2>
+<p>En el caso particular de estructuras o uniones referenciadas por
+punteros, la notaci&oacute;n para acceder a sus miembros cambia
+ligeramente, reemplazando el operador "punto" por "-&gt;".</p>
+<h3>Ejemplo</h3>
+<pre style="color: rgb(0, 153, 0); font-weight: bold;">struct persona p, *pp;<br>pp = &amp;p;<br>pp-&gt;DNI = 14233326;<br>pp-&gt;edad = 40;</pre>
+<p><br>
+</p>
+<h3><a name="estructuras rec"></a>Estructuras de datos recursivas y
+punteros</h3>
+<p>Las estructuras de datos recursivas se expresan efectivamente con
+punteros a estructuras del mismo tipo.</p>
+<pre style="font-weight: bold; color: rgb(0, 153, 0);">struct itemlista {<br>    double dato;<br>    struct itemlista *proximoitem;<br>}<br><br>struct nodoarbol {<br>    int valor;<br>    struct nodoarbol *hijoizquierdo;<br>    struct nodoarbol *hermanoderecho;<br>}</pre>
+<p>En cambio no es legal la composici&oacute;n de estructuras dentro de
+s&iacute; mismas:</p>
+<pre style="color: rgb(0, 153, 0); font-weight: bold;">struct itemlista { /* INCORRECTO */<br>    double dato;<br>    struct itemlista proximoitem;<br>}</pre>
+<p><br>
+<br>
+</p>
+<h3><a name="construcci&oacute;n de tipos"></a>Construcci&oacute;n de
+tipos</h3>
+<p>Aunque la construcci&oacute;n de tipos definidos por el usuario no
+es una caracter&iacute;stica directamente ligada a los punteros o a
+las variables estructuradas, es un buen momento para introducirla. El
+lenguaje C admite la generaci&oacute;n de nuevos nombres para tipos
+estructurados mediante la primitiva <b>typedef</b><span style="">.
+</span></p>
+<h3>Ejemplo</h3>
+<p>Las declaraciones del ejemplo anterior se podr&iacute;an
+reescribir m&aacute;s claramente de la forma que sigue. </p>
+<pre style="color: rgb(0, 153, 0); font-weight: bold;">typedef struct nodoarbol {<br>    int valor;<br>    struct nodoarbol *hijoizquierdo;<br>    struct nodoarbol *hermanoderecho;<br>}nodo;<br>typedef struct nodoarbol *nodop;</pre>
+<p style="">Entonces el tipo de un argumento de una funci&oacute;n
+podr&iacute;a
+quedar expresado sint&eacute;ticamente como <b>nodop</b>:</p>
+<pre
+ style="margin-bottom: 0.5cm; font-weight: bold; color: rgb(0, 153, 0);">nodop crearnodo(nodop padre);</pre>
+<p style="">La construcci&oacute;n con typedef no es indispensable;
+pero aporta
+claridad al estilo de programaci&oacute;n, y, bien manejada, promueve
+la portabilidad.</p>
+<p><br>
+<br>
+</p>
+<h2><a name="asig dinamica"></a>Asignaci&oacute;n din&aacute;mica de
+memoria</h2>
+<p>Se ha visto la necesidad de que los punteros apunten a direcciones
+v&aacute;lidas. &iquest;Qu&eacute; hacer cuando la l&oacute;gica del
+programa pide la creaci&oacute;n de estructuras de datos en forma
+din&aacute;mica? Los punteros son muy convenientes para manejarlas,
+pero se debe asegurar que apunten a zonas de memoria
+leg&iacute;timamente
+obtenidas por el programa. </p>
+<p>En C se tiene como herramientas b&aacute;sicas de gesti&oacute;n
+din&aacute;mica de memoria a las funciones <b>malloc() </b><span
+ style="">y
+</span><b>free()</b><span style="">. Con malloc()
+pedimos una cantidad de bytes contiguos que ser&aacute;n tomados del
+<i>heap</i>. La funci&oacute;n malloc() devuelve la direcci&oacute;n
+del bloque de memoria asignado. Esta direcci&oacute;n debe reservarse
+en un puntero para uso futuro y para liberarla con free().</span></p>
+<h3>Ejemplo</h3>
+<pre style="color: rgb(0, 153, 0); font-weight: bold;">/* Correcto */<br>int *p;<br>p = malloc(sizeof(int));<br>*p = 8;<br>free(p);</pre>
+<p style="">En lugar de hacer que p apunte a un objeto existente al
+momento de
+compilaci&oacute;n, solicitamos tanta memoria como sea necesaria para
+alojar un entero y ponemos a p apuntando all&iacute;. Ahora podemos
+hacer la asignaci&oacute;n. Luego del uso se debe liberar la zona
+apuntada por p. </p>
+<p style="">Para ser completamente correcto, el
+programa deber&iacute;a verificar que malloc() no devuelva <b>NULL</b>
+por ser imposible satisfacer el requerimiento de memoria. El
+s&iacute;mbolo
+NULL corresponde a la direcci&oacute;n 0, o, equivalentemente, al
+puntero nulo, y nunca es una direcci&oacute;n utilizable.</p>
+<p style="">La propiedad de poder aplicar
+indexaci&oacute;n a los punteros hace que, virtualmente, el C sea
+capaz de proporcionarnos arreglos dimensionables en tiempo de
+ejecuci&oacute;n. En efecto:</p>
+<pre style="color: rgb(0, 153, 0); font-weight: bold;">double *tabla;<br>tabla = malloc(k);<br>tabla[50] = 15.25;</pre>
+<p>Estas l&iacute;neas son virtualmente equivalentes a un arreglo de <b>k</b>
+elementos <b>double</b><span style="">, donde k,
+por supuesto, puede calcularse en tiempo de ejecuci&oacute;n.</span></p>
+<p style="">Una variante de malloc() es <b>calloc()</b>,
+que solicita una cantidad dada de elementos de memoria de un
+tama&ntilde;o
+tambi&eacute;n dado, y adem&aacute;s garantiza que todo el bloque de
+memoria concedido est&eacute; inicializado con ceros binarios.</p>
+<h3>Ejemplo</h3>
+<pre style="color: rgb(0, 153, 0); font-weight: bold;">float *lista;<br>int i;<br>lista = calloc(k, sizeof(float));<br>for(i=0; i&lt;k; i++) <br>    lista[i] = fun(i);</pre>
+<p><br>
+</p>
+<h2><a name="punteros a funciones"></a>Punteros a funciones</h2>
+<p>As&iacute; como se pueden tomar las direcciones de los elementos
+de datos, es posible manipular las direcciones iniciales de los
+segmentos de c&oacute;digo representados por las funciones de un
+programa C, mediante punteros a funciones. Esta caracter&iacute;stica
+es sumamente poderosa.</p>
+<p>La declaraci&oacute;n de un puntero a funci&oacute;n tiene una
+sintaxis algo complicada: debe indicar el tipo devuelto por la
+funci&oacute;n y los tipos de los argumentos.</p>
+<h3>Ejemplos</h3>
+<ul>
+  <li>
+    <p>Puntero llamado p, a una funci&oacute;n que recibe dos enteros y
+devuelve un entero:</p>
+  </li>
+</ul>
+<pre
+ style="margin-bottom: 0.5cm; margin-left: 40px; color: rgb(0, 153, 0); font-weight: bold;">int (*p)(int x, int y);</pre>
+<p style="margin-left: 40px;">o tambi&eacute;n:</p>
+<pre
+ style="margin-bottom: 0.5cm; margin-left: 40px; color: rgb(0, 153, 0); font-weight: bold;">int (*p)(int, int);</pre>
+<p>Los par&eacute;ntesis alrededor de *p son importantes: sin ellos, se
+define una funci&oacute;n que devuelve un puntero a entero, que no es
+lo que se pretende.</p>
+<ul>
+  <li>
+    <p>Asignaci&oacute;n del puntero p:</p>
+  </li>
+</ul>
+<pre
+ style="margin-left: 40px; font-weight: bold; color: rgb(0, 153, 0);">int fun(int x, int y) <br>{<br>    ...<br>}<br>p = fun;</pre>
+<ul>
+  <li>
+    <p>Uso del puntero p para invocar a la funci&oacute;n cuya
+direcci&oacute;n tiene asignada:</p>
+  </li>
+</ul>
+<pre
+ style="margin-bottom: 0.5cm; color: rgb(0, 153, 0); font-weight: bold; margin-left: 40px;">a = (*p)(k1, 20 - k2);</pre>
+<h3>Aplicaci&oacute;n</h3>
+<p>La Biblioteca Standard contiene una funci&oacute;n que realiza el
+ordenamiento de una tabla de datos mediante el m&eacute;todo de
+<b>Quicksort</b>. Para que pueda ser completamente flexible (para
+poder ordenar datos de cualquier naturaleza), la funci&oacute;n
+acepta a su vez una funci&oacute;n provista por el usuario, que
+determina el orden de dos elementos. Es responsabilidad del usuario,
+entonces, definir cu&aacute;ndo un elemento es mayor que el otro, a
+trav&eacute;s de esta funci&oacute;n de comparaci&oacute;n.</p>
+<p>La funci&oacute;n de comparaci&oacute;n s&oacute;lo debe aceptar
+p1 y p2, dos punteros a un par de datos, y seguir el protocolo
+siguiente:</p>
+<dl>
+  <dd>
+    <table border="1" bordercolor="#000000" cellpadding="4"
+ cellspacing="0" width="418">
+      <col width="149"> <col width="251"> <thead> <tr valign="top">
+        <th width="149">
+        <p>Si</p>
+        </th>
+        <th width="251">
+        <p>Devolver</p>
+        </th>
+      </tr>
+      </thead> <tbody>
+        <tr valign="top">
+          <td style="color: rgb(0, 0, 102); font-weight: bold;"
+ width="149">
+          <p align="center">*p1 &lt; *p2</p>
+          </td>
+          <td style="color: rgb(0, 0, 153);" width="251">
+          <p align="center">un n&uacute;mero menor que 0</p>
+          </td>
+        </tr>
+        <tr>
+          <td style="color: rgb(0, 0, 102); font-weight: bold;"
+ valign="top" width="149">
+          <p align="center">*p1 == *p2</p>
+          </td>
+          <td style="color: rgb(0, 0, 153);" sdval="0" sdnum="1033;"
+ valign="bottom" width="251">
+          <p align="center">0</p>
+          </td>
+        </tr>
+        <tr valign="top">
+          <td style="color: rgb(0, 0, 102); font-weight: bold;"
+ width="149">
+          <p align="center">*p1 &gt; *p2</p>
+          </td>
+          <td style="color: rgb(0, 0, 153);" width="251">
+          <p align="center">un n&uacute;mero mayor que 0</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </dd>
+</dl>
+<p>La funci&oacute;n de ordenamiento recibe un puntero a la
+funci&oacute;n
+de comparaci&oacute;n y la invoca repetidamente.</p>
+<h3>Ejemplo</h3>
+<pre><span style="color: rgb(0, 153, 0); font-weight: bold;">#include &lt;stdlib.h&gt;</span><br
+ style="color: rgb(0, 153, 0); font-weight: bold;"><span
+ style="color: rgb(0, 153, 0); font-weight: bold;"> </span><br
+ style="color: rgb(0, 153, 0); font-weight: bold;"><span
+ style="color: rgb(0, 153, 0); font-weight: bold;">struct p {</span><br
+ style="color: rgb(0, 153, 0); font-weight: bold;"><span
+ style="color: rgb(0, 153, 0); font-weight: bold;">    ...</span><br
+ style="color: rgb(0, 153, 0); font-weight: bold;"><span
+ style="color: rgb(0, 153, 0); font-weight: bold;">    char nombre[40];</span><br
+ style="color: rgb(0, 153, 0); font-weight: bold;"><span
+ style="color: rgb(0, 153, 0); font-weight: bold;">    double salario;</span><br
+ style="color: rgb(0, 153, 0); font-weight: bold;"><span
+ style="color: rgb(0, 153, 0); font-weight: bold;">    ...</span><br
+ style="color: rgb(0, 153, 0); font-weight: bold;"><span
+ style="color: rgb(0, 153, 0); font-weight: bold;">} lista[100];</span><br
+ style="color: rgb(0, 153, 0); font-weight: bold;"><span
+ style="color: rgb(0, 153, 0); font-weight: bold;"> </span><br
+ style="color: rgb(0, 153, 0); font-weight: bold;"><span
+ style="color: rgb(0, 153, 0); font-weight: bold;">int cmpSalario(const void *p1, const void *p2)</span><br
+ style="color: rgb(0, 153, 0); font-weight: bold;"><span
+ style="color: rgb(0, 153, 0); font-weight: bold;">{</span><br
+ style="color: rgb(0, 153, 0); font-weight: bold;"><span
+ style="color: rgb(0, 153, 0); font-weight: bold;">    return p1-&gt;salario - p2-&gt;salario;</span><br
+ style="color: rgb(0, 153, 0); font-weight: bold;"><span
+ style="color: rgb(0, 153, 0); font-weight: bold;">}</span><br
+ style="color: rgb(0, 153, 0); font-weight: bold;"><span
+ style="color: rgb(0, 153, 0); font-weight: bold;"> </span><br><span
+ style="color: rgb(0, 153, 0); font-weight: bold;">int cmpNombre(const void *p1, const void *p2)</span><br
+ style="color: rgb(0, 153, 0); font-weight: bold;"><span
+ style="color: rgb(0, 153, 0); font-weight: bold;">{</span><br
+ style="color: rgb(0, 153, 0); font-weight: bold;"><span
+ style="color: rgb(0, 153, 0); font-weight: bold;">    return strncmp(p1-&gt;nombre, p2-&gt;nombre, 40);</span><br
+ style="color: rgb(0, 153, 0); font-weight: bold;"><span
+ style="color: rgb(0, 153, 0); font-weight: bold;">}</span><br> </pre>
+<p>Los argumentos formales declarados como <b>void *</b><span style="">
+expresan que puede tratarse de direcciones de objetos de cualquier
+tipo.</span></p>
+<p>Con estas definiciones, la tabla <b>lista</b> se puede ordenar por
+uno u otro campo de la estructura con las sentencias:</p>
+<pre
+ style="margin-bottom: 0.5cm; font-weight: bold; color: rgb(0, 153, 0);">qsort(lista, 100, sizeof(struct p),cmpSalario); <br>qsort(lista, 100, sizeof(struct p),cmpNombre);</pre>
+<p><br>
+</p>
+<h2><a name="punteros a punteros"></a>Punteros a punteros</h2>
+<p>La indirecci&oacute;n mediante punteros puede ser doble, triple,
+etc. Los punteros dobles tienen aplicaci&oacute;n en el manejo de
+conjuntos de strings o matrices bidimensionales. Como en el caso de
+punteros a funciones, esto brinda una gran potencia pero a costa de
+complicar enormemente la notaci&oacute;n y la programaci&oacute;n,
+por lo que se recomienda no abordar el tema en un curso introductorio
+y, s&oacute;lo una vez dominadas las t&eacute;cnicas y conceptos
+b&aacute;sicos de punteros, referirse a una fuente como el libro de
+Kernighan y Ritchie, 2&ordf; edici&oacute;n.</p>
+<h3>Ejemplo</h3>
+<pre style="color: rgb(0, 153, 0); font-weight: bold;">int **p;    /* un puntero doble */<br>int *q;<br>int a;<br>q = &amp;a;<br>p = &amp;q;<br>**p = 8;    /* carga 8 en a */</pre>
+<p><br>
+</p>
+<h2><a name="gets"></a>Una herramienta: gets()</h2>
+<p>Para facilitar la pr&aacute;ctica damos la descripci&oacute;n de
+otra funci&oacute;n de biblioteca standard.</p>
+<p>La funci&oacute;n <b>gets() </b>pide al usuario una cadena
+terminada por ENTER. Recibe como argumento un espacio de memoria
+(expresado por una direcci&oacute;n) donde copiar&aacute; los
+caracteres tipeados.</p>
+<p>El fin de la cadena recibir&aacute; autom&aacute;ticamente un cero
+para compatibilizarla con las funciones de tratamiento de strings de
+la biblioteca standard.</p>
+<p>Es importante comprender la teor&iacute;a dada en este
+cap&iacute;tulo
+y el anterior para evitar una situaci&oacute;n de error com&uacute;n
+cuando se utiliza <b>gets()</b> y similares: uso de un puntero no
+inicializado. La funci&oacute;n debe recibir la direcci&oacute;n de
+un &aacute;rea de memoria legal para el programa y donde no haya
+riesgo de sobreescribir contenidos.</p>
+<h3>Ejemplos</h3>
+<pre style="color: rgb(0, 153, 0); font-weight: bold;">main()<br>{<br>    char *s;<br>    gets(s); /* Mal!!! */<br>}<br><br>main()<br>{<br>    char arreglo[100];<br>    char *s;<br>    s = arreglo;<br>    gets(s); /* Ahora s&iacute; */<br>    gets(arreglo); /* Id&eacute;ntico a lo anterior */<br>}<br><br>main()<br>{ <br>    char *s;<br>    s = malloc(100); /* Ahora s&iacute; */<br>    gets(s);<br>    printf("ingresado: %s\n",s);<br>    free(s);<br>}</pre>
+<p>El puntero del primer ejemplo no est&aacute; inicializado. Por ser
+una variable local, contiene <i>basura</i> y por lo tanto apunta a un
+lugar impredecible. </p>
+<p>En el segundo ejemplo proveemos espacio leg&iacute;timo donde
+apunte <b>s,</b><span style=""> reserv&aacute;ndolo
+est&aacute;ticamente mediante la declaraci&oacute;n del arreglo. </span>
+</p>
+<p style="">En el tercer ejemplo usamos asignaci&oacute;n
+din&aacute;mica y liberaci&oacute;n de memoria. En un sentido
+estricto, no es necesaria la liberaci&oacute;n en este caso
+particular porque la terminaci&oacute;n del programa devuelve todas
+las estructuras creadas din&aacute;micamente, pero es &uacute;til
+habituarse a la disciplina de aparear cada invocaci&oacute;n de
+malloc() con el correspondiente free().<br>
+<br>
+</p>
+<hr>
+<h2><a name="ejercicios"></a>Ejercicios</h2>
+<p>1. &iquest;Qu&eacute; objetos se declaran en las sentencias
+siguientes?</p>
+<pre>a. double (*nu)(int kappa); <br>b. int (*xi)(int *rho);<br>c. long phi(); <br>d. int *chi; <br>e. int pi[3]; <br>f. long *beta[3]; <br>g. int *(gamma[3]);<br>h. int (*delta)[3];<br>i. void (*eta[5])(int *rho); <br>j. int *mu(long delta); </pre>
+<br>
+2. Construir una funci&oacute;n que reciba un arreglo de punteros
+a string A y un string B, y busque a B en el array A, devolviendo su
+&iacute;ndice en el array, o bien -1 si no se halla.
+<p align="justify">3. Construir una funci&oacute;n iterativa que
+imprima una
+cadena en forma inversa. Muestre una versi&oacute;n y una
+recursiva.</p>
+<p>4. Construir un programa que lea una sucesi&oacute;n de palabras y
+las busque en un peque&ntilde;o diccionario. Al finalizar debe
+imprimir la cuenta de ocurrencias de cada palabra en el diccionario.</p>
+<p>5. Construir un programa que lea una sucesi&oacute;n de palabras y
+las almacene en un arreglo de punteros a car&aacute;cter.</p>
+<p>6. Ordenar lexicogr&aacute;ficamente el arreglo de punteros del
+ejercicio 4.</p>
+<p>
+<br>
+</p>
+<pre><a href="adicionales/adic10b.html#adic1">Ejercicios Adicionales<br><br></a><br><a
+ href="adicionales/adic10b.html#adic2">Ejercicios Avanzados<br></a><br><br></pre>
+<hr style="width: 100%; height: 2px;">
+<br>
+<br>
+</body>
+</html>

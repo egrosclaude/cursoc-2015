@@ -1,0 +1,289 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+  <meta http-equiv="CONTENT-TYPE"
+ content="text/html; charset=iso-8859-1">
+  <title>9. Arreglos y variables estructuradas</title>
+  <meta name="GENERATOR" content="StarOffice/5.2 (Linux)">
+  <meta name="AUTHOR" content="Eduardo Grosclaude">
+  <meta name="CREATED" content="20000513;11191900">
+  <meta name="CHANGEDBY" content="Eduardo Grosclaude">
+  <meta name="CHANGED" content="20010816;21530000">
+  <style>
+	<!--
+		TD P { text-align: justify }
+		P { text-align: justify }
+		PRE { margin-left: 0.4cm }
+	-->
+	</style>
+</head>
+<body>
+<h1 align="justify">9. Arreglos y variables estructuradas</h1>
+<p align="justify">Casi todos los lenguajes proveen una manera de
+combinar variables simples en alguna forma de agregaci&oacute;n. La
+declaraci&oacute;n </p>
+<pre
+ style="margin-bottom: 0.5cm; color: rgb(0, 128, 0); font-weight: bold;">tipo nombre[cant_elementos];</pre>
+<p>define un bloque llamado <b>nombre</b> de <b>cant_elementos</b>
+objetos consecutivos de tipo <b>tipo</b>, lo que habitualmente recibe
+el nombre de <b>arreglo, vector o array</b>. Sus elementos se acceden
+indexando el bloque con expresiones enteras entre corchetes. En C,
+los arreglos <b>se indexan a partir de 0.</b></p>
+<h3 align="justify">Ejemplos</h3>
+<pre style="color: rgb(0, 153, 0); font-weight: bold;">int dias[12];<br><br>dias[0] = 31;<br>enero = dias[0];<br>febrero = dias[1];<br>a = dias[6 * b - 1];<br><br>double saldo[10];<br>for(i=0; i&lt;10; i++)<br>    saldo[i] = entradas[i] - salidas[i];</pre>
+<h2><a name="inicializaci&oacute;n"></a>Inicializaci&oacute;n de arreglos</h2>
+<p align="justify">Al ser declarados, los arreglos pueden recibir una
+inicializaci&oacute;n, que es una lista de valores del tipo
+correspondiente, indicados entre llaves. Esta inicializaci&oacute;n
+puede ser completa o incompleta. Si se omite la dimensi&oacute;n del
+arreglo, el compilador la infiere por la cantidad de valores de
+inicializaci&oacute;n.</p>
+<pre style="color: rgb(0, 128, 0); font-weight: bold;">int dias[12] = { 31, 28, 31, 30, 31, <br>    30, 31, 31, 30, 31, 30, 31 }; <br>    /* inic. completa */<br><br>double saldo[10] = { 150.40, 170.20 }; <br>    /* inic. incompleta */<br><br>long altura[] = { 3600, 3400, 3200, 6950 }; <br>    /* se infiere "long altura[4]" */</pre>
+<br>
+<h2><a name="errores"></a>Errores frecuentes</h2>
+<p align="justify">Los siguientes son errores muy comunes y
+lamentablemente el lenguaje C no provee ayuda para prevenirlos:</p>
+<h3>1. Indexaci&oacute;n fuera de l&iacute;mites</h3>
+<p align="justify">La dimensi&oacute;n dada en la declaraci&oacute;n
+del arreglo dice <b>cu&aacute;ntos elementos tiene</b>. Esto <b>no</b>
+quiere decir que exista un elemento del arreglo <b>con ese
+&iacute;ndice</b>
+(porque se numeran a partir de 0):</p>
+<pre style="color: rgb(204, 0, 0);">int tabla[5];<br><br>/* error! el &uacute;ltimo elemento es tabla[4]: */<br>tabla [5] = 1; </pre>
+<p>La &uacute;ltima instrucci&oacute;n equivale a acceder a un elemento
+fuera de los l&iacute;mites del arreglo. Este programa, err&oacute;neo,
+compilar&aacute; sin embargo correctamente. Al momento de
+ejecuci&oacute;n,
+la conducta depender&aacute; de cuestiones estructurales del sistema
+operativo. En variantes modernas de UNIX puede resultar un error de
+<b>violaci&oacute;n de segmentaci&oacute;n </b><span style="">o
+</span><b>falla de segmentaci&oacute;n</b>, lo que indica que el
+proceso ha rebasado los l&iacute;mites de su espacio asignado y el
+sistema de protecci&oacute;n del sistema operativo ha terminado el
+proceso. </p>
+<p align="justify">Sin embargo, en algunos otros casos, el error puede
+pasar inadvertido al momento de ejecuci&oacute;n porque el acceso, a
+pesar de superar los l&iacute;mites del arreglo, no cae fuera del
+espacio del proceso. En este caso la ejecuci&oacute;n
+proseguir&aacute;,
+pero se habr&aacute; le&iacute;do o escrito <i
+ style="font-weight: bold;">basura</i> en alguna
+zona impredecible del espacio de memoria del proceso.</p>
+<table border="0" cellpadding="4" cellspacing="0" width="100%">
+  <col width="128*"> <col width="128*"> <thead> <tr>
+    <td valign="top" width="50%">
+    <p><img alt="Acceso al Arreglo" src="img/accesoarray.gif"
+ name="Imagen1" style="border: 0px solid ; width: 346px; height: 346px;"
+ align="right"><br clear="right">
+    <br>
+    </p>
+    </td>
+    <td width="50%">
+    <p align="left"><font size="2">El diagrama ilustra dos casos de
+acceso indebido a un elemento inexistente de un arreglo. Suponemos
+tener una declaraci&oacute;n tal como <b>int tabla[5]</b><span style="">,
+y una instrucci&oacute;n err&oacute;nea que hace referencia al elemento
+    </span><b>tabla[5]</b><span style="">.</span></font></p>
+    <p align="left"><font size="2">En el primer caso, la variable
+estructurada tiene alg&uacute;n otro contenido contiguo dentro del
+espacio del proceso, y el acceso lee o escribe <i
+ style="font-weight: bold;">basura</i>. </font> </p>
+    <p align="left"><font size="2">En el segundo caso, el acceso cae
+fuera del espacio del proceso, y seg&uacute;n la reacci&oacute;n del
+sistema operativo, puede ocurrir lo mismo que en el caso anterior, o
+bien el proceso puede ser terminado por la fuerza.</font></p>
+    </td>
+  </tr>
+  </thead>
+</table>
+<p><br>
+</p>
+<h3>2. Asignaci&oacute;n de arreglos</h3>
+<p align="justify">Es frecuente confundir las operaciones de
+inicializaci&oacute;n y de asignaci&oacute;n. <span
+ style="font-weight: bold;">La inicializaci&oacute;n
+s&oacute;lo es v&aacute;lida en el momento de la declaraci&oacute;n:</span><span
+ style="font-weight: bold; font-style: italic;">
+no es legal asignar un arreglo</span>. <span style="font-weight: bold;">La
+asignaci&oacute;n debe
+forzosamente hacerse elemento por elemento.</span></p>
+<pre style="color: rgb(204, 0, 0);">int tabla[5];<br>tabla[] = { 1, 3, 2, 3, 4 }; /* incorrecto */</pre>
+<p>Esta instrucci&oacute;n no es compilable. Debe reemplazarse por:</p>
+<pre style="color: rgb(0, 153, 0);"><span
+ style="color: rgb(0, 128, 0); font-weight: bold;">tabla[0] = 1;</span><br
+ style="color: rgb(0, 128, 0); font-weight: bold;"><span
+ style="color: rgb(0, 128, 0); font-weight: bold;">tabla[1] = 3; ...etc</span><br
+ style="color: rgb(0, 128, 0); font-weight: bold;"><br></pre>
+<h2><a name="arreglos multidimiensionales"></a>Arreglos
+multidimensionales</h2>
+<p align="justify">En C se pueden simular matrices y arreglos de
+m&aacute;s
+dimensiones creando arreglos cuyos elementos son arreglos. La
+declaraci&oacute;n:</p>
+<pre
+ style="margin-bottom: 0.5cm; font-weight: bold; color: rgb(0, 128, 0);">int matriz[3][4];</pre>
+<p>expresa un arreglo de tres posiciones cuyos elementos son arreglos
+de
+cuatro posiciones. Una declaraci&oacute;n con inicializaci&oacute;n
+podr&iacute;a escribirse as&iacute;:</p>
+<pre style="color: rgb(0, 153, 0); font-weight: bold;">int matriz[3][4] = { <br>    {1, 2, 5, 7}, <br>    {3, 0, 0, 1}, <br>    {2, 8, 5, 4}};</pre>
+<p>y corresponder&iacute;a a una matriz de tres filas por cuatro
+columnas.</p>
+<p>La primera dimensi&oacute;n de un arreglo multidimensional puede
+ser inferida:</p>
+<pre style="color: rgb(0, 153, 0); font-weight: bold;">int matriz[][4] = { <br>    {1, 2, 5, 7}, <br>    {3, 0, 0, 1}, <br>    {2, 8, 5, 4}};</pre>
+<p>El recorrido de toda una matriz implica necesariamente un lazo
+doble, a dos variables:</p>
+<pre style="color: rgb(0, 153, 0); font-weight: bold;">for(i=0; i&lt;3; i++)<br>    for(j=0; j&lt;4; j++)<br>      a[i][j] = i  + j;</pre>
+<br>
+<h2><a name="estructuras y uniones"></a>Estructuras y uniones</h2>
+<p>Las variables estructuradas de C permiten agrupar una cantidad de
+variables simples de tipos eventualmente diferentes. Las <b>estructuras</b>
+y <b>uniones</b> aportan la ventaja de que es posible manipular este
+conjunto de variables como un todo. </p>
+<p>Es posible <b>inicializar</b> estructuras, <b>asignar conjuntos de
+constantes</b> a las estructuras, <b>asignar estructuras</b> entre
+s&iacute;, <b>pasarlas como argumentos</b> reales a funciones, y
+devolverlas como <b>valor de salida de funciones</b><span style="">.
+En particular</span>, &eacute;sta viene a ser la &uacute;nica manera
+de que una funci&oacute;n devuelva m&aacute;s de un dato.</p>
+<h3>Ejemplos</h3>
+<pre style="font-weight: bold;"><span style="color: rgb(0, 153, 0);">struct persona {</span><br
+ style="color: rgb(0, 153, 0);"><span style="color: rgb(0, 153, 0);">    long DNI;</span><br
+ style="color: rgb(0, 153, 0);"><span style="color: rgb(0, 153, 0);">    char nombre[40];</span><br
+ style="color: rgb(0, 153, 0);"><span style="color: rgb(0, 153, 0);">    int edad;</span><br
+ style="color: rgb(0, 153, 0);"><span style="color: rgb(0, 153, 0);">};</span><br
+ style="color: rgb(0, 153, 0);"><br style="color: rgb(0, 153, 0);"><span
+ style="color: rgb(0, 153, 0);">struct cliente {</span><br
+ style="color: rgb(0, 153, 0);"><span style="color: rgb(0, 153, 0);">    int num_cliente;</span><br
+ style="color: rgb(0, 153, 0);"><span style="color: rgb(0, 153, 0);">    struct persona p;</span><br
+ style="color: rgb(0, 153, 0);"><span style="color: rgb(0, 153, 0);">    double saldo;</span><br><span
+ style="color: rgb(0, 153, 0);">};</span></pre>
+<p><span style="font-style: italic; font-weight: bold;">Las
+declaraciones de m&aacute;s arriba no definen variables, con
+espacio de almacenamiento, sino que simplemente enuncian un nuevo
+tipo que puede usarse en nuevas declaraciones de variables</span>. El
+nombre
+o <i>tag</i> dado a la estructura es el nombre del nuevo tipo. En las
+instrucciones siguientes se utilizan los <i>tags</i> definidos
+anteriormente y se acceden a los diferentes miembros de las
+estructuras.</p>
+<pre style="color: rgb(0, 153, 0); font-weight: bold;">struct cliente c1, c2;<br><br>c1.num_cliente = 1001;<br>c1.p.DNI = 14233326;   /* acceso anidado */<br>c1.p.edad=40;<br><br>c2 = c1;               /* copia de estructuras */<br>struct persona p1 = {17698735, "Juan P&eacute;rez", 30};<br>c2.p = p1;</pre>
+<p>Una declaraci&oacute;n con inicializaci&oacute;n completa:</p>
+<pre style="color: rgb(0, 153, 0); font-weight: bold;">struct cliente c3 = { <br>    1002,  <br>    {17698735, "Juan P&eacute;rez", 30}, <br>    150.25 };</pre>
+<p>Tambi&eacute;n es legal declarar una variable struct junto con la
+enunciaci&oacute;n de su tipo, con o sin el <i>tag</i> asociado y con
+o sin inicializaci&oacute;n.</p>
+<pre style="color: rgb(0, 153, 0); font-weight: bold;">struct complejo { double real, imag; } c;<br>struct { double real, imag; } c;<br>struct complejo { <br>   double real, imag; <br>} c = { 20.5, -7.3 };</pre>
+<p>Una funci&oacute;n que recibe y devuelve estructuras:</p>
+<pre style="color: rgb(0, 153, 0); font-weight: bold;">struct punto {<br>    int x, y;<br>};<br><br>struct punto promedio(struct punto p1, <br>                      struct punto p2)<br>{<br>    struct punto z;<br>    z.x = (p1.x + p2.x) / 2;<br>    z.y = (p1.y + p2.y) / 2;<br>    return z;<br>}</pre>
+<br>
+<h3>Uniones</h3>
+<p>En una estructura, el compilador calcula la direcci&oacute;n de
+inicio de cada uno de los miembros dentro de la estructura sumando
+los tama&ntilde;os de los elementos de datos. Una <b>uni&oacute;n</b>
+es un caso especial de estructura donde todos los miembros <span
+ style="font-weight: bold; font-style: italic;">"nacen"</span>
+en el mismo lugar de origen de la estructura. </p>
+<pre style="color: rgb(0, 153, 0); font-weight: bold;">union intchar {<br>    int i;<br>    char a[sizeof(int)];<br>};</pre>
+<p>Este ejemplo de uni&oacute;n contiene dos miembros, un entero y un
+arreglo de tantos caracteres como bytes contiene un int en la
+arquitectura destino. Ambos miembros, por la propiedad fundamental de
+los <b>unions</b>, quedan "superpuestos" en memoria. El
+resultado es que podemos asignar un campo por un nombre y acceder por
+el otro. En este caso particular, podemos conocer qu&eacute; valores
+recibe cada byte de los que forman un int.</p>
+<pre style="color: rgb(0, 153, 0); font-weight: bold;">union intchar k;<br>k.i = 30541;<br>b = k.a[2];</pre>
+<table border="0" cellpadding="4" cellspacing="0" width="100%">
+  <col width="128*"> <col width="128*"> <thead> <tr>
+    <td width="50%">
+    <p style="" align="right"><font size="2">El diagrama ilustra los
+diferentes desplazamientos u offsets a los que se ubican los miembros
+en una <b>union</b> y en una <b>struct</b>, suponiendo una
+arquitectura subyacente donde los ints miden cuatro bytes.</font></p>
+    </td>
+    <td valign="top" width="50%">
+    <p align="left"><img alt="Union y Estructura"
+ src="img/unionplusstruct.gif" name="Imagen2"
+ style="border: 0px solid ; width: 345px; height: 345px;" align="left"><br
+ clear="left">
+    <br>
+    </p>
+    </td>
+  </tr>
+  </thead>
+</table>
+<p><br>
+</p>
+<h2><a name="campos de bits"></a>Campos de bits</h2>
+<p>Se pueden definir estructuras donde los miembros son agrupaciones
+de bits. Esta construcci&oacute;n es especialmente &uacute;til en
+programaci&oacute;n de sistemas donde se necesita la m&aacute;xima
+compactaci&oacute;n de las estructuras de datos. Cada miembro de un
+campo de bits es un unsigned int que lleva expl&iacute;citamente un
+"ancho" indicando la cantidad de bits que contiene.</p>
+<pre style="color: rgb(0, 153, 0); font-weight: bold;">struct disp {<br>    unsigned int encendido : 1;<br>    unsigned int <br>        online : 1,<br>        estado : 4;<br>};</pre>
+<p>En este ejemplo "inventamos" un dispositivo mapeado en
+memoria con el cual comunicarnos en base a un protocolo, tambi&eacute;n
+imaginario. Implementamos con un campo de bits un registro de control
+que permite encenderlo o apagarlo, consultar su disponibilidad
+(online u offline), y hacer una lectura de un valor de estado de
+cuatro bits (que entonces puede tomar valores entre 0 y 15). Todo el
+registro de comunicaci&oacute;n cabe en un byte.</p>
+<p>Nuestro dispositivo imaginario podr&iacute;a encenderse, esperar a
+que se ponga online, tomar el promedio de diez lecturas de estado y
+apagarse, con las instrucciones siguientes. Como se ve, no hay
+diferencia de acceso con las estructuras.</p>
+<pre style="color: rgb(0, 153, 0);"><span style="font-weight: bold;">struct disp d;</span><br
+ style="font-weight: bold;"><span style="font-weight: bold;">d.encendido = 1;</span><br
+ style="font-weight: bold;"><span style="font-weight: bold;">while(!d.online);</span><br
+ style="font-weight: bold;"><span style="font-weight: bold;">for(p=0, i=0; i&lt;10; i++)</span><br
+ style="font-weight: bold;"><span style="font-weight: bold;">    p += d.estado;</span><br
+ style="font-weight: bold;"><span style="font-weight: bold;">p /= 10;</span><br
+ style="font-weight: bold;"><span style="font-weight: bold;">d.encendido = 0;</span><br><br></pre>
+<hr>
+<h2><a name="ejercicios"></a>Ejercicios</h2>
+<p>1. Escribir una declaraci&oacute;n con inicializaci&oacute;n de un
+arreglo de diez elementos double, todos inicialmente iguales a 2.25. </p>
+<p>2. Escribir las sentencias para copiar un arreglo de cinco longs
+en otro.</p>
+<p>3. Escribir las sentencias para obtener el producto escalar de dos
+vectores.</p>
+<p>4. Escribir una funci&oacute;n que devuelva la posici&oacute;n
+donde se halla el menor elemento de un arreglo de floats.</p>
+<p>5. Dado un vector de diez elementos, escribir todos los promedios
+de cuatro elementos consecutivos.</p>
+6. Declarar una estructura <b>punto</b> conteniendo coordenadas x
+e y de tipo double. Dar ejemplos de inicializaci&oacute;n y de
+asignaci&oacute;n.
+<p>7. Declarar una estructura <b>segmento</b> conteniendo dos
+estructuras <b>punto</b>. Dar ejemplos de inicializaci&oacute;n y de
+asignaci&oacute;n. Dar una funci&oacute;n que calcule su longitud.</p>
+<p>8. &iquest;Cu&aacute;l es el error en estas sentencias de
+inicializaci&oacute;n?</p>
+<p>a)&nbsp;&nbsp;&nbsp; struct alfa {<span
+ style="font-family: monospace;"><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>int a, b;<span style="font-family: monospace;"><br>
+&nbsp;&nbsp;&nbsp; </span>};<br>
+</p>
+<pre>  alfa = { 10, 25 };</pre>
+<p>b)&nbsp; struct alfa {<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; int a, b;<br>
+&nbsp; &nbsp; &nbsp;&nbsp; };<br>
+</p>
+<pre> alfa d = { 10, 25 };</pre>
+<p>c)&nbsp;&nbsp; union dato{<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; char dato_a[4];<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; long dato_n;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }&nbsp; xdato = { "ABC",
+1000 };<br>
+</p>
+<pre><br><br> <a href="adicionales/adic9.html#adic1">Ejercicios Adicionales<br></a><br> <a
+ href="adicionales/adic9.html#adic2">Ejercicios Avanzados</a><br></pre>
+<hr style="width: 100%; height: 2px;">
+</body>
+</html>

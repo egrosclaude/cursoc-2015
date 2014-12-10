@@ -1,0 +1,376 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+	<meta http-equiv="CONTENT-TYPE" content="text/html; charset=iso-8859-1">
+	<title></title>
+	<meta name="GENERATOR" content="StarOffice/5.2 (Linux)">
+	<meta name="AUTHOR" content="Eduardo Grosclaude, 2001">
+	<meta name="CREATED" content="20010509;5700">
+	<meta name="CHANGEDBY" content="Eduardo Grosclaude">
+	<meta name="CHANGED" content="20010822;11072400">
+	<style>
+	<!--
+		H3 { margin-left: 0.25cm; margin-right: 0.25cm }
+		TD P { margin-left: 0.25cm; margin-right: 0.25cm; margin-bottom: 0cm }
+		H1 { margin-left: 0.25cm; margin-right: 0.25cm; margin-top: 0.43cm; margin-bottom: 0cm }
+		P { margin-left: 0.76cm; margin-right: 0.25cm; margin-bottom: 0cm }
+	-->
+	</style>
+</head>
+<body bgcolor="#ffffff">
+<h1 style="margin-left: 0.1cm; margin-right: 0.1cm; margin-top: 0cm; line-height: 100%">
+<br>
+</h1>
+<h1 style="margin-left: 0.1cm; margin-right: 0.1cm; margin-top: 0cm; line-height: 100%">
+<font face="Verdana, sans-serif"><font size="4">Lenguaje C</font></font></h1>
+<p style="margin-left: 0.1cm; margin-right: 0.1cm; line-height: 100%">
+<font face="Verdana, sans-serif"><font size="2">Eduardo Grosclaude,
+2001</font></font></p>
+<hr width="708" align="CENTER">
+<p style="margin-left: 0.1cm; margin-right: 0.1cm; line-height: 100%">
+<br>
+</p>
+<h3 style="margin-left: 0.1cm; margin-right: 0.1cm; margin-top: 0cm; margin-bottom: 0cm; line-height: 100%">
+<a href="Cap1/cursoC-1.html" target="material"><span style="text-decoration: none"><font size="3"><font face="Verdana, sans-serif">1.
+Introducción al lenguaje C</font></font></span></a></h3>
+<p style="margin-left: 0.1cm; margin-right: 0.1cm; line-height: 100%">
+<a href="Cap1/cursoC-1.html#características del lenguaje" target="material"><span style="text-decoration: none"><font size="1" style="font-size: 8pt"><font face="Verdana, sans-serif">Características
+del lenguaje</font></font></span></a></p>
+<p style="margin-left: 0.1cm; margin-right: 0.1cm; line-height: 100%">
+<a href="Cap1/cursoC-1.html#el ciclo de compilación" target="material"><span style="text-decoration: none"><font size="1" style="font-size: 8pt"><font face="Verdana, sans-serif">El
+ciclo de compilación</font></font></span></a></p>
+<p style="margin-left: 0.1cm; margin-right: 0.1cm; line-height: 100%">
+<a href="Cap1/cursoC-1.html#el primer ejemplo" target="material"><span style="text-decoration: none"><font size="1" style="font-size: 8pt"><font face="Verdana, sans-serif">El
+primer ejemplo</font></font></span></a></p>
+<p style="margin-left: 0.1cm; margin-right: 0.1cm; line-height: 100%">
+<a href="Cap1/cursoC-1.html#mapa de memoria" target="material"><span style="text-decoration: none"><font size="1" style="font-size: 8pt"><font face="Verdana, sans-serif">Mapa
+de memoria de un programa</font></font></span></a></p>
+<p style="margin-left: 0.1cm; margin-right: 0.1cm; line-height: 100%">
+<a href="Cap1/cursoC-1.html#ejercicios" target="material"><span style="text-decoration: none"><font size="1" style="font-size: 8pt"><font face="Verdana, sans-serif">Ejercicios</font></font></span></a></p>
+<p style="margin-left: 0.1cm; margin-right: 0.1cm; line-height: 100%">
+<a href="test/introduccion.html" target="material"><span style="text-decoration: none"><font size="1" style="font-size: 8pt"><font face="Verdana, sans-serif">Test</font></font></span></a></p>
+<p style="margin-left: 0.1cm; margin-right: 0.1cm; line-height: 100%">
+ </p>
+<h3 style="margin-left: 0.1cm; margin-right: 0.1cm; margin-top: 0cm; margin-bottom: 0cm; line-height: 100%">
+<a href="Cap2/cursoC-2.html" target="material"><span style="text-decoration: none"><font size="3"><font face="Verdana, sans-serif">2.
+El preprocesador</font></font></span></a></h3>
+<p style="margin-left: 0.1cm; margin-right: 0.1cm; line-height: 100%">
+<a href="Cap2/cursoC-2.html#directivas de preprocesador" target="material"><span style="text-decoration: none"><font size="1" style="font-size: 8pt"><font face="Verdana, sans-serif">Directivas
+de preprocesador</font></font></span></a></p>
+<p style="margin-left: 0.1cm; margin-right: 0.1cm; line-height: 100%">
+<a href="Cap2/cursoC-2.html#ejemplos1" target="material"><span style="text-decoration: none"><font size="1" style="font-size: 8pt"><font face="Verdana, sans-serif">Ejemplos</font></font></span></a></p>
+<p style="margin-left: 0.1cm; margin-right: 0.1cm; line-height: 100%">
+<a href="Cap2/cursoC-2.html#observaciones" target="material"><span style="text-decoration: none"><font size="1" style="font-size: 8pt"><font face="Verdana, sans-serif">Observaciones</font></font></span></a></p>
+<p style="margin-left: 0.1cm; margin-right: 0.1cm; line-height: 100%">
+<a href="Cap2/cursoC-2.html#ejercicios" target="material"><span style="text-decoration: none"><font size="1" style="font-size: 8pt"><font face="Verdana, sans-serif">Ejercicios</font></font></span></a></p>
+<p style="margin-left: 0.1cm; margin-right: 0.1cm; line-height: 100%">
+<a href="test/preprocesador.html" target="material"><span style="text-decoration: none"><font size="1" style="font-size: 8pt"><font face="Verdana, sans-serif">Test</font></font></span></a></p>
+<p style="margin-left: 0.1cm; margin-right: 0.1cm; line-height: 100%">
+ </p>
+<h3 style="margin-left: 0.1cm; margin-right: 0.1cm; margin-top: 0cm; margin-bottom: 0cm; line-height: 100%">
+<a href="Cap3/cursoC-3.html" target="material"><span style="text-decoration: none"><font size="3"><font face="Verdana, sans-serif">3.
+Tipos de datos y expresiones</font></font></span></a></h3>
+<p style="margin-left: 0.1cm; margin-right: 0.1cm; line-height: 100%">
+<a href="Cap3/cursoC-3.html#declaración de variables" target="material"><span style="text-decoration: none"><font size="1" style="font-size: 8pt"><font face="Verdana, sans-serif">Declaración
+de variables</font></font></span></a></p>
+<p style="margin-left: 0.1cm; margin-right: 0.1cm; line-height: 100%">
+<a href="Cap3/cursoC-3.html#tamaños de los objetos de datos" target="material"><span style="text-decoration: none"><font size="1" style="font-size: 8pt"><font face="Verdana, sans-serif">Tamaños
+de los objetos de datos</font></font></span></a></p>
+<p style="margin-left: 0.1cm; margin-right: 0.1cm; line-height: 100%">
+<a href="Cap3/cursoC-3.html#operaciones con expresiones" target="material"><span style="text-decoration: none"><font size="1" style="font-size: 8pt"><font face="Verdana, sans-serif">Operaciones
+con expresiones</font></font></span></a></p>
+<p style="margin-left: 0.1cm; margin-right: 0.1cm; line-height: 100%">
+<a href="Cap3/cursoC-3.html#reglas de promoción" target="material"><span style="text-decoration: none"><font size="1" style="font-size: 8pt"><font face="Verdana, sans-serif">Reglas
+de promoción en expresiones</font></font></span></a></p>
+<p style="margin-left: 0.1cm; margin-right: 0.1cm; line-height: 100%">
+<a href="Cap3/cursoC-3.html#observaciones" target="material"><span style="text-decoration: none"><font size="1" style="font-size: 8pt"><font face="Verdana, sans-serif">Observaciones</font></font></span></a></p>
+<p style="margin-left: 0.1cm; margin-right: 0.1cm; line-height: 100%">
+<a href="Cap3/cursoC-3.html#printf" target="material"><span style="text-decoration: none"><font size="1" style="font-size: 8pt"><font face="Verdana, sans-serif">Una
+herramienta: printf()</font></font></span></a></p>
+<p style="margin-left: 0.1cm; margin-right: 0.1cm; line-height: 100%">
+<a href="Cap3/cursoC-3.html#ejercicios" target="material"><span style="text-decoration: none"><font size="1" style="font-size: 8pt"><font face="Verdana, sans-serif">Ejercicios</font></font></span></a></p>
+<p style="margin-left: 0.1cm; margin-right: 0.1cm; line-height: 100%">
+<a href="test/tiposdedatos.html" target="material"><span style="text-decoration: none"><font size="1" style="font-size: 8pt"><font face="Verdana, sans-serif">Test</font></font></span></a></p>
+<p style="margin-left: 0.1cm; margin-right: 0.1cm; line-height: 100%">
+ </p>
+<h3 style="margin-left: 0.1cm; margin-right: 0.1cm; margin-top: 0cm; margin-bottom: 0cm; line-height: 100%">
+<a href="Cap4/cursoC-4.html" target="material"><span style="text-decoration: none"><font size="3"><font face="Verdana, sans-serif">4.
+Constantes</font></font></span></a></h3>
+<p style="margin-left: 0.1cm; margin-right: 0.1cm; line-height: 100%">
+<a href="Cap4/cursoC-4.html#enteras" target="material"><span style="text-decoration: none"><font size="1" style="font-size: 8pt"><font face="Verdana, sans-serif">Constantes
+enteras</font></font></span></a></p>
+<p style="margin-left: 0.1cm; margin-right: 0.1cm; line-height: 100%">
+<a href="Cap4/cursoC-4.html#long" target="material"><span style="text-decoration: none"><font size="1" style="font-size: 8pt"><font face="Verdana, sans-serif">Constantes
+long</font></font></span></a></p>
+<p style="margin-left: 0.1cm; margin-right: 0.1cm; line-height: 100%">
+<a href="Cap4/cursoC-4.html#string" target="material"><span style="text-decoration: none"><font size="1" style="font-size: 8pt"><font face="Verdana, sans-serif">Constantes
+string</font></font></span></a></p>
+<p style="margin-left: 0.1cm; margin-right: 0.1cm; line-height: 100%">
+<a href="Cap4/cursoC-4.html#carácter" target="material"><span style="text-decoration: none"><font size="1" style="font-size: 8pt"><font face="Verdana, sans-serif">Constantes
+de carácter</font></font></span></a></p>
+<p style="margin-left: 0.1cm; margin-right: 0.1cm; line-height: 100%">
+<a href="Cap4/cursoC-4.html#punto flotante" target="material"><span style="text-decoration: none"><font size="1" style="font-size: 8pt"><font face="Verdana, sans-serif">Constantes
+de punto flotante</font></font></span></a></p>
+<p style="margin-left: 0.1cm; margin-right: 0.1cm; line-height: 100%">
+<a href="Cap4/cursoC-4.html#ejercicios2" target="material"><span style="text-decoration: none"><font size="1" style="font-size: 8pt"><font face="Verdana, sans-serif">Ejercicios</font></font></span></a></p>
+<p style="margin-left: 0.1cm; margin-right: 0.1cm; line-height: 100%">
+<a href="test/constantes.html" target="material"><span style="text-decoration: none"><font size="1" style="font-size: 8pt"><font face="Verdana, sans-serif">Test</font></font></span></a></p>
+<p style="margin-left: 0.1cm; margin-right: 0.1cm; line-height: 100%">
+ </p>
+<h3 style="margin-left: 0.1cm; margin-right: 0.1cm; margin-top: 0cm; margin-bottom: 0cm; line-height: 100%">
+<a href="Cap5/cursoC-5.html" target="material"><span style="text-decoration: none"><font size="3"><font face="Verdana, sans-serif">5.
+Propiedades de las variables</font></font></span></a></h3>
+<p style="margin-left: 0.1cm; margin-right: 0.1cm; line-height: 100%">
+<a href="Cap5/cursoC-5.html#alcance de las variables" target="material"><span style="text-decoration: none"><font size="1" style="font-size: 8pt"><font face="Verdana, sans-serif">Alcance
+de las variables</font></font></span></a></p>
+<p style="margin-left: 0.1cm; margin-right: 0.1cm; line-height: 100%">
+<a href="Cap5/cursoC-5.html#vida de las variables" target="material"><span style="text-decoration: none"><font size="1" style="font-size: 8pt"><font face="Verdana, sans-serif">Vida
+de las variables</font></font></span></a></p>
+<p style="margin-left: 0.1cm; margin-right: 0.1cm; line-height: 100%">
+<a href="Cap5/cursoC-5.html#clases de almacenamiento" target="material"><span style="text-decoration: none"><font size="1" style="font-size: 8pt"><font face="Verdana, sans-serif">Clases
+de almacenamiento</font></font></span></a></p>
+<p style="margin-left: 0.1cm; margin-right: 0.1cm; line-height: 100%">
+<a href="Cap5/cursoC-5.html#liga" target="material"><span style="text-decoration: none"><font size="1" style="font-size: 8pt"><font face="Verdana, sans-serif">Liga</font></font></span></a></p>
+<p style="margin-left: 0.1cm; margin-right: 0.1cm; line-height: 100%">
+<a href="Cap5/cursoC-5.html#declaración y definición" target="material"><span style="text-decoration: none"><font size="1" style="font-size: 8pt"><font face="Verdana, sans-serif">Declaración
+y definición de variables</font></font></span></a></p>
+<p style="margin-left: 0.1cm; margin-right: 0.1cm; line-height: 100%">
+<a href="Cap5/cursoC-5.html#modificadores" target="material"><span style="text-decoration: none"><font size="1" style="font-size: 8pt"><font face="Verdana, sans-serif">Modificadores
+especiales</font></font></span></a></p>
+<p style="margin-left: 0.1cm; margin-right: 0.1cm; line-height: 100%">
+<a href="Cap5/cursoC-5.html#ejercicios" target="material"><span style="text-decoration: none"><font size="1" style="font-size: 8pt"><font face="Verdana, sans-serif">Ejercicios</font></font></span></a></p>
+<p style="margin-left: 0.1cm; margin-right: 0.1cm; line-height: 100%">
+<a href="test/variables.html" target="material"><span style="text-decoration: none"><font size="1" style="font-size: 8pt"><font face="Verdana, sans-serif">Test</font></font></span></a></p>
+<p style="margin-left: 0.1cm; margin-right: 0.1cm; line-height: 100%">
+ </p>
+<h3 style="margin-left: 0.1cm; margin-right: 0.1cm; margin-top: 0cm; margin-bottom: 0cm; line-height: 100%">
+<a href="Cap6/cursoC-6.html" target="material"><span style="text-decoration: none"><b><font size="3"><font face="Verdana, sans-serif">6.
+Operadores</font></font></b></span></a></h3>
+<p style="margin-left: 0.1cm; margin-right: 0.1cm; line-height: 100%">
+<a href="Cap6/cursoC-6.html#aritméticos" target="material"><span style="text-decoration: none"><span style="font-weight: medium"><font size="1" style="font-size: 8pt"><font face="Verdana, sans-serif">Operadores
+aritméticos</font></font></span></span></a></p>
+<p style="margin-left: 0.1cm; margin-right: 0.1cm; line-height: 100%">
+<a href="Cap6/cursoC-6.html#de relación" target="material"><span style="text-decoration: none"><span style="font-weight: medium"><font size="1" style="font-size: 8pt"><font face="Verdana, sans-serif">Operadores
+de relación</font></font></span></span></a></p>
+<p style="margin-left: 0.1cm; margin-right: 0.1cm; line-height: 100%">
+<a href="Cap6/cursoC-6.html#lógicos" target="material"><span style="text-decoration: none"><span style="font-weight: medium"><font size="1" style="font-size: 8pt"><font face="Verdana, sans-serif">Operadores
+lógicos</font></font></span></span></a></p>
+<p style="margin-left: 0.1cm; margin-right: 0.1cm; line-height: 100%">
+<a href="Cap6/cursoC-6.html#de bits" target="material"><span style="text-decoration: none"><span style="font-weight: medium"><font size="1" style="font-size: 8pt"><font face="Verdana, sans-serif">Operadores
+de bits</font></font></span></span></a></p>
+<p style="margin-left: 0.1cm; margin-right: 0.1cm; line-height: 100%">
+<a href="Cap6/cursoC-6.html#especiales" target="material"><span style="text-decoration: none"><span style="font-weight: medium"><font size="1" style="font-size: 8pt"><font face="Verdana, sans-serif">Operadores
+especiales</font></font></span></span></a></p>
+<p style="margin-left: 0.1cm; margin-right: 0.1cm; line-height: 100%">
+<a href="Cap6/cursoC-6.html#precedencia" target="material"><span style="text-decoration: none"><span style="font-weight: medium"><font size="1" style="font-size: 8pt"><font face="Verdana, sans-serif">Precedencia
+y orden de evaluación</font></font></span></span></a></p>
+<p style="margin-left: 0.1cm; margin-right: 0.1cm; line-height: 100%">
+<a href="Cap6/cursoC-6.html#resumen" target="material"><span style="text-decoration: none"><span style="font-weight: medium"><font size="1" style="font-size: 8pt"><font face="Verdana, sans-serif">Resumen</font></font></span></span></a></p>
+<p style="margin-left: 0.1cm; margin-right: 0.1cm; line-height: 100%">
+<a href="Cap6/cursoC-6.html#ejercicios" target="material"><span style="text-decoration: none"><span style="font-weight: medium"><font size="1" style="font-size: 8pt"><font face="Verdana, sans-serif">Ejercicios</font></font></span></span></a></p>
+<p style="margin-left: 0.1cm; margin-right: 0.1cm; line-height: 100%">
+<a href="test/operadores.html" target="material"><span style="text-decoration: none"><span style="font-weight: medium"><font size="1" style="font-size: 8pt"><font face="Verdana, sans-serif">Test</font></font></span></span></a></p>
+<p style="margin-left: 0.1cm; margin-right: 0.1cm; line-height: 100%">
+ </p>
+<h3 style="margin-left: 0.1cm; margin-right: 0.1cm; margin-top: 0cm; margin-bottom: 0cm; line-height: 100%">
+<a href="Cap7/cursoC-7.html" target="material"><span style="text-decoration: none"><b><font size="3"><font face="Verdana, sans-serif">7.
+Estructuras de control</font></font></b></span></a></h3>
+<p style="margin-left: 0.1cm; margin-right: 0.1cm; line-height: 100%">
+<a href="Cap7/cursoC-7.html#alternativa" target="material"><span style="text-decoration: none"><span style="font-weight: medium"><font size="1" style="font-size: 8pt"><font face="Verdana, sans-serif">Estructura
+alternativa</font></font></span></span></a></p>
+<p style="margin-left: 0.1cm; margin-right: 0.1cm; line-height: 100%">
+<a href="Cap7/cursoC-7.html#repetitivas" target="material"><span style="text-decoration: none"><span style="font-weight: medium"><font size="1" style="font-size: 8pt"><font face="Verdana, sans-serif">Estructuras
+repetitivas</font></font></span></span></a></p>
+<p style="margin-left: 0.1cm; margin-right: 0.1cm; line-height: 100%">
+<a href="Cap7/cursoC-7.html#selección" target="material"><span style="text-decoration: none"><span style="font-weight: medium"><font size="1" style="font-size: 8pt"><font face="Verdana, sans-serif">Estructura
+de selección</font></font></span></span></a></p>
+<p style="margin-left: 0.1cm; margin-right: 0.1cm; line-height: 100%">
+<a href="Cap7/cursoC-7.html#incondicional" target="material"><span style="text-decoration: none"><span style="font-weight: medium"><font size="1" style="font-size: 8pt"><font face="Verdana, sans-serif">Transferencia
+incondicional</font></font></span></span></a></p>
+<p style="margin-left: 0.1cm; margin-right: 0.1cm; line-height: 100%">
+<a href="Cap7/cursoC-7.html#observaciones" target="material"><span style="text-decoration: none"><span style="font-weight: medium"><font size="1" style="font-size: 8pt"><font face="Verdana, sans-serif">Observaciones</font></font></span></span></a></p>
+<p style="margin-left: 0.1cm; margin-right: 0.1cm; line-height: 100%">
+<a href="Cap7/cursoC-7.html#ejercicios" target="material"><span style="text-decoration: none"><span style="font-weight: medium"><font size="1" style="font-size: 8pt"><font face="Verdana, sans-serif">Ejercicios</font></font></span></span></a></p>
+<p style="margin-left: 0.1cm; margin-right: 0.1cm; line-height: 100%">
+<a href="test/control.html" target="material"><span style="text-decoration: none"><span style="font-weight: medium"><font size="1" style="font-size: 8pt"><font face="Verdana, sans-serif">Test</font></font></span></span></a></p>
+<p style="margin-left: 0.1cm; margin-right: 0.1cm; line-height: 100%">
+ </p>
+<h3 style="margin-left: 0.1cm; margin-right: 0.1cm; margin-top: 0cm; margin-bottom: 0cm; line-height: 100%">
+<a href="Cap8/cursoC-8.html" target="material"><span style="text-decoration: none"><b><font size="3"><font face="Verdana, sans-serif">8.
+Funciones</font></font></b></span></a></h3>
+<p style="margin-left: 0.1cm; margin-right: 0.1cm; line-height: 100%">
+<a href="Cap8/cursoC-8.html#declaracion y def de funciones" target="material"><span style="text-decoration: none"><span style="font-weight: medium"><font size="1" style="font-size: 8pt"><font face="Verdana, sans-serif">Declaración
+y definición de funciones</font></font></span></span></a></p>
+<p style="margin-left: 0.1cm; margin-right: 0.1cm; line-height: 100%">
+<a href="Cap8/cursoC-8.html#prototipos de funciones" target="material"><span style="text-decoration: none"><span style="font-weight: medium"><font size="1" style="font-size: 8pt"><font face="Verdana, sans-serif">Prototipos
+de funciones</font></font></span></span></a></p>
+<p style="margin-left: 0.1cm; margin-right: 0.1cm; line-height: 100%">
+<a href="Cap8/cursoC-8.html#recursividad" target="material"><span style="text-decoration: none"><span style="font-weight: medium"><font size="1" style="font-size: 8pt"><font face="Verdana, sans-serif">Recursividad</font></font></span></span></a></p>
+<p style="margin-left: 0.1cm; margin-right: 0.1cm; line-height: 100%">
+<a href="Cap8/cursoC-8.html#ejercicios" target="material"><span style="text-decoration: none"><span style="font-weight: medium"><font size="1" style="font-size: 8pt"><font face="Verdana, sans-serif">Ejercicios</font></font></span></span></a></p>
+<p style="margin-left: 0.1cm; margin-right: 0.1cm; line-height: 100%">
+<a href="test/funciones.html" target="material"><span style="text-decoration: none"><span style="font-weight: medium"><font size="1" style="font-size: 8pt"><font face="Verdana, sans-serif">Test</font></font></span></span></a></p>
+<p style="margin-left: 0.1cm; margin-right: 0.1cm; line-height: 100%">
+ </p>
+<h3 style="margin-left: 0.1cm; margin-right: 0.1cm; margin-top: 0cm; margin-bottom: 0cm; line-height: 100%">
+<a href="Cap9/cursoC-9.html" target="material"><span style="text-decoration: none"><b><font size="3"><font face="Verdana, sans-serif">9.
+Arreglos y variables estructuradas</font></font></b></span></a></h3>
+<p style="margin-left: 0.1cm; margin-right: 0.1cm; line-height: 100%">
+<a href="Cap9/cursoC-9.html#inicialización" target="material"><span style="text-decoration: none"><span style="font-weight: medium"><font size="1" style="font-size: 8pt"><font face="Verdana, sans-serif">Inicialización
+de arreglos</font></font></span></span></a><span style="font-weight: medium">
+</span>
+</p>
+<p style="margin-left: 0.1cm; margin-right: 0.1cm; line-height: 100%">
+<a href="Cap9/cursoC-9.html#errores" target="material"><span style="text-decoration: none"><span style="font-weight: medium"><font size="1" style="font-size: 8pt"><font face="Verdana, sans-serif">Errores
+frecuentes</font></font></span></span></a></p>
+<p style="margin-left: 0.1cm; margin-right: 0.1cm; line-height: 100%">
+<a href="Cap9/cursoC-9.html#arreglos multidimiensionales" target="material"><span style="text-decoration: none"><span style="font-weight: medium"><font size="1" style="font-size: 8pt"><font face="Verdana">Arreglos
+multidimensionales</font></font></span></span></a></p>
+<p style="margin-left: 0.1cm; margin-right: 0.1cm; line-height: 100%">
+<a href="Cap9/cursoC-9.html#estructuras y uniones" target="material"><span style="text-decoration: none"><span style="font-weight: medium"><font size="1" style="font-size: 8pt"><font face="Verdana, sans-serif">Estructuras
+y uniones</font></font></span></span></a></p>
+<p style="margin-left: 0.1cm; margin-right: 0.1cm; line-height: 100%">
+<a href="Cap9/cursoC-9.html#campos de bits" target="material"><span style="text-decoration: none"><span style="font-weight: medium"><font size="1" style="font-size: 8pt"><font face="Verdana, sans-serif">Campos
+de bits</font></font></span></span></a></p>
+<p style="margin-left: 0.1cm; margin-right: 0.1cm; line-height: 100%">
+<a href="Cap9/cursoC-9.html#ejercicios" target="material"><span style="text-decoration: none"><span style="font-weight: medium"><font size="1" style="font-size: 8pt"><font face="Verdana, sans-serif">Ejercicios</font></font></span></span></a></p>
+<p style="margin-left: 0.1cm; margin-right: 0.1cm; line-height: 100%">
+<a href="test/arreglos.html" target="material"><span style="text-decoration: none"><span style="font-weight: medium"><font size="1" style="font-size: 8pt"><font face="Verdana, sans-serif">Test</font></font></span></span></a></p>
+<p style="margin-left: 0.1cm; margin-right: 0.1cm; line-height: 100%">
+ </p>
+<h3 style="margin-left: 0.1cm; margin-right: 0.1cm; margin-top: 0cm; margin-bottom: 0cm; line-height: 100%">
+<a href="Cap10/cursoC-10.html" target="material"><span style="text-decoration: none"><b><font size="3"><font face="Verdana, sans-serif">10.
+Apuntadores y direcciones</font></font></b></span></a></h3>
+<p style="margin-left: 0.1cm; margin-right: 0.1cm; line-height: 100%">
+<a href="Cap10/cursoC-10.html#operadores" target="material"><span style="text-decoration: none"><span style="font-weight: medium"><font size="1" style="font-size: 8pt"><font face="Verdana, sans-serif">Operadores
+especiales</font></font></span></span></a></p>
+<p style="margin-left: 0.1cm; margin-right: 0.1cm; line-height: 100%">
+<a href="Cap10/cursoC-10.html#aritmética" target="material"><span style="text-decoration: none"><span style="font-weight: medium"><font size="1" style="font-size: 8pt"><font face="Verdana, sans-serif">Aritmética
+de punteros</font></font></span></span></a></p>
+<p style="margin-left: 0.1cm; margin-right: 0.1cm; line-height: 100%">
+<a href="Cap10/cursoC-10.html#punteros y arreglos" target="material"><span style="text-decoration: none"><span style="font-weight: medium"><font size="1" style="font-size: 8pt"><font face="Verdana, sans-serif">Punteros
+y arreglos</font></font></span></span></a></p>
+<p style="margin-left: 0.1cm; margin-right: 0.1cm; line-height: 100%">
+<a href="Cap10/cursoC-10.html#y cadenas" target="material"><span style="text-decoration: none"><span style="font-weight: medium"><font size="1" style="font-size: 8pt"><font face="Verdana, sans-serif">Punteros
+y cadenas de texto</font></font></span></span></a></p>
+<p style="margin-left: 0.1cm; margin-right: 0.1cm; line-height: 100%">
+<a href="Cap10/cursoC-10.html#pasaje por referencia" target="material"><span style="text-decoration: none"><span style="font-weight: medium"><font size="1" style="font-size: 8pt"><font face="Verdana, sans-serif">Pasaje
+por referencia</font></font></span></span></a></p>
+<p style="margin-left: 0.1cm; margin-right: 0.1cm; line-height: 100%">
+<a href="Cap10/cursoC-10.html#punteros y argumentos" target="material"><span style="text-decoration: none"><span style="font-weight: medium"><font size="1" style="font-size: 8pt"><font face="Verdana, sans-serif">Punteros
+y argumentos de funciones</font></font></span></span></a></p>
+<p style="margin-left: 0.1cm; margin-right: 0.1cm; line-height: 100%">
+<a href="Cap10/cursoC-10.html#ejercicios" target="material"><span style="text-decoration: none"><span style="font-weight: medium"><font size="1" style="font-size: 8pt"><font face="Verdana, sans-serif">Ejercicios</font></font></span></span></a></p>
+<p style="margin-left: 0.1cm; margin-right: 0.1cm; line-height: 100%; text-decoration: none">
+ </p>
+<h3 style="margin-left: 0.1cm; margin-right: 0.1cm; margin-top: 0cm; margin-bottom: 0cm; line-height: 100%">
+<a href="Cap10b/cursoC-10b.html" target="material"><span style="text-decoration: none"><b><font size="3"><font face="Verdana, sans-serif">10b.
+Temas avanzados de apuntadores y direcciones</font></font></b></span></a></h3>
+<p style="margin-left: 0.1cm; margin-right: 0.1cm; line-height: 100%">
+<a href="Cap10b/cursoC-10b.html#observaciones" target="material"><span style="text-decoration: none"><span style="font-weight: medium"><font size="1" style="font-size: 8pt"><font face="Verdana, sans-serif">Observaciones</font></font></span></span></a></p>
+<p style="margin-left: 0.1cm; margin-right: 0.1cm; line-height: 100%">
+<a href="Cap10b/cursoC-10b.html#arreglos de" target="material"><span style="text-decoration: none"><span style="font-weight: medium"><font size="1" style="font-size: 8pt"><font face="Verdana, sans-serif">Arreglos
+de punteros</font></font></span></span></a></p>
+<p style="margin-left: 0.1cm; margin-right: 0.1cm; line-height: 100%">
+<a href="Cap10b/cursoC-10b.html#estructuras ref" target="material"><span style="text-decoration: none"><span style="font-weight: medium"><font size="1" style="font-size: 8pt"><font face="Verdana, sans-serif">Estructuras
+referenciadas por punteros</font></font></span></span></a></p>
+<p style="margin-left: 0.1cm; margin-right: 0.1cm; line-height: 100%">
+<a href="Cap10b/cursoC-10b.html#estructuras rec" target="material"><span style="text-decoration: none"><span style="font-weight: medium"><font size="1" style="font-size: 8pt"><font face="Verdana, sans-serif">Estructuras
+de datos recursivas y punteros</font></font></span></span></a></p>
+<p style="margin-left: 0.1cm; margin-right: 0.1cm; line-height: 100%">
+<a href="Cap10b/cursoC-10b.html#construcción de tipos" target="material"><span style="text-decoration: none"><span style="font-weight: medium"><font size="1" style="font-size: 8pt"><font face="Verdana, sans-serif">Construcción
+de tipos</font></font></span></span></a></p>
+<p style="margin-left: 0.1cm; margin-right: 0.1cm; line-height: 100%">
+<a href="Cap10b/cursoC-10b.html#asig dinamica" target="material"><span style="text-decoration: none"><font size="1" style="font-size: 8pt"><font face="Verdana, sans-serif">Asignación
+dinámica</font></font></span></a></p>
+<p style="margin-left: 0.1cm; margin-right: 0.1cm; line-height: 100%">
+<a href="Cap10b/cursoC-10b.html#punteros a funciones" target="material"><span style="text-decoration: none"><font size="1" style="font-size: 8pt"><font face="Verdana, sans-serif">Punteros
+a funciones</font></font></span></a></p>
+<p style="margin-left: 0.1cm; margin-right: 0.1cm; line-height: 100%">
+<a href="Cap10b/cursoC-10b.html#punteros a punteros" target="material"><span style="text-decoration: none"><font size="1" style="font-size: 8pt"><font face="Verdana, sans-serif">Punteros
+a punteros</font></font></span></a></p>
+<p style="margin-left: 0.1cm; margin-right: 0.1cm; line-height: 100%">
+<a href="Cap10b/cursoC-10b.html#gets" target="material"><span style="text-decoration: none"><span style="font-weight: medium"><font size="1" style="font-size: 8pt"><font face="Verdana, sans-serif">Una
+herramienta: gets()</font></font></span></span></a></p>
+<p style="margin-left: 0.1cm; margin-right: 0.1cm; line-height: 100%">
+<a href="Cap10b/cursoC-10b.html#ejercicios" target="material"><span style="text-decoration: none"><span style="font-weight: medium"><font size="1" style="font-size: 8pt"><font face="Verdana, sans-serif">Ejercicios</font></font></span></span></a></p>
+<p style="margin-left: 0.1cm; margin-right: 0.1cm; line-height: 100%">
+<a href="test/punteros.html" target="material"><span style="text-decoration: none"><span style="font-weight: medium"><font size="1" style="font-size: 8pt"><font face="Verdana, sans-serif">Test</font></font></span></span></a></p>
+<p style="margin-left: 0.1cm; margin-right: 0.1cm; line-height: 100%">
+ </p>
+<h3 style="margin-left: 0.1cm; margin-right: 0.1cm; margin-top: 0cm; margin-bottom: 0cm; line-height: 100%">
+<a href="Cap11/cursoC-11.html" target="material"><span style="text-decoration: none"><font size="3"><font face="Verdana, sans-serif">11.
+Entrada / salida</font></font></span></a></h3>
+<p style="margin-left: 0.1cm; margin-right: 0.1cm; line-height: 100%">
+<a href="Cap11/cursoC-11.html#funciones de ES std" target="material"><span style="text-decoration: none"><span style="font-weight: medium"><font size="1" style="font-size: 8pt"><font face="Verdana, sans-serif">Funciones
+de E/S standard</font></font></span></span></a></p>
+<p style="margin-left: 0.1cm; margin-right: 0.1cm; line-height: 100%">
+<a href="Cap11/cursoC-11.html#ES sobre archivos" target="material"><span style="text-decoration: none"><span style="font-weight: medium"><font size="1" style="font-size: 8pt"><font face="Verdana, sans-serif">E/S
+sobre archivos</font></font></span></span></a></p>
+<p style="margin-left: 0.1cm; margin-right: 0.1cm; line-height: 100%">
+<a href="Cap11/cursoC-11.html#ANSI C ES archivos" target="material"><span style="text-decoration: none"><span style="font-weight: medium"><font size="1" style="font-size: 8pt"><font face="Verdana, sans-serif">Funciones
+ANSI C de E/S sobre archivos </font></font></span></span></a></p>
+<p style="margin-left: 0.1cm; margin-right: 0.1cm; line-height: 100%">
+<a href="Cap11/cursoC-11.html#ANSI C acceso directo" target="material"><span style="text-decoration: none"><span style="font-weight: medium"><font size="1" style="font-size: 8pt"><font face="Verdana, sans-serif">Funciones
+ANSI C de acceso directo</font></font></span></span></a></p>
+<p style="margin-left: 0.1cm; margin-right: 0.1cm; line-height: 100%">
+<a href="Cap11/cursoC-11.html#resumen ANSI" target="material"><span style="text-decoration: none"><span style="font-weight: medium"><font size="1" style="font-size: 8pt"><font face="Verdana, sans-serif">Resumen
+de funciones ANSI C de E/S</font></font></span></span></a></p>
+<p style="margin-left: 0.1cm; margin-right: 0.1cm; line-height: 100%">
+<a href="Cap11/cursoC-11.html#POSIX" target="material"><span style="text-decoration: none"><span style="font-weight: medium"><font size="1" style="font-size: 8pt"><font face="Verdana, sans-serif">Funciones
+POSIX de E/S</font></font></span></span></a></p>
+<p style="margin-left: 0.1cm; margin-right: 0.1cm; line-height: 100%">
+<a href="Cap11/cursoC-11.html#ejercicios" target="material"><span style="text-decoration: none"><span style="font-weight: medium"><font size="1" style="font-size: 8pt"><font face="Verdana, sans-serif">Ejercicios</font></font></span></span></a></p>
+<p style="margin-left: 0.1cm; margin-right: 0.1cm; line-height: 100%">
+ </p>
+<h3 style="margin-left: 0.1cm; margin-right: 0.1cm; margin-top: 0cm; margin-bottom: 0cm; line-height: 100%">
+<a href="Cap12/cursoC-12.html" target="material"><span style="text-decoration: none"><font size="3"><font face="Verdana, sans-serif">12.
+Comunicación con el ambiente</font></font></span></a></h3>
+<p style="margin-left: 0.1cm; margin-right: 0.1cm; line-height: 100%">
+<a href="Cap12/cursoC-12.html#redireccion" target="material"><span style="text-decoration: none"><span style="font-weight: medium"><font size="1" style="font-size: 8pt"><font face="Verdana, sans-serif">Redirección
+y piping</font></font></span></span></a></p>
+<p style="margin-left: 0.1cm; margin-right: 0.1cm; line-height: 100%">
+<a href="Cap12/cursoC-12.html#variables" target="material"><span style="text-decoration: none"><span style="font-weight: medium"><font size="1" style="font-size: 8pt"><font face="Verdana, sans-serif">Variables
+de ambiente</font></font></span></span></a></p>
+<p style="margin-left: 0.1cm; margin-right: 0.1cm; line-height: 100%">
+<a href="Cap12/cursoC-12.html#argumentos" target="material"><span style="text-decoration: none"><span style="font-weight: medium"><font size="1" style="font-size: 8pt"><font face="Verdana, sans-serif">Argumentos
+de ejecución</font></font></span></span></a></p>
+<p style="margin-left: 0.1cm; margin-right: 0.1cm; line-height: 100%">
+<a href="Cap12/cursoC-12.html#salida" target="material"><span style="text-decoration: none"><span style="font-weight: medium"><font size="1" style="font-size: 8pt"><font face="Verdana, sans-serif">Salida
+del programa</font></font></span></span></a></p>
+<p style="margin-left: 0.1cm; margin-right: 0.1cm; line-height: 100%">
+<a href="Cap12/cursoC-12.html#opciones" target="material"><span style="text-decoration: none"><span style="font-weight: medium"><font size="1" style="font-size: 8pt"><font face="Verdana, sans-serif">Opciones</font></font></span></span></a></p>
+<p style="margin-left: 0.1cm; margin-right: 0.1cm; line-height: 100%">
+<a href="Cap12/cursoC-12.html#ejercicios" target="material"><span style="text-decoration: none"><span style="font-weight: medium"><font size="1" style="font-size: 8pt"><font face="Verdana, sans-serif">Ejercicios</font></font></span></span></a></p>
+<p style="margin-left: 0.1cm; margin-right: 0.1cm; line-height: 100%">
+ </p>
+<h3 style="margin-left: 0.1cm; margin-right: 0.1cm; margin-top: 0cm; margin-bottom: 0cm; line-height: 100%">
+<a href="Cap13/cursoC-13.html" target="material"><span style="text-decoration: none"><font size="3"><font face="Verdana, sans-serif">13.
+Biblioteca Standard</font></font></span></a></h3>
+<p style="margin-left: 0.1cm; margin-right: 0.1cm; line-height: 100%">
+<a href="Cap13/cursoC-13.html#strings" target="material"><span style="text-decoration: none"><span style="font-weight: medium"><font size="1" style="font-size: 8pt"><font face="Verdana, sans-serif">Funciones
+de strings</font></font></span></span></a></p>
+<p style="margin-left: 0.1cm; margin-right: 0.1cm; line-height: 100%">
+<a href="Cap13/cursoC-13.html#argumentos variables" target="material"><span style="text-decoration: none"><span style="font-weight: medium"><font size="1" style="font-size: 8pt"><font face="Verdana, sans-serif">Listas
+de argumentos variables</font></font></span></span></a></p>
+<p style="margin-left: 0.1cm; margin-right: 0.1cm; line-height: 100%">
+<a href="Cap13/cursoC-13.html#errores" target="material"><span style="text-decoration: none"><span style="font-weight: medium"><font size="1" style="font-size: 8pt"><font face="Verdana, sans-serif">Funciones
+de tratamiento de errores</font></font></span></span></a></p>
+<p style="margin-left: 0.1cm; margin-right: 0.1cm; line-height: 100%">
+<a href="Cap13/cursoC-13.html#fecha y hora" target="material"><span style="text-decoration: none"><span style="font-weight: medium"><font size="1" style="font-size: 8pt"><font face="Verdana, sans-serif">Funciones
+de fecha y hora</font></font></span></span></a></p>
+<p style="margin-left: 0.1cm; margin-right: 0.1cm; line-height: 100%">
+<a href="Cap13/cursoC-13.html#matematicas" target="material"><span style="text-decoration: none"><span style="font-weight: medium"><font size="1" style="font-size: 8pt"><font face="Verdana, sans-serif">Funciones
+matemáticas</font></font></span></span></a></p>
+<p style="margin-left: 0.1cm; margin-right: 0.1cm; line-height: 100%">
+<a href="Cap13/cursoC-13.html#utilitarias" target="material"><span style="text-decoration: none"><span style="font-weight: medium"><font size="1" style="font-size: 8pt"><font face="Verdana, sans-serif">Funciones
+utilitarias</font></font></span></span></a></p>
+<p style="margin-left: 0.1cm; margin-right: 0.1cm; line-height: 100%">
+<a href="Cap13/cursoC-13.html#clasificacion" target="material"><span style="text-decoration: none"><span style="font-weight: medium"><font size="1" style="font-size: 8pt"><font face="Verdana, sans-serif">Macros
+de clasificación de caracteres</font></font></span></span></a></p>
+<p style="margin-left: 0.1cm; margin-right: 0.1cm; line-height: 100%">
+<a href="Cap13/cursoC-13.html#ejercicios" target="material"><span style="text-decoration: none"><span style="font-weight: medium"><font size="1" style="font-size: 8pt"><font face="Verdana, sans-serif">Ejercicios</font></font></span></span></a></p>
+<p style="margin-left: 0.1cm; margin-right: 0.1cm"><br>
+</p>
+</body>
+</html>

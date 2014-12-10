@@ -1,0 +1,317 @@
+
+\chapter{Introducción al Lenguaje C}
+
+
+El lenguaje de programación C fue creado por \textbf{Dennis Ritchie} en 1972 en
+Bell Telephone Laboratories, con el objetivo de reescribir un sistema
+operativo, el UNIX, en un lenguaje de alto nivel, para poder adaptarlo
+(es decir, \textit{portarlo}) a diferentes arquitecturas. Por este motivo sus
+creadores se propusieron metas de diseño especiales, tales como: 
+
+\begin{itemize}
+\item Poder utilizar todos los recursos del hardware (\quotes{acceso al bajo nivel}). 
+\item Obtener código generado eficiente en uso de memoria y en tiempo de ejecución (programas pequeños y veloces).
+\item Compilador portable (implementable en cualquier arquitectura).
+\end{itemize}
+
+
+Actualmente existen implementaciones de C para todas las arquitecturas y
+sistemas operativos, y es el lenguaje más utilizado para la
+\textbf{programación de sistemas}. Por su gran eficiencia resulta ideal para
+la programación de \textbf{sistemas operativos}, \textbf{drivers de dispositivos},
+\textbf{herramientas de programación}. El 95\% del sistema operativo UNIX
+está escrito en C, así como gran parte de los modernos
+sistemas y ambientes operativos, y los programas de administración o aplicación que corren
+sobre ellos.
+
+%TODO
+%\href{info/info1.html#info1}{Mas información ...} 
+
+\section{Características del lenguaje}
+C es un lenguaje compilado. A nivel sintáctico, presenta grandes
+similitudes formales con Pascal, pero las diferencias entre ambos son
+importantes. A pesar de permitir \textbf{operaciones de bajo nivel}, tiene las
+\textbf{estructuras de control}, y permite la \textbf{estructuración de datos}, propias
+de los lenguajes procedurales de alto nivel. 
+
+Un programa en C es, por lo general, más \textbf{sintético} que en otros
+lenguajes procedurales; la idea central que atraviesa todo
+el lenguaje es la minimalidad. La definición del lenguaje consta de
+muy pocos elementos, y tiene muy pocas \textbf{palabras reservadas}. Como rasgo
+distintivo, en C no existen, rigurosamente hablando, funciones o
+procedimientos de uso general del programador. Por ejemplo, \textbf{no tiene
+funciones de entrada/salida}; la definición del lenguaje apenas
+alcanza a \textbf{las estructuras de control y los operadores}. La idea de
+definir un lenguaje sin funciones es, por un lado, hacer posible que el
+compilador sea \textbf{pequeño, fácil de escribir e inmediatamente
+portable}; y por otro, permitir que sea el usuario quien defina sus
+propias funciones cuando el problema de programación a resolver tenga
+requerimientos especiales. 
+
+Sin embargo, se ha establecido un conjunto mínimo de funciones,
+llamado la \textbf{Biblioteca Standard} del lenguaje C, que todos los
+compiladores proveen, a veces con agregados. La filosofía de la
+Biblioteca Standard es la portabilidad, es decir, casi no incluye
+funciones que sean específicas de un sistema operativo determinado.
+Aquellas que sí incluye están orientadas a la programación de sistemas, y a
+veces no resultan suficientes para el programador de aplicaciones. No
+provee, por ejemplo, la capacidad de manejo de archivos indexados, ni
+funciones de entrada/salida interactiva por consola que sean seguras
+(\quotes{a prueba de usuarios}). Esta deficiencia
+se remedia utilizando bibliotecas de funciones \quotes{de
+terceras partes} (creadas por el usuario u obtenidas de
+otros programadores). 
+
+El usuario puede escribir sus propios procedimientos (llamados
+\textbf{funciones} aunque no devuelvan valores). Aunque existe la
+noción de \textbf{bloque} de sentencias (sentencias encerradas entre llaves), el lenguaje se dice \textbf{\textit{no}
+estructurado en bloques} porque no pueden definirse funciones dentro de
+otras. Las funciones de la Biblioteca Standard no tienen ningún
+privilegio sobre las del usuario y \textbf{sus nombres no son palabras
+reservadas}; el usuario puede reemplazarlas por sus propias funciones
+simplemente dándoles el mismo nombre. 
+
+El lenguaje entrega completamente el control de la máquina subyacente
+al programador, no realizando controles de tiempo de ejecución. Es
+decir, no verifica condiciones de error comunes como \textbf{\textit{overflow}
+de variables}, \textbf{errores de entrada/salida}, o \textbf{consistencia de argumentos}
+en llamadas a funciones. Como resultado, es frecuente que el
+principiante, y aun el experto, cometan errores de programación que
+no se hacen evidentes enseguida, ocasionando problemas y costos de
+desarrollo. Permite una gran libertad sintáctica al programador. No
+es fuertemente tipado. Cuando es necesario, se realizan \textbf{conversiones
+automáticas de tipo} en las asignaciones, a veces \textbf{con efectos
+laterales inconvenientes} si no se tiene precaución. Una función que
+recibe determinados parámetros formales puede ser invocada con
+argumentos reales de otro tipo. 
+
+Se ha dicho que estas características
+\quotes{liberales} posibilitan la realización de
+proyectos complejos con más facilidad que otros lenguajes como Pascal
+o Ada, más estrictos; aunque al mismo tiempo, así resulta más
+difícil detectar errores de programación en tiempo de
+compilación. En este sentido, según los partidarios de la
+tipificación estricta, C no es un buen lenguaje. Gran parte del
+esfuerzo de desarrollo del estándar ANSI se dedicó a dotar al C de
+elementos para mejorar esta deficiencia. 
+
+Los \textbf{tipos de datos} no tienen un tamaño determinado por la definición
+del lenguaje, sino que diferentes implementaciones pueden adoptar
+diferentes convenciones. Paradójicamente, esta característica
+obedece al objetivo de lograr la \textbf{portabilidad} de los programas en C. El
+programador está obligado a no hacer ninguna suposición sobre los
+tamaños de los objetos de datos, ya que lo contrario haría al
+software dependiente de una arquitectura determinada (\quotes{no portable}). 
+
+Una característica especial del lenguaje C es que el \textbf{pasaje de
+argumentos a funciones} se realiza siempre \textbf{por valor}. ¿Qué ocurre
+cuando una función debe \textbf{modificar} datos que recibe como
+argumentos? La única salida es pasarle -por valor- la dirección del
+dato a modificar. Las consecuencias de este hecho son más fuertes de
+lo que parece a primera vista, ya que surge la necesidad de todo un
+conjunto de técnicas de \textbf{manejo de punteros} que no siempre son bien
+comprendidas por los programadores poco experimentados, y abre la
+puerta a sutiles y escurridizos errores de programación. Quizás
+este punto, junto con el de la ausencia de chequeos en tiempo de
+ejecución, sean los que le dan al C fama de {\textquotedbl}difícil
+de aprender{\textquotedbl}. 
+
+Por último, el C \textbf{no es un lenguaje orientado a objetos}, sino que
+adhiere al paradigma tradicional de \textbf{programación procedural}. No
+soporta la orientación a objetos propiamente dicha, al no
+proporcionar herramientas fundamentales, como la herencia. Sin embargo,
+algunas características del lenguaje permiten que un proyecto de
+programación se beneficie de todas maneras con la aplicación de
+algunos principios de la orientación a objetos, tales como el
+ocultamiento de información y el encapsulamiento de
+responsabilidades. El lenguaje C++, orientado a objetos, \textbf{no }es
+una versión más avanzada del lenguaje o un compilador de C con
+más capacidades, sino que \textbf{se trata de un lenguaje completamente
+diferente}. 
+
+\section{Evolución del lenguaje}
+La primera definición oficial del lenguaje fue dada en 1978 por
+\textbf{Brian Kernighan y Dennis Ritchie} (Fig. \ref{fig:kandr}) en su libro \textbf{El
+lenguaje de programación C}. Este lenguaje fue llamado
+\textbf{C K\&R}, por las iniciales de sus autores. En 1983 se creó el comité
+ANSI para el lenguaje, que en 1988 estableció el estándar ANSI C, con algunas reformas
+sobre el C K\&R. Simultáneamente, Kernighan y Ritchie publicaron la
+segunda edición de su libro, describiendo la mayor parte de las
+características del ANSI C. 
+
+
+ \begin{figure}[htbp] 
+ \centering 
+ \includegraphics[width=3.44cm,height=3.969cm]{./img/kernighan.jpg} 
+ \includegraphics[width=3.44cm,height=3.969cm]{./img/dennis_ritchie.jpg} 
+ \caption{Brian Kernighan y Dennis Ritchie, los creadores del lenguaje C} 
+ \label{fig:kandr} 
+ \end{figure} 
+
+
+Algunas nuevas características de C99 son: 
+
+\begin{itemize}
+\item Matrices de tamaño variable 
+\item Soporte de números complejos 
+\item Tipos \texttt{long long int} y \texttt{unsigned long long int} de al menos 64 bits 
+\item Familia de funciones \texttt{vscanf()} 
+\item Comentarios al estilo de C++ prefijando las líneas con la secuencia \texttt{//}. 
+\item Familia de funciones \texttt{snprintf()} 
+\item Tipo boolean
+\end{itemize}
+
+
+\section{El ciclo de compilación}
+Las herramientas esenciales de un ambiente de desarrollo, además de
+cualquier \textbf{editor de textos}, son el \textbf{compilador}, el \textbf{vinculador}, 
+\textbf{linkeditor} o \textit{linker}, y el \textbf{bibliotecario}. A
+estas herramientas básicas se agregan otras, útiles para
+automatizar la compilación de proyectos extensos, almacenar y
+recuperar versiones de programas fuente, comprobar sintaxis en forma
+previa a la compilación, etc. Según el ambiente operativo y
+producto de software de que se trate, estas herramientas pueden ser comandos de línea independientes, con
+salidas de texto simples, o encontrarse integradas en una interfaz de usuario uniforme, en modo
+texto o modo gráfico. 
+
+Cuando encontramos varias de estas herramientas integradas en una sola aplicación, decimos que se trata de un \textbf{IDE} (\textit{Integrated Development Environment}) o ambiente de desarrollo integrado. Un IDE oculta el ciclo de compilación al usuario, con la intención de simplificar el proceso de desarrollo. Sin embargo, conviene conocer qué función se cumple, y qué producto se espera, en cada fase del ciclo de compilación, para poder interpretar las diferentes situaciones de error y poder corregirlas.
+
+\figura[12]{ciclo}{El ciclo de compilación produce un ejecutable \\a partir de archivos fuente.}{ciclo.eps}
+
+\subsection{Compilador}
+\begin{itemize}
+	\item El compilador acepta un archivo \textbf{fuente}, posiblemente relacionado con
+otros (una \textbf{unidad de traducción}), y genera con él un
+\textbf{módulo objeto}. Este módulo objeto contiene porciones de
+código ejecutable mezclado con \textbf{referencias}, aún no resueltas, a
+variables o funciones cuya definición no figura en los fuentes de
+entrada. Estas referencias quedan en forma simbólica en el módulo
+objeto hasta que se resuelvan en un paso posterior. 
+\item Si ocurren errores en esta fase, se deberán a problemas de sintaxis (el código escrito por el programador no respeta la definición del lenguaje).
+\end{itemize}
+
+\subsection{Vinculador, linkeditor o \textit{linker}}
+\begin{itemize}
+\item El vinculador recibe como entrada un conjunto de módulos objeto y
+busca \textbf{resolver}, vincular, o enlazar, las referencias simbólicas en ellos,
+buscando la definición de las variables o funciones faltantes en los
+mismos objetos o en bibliotecas. Éstas pueden ser la Biblioteca
+Standard, u otras provistas por el usuario. Cuando el linker encuentra la
+definición de un objeto buscado (es decir, de una variable o
+función), la copia en el archivo resultante de salida (la
+\textit{resuelve}). El objetivo del linker es resolver todas las
+referencias pendientes para producir un programa ejecutable. 
+\item Si ocurren errores en esta fase, se deberán a que existen variables o funciones cuya definición no ha sido dada (no se encuentran en las unidades de traducción procesadas, ni en ninguna biblioteca conocida por el linker).
+\end{itemize}
+
+\subsection{Bibliotecario}
+\begin{itemize}
+	\item El bibliotecario es un administrador de módulos objeto. Su función
+es reunir módulos objeto en archivos llamados \textbf{bibliotecas}, y luego
+permitir la extracción, borrado, reemplazo y agregado de módulos.
+El conjunto de módulos en una biblioteca se completa con una tabla de
+información sobre sus contenidos para que el linker pueda encontrar
+rápidamente aquellos módulos donde se ha definido una variable o
+función, y así extraerlos durante el proceso de linkedición. 
+\item El
+bibliotecario es utilizado por el usuario cuando desea mantener sus
+propias bibliotecas. La creación de bibliotecas propias del usuario
+ahorra tiempo de compilación y permite la distribución de software
+sin revelar la forma en que se han escrito los fuentes y
+protegiéndolo de modificaciones. 
+\end{itemize}
+Una vez que el código ha sido compilado y vinculado, obtenemos un programa ejecutable. Los errores que pueden producirse en la ejecución ya no corresponden a problemas de compilación, sino que se deben a aspectos de diseño del programa que deben ser corregidos por el programador.
+
+\section{Un primer ejemplo}
+
+El clásico ejemplo de todas las introducciones al lenguaje C es un programa llamado \quotes{\textbf{Hello, World!}}.
+
+\begin{lstlisting}
+#include <stdio.h>
+/* El primer programa! */
+main()
+{
+	printf("Hola, gente!\n");
+}
+\end{lstlisting}
+
+\subsection{Funcionamiento del programa}
+
+\begin{itemize}
+\item Este programa minimal comienza con una \textbf{directiva de preprocesador} que indica incluir en la unidad de traducción al
+archivo de cabecera o \textit{header} \textbf{stdio.h}. Éste contiene, entre otras
+cosas, la declaración (o \textbf{prototipo}) de la función de
+salida de caracteres \textbf{printf()}, perteneciente a la Biblioteca Standard. Los prototipos se incluyen para
+advertir al compilador de los tipos de las funciones y de sus
+argumentos. 
+\item Entre los pares de caracteres especiales \textbf{/*} y \textbf{*/}se puede insertar cualquier cantidad de líneas de comentarios. 
+\item La función \textbf{main()} es el cuerpo principal del programa
+(es por donde comenzará la ejecución). Todas las funciones en C están delimitadas por un par de llaves. Terminada la ejecución de
+main(), terminará el programa. 
+\item La función \texttt{printf()} imprimirá la cadena entre comillas, que es
+una \textbf{constante string} terminada por un carácter de
+\textbf{nueva línea} (la secuencia especial \quotes{\texttt{{\textbackslash}n}}). 
+\end{itemize}
+
+\subsection{Compilación del programa}
+Para ver el primer ejemplo en C en funcionamiento:
+
+\begin{enumerate}
+	\item Copiar el programa con cualquier editor de textos y guardarlo en un archivo llamado \texttt{hola.c} en el directorio de trabajo del usuario.
+	\item Sin cambiar de directorio, ejecutar el comando \lstinline{make hola} en una consola o terminal.
+	\item Ejecutar el programa con el comando \lstinline{./hola}. Notar el \textit{punto y barra} del principio, que le indican al \textbf{shell} que debe buscar el programa en el directorio activo.
+\end{enumerate}
+
+Lo mismo, pero de otra manera: 
+
+\begin{enumerate}
+\item Como antes, copiar el programa, o usar el mismo archivo fuente de hace un momento.
+\item Sin cambiar de directorio, ejecutar el comando \lstinline{gcc hola.c -o hola}. 
+\item Ejecutar el programa con el comando \lstinline{./hola}. 
+\end{enumerate}
+
+
+La diferencia es que en el primer caso utilizamos la herramienta \texttt{make}, que nos asiste en la compilación de proyectos,
+mientras que en el segundo caso invocamos directamente al compilador \texttt{gcc}. Por defecto, el compilador gcc invocará al vinculador para generar el ejecutable a partir del archivo objeto intermedio generado. En el ejemplo, le decimos al compilador que procese el archivo fuente \texttt{hola.c}, y que el ejecutable de salida (opción \texttt{-o}, de \textit{output}) se llame \texttt{hola}. 
+
+
+% \subsection[Mapa de memoria de un programa Mas información ... ]{Mapa de memoria de un programa \href{info/info1.html#info2}{Mas información ...} }
+
+
+\section{Ejercicios}
+\begin{enumerate}
+	\item ¿Qué nombres son adecuados para los archivos fuente C? 
+	\item Describa las etapas del ciclo de compilación.
+	\item ¿Cuál sería el resultado de: 
+		\begin{itemize}
+		\item Editar un archivo fuente? 
+		\item Ejecutar un archivo fuente? 
+		\item Editar un archivo objeto? 
+		\item Compilar un archivo objeto? 
+		\item Editar una biblioteca?
+		\end{itemize}
+	\item ¿Qué pasaría si un programa en C \textbf{no} contuviera una función \textbf{main()}? Haga la prueba modificando \textbf{hola.c}.
+	\item Edite el programa \texttt{hola.c} y modifíquelo según las pautas que siguen. Interprete los errores de compilación. Identifique en qué etapa del ciclo de compilación ocurren los errores. Si resulta un programa ejecutable, observe qué hace el programa y por qué. 
+		\begin{itemize}
+		\item Quite los paréntesis de main(). 
+		\item Quite la llave izquierda de main().
+		\item Quite las comillas izquierdas.
+		\item Quite los caracteres {\textquotedbl}{\textbackslash}n{\textquotedbl}.
+		\item Agregue al final de la cadena los caracteres {\textquotedbl}{\textbackslash}n{\textbackslash}n{\textbackslash}n{\textbackslash}n{\textquotedbl}.
+		\item Agregue al final de la cadena los caracteres {\textquotedbl}{\textbackslash}nAdiós, mundo!{\textbackslash}n{\textquotedbl}.
+		\item Quite las comillas derechas.
+		\item Quite el signo punto y coma. 
+		\item Quite la llave derecha de main().
+		\item Agregue un punto y coma en cualquier lugar del texto.
+		\item Agregue una coma o un dígito en cualquier lugar del texto. 
+		\item Reemplace la palabra \textbf{main} por \textbf{program}, manteniendo los paréntesis. 
+		\item Elimine la apertura o cierre de los comentarios.
+		\end{itemize}
+	\end{enumerate}
+
+%TODO
+\href{adicionales/adic1.html#adic1}{Ejercicios
+Adicionales}\href{adicionales/adic1.html#adic1}{\textcolor{black}{
+}}\href{adicionales/adic1.html#adic1}{\newline
+}\newline
+\href{adicionales/adic1.html#adic2}{Ejercicios Avanzados}

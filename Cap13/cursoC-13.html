@@ -1,0 +1,893 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+  <meta http-equiv="CONTENT-TYPE"
+ content="text/html; charset=iso-8859-1">
+  <title>13. Biblioteca Standard</title>
+  <meta name="GENERATOR" content="StarOffice/5.2 (Linux)">
+  <meta name="AUTHOR" content="Eduardo Grosclaude">
+  <meta name="CREATED" content="20030602;16412000">
+  <meta name="CHANGEDBY" content="Eduardo Grosclaude">
+  <meta name="CHANGED" content="20010818;11312900">
+  <style>
+	<!--
+		TD P { text-align: justify }
+		P { text-align: justify }
+		PRE { margin-left: 0.1cm }
+	-->
+	</style>
+</head>
+<body>
+<h1>13. Biblioteca Standard</h1>
+<p align="justify">La Biblioteca Standard no forma parte del C,
+estrictamente hablando, pero todos los compiladores contienen una
+implementaci&oacute;n, a veces con agregados o peque&ntilde;as
+variantes. Desde la oficializaci&oacute;n del ANSI C, los contenidos
+de la biblioteca standard se han estabilizado y se puede contar con
+el mismo conjunto de funciones en todas las plataformas.</p>
+<p align="justify">Las funciones de la biblioteca standard est&aacute;n
+agrupadas en varias categor&iacute;as. Para poder utilizar cualquiera
+de las funciones de cada categor&iacute;a, es necesario incluir en el
+fuente el <i>header</i> asociado con la categor&iacute;a. Esto <b>no
+implica </b>incluir los <b>textos</b> de las funciones en la unidad
+de traducci&oacute;n, sino simplemente incorporar los <b>prototipos</b>
+de las funciones de la biblioteca. Es decir, incluir un header de
+biblioteca standard no <b>define</b> las funciones que se van a usar,
+sino que las <b>declara</b>. La resoluci&oacute;n de las referencias
+a las funciones o variables de biblioteca standard quedan pendientes
+hasta la linkedici&oacute;n.</p>
+<p align="justify">Las categor&iacute;as y los headers de la biblioteca
+standard son los siguientes. Una implementaci&oacute;n de C puede
+aportar much&iacute;simos otros headers m&aacute;s espec&iacute;ficos.
+Con esta informaci&oacute;n no pretendemos reemplazar al manual del
+compilador sino orientar a los primeros pasos en el uso de la
+Biblioteca Standard.</p>
+<table border="1" bordercolor="#000000" cellpadding="4" cellspacing="0"
+ width="100%">
+  <col width="208*"> <col width="48*"> <thead> <tr valign="top">
+    <th width="81%">
+    <p>Categor&iacute;a</p>
+    </th>
+    <th width="19%">
+    <p>header</p>
+    </th>
+  </tr>
+  </thead> <tbody>
+    <tr valign="top">
+      <td width="81%">
+      <p>Macros de diagn&oacute;stico de errores</p>
+      </td>
+      <td width="19%">
+      <p>&lt;assert.h&gt;</p>
+      </td>
+    </tr>
+    <tr valign="top">
+      <td width="81%">
+      <p>Macros de clasificaci&oacute;n de caracteres</p>
+      </td>
+      <td width="19%">
+      <p>&lt;ctype.h&gt;</p>
+      </td>
+    </tr>
+    <tr valign="top">
+      <td width="81%">
+      <p>Variables y funciones relacionadas con condiciones de error</p>
+      </td>
+      <td width="19%">
+      <p>&lt;errno.h&gt;</p>
+      </td>
+    </tr>
+    <tr valign="top">
+      <td width="81%">
+      <p>Caracter&iacute;sticas de la representaci&oacute;n en punto
+flotante</p>
+      </td>
+      <td width="19%">
+      <p>&lt;float.h&gt;</p>
+      </td>
+    </tr>
+    <tr valign="top">
+      <td width="81%">
+      <p>Rangos de tipos de datos, dependientes de la plataforma</p>
+      </td>
+      <td width="19%">
+      <p>&lt;limits.h&gt;</p>
+      </td>
+    </tr>
+    <tr valign="top">
+      <td width="81%">
+      <p>Definiciones relacionadas con el idioma y lugar de uso</p>
+      </td>
+      <td width="19%">
+      <p>&lt;locale.h&gt;</p>
+      </td>
+    </tr>
+    <tr valign="top">
+      <td width="81%">
+      <p>Funciones matem&aacute;ticas</p>
+      </td>
+      <td width="19%">
+      <p>&lt;math.h&gt;</p>
+      </td>
+    </tr>
+    <tr valign="top">
+      <td width="81%">
+      <p>Saltos no locales</p>
+      </td>
+      <td width="19%">
+      <p>&lt;setjmp.h&gt;</p>
+      </td>
+    </tr>
+    <tr valign="top">
+      <td width="81%">
+      <p>Manejo de se&ntilde;ales</p>
+      </td>
+      <td width="19%">
+      <p>&lt;signal.h&gt;</p>
+      </td>
+    </tr>
+    <tr valign="top">
+      <td width="81%">
+      <p>Listas de argumentos variables</p>
+      </td>
+      <td width="19%">
+      <p>&lt;stdarg.h&gt;</p>
+      </td>
+    </tr>
+    <tr valign="top">
+      <td width="81%">
+      <p>Definiciones de algunos tipos y constantes comunes</p>
+      </td>
+      <td width="19%">
+      <p>&lt;stddef.h&gt;</p>
+      </td>
+    </tr>
+    <tr valign="top">
+      <td width="81%">
+      <p>Entrada/salida</p>
+      </td>
+      <td width="19%">
+      <p>&lt;stdio.h&gt;</p>
+      </td>
+    </tr>
+    <tr valign="top">
+      <td width="81%">
+      <p>Varias funciones &uacute;tiles</p>
+      </td>
+      <td width="19%">
+      <p>&lt;stdlib.h&gt;</p>
+      </td>
+    </tr>
+    <tr valign="top">
+      <td width="81%">
+      <p>Operaciones sobre cadenas</p>
+      </td>
+      <td width="19%">
+      <p>&lt;string.h&gt;</p>
+      </td>
+    </tr>
+    <tr valign="top">
+      <td width="81%">
+      <p>Funciones de fecha y hora</p>
+      </td>
+      <td width="19%">
+      <p>&lt;time.h&gt;</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p align="justify">Ya hemos visitado la mayor&iacute;a de las funciones
+de la categor&iacute;a de E/S. Nos quedan por explorar algunas otras
+de importancia.<br>
+<br>
+</p>
+<h2><a name="strings"></a>Funciones de strings (&lt;stdio.h&gt;)</h2>
+<p align="justify">No existiendo un tipo de datos string en C, se lo
+implementa como un arreglo de caracteres, dado por su direcci&oacute;n
+inicial, y terminado en el car&aacute;cter especial '\0'. Todas las
+funciones de strings de BS hacen uso de este protocolo de fin de
+string. Muchas de ellas han sido implementada en las pr&aacute;cticas
+de cap&iacute;tulos anteriores.</p>
+<p align="justify">Aqu&iacute; las m&aacute;s importantes. Consultar
+tambi&eacute;n manual de las funciones <b>strspn(), strcspn(),
+strpbrk(), strstr(), strtok().</b></p>
+<table border="1" bordercolor="#000000" cellpadding="4" cellspacing="0"
+ width="100%">
+  <col width="77*"> <col width="72*"> <col width="107*"> <thead> <tr
+ valign="top">
+    <th width="30%">
+    <p>prototipo</p>
+    </th>
+    <th width="28%">
+    <p>significado</p>
+    </th>
+    <th width="42%">
+    <p>ejemplo</p>
+    </th>
+  </tr>
+  </thead> <tbody>
+    <tr valign="top">
+      <td width="30%">
+      <pre style="margin-left: 0cm;">char *strcpy(s, ct)</pre>
+      </td>
+      <td width="28%">
+      <p><font size="2">Copia la cadena ct sobre s, incluyendo el '\0'.
+Devuelve s.</font></p>
+      </td>
+      <td width="42%">
+      <pre style="margin-left: 0cm;">char alfa[10];<br>strcpy(alfa, "cadena");</pre>
+      </td>
+    </tr>
+    <tr valign="top">
+      <td width="30%">
+      <pre style="margin-left: 0cm;">char *strncpy(s, ct, n)</pre>
+      </td>
+      <td width="28%">
+      <p><font size="2">Copia ct sobre s hasta n caracteres. Rellena
+con '\0' hasta el final si ct tiene menos de n caracteres. </font> </p>
+      </td>
+      <td width="42%">
+      <pre style="margin-left: 0cm;">char alfa[10];<br>strncpy(alfa, "cadena", 4);<br>strncpy(alfa, otro, sizeof(alfa));</pre>
+      </td>
+    </tr>
+    <tr valign="top">
+      <td width="30%">
+      <pre style="margin-left: 0cm;">char *strcat(s, ct)</pre>
+      </td>
+      <td width="28%">
+      <p><font size="2">Concatena la cadena ct al final de s. Debe
+garantizarse espacio para realizar la operaci&oacute;n.</font></p>
+      </td>
+      <td width="42%">
+      <pre style="margin-left: 0cm;">char alfa[10] = "abc";<br>strcat(alfa, "def");</pre>
+      </td>
+    </tr>
+    <tr valign="top">
+      <td width="30%">
+      <pre style="margin-left: 0cm;">char *strncat(s, ct)</pre>
+      </td>
+      <td width="28%">
+      <p><font size="2">Idem hasta n caracteres.</font></p>
+      </td>
+      <td width="42%"><br>
+      </td>
+    </tr>
+    <tr valign="top">
+      <td width="30%">
+      <pre style="margin-left: 0cm;">int strcmp(cs, ct)</pre>
+      </td>
+      <td width="28%">
+      <p><font size="2">Compara las cadenas. Devuelve &lt;0 si
+cs&lt;ct, 0 si cs==ct, &gt;0 si cs&gt;ct.</font></p>
+      </td>
+      <td width="42%">
+      <pre style="margin-left: 0cm;">if(strcmp(alfa,"abcdef") == 0)<br>    printf("iguales\n");</pre>
+      </td>
+    </tr>
+    <tr valign="top">
+      <td width="30%">
+      <pre style="margin-left: 0cm;">int strncmp(cs, ct)</pre>
+      </td>
+      <td width="28%">
+      <p><font size="2">Idem hasta n caracteres.</font></p>
+      </td>
+      <td width="42%"><br>
+      </td>
+    </tr>
+    <tr valign="top">
+      <td width="30%">
+      <pre style="margin-left: 0cm;">char *strchr(cs, c)</pre>
+      </td>
+      <td width="28%">
+      <p><font size="2">Devuelve un apuntador a la primera ocurrencia
+del car&aacute;cter c en la cadena cs, o bien NULL si no se lo halla.</font></p>
+      </td>
+      <td width="42%">
+      <pre style="margin-left: 0cm;">char *p;<br>char r[] = "casualidad";<br>p = strchr(r, 's');<br>strncpy(p, "us", 2);</pre>
+      </td>
+    </tr>
+    <tr valign="top">
+      <td width="30%">
+      <pre style="margin-left: 0cm;">char *strrchr(cs, c)</pre>
+      </td>
+      <td width="28%">
+      <p><font size="2">Idem la &uacute;ltima ocurrencia.</font></p>
+      </td>
+      <td width="42%"><br>
+      </td>
+    </tr>
+    <tr valign="top">
+      <td width="30%">
+      <pre style="margin-left: 0cm;">size_t strlen(cs)</pre>
+      </td>
+      <td width="28%">
+      <p><font size="2">Devuelve la longitud de la cadena, sin contar
+el '\0' final.</font></p>
+      </td>
+      <td width="42%">
+      <pre style="margin-left: 0cm;">for(i=0; i &lt; strlen(s); i++)<br>    printf("%c\n", s[i]);</pre>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p align="justify"><br>
+</p>
+<h2><a name="argumentos variables"></a>Listas de argumentos variables
+(&lt;stdarg.h&gt;)</h2>
+<p align="justify">Es posible definir funciones que reciban una
+cantidad arbitraria de par&aacute;metros reales. Para esto se prepara
+un encabezado de la funci&oacute;n con los par&aacute;metros reales
+fijos que se desee y se indican los restantes, variables, mediante
+puntos suspensivos. Se recuperan los dem&aacute;s con macros
+especiales definidas en este header. </p>
+<p align="justify">Lamentablemente estas macros no permiten la
+creaci&oacute;n
+de funciones <b>sin</b> argumentos fijos. Existe otro paquete de
+argumentos variables, definido en <b>varargs.h</b><span style="">,
+que s&iacute; lo permite; pero que no est&aacute; comprendido en el
+est&aacute;ndar ANSI C y que no es compatible con stdarg.h.</span></p>
+<h3>Ejemplo</h3>
+<pre>   <span style="color: rgb(0, 153, 0); font-weight: bold;"> #include &lt;stdarg.h&gt;</span><br
+ style="color: rgb(0, 153, 0); font-weight: bold;"><span
+ style="color: rgb(0, 153, 0); font-weight: bold;">    int sumar(int cuantos, ...)</span><br
+ style="color: rgb(0, 153, 0); font-weight: bold;"><span
+ style="color: rgb(0, 153, 0); font-weight: bold;">    {</span><br
+ style="color: rgb(0, 153, 0); font-weight: bold;"><span
+ style="color: rgb(0, 153, 0); font-weight: bold;">        va_list ap;</span><br
+ style="color: rgb(0, 153, 0); font-weight: bold;"><span
+ style="color: rgb(0, 153, 0); font-weight: bold;">        int suma=0;</span><br
+ style="color: rgb(0, 153, 0); font-weight: bold;"><br
+ style="color: rgb(0, 153, 0); font-weight: bold;"><span
+ style="color: rgb(0, 153, 0); font-weight: bold;">        va_start(ap, cuantos);</span><br
+ style="color: rgb(0, 153, 0); font-weight: bold;"><span
+ style="color: rgb(0, 153, 0); font-weight: bold;">        for(i=0; i&lt;cuantos; i++) </span><br
+ style="color: rgb(0, 153, 0); font-weight: bold;"><span
+ style="color: rgb(0, 153, 0); font-weight: bold;">            suma += va_arg(ap, int);</span><br
+ style="color: rgb(0, 153, 0); font-weight: bold;"><span
+ style="color: rgb(0, 153, 0); font-weight: bold;">        va_end(ap);</span><br
+ style="color: rgb(0, 153, 0); font-weight: bold;"><span
+ style="color: rgb(0, 153, 0); font-weight: bold;">        return suma;</span><br
+ style="color: rgb(0, 153, 0); font-weight: bold;"><span
+ style="color: rgb(0, 153, 0); font-weight: bold;">   }</span></pre>
+<p>Que se utilizar&iacute;a como:</p>
+<pre>    <span style="color: rgb(0, 153, 0); font-weight: bold;">main() </span><br
+ style="color: rgb(0, 153, 0); font-weight: bold;"><span
+ style="color: rgb(0, 153, 0); font-weight: bold;">    {</span><br
+ style="color: rgb(0, 153, 0); font-weight: bold;"><span
+ style="color: rgb(0, 153, 0); font-weight: bold;">        printf("Resultado 1: %d\n", sumar(3, 4, 5, 6));</span><br
+ style="color: rgb(0, 153, 0); font-weight: bold;"><span
+ style="color: rgb(0, 153, 0); font-weight: bold;">        printf("Resultado 2: %d\n", sumar(2, 100, 2336));</span><br
+ style="color: rgb(0, 153, 0); font-weight: bold;"><span
+ style="color: rgb(0, 153, 0); font-weight: bold;">    }</span></pre>
+<p><br>
+</p>
+<h2><a name="errores"></a>Funciones de tratamiento de errores
+(&lt;errno.h&gt; y &lt;assert.h&gt;)</h2>
+<p align="justify">Esta zona de la Biblioteca provee indispensables
+herramientas de debugging. La variable externa <b>errno </b><span
+ style="">es
+un entero que toma un valor de acuerdo a condiciones de error
+provocadas por cualquiera de las funciones de la BS, y de acuerdo a
+una catalogaci&oacute;n de errores que depende de la funci&oacute;n.
+Si una funci&oacute;n ANSI C devuelve un valor indicador de error
+(como NULL donde deber&iacute;a devolver un puntero, o negativo donde
+deber&iacute;a devolver un positivo), la variable errno
+contendr&aacute;
+m&aacute;s explicaci&oacute;n sobre el motivo del error. Se consulta
+con las funciones </span><b>strerror() </b><span style="">o
+</span><b>perror()</b><span style="">. La funci&oacute;n
+perror() admite una cadena arbitraria para indicar, por ejemplo, el
+lugar del programa donde se produce el error. Imprimir&aacute; esta
+cadena m&aacute;s la descripci&oacute;n del problema.</span></p>
+<p align="justify"><span style="">La macro </span><b>assert
+</b><span style="">sirve para detener la ejecuci&oacute;n
+cuando se alcanza un estado imposible para la l&oacute;gica del
+programa. Para usarla adecuadamente es necesario identificar
+invariantes en el programa (condiciones que no deban jam&aacute;s ser
+falsas). Si al evaluarse la macro resulta que su condici&oacute;n
+argumento es falsa, assert() aborta el programa indicando nombre del
+archivo fuente y l&iacute;nea donde estaba originalmente la llamada.
+Un programa en producci&oacute;n no deber&iacute;a fallar debido a
+assert.</span></p>
+<h3>Ejemplos</h3>
+<pre>   <span style="color: rgb(0, 153, 0); font-weight: bold;"> #include &lt;errno.h&gt;</span><br
+ style="color: rgb(0, 153, 0); font-weight: bold;"><span
+ style="color: rgb(0, 153, 0); font-weight: bold;">    if(open("noexiste", O_RDONLY) &lt; 0)</span><br
+ style="color: rgb(0, 153, 0); font-weight: bold;"><span
+ style="color: rgb(0, 153, 0); font-weight: bold;">        perror("Error en apertura");</span><br
+ style="color: rgb(0, 153, 0); font-weight: bold;"><br
+ style="color: rgb(0, 153, 0); font-weight: bold;"><br
+ style="color: rgb(0, 153, 0); font-weight: bold;"><span
+ style="color: rgb(0, 153, 0); font-weight: bold;">    #include &lt;assert.h&gt;</span><br
+ style="color: rgb(0, 153, 0); font-weight: bold;"><span
+ style="color: rgb(0, 153, 0); font-weight: bold;">    ...</span><br
+ style="color: rgb(0, 153, 0); font-weight: bold;"><span
+ style="color: rgb(0, 153, 0); font-weight: bold;">    assert(restantes &gt;= 0);<br><br></span></pre>
+<h2><a name="fecha y hora"></a>Funciones de fecha y hora
+(&lt;time.h&gt;)</h2>
+<p align="justify">Existen dos tipos definidos en el header time.h para
+manejar datos de fechas. Por un lado, se tiene el tipo <b>struct tm</b><span
+ style="">,
+que contiene los siguientes elementos que describen un momento en el
+tiempo:</span></p>
+<pre style="color: rgb(0, 153, 0); font-weight: bold;">struct tm {<br>int tm_sec,    /* segundos 0..59 */<br>    tm_min,    /* minutos 0..59 */<br>    tm_hour,   /* horas 0..23 */<br>    tm_mday,   /* d&iacute;a del mes 1..31 */<br>    tm_mon,    /* meses desde enero 0..11 */<br>    tm_year,   /* a&ntilde;os desde 1900 */<br>    tm_wday,   /* d&iacute;as desde el domingo 0..6 */<br>    tm_yday,   /* d&iacute;as desde enero 0..365 */<br>    tm_isdst;  /* flag de ahorro diurno de luz */<br>};</pre>
+<p style="">Por otro lado, existe un segundo formato de
+representaci&oacute;n
+interna de fechas, <b>time_t,</b> que es simplemente un entero
+conteniendo la cantidad de segundos desde el principio de la era UNIX
+("<i>the epoch</i>"), acaecido el 1/1/1970 a la hora 0 UTC.
+Este formato es el usado por la funci&oacute;n <b>time</b>() que da
+la hora actual.</p>
+<p style="">Este formato entero puede convertirse
+a struct tm y viceversa con funciones definidas en esta zona de la
+BS, como <b>mktime()</b> y <b>gmtime()</b>.</p>
+<p>El contenido de una estructura <b>tm</b> se puede imprimir con
+gran variedad de formatos con la funci&oacute;n <b>strftime()</b><span
+ style="">,
+que acepta una cantidad de especificaciones al estilo de printf().
+Las funciones <b>ctime()</b> y <b>asctime() </b><span style="">son
+</span>m&aacute;s sencillas. Devuelven una cadena conteniendo una
+fecha en formato normalizado (como el que aparece en los mensajes de
+correo electr&oacute;nico). La primera recibe un puntero a time_t; la
+segunda, un puntero a struct tm.</span></p>
+<h3>Ejemplo</h3>
+<pre>    <span style="font-weight: bold; color: rgb(0, 153, 0);">time_t t;</span><br
+ style="font-weight: bold; color: rgb(0, 153, 0);"><span
+ style="font-weight: bold; color: rgb(0, 153, 0);">    struct tm *stm;</span><br
+ style="font-weight: bold; color: rgb(0, 153, 0);"><br
+ style="font-weight: bold; color: rgb(0, 153, 0);"><span
+ style="font-weight: bold; color: rgb(0, 153, 0);">    t = time(NULL);             /* recoge la hora actual */</span><br
+ style="font-weight: bold; color: rgb(0, 153, 0);"><span
+ style="font-weight: bold; color: rgb(0, 153, 0);">    printf("%s\n",ctime(&amp;t));   /* imprime en formato standard */</span><br
+ style="font-weight: bold; color: rgb(0, 153, 0);"><br
+ style="font-weight: bold; color: rgb(0, 153, 0);"><span
+ style="font-weight: bold; color: rgb(0, 153, 0);">    char area[100]; </span><br
+ style="font-weight: bold; color: rgb(0, 153, 0);"><span
+ style="font-weight: bold; color: rgb(0, 153, 0);">    stm = gmtime(&amp;t);           /* convierte t a struct tm */</span><br
+ style="font-weight: bold; color: rgb(0, 153, 0);"><span
+ style="font-weight: bold; color: rgb(0, 153, 0);">    strftime(area,sizeof(area), /* prepara string segun formato del usuario */</span><br
+ style="font-weight: bold; color: rgb(0, 153, 0);"><span
+ style="font-weight: bold; color: rgb(0, 153, 0);">        "%A %b %d %H",stm);</span><br
+ style="font-weight: bold; color: rgb(0, 153, 0);"><span
+ style="font-weight: bold; color: rgb(0, 153, 0);">    printf("%s\n",area);        /* lo imprime */</span><br></pre>
+<p><br>
+</p>
+<h2><a name="matematicas"></a>Funciones matem&aacute;ticas
+(&lt;math.h&gt;)</h2>
+<p>Aqu&iacute; se encuentran las habituales funciones
+aritm&eacute;ticas
+avanzadas, trigonom&eacute;tricas y logar&iacute;tmicas.</p>
+<table border="1" bordercolor="#000000" cellpadding="4" cellspacing="0"
+ width="100%">
+  <col width="48*"> <col width="86*"> <col width="122*"> <thead> <tr
+ valign="top">
+    <td width="19%">
+    <pre>sin(x)</pre>
+    </td>
+    <td width="34%">
+    <p><font size="2">seno de x</font></p>
+    </td>
+    <td width="48%"><br>
+    </td>
+  </tr>
+  </thead> <tbody>
+    <tr valign="top">
+      <td width="19%">
+      <pre>cos(x)</pre>
+      </td>
+      <td width="34%">
+      <p><font size="2">coseno de x</font></p>
+      </td>
+      <td width="48%"><br>
+      </td>
+    </tr>
+    <tr valign="top">
+      <td width="19%">
+      <pre>tan(x)</pre>
+      </td>
+      <td width="34%">
+      <p><font size="2">tangente de x</font></p>
+      </td>
+      <td width="48%"><br>
+      </td>
+    </tr>
+    <tr valign="top">
+      <td width="19%">
+      <pre>asin(x)</pre>
+      </td>
+      <td width="34%">
+      <p><font size="2">arco seno de x</font></p>
+      </td>
+      <td width="48%">
+      <p><font size="2">Devuelve valores en el rango [-pi/2, pi/2]</font></p>
+      </td>
+    </tr>
+    <tr valign="top">
+      <td width="19%">
+      <pre>acos(x)</pre>
+      </td>
+      <td width="34%">
+      <p><font size="2">arco coseno de x</font></p>
+      </td>
+      <td width="48%">
+      <p><font size="2">En el rango [0, pi]</font></p>
+      </td>
+    </tr>
+    <tr valign="top">
+      <td width="19%">
+      <pre>atan(x)</pre>
+      </td>
+      <td width="34%">
+      <p><font size="2">arco tangente de x</font></p>
+      </td>
+      <td width="48%">
+      <p><font size="2">Devuelve valores en el rango [-pi/2, pi/2]</font></p>
+      </td>
+    </tr>
+    <tr valign="top">
+      <td width="19%">
+      <pre>atan2(y,x)</pre>
+      </td>
+      <td width="34%">
+      <p><font size="2">arco tangente de y/x </font> </p>
+      </td>
+      <td width="48%">
+      <p><font size="2">En el rango [-pi, pi]</font></p>
+      </td>
+    </tr>
+    <tr valign="top">
+      <td width="19%">
+      <pre>sinh(x)</pre>
+      </td>
+      <td width="34%">
+      <p><font size="2">seno hiperb&oacute;lico de x</font></p>
+      </td>
+      <td width="48%"><br>
+      </td>
+    </tr>
+    <tr valign="top">
+      <td width="19%">
+      <pre>cosh(x)</pre>
+      </td>
+      <td width="34%">
+      <p><font size="2">coseno hiperb&oacute;lico de x</font></p>
+      </td>
+      <td width="48%"><br>
+      </td>
+    </tr>
+    <tr valign="top">
+      <td width="19%">
+      <pre>tanh(x)</pre>
+      </td>
+      <td width="34%">
+      <p><font size="2">tangente hiperb&oacute;lica de x</font></p>
+      </td>
+      <td width="48%"><br>
+      </td>
+    </tr>
+    <tr valign="top">
+      <td width="19%">
+      <pre>exp(x)</pre>
+      </td>
+      <td width="34%">
+      <p><font size="2">funci&oacute;n exponencial de base <i>e</i></font></p>
+      </td>
+      <td width="48%"><br>
+      </td>
+    </tr>
+    <tr valign="top">
+      <td width="19%">
+      <pre>log(x)</pre>
+      </td>
+      <td width="34%">
+      <p><font size="2">logaritmo natural</font></p>
+      </td>
+      <td width="48%"><br>
+      </td>
+    </tr>
+    <tr valign="top">
+      <td width="19%">
+      <pre>log10(x)</pre>
+      </td>
+      <td width="34%">
+      <p><font size="2">logaritmo de base decimal</font></p>
+      </td>
+      <td width="48%"><br>
+      </td>
+    </tr>
+    <tr valign="top">
+      <td width="19%">
+      <pre>pow(x,y)</pre>
+      </td>
+      <td width="34%">
+      <p><font size="2">x<sup>y</sup></font></p>
+      </td>
+      <td width="48%">
+      <p><font size="2">Para x=0 debe ser y&gt;0. Si x&lt;0, debe ser y
+entero</font></p>
+      </td>
+    </tr>
+    <tr valign="top">
+      <td width="19%">
+      <pre>sqrt(x)</pre>
+      </td>
+      <td width="34%">
+      <p><font size="2">ra&iacute;z cuadrada de x</font></p>
+      </td>
+      <td width="48%">
+      <p><font size="2">Debe ser x&gt;=0</font></p>
+      </td>
+    </tr>
+    <tr valign="top">
+      <td width="19%">
+      <pre>ceil(x)</pre>
+      </td>
+      <td width="34%">
+      <p><font size="2">menor entero no menor que x</font></p>
+      </td>
+      <td width="48%">
+      <p><font size="2">Devuelve un double</font></p>
+      </td>
+    </tr>
+    <tr valign="top">
+      <td width="19%">
+      <pre>floor(x)</pre>
+      </td>
+      <td width="34%">
+      <p><font size="2">mayor entero no mayor que x</font></p>
+      </td>
+      <td width="48%">
+      <p><font size="2">Devuelve un double</font></p>
+      </td>
+    </tr>
+    <tr valign="top">
+      <td width="19%">
+      <pre>fabs(x)</pre>
+      </td>
+      <td width="34%">
+      <p><font size="2">Valor absoluto de x</font></p>
+      </td>
+      <td width="48%"><br>
+      </td>
+    </tr>
+    <tr valign="top">
+      <td width="19%">
+      <pre>ldexp(x,n)</pre>
+      </td>
+      <td width="34%">
+      <p><font size="2">Devuelve x * 2<sup>n</sup></font></p>
+      </td>
+      <td width="48%"><br>
+      </td>
+    </tr>
+    <tr valign="top">
+      <td width="19%">
+      <pre>frexp(x,exp)</pre>
+      </td>
+      <td width="34%">
+      <p><font size="2">Divide a x en una potencia entera de 2, que se
+almacena en el lugar apuntado por exp, y devuelve una mantisa en el
+intervalo [&frac12;, 1].</font></p>
+      </td>
+      <td width="48%"><br>
+      </td>
+    </tr>
+    <tr valign="top">
+      <td width="19%">
+      <pre>modf(x, ip)</pre>
+      </td>
+      <td width="34%">
+      <p><font size="2">Divide a x en parte entera fraccionaria. El
+argumento ip debe ser un puntero a entero.</font></p>
+      </td>
+      <td width="48%"><br>
+      </td>
+    </tr>
+    <tr valign="top">
+      <td width="19%">
+      <pre>fmod(x,y)</pre>
+      </td>
+      <td width="34%">
+      <p><font size="2">Residuo de punto flotante de x/y.</font></p>
+      </td>
+      <td width="48%"><br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p><br>
+<br>
+</p>
+<h2>Funciones utilitarias (&lt;stdlib.h&gt;)</h2>
+<p>El header <b>stdlib.h</b><span style=""> agrupa
+las declaraciones de varias funciones no relacionadas entre s&iacute;,
+y que sirven a varios fines. Solamente las nombramos y encarecemos la
+lectura del manual.</span></p>
+<ul>
+  <li>
+    <p>Funciones de conversi&oacute;n: las funciones <b>atoi(),
+atol(), atof(), strtol(), strtod(), strtoul()</b>, toman cadenas
+representando n&uacute;meros y generan los elementos de datos del tipo
+correspondiente.</p>
+  </li>
+  <li>
+    <p>Se pueden generar n&uacute;meros aleatorios con <b>rand()</b> y
+    <b>srand().</b></p>
+  </li>
+  <li>
+    <p><span style="">Aqu&iacute; tambi&eacute;n se declaran las
+funciones de asignaci&oacute;n de memoria como </span><b>malloc(),
+calloc(), realloc(), free().</b></p>
+  </li>
+  <li>
+    <p><span style="">Para manejar datos en memoria con eficiencia se
+puede recurrir a </span><b>qsort() </b><span style="">y </span><b>bsearch()</b><span
+ style="">, que ordenan una tabla y realizan b&uacute;squeda binaria en
+la tabla ordenada. </span> </p>
+    <p></p>
+  </li>
+</ul>
+<h2><a name="clasificacion"></a>Clasificaci&oacute;n de caracteres
+(&lt;ctype.h&gt;)</h2>
+<p style="">El header <b>ctype.h</b> contiene
+declaraciones de macros para averiguar la pertenencia de un
+car&aacute;cter
+a determinados conjuntos. Son todas booleanas salvo las &uacute;ltimas
+que devuelven ints.</p>
+<table border="1" bordercolor="#000000" cellpadding="4" cellspacing="0"
+ width="100%">
+  <col width="47*"> <col width="209*"> <thead> <tr valign="top">
+    <th width="18%">
+    <p>macro</p>
+    </th>
+    <th width="82%">
+    <p>devuelve TRUE cuando</p>
+    </th>
+  </tr>
+  </thead> <tbody>
+    <tr valign="top">
+      <td width="18%">
+      <p>isalnum(c)</p>
+      </td>
+      <td width="82%">
+      <p>isalpha(c) o isdigit(c) son TRUE</p>
+      </td>
+    </tr>
+    <tr valign="top">
+      <td width="18%">
+      <p>isalpha(c)</p>
+      </td>
+      <td width="82%">
+      <p>isupper(c) o islower(c) son TRUE</p>
+      </td>
+    </tr>
+    <tr valign="top">
+      <td width="18%">
+      <p>iscntrl(c)</p>
+      </td>
+      <td width="82%">
+      <p>c es un car&aacute;cter de control</p>
+      </td>
+    </tr>
+    <tr valign="top">
+      <td width="18%">
+      <p>isdigit(c)</p>
+      </td>
+      <td width="82%">
+      <p>c es un d&iacute;gito decimal</p>
+      </td>
+    </tr>
+    <tr valign="top">
+      <td width="18%">
+      <p>isgraph(c)</p>
+      </td>
+      <td width="82%">
+      <p>c es un car&aacute;cter imprimible y no isspace(c)</p>
+      </td>
+    </tr>
+    <tr valign="top">
+      <td width="18%">
+      <p>islower(c)</p>
+      </td>
+      <td width="82%">
+      <p>c es una letra min&uacute;scula</p>
+      </td>
+    </tr>
+    <tr valign="top">
+      <td width="18%">
+      <p>isprint(c)</p>
+      </td>
+      <td width="82%">
+      <p>c es un car&aacute;cter imprimible, incluyendo el caso en que
+isspace(c) es TRUE</p>
+      </td>
+    </tr>
+    <tr valign="top">
+      <td width="18%">
+      <p>ispunct(c)</p>
+      </td>
+      <td width="82%">
+      <p>c es imprimible pero no espacio, letra ni d&iacute;gito</p>
+      </td>
+    </tr>
+    <tr valign="top">
+      <td width="18%">
+      <p>isspace(c)</p>
+      </td>
+      <td width="82%">
+      <p>c es espacio, fin de l&iacute;nea, tabulador</p>
+      </td>
+    </tr>
+    <tr valign="top">
+      <td width="18%">
+      <p>isupper(c)</p>
+      </td>
+      <td width="82%">
+      <p>c es letra may&uacute;scula</p>
+      </td>
+    </tr>
+    <tr valign="top">
+      <td width="18%">
+      <p>isxdigit(c)</p>
+      </td>
+      <td width="82%">
+      <p>c es d&iacute;gito hexadecimal</p>
+      </td>
+    </tr>
+    <tr valign="top">
+      <td width="18%">
+      <p>tolower(c)</p>
+      </td>
+      <td width="82%">
+      <p>devuelve c en min&uacute;scula</p>
+      </td>
+    </tr>
+    <tr valign="top">
+      <td width="18%">
+      <p>toupper(c)</p>
+      </td>
+      <td width="82%">
+      <p>devuelve c en may&uacute;scula</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p><br>
+<br>
+</p>
+<hr>
+<h2><a name="ejercicios"></a>Ejercicios</h2>
+<p>1. Utilizar la funci&oacute;n de cantidad variable de argumentos
+definida m&aacute;s arriba para obtener los promedios de los 2, 3,
+..., n primeros elementos de un arreglo.</p>
+<p>2. Construir una funci&oacute;n de lista variable de argumentos
+que efect&uacute;e la concatenaci&oacute;n de una cantidad arbitraria
+de cadenas en una zona de memoria provista por la funci&oacute;n que
+llama.</p>
+<p>3. Construir una funci&oacute;n de cantidad variable de argumentos
+que sirva para imprimir, con un formato especificado, mensajes de
+debugging, conteniendo nombres y valores de variables.</p>
+<p>4. Construir un programa que separe la entrada standard en
+palabras, usando las macros de clasificaci&oacute;n de caracteres.
+Debe considerar como delimitadores a los caracteres espacio,
+tabulador, signos de puntuaci&oacute;n, etc.</p>
+<p>5. Dadas dos fechas y horas del d&iacute;a, calcular su
+diferencia. Utilizar las funciones de BS para convertir a tipos de
+datos convenientes e imprimir la diferencia en a&ntilde;os, meses,
+d&iacute;as, horas, etc.</p>
+<p>6. Generar fechas al azar dentro de un per&iacute;odo de tiempo
+dado.</p>
+<p><br>
+</p>
+<hr style="width: 100%; height: 2px;">
+<p><br>
+<br>
+</p>
+<p><br>
+<br>
+</p>
+<p><br>
+<br>
+</p>
+</body>
+</html>

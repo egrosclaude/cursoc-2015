@@ -1,0 +1,240 @@
+\chapter{El preprocesador}
+El compilador C tiene un componente auxiliar llamado \textbf{preprocesador}, que actúa en la primera etapa
+del proceso de compilación. Su misión es buscar, en el texto del programa fuente entregado al
+compilador, ciertas \textbf{directivas} que le indican realizar alguna tarea a nivel de texto. Por ejemplo,
+\textbf{inclusión} de otros archivos, o \textbf{sustitución} de ciertas cadenas de caracteres (\textbf{símbolos} o \textbf{macros}) por otras. 
+
+El preprocesador cumple estas directivas en forma similar a como podrían ser hechas
+interactivamente por el usuario, utilizando los comandos de un editor de texto (\quotes{incluir archivo} o \quotes{reemplazar texto}), pero en forma automática.
+Una vez cumplidas todas estas directivas, el preprocesador entrega el texto resultante al resto de las etapas de compilación, que terminarán dando por resultado un módulo objeto. Un archivo fuente, junto con todos los archivos que incluya, es llamado una \textbf{unidad de traducción}.
+
+\section*{Directivas de preprocesador}
+El preprocesador sirve para eliminar redundancia y aumentar la expresividad de los programas en C,
+facilitando su mantenimiento. Si una variable o función se utiliza en varios archivos fuente, es posible
+aislar su declaración, colocándola en un único archivo aparte que será incluido al tiempo de
+compilación en los demás fuentes. Esto facilita toda modificación de elementos comunes en los fuentes
+de un proyecto. Por otro lado, si una misma constante o expresión aparece repetidas veces en un texto,
+y es posible que su valor deba cambiarse más adelante, es muy conveniente definir esa constante con
+un símbolo y especificar su valor sólo una vez, mediante un símbolo o macro.
+
+Una de las funciones del preprocesador es sustituir
+símbolos, o cadenas de texto dadas, por otras (Fig. \ref{fig:preproc1}). La directiva
+\texttt{\#define} establece la relación entre los símbolos y su
+expansión o cadena a sustituir. Los símbolos indicados con una directiva de definición \texttt{\#define} se guardan en una \textbf{tabla de símbolos} durante el preprocesamiento. Habitualmente se llama \textbf{símbolos} a aquellas cadenas que son
+directamente sustituibles por una expresión, reservándose el nombre de \textbf{macros} para aquellos símbolos
+cuya expansión es parametrizable (es decir, llevan argumentos formales y reales como en el caso de
+las funciones). La cadena de expansión puede ser cualquiera, no necesariamente un elemento
+sintácticamente válido de C.
+
+\figura[10]{preproc1}{El preprocesador realiza ediciones automáticas de los fuentes \\antes de entregar el resultado al compilador.}{preprocesador.jpg}
+ 
+Las directivas del preprocesador no pertenecen al lenguaje C en un sentido estricto. El preprocesador
+\textbf{no comprende ningún aspecto sintáctico ni semántico} de C. Las \textbf{macros} definidas en un programa C \textbf{no
+son variables ni funciones}, sino simplemente cadenas de texto que serán sustituidas por otras. Las
+directivas pueden aparecer en cualquier lugar del programa, pero sus efectos se ponen en vigor recién
+a partir del punto del programa en que aparecen y hasta el final de la unidad de traducción. Es decir, un
+símbolo o macro puede utilizarse sólo después de la aparición de la directiva que la define, y no antes.
+Tampoco puede utilizarse en una unidad de traducción diferente, salvo que vuelva a ser definida en ella (los símbolos de preprocesador no se \quotes{propagan} entre unidades de traducción).
+
+Las directivas para incluir archivos suelen darse al principio de los programas, porque en general se
+desea que su efecto alcance a todo el archivo fuente. Por esta razón los archivos preparados para ser
+incluidos se denominan \textit{headers} o archivos de cabecera. La implementación de la Biblioteca Standard
+que viene con un compilador posee sus propios headers, uno por cada módulo de la biblioteca, que
+declaran funciones y variables de uso general. Estos headers contienen texto legible por humanos, y
+están en algún subdirectorio predeterminado (llamado \texttt{/usr/include} en UNIX, y dependiendo del
+compilador en otros sistemas operativos). El usuario puede escribir sus propios headers, y no necesita
+ubicarlos en el directorio reservado del compilador; puede almacenarlos en el directorio activo durante
+la compilación. 
+
+En los párrafos anteriores, nótese que decimos declarar funciones, y no definirlas; la diferencia es
+importante y se verá con detalle más adelante. Recordemos por el momento que \textbf{en los headers} de la
+Biblioteca Standard no aparecen \textbf{definiciones} -es decir, textos- de funciones, sino solamente
+\textbf{declaraciones o prototipos}, que sirven para anunciar al compilador los tipos y cantidad de los
+argumentos, etc.
+
+\subsection{Ejemplos}
+No se considera buena práctica de programación colocar la definición de una función de uso frecuente
+en un header. Esto forzaría a recompilar siempre la función cada vez que se la utilizara. Por el
+contrario, lo ideal sería compilarla una única vez, produciendo un módulo objeto (y posiblemente
+incorporándolo a una biblioteca). Esto ahorraría el tiempo correspondiente a su compilación, ocupando
+sólo el necesario para la vinculación.
+
+La directiva \texttt{\#include} hace que el preprocesador inserte y
+preprocese otros archivos en el punto donde se indica la
+directiva. El resultado de preprocesar el archivo incluido
+puede ser definir otros símbolos y macros, o aun incluir
+otros archivos.
+Los archivos destinados a ser incluidos son habitualmente
+llamados archivos de cabecera o headers.
+Las directivas de inclusión son anidables, es decir, pueden incluirse headers que a su vez contengan
+directivas de inclusión.
+
+Una característica interesante del preprocesador es que permite la \textbf{compilación condicional} de
+segmentos de la unidad de traducción, en base a valores de símbolos. Una directiva condicional es
+aquella que comprueba si un símbolo dado ha sido definido, o si su definición coincide con cierta
+cadena. El texto del programa que figura entre la directiva y su \texttt{end} será considerado sólo si la
+comprobación resulta exitosa. Los símbolos o macros pueden ser definidos al tiempo de la
+compilación, sin alterar el texto del programa, permitiendo así una parametrización del programa en
+forma separada de su escritura.
+
+\subsection{Ejemplos}
+\begin{enumerate}
+	\item Si el programa dice:
+\begin{lstlisting}
+a=2*3.14159*20.299322;
+\end{lstlisting}
+Es mucho más claro poner:
+\begin{lstlisting}
+#define PI
+#define RADIO
+a=2*PI*RADIO;
+3.14159
+20.299322
+\end{lstlisting}
+\item Con las siguientes directivas:
+\begin{lstlisting}
+#include <stdio.h>
+#include "aux.h"
+#define MAXITEM
+#define DOBLE(X)
+100
+2*X
+\end{lstlisting}
+\end{enumerate}
+\begin{itemize}
+	\item Se incluye el header de biblioteca standard \texttt{stdio.h}, que contiene declaraciones necesarias para
+poder utilizar funciones de entrada/salida standard (hacia consola y hacia archivos).
+\item Se incluye un header escrito por el usuario. Al indicar el nombre del header entre ángulos, como
+en la línea anterior, especificamos que la búsqueda debe hacerse en los directorios reservados del
+compilador. Al indicarlo entre comillas, nos referimos al directorio actual.
+\item Se define un símbolo MAXITEM equivalente a la constante numérica 100.
+\item Se define una macro DOBLE(X) que deberá sustituirse por la cadena 2*(argumento de la llamada
+a la macro).
+\end{itemize}
+
+De esta manera, podemos escribir sentencias tales como:
+\begin{lstlisting}
+a=MAXITEM;
+b=DOBLE(45);
+\end{lstlisting}
+El texto luego de la etapa de preprocesamiento y antes de la compilación propiamente dicha será
+\begin{lstlisting}
+a=100;
+b=2*45;
+\end{lstlisting}
+
+Es importante comprender que, aunque sintácticamente parecido, el uso de una macro \textbf{no es una
+llamada a función}; los argumentos de una macro no se evalúan en tiempo de ejecución antes de la
+llamada, sino que \textbf{se sustituyen textualmente} en el cuerpo de la macro. Así, si ponemos
+\begin{lstlisting}
+b=DOBLE(40+5);
+\end{lstlisting}
+el resultado será \texttt{b=2*40+5}; y no \texttt{b=2*45}, ni \texttt{b=2*(40+5)}, que presumiblemente es lo que desea el
+programador.
+
+Este problema puede solucionarse redefiniendo la macro así:
+\begin{lstlisting}
+#define DOBLE(X)
+2*(X)
+\end{lstlisting}
+Ahora la expansión de la macro será la deseada. En general es saludable rodear las apariciones de los
+argumentos de las macros entre paréntesis, para obligar a su evaluación al tiempo de ejecución con la
+precedencia debida, y evitar efectos laterales.
+
+Con las directivas condicionales:
+\begin{lstlisting}
+
+#ifdef DEBUG
+#define CARTEL(x)
+#else
+#define CARTEL(x)
+#endif
+\end{lstlisting}
+Observaciones
+\begin{lstlisting}
+imprimir(x)
+#if SISTEMA==MS_DOS
+#include "header1.h"
+#elif SISTEMA==UNIX
+#include "header2.h"
+#endif
+\end{lstlisting}
+En el primer caso, definimos una macro \texttt{CARTEL} que equivaldrá a invocar a una función \quotes{imprimir},
+pero sólo si el símbolo \texttt{DEBUG} ha sido definido. En otro caso, equivaldrá a la cadena vacía. En el
+segundo caso, se incluirá uno u otro header dependiendo del valor del símbolo \texttt{SISTEMA}. Tanto
+DEBUG como SISTEMA pueden tomar valores al momento de compilación, si se dan como
+argumentos para el compilador. De esta manera se puede modificar el comportamiento del programa
+sin necesidad de editarlo.
+
+El segmento siguiente muestra un caso con lógica inversa pero equivalente al ejemplo anterior.
+\begin{lstlisting}
+#ifndef DEBUG
+#define CARTEL(x)
+#else
+#define CARTEL(x) imprimir(x)
+#endif
+\end{lstlisting}
+
+Observaciones
+A veces puede resultar interesante, para depurar un programa, observar cómo queda el archivo
+intermedio generado por el preprocesador después de todas las sustituciones, inclusiones, etc. La
+mayoría de los compiladores cuentan con una opción que permite generar este archivo intermedio y
+detener allí la compilación, para poder estudiarlo.
+Otra opción relacionada con el preprocesador que suelen ofrecer los compiladores es aquella que
+permite definir, al tiempo de la compilación y sin modificar los fuentes, símbolos que se pondrán a la
+vista del preprocesador. Así, la estructura final de un programa puede depender de decisiones tomadas
+al tiempo de compilación. Esto permite, por ejemplo, aumentar la portabilidad de los programas, o
+generar múltiples versiones de un sistema sin diseminar el conocimiento reunido en los módulos
+fuente que lo componen.
+Finalmente, aunque el compilador tiene un directorio default donde buscar los archivos de inclusión,
+es posible agregar otros directorios para cada compilación con argumentos especiales si es necesario.
+Ejercicios
+1. Dé ejemplos de directivas de preprocesador:
+para incluir un archivo proporcionado por el compilador
+para incluir un archivo confeccionado por el usuario
+- 13 -
+Ejercicios
+Eduardo Grosclaude 2001
+para definir una constante numérica
+para compilar un segmento de programa bajo la condición de estar definida una constante
+idem bajo la condición de ser no definida
+idem bajo la condición de que un símbolo valga una cierta constante
+idem bajo la condición de que dos símbolos sean equivalentes
+2. Proponga un método para incluir un conjunto de archivos en un módulo fuente con una sola
+directiva de preprocesador.
+3. ¿Cuál es el ámbito de una definición de preprocesador? Si defino un símbolo A en un fuente y lo
+compilo creando un módulo objeto algo.o, ¿puedo utilizar A desde otro fuente, sin declararlo, a
+condición de linkeditarlo con algo.o?
+4. ¿Qué pasa si defino dos veces el mismo símbolo en un mismo fuente?
+5. Un cierto header A es incluido por otros headers B, C y D. El fuente E necesita incluir a B, C y D.
+Proponga un método para poder hacerlo sin obligar al preprocesador a leer el header A más de una
+vez.
+6. Edite el programa hello.c del ejemplo del capítulo 1 reemplazando la cadena "Hola, mundo!\n" por
+un símbolo definido a nivel de preprocesador.
+7. Edite el programa hello.c incluyendo la compilación condicional de la instrucción de impresión
+printf() sujeta a que esté definido un símbolo de preprocesador llamado IMPRIMIR. Compile y pruebe
+a) sin definir el símbolo IMPRIMIR, b) definiéndolo con una directiva de preprocesador, c)
+definiéndolo con una opción del compilador. ¿En qué casos es necesario recompilar el programa?
+8. Escriba una macro que imprima su argumento usando la función printf(). Aplíquela para reescribir
+hello.c de modo que funcione igual que antes.
+9. ¿Cuál es el resultado de preprocesar las líneas que siguen? Es decir, ¿qué recibe exactamente el
+compilador luego del preprocesado?
+#define ALFA 8
+#define BETA 2*ALFA
+#define PROMEDIO(x,y) (x+y)/2
+a=ALFA*BETA;
+b=5;
+c=PROMEDIO(a,b);
+10 ¿Qué está mal en los ejemplos que siguen?
+a)
+#define PRECIO 27.5
+PRECIO=27.7;
+b)
+#define 3.14 PI
+c)
+#define doble(x) 2*x;
+alfa=doble(6)+5;
+- 14 -
+Lenguaje C
+Ejercicios
+11. Investigue la función de los símbolos predefinidos __STDC__, __FILE__ y__LINE__.

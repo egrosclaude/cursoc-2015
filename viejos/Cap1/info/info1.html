@@ -1,0 +1,181 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+  <meta http-equiv="CONTENT-TYPE"
+ content="text/html; charset=iso-8859-1">
+  <title>1. Introducci&oacute;n al lenguaje C - Informaci&oacute;n
+Adicional</title>
+  <meta name="GENERATOR" content="StarOffice/5.2 (Linux)">
+  <meta name="AUTHOR" content="Eduardo Grosclaude">
+  <meta name="CREATED" content="20010508;18165800">
+  <meta name="CHANGEDBY" content="Eduardo Grosclaude">
+  <meta name="CHANGED" content="20010818;18524900">
+  <style>
+	<!--
+		@page { margin-left: 2.5cm; margin-right: 1.5cm }
+		PRE { margin-left: 0.4cm }
+	-->
+	</style>
+</head>
+<body style="background-color: rgb(255, 255, 255);">
+<p style="page-break-before: always;"><br>
+<br>
+</p>
+<h1 align="justify"><a name="introducci&oacute;n al lenguaje C"></a>1.
+Introducci&oacute;n al Lenguaje C</h1>
+<br>
+<h2 align="justify">Informaci&oacute;n Adicional</h2>
+<br>
+<hr>
+<a name="info1">
+<h2 align="justify">Introducci&oacute;n</h2>
+</a>
+<p align="justify">Pese a la gran cantidad de tiempo que lleva en
+actividad el lenguaje, todav&iacute;a es objeto de reformulaciones.
+En 1999 los organismos de estandarizaci&oacute;n ISO y ANSI,
+conjuntamente, han declarado adoptada la norma llamada "C99"
+o "C2k". A partir de este momento los compiladores han
+empezado a incorporar, paulatinamente, todas las caracter&iacute;sticas
+de la norma; este es un proceso que llevar&aacute; una cantidad de
+tiempo dif&iacute;cil de predecir. Es posible esperar la
+publicaci&oacute;n
+de un standard C04 en el a&ntilde;o 2004, ya que en teor&iacute;a el
+ISO revisa sus normas cada cinco a&ntilde;os.</p>
+<hr>
+<h2 align="justify"><a name="info2"></a>Mapa de memoria de un
+programa</h2>
+<p align="justify">El programa compilado queda contenido en un archivo,
+pero al ser invocado, se carga en memoria y all&iacute; se despliega
+en una cantidad de secciones de diferentes tama&ntilde;os y con
+distintas funciones. La manera como se distribuyen realmente estas
+secciones en la memoria f&iacute;sica depende fuertemente de la forma
+de administraci&oacute;n de memoria del sistema operativo para el
+cual est&aacute; construido. Sin embargo, el siguiente modelo ideal
+puede servir de referencia para ilustrar algunas particularidades y
+problemas que ir&aacute;n surgiendo con el estudio del lenguaje.</p>
+<p align="justify">El programa cargado en memoria se dividir&aacute;,
+<i>grosso modo</i>, en cuatro regiones: <b>c&oacute;digo o texto,
+datos est&aacute;ticos, datos din&aacute;micos (o <i>heap</i>), y
+pila (o <i>stack</i>). </b>
+</p>
+<table border="0" cellpadding="4" cellspacing="0" width="100%">
+  <colgroup><col width="117"><col width="139"></colgroup><thead> <tr>
+    <td valign="top" width="46%">
+    <p><img src="mapadememoria.gif" name="Imagen2" align="left"
+ border="0" height="346" width="346"><br clear="left">
+    <br>
+    </p>
+    </td>
+    <td width="54%">
+    <p><font size="2">El mapa de memoria de un programa se divide
+conceptualmente en cuatro regiones</font></p>
+    </td>
+  </tr>
+  </thead>
+</table>
+<p align="justify">La regi&oacute;n de c&oacute;digo contendr&aacute;
+el <b>texto</b> del programa, es decir, la versi&oacute;n ejecutable
+de las instrucciones que escribi&oacute; el programador, traducidas
+por el compilador al lenguaje de la m&aacute;quina. En general, el
+programa C fuente se compondr&aacute; de funciones, que ser&aacute;n
+replicadas a nivel de m&aacute;quina por subrutinas en el lenguaje
+del procesador subyacente. Algunas instrucciones C resultar&aacute;n
+en &uacute;ltima instancia en invocaciones a funciones del sistema
+(por ejemplo, cuando necesitamos escribir en un archivo). </p>
+<p align="justify">La regi&oacute;n de datos est&aacute;ticos es un
+lugar de almacenamiento para datos del programa que quedan definidos
+al momento de la compilaci&oacute;n. Se trata de datos cuya vida o
+instanciaci&oacute;n no depende de la invocaci&oacute;n de las
+funciones. Son las variables est&aacute;ticas, definidas en el cuerpo
+del programa que es com&uacute;n a todas las funciones. A su vez,
+esta zona se divide en dos: la de datos est&aacute;ticos
+inicializados expl&iacute;citamente por el programa (zona a veces
+llamada <b>bss</b> por motivos hist&oacute;ricos) y la zona de datos
+est&aacute;ticos sin inicializar (a veces llamada <b>data</b>) que
+ser&aacute; llenada con ceros binarios al momento de la carga del
+programa.</p>
+<p align="justify">El tama&ntilde;o de las regiones de c&oacute;digo y
+de datos est&aacute;ticos est&aacute; determinado al momento de
+compilaci&oacute;n y es inamovible. Las otras dos regiones quedan en
+un bloque cuyo tama&ntilde;o inicial es ajustado por el sistema
+operativo al momento de la carga, pero puede variar durante la
+ejecuci&oacute;n. Este bloque es compartido entre ambas regiones. Una
+de ellas, la de datos din&aacute;micos o <i>heap</i>, crece "hacia
+arriba" (hacia direcciones de memoria m&aacute;s altas); la
+otra, la pila del programa o <i>stack</i>, crece "hacia abajo"
+(en sentido opuesto). </p>
+<p align="justify">Un programa C puede utilizar estructuras de datos
+din&aacute;micas, como listas o &aacute;rboles, que vayan creciendo
+al agreg&aacute;rseles elementos. El programa puede "pedir"
+memoria cada vez que necesite alojar un nuevo elemento de estas
+estructuras din&aacute;micas, o para crear buffers temporarios para
+cualquier uso que sea necesario. En este caso, el l&iacute;mite del
+heap se ir&aacute; desplazando hacia las direcciones superiores. Es
+su responsabilidad, tambi&eacute;n, liberar esta memoria cuando no ya
+sea necesaria, ya que no existe un mecanismo de "recolecci&oacute;n
+de basura", lo cual s&iacute; existe en otros lenguajes, para
+desalojar autom&aacute;ticamente objetos que ya no se utilicen. </p>
+<p align="justify">Por otro lado, un programa que realice una cadena de
+invocaciones de muchas funciones, y especialmente si &eacute;stas
+utilizan muchas variables locales, har&aacute; crecer notablemente su
+stack, desplazando el tope de la pila hacia abajo. La regi&oacute;n
+del stack es el lugar para la creaci&oacute;n y destrucci&oacute;n de
+variables locales, que son aquellas que viven mientras tiene lugar la
+ejecuci&oacute;n de la funci&oacute;n a la que pertenecen. La
+destrucci&oacute;n de estas variables s&iacute; es autom&aacute;tica,
+y se produce al momento de finalizar la ejecuci&oacute;n de la
+funci&oacute;n.</p>
+<p align="justify">Volveremos sobre este modelo en varias ocasiones
+para explicar algunas cuestiones especiales.</p>
+<p align="justify"><br>
+<br>
+</p>
+<hr>
+<a name="info3"></a>
+<h3 align="justify"><a name="info3">El utilitario Make</a></h3>
+<p align="justify"><a name="info3">Un proyecto de programaci&oacute;n
+se compone de un conjunto de varios archivos fuente, archivos <i>header</i>
+o de inclusi&oacute;n, posiblemente m&oacute;dulos objeto resultantes
+de compilaciones anteriores, y bibliotecas. Para automatizar el proceso
+de desarrollo se puede recurrir al comando <b>make</b>, que cuenta con
+un cierto conocimiento y aplica una serie de reglas para saber
+qu&eacute; acciones tomar a fin de producir un programa ejecutable.</a></p>
+<p align="justify"><a name="info3">En particular, <b>make</b> adivina,
+por la extensi&oacute;n de cada archivo, cu&aacute;les archivos son
+fuentes, cu&aacute;les son m&oacute;dulos objeto, etc. Tomando en
+cuenta las fechas de &uacute;ltima modificaci&oacute;n de cada archivo,
+es capaz de saber cu&aacute;les archivos deben recompilarse o
+relinkearse para generar un ejecutable actualizado. El programa <b>make</b>
+efectuar&aacute; &uacute;nicamente las tareas necesarias para
+actualizar el proyecto con el m&iacute;nimo trabajo posible.</a></p>
+<p align="justify"><a name="info3">A estas reglas por defecto que sigue
+<b>make</b>, el usuario puede agregar otras; por ejemplo, si el
+proyecto incluye m&oacute;dulos compilables en otros lenguajes. En este
+caso deber&aacute; indicar la manera de llamar al compilador indicado.
+Estas reglas agregadas, as&iacute; como la enumeraci&oacute;n de los
+archivos que componen el proyecto, son especificadas en un archivo
+especial, llamado en UNIX <i>makefile</i>.<br>
+<br>
+<br>
+</a></p>
+<a name="info4"></a>
+<h3><a name="info4">Para el caso del ejemplo</a></h3>
+<p align="justify"><a name="info4">El comando <b>make</b> contiene la
+inteligencia para buscar, en el directorio activo, archivos fuente
+llamados <b>hola.*;</b> determinar (a partir de la extensi&oacute;n)
+que el hallado se trata de un programa en C; invocar con una cantidad
+de opciones default al compilador <b>cc</b>, y renombrar la salida con
+el nombre <b>hola</b>. Este ser&aacute; el ejecutable deseado. </a></p>
+<p align="justify"><a name="info4">Se se invoca al comando make una
+segunda vez, &eacute;ste comprobar&aacute;, en base a las fechas de
+modificaci&oacute;n de los archivos fuente y ejecutable, que no es
+necesaria la compilaci&oacute;n (ya que el ejecutable es posterior al
+fuente). Si editamos el fuente para cambiar algo en el programa,
+invocar nuevamente a make ahora repetir&aacute; la compilaci&oacute;n
+(porque ahora el ejecutable es anterior al fuente). </a></p>
+<p align="justify"><a name="info4"><br>
+</a></p>
+<hr>
+<p align="justify"><a name="info4"> </a></p>
+</body>
+</html>

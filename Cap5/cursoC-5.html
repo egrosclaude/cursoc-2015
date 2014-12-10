@@ -1,0 +1,753 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+  <meta http-equiv="CONTENT-TYPE"
+ content="text/html; charset=iso-8859-1">
+  <title>5. Propiedades de las variables</title>
+  <meta name="GENERATOR" content="StarOffice/5.2 (Linux)">
+  <meta name="AUTHOR" content="Eduardo Grosclaude">
+  <meta name="CREATED" content="20010508;23552700">
+  <meta name="CHANGEDBY" content="Eduardo Grosclaude">
+  <meta name="CHANGED" content="20010816;20370200">
+  <style>
+	<!--
+		PRE { margin-left: 0.5cm }
+		PRE.preformateado-dentro-de-tabla { margin-left: 0.1cm; margin-right: 0.1cm; font-size: 9pt }
+	-->
+	</style>
+</head>
+<body>
+<h1 align="justify"><a name="propiedades de las variables"></a>5.
+Propiedades de las variables</h1>
+<p align="justify">Las variables tienen diferentes propiedades
+seg&uacute;n
+que sean declaradas dentro o fuera de las funciones, y seg&uacute;n
+ciertos modificadores utilizados al declararlas. Entre las
+propiedades de las variables distinguimos:</p>
+<ul>
+  <li>
+    <p><font color="#804000"><b>Alcance</b> (desde d&oacute;nde es
+visible una variable)</font> </p>
+  </li>
+  <li>
+    <p><font color="#804000"><b>Vida</b> (cu&aacute;ndo se crea y
+cu&aacute;ndo desaparece)</font> </p>
+  </li>
+  <li>
+    <p><font color="#804000"><b>Clase de almacenamiento</b>
+(d&oacute;nde y c&oacute;mo se aloja la informaci&oacute;n que contiene)</font>
+    </p>
+  </li>
+  <li>
+    <p><font color="#804000"><b>Liga</b> o <i>linkage</i> (en
+qu&eacute; forma puede ser manipulada por el linker)</font> </p>
+  </li>
+</ul>
+<p style="margin-bottom: 0cm;" align="justify">Las reglas que
+determinan, a partir de la declaraci&oacute;n de una variable,
+cu&aacute;les
+ser&aacute;n sus propiedades, son bastante complejas. Estas reglas
+son tan interdependientes, que necesariamente la discusi&oacute;n de
+las propiedades de las variables ser&aacute; algo reiterativa.</p>
+<p style="margin-bottom: 0cm;" align="justify"><br>
+</p>
+<h2 align="justify"><a name="alcance de las variables"></a>Alcance de
+las variables</h2>
+<p align="justify">Una declaraci&oacute;n puede aparecer, o bien dentro
+de una funci&oacute;n, o bien fuera de todas ellas. En el primer
+caso, hablamos de una variable <b>local</b>; en el segundo, se trata
+de una variable <b>externa,</b> o global, y las diferencias entre
+ambas son muchas e importantes. Por supuesto, la primera diferencia
+es el alcance, o &aacute;mbito de visibilidad de la variable: una
+variable local es visible s&oacute;lo desde dentro de la funci&oacute;n
+donde es declarada. Una variable externa puede ser usada desde
+cualquier funci&oacute;n de la unidad de traducci&oacute;n, siendo
+suficiente que la declaraci&oacute;n se encuentre antes que el uso.</p>
+<h3 align="justify">Ejemplo</h3>
+<pre style="color: rgb(0, 153, 0); font-weight: bold;">int m;<br>int fun1()<br>{<br>    int m;<br><br>    m=1;<br>    ...<br>}<br>int n;<br>int fun2()<br>{<br>    m=1; <br>  ...<br><br> }<br>    <br></pre>
+<p style="margin-bottom: 0cm;" align="justify">La variable <b>m</b>
+declarada al principio es externa, y puede ser vista desde <b>fun1()</b>
+y <b>fun2().</b>&nbsp; Sin embargo, <b>fun1()</b> declara su propia
+variable <b>m</b> local, y toda operaci&oacute;n con <b>m</b> dentro
+de <b>fun1()</b> se referir&aacute; a esta &uacute;ltima. Por otro
+lado, la variable <b>n</b> es tambi&eacute;n externa, pero es visible
+s&oacute;lo por <b>fun2()</b> porque todo uso de las variables debe
+estar precedido por su declaraci&oacute;n.
+</p>
+<p style="margin-bottom: 0cm;" align="justify"><br>
+</p>
+<h2 align="justify"><a name="vida de las variables"></a>Vida de las
+variables</h2>
+<p style="margin-bottom: 0cm;" align="justify">Una variable externa se
+crea al momento de carga del programa, y perdura durante toda la
+ejecuci&oacute;n del mismo. Una variable local se crea y se destruye
+a cada invocaci&oacute;n de la funci&oacute;n donde est&eacute;
+declarada (excepci&oacute;n: las locales est&aacute;ticas).</p>
+<h3 align="justify">Ejemplo</h3>
+<pre style="color: rgb(0, 153, 0); font-weight: bold;">int j;<br>int fun1()<br>{<br>    int k;<br>    ...<br>}<br>int fun2()<br>{<br>    j=fun1();<br>} <br></pre>
+<p style="margin-bottom: 0cm;" align="justify">Cada vez que <b>fun2()</b>
+asigna el resultado de <b>fun1()</b> a <b>j</b>, est&aacute;
+utilizando la misma variable <b>j</b>, porque es externa; pero cada
+invocaci&oacute;n de <b>fun1()</b> crea una nueva variable <b>k</b>,
+la que se destruye al terminar esta funci&oacute;n.</p>
+<h3 align="justify">Ejemplo</h3>
+<pre style="color: rgb(0, 153, 0); font-weight: bold;">int j;<br>int fun1()<br>{<br>    static int k;<br>    ...<br>}<br>int fun2()<br>{<br>    j=fun1();<br>}<br></pre>
+<p style="margin-bottom: 0cm;" align="justify">La diferencia con el
+ejemplo anterior es que ahora <b>k</b> es declarada con el
+modificador <b>static</b>. Esto hace que <b>k</b> tenga las mismas
+propiedades de vida que una variable externa. A cada invocaci&oacute;n
+de <b>fun1(),</b> &eacute;sta utiliza el mismo objeto de datos, sin
+modificar, para la variable <b>k</b>. Si lee su valor,
+encontrar&aacute;
+el contenido que pueda haberle quedado de la invocaci&oacute;n
+anterior. Si lo modifica, la invocaci&oacute;n siguiente
+encontrar&aacute;
+ese valor en <b>k</b>. Este ejemplo muestra que alcance y vida no son
+propiedades equivalentes en C. La verdadera diferencia entre ambas
+formas de <b>k</b> es la <b>clase de almacenamiento</b>; en el primer
+caso, <b>k</b> es local y autom&aacute;tica; en el segundo, <b>k</b>
+es local pero est&aacute;tica.</p>
+<p style="margin-bottom: 0cm;" align="justify"><br>
+</p>
+<h2 align="justify"><a name="clases de almacenamiento"></a>Clases de
+almacenamiento</h2>
+<p align="justify">Dependiendo de c&oacute;mo son almacenados los
+contenidos de las variables, &eacute;stas pueden tener varias <b>clases
+de almacenamiento.</b> Una variable externa tiene clase de
+almacenamiento <b>est&aacute;tica.</b> Una variable local tiene
+-salvo indicaci&oacute;n contraria- clase de almacenamiento
+<b>autom&aacute;tica.</b></p>
+<h3>Est&aacute;ticas </h3>
+<p align="justify">Las variables est&aacute;ticas comienzan su vida al
+tiempo de carga del programa, es decir, aun antes de que se inicie la
+ejecuci&oacute;n de la funci&oacute;n <b>main().</b> Existen durante
+todo el tiempo de ejecuci&oacute;n del programa. Son inicializadas
+con ceros binarios, salvo que exista otra inicializaci&oacute;n
+expl&iacute;cita. Son las variables externas y las locales declaradas
+<b>static</b>.</p>
+<h3>Autom&aacute;ticas</h3>
+<p align="justify">Esta clase abarca exclusivamente las variables,
+declaradas localmente a una funci&oacute;n, que no sean declaradas
+<b>static</b>. Una variable autom&aacute;tica inicia su existencia al
+entrar el control a la funci&oacute;n donde est&aacute; declarada, y
+muere al terminar la funci&oacute;n. No son inicializadas
+impl&iacute;citamente, es decir, contienen <i>basura</i> salvo que se
+las inicialice expl&iacute;citamente.</p>
+<h3>Registro</h3>
+<p align="justify">Una variable registro no ocupar&aacute; memoria,
+sino que ser&aacute; mantenida en un registro del procesador.</p>
+<h3 align="justify">Ejemplo</h3>
+<pre><font style="color: rgb(0, 153, 0); font-weight: bold;"
+ color="#008000">int m;<br>int fun()<br>{<br>        int j;<br>        register int k;<br>        static int l;<br>        ...<br>}</font><span
+ style="color: rgb(0, 153, 0); font-weight: bold;"> </span>           <br>                  <br></pre>
+<p align="justify">Aqu&iacute; <b>m</b>, por ser externa, tiene clase
+de almacenamiento <b>est&aacute;tica</b>. Las variables<b> j, k y l</b>
+son locales pero s&oacute;lo <b>j</b> es <b>autom&aacute;tica</b>. La
+variable<b> l</b> es <b>est&aacute;tica</b> (tiene propiedades de
+vida similares a las de <b>m</b>). Por su parte <b>k</b> es de tipo
+<b>registro</b>, lo que quiere decir que el compilador, <i>siempre
+que resulte posible,</i> mantendr&aacute; sus contenidos en
+alg&uacute;n
+registro de CPU de tama&ntilde;o adecuado. Una declaraci&oacute;n
+<b>register</b> debe tomarse como una <i>recomendaci&oacute;n</i> al
+compilador, ya que no hay seguridad de que, al tiempo de
+ejecuci&oacute;n,
+resulte posible utilizar un registro para esa variable. M&aacute;s
+a&uacute;n, el mismo programa, compilado y corrido en diferentes
+arquitecturas, podr&aacute; utilizar diferentes cantidades de
+registros para sus variables.</p>
+<p align="justify">Una variable <b>register</b> tendr&aacute; un
+tiempo
+de acceso muy inferior al de una variable en memoria, porque el
+acceso a un registro de CPU es mucho m&aacute;s r&aacute;pido. En
+general resulta interesante que las variables m&aacute;s
+frecuentemente accedidas sean las declaradas como <b>register</b>;
+t&iacute;picamente, los &iacute;ndices de arreglos, variables de
+control de lazos, etc. </p>
+<p align="justify">La declaraci&oacute;n <b>register</b> es
+quiz&aacute;s
+algo anacr&oacute;nica, ya que los compiladores modernos ejecutan una
+serie de optimizaciones que frecuentemente utilizan registros para
+mantener las variables, aun cuando no haya indicaci&oacute;n por
+parte del programador.</p>
+<p align="justify">&iquest;Cu&aacute;l es la idea de declarar variables
+locales que sean est&aacute;ticas? Generalmente se desea aprovechar la
+capacidad de "<strong>recordar la historia</strong> " de las variables
+est&aacute;ticas, utilizando el valor al momento de la &uacute;ltima
+invocaci&oacute;n para producir uno nuevo. Por ejemplo, una
+funci&oacute;n
+puede contar la cantidad de veces que ha sido llamada.</p>
+<h3 align="justify">Ejemplo</h3>
+<pre><font color="#008000"><span
+ style="color: rgb(0, 153, 0); font-weight: bold;">int veces()</span><br
+ style="color: rgb(0, 153, 0); font-weight: bold;"><span
+ style="color: rgb(0, 153, 0); font-weight: bold;">{</span><br
+ style="color: rgb(0, 153, 0); font-weight: bold;"><span
+ style="color: rgb(0, 153, 0); font-weight: bold;">        static int vez=0;</span><br
+ style="color: rgb(0, 153, 0); font-weight: bold;"><span
+ style="color: rgb(0, 153, 0); font-weight: bold;">        return ++vez;</span><br
+ style="color: rgb(0, 153, 0); font-weight: bold;"><span
+ style="color: rgb(0, 153, 0); font-weight: bold;">}</span><br
+ style="color: rgb(0, 153, 0); font-weight: bold;"><span
+ style="color: rgb(0, 153, 0); font-weight: bold;">int fun()</span><br
+ style="color: rgb(0, 153, 0); font-weight: bold;"><span
+ style="color: rgb(0, 153, 0); font-weight: bold;">{</span><br
+ style="color: rgb(0, 153, 0); font-weight: bold;"><span
+ style="color: rgb(0, 153, 0); font-weight: bold;">        while(veces() &lt;= 50)</span><br
+ style="color: rgb(0, 153, 0); font-weight: bold;"><span
+ style="color: rgb(0, 153, 0); font-weight: bold;">{</span><br
+ style="color: rgb(0, 153, 0); font-weight: bold;"><span
+ style="color: rgb(0, 153, 0); font-weight: bold;">        ... } }</span></font>                 <br>       <br></pre>
+<p align="justify">Aqu&iacute; el lazo <b>while</b> se ejecuta 50
+veces.</p>
+<p align="justify">La inicializaci&oacute;n (impl&iacute;cita o
+expl&iacute;cita) de una variable est&aacute;tica se produce una
+&uacute;nica vez, al momento de carga del programa. Por el contrario,
+la inicializaci&oacute;n (expl&iacute;cita) de una autom&aacute;tica se
+hace a cada instancia de la misma.<br>
+<br>
+<br>
+</p>
+<h2>Variables y Mapa de Memoria&nbsp;<font size="3">(</font><a
+ href="info/info5.html#info1"><font size="3">mas informaci&oacute;n</font></a><font
+ size="3">)</font><br>
+</h2>
+<p style="margin-bottom: 0cm;" align="justify"><br>
+</p>
+<a name="liga">
+<h2>Liga</h2>
+</a>
+<p style="margin-bottom: 0cm;" align="justify">Una vez que un conjunto
+de unidades de traducci&oacute;n pasa exitosamente la
+compilaci&oacute;n,
+tenemos un conjunto de m&oacute;dulos objeto. Cada m&oacute;dulo
+objeto puede contener, en forma simb&oacute;lica, pendiente de
+resoluci&oacute;n, referencias a variables o funciones definidas en
+otros m&oacute;dulos.</p>
+<p style="margin-bottom: 0cm;" align="justify">La propiedad de las
+variables y funciones que permite que el <i>linker</i> encuentre la
+definici&oacute;n de un objeto para aparearlo con su referencia es la
+<b>liga externa</b>. Tienen liga externa<b> las variables externas y
+las funciones</b>, de modo que todas &eacute;stas pueden ser
+referenciadas desde otras unidades de traducci&oacute;n. </p>
+<h3>Ejemplo</h3>
+<table border="1" bordercolor="#000000" cellpadding="4" cellspacing="0"
+ width="100%">
+  <colgroup><col width="85"><col width="85"><col width="85"></colgroup><thead>
+  <tr valign="top">
+    <th width="33%">
+    <p>alfa.c</p>
+    </th>
+    <th width="33%">
+    <p>beta.c</p>
+    </th>
+    <th width="33%">
+    <p>gamma.c</p>
+    </th>
+  </tr>
+  </thead> <tbody>
+    <tr valign="top">
+      <td style="color: rgb(0, 153, 0); font-weight: bold;" width="33%">
+      <pre style="margin-left: 40px;"
+ class="preformateado-dentro-de-tabla">main()<br>{<br>    fun1();<br>    fun2();<br>}<br>      </pre>
+      </td>
+      <td width="33%">
+      <pre style="margin-left: 40px;"
+ class="preformateado-dentro-de-tabla"><font
+ style="color: rgb(0, 153, 0); font-weight: bold;" color="#008000">int fun1()<br>{<br>    ...<br>}<br><br>int fun3()<br>{<br>    ...<br><br></font></pre>
+      </td>
+      <td width="33%">
+      <pre style="margin-left: 40px;"
+ class="preformateado-dentro-de-tabla"><font
+ style="color: rgb(0, 153, 0); font-weight: bold;" color="#008000">int fun2()<br>{<br>...<br>fun3();<br>...<br>}<br></font>   <br>        </pre>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p style="margin-bottom: 0cm;" align="justify">El concepto de liga
+externa es importante cuando el proyecto de desarrollo abarca varias
+unidades de traducci&oacute;n que deben dar lugar a un ejecutable.
+Aprovechando la propiedad de liga externa de las funciones, se puede
+ubicar cada definici&oacute;n de funci&oacute;n, o un conjunto de
+ellas, en un archivo separado. Esto suele facilitar el mantenimiento
+y aportar claridad a la estructura de un proyecto de desarrollo. </p>
+<p style="margin-bottom: 0cm;" align="justify">En el ejemplo dado,
+fun1(), fun2() y fun3() est&aacute;n definidas en diferentes unidades
+de traducci&oacute;n que main(). El fuente <b>alfa.c</b><span>
+es capaz de dar origen a un programa ejecutable (porque contiene el
+punto de entrada al programa), pero solamente si al momento de
+linkedici&oacute;n se hace que el linker resuelva las referencias
+pendientes a fun1() y a fun2() (que no est&aacute;n definidas en
+alfa.c). Por motivos similares </span><b>gamma</b><span>
+necesita de </span><b>beta</b><span> al
+momento de linkedici&oacute;n. </span>
+</p>
+<p style="margin-bottom: 0cm;" align="justify">En
+la pr&aacute;ctica logramos esto de varias maneras; o bien con:</p>
+<pre style="margin-bottom: 0.5cm;"><strong><font color="#800040">$ cc alfa.c beta.c gamma.c -o alfa</font></strong>      </pre>
+<p style="margin-bottom: 0cm;" align="justify">Que significa "compilar
+separadamente los tres fuentes,
+linkeditarlos juntos y al ejecutable resultado renombrarlo como
+<b>alfa</b>"; o bien con:</p>
+<pre><strong><font color="#800040">$ cc -c alfa.c<br>$ cc -c beta.c<br>$ cc -c gamma.c<br>$ cc alfa.o beta.o gamma.o -o alfa</font></strong><br>&nbsp;</pre>
+<p style="margin-bottom: 0cm;" align="justify">Que es la misma tarea
+pero distribuida en etapas separadas. Una
+tercera manera es preparar un <i>makefile</i> indicando este modo de
+construcci&oacute;n e invocar a <b>make</b>.</p>
+<p style="margin-bottom: 0cm;" align="justify">La excepci&oacute;n a la
+regla de liga externa se produce cuando las variables externas o
+funciones son declaradas con el modificador <b>static. </b>Este
+modificador cambia el tipo de los objetos a <b>liga interna. </b>Un
+objeto que normalmente ser&iacute;a de liga externa, declarado como
+<b>static</b>, pasa a ser visible &uacute;nicamente dentro de la
+unidad de traducci&oacute;n donde ha sido declarado. </p>
+<p style="margin-bottom: 0cm;" align="justify">Esta particularidad
+permite realizar, en cierta medida, ocultamiento de informaci&oacute;n.
+Si una unidad de traducci&oacute;n utiliza variables externas o
+funciones de su uso privado, que no deben hacerse visibles desde
+afuera, puede declar&aacute;rselas <b>static</b>, con lo cual se
+har&aacute;n inaccesibles a toda otra unidad de traducci&oacute;n. El
+caso t&iacute;pico se presenta cuando se desea hacer opacas las
+funciones que <i>implementan</i> un tipo de datos abstracto,
+haci&eacute;ndolas de liga interna mientras que las funciones
+p&uacute;blicas (las de <i>interfaz</i>) se dejan con liga externa.</p>
+<h3>Ejemplo</h3>
+<table border="1" bordercolor="#000000" cellpadding="4" cellspacing="0"
+ width="100%">
+  <colgroup><col width="85"><col width="85"><col width="85"></colgroup><thead>
+  <tr valign="top">
+    <th width="33%">
+    <p>iota.c</p>
+    </th>
+    <th width="33%">
+    <p>kappa.c</p>
+    </th>
+    <th width="33%">
+    <p>lambda.c</p>
+    </th>
+  </tr>
+  </thead> <tbody>
+    <tr valign="top">
+      <td width="33%">
+      <pre style="margin-left: 40px;"><font style="font-weight: bold;"
+ color="#008000">main()<br>{<br>              <br> fun1();<br>               <br> fun2();<br>               <br>}<br>            </font><br>        </pre>
+      </td>
+      <td style="font-weight: bold; color: rgb(0, 128, 0);" width="33%">
+      <pre style="margin-left: 40px;"
+ class="preformateado-dentro-de-tabla">int fun1()<br>{        <br>    ...<br>}<br><br>static int fun3()<br>{       <br>    ...<br>} <br>       </pre>
+      </td>
+      <td style="font-weight: bold;" width="33%">
+      <pre style="margin-left: 40px;"
+ class="preformateado-dentro-de-tabla"><font color="#008000">int fun2()<br>{         <br>    ...<br>    fun3();<br>    ....<br>}<br>         </font> <br>       </pre>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p style="margin-bottom: 0cm;" align="justify">Este ejemplo es casi
+id&eacute;ntico al anterior, salvo que la funci&oacute;n fun3() ahora
+est&aacute; declarada <b>static </b><span>y
+por este motivo no podr&aacute; ser vista por el linker para resolver
+la referencia pendiente de fun2() en <b>lambda.c</b>. La
+funci&oacute;n
+fun3() tiene <b>liga interna.</b> Las tres unidades de
+traducci&oacute;n
+jam&aacute;s podr&aacute;n satisfacer la compilaci&oacute;n.</span></p>
+<p style="margin-bottom: 0cm;" align="justify">Finalmente, las
+variables
+locales, al ser visibles &uacute;nicamente dentro de su funci&oacute;n,
+se dice que <b>no tienen liga</b> (el <i>linker</i> nunca llega a
+operar con ellas).</p>
+<p style="margin-bottom: 0cm;" align="justify"><br>
+</p>
+<h2 align="justify"><a name="declaraci&oacute;n y definici&oacute;n"></a>
+Declaraci&oacute;n y definici&oacute;n de variables</h2>
+<p align="justify">Normalmente una <b>declaraci&oacute;n</b> de
+variable (de la forma <i>especificaci&oacute;n_de_tipo identificador</i>)
+funciona tambi&eacute;n como <b>definici&oacute;n</b> de la variable.
+Es decir, no s&oacute;lo queda advertido el compilador de cu&aacute;l
+es el tipo del objeto que se va a utilizar, sino que tambi&eacute;n
+se crea el espacio de memoria (el objeto de datos) que va a alojar la
+informaci&oacute;n asociada. </p>
+<p align="justify">La excepci&oacute;n a esto son los objetos
+declarados <b>extern</b>. Cuando la declaraci&oacute;n de una
+variable cualquiera aparece precedida del modificador <b>extern</b>,
+&eacute;sta indica el tipo asociado, pero no habilita al compilador
+para crear el objeto de datos; se trata de una variable cuya
+<b>definici&oacute;n</b> debe ser encontrada en otra unidad de
+traducci&oacute;n. La declaraci&oacute;n <b>extern</b> tan s&oacute;lo
+enuncia el tipo y nombre de la variable para que el compilador lo
+tenga en cuenta.</p>
+<p align="justify">Una variable externa es visible desde todas las
+funciones de la unidad de traducci&oacute;n y puede ser utilizada
+desde otras. Esto se debe a la propiedad de liga externa de las
+variables externas: son visibles al <i>linker</i> como candidatos
+para resolver referencias pendientes.</p>
+<p style="margin-bottom: 0cm;" align="justify">El requisito para poder
+utilizar una variable definida en otra unidad de traducci&oacute;n es
+declararla con el modificador <b>extern </b>en aquella unidad de
+traducci&oacute;n donde se va a utilizar.</p>
+<h3 align="justify">Ejemplo<br>
+</h3>
+<table border="1" bordercolor="#000000" cellpadding="4" cellspacing="0"
+ width="100%">
+  <colgroup><col width="128"><col width="128"></colgroup><thead> <tr
+ valign="top">
+    <th width="50%">
+    <p>delta.c</p>
+    </th>
+    <th width="50%">
+    <p>eta.c</p>
+    </th>
+  </tr>
+  </thead> <tbody>
+    <tr valign="top">
+      <td width="50%">
+      <pre style="margin-left: 80px;"
+ class="preformateado-dentro-de-tabla"><font style="font-weight: bold;"
+ color="#008000">int m;<br>static int n;<br>int fun1()<br>{<br>  n = fun2();<br>   ...<br>} <br> <br> static int fun2()<br>{<br>  ... <br>}</font><br>       </pre>
+      </td>
+      <td width="50%">
+      <div style="margin-left: 80px;"><font style="font-weight: bold;"
+ color="#008000">extern int m;</font><br>
+      <br>
+      <font style="font-weight: bold;" color="#008000">int fun3()</font><br>
+      <font style="font-weight: bold;" color="#008000">{ </font><br>
+      <br>
+      <font style="font-weight: bold;" color="#008000"> m=fun1();</font><br>
+      <br>
+      <font style="font-weight: bold;" color="#008000">}</font><br>
+      </div>
+      <pre class="preformateado-dentro-de-tabla">       </pre>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p style="margin-bottom: 0cm;" align="justify">El texto <b>delta.c</b>
+es una unidad de traducci&oacute;n que declara dos variables externas
+y dos funciones, pero hace opacas a la variable <b>n</b> y a la
+funci&oacute;n <b>fun2()</b> con el modificador <b>static</b>. La
+funci&oacute;n <b>fun1()</b> puede utilizar a todas ellas por estar
+dentro de la misma unidad de traducci&oacute;n, pero <b>fun3()</b>,
+que est&aacute; en otra, s&oacute;lo puede referenciar a <b>m</b> y a
+<b>fun1(),</b> que son de liga externa. Para ello debe declarar a <b>m</b>
+como <b>extern</b>, o de lo contrario no superar&aacute; la
+compilaci&oacute;n ("todo uso debe ser precedido por una
+declaraci&oacute;n"). </p>
+<p style="margin-bottom: 0cm;" align="justify">Si, adem&aacute;s, <b>eta.c
+</b><span>declarara una variable </span><b>extern
+int n</b><span>, con la intenci&oacute;n
+de referirse a la variable n definida en </span><b>delta.c</b><span>,
+la referencia no podr&iacute;a ser resuelta a causa de la
+condici&oacute;n
+de liga interna de </span><b>n</b><span>.
+</span></p>
+<p style="margin-bottom: 0cm;" align="justify">Los usos de funciones
+(como <b>fun1() </b>en <b>eta.c</b><span>)</span><b>
+</b>pueden aparecer sin declaraci&oacute;n previa, pero en este caso
+el compilador asumir&aacute; tipos de datos default para los
+argumentos y para el tipo del valor devuelto por la funci&oacute;n
+(<b>int</b> en todos los casos).</p>
+<p style="margin-bottom: 0cm;" align="justify"><br>
+</p>
+<h2><a name="modificadores"></a>Modificadores especiales</h2>
+<h3>Const</h3>
+<p style="margin-bottom: 0cm;" align="justify">El modificador <b>const</b>
+indica que una variable no ser&aacute; modificada. Solamente puede
+inicializarse, al momento de carga del programa (y deber&iacute;a
+hacerse as&iacute;, ya que no hay otra manera de asignarle un valor).
+</p>
+<pre><font style="font-weight: bold; color: rgb(0, 128, 0);"
+ color="#008000">const int a=12; /* se declara un entero constante, con inicializaci&oacute;n */<br>a++;            /* el compilador no aprobar&aacute; esta sentencia */</font><span
+ style="font-weight: bold; color: rgb(0, 128, 0);">     </span>                      </pre>
+<p style="margin-bottom: 0cm;" align="justify">El modificador const
+tambi&eacute;n permite expresar, en el prototipo
+de una funci&oacute;n, que un argumento no podr&aacute; ser
+modificado por la funci&oacute;n, aun cuando sea pasado por
+referencia.</p>
+<h3><br>
+</h3>
+<h3>Volatile</h3>
+<p style="margin-bottom: 0cm;" align="justify">Los compiladores
+modernos
+aplican una cantidad de pasos de optimizaci&oacute;n cuando ven
+instrucciones aparentemente redundantes o sin efectos, porque su
+desplazamiento o eliminaci&oacute;n puede implicar ventajas en tiempo
+de ejecuci&oacute;n o espacio de almacenamiento. Esto es
+especialmente as&iacute; si las instrucciones sospechosas se
+encuentran dentro de ciclos. El modificador <b>volatile</b> sirve
+para advertir al compilador de que una variable ser&aacute;
+modificada asincr&oacute;nicamente con la ejecuci&oacute;n del
+programa (por ejemplo, por efecto de una rutina de atenci&oacute;n de
+interrupciones) y por lo tanto el optimizador no puede inferir
+correctamente su utilidad dentro del programa. Esto evitar&aacute;
+que el compilador aplique la l&oacute;gica de optimizaci&oacute;n a
+las instrucciones que involucran a esta variable.</p>
+<p style="margin-bottom: 0cm;" align="justify">Por ejemplo, el ciclo
+siguiente podr&iacute;a ser reescrito por un optimizador, extrayendo
+del ciclo la asignaci&oacute;n <b>a = beta</b> en el entendimiento de
+que beta no cambiar&aacute; en ninguno de los pasos del ciclo.</p>
+<p style="margin-bottom: 0cm;" align="justify"><br>
+</p>
+<table border="1" bordercolor="#000000" cellpadding="4" cellspacing="0"
+ width="100%">
+  <colgroup><col width="128"><col width="128"></colgroup><thead> <tr
+ valign="top">
+    <th width="50%">
+    <p>sin optimizar</p>
+    </th>
+    <th width="50%">
+    <p>"optimizado"</p>
+    </th>
+  </tr>
+  </thead> <tbody>
+    <tr valign="top">
+      <td width="50%">
+      <pre style="margin-left: 80px;"
+ class="preformateado-dentro-de-tabla"><font color="#008000"><span
+ style="font-weight: bold;">while(!fin) {</span><br
+ style="font-weight: bold;"><span style="font-weight: bold;">    a = beta;</span><br
+ style="font-weight: bold;"><span style="font-weight: bold;">    b = fun(a);</span><br
+ style="font-weight: bold;"><span style="font-weight: bold;">    }  <br><br></span></font></pre>
+      </td>
+      <td style="color: rgb(0, 128, 0); font-weight: bold;" width="50%">
+      <pre style="margin-left: 80px;"
+ class="preformateado-dentro-de-tabla">a = beta;<br>while(!fin)     <br>    b = fun(a);        </pre>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p align="justify">Sin embargo, si esperamos que la variable beta
+cambie por acci&oacute;n de alg&uacute;n agente externo a la rutina en
+cuesti&oacute;n, con la declaraci&oacute;n previa
+</p>
+<pre style="margin-bottom: 0.5cm;"><font
+ style="font-weight: bold; color: rgb(0, 128, 0);" color="#008000">volatile int beta;</font><span
+ style="font-weight: bold; color: rgb(0, 128, 0);"> </span> </pre>
+<p style="margin-bottom: 0cm;" align="justify">el compilador se
+abstendr&aacute; de optimizar las l&iacute;neas donde intervenga beta.<br>
+</p>
+<p style="margin-bottom: 0cm;" align="justify"><br>
+</p>
+<hr>
+<p style="margin-bottom: 0cm;" align="justify"><br>
+</p>
+<h2><a name="ejercicios"></a>Ejercicios</h2>
+<p style="margin-bottom: 0cm;" align="justify">1. Copie, compile y
+ejecute el siguiente programa. Posteriormente agregue un modificador
+<strong>static</strong> sobre la variable <b>a</b> y repita la
+experiencia.</p>
+<pre>int fun()<br>{<br>    int a;<br>    a = a + 1;<br>    return a;<br>}<br><br>main()<br>{<br>    printf("%d\n", fun());<br>    printf("%d\n", fun());<br>}</pre>
+<p style="margin-bottom: 0cm;" align="justify">2. &iquest;Qu&eacute;
+imprime este programa?</p>
+<pre>int alfa;<br><br>int fun()<br>{<br>    int alfa;<br><br>    alfa = 1;<br>    return alfa;<br>}<br><br>main()<br>{<br>    alfa = 2;<br>    printf("%d\n",fun());<br>    printf("%d\n",alfa);<br>}</pre>
+<p style="margin-bottom: 0cm;" align="justify"><br>
+</p>
+<p style="margin-bottom: 0cm;" align="justify">3. &iquest;Qu&eacute;
+imprime este programa?</p>
+<pre>int alfa;<br><br>int fun(int alfa)<br>{<br>    alfa = 1;<br>    return alfa;<br>}<br><br>main()<br>{<br>    alfa = 2;<br>    printf("%d\n",fun(alfa));<br>    printf("%d\n",alfa);<br>}</pre>
+<br>
+4. Copie y compile,
+juntas, las unidades de traducci&oacute;n que se indican abajo.
+&iquest;Qu&eacute;
+hace falta para que la compilaci&oacute;n sea exitosa?
+<table border="1" bordercolor="#000000" cellpadding="4" cellspacing="0"
+ width="100%">
+  <colgroup><col width="128"><col width="128"></colgroup><thead> <tr
+ valign="top">
+    <th width="50%">
+    <p>fuente1.c</p>
+    </th>
+    <th width="50%">
+    <p>fuente2.c</p>
+    </th>
+  </tr>
+  </thead> <tbody>
+    <tr valign="top">
+      <td width="50%">
+      <pre class="preformateado-dentro-de-tabla">int a;<br><br>int fun1(int x)<br>{<br>    return 2 * x;<br>}</pre>
+      </td>
+      <td width="50%">
+      <pre class="preformateado-dentro-de-tabla">main()<br>{<br>    a = 1;<br>    printf("d\n", fun1(a));<br>}</pre>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p style="margin-bottom: 0cm;" align="justify"><br>
+5. &iquest;Qu&eacute;
+ocurre si un fuente intenta modificar una variable externa, declarada
+en otra unidad de traducci&oacute;n como <b>const</b>? Prepare,
+compile y ejecute un ejemplo.</p>
+<p style="margin-bottom: 0cm;" align="justify"><br>
+6. &iquest;Qu&eacute;
+resultado puede esperarse de la compilaci&oacute;n de estos fuentes?</p>
+<table border="1" bordercolor="#000000" cellpadding="4" cellspacing="0"
+ width="100%">
+  <colgroup><col width="72"><col width="101"><col width="83"></colgroup><thead>
+  <tr valign="top">
+    <td width="28%">
+    <p align="center"><b>header.h</b></p>
+    </td>
+    <td width="39%">
+    <p align="center"><b>fuente1.c</b></p>
+    </td>
+    <td width="32%">
+    <p align="center"><b>fuente2.c</b></p>
+    </td>
+  </tr>
+  </thead> <tbody>
+    <tr valign="top">
+      <td width="28%">
+      <pre class="preformateado-dentro-de-tabla">#include &lt;stdio.h&gt;<br>#define VALOR 6</pre>
+      </td>
+      <td width="39%">
+      <pre class="preformateado-dentro-de-tabla">#include "header.h"<br>main()<br>{<br>    static int c;<br>    printf("%d\n",fun(c));<br>}</pre>
+      </td>
+      <td width="32%">
+      <pre class="preformateado-dentro-de-tabla">#include "header.h"<br>int fun(int x)<br>{<br>    return VALOR * x;<br>}</pre>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p style="margin-bottom: 0cm;" align="justify"><br>
+7.
+Podemos denotar esquem&aacute;ticamente que un m&oacute;dulo objeto
+<b>prueba.o</b> contiene un elemento de datos <b>x</b> y una
+funci&oacute;n
+<b>fun()</b>, ambos <b>de liga externa</b>, de esta manera:</p>
+<dl>
+  <dd>
+    <table border="1" bordercolor="#000000" cellpadding="4"
+ cellspacing="0" width="93">
+      <colgroup><col width="83"></colgroup><thead> <tr>
+        <th valign="top" width="83">
+        <p>prueba.o</p>
+        </th>
+      </tr>
+      </thead> <tbody>
+        <tr>
+          <td valign="top" width="83">
+          <p align="center">x</p>
+          </td>
+        </tr>
+        <tr>
+          <td valign="top" width="83">
+          <p align="center">fun()</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </dd>
+</dl>
+<p style="margin-bottom: 0cm;" align="justify"><br>
+</p>
+<p style="margin-bottom: 0cm;" align="justify">Si se tiene un conjunto
+de archivos y unidades de traducci&oacute;n que se compilar&aacute;n
+para formar los respectivos m&oacute;dulos objeto, &iquest;c&oacute;mo
+se aplicar&iacute;a la notaci&oacute;n anterior al conjunto de
+m&oacute;dulos objeto resultantes? Hacer el diagrama para los casos
+siguientes. &iquest;Hay colisi&oacute;n de nombres? &iquest;Hay
+referencias que el linker no pueda resolver? Cada grupo de fuentes,
+&iquest;puede producir un ejecutable?</p>
+<p style="margin-bottom: 0cm;" align="justify"><br>
+</p>
+<table border="1" bordercolor="#000000" cellpadding="4" cellspacing="0"
+ width="672">
+  <colgroup><col width="18"><col width="123"><col width="163"><col
+ width="179"><col width="147"></colgroup><thead> <tr valign="top">
+    <td width="18">
+    <p><br>
+    </p>
+    </td>
+    <td width="123">
+    <p align="center"><b>hdr1.h</b></p>
+    </td>
+    <td width="163">
+    <p align="center"><b>fuente1.c</b></p>
+    </td>
+    <td width="179">
+    <p align="center"><b>fuente2.c</b></p>
+    </td>
+    <td width="147">
+    <p align="center"><b>fuente3.c</b></p>
+    </td>
+  </tr>
+  </thead> <tbody>
+    <tr valign="top">
+      <td width="18">
+      <p>a)</p>
+      </td>
+      <td width="123">
+      <pre class="preformateado-dentro-de-tabla">#define UNO 1<br>#define DOS 2<br>extern int a;</pre>
+      </td>
+      <td width="163">
+      <pre class="preformateado-dentro-de-tabla">#include "hdr1.h"<br>main() {<br>  int b;<br>  b = fun1(a);<br>}</pre>
+      </td>
+      <td width="179">
+      <pre class="preformateado-dentro-de-tabla">#include "hdr1.h"<br>int fun1(int x) {<br>  return x + fun2(x);<br>}<br>static int <br>fun2(int x) {<br>  return x + DOS;<br>}</pre>
+      </td>
+      <td width="147">
+      <pre class="preformateado-dentro-de-tabla">#include "hdr1.h"<br>int a;</pre>
+      </td>
+    </tr>
+    <tr valign="top">
+      <td width="18">
+      <p>b)</p>
+      </td>
+      <td width="123">
+      <pre class="preformateado-dentro-de-tabla">extern int c;<br>extern int <br>  fun1(int p),<br>  fun2(int p);</pre>
+      </td>
+      <td width="163">
+      <pre class="preformateado-dentro-de-tabla">#include "hdr1.h"<br>int fun1(int x) {<br>  return fun2(x)+1;<br>}</pre>
+      </td>
+      <td width="179">
+      <pre class="preformateado-dentro-de-tabla">int a, b, c=1;<br>int fun2(int x) {<br>  return x - 1;<br>}</pre>
+      </td>
+      <td width="147">
+      <pre class="preformateado-dentro-de-tabla">main() {<br>  int d;<br>  d = fun1(3);<br>}</pre>
+      </td>
+    </tr>
+    <tr valign="top">
+      <td width="18">
+      <p>c) </p>
+      </td>
+      <td width="123"><br>
+      </td>
+      <td width="163">
+      <pre class="preformateado-dentro-de-tabla">int fun1(int x) {<br>  return x + 1;<br>}<br>int fun2(int x) {<br>  return x + 2;<br>}</pre>
+      </td>
+      <td width="179">
+      <pre class="preformateado-dentro-de-tabla">int fun3(int x) {<br>  return x + 3;<br>}<br>static int <br>fun2(int x) {<br>  return x + 4;<br>}</pre>
+      </td>
+      <td width="147">
+      <pre class="preformateado-dentro-de-tabla">main() {<br>  int a;<br>  a = fun1(a);<br>}</pre>
+      </td>
+    </tr>
+    <tr valign="top">
+      <td width="18">
+      <p>d)</p>
+      </td>
+      <td width="123"><br>
+      </td>
+      <td width="163">
+      <pre class="preformateado-dentro-de-tabla">int fun1(int x) {<br>  extern int b;<br>  x = b - fun2(x);<br>}<br>    </pre>
+      </td>
+      <td width="179">
+      <pre class="preformateado-dentro-de-tabla">static int a = 1;<br>static int b = 1;<br>int fun2(int x) {<br>    return x - a;<br>}</pre>
+      </td>
+      <td width="147">
+      <pre class="preformateado-dentro-de-tabla">int b;<br>main() {<br>  b = 2;<br>  printf(&#8220;%d&#8221;,<br>    fun1(3));<br>}</pre>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p style="margin-bottom: 0cm;" align="justify">&nbsp; <br>
+<a href="adicionales/adic5.html#adic1">Ejercicios
+Adicionales<font color="#000000"> </font> <br>
+</a><br>
+<a href="adicionales/adic5.html#adic2">Ejercicios
+Avanzados</a><br>
+<br>
+</p>
+<hr>
+</body>
+</html>

@@ -1,0 +1,237 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+  <meta http-equiv="CONTENT-TYPE"
+ content="text/html; charset=iso-8859-1">
+  <title>8. Funciones</title>
+  <meta name="GENERATOR" content="StarOffice/5.2 (Linux)">
+  <meta name="AUTHOR" content="Eduardo Grosclaude">
+  <meta name="CREATED" content="20010511;444900">
+  <meta name="CHANGEDBY" content="Eduardo Grosclaude">
+  <meta name="CHANGED" content="20010816;21271800">
+  <style>
+	<!--
+		PRE { margin-left: 0.4cm }
+	-->
+	</style>
+</head>
+<body bgcolor="#ffffff">
+<p style="page-break-before: always;">
+</p>
+<h1 align="justify">8. Funciones</h1>
+<p><br>
+Una unidad de traducci&oacute;n en C contiene un conjunto de
+funciones. Si entre ellas existe una con el nombre especial <b>main</b>,
+entonces esa unidad de traducci&oacute;n puede dar origen a un
+programa ejecutable, y el comienzo de la funci&oacute;n <b>main</b>
+ser&aacute; el punto de entrada al programa. <br>
+</p>
+<h2><a name="declaracion y def de funciones"></a>Declaraci&oacute;n y
+definici&oacute;n de funciones</h2>
+<p style="margin-bottom: 0cm;" align="justify">Los tipos de datos de
+los
+par&aacute;metros recibidos y del resultado que devuelve la
+funci&oacute;n
+quedan especificados en su cabecera. El valor devuelto se expresa
+mediante <b>return</b>:<br>
+<br>
+</p>
+<table border="1" bordercolor="#000000" cellpadding="4" cellspacing="0"
+ width="100%">
+  <colgroup><col width="128"><col width="128"></colgroup><thead> <tr
+ valign="top">
+    <td width="50%">
+    <pre><font style="color: rgb(0, 128, 0); font-weight: bold;"
+ color="#008000">int fun1(int alfa, long beta)<br>{<br>    ...<br>}</font><span
+ style="color: rgb(0, 128, 0); font-weight: bold;">    </span><br></pre>
+    </td>
+    <td width="50%">
+    <pre><font style="font-weight: bold;" color="#008000">double sumar(double x, double y)<br>{<br>    ...<br>    return x+y;<br>}</font><span
+ style="font-weight: bold;">   </span><br>     </pre>
+    </td>
+  </tr>
+  </thead>
+</table>
+<p style="margin-bottom: 0cm;">El caso especial de una
+funci&oacute;n que no desea devolver ning&uacute;n valor se
+especifica con el modificador <b>void</b>, y en tal caso un <b>return</b>,
+si lo hay, no debe tener argumento. Los par&eacute;ntesis son
+necesarios aunque la funci&oacute;n no lleve par&aacute;metros, y en
+ese caso es recomendable indicarlo con un par&aacute;metro <b>void</b>:<br>
+<br>
+</p>
+<div id="Area3">
+<table border="1" bordercolor="#000000" cellpadding="4" cellspacing="0"
+ width="100%">
+  <colgroup><col width="128"><col width="128"></colgroup><thead> <tr
+ valign="top">
+    <td width="50%">
+    <pre><font style="color: rgb(0, 128, 0); font-weight: bold;"
+ color="#008000">void procesar(int k)<br>{<br>    ...<br>    return;<br>}</font><span
+ style="color: rgb(0, 128, 0); font-weight: bold;">  </span><br></pre>
+    </td>
+    <td width="50%">
+    <pre><font style="font-weight: bold; color: rgb(0, 128, 0);"
+ color="#008000">int hora(void)<br>{<br>    ...<br>}</font><span
+ style="font-weight: bold; color: rgb(0, 128, 0);"> </span><br></pre>
+    </td>
+  </tr>
+  </thead>
+</table>
+<p style="margin-bottom: 0cm;">Una funci&oacute;n puede ser declarada
+de un tipo cualquiera y sin embargo no contar con una
+instrucci&oacute;n <b>return</b>. En ese caso su valor de retorno
+queda indeterminado. Adem&aacute;s, la funci&oacute;n que llama a otra
+puede utilizar o ignorar el valor devuelto, a voluntad, sin provocar
+errores.<br>
+<br>
+</p>
+<h3>Ejemplo</h3>
+<p style="margin-bottom: 0cm;" align="justify">En el caso siguiente se
+recoge <i>basura</i> en la variable <b>a,</b><span> ya que <b>fun2</b>
+no devuelve ning&uacute;n valor pese a ser declarada como de tipo
+entero:</span></p>
+<pre><font color="#008000"><span style="font-weight: bold;">int fun2(int x)</span><br
+ style="font-weight: bold;"><span style="font-weight: bold;">{</span><br
+ style="font-weight: bold;"><span style="font-weight: bold;">    ...</span><br
+ style="font-weight: bold;"><span style="font-weight: bold;">    return;</span><br
+ style="font-weight: bold;"><span style="font-weight: bold;">}</span><br
+ style="font-weight: bold;"><br style="font-weight: bold;"><span
+ style="font-weight: bold;">    ...</span><br style="font-weight: bold;"><span
+ style="font-weight: bold;">    a=fun2(1);  </span><br></font>
+</pre>
+<p style="margin-bottom: 0cm;">El cuerpo de la funci&oacute;n, y en
+general cualquier cuerpo de instrucciones entre llaves, es considerado
+un bloque. Las variables locales son aquellas declaradas dentro del
+cuerpo de una funci&oacute;n, y su declaraci&oacute;n debe aparecer
+antes de cualquier sentencia ejecutable. Es legal ubicar la
+declaraci&oacute;n de variables como la primera secci&oacute;n dentro
+de cualquier bloque, aun cuando ya se hayan incluido sentencias
+ejecutables. Sin embargo, no es legal declarar funciones dentro de
+funciones. En este ejemplo, la variable <b>v</b> declarada dentro del
+bloque interno opaca a la declarada al principio de la funci&oacute;n: </p>
+<pre><font style="font-weight: bold;" color="#008000">int fun3()<br>{<br>    int j,k,v;<br><br>     for(i=0; i&lt;10; i++) {<br>        double v;<br>        ...<br>}</font>
+	         <br>        <br></pre>
+<h2><a name="prototipos de funciones"></a>Prototipos de funciones</h2>
+<p style="margin-bottom: 0cm;" align="justify">En general, como ocurre
+con las variables, el uso de una funci&oacute;n debe estar precedido
+por su declaraci&oacute;n. Sin embargo, el compilador trata el caso de
+las funciones con un poco m&aacute;s de flexibilidad. Un uso de
+variable sin declaraci&oacute;n es ilegal, mientras que un uso de
+funci&oacute;n sin definici&oacute;n obliga al compilador a suponer
+ciertos hechos, pero permite proseguir la compilaci&oacute;n.</p>
+<p style="margin-bottom: 0cm;" align="justify">La suposici&oacute;n que
+har&aacute; el compilador, en la primera instancia en que se utilice
+una funci&oacute;n y en ausencia de una definici&oacute;n previa, es
+que el resultado y los par&aacute;metros de la funci&oacute;n son del
+tipo m&aacute;s "simple" que pueda representarlos. Esto vale tanto para
+las funciones escritas por el usuario como para las mismas funciones de
+la <b>biblioteca standard</b>. As&iacute;, si se intenta calcular <b>e<sup>5</sup></b>:
+</p>
+<p style="margin-bottom: 0cm;"> </p>
+<pre style="font-weight: bold;"><font color="#008000">main()<br>{<br>    double a;<br>    a=exp(5);<br>}</font>
+</pre>
+<p style="margin-bottom: 0cm;" align="justify">Nada permite al
+compilador suponer que la funci&oacute;n <b>exp()</b> debe devolver
+algo distinto de un entero (el hecho de que se est&eacute; asignando su
+valor a un <b>double</b> no es informativo, dada la conversi&oacute;n
+autom&aacute;tica de expresiones que hace el C). Adem&aacute;s, el
+argumento 5 puede tomarse a primera vista como <b>int</b>, pudiendo
+ser que en la definici&oacute;n real de la funci&oacute;n se haya
+especificado como <b>double</b>, o alguna otra elecci&oacute;n de
+tipo. </p>
+<p style="margin-bottom: 0cm;" align="justify">En cualquier caso, esto
+es problem&aacute;tico, porque la comunicaci&oacute;n de
+par&aacute;metros entre funciones, normalmente, se hace mediante el
+stack del programa, donde los objetos se almacenan como sucesiones de
+bytes. La funci&oacute;n llamada intentar&aacute; recuperar del stack
+los bytes necesarios para "armar" los objetos que necesita, mientras
+que la funci&oacute;n que llama le ha dejado en el mismo stack menos
+informaci&oacute;n de la esperada. El programa compilar&aacute;
+correctamente pero los datos pasados a y desde la funci&oacute;n
+ser&aacute;n truncamientos de los valores deseados.</p>
+<p style="margin-bottom: 0cm;"><br>
+</p>
+<h3>Redeclaraci&oacute;n de funciones</h3>
+<p style="margin-bottom: 0cm;" align="justify">Otro problema,
+relacionado con el anterior, es el que ocurre si permitimos que el
+compilador construya esa declaraci&oacute;n provisoria y luego, en la
+misma unidad de traducci&oacute;n, damos la definici&oacute;n de la
+funci&oacute;n, y &eacute;sta no concuerda con la imaginada por el
+compilador. La compilaci&oacute;n abortar&aacute; con error de
+"redeclaraci&oacute;n de funci&oacute;n".</p>
+<p style="margin-bottom: 0cm;" align="justify">La forma de advertir al
+compilador de los tipos correctos antes del uso de la funci&oacute;n
+es, o bien, definirla (proporcionando su fuente), o incluir su <b>prototipo</b>:</p>
+<pre><font style="font-weight: bold;" color="#008000">double exp(double x); /* prototipo de exp() */<br>main()<br>{<br>    double a;<br>    a=exp(5);<br>}</font>	
+</pre>
+<p style="margin-bottom: 0cm;" align="justify">En el caso particular de
+las funciones de biblioteca standard, cada grupo de funciones cuenta
+con su <i>header</i> conteniendo estas declaraciones, que podemos
+utilizar para ahorrarnos tipeo. Para las matem&aacute;ticas, utilizamos
+el header <b>math.h</b>:</p>
+<pre><font color="#008000"><span style="font-weight: bold;">#include &lt;math.h&gt;</span><br
+ style="font-weight: bold;"><span style="font-weight: bold;">main()</span><br
+ style="font-weight: bold;"><span style="font-weight: bold;">{</span><br
+ style="font-weight: bold;"><span style="font-weight: bold;">    double a;</span><br
+ style="font-weight: bold;"><span style="font-weight: bold;">    a=exp(5);</span><br
+ style="font-weight: bold;"><span style="font-weight: bold;">} </span><br></font>
+</pre>
+Un problema m&aacute;s serio que el de la redeclaraci&oacute;n de
+funciones es cuando una funci&oacute;n es compilada en una unidad de
+traducci&oacute;n separada A y luego se la utiliza, desde una
+funci&oacute;n en otra unidad de traducci&oacute;n B, pero con una
+declaraci&oacute;n incorrecta, ya sea porque se ha suministrado un
+prototipo err&oacute;neo o porque no se ha suministrado ning&uacute;n
+prototipo expl&iacute;cito. y el impl&iacute;cito, que puede inferir el
+compilador, no es el correcto. En este caso la compilaci&oacute;n y la
+linkedici&oacute;n tendr&aacute;n lugar sin errores, pero la conducta
+al momento de ejecuci&oacute;n depende de la diferencia entre ambos
+prototipos, el real y el inferido.
+<p style="margin-bottom: 0cm;" align="justify"><br>
+</p>
+<h2><a name="recursividad"></a>Recursividad</h2>
+<p style="margin-bottom: 0cm;" align="justify">Las funciones en C
+pueden ser recursivas, es decir, pueden invocarse a s&iacute; mismas
+directa o indirectamente. Siguiendo el principio de que las estructuras
+de programaci&oacute;n deben replicar la estructura de los datos, la
+recursividad de funciones es una manera ideal de tratar las estructuras
+de datos recursivas, como &aacute;rboles, listas, etc.</p>
+<pre><font color="#008000"><span style="font-weight: bold;">int factorial(int x)</span><br
+ style="font-weight: bold;"><span style="font-weight: bold;">{</span><br
+ style="font-weight: bold;"><span style="font-weight: bold;">    if(x==0)</span><br
+ style="font-weight: bold;"><span style="font-weight: bold;">        return 1;</span><br
+ style="font-weight: bold;"><span style="font-weight: bold;">    return x * factorial(x-1);</span><br
+ style="font-weight: bold;"><span style="font-weight: bold;">}<br><br></span></font>
+</pre>
+<p> </p>
+<hr>
+<p></p>
+<h2><a name="ejercicios"></a>Ejercicios</h2>
+<p>1. Escribir una funci&oacute;n que reciba tres argumentos enteros y
+devuelva un entero, su suma.</p>
+<p>2. Escribir una funci&oacute;n que reciba dos argumentos enteros y
+devuelva un long, su producto.</p>
+<p>3. Escribir una funci&oacute;n que reciba dos argumentos enteros <b>a</b>
+y <b>b</b>, y utilice a las dos anteriores para calcular:</p>
+<pre style="margin-bottom: 0.5cm; margin-left: 1.23cm;">(a * b + b * 5 + 2) * (a + b + 1)</pre>
+<p> 4. Escribir un programa que utilice la funci&oacute;n anterior para
+realizar el c&aacute;lculo con a=7 y b=3.</p>
+<p>5. &iquest;Qu&eacute; est&aacute; mal en estos ejemplos?</p>
+<pre style="margin-left: 1.2cm;">a) <br>int f1(int x, int y);<br>{<br>    int z;<br>    z = x - y;<br>    return z;<br>}<br><br>b)<br>void f2(int k)<br>{<br>    return k + 3;<br>}<br><br>c)<br>int f3(long k)<br>{<br>    return (k &lt; 0) ? -1 : 1;<br>}<br>printf("%d\n",f3(8));</pre>
+<p align="justify"> 6. Escribir una funci&oacute;n que reciba dos
+argumentos, uno de tipo <b>int</b> y el otro de tipo <b>char</b>. La
+funci&oacute;n debe repetir la impresi&oacute;n del char tantas veces
+como lo diga el otro argumento. Escribir un programa para probar la
+funci&oacute;n.<br>
+</p>
+</div>
+<br>
+<a href="adicionales/adic8.html#adic1">Ejercicios Adicionales<font
+ color="#000000"> </font> <br>
+</a><br>
+<a href="adicionales/adic8.html#adic2">Ejercicios Avanzados<br>
+<br>
+<hr></a>
+</body>
+</html>

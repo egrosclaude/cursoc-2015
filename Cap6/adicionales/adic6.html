@@ -1,0 +1,122 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+  <meta http-equiv="CONTENT-TYPE"
+ content="text/html; charset=iso-8859-1">
+  <title>6. Operadores - Ejercicios Adicionales y Avanzados</title>
+  <meta name="GENERATOR" content="StarOffice/5.2 (Linux)">
+  <meta name="AUTHOR" content="Eduardo Grosclaude">
+  <meta name="CREATED" content="20010508;18165800">
+  <meta name="CHANGEDBY" content="Eduardo Grosclaude">
+  <meta name="CHANGED" content="20010818;18524900">
+  <style>
+	<!--
+		@page { margin-left: 2.5cm; margin-right: 1.5cm }
+		PRE { margin-left: 0.4cm }
+	-->
+	</style>
+</head>
+<body style="background-color: rgb(255, 255, 255);">
+<p style="page-break-before: always;"><br>
+</p>
+<h1 align="justify">Capitulo&nbsp;6&nbsp; <br>
+<hr>
+<br>
+</h1>
+<a name="adic1"> </a>
+<h2 align="justify"><a name="adic1">Ejercicios Adicionales </a></h2>
+<a name="adic1"> </a>
+<p><a name="adic1"><br>
+1.Usando cualquiera de las anteriores (ejercicios
+requeridos&nbsp;)escriba una macro IMPAR(x).<br>
+<br>
+2. Escriba una macro ENTRE(x,y,z) que devuelva TRUE si y s&oacute;lo si
+<b>y</b> est&aacute; entre <b>x</b> y <b>z</b>. Usela para escribir
+una macro RECT(p,q,w,x,y,z) que devuelva TRUE si y s&oacute;lo si el
+punto (p,q) pertenece al interior del rect&aacute;ngulo cuyos
+v&eacute;rtices opuestos son (w,x) e (y,z). Suponga que el
+rect&aacute;ngulo est&aacute; expresado en forma can&oacute;nica (con <b>w
+&lt; y</b> y <b>x &lt; z</b>).<br>
+<br>
+3. Declare un <b>unsigned char a </b>y as&iacute;gnele la constante
+255. Trate de predecir el resultado de calcular<b> !a, ~a, a &amp; x, a
+| x, a ^ x</b>, donde x es un entero menor que cero, cero y mayor que
+cero. Escriba un programa para verificar sus sospechas.<br>
+<br>
+4. Utilice la macro del punto anterior&nbsp; (ejercicios requeridos -
+n&ordm;&nbsp; 6) para sumar 2&sup3; + 2&sup2;. Verifique el resultado.<br>
+<br>
+5. Convertir una cantidad de tiempo, dada en segundos, a horas, minutos
+y segundos.<br>
+</a></p>
+<hr>
+<a name="adic2">
+<h2 align="justify">Ejercicios avanzados</h2>
+<br>
+<p align="left"> 1. Escriba macros para expresar la conjunci&oacute;n,
+la disyunci&oacute;n, la negaci&oacute;n y la implicaci&oacute;n de
+proposiciones. </p>
+<p align="justify">2. Utilizando la macro de los puntos (ejercicios
+requeridos - adicionales)&nbsp;anteriores podemos simular un tipo de
+datos conjunto. Utilizaremos variables enteras largas (long int) para
+representar conjuntos. Los elementos de los conjuntos se
+denotar&aacute;n por un n&uacute;mero entre <b>0</b> y <b>sizeof(long)
+- 1</b>. La pertenencia del i-&eacute;simo elemento a un conjunto se
+denotar&aacute; por el i-&eacute;simo bit activo en la variable que
+representa al conjunto. Escribir macros:</p>
+<ul>
+  <li>
+    <p align="left">AGREGAR(a,A) y ELIMINAR(a,A) que incorporen y
+quiten el elemento a al conjunto A.</p>
+  </li>
+  <li>
+    <p align="left">PERTENECE(a,A) que diga si un elemento pertenece a
+A.</p>
+  </li>
+  <li>
+    <p align="left">UNION(A,B) e INTERSECCION(A,B) que devuelvan
+respectivamente la uni&oacute;n e intersecci&oacute;n de conjuntos.</p>
+  </li>
+  <li>
+    <p align="left">DIFERENCIA(A,B) que devuelva A-B.</p>
+  </li>
+  <li>
+    <p align="left">COMPLEMENTO(A) que devuelva el complemento de un
+conjunto.</p>
+  </li>
+  <li>
+    <p align="left">VACIO(A) que diga si un conjunto es vac&iacute;o.</p>
+  </li>
+  <li>
+    <p align="left">DIFSIM(A,B) que exprese la diferencia
+sim&eacute;trica de dos conjuntos.</p>
+  </li>
+</ul>
+<br>
+<p align="justify">3. Reescribir la expresi&oacute;n utilizando el
+operador ternario:</p>
+<p align="justify">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+(c == d) &amp;&amp; (a &lt; 5) || (b &gt; 4)<br>
+<br>
+</p>
+<p align="justify">4. Los a&ntilde;os bisiestos son <b>los divisibles
+por cuatro, salvo aquellos que siendo divisibles por 100, no lo son por
+400</b>. Escribir un conjunto de macros que devuelvan TRUE si un
+a&ntilde;o es bisiesto y FALSE en caso contrario.</p>
+<br>
+<hr>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</a>
+</body>
+</html>

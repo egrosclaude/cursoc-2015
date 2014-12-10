@@ -1,0 +1,344 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+  <meta http-equiv="CONTENT-TYPE"
+ content="text/html; charset=iso-8859-1">
+  <title>7. Estructuras de control</title>
+  <meta name="GENERATOR" content="StarOffice/5.2 (Linux)">
+  <meta name="AUTHOR" content="Eduardo Grosclaude">
+  <meta name="CREATED" content="20010510;23525000">
+  <meta name="CHANGEDBY" content="Eduardo Grosclaude">
+  <meta name="CHANGED" content="20010816;20594800">
+  <style>
+	<!--
+		PRE { margin-left: 0.5cm }
+	-->
+	</style>
+</head>
+<body>
+<p style="page-break-before: always;">
+</p>
+<h1 align="justify">7. Estructuras de control</h1>
+<p align="justify">Las estructuras de control del C no presentan, en
+conjunto, grandes diferencias con las del resto de los lenguajes
+estructurados del tipo de Pascal. En general, se corresponden casi
+uno a uno, con las diferencias sint&aacute;cticas de cada caso.</p>
+<p align="justify">En los esquemas siguientes, donde figura una
+<b>sentencia</b> puede reemplazarse por varias sentencias encerradas
+entre llaves (un bloque).</p>
+<h2 align="justify"><a name="alternativa"></a>Estructura alternativa</h2>
+<p align="justify">Formas t&iacute;picas de la estructura alternativa
+son:</p>
+<pre><strong><font color="#800040">if(expresi&oacute;n)<br>    sentencia;<br><br>if(expresi&oacute;n)<br>    sentencia;<br>else<br>    sentencia;</font></strong> <br>	</pre>
+<h3>Ejemplos</h3>
+<pre><font color="#008000"><span style="font-weight: bold;">if(a==8)c++;</span><br
+ style="font-weight: bold;"><span style="font-weight: bold;">    if(c &gt; = 2 || func(b) &lt; 0)</span><br
+ style="font-weight: bold;"><span style="font-weight: bold;">    if(d)</span><br
+ style="font-weight: bold;"><span style="font-weight: bold;">        c++;</span><br
+ style="font-weight: bold;"><span style="font-weight: bold;">    else</span><br
+ style="font-weight: bold;"><span style="font-weight: bold;">        c += 2; </span> </font> <br></pre>
+<p align="justify">En el segundo ejemplo aparecen estructuras anidadas.
+La cl&aacute;usula <b>else</b> se aparea con el <b>if</b> m&aacute;s
+interno, salvo que se utilicen llaves, as&iacute;:
+</p>
+<pre><font color="#008000"><span style="font-weight: bold;">if(c &gt; = 2) {</span><br
+ style="font-weight: bold;"><span style="font-weight: bold;">    if(d)</span><br
+ style="font-weight: bold;"><span style="font-weight: bold;">        c++;</span><br
+ style="font-weight: bold;"><span style="font-weight: bold;">} else</span><br
+ style="font-weight: bold;"><span style="font-weight: bold;">    c += 2; </span><br></font> </pre>
+<p style="margin-bottom: 0cm;" align="justify">En general, la
+indentaci&oacute;n debe sugerir la estructura; pero es, por supuesto, <strong>la
+ubicaci&oacute;n de las llaves</strong>, y no la indentaci&oacute;n, la
+que determina la estructura.<br>
+<br>
+</p>
+<h2 align="justify"><a name="repetitivas"></a>Estructuras repetitivas</h2>
+<p align="justify">El C dispone de las estructuras adecuadas para
+procesar conjuntos de 0 o m&aacute;s datos (<b>while</b>) y 1 o
+m&aacute;s
+datos (<b>do...while</b>).</p>
+<h3 align="justify">Estructura while</h3>
+<pre><strong><font color="#800040">while(expresi&oacute;n)<br>    sentencia;</font></strong>
+    </pre>
+<h3 align="justify">Estructura do...while</h3>
+<p align="justify">En un lazo <b>while</b>, la comprobaci&oacute;n de
+la expresi&oacute;n se hace al principio de cada ciclo. En cambio, en
+el lazo <b>do...while</b>, se hace al final.</p>
+<pre><font style="font-weight: bold;" color="#800040">do {<br>    sentencias;<br>} while(expresi&oacute;n);</font> <br></pre>
+<p align="justify"><b>Ambas</b> estructuras ejecutan su cuerpo de
+sentencias <b>mientras la expresi&oacute;n resulte verdadera</b>. <br>
+</p>
+<h3 align="justify">Estructura for</h3>
+<p align="justify">La iteraci&oacute;n es un caso particular de lazo
+<b>while</b> donde necesitamos que un bloque de sentencias se repita
+una cantidad previamente conocida de veces. Estos casos implican la
+inicializaci&oacute;n de variables de control, el incremento o
+decremento de las mismas, y la comprobaci&oacute;n por valor
+l&iacute;mite.</p>
+<p align="justify">Estas tareas administrativas se pueden hacer
+m&aacute;s
+c&oacute;moda y expresivamente con un lazo <b>for</b>. El esquema es:</p>
+<pre><font color="#800040"><strong>for(inicializaci&oacute;n; condici&oacute;n_mientras;  incremento)<br>    sentencia;</strong></font>   <br></pre>
+<p style="margin-bottom: 0cm;" align="justify">Donde</p>
+<ul>
+  <li>
+    <p><b>inicializaci&oacute;n</b> es una o m&aacute;s sentencias,
+separadas por comas, que se ejecutan una &uacute;nica vez al entrar al
+lazo. </p>
+  </li>
+  <li>
+    <p><b>condici&oacute;n_mientras</b> es una expresi&oacute;n
+l&oacute;gica, que se comprueba al principio de cada iteraci&oacute;n;
+mientras resulte verdadera se contin&uacute;a ejecutando el cuerpo. </p>
+  </li>
+  <li>
+    <p><b>incremento</b> es una o m&aacute;s sentencias, separadas por
+comas, que se realizan al final de cada ejecuci&oacute;n del cuerpo de
+la iteraci&oacute;n.</p>
+  </li>
+</ul>
+<p align="justify">La estructura <b>for</b> es equivalente al
+siguiente
+lazo <b>while</b>:</p>
+<pre style="color: rgb(128, 0, 64); font-weight: bold;">inicializaci&oacute;n;<br>while(condici&oacute;n_mientras) {<br>    sentencia;<br>    incremento;<br>}
+</pre>
+<p align="justify">
+Aunque el uso m&aacute;s com&uacute;n de las sentencias de incremento
+es avanzar o retroceder un contador de la cantidad de iteraciones,
+nada impide que se utilice esa secci&oacute;n para cualquier otro
+fin.</p>
+<p align="justify">Cualesquiera de las secciones <b>inicializaci&oacute;n</b>,
+<b>condici&oacute;n_mientras</b> o <b>incremento</b> pueden estar
+vac&iacute;as. En particular, la sentencia</p>
+<pre style="margin-bottom: 0.51cm;"><font style="font-weight: bold;"
+ color="#008000">for( ; ; )</font>   </pre>
+<p align="justify">es un lazo infinito.</p>
+<h3>Ejemplos</h3>
+<p align="justify">Este lazo acumula los n&uacute;meros 1 a 10 sobre la
+variable <b>a</b>:</p>
+<pre><font color="#008000"><span style="font-weight: bold;">for(i=1; i&lt;=10; i++)</span><br
+ style="font-weight: bold;"><span style="font-weight: bold;">    a += i;</span><br></font> </pre>
+<p align="justify">
+Si se quiere asegurar que la variable <b>a</b> tiene un valor inicial
+cero, se puede escribir:</p>
+<pre><font color="#008000"><span style="font-weight: bold;">for(i=1, a=0; i&lt;=10; i++)a += i;</span></font> <br><br></pre>
+<p align="justify">
+Aprovechando la propiedad del <i>corto circuito</i> en las
+expresiones l&oacute;gicas, se puede introducir el cuerpo del lazo
+<b>for</b> en la comprobaci&oacute;n (aunque no es recomendable si
+complica la lectura):</p>
+<pre style="margin-bottom: 0.51cm;"><font color="#008000"><br><span
+ style="font-weight: bold;">for(i=1, a=0; i&lt;=10&amp;&amp; a+=i; i++);</span><br></font> <br></pre>
+<p align="justify">N&oacute;tese que el cuerpo de este &uacute;ltimo
+for es la sentencia
+nula. A prop&oacute;sito: es un error muy com&uacute;n utilizar un
+signo ";" de m&aacute;s, as&iacute;:</p>
+<pre><font color="#008000"><span style="font-weight: bold;">for(i=1; i&lt;=10; i++);</span><br
+ style="font-weight: bold;"><span style="font-weight: bold;">    a += i;</span><br></font> </pre>
+<p align="justify">
+Esta estructura llevar&aacute; la variable <b>i</b> desde 1 hasta 10
+sin ejecutar ning&uacute;n otro trabajo (lo que se repite es la
+sentencia nula) y despu&eacute;s incrementar&aacute; <b>a</b>, una
+sola vez, en el valor de la &uacute;ltima iteraci&oacute;n de <b>i</b>.</p>
+<p align="justify">La propiedad de que toda asignaci&oacute;n tiene un
+valor como expresi&oacute;n (el valor asignado) permite escribir
+estructuras de control tales como</p>
+<pre><font color="#008000"><br><span style="font-weight: bold;">while( (a=leercaracter()) != '\033' ) <br>        procesar(a);</span><br></font>  <br></pre>
+<p align="justify">
+La anterior es una forma muy sint&eacute;tica de la cl&aacute;sica
+estructura de Pascal:</p>
+<pre><font color="#408080"><span style="font-weight: bold;">a=leercaracter();</span><br
+ style="font-weight: bold;"><span style="font-weight: bold;">while( a != '\033' ) {</span><br
+ style="font-weight: bold;"><span style="font-weight: bold;">    procesar(a);</span><br
+ style="font-weight: bold;"><span style="font-weight: bold;">    a =</span> <span
+ style="font-weight: bold;">leercaracter(); <br>}</span><br></font></pre>
+<p align="justify">
+Las expresiones conectadas por los operadores
+l&oacute;gicos se eval&uacute;an de izquierda a derecha, y la
+evaluaci&oacute;n se detiene apenas alcanza a determinarse el valor
+de verdad de la expresi&oacute;n (propiedad "del <i>corto
+circuito</i>"). As&iacute;, si suponemos que <b>procesar()</b>
+siempre devuelve un valor distinto de cero,</p>
+<pre style="margin-bottom: 0.51cm;"><font color="#008000"><span
+ style="font-weight: bold;">while((a=leercaracter()) != '\033' &amp;&amp; procesar(a));</span></font> <br></pre>
+<p align="justify">
+equivale a los lazos anteriores.</p>
+<p align="justify">Otra versi&oacute;n, utilizando la estructura
+<b>do...while</b>, podr&iacute;a ser:</p>
+<pre style="color: rgb(0, 128, 0); font-weight: bold;">do {<br>    if((a=leercaracter()) != '\033')<br>        procesar(a);<br>} while(a<br>    != '\033'); <br> </pre>
+<p align="justify">Si utilizamos <b>for</b>, que es esencialmente un
+<b>while</b>:
+</p>
+<pre><font color="#008000"><br><span style="font-weight: bold;">for( ; (a=leercaracter()) != '\033'; ) procesar(a);</span><br></font>  <br></pre>
+<p align="justify">
+Aqu&iacute; dejamos vac&iacute;as las secciones de
+inicializaci&oacute;n y de incremento. Tambi&eacute;n, pero menos
+claro:
+</p>
+<pre style="margin-bottom: 0.51cm;"><font color="#008000"><br><span
+ style="font-weight: bold;">for( ; (a=leercaracter()) != '\033'; procesar(a) );</span><br></font> </pre>
+<h2><a name="selecci&oacute;n"></a>Estructura de selecci&oacute;n</h2>
+<p align="justify">Dadas varias alternativas, la estructura de
+selecci&oacute;n desv&iacute;a el control al segmento de programa
+correspondiente. La sintaxis de la estructura <b>switch</b> es como
+sigue:</p>
+<pre><font color="#800040"><strong>switch(expresi&oacute;n_entera) {<br>    case expresi&oacute;n_constante1:<br>        sentencias; <br>        break;<br>    case expresi&oacute;n_constante2:<br>        sentencias; <br>        break;<br>    default:<br>        sentencias;<br>}</strong></font> <br></pre>
+<p align="justify">Al entrar al <b>switch</b>, se comprueba el valor
+de
+la expresi&oacute;n entera, y si coincide con alguna de las
+constantes propuestas en los r&oacute;tulos case, se deriva el
+control directamente all&iacute;. La secci&oacute;n <b>default</b> no
+es obligatoria. Sirve para derivar all&iacute; todos los casos que no
+se contemplen expl&iacute;citamente.</p>
+<p align="justify">En las <b>expresiones_constantes</b> no se permite
+la aparici&oacute;n de variables ni funciones. Un ejemplo v&aacute;lido
+con expresiones_constantes ser&iacute;a:</p>
+<pre><font style="color: rgb(0, 128, 0); font-weight: bold;"
+ color="#008000">#define ARRIBA 10<br>#define ABAJO   8<br><br>switch(valor(tecla)) {<br>    case 127+ARRIBA:<br>        arriba(); <br>        break;<br>    case 127+ABAJO:<br>        abajo(); <br>        break;<br>}</font><span
+ style="color: rgb(0, 128, 0); font-weight: bold;"> </span>        <br></pre>
+<p style="margin-bottom: 0cm;" align="justify">La sentencia <b>break</b>
+es necesaria aqu&iacute;
+porque, al contrario que en Pascal, <b>el control no se detiene</b> al
+llegar al siguiente r&oacute;tulo.
+</p>
+<h3>Ejemplo</h3>
+<p align="justify">Esta estructura recibe como entrada las variables <b>m</b>
+y <b>a</b> (mes y a&ntilde;o) y da como salida <b>d</b> (la cantidad
+de d&iacute;as del mes).</p>
+<pre style="font-weight: bold;"><font color="#008000">switch(m) {<br>    case 2:<br>        d=28 + bisiesto(a) ? 1 : 0; <br>        break;<br>    case 4: <br>    case 6: <br>    case 9: <br>    case 11:<br>        d= 30;<br>    break; default:<br>        d= 31;<br>    }</font>
+</pre>
+Tanto si <b>m</b> vale 4, 6, 9, como 11, asignamos
+30 a <b>d</b>. Al no haber un <b>break</b> intermedio, el control cae
+hasta la asignaci&oacute;n d=30.
+<p align="justify">La estructura <b>switch</b> tiene varias
+limitaciones con respecto a su an&aacute;logo el <b>case</b> de
+Pascal. A saber, no se puede comparar la expresi&oacute;n de
+selecci&oacute;n con expresiones no constantes, ni utilizar rangos (el
+concepto de rango no est&aacute; definido en C).<br>
+<br>
+</p>
+<h2 align="justify"><a name="incondicional"></a>Transferencia
+incondicional</h2>
+<p align="justify">Hay varias sentencias de transferencia incondicional
+de control en C. Algunas tienen aplicaci&oacute;n exclusivamente como
+modificadoras del control dentro de estructuras, como <b>break</b> y
+<b>continue</b>.</p>
+<h3>Sentencia continue</h3>
+<p align="justify">Utilizada dentro de un lazo <b>while, do...while</b>
+o <b>for</b>, hace que el control salte directamente a la
+comprobaci&oacute;n de la condici&oacute;n de iteraci&oacute;n.
+As&iacute;:</p>
+<pre><font style="color: rgb(0, 128, 0); font-weight: bold;"
+ color="#008000">for(i=0; i&lt;100; i++) {<br>    if(no_procesar(i))<br>        continue; <br>    procesar(i);<br>}</font><span
+ style="color: rgb(0, 128, 0); font-weight: bold;">   </span><br>    <br></pre>
+<p align="justify">En este lazo, si la funci&oacute;n <b>no_procesar()</b>
+devuelve
+valor distinto de cero, no se ejecuta el resto del lazo (la
+funci&oacute;n
+<b>procesar()</b> y otras, si las hubiera, hasta la llave final del
+lazo). Se comprueba la validez de la expresi&oacute;n i&lt;100, y si
+corresponde se inicia una nueva iteraci&oacute;n.</p>
+<h3>Sentencia break</h3>
+<p align="justify">La sentencia <b>break</b>, por el contrario, hace
+que el control abandone definitivamente el lazo:</p>
+<pre><font style="color: rgb(0, 128, 0); font-weight: bold;"
+ color="#008000">while(expresi&oacute;n) {<br>    if(ya_no_procesar())<br>        break; <br>    procesar();<br>}<br>seguir();</font><span
+ style="color: rgb(0, 128, 0); font-weight: bold;"> </span><br> <br></pre>
+<p align="justify">Cuando la funci&oacute;n <b>ya_no_procesar()</b>
+d&eacute; distinto
+de cero, el control saltar&aacute; a la funci&oacute;n <b>seguir()</b>,
+terminando la ejecuci&oacute;n de la estructura repetitiva.</p>
+<h3>Sentencia goto</h3>
+<p align="justify">Un r&oacute;tulo es un nombre, seguido del
+car&aacute;cter
+":", que se asocia a un segmento de un programa. La
+sentencia <b>goto</b> transfiere el control a la instrucci&oacute;n
+siguiente a un r&oacute;tulo. Aunque no promueve la programaci&oacute;n
+estructurada, y se sabe que su abuso es perjudicial, <b>goto</b> es
+&uacute;til para resolver algunas situaciones. Por ejemplo:
+anidamiento de lazos con salida forzada.</p>
+<pre><font color="#008000"><span style="font-weight: bold;">for(i=0; i&lt;10; i++) {</span><br
+ style="font-weight: bold;"><span style="font-weight: bold;">    for(j=0; j&lt;50; j++) {</span><br
+ style="font-weight: bold;"><span style="font-weight: bold;">        if(ya_no_procesar(i,j))</span><br
+ style="font-weight: bold;"><span style="font-weight: bold;">            goto final; </span><br
+ style="font-weight: bold;"><span style="font-weight: bold;">        procesar(i,j);</span><br
+ style="font-weight: bold;"><span style="font-weight: bold;">    }</span><br
+ style="font-weight: bold;"><span style="font-weight: bold;">}</span><br
+ style="font-weight: bold;"><span style="font-weight: bold;">final: imprimir(i,j);</span><br></font>   <br></pre>
+<p align="justify">Aqu&iacute; se podr&iacute;a implementar una
+estrategia estructurada,
+en base a <b>break</b>, pero el control quedar&iacute;a retenido en
+el lazo exterior y se requerir&iacute;a m&aacute;s l&oacute;gica para
+resolver este problema. Se complicar&iacute;a la legibilidad del
+programa innecesariamente.</p>
+<p align="justify">Los r&oacute;tulos a los que puede dirigirse un <b>goto</b>
+tienen un espacio de nombres propio. Es decir, no hay peligro de
+conflicto entre un r&oacute;tulo y una variable del mismo nombre.
+Adem&aacute;s, el &aacute;mbito de un r&oacute;tulo es local a la
+funci&oacute;n (una sentencia <b>goto</b> s&oacute;lo puede acceder a
+los r&oacute;tulos dentro del texto de la funci&oacute;n donde
+aparece).</p>
+<h3>La sentencia return</h3>
+<p style="margin-bottom: 0cm;">Permite devolver un valor a la
+funci&oacute;n
+llamadora. Implica una transferencia de control incondicional hasta
+el punto de llamada de la funci&oacute;n que se est&eacute;
+ejecutando.</p>
+<h2 align="justify"><a name="observaciones"></a>Observaciones</h2>
+<p align="justify">Hay errores de programaci&oacute;n t&iacute;picos,
+relacionados con estructuras de control en C, que vale la pena
+enumerar:</p>
+<ul>
+  <li>
+    <p>Terminar el encabezado de las estructuras de control con un
+punto y coma extra</p>
+  </li>
+  <li>
+    <p>Olvidar la sentencia <b>break</b> separando casos de un <b>switch</b></p>
+  </li>
+  <li>
+    <p>Confundir el significado de un lazo <b>do...while</b> tomando
+la condici&oacute;n de <b>mientras</b> como si fuera una
+condici&oacute;n de <b>hasta</b> (por analog&iacute;a con <b>repeat</b>
+de Pascal).</p>
+  </li>
+</ul>
+<hr>
+<h2><a name="ejercicios"></a>Ejercicios</h2>
+<p style="margin-right: 2.08cm;" align="justify">1. Reescribir estas
+sentencias usando <b>while</b> en vez de <b>for</b>:</p>
+<pre>for(i=0; i&lt;=10; i++)<br>    a = i;<br><br>for( ; j&lt;100; j+=2) {<br>    a = j;<br>    b = j * 2;<br>}<br><br>for( ; ; )<br>    a++;</pre>
+<p style="margin-right: 2.08cm;" align="justify">2. Si la
+funci&oacute;n quedanDatos() devuelve el valor l&oacute;gico
+que sugiere su nombre, &iquest;cu&aacute;l es la estructura
+preferible?</p>
+<pre>while(quedanDatos()) {<br>    procesar();<br>}<br><br>do {<br>    procesar();<br>} while(quedanDatos());</pre>
+<p>3. &iquest;Cu&aacute;l es el error de programaci&oacute;n en estos
+ejemplos?</p>
+<pre>for(i = 0; i &lt; 10; i++);<br>    a = i - 50L;<br><br>while(i &lt; 100) {<br>    procesar(i);<br>    a = a + i;<br>}</pre>
+<p>4. &iquest;Cu&aacute;l es el valor de x a la salida de los lazos
+siguientes?</p>
+<pre>for(x = 0; x&lt;100; x++);<br><br>for(x = 32; x&lt;55; x += 3);<br><br>for(x =  10;x&gt;0; x--);</pre>
+<p style="margin-right: 2.08cm;" align="justify">5.
+&iquest;Cu&aacute;ntas X escriben estas l&iacute;neas?</p>
+<pre>for (x = 0; x &lt; 10; x++) <br>    for (y = 5;  y &gt;  0; y--) <br>        escribir("X");</pre>
+<p style="margin-right: 2.08cm;" align="justify">6. Escribir sentencias
+que impriman la tabla de multiplicar para un entero dado.
+</p>
+<p style="margin-right: 2.08cm;" align="justify"> 7.&nbsp;Imprimir la
+tabla
+de los diez primeros n&uacute;meros primos (s&oacute;lo divisibles por
+s&iacute; mismos y
+por la unidad).</p>
+<p style="margin-right: 2.08cm;" align="justify">8. Escribir las
+sentencias para calcular el factorial de un entero.</p>
+<br>
+<br>
+<a href="adicionales/adic7.html#adic1">Ejercicios Adicionales<font
+ color="#000000"> </font> <br>
+</a><br>
+<a href="adicionales/adic7.html#adic2">Ejercicios Avanzados<br>
+<br>
+<hr></a>
+</body>
+</html>

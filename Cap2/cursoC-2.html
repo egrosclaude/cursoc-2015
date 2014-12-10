@@ -1,0 +1,397 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+  <meta http-equiv="CONTENT-TYPE"
+ content="text/html; charset=iso-8859-1">
+  <title>2. El preprocesador</title>
+  <meta name="GENERATOR" content="StarOffice/5.2 (Linux)">
+  <meta name="AUTHOR" content="">
+  <meta name="CREATED" content="20010508;20561200">
+  <meta name="CHANGEDBY" content="Eduardo Grosclaude">
+  <meta name="CHANGED" content="20010816;17225500">
+  <style>
+	<!--
+		@page { margin-left: 2.5cm; margin-right: 1.5cm }
+		TD P { text-align: justify }
+		P { text-align: justify }
+		PRE { margin-left: 0.4cm }
+	-->
+	</style>
+</head>
+<body>
+<p style="page-break-before: always;">
+</p>
+<h1 align="justify"><a name="el preprocesador"></a>2. El preprocesador</h1>
+<p align="justify">El compilador C tiene un componente auxiliar llamado
+<b><font size="+1"><b>preprocesador</b></font></b>, que act&uacute;a en
+la primera etapa del proceso de compilaci&oacute;n. Su misi&oacute;n es
+buscar, en el texto del programa fuente entregado al compilador,
+ciertas directivas que le indican <strong><em>realizar alguna tarea a
+nivel de texto</em></strong> . Por ejemplo,
+inclusi&oacute;n de otros archivos, o sustituci&oacute;n de ciertas
+cadenas de caracteres (s&iacute;mbolos o <i>macros</i>) por otras. El
+preprocesador cumple estas directivas <strong><em>en forma similar a
+como podr&iacute;an ser hechas manualmente por el usuario</em></strong>
+, utilizando los comandos de un
+editor de texto ("incluir archivo" y "reemplazar
+texto"), pero en forma autom&aacute;tica.</p>
+<p align="justify">Una vez cumplidas todas estas directivas, el
+preprocesador entrega el texto resultante al resto de las etapas de
+compilaci&oacute;n, que terminar&aacute;n dando por resultado un
+m&oacute;dulo objeto.<br>
+<br>
+</p>
+<h2><a name="directivas de preprocesador"></a>Directivas de
+preprocesador</h2>
+<p align="justify">El preprocesador sirve para eliminar redundancia y <strong><em>aumentar
+la expresividad </em></strong>de los programas en C, <strong><em>facilitando
+su mantenimiento</em></strong> . Si una variable o funci&oacute;n se
+utiliza en varios
+archivos fuente, es posible aislar su declaraci&oacute;n,
+coloc&aacute;ndola
+en un &uacute;nico archivo aparte que ser&aacute; incluido al tiempo
+de compilaci&oacute;n en los dem&aacute;s fuentes. Esto facilita toda
+modificaci&oacute;n de elementos comunes a los fuentes de un
+proyecto. Por otro lado, si una misma constante o expresi&oacute;n
+aparece repetidas veces en un texto, y es posible que su valor deba
+cambiarse m&aacute;s adelante, es muy conveniente definir esa
+constante con un s&iacute;mbolo y especificar su valor s&oacute;lo
+una vez, mediante un s&iacute;mbolo o macro. </p>
+<p align="justify">Los s&iacute;mbolos indicados con una directiva de
+definici&oacute;n<b>&nbsp;#define </b><span>se</span>
+guardan en una tabla de s&iacute;mbolos durante el preprocesamiento.
+Habitualmente se llama s&iacute;mbolos a aquellas cadenas que son
+directamente sustituibles por una expresi&oacute;n, reserv&aacute;ndose
+el nombre de macros para aquellos s&iacute;mbolos cuya expansi&oacute;n
+es parametrizable (es decir, llevan argumentos formales y reales como
+en el caso de las funciones). La cadena de expansi&oacute;n puede ser
+cualquiera, no necesariamente un elemento sint&aacute;cticamente
+v&aacute;lido de C. </p>
+<table border="0" cellpadding="4" cellspacing="0" width="100%">
+  <colgroup><col width="128"><col width="128"></colgroup><thead> <tr>
+    <td width="50%">
+    <p align="right"><font size="2">El preprocesador realiza ediciones
+autom&aacute;ticas, en l&iacute;nea, de los fuentes antes de entregar
+el resultado al compilador.</font></p>
+    <p align="right"><font size="2">Una de las funciones del
+preprocesador es sustituir <b>s&iacute;mbolos</b><span>, o cadenas</span>
+de texto dadas, por otras. La directiva <b>#define</b><span> establece
+la relaci&oacute;n entre los s&iacute;mbolos y su expansi&oacute;n o
+cadena a sustituir.</span></font></p>
+    <p><br>
+    </p>
+    </td>
+    <td width="50%">
+    <p><img src="img/preprocesador.gif" name="Imagen1" align="left"
+ border="0" height="346" width="346"><br clear="left">
+    <br>
+    </p>
+    </td>
+  </tr>
+  </thead>
+</table>
+<p align="justify"><br>
+<br>
+</p>
+<p align="justify">Las directivas del preprocesador no pertenecen al
+lenguaje C en un sentido estricto. El preprocesador no comprende
+ning&uacute;n aspecto sint&aacute;ctico ni sem&aacute;ntico de C. Las
+macros definidas en un programa C no son variables ni funciones, sino <strong><em>simplemente
+cadenas de texto que ser&aacute;n sustituidas por otras</em></strong> .
+Las directivas pueden aparecer en cualquier lugar del programa, pero
+sus efectos se ponen en vigor reci&eacute;n a partir del punto del
+programa en que aparecen y hasta el final de la unidad de
+traducci&oacute;n.
+Es decir, un s&iacute;mbolo o macro puede utilizarse despu&eacute;s
+de la aparici&oacute;n de la directiva que la define, y no antes.
+Tampoco puede utilizarse en una unidad de traducci&oacute;n diferente
+(los s&iacute;mbolos de preprocesador no se "propagan"
+entre unidades de traducci&oacute;n salvo por el uso de directivas de
+inclusi&oacute;n).</p>
+<p align="justify">Las directivas para incluir archivos suelen darse al
+principio de los programas, porque en general se desea que su efecto
+alcance a todo el archivo fuente. Por esta raz&oacute;n los archivos
+preparados para ser incluidos se denominan <b>headers</b> o archivos
+de cabecera. La implementaci&oacute;n de la <b>biblioteca</b>
+<b>standard</b> que viene con un compilador posee sus propios
+headers, uno por cada m&oacute;dulo de la biblioteca, que declaran
+funciones y variables de uso general. Estos headers contienen texto
+legible por humanos, y est&aacute;n en alg&uacute;n subdirectorio
+predeterminado (llamado <b>/usr/include</b> en UNIX, y dependiendo
+del compilador en otros sistemas operativos). El usuario puede
+escribir sus propios headers, y no necesita ubicarlos en el
+directorio reservado del compilador; puede almacenarlos en el
+directorio activo durante la compilaci&oacute;n. Un archivo fuente,
+junto con todos los archivos que incluya, es llamado una unidad de
+traducci&oacute;n.</p>
+<p align="justify">En los p&aacute;rrafos anteriores, n&oacute;tese que
+decimos <b>declarar funciones</b>, y no <b>definirlas</b>; la
+diferencia es importante y se ver&aacute; con detalle m&aacute;s
+adelante. Recordemos por el momento que en los headers de la
+biblioteca standard no aparecen <b>definiciones</b> -es decir,
+textos- de funciones, sino solamente <b>declaraciones </b><span>o
+</span><b>prototipos</b>, que sirven para anunciar al compilador los
+tipos y cantidad de los argumentos, etc.</p>
+<p align="justify"><strong><em>No se considera buena pr&aacute;ctica de
+programaci&oacute;n colocar la definici&oacute;n de una funci&oacute;n
+de uso frecuente en un header.</em></strong> Esto forzar&iacute;a a
+recompilar siempre la funci&oacute;n cada vez que se la utilizara.
+Por el contrario, lo ideal ser&iacute;a compilarla una &uacute;nica
+vez, produciendo un m&oacute;dulo objeto (y posiblemente
+incorpor&aacute;ndolo a una biblioteca). Esto ahorrar&iacute;a el
+tiempo correspondiente a su compilaci&oacute;n, ocupando s&oacute;lo
+el necesario para la linkedici&oacute;n.</p>
+<table border="0" cellpadding="4" cellspacing="0" width="100%">
+  <colgroup><col width="128"><col width="128"></colgroup><tbody>
+    <tr>
+      <td valign="top" width="50%">
+      <p><img src="img/include.gif" name="Imagen2" align="right"
+ border="0" height="346" width="346"><br clear="right">
+      <br>
+      </p>
+      </td>
+      <td width="50%">
+      <p><font size="2">La directiva <b>#include</b><span> hace que el
+preprocesador inserte y preprocese otros archivos en el punto donde se
+indica la directiva. El resultado de preprocesar el archivo incluido
+puede ser definir otros s&iacute;mbolos y macros, o aun incluir otros
+archivos.</span></font></p>
+      <p><font size="2">Los archivos destinados a ser incluidos son
+habitualmente llamados archivos de cabecera o <i>headers</i>.</font></p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p align="justify"><br>
+<br>
+</p>
+<p align="justify">Las directivas de inclusi&oacute;n son anidables, es
+decir, pueden incluirse headers que a su vez contengan directivas de
+inclusi&oacute;n. </p>
+<p align="justify">Una caracter&iacute;stica interesante del
+preprocesador es que permite la compilaci&oacute;n condicional de
+<b>segmentos</b> de la unidad de traducci&oacute;n, en base a valores
+de s&iacute;mbolos. Una <b>directiva condicional </b>es aquella que
+comprueba si un s&iacute;mbolo dado ha sido definido, o si su
+definici&oacute;n coincide con cierta cadena. El texto del programa
+que figura entre la directiva y su <i>end</i> ser&aacute; considerado
+s&oacute;lo si la comprobaci&oacute;n resulta exitosa. Los
+s&iacute;mbolos
+o macros pueden ser definidos al tiempo de la compilaci&oacute;n, sin
+alterar el texto del programa, permitiendo as&iacute; una
+parametrizaci&oacute;n del programa en forma separada de su
+escritura.</p>
+<h2><a name="ejemplos1"></a>Ejemplos</h2>
+<p style="margin-bottom: 0cm;" align="justify"><br>
+</p>
+<p style="margin-bottom: 0cm;" align="justify"><b>1) </b>Si el
+programa
+dice:</p>
+<pre
+ style="margin-bottom: 0.51cm; color: rgb(0, 153, 0); font-weight: bold;">a=2*3.14159*20.299322;</pre>
+<p align="justify">Es mucho m&aacute;s claro poner:</p>
+<pre style="font-weight: bold; color: rgb(0, 153, 0);">#define PI     3.14159<br>#define RADIO  20.299322<br>a=2*PI*RADIO;</pre>
+<p style="margin-bottom: 0cm;" align="justify"><b>2) </b>Con estas
+directivas:</p>
+<pre style="color: rgb(0, 153, 0); font-weight: bold;">#include &lt;stdio.h&gt;<br>#include "aux.h"<br>#define MAXITEM     100<br>#define DOBLE(X)    2*X</pre>
+<ul>
+  <li>
+    <p style="margin-bottom: 0cm;" align="justify">Se incluye el header
+de biblioteca standard <b>stdio.h</b>, que contiene declaraciones
+necesarias para poder utilizar funciones de entrada/salida standard
+(hacia consola y hacia archivos).</p>
+  </li>
+  <li>
+    <p style="margin-bottom: 0cm;" align="justify">Se incluye un header
+escrito por el usuario. Al indicar el nombre del header entre
+&aacute;ngulos, como en la l&iacute;nea anterior, especificamos que la
+b&uacute;squeda debe hacerse en los directorios reservados del
+compilador. Al indicarlo entre comillas, nos referimos al directorio
+actual.</p>
+  </li>
+  <li>
+    <p style="margin-bottom: 0cm;" align="justify">Se define un
+s&iacute;mbolo MAXITEM equivalente a la constante num&eacute;rica 100.</p>
+  </li>
+  <li>
+    <p style="margin-bottom: 0cm;" align="justify">Se define una macro
+DOBLE(X) que deber&aacute; sustituirse por la cadena 2*(argumento de la
+llamada a la macro).</p>
+  </li>
+</ul>
+<p align="justify">De esta manera, podemos escribir sentencias tales
+como:</p>
+<pre style="font-weight: bold; color: rgb(0, 153, 0);">a=MAXITEM;<br>b=DOBLE(45);</pre>
+<p align="justify">El texto luego de la etapa de preprocesamiento y
+antes de la compilaci&oacute;n propiamente dicha ser&aacute;</p>
+<pre style="color: rgb(0, 153, 0); font-weight: bold;">a=100;<br>b=2*45;</pre>
+Es importante comprender que, aunque sint&aacute;cticamente
+parecido, el uso de una macro <b>no es una llamada a funci&oacute;n</b>;
+los argumentos de una macro no se eval&uacute;an en tiempo de
+ejecuci&oacute;n antes de la llamada, sino que <b>se sustituyen
+textualmente</b> en el cuerpo de la macro. As&iacute;, si ponemos
+<pre
+ style="margin-bottom: 0.51cm; font-weight: bold; color: rgb(0, 153, 0);">b=DOBLE(40+5);</pre>
+<p align="justify">el resultado ser&aacute; <b>b=2*40+5</b>; y no <b>b=2*45</b>
+ni
+<b>b=2*(40+5)</b>, que presumiblemente es lo que desea el
+programador. </p>
+<p align="justify">Este problema puede solucionarse redefiniendo la
+macro as&iacute;:</p>
+<pre
+ style="margin-bottom: 0.51cm; color: rgb(0, 153, 0); font-weight: bold;">#define DOBLE(X)    2*(X)</pre>
+<p align="justify">Ahora la expansi&oacute;n de la macro ser&aacute; la
+deseada. En
+general es saludable rodear las apariciones de los argumentos de las
+macros entre par&eacute;ntesis, para obligar a su evaluaci&oacute;n
+al tiempo de ejecuci&oacute;n con la precedencia debida, y evitar
+efectos laterales.</p>
+<p style="margin-bottom: 0cm;" align="justify"><b><a
+ onmouseover="window.status='Directivas Condicionales'; return true"
+ onmouseout="window.status=' '" href="info/info2.html#info1"><b>Mas
+informacion ...</b></a><br>
+<br>
+</b> </p>
+<h2 align="justify"><a name="observaciones"></a>Observaciones</h2>
+<p align="justify">A veces puede resultar interesante, para depurar un
+programa, observar c&oacute;mo queda el archivo intermedio generado por
+el preprocesador despu&eacute;s de todas las sustituciones,
+inclusiones, etc. La mayor&iacute;a de los compiladores cuentan con una
+opci&oacute;n que permite generar este archivo intermedio y detener
+all&iacute; la compilaci&oacute;n, para poder estudiarlo. <br>
+<br>
+El ejemplo siguiente muestra el resultado de un &nbsp;ejemplo&nbsp;y
+como lo devuelve el preprocesador para la etapa siguiente
+(compilaci&oacute;n):&nbsp;<br>
+</p>
+<p align="justify">
+<table border="1" width="100%">
+  <tbody>
+    <tr>
+<!-- Row 1 --> <td width="280">&nbsp;&nbsp;<strong>&nbsp;Programa
+fuente en
+C&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <br>
+      </strong></td>
+<!-- Col 1 --> <td width="50%">&nbsp; <strong>Programa fuente
+preprocesado</strong></td>
+<!-- Col 2 --></tr>
+  </tbody>
+</table>
+<table border="1" width="100%">
+  <tbody>
+    <tr>
+<!-- Row 1 --> <td width="279">
+      <blockquote style="margin-right: 0px;" dir="ltr">
+        <p><br>
+        <font color="#008000"><strong>#define PI 3.14<br>
+#define RADIO 15<br>
+#define RADIO2 (RADIO * RADIO)</strong></font></p>
+        <p><font color="#008000"><strong>main()<br>
+{<br>
+&nbsp; long a;</strong></font></p>
+        <p><font color="#008000"><strong>&nbsp; a= PI * RADIO2 ;</strong></font></p>
+        <p><font color="#008000"><strong>}</strong></font></p>
+      </blockquote>
+      </td>
+<!-- Col 1 --> <td width="50%">
+      <blockquote style="margin-right: 0px;" dir="ltr">
+        <p><font color="#008080"><strong>main()<br>
+{<br>
+&nbsp; long a;</strong></font></p>
+        <p><font color="#008080"><strong>&nbsp; a= 3.14 * (15 * 15) ;</strong></font></p>
+        <p><font color="#008080"><strong>}<br>
+        </strong></font></p>
+      </blockquote>
+      </td>
+<!-- Col 2 --></tr>
+  </tbody>
+</table>
+</p>
+<p align="justify">Podemos ver que las constantes definidas en el
+archivo fuente fueron reemplazadas por sus valores.<br>
+<br>
+Para ver que retornar&iacute;a el preprocesador para cualquier ejemplo
+hay que utilizar el siguiente comando:<br>
+<br>
+&nbsp; <strong><em><span
+ style="color: rgb(255, 153, 0); font-weight: bold;">$gcc -E -C&nbsp;
+hola.c</span><br>
+</em></strong><br>
+En este caso usamos el conocido <a href="ejemplos/hola.c">hola.c</a>
+&nbsp;del&nbsp;primer cap&iacute;tulo.&nbsp; La salida de dicho comando
+ser&aacute; por pantalla. En caso de querer&nbsp;que dicha
+salida&nbsp;quede en un archivo:<br>
+<br style="color: rgb(255, 153, 0);">
+<span style="color: rgb(255, 153, 0);">&nbsp;</span><strong
+ style="color: rgb(255, 153, 0);"><em>$gcc -E -C&nbsp; hola.c
+&gt;&nbsp; salida.txt</em></strong><br>
+<br>
+El simbolo &gt; (como se ver&aacute; mas adelante) provoca que la
+salida se dirija al archivo<strong><em> salida.txt</em></strong>. Con
+cualquier editor de texto podremos ver su contenido.<br>
+<br>
+<a
+ onmouseover="window.status='Directivas en tiempo de Compilación'; return true"
+ onmouseout="window.status=' '" href="info/info2.html#info2"><strong>Mas
+informacion ...</strong></a><strong> </strong><br>
+<br>
+Finalmente, aunque el compilador tiene un directorio default donde
+buscar los archivos de inclusi&oacute;n, es posible agregar otros
+directorios para cada compilaci&oacute;n con argumentos especiales si
+es necesario.</p>
+<p align="justify"><br>
+<br>
+</p>
+<hr>
+<h2><a name="ejercicios"></a>Ejercicios</h2>
+<p style="margin-bottom: 0cm;">1. D&eacute; ejemplos de directivas de
+preprocesador:</p>
+<ul>
+  <li>
+    <p style="margin-bottom: 0cm;" align="left">para incluir un archivo
+proporcionado por el compilador</p>
+  </li>
+  <li>
+    <p style="margin-bottom: 0cm;" align="left">para incluir un archivo
+confeccionado por el usuario</p>
+  </li>
+  <li>
+    <p style="margin-bottom: 0cm;" align="left">para definir una
+constante num&eacute;rica</p>
+  </li>
+</ul>
+<p style="margin-bottom: 0cm;">2. &iquest;Cu&aacute;l es el
+&aacute;mbito
+de una definici&oacute;n de preprocesador? Si defino un s&iacute;mbolo
+<b>A</b> en un fuente y lo compilo creando un m&oacute;dulo objeto
+<b>algo.o</b>, &iquest;puedo utilizar <b>A</b> desde otro fuente, sin
+declararlo, a condici&oacute;n de linkeditarlo con <b>algo.o</b>?</p>
+<p style="margin-bottom: 0cm;">3. &iquest;Qu&eacute; pasa si defino
+dos veces el mismo s&iacute;mbolo en un mismo fuente?</p>
+<p style="margin-bottom: 0cm;">4. Edite el programa <b>hello.c</b> del
+ejemplo del cap&iacute;tulo 1 reemplazando la cadena "<b>Hola,
+mundo!\n</b>" por un s&iacute;mbolo definido a nivel de
+preprocesador.</p>
+<p style="margin-bottom: 0cm;">5. Escriba una
+macro que imprima su argumento usando la funci&oacute;n printf().
+Apl&iacute;quela para reescribir hello.c de modo que funcione igual
+que antes.</p>
+<p style="margin-bottom: 0cm;">6. &iquest;Cu&aacute;l es el resultado
+de preprocesar las l&iacute;neas que siguen? Es decir,
+&iquest;qu&eacute;
+recibe exactamente el compilador luego del preprocesado?</p>
+<pre>#define ALFA 8<br>#define BETA 2*ALFA<br>#define PROMEDIO(x,y) (x+y)/2<br>a=ALFA*BETA;<br>b=5;<br>c=PROMEDIO(a,b);</pre>
+<p style="margin-bottom: 0cm;">7. &nbsp;&iquest;Qu&eacute; est&aacute;
+mal en los ejemplos que siguen?</p>
+<pre>a) <br>#define PRECIO 27.5<br>PRECIO=27.7;<br><br>b)<br>#define 3.14 PI<br><br>c)<br>#define doble(x) 2*x;<br>alfa=doble(6)+5;</pre>
+<p style="margin-bottom: 0cm;" align="justify">&nbsp;<br>
+</p>
+<a href="adicionales/adic2.html#adic1">Ejercicios Adicionales<font
+ color="#000000"> </font> <br>
+</a><br>
+<a href="adicionales/adic2.html#adic2">Ejercicios Avanzados<br>
+<br>
+<hr></a>
+</body>
+</html>

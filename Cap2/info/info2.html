@@ -1,0 +1,81 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+  <meta http-equiv="CONTENT-TYPE"
+ content="text/html; charset=iso-8859-1">
+  <title>2. El preprocesador - Informaci&oacute;n Adicional</title>
+  <meta name="GENERATOR" content="StarOffice/5.2 (Linux)">
+  <meta name="AUTHOR" content="Eduardo Grosclaude">
+  <meta name="CREATED" content="20010508;18165800">
+  <meta name="CHANGEDBY" content="Eduardo Grosclaude">
+  <meta name="CHANGED" content="20010818;18524900">
+  <style>
+	<!--
+		@page { margin-left: 2.5cm; margin-right: 1.5cm }
+		PRE { margin-left: 0.4cm }
+	-->
+	</style>
+</head>
+<body bgcolor="#ffffff">
+<p style="page-break-before: always;"><br>
+<br>
+</p>
+<h1 align="justify"> 2. El&nbsp;Preprocesador</h1>
+<br>
+<h2 align="justify">Informaci&oacute;n Adicional</h2>
+<br>
+<hr>
+<br>
+<h2 align="justify"><a name="info1">Directivas Condicionales</a></h2>
+<a name="info1"><strong><br>
+1) </strong>Con las directivas condicionales:
+</a>
+<p style="margin-bottom: 0cm;" align="justify"><a name="info1"><br>
+</a></p>
+<pre><a name="info1">#ifdef DEBUG<br>#define CARTEL(x)   imprimir(x)<br>#else<br>#define CARTEL(x)<br>#endif<br><br>#if SISTEMA==MS_DOS<br>#include "header1.h"<br>#elif SISTEMA==UNIX<br>#include "header2.h"<br>#endif</a></pre>
+<p style="margin-bottom: 0cm;" align="justify"><a name="info1"><br>
+</a></p>
+<p><a name="info1">En el primer caso, definimos una macro CARTEL que
+equivaldr&aacute; a invocar a una funci&oacute;n 'imprimir', pero
+s&oacute;lo si el s&iacute;mbolo DEBUG ha sido definido. En otro caso,
+equivaldr&aacute; a la cadena vac&iacute;a. En el segundo caso, se
+incluir&aacute; uno u otro header dependiendo del valor del
+s&iacute;mbolo SISTEMA. Tanto DEBUG como SISTEMA pueden tomar valores
+al momento de compilaci&oacute;n, si se dan como argumentos para el
+compilador. De esta manera se puede modificar el comportamiento del
+programa sin necesidad de editarlo.</a></p>
+<p><a name="info1"><b>2)</b> El segmento siguiente muestra un caso con
+l&oacute;gica inversa pero equivalente al ejemplo anterior.</a></p>
+<pre><a name="info1">#ifndef DEBUG<br>#define CARTEL(x)   <br>#else<br>#define CARTEL(x) imprimir(x)<br>#endif</a></pre>
+<p><a name="info1"><br>
+<br>
+<br>
+<br>
+</a></p>
+<hr>
+<p></p>
+<h2 align="justify"><a name="info2">Directivas en tiempo de
+Compilaci&oacute;n</a></h2>
+<p align="justify"><a name="info2">Otra opci&oacute;n relacionada con
+el preprocesador que suelen ofrecer los compiladores es aquella que
+permite definir, al tiempo de la compilaci&oacute;n y sin modificar los
+fuentes, s&iacute;mbolos que se pondr&aacute;n a la vista del
+preprocesador. As&iacute;, la estructura final de un programa puede
+depender de decisiones tomadas al tiempo de compilaci&oacute;n. Esto
+permite, por ejemplo, aumentar la portabilidad de los programas, o
+generar m&uacute;ltiples versiones de un sistema sin diseminar el
+conocimiento reunido en los m&oacute;dulos fuente que lo componen. </a></p>
+<p align="justify">
+<a name="info4"><br>
+</a></p>
+<hr><a name="info4"><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</a>
+</body>
+</html>

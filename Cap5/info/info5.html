@@ -1,0 +1,245 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+  <meta http-equiv="CONTENT-TYPE"
+ content="text/html; charset=iso-8859-1">
+  <title>5. Propiedades de las variables - Informaci&oacute;n Adicional</title>
+  <meta name="GENERATOR" content="StarOffice/5.2 (Linux)">
+  <meta name="AUTHOR" content="Eduardo Grosclaude">
+  <meta name="CREATED" content="20010508;18165800">
+  <meta name="CHANGEDBY" content="Eduardo Grosclaude">
+  <meta name="CHANGED" content="20010818;18524900">
+  <style>
+	<!--
+		@page { margin-left: 2.5cm; margin-right: 1.5cm }
+		PRE { margin-left: 0.4cm }
+	-->
+	</style>
+</head>
+<body style="background-color: rgb(255, 255, 255);">
+<p style="page-break-before: always;"><br>
+<br>
+</p>
+<h1 align="justify"> 4.&nbsp;Propiedades de las Variables</h1>
+<br>
+<h2 align="justify">Informaci&oacute;n Adicional</h2>
+<br>
+<hr>
+<a name="info1">
+<h2>Variables y mapa de memoria</h2>
+<p style="margin-bottom: 0cm;" align="justify"><br>
+</p>
+<p style="margin-bottom: 0cm;" align="justify">De acuerdo a su clase de
+almacenamiento, las variables aparecen en diferentes regiones del mapa
+de memoria del programa en ejecuci&oacute;n.</p>
+<p style="margin-bottom: 0cm;" align="justify"><br>
+</p>
+<table border="0" cellpadding="4" cellspacing="0" width="100%">
+  <colgroup><col width="128"><col width="128"></colgroup><thead> <tr
+ valign="top">
+    <td width="50%">
+    <p align="justify"><img src="../img/variablesymapa.gif"
+ name="Imagen2" align="right" border="0" height="346" width="346"><br
+ clear="right">
+    <br>
+    </p>
+    </td>
+    <td width="50%">
+    <p style="margin-bottom: 0cm;" align="left">Las variables locales
+(autom&aacute;ticas) se disponen en el stack. Debido a la forma de
+administraci&oacute;n de esta zona de la memoria, existen solamente
+hasta la finalizaci&oacute;n de la funci&oacute;n.</p>
+    <p style="margin-bottom: 0cm;" align="left"><br>
+    </p>
+    <p align="left">Las variables est&aacute;ticas (las externas, y las
+locales cuando son declaradas static) se alojan en la zona de datos
+est&aacute;ticos. Esta zona no cambia de tama&ntilde;o ni pierde sus
+contenidos, y queda inicializada al momento de carga del programa.</p>
+    </td>
+  </tr>
+  </thead>
+</table>
+<p style="margin-bottom: 0cm;" align="justify">A medida que una
+funci&oacute;n invoca a otras, las variables locales van apareciendo en
+el stack, y a medida que las funciones terminan, el stack se va
+desalojando en orden inverso a como aparecieron las variables. Cada
+funci&oacute;n, al recibir el control, toma parte del stack, con los
+contenidos que hubieran quedado all&iacute; de ejecuciones previas,
+para alojar all&iacute; sus variables. A esto se debe que el programa
+las vea inicializadas con <i>basura</i>.</p>
+<p style="margin-bottom: 0cm;" align="justify"><br>
+</p>
+<h3>Ejemplo</h3>
+<dl>
+  <dd>
+    <table border="1" bordercolor="#000000" cellpadding="4"
+ cellspacing="0" rules="rows" width="416">
+      <colgroup><col width="162"></colgroup> <colgroup><col width="174"><col
+ width="55"></colgroup> <tbody>
+        <tr>
+          <td rowspan="20" bgcolor="#e6e6e6" width="162">
+          <pre>int fun1()<br>{<br>   int a, b;<br>   fun2(a,b);<br>}<br><br><br>int fun2()<br>{<br>   int c;<br>   ...<br>}</pre>
+          </td>
+          <th valign="top" width="174">
+          <p><br>
+          </p>
+          </th>
+          <th valign="top" width="55">
+          <p>stack</p>
+          </th>
+        </tr>
+        <tr valign="top">
+          <td rowspan="3" width="174">
+          <p align="right">Antes de entrar a fun1()</p>
+          </td>
+          <td bgcolor="#e6e6e6" width="55">
+          <p align="center">-</p>
+          </td>
+        </tr>
+        <tr>
+          <td bgcolor="#e6e6e6" valign="top" width="55">
+          <p align="center">-</p>
+          </td>
+        </tr>
+        <tr>
+          <td bgcolor="#e6e6e6" valign="top" width="55">
+          <p align="center">-</p>
+          </td>
+        </tr>
+        <tr valign="top">
+          <td width="174">
+          <p align="right"><br>
+          </p>
+          </td>
+          <td width="55">
+          <p><br>
+          </p>
+          </td>
+        </tr>
+        <tr valign="top">
+          <td rowspan="3" width="174">
+          <p align="right">Al entrar a fun1()</p>
+          </td>
+          <td bgcolor="#e6e6e6" width="55">
+          <p align="center"><b>a</b></p>
+          </td>
+        </tr>
+        <tr>
+          <td bgcolor="#e6e6e6" valign="top" width="55">
+          <p align="center"><b>b</b></p>
+          </td>
+        </tr>
+        <tr>
+          <td bgcolor="#e6e6e6" valign="top" width="55">
+          <p align="center">-</p>
+          </td>
+        </tr>
+        <tr valign="top">
+          <td width="174">
+          <p align="right"><br>
+          </p>
+          </td>
+          <td width="55">
+          <p><br>
+          </p>
+          </td>
+        </tr>
+        <tr valign="top">
+          <td rowspan="3" width="174">
+          <p align="right">Al entrar a fun2()</p>
+          </td>
+          <td bgcolor="#e6e6e6" width="55">
+          <p align="center"><b>a</b></p>
+          </td>
+        </tr>
+        <tr>
+          <td bgcolor="#e6e6e6" valign="top" width="55">
+          <p align="center"><b>b</b></p>
+          </td>
+        </tr>
+        <tr>
+          <td bgcolor="#e6e6e6" valign="top" width="55">
+          <p align="center"><b>c</b></p>
+          </td>
+        </tr>
+        <tr valign="top">
+          <td width="174">
+          <p align="right"><br>
+          </p>
+          </td>
+          <td width="55">
+          <p><br>
+          </p>
+          </td>
+        </tr>
+        <tr valign="top">
+          <td rowspan="3" width="174">
+          <p align="right">Al salir de fun2() y volver a fun1()</p>
+          </td>
+          <td bgcolor="#e6e6e6" width="55">
+          <p align="center"><b>a</b></p>
+          </td>
+        </tr>
+        <tr>
+          <td bgcolor="#e6e6e6" valign="top" width="55">
+          <p align="center"><b>b</b></p>
+          </td>
+        </tr>
+        <tr>
+          <td bgcolor="#e6e6e6" valign="top" width="55">
+          <p align="center">-</p>
+          </td>
+        </tr>
+        <tr valign="top">
+          <td width="174">
+          <p align="right"><br>
+          </p>
+          </td>
+          <td width="55">
+          <p><br>
+          </p>
+          </td>
+        </tr>
+        <tr valign="top">
+          <td rowspan="3" width="174">
+          <p align="right">Al salir de fun1()</p>
+          </td>
+          <td bgcolor="#e6e6e6" width="55">
+          <p align="center">-</p>
+          </td>
+        </tr>
+        <tr>
+          <td bgcolor="#e6e6e6" valign="top" width="55">
+          <p align="center">-</p>
+          </td>
+        </tr>
+        <tr>
+          <td bgcolor="#e6e6e6" valign="top" width="55">
+          <p align="center">-</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </dd>
+</dl>
+<p><br>
+<br>
+</p>
+<table summary="tabla contenidos" bgcolor="white" border="0"
+ cellpadding="2" cellspacing="0" width="600">
+  <tbody>
+    <tr>
+      <td><br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</a>
+<p align="justify"><br>
+<br>
+<br>
+</p>
+<hr>
+<p align="justify"> </p>
+</body>
+</html>

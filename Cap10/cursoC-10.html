@@ -1,0 +1,514 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+  <meta http-equiv="CONTENT-TYPE"
+ content="text/html; charset=iso-8859-1">
+  <title>10. Apuntadores y direcciones</title>
+  <meta name="GENERATOR" content="StarOffice/5.2 (Linux)">
+  <meta name="AUTHOR" content="Eduardo Grosclaude">
+  <meta name="CREATED" content="20000513;17033300">
+  <meta name="CHANGEDBY" content="Eduardo Grosclaude">
+  <meta name="CHANGED" content="20010822;9471400">
+  <style>
+	<!--
+		H3 { text-align: justify }
+		TD P { text-align: justify }
+		P { text-align: justify }
+		PRE { margin-left: 0.3cm }
+	-->
+	</style>
+</head>
+<body bgcolor="#ffffff">
+<h1>10. Apuntadores y Direcciones</h1>
+<p
+ style="margin-left: 2.04cm; color: rgb(153, 0, 0); font-weight: bold;"><i>El
+tema de esta unidad es el m&aacute;s
+complejo del lenguaje C y por este motivo se han separado los
+contenidos en dos partes (llamadas 10 y 10b).</i></p>
+<p>La memoria del computador est&aacute; organizada como un vector o
+arreglo unidimensional. Los &iacute;ndices en este arreglo son las
+direcciones de memoria. Este arreglo puede accederse indexando a cada
+byte individualmente, y en particular a cada estructura de datos del
+programa, mediante su direcci&oacute;n de comienzo. </p>
+<p>Para manipular direcciones se utilizan en C variables especiales
+llamadas <b>apuntadores o punteros</b>, que son aquellas capaces de
+contener direcciones. En la declaraci&oacute;n de un apuntador se
+especifica el tipo de los objetos de datos cuya direcci&oacute;n
+contendr&aacute;. </p>
+<p>La notaci&oacute;n:</p>
+<pre
+ style="margin-bottom: 0.5cm; color: rgb(0, 153, 0); font-weight: bold;">char *p;</pre>
+<p>es la declaraci&oacute;n de una variable puntero a car&aacute;cter.
+El contenido de la variable p puede ser, en principio, cualquiera
+dentro del rango de direcciones de la m&aacute;quina subyacente al
+programa. Una vez habiendo recibido un valor, se dice que la variable
+p <i>apunta</i> a alg&uacute;n objeto en memoria. </p>
+<p>Esquem&aacute;ticamente representamos la situaci&oacute;n de una
+variable que contiene una direcci&oacute;n (y por lo tanto "apunta
+a esa direcci&oacute;n") seg&uacute;n el diagrama siguiente (<a
+ href="info/info10.html#adic1"><font size="-1">mas informaci&oacute;n</font></a>).
+La
+posici&oacute;n 1 de la memoria aloja un puntero que actualmente
+apunta a la posici&oacute;n 5.<br>
+<img alt="arreglo memoria" src="img/arraymemoria.gif" name="Imagen1"
+ style="border: 0px solid ; width: 545px; height: 227px;" align="left"><br
+ clear="left">
+</p>
+<p>El
+tema de <b>apuntadores</b> (o <b>punteros</b>) y <b>direcciones</b>
+es crucial en la programaci&oacute;n en C, y parece ser el origen
+m&aacute;s
+frecuente de errores. Programas con mala l&oacute;gica de acceso a
+memoria pueden ser declarados v&aacute;lidos por el compilador: su
+compilaci&oacute;n puede ser exitosa y sin embargo ser completamente
+err&oacute;neos en ejecuci&oacute;n. Esta es una de las cr&iacute;ticas
+m&aacute;s frecuentes al lenguaje C, aunque en rigor de verdad, el
+problema no es del lenguaje, sino del programador con una mala
+comprensi&oacute;n de las cuestiones del lenguaje relacionadas con
+memoria.</p>
+<p>Las cuestiones fundamentales a entender para no caer en estos
+errores son los conceptos de <b>direcciones</b> y <b>punteros</b>,
+as&iacute; como dominar la <b>sintaxis de las declaraciones de
+punteros</b> para asegurarse de que escribimos lo que se pretende
+lograr. </p>
+<p><br>
+</p>
+<h2><a name="operadores"></a>Operadores especiales</h2>
+<p>Para manipular punteros se hacen necesarios dos operadores
+especiales:</p>
+<dl>
+  <dd>
+    <table border="1" bordercolor="#000000" cellpadding="4"
+ cellspacing="0" rules="rows" width="307">
+      <col width="76"> <col width="213"> <thead> <tr valign="top">
+        <th width="76">
+        <p align="center">&amp;</p>
+        </th>
+        <th width="213">
+        <p align="left">Operador de direcci&oacute;n</p>
+        </th>
+      </tr>
+      </thead> <tbody>
+        <tr valign="top">
+          <td width="76">
+          <p align="center"><b>*</b></p>
+          </td>
+          <td width="213">
+          <p align="left"><b>Operador de indirecci&oacute;n</b></p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </dd>
+</dl>
+El operador de <b>direcci&oacute;n</b> devuelve la direcci&oacute;n
+de un objeto. La construcci&oacute;n siguiente:
+<pre
+ style="margin-bottom: 0.5cm; color: rgb(0, 153, 0); font-weight: bold;">p = &amp;a;</pre>
+<p>puede leerse: <b>"asignar a p la direcci&oacute;n de a".</b></p>
+<p><img alt="" src="img/aritpunt1.gif" name="Imagen5"
+ style="border: 0px solid ; width: 505px; height: 187px;" align="left"><br
+ clear="left">
+<br>
+<br>
+</p>
+<p>El operador de <b>indirecci&oacute;n</b>, o de <b>dereferenciaci&oacute;n</b>,
+surte el efecto contrario: accede al objeto apuntado por una
+direcci&oacute;n. La construcci&oacute;n </p>
+<pre
+ style="margin-bottom: 0.5cm; color: rgb(0, 153, 0); font-weight: bold;">a = *p;</pre>
+<p>puede leerse <b>"a es igual a lo apuntado por p"</b>.</p>
+<p><img alt="" src="img/aritpunt0.gif" name="Imagen8"
+ style="border: 0px solid ; width: 505px; height: 187px;" align="left"><br
+ clear="left">
+<br>
+</p>
+<p>Para tener el efecto l&oacute;gicamente esperado, en las
+expresiones anteriores <b>p </b><span style="">deber&aacute;</span>
+ser un puntero, capaz de recibir y entregar una direcci&oacute;n.</p>
+<p>En general, si p = &amp;a, la expresi&oacute;n de
+dereferenciaci&oacute;n
+*p puede aparecer en cualquier contexto en el que apareciera <b>a</b>.
+En particular, es legal asignar indirectamente a trav&eacute;s de un
+apuntador. Las instrucciones</p>
+<pre style="color: rgb(0, 153, 0); font-weight: bold;">int a, *p;<br>p = &amp;a;<br>*p = 1;</pre>
+<p>equivalen a </p>
+<pre
+ style="margin-bottom: 0.5cm; color: rgb(0, 153, 0); font-weight: bold;">a = 1;</pre>
+<p><br>
+</p>
+<h2><a name="aritm&eacute;tica"></a>Aritm&eacute;tica de punteros</h2>
+<p>Son operaciones legales <b>asignar punteros entre s&iacute;, sumar
+algebraicamente un entero a un puntero y restar dos punteros</b>. Las
+consecuencias de cada operaci&oacute;n se esquematizan en las figuras
+siguientes. </p>
+<h3>Asignaci&oacute;n entre punteros</h3>
+<p><img alt="" src="img/aritpunt2.gif" name="Imagen4"
+ style="border: 0px solid ; width: 505px; height: 187px;" align="left"><br
+ clear="left">
+Luego
+de asignar un puntero a otro, ambos apuntan al mismo objeto.
+Cualquier modificaci&oacute;n al objeto apuntado por uno se refleja
+al accederlo mediante el otro puntero.</p>
+<p><br>
+<br>
+</p>
+<h3>Suma de enteros a punteros</h3>
+<p>La <b>suma algebraica de una direcci&oacute;n m&aacute;s un entero
+es nuevamente una direcci&oacute;n</b>. El sentido de la
+operaci&oacute;n
+es desplazar el punto de llegada del apuntador (hacia arriba o hacia
+abajo en memoria) en tantas unidades como diga el entero, con la
+particularidad de que el resultado final es dependiente del
+tama&ntilde;o
+del objeto apuntado. Esto es en general lo que desea el programador
+al aplicar un incremento a un apuntador.</p>
+<p><img alt="" src="img/aritpunt3.gif" name="Imagen6"
+ style="border: 0px solid ; width: 505px; height: 187px;" align="left"><br
+ clear="left">
+<span style="">Es
+decir que </span><b>sumar (o restar) una unidad a un puntero, lo
+incrementa (decrementa) en tantos bytes como mida el objeto al cual
+apunta.</b> </p>
+<p>Por ejemplo, para punteros a <b>car&aacute;cter</b>, la
+instrucci&oacute;n <b>p++</b> incrementa el valor del puntero en <b>uno,
+</b><span style="">que es el <b>sizeof()</b> de
+los </span><b>chars</b>; pero si p es un puntero a <b>long,</b> en
+una arquitectura donde los longs miden cuatro bytes, <b>p++</b>
+incrementa el valor de p en <b>cuatro</b> (y p queda apuntando "un
+long m&aacute;s all&aacute; en memoria"). El c&aacute;lculo
+realizado al tiempo de ejecuci&oacute;n para la instrucci&oacute;n
+<b>p+i</b>, donde <b>p</b> es un puntero a <b>tipo</b> e <b>i </b>es
+un entero, es siempre <b>p+i*sizeof(tipo)</b>.</p>
+<p><br>
+<br>
+</p>
+<h3>Resta de punteros</h3>
+<p>El sentido de una <b>resta de punteros</b> (o, equivalentemente,
+de una diferencia de direcciones) es obtener el <b>tama&ntilde;o del
+&aacute;rea de memoria comprendida</b> entre los objetos apuntados
+por ambos punteros. La resta tendr&aacute; sentido &uacute;nicamente
+si se hace entre variables que apuntan a objetos del mismo tipo.</p>
+<p><img alt="" src="img/aritpunt4.gif" name="Imagen7"
+ style="border: 0px solid ; width: 505px; height: 187px;" align="left"><br
+ clear="left">
+Nuevamente
+se aplica la l&oacute;gica del punto anterior: el resultado obtenido
+quedar&aacute; expresado en unidades del tama&ntilde;o del objeto
+apuntado. Es decir, si una diferencia entre punteros a <b>long</b> da
+<b>3</b>, debe entenderse el resultado como equivalente a <b>3 longs</b>,
+y por lo tanto a <b>3*sizeof(long)</b> <b>bytes</b>.</p>
+<p><br>
+<br>
+</p>
+<h2><a name="punteros y arreglos"></a>Punteros y arreglos</h2>
+<p>Una consecuencia de que sea posible sumar enteros a punteros es
+que se puede simular el recorrido de un arreglo mediante el
+incremento sucesivo de un puntero. La operaci&oacute;n de acceder a
+un elemento del arreglo es equivalente a obtener el objeto apuntado
+por el puntero. Las sentencias:</p>
+<pre style="color: rgb(0, 153, 0); font-weight: bold;">int *p;<br>int a[10];<br>p = &amp;a[0];</pre>
+<p>Habilitan al programador para acceder a cada elemento del arreglo
+<b>a</b> mediante aritm&eacute;tica sobre el puntero <b>p</b>. Como
+el nombre de un arreglo se eval&uacute;a a su direcci&oacute;n
+inicial, la &uacute;ltima sentencia tambi&eacute;n puede escribirse
+simplemente as&iacute;:</p>
+<pre
+ style="margin-bottom: 0.5cm; color: rgb(0, 153, 0); font-weight: bold;">p = a;</pre>
+<h3>Ejemplos</h3>
+<ul>
+  <li>
+    <p>Algunas manipulaciones con arreglos y punteros:</p>
+  </li>
+</ul>
+<pre style="color: rgb(0, 153, 0); margin-left: 40px;"><span
+ style="font-weight: bold;">int alfa[] = { 2, 4, 6, 7, 4, 2, 3, 1 };</span><br
+ style="font-weight: bold;"><span style="font-weight: bold;">int *p, *q;</span><br
+ style="font-weight: bold;"><span style="font-weight: bold;">int b;</span><br><br><span
+ style="font-weight: bold;">p = alfa;        /* el nombre de un arreglo </span><br
+ style="font-weight: bold;"><span style="font-weight: bold;">                    equivale a su direccion    */</span><br
+ style="font-weight: bold;"><br style="font-weight: bold;"><span
+ style="font-weight: bold;">*p = 3;          /* equivalente a alfa[0] = 3  */</span><br
+ style="font-weight: bold;"><span style="font-weight: bold;">*(p+2) = 4;      /* equivalente a alfa[2] = 4  */</span><br
+ style="font-weight: bold;"><span style="font-weight: bold;">b = *p;          /* equiv. a b = alfa[0]       */</span><br
+ style="font-weight: bold;"><span style="font-weight: bold;">*(p+3) = *(p+6); /* sobreescribe el 7 con el 3 */</span><br
+ style="font-weight: bold;"><br style="font-weight: bold;"><span
+ style="font-weight: bold;">q = alfa + 2;    /* apunta al tercer elemento  */</span><br
+ style="font-weight: bold;"><br style="font-weight: bold;"><span
+ style="font-weight: bold;">printf("%d\n",*q);                /* imprime 4 */</span><br
+ style="font-weight: bold;"><span style="font-weight: bold;">printf ("%d\n",q - p);            /* imprime 2 */</span><br
+ style="font-weight: bold;"><br style="font-weight: bold;"><span
+ style="font-weight: bold;">p += q;          /* ERROR - la suma de punteros </span><br
+ style="font-weight: bold;"><span style="font-weight: bold;">                              no est&aacute; definida */</span></pre>
+<ul>
+  <li>
+    <p>Los dos segmentos siguientes realizan exactamente la misma tarea.</p>
+  </li>
+</ul>
+<pre
+ style="color: rgb(0, 153, 0); font-weight: bold; margin-left: 40px;">int i:<br>long tabla[10];<br>for(i = 0; i &lt; 10; i++)<br>    suma += tabla[i];</pre>
+<pre
+ style="color: rgb(0, 153, 0); font-weight: bold; margin-left: 40px;">long *p;<br>long tabla[10];<br>for(p = tabla; p &lt; tabla+10; p++)<br>    suma += *p;</pre>
+<h2><a name="punteros y cadenas"></a><a name="y cadenas"></a>Punteros
+y cadenas de texto</h2>
+<p>Posiblemente el caso m&aacute;s extendido del uso de punteros sea
+cuando se necesita trabajar con cadenas de texto, o <i>strings</i>.
+En C, &eacute;stas son an&aacute;logos bastante cercanos de los
+arreglos de caracteres, aunque con diferencias importantes. En la
+inicializaci&oacute;n de punteros, las constantes string son un caso
+especialmente frecuente.</p>
+<p>Las <b>constantes string</b> son un caso particular de cadenas de
+texto: son todas aquellas secuencias de caracteres (eventualmente la
+secuencia vac&iacute;a) entre comillas. Cuando el compilador C
+encuentra una constante string, copia los caracteres entre comillas
+encontrados a un espacio de almacenamiento y termina la secuencia de
+caracteres con un 0 binario (un byte con contenido binario 0). Esta
+representaci&oacute;n interna se propagar&aacute; al programa una vez
+instalado en memoria al momento de ejecuci&oacute;n. El car&aacute;cter
+cero final tiene la misi&oacute;n de funcionar como se&ntilde;al de
+terminaci&oacute;n para aquellas funciones de biblioteca standard que
+manejan strings (copia de cadenas, b&uacute;squeda de caracteres,
+comparaci&oacute;n de cadenas, etc.). </p>
+<p>Gracias a esta representaci&oacute;n, las cadenas no tienen una
+longitud m&aacute;xima; pero es necesario cumplir con el protocolo de
+terminarlas con su cero final para poder utilizar las funciones que
+manipulan strings. Debido a esta representaci&oacute;n interna
+algunas veces se las ve mencionadas con el nombre de cadenas ASCIIZ
+(caracteres ASCII seguidos de cero).</p>
+<p>La segunda cosa que hace el compilador C con una constante string
+es reemplazar la referencia a la constante, en el texto bajo
+compilaci&oacute;n, por la direcci&oacute;n del almacenamiento
+asignado. De esta manera, en el ejemplo, la inicializaci&oacute;n de<b>
+s </b>y la asignaci&oacute;n de<b> t</b> cargan a ambas variables con
+las direcciones del primer car&aacute;cter, o direcciones iniciales,
+de las cadenas respectivas. </p>
+<h3>Ejemplo</h3>
+<pre style="color: rgb(0, 153, 0); font-weight: bold;">char *s = "Esta es una cadena";<br>char *t;<br>t = "Esta es otra cadena";</pre>
+<p>Representamos en el diagrama el car&aacute;cter 0 final (que no es
+imprimible) con el s&iacute;mbolo <b>&curren;</b><span style="">.
+La expresi&oacute;n en C de este car&aacute;cter es simplemente 0 (un
+entero) o '\0' (una constante car&aacute;cter cuyo c&oacute;digo
+ASCII es cero).</span><img alt="" src="img/cadenas.gif" name="Imagen3"
+ style="border: 0px solid ; width: 545px; height: 346px;" align="left"><br
+ clear="left">
+La
+funci&oacute;n de biblioteca standard <b>printf()</b> permite
+imprimir una cadena con el especificador de conversi&oacute;n <b>%s</b><span
+ style="">.
+</span></p>
+<h3>Ejemplo</h3>
+<p>Las l&iacute;neas siguientes;</p>
+<pre style="font-weight: bold; color: rgb(0, 153, 0);">char *s = "Cadena de prueba";<br>char *t;<br>t = s + 7;<br>printf("%s\n", s);<br>printf("%s\n", t);</pre>
+<p>O bien, equivalentemente:</p>
+<pre style="color: rgb(0, 153, 0); font-weight: bold;">char *s = "Cadena de prueba";<br>printf("%s\n", s);<br>printf("%s\n", s + 7);</pre>
+<p style=""><img alt="" src="img/cadenas2.gif" name="Imagen2"
+ style="border: 0px solid ; width: 505px; height: 187px;" align="left"><br
+ clear="left">
+imprimen:</p>
+<pre style="color: rgb(204, 0, 0);">Cadena de prueba<br>de prueba</pre>
+<h3>Ejemplo</h3>
+<p>Una funci&oacute;n que recorre una cadena ASCIIZ buscando un
+car&aacute;cter y devuelve la primera direcci&oacute;n donde se lo
+hall&oacute;, o bien el puntero nulo (<b>NULL</b>).</p>
+<pre><span style="font-weight: bold; color: rgb(0, 153, 0);">char *donde(char *p, char c)</span><br
+ style="font-weight: bold; color: rgb(0, 153, 0);"><span
+ style="font-weight: bold; color: rgb(0, 153, 0);">{</span><br
+ style="font-weight: bold; color: rgb(0, 153, 0);"><span
+ style="font-weight: bold; color: rgb(0, 153, 0);">    for( ; *p != 0; p++)</span><br
+ style="font-weight: bold; color: rgb(0, 153, 0);"><span
+ style="font-weight: bold; color: rgb(0, 153, 0);">        if(*p == c)</span><br
+ style="font-weight: bold; color: rgb(0, 153, 0);"><span
+ style="font-weight: bold; color: rgb(0, 153, 0);">             return p;</span><br
+ style="font-weight: bold; color: rgb(0, 153, 0);"><span
+ style="font-weight: bold; color: rgb(0, 153, 0);">    return NULL;</span><br
+ style="font-weight: bold; color: rgb(0, 153, 0);"><span
+ style="font-weight: bold; color: rgb(0, 153, 0);">}</span><br><br><span
+ style="color: rgb(0, 153, 0); font-weight: bold;">main()</span><br
+ style="color: rgb(0, 153, 0); font-weight: bold;"><span
+ style="color: rgb(0, 153, 0); font-weight: bold;">{</span><br
+ style="color: rgb(0, 153, 0); font-weight: bold;"><span
+ style="color: rgb(0, 153, 0); font-weight: bold;">    char *cadena = "Buscando exactamente esto";</span><br
+ style="color: rgb(0, 153, 0); font-weight: bold;"><span
+ style="color: rgb(0, 153, 0); font-weight: bold;">    char *s;</span><br
+ style="color: rgb(0, 153, 0); font-weight: bold;"><span
+ style="color: rgb(0, 153, 0); font-weight: bold;">    s = donde(cadena, 'e');</span><br
+ style="color: rgb(0, 153, 0); font-weight: bold;"><span
+ style="color: rgb(0, 153, 0); font-weight: bold;">    if(s != NULL)</span><br
+ style="color: rgb(0, 153, 0); font-weight: bold;"><span
+ style="color: rgb(0, 153, 0); font-weight: bold;">        printf("%s\n", s);</span><br
+ style="color: rgb(0, 153, 0); font-weight: bold;"><span
+ style="color: rgb(0, 153, 0); font-weight: bold;">}</span></pre>
+<p>El ejemplo de uso imprime </p>
+<pre style="margin-bottom: 0.5cm; color: rgb(204, 0, 0);">exactamente esto</pre>
+<h2><a name="pasaje por referencia"></a>Pasaje por referencia</h2>
+<p>En C, donde todo pasaje de par&aacute;metros se realiza por valor,
+los punteros brindan una manera de entregar a las funciones
+<b>referencias</b> a objetos. El pasaje por referencia permite que
+una funci&oacute;n pueda modificar un objeto que es local a otra
+funci&oacute;n. </p>
+<p>Un pasaje por referencia implica entregar <b>la direcci&oacute;n
+</b>del objeto.</p>
+<h3>Ejemplos</h3>
+<ul>
+  <li>
+    <p><b>Modificaci&oacute;n de un objeto externo a una funci&oacute;n.</b></p>
+  </li>
+</ul>
+<p>La funci&oacute;n <b>f2()</b> debe poner a cero una variable
+entera, por lo cual el argumento formal <b>h</b> debe ser la
+<b>direcci&oacute;n</b> de un entero.</p>
+<pre style="color: rgb(0, 153, 0); font-weight: bold;">void f2(int *h)<br>{<br>    *h = 0;<br>}<br><br>int f1()<br>{<br>    int j,k;<br>    int *p;<br><br>    p = &amp;j;<br>    f2(p);   /* le pasamos una direccion */<br>    f2(&amp;k);  /* y tambien aqui           */<br>}</pre>
+<ul>
+  <li>
+    <p><b>Uso incorrecto de argumentos pasados por valor.</b></p>
+  </li>
+</ul>
+<pre style="font-weight: bold; color: rgb(0, 153, 0);">void swap(int x, int y) /* incorrecta */<br>{<br>    int temp;<br>    temp = x;<br>    x = y;<br>    y= temp;<br>}</pre>
+<p>La funci&oacute;n swap(), que podr&iacute;a ser usada por un
+algoritmo de ordenamiento para intercambiar los valores de dos
+variables, est&aacute; incorrectamente escrita, ya que los valores
+que intercambia son los de sus argumentos, que vienen a estar al
+nivel de variables locales. El uso de la funci&oacute;n swap() <b>no</b>
+tendr&aacute; efecto en el exterior de la misma. La versi&oacute;n
+correcta debe escribirse con pasaje por referencia:</p>
+<pre style="font-weight: bold; color: rgb(0, 153, 0);">void swap(int *x, int *y) /* correcta */<br>{<br>    int temp;<br>    temp = *x;<br>    *x = *y;<br>    *y = temp;<br>}</pre>
+<p>La invocaci&oacute;n de swap() debe hacerse con las <b>direcciones</b>
+de los objetos a intercambiar:</p>
+<pre style="color: rgb(0, 153, 0); font-weight: bold;">int a, b;<br>swap(&amp;a, &amp;b);</pre>
+<p><br>
+</p>
+<h2><a name="punteros y argumentos"></a>Punteros y argumentos de
+funciones</h2>
+<p>En las funciones que reciben direcciones, los argumentos <b>formales</b>
+pueden tener cualquiera de dos notaciones: como punteros, o como
+arreglos. No importa qu&eacute; sea exactamente el argumento <b>real
+</b><span style="">(arreglo o puntero)</span>: la
+funci&oacute;n &uacute;nicamente recibe una direcci&oacute;n y no
+sabe cu&aacute;l es la naturaleza real del objeto exterior a ella.</p>
+<h3>Ejemplo</h3>
+<p>La funci&oacute;n que busca un car&aacute;cter en una cadena,
+vista m&aacute;s arriba, puede escribirse correctamente as&iacute;,
+cambiando el tipo del argumento formal. El uso es exactamente el
+mismo que antes, sin cambios en la funci&oacute;n que llama.</p>
+<pre style="font-weight: bold; color: rgb(0, 153, 0);">char *donde(char p[], char c)<br>{<br>    int i;<br>    for(i=0 ; p[i] != 0; i++)<br>        if(p[i] == c)<br>             return p+i;<br>    return NULL;<br>}</pre>
+<p>N&oacute;tese que dentro del cuerpo de la funci&oacute;n podemos
+seguir utilizando la notaci&oacute;n de punteros si lo deseamos, aun
+con la declaraci&oacute;n del argumento formal como arreglo.</p>
+<pre style="font-weight: bold; color: rgb(0, 153, 0);">char *donde(char p[], char c)<br>{<br>    for( ; *p != 0; p++)<br>        if(*p == c)<br>             return p;<br>    return NULL;<br>}</pre>
+<p>Del mismo modo, si quisi&eacute;ramos, podr&iacute;amos
+representar los argumentos como punteros y manipular los datos con
+indexaci&oacute;n. Todo esto se debe, por un lado, a que las
+notaciones <b>*p </b>y <b>p[]</b>, <b>para argumentos formales</b>,
+expresan &uacute;nicamente que el argumento es una direcci&oacute;n;
+y por otro lado, a la equivalencia entre las formas de acceso
+mediante apuntadores y mediante &iacute;ndices de arreglos.</p>
+<p style="color: rgb(204, 0, 0); font-weight: bold;">&iexcl;Esto no<span
+ style=""> quiere
+decir que punteros y arreglos sean lo mismo! V&eacute;anse las
+observaciones en la pr&oacute;xima unidad.</span></p>
+<p><br>
+<br>
+</p>
+<hr>
+<h2 style="margin-top: 0cm;"><a name="ejercicios"></a>Ejercicios</h2>
+<p>1. Dado el programa siguiente, &iquest;a d&oacute;nde apunta k1?</p>
+<pre>main()<br>{<br>    int k;<br>    int *k1;<br>}</pre>
+<p>2. Dado el programa siguiente, &iquest;a d&oacute;nde apunta m1?</p>
+<pre>int *m1;<br>main()<br>{<br>    ...<br>}</pre>
+<p>3. &iquest;Cu&aacute;nto espacio de almacenamiento ocupa un arreglo
+de diez enteros? &iquest;Cu&aacute;nto espacio de almacenamiento
+ocupa un puntero a entero?</p>
+<p>4. Declarar longs llamados a, b y c, y punteros a long llamados p,
+q y r; y dar las sentencias en C para realizar las operaciones
+siguientes. Para cada caso, esquematizar el estado final de la
+memoria.</p>
+<ul>
+  <li>
+    <p>Cargar p con la direcci&oacute;n de a. Si ahora escribimos *p =
+1000, &iquest;qu&eacute; ocurre?</p>
+  </li>
+  <li>
+    <p>Cargar r con el contenido de p. Si ahora escribimos *r = 1000,
+&iquest;qu&eacute; ocurre?</p>
+  </li>
+  <li>
+    <p>Cargar q con la direcci&oacute;n de b, y usar q para almacenar
+una constante 4L en el espacio de b</p>
+  </li>
+  <li>
+    <p>Cargar en c la suma de a y b, pero sin escribir la
+expresi&oacute;n "a+b"</p>
+  </li>
+  <li>
+    <p>Almacenar en c la suma de a y b pero haciendo todos los accesos
+a las variables en forma indirecta</p>
+  </li>
+</ul>
+<p>5. Compilar y ejecutar:</p>
+<pre>main()<br>{<br>    char *a = "Ejemplo";<br>    printf("%s\n",a);<br>}<br><br>main()<br>{<br>    char *a;<br>    printf("%s\n",a);<br>}<br><br>main()<br>{<br>    char *a = "Ejemplo";<br>    char *p;<br>    p = a;<br>    printf("%s\n", p);<br>}</pre>
+<p><br>
+6. &iquest;Qu&eacute; imprimir&aacute;n estas sentencias?</p>
+<pre>char *s = "ABCDEFG";<br>printf("%s\n", s);<br>printf("%s\n", s + 0);<br>printf("%s\n", s + 1);<br>printf("%s\n", s + 6);<br>printf("%s\n", s + 7);<br>printf("%s\n", s + 8);</pre>
+<p>7. &iquest;Son correctas estas sentencias? Bosqueje un diagrama
+del estado final de la memoria para aquellas que lo sean.</p>
+<pre style="margin-bottom: 0.5cm; text-align: justify;">a) char *a = "Uno";<br>b) char *a, b; a = "Uno"; b = "Dos";<br>c) char *a,*b ; a = "Uno"; b = a;<br>d) char *a,*b ; a = "Uno"; b = *a;<br>e) char *a,*b ; a = "Uno"; *b = a;<br>f) char *a = "Dos"; *a = 'T';<br>g) char *a = "Dos"; a = "T";<br>h) char *a = "Dos"; *(a + 1) = 'i'; *(a + 2) = 'a';<br>i) char *a, *b ; b = a;</pre>
+<p>8. Escribir funciones para:</p>
+<ul>
+  <li>
+    <p>Calcular la longitud de una cadena.</p>
+  </li>
+  <li>
+    <p>Dado un car&aacute;cter determinado y una cadena, devolver la
+primera posici&oacute;n de la cadena en la que se lo encuentre, o bien
+-1 si no se halla.</p>
+  </li>
+  <li>
+    <p>Buscar una subcadena en otra, devolviendo un puntero a la
+posici&oacute;n donde se la halle.</p>
+  </li>
+</ul>
+<p><br>
+<br>
+</p>
+<p>9. Escribir una funci&oacute;n para reemplazar en una cadena todas
+las ocurrencias de un car&aacute;cter dado por otro, suponiendo:</p>
+<ul>
+  <li>
+    <p>Que no interesa conservar la cadena original, sino que se
+reemplazar&aacute;n los caracteres sobre la misma cadena.</p>
+  </li>
+  <li>
+    <p>Que se pretende obtener una segunda copia, modificada, de la
+cadena original sin destruirla.</p>
+  </li>
+</ul>
+<p><br>
+</p>
+<p>10. Escribir funciones para:</p>
+<ul>
+  <li>
+    <p>Rellenar una cadena con un car&aacute;cter dado, hasta que se
+encuentre el 0 final, o hasta alcanzar n iteraciones.</p>
+  </li>
+  <li>
+    <p>Pasar una cadena a may&uacute;sculas o min&uacute;sculas.</p>
+  </li>
+</ul>
+<p><br>
+</p>
+<p>11. Reescriba dos de las funciones escritas en 8 y dos de las
+escritas en 10 usando la notaci&oacute;n opuesta (cambiando punteros
+por arreglos).</p>
+<p><br>
+</p>
+<pre><a href="../Cap10/adicionales/adic10.html#adic1">Ejercicios Adicionales<br><br></a><br><a
+ href="../Cap10/adicionales/adic10.html#adic2">Ejercicios Avanzados<br></a><br><br></pre>
+<hr style="width: 100%; height: 2px;">
+<pre><br></pre>
+<p><br>
+</p>
+<p><br>
+<br>
+</p>
+</body>
+</html>

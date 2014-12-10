@@ -1,0 +1,412 @@
+<HTML><HEAD>
+<TITLE>Web Page Title Goes Here</TITLE>
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Hide from JavaScript-Impaired Browsers
+
+/* ------ END MCHOICE1.SRC---------------------------------- */
+var ques = new Array;
+ques[0] = new Object;
+ques[0].ans = new Array;
+ques[0].ans[0] = 'Despu\&eacute\;s\ de\ la\ compilaci\&oacute\;n\ del\ c\&oacute\;digo';
+ques[0].ans[1] = 'Antes\ de\ la\ compilaci\&oacute\;n\ del\ c\&oacute\;digo';
+ques[0].nrch = 2;
+ques[0].chos = -1;
+ques[0].corr = 1;
+ques[0].ques = 'El\ preprocesador\ interviene';
+ques[1] = new Object;
+ques[1].ans = new Array;
+ques[1].ans[0] = 'La\ legibilidad';
+ques[1].ans[1] = 'La\ redundancia';
+ques[1].ans[2] = 'La\ rapidez\ de\ ejecuci\&oacute\;n';
+ques[1].ans[3] = 'Todas\ las\ anteriores';
+ques[1].nrch = 4;
+ques[1].chos = -1;
+ques[1].corr = 0;
+ques[1].ques = 'El\ preprocesador\ promueve';
+ques[2] = new Object;
+ques[2].ans = new Array;
+ques[2].ans[0] = 'El\ mantenimiento';
+ques[2].ans[1] = 'La\ legibilidad';
+ques[2].ans[2] = 'La\ expresividad';
+ques[2].ans[3] = 'Todas\ las\ anteriores';
+ques[2].nrch = 4;
+ques[2].chos = -1;
+ques[2].corr = 3;
+ques[2].ques = 'El\ preprocesador\ facilita';
+ques[3] = new Object;
+ques[3].ans = new Array;
+ques[3].ans[0] = 'Est\&aacute\;n\ contenidas\ en\ el\ lenguaje\ C';
+ques[3].ans[1] = 'Son\ variables\ de\ texto';
+ques[3].ans[2] = 'No\ pertenecen\ al\ lenguaje\ C';
+ques[3].ans[3] = 'Son\ palabras\ reservadas';
+ques[3].ans[4] = 'Son\ funciones\ de\ C';
+ques[3].nrch = 5;
+ques[3].chos = -1;
+ques[3].corr = 2;
+ques[3].ques = 'Las\ directivas\ de\ preprocesador';
+ques[4] = new Object;
+ques[4].ans = new Array;
+ques[4].ans[0] = 'La\ funci\&oacute\;n\ donde\ est\&aacute\;n\ declaradas';
+ques[4].ans[1] = 'La\ unidad\ de\ traducci\&oacute\;n';
+ques[4].ans[2] = 'El\ proyecto\ de\ programaci\&oacute\;n';
+ques[4].ans[3] = 'El\ bloque\ donde\ est\&aacute\;n\ declaradas';
+ques[4].nrch = 4;
+ques[4].chos = -1;
+ques[4].corr = 1;
+ques[4].ques = 'El\ efecto\ de\ las\ directivas\ de\ preprocesador\ abarca';
+ques[5] = new Object;
+ques[5].ans = new Array;
+ques[5].ans[0] = 'Son\ escritos\ por\ el\ usuario';
+ques[5].ans[1] = 'Vienen\ con\ el\ compilador';
+ques[5].ans[2] = 'Todas\ las\ anteriores';
+ques[5].ans[3] = 'Ninguna\ de\ las\ anteriores';
+ques[5].nrch = 4;
+ques[5].chos = -1;
+ques[5].corr = 2;
+ques[5].ques = 'Los\ headers';
+ques[6] = new Object;
+ques[6].ans = new Array;
+ques[6].ans[0] = 'Son\ recomendables';
+ques[6].ans[1] = 'Son\ imprescindibles';
+ques[6].ans[2] = 'No\ son\ recomendables';
+ques[6].ans[3] = 'Son\ recomendables\ pero\ no\ imprescindibles';
+ques[6].nrch = 4;
+ques[6].chos = -1;
+ques[6].corr = 2;
+ques[6].ques = 'Los\ headers\ que\ definen\ funciones';
+ques[7] = new Object;
+ques[7].ans = new Array;
+ques[7].ans[0] = '\#ALFA\ \=\ 1';
+ques[7].ans[1] = '\#define\ ALFA\ \=\ 1';
+ques[7].ans[2] = '\#define\ ALFA\ 1';
+ques[7].ans[3] = '\#define\ 1\ ALFA';
+ques[7].nrch = 4;
+ques[7].chos = -1;
+ques[7].corr = 2;
+ques[7].ques = '\&iquest\;Cu\&aacute\;l\ es\ la\ directiva\ de\ preprocesador\ correcta\ si\ queremos\ definir\ un\ s\&iacute\;mbolo\ ALFA\ con\ valor\ 1\?';
+ques[8] = new Object;
+ques[8].ans = new Array;
+ques[8].ans[0] = '\#include\ stdio\.h';
+ques[8].ans[1] = '\#include\ \&lt\;stdio\&gt\;';
+ques[8].ans[2] = '\#include\ \&lt\;stdio\.h\&gt\;';
+ques[8].ans[3] = 'Cualquiera\ de\ las\ anteriores';
+ques[8].nrch = 4;
+ques[8].chos = -1;
+ques[8].corr = 2;
+ques[8].ques = '\&iquest\;Cu\&aacute\;l\ es\ la\ directiva\ de\ preprocesador\ correcta\ si\ queremos\ incluir\ el\ header\ de\ biblioteca\ standard\ \<B\>stdio\.h\<\/B\>\?';
+ques[9] = new Object;
+ques[9].ans = new Array;
+ques[9].ans[0] = '\#DOBLE\(x\)\ 2\*x';
+ques[9].ans[1] = '\#define\ DOBLE\ 2\*x';
+ques[9].ans[2] = '\#define\ DOBLE\(x\)\ 2\*\(x\)';
+ques[9].ans[3] = '\#define\ DOBLE\(x\)\ 2\*\(x\)\;';
+ques[9].ans[4] = '\#define\ DOBLE\(x\)\ 2\ \*\ \(x\)';
+ques[9].nrch = 5;
+ques[9].chos = -1;
+ques[9].corr = 2;
+ques[9].ques = 'La\ directiva\ correcta\ para\ crear\ una\ macro\ que\ devuelva\ el\ doble\ de\ su\ argumento\ es';
+ques[10] = new Object;
+ques[10].ans = new Array;
+ques[10].ans[0] = '\#define\ \&lt\;beta\.h\&gt\;';
+ques[10].ans[1] = '\#include\ \&lt\;beta\.h\&gt\;';
+ques[10].ans[2] = '\#include\ \&quot\;beta\.h\&quot\;';
+ques[10].nrch = 3;
+ques[10].chos = -1;
+ques[10].corr = 2;
+ques[10].ques = '\&iquest\;Cu\&aacute\;l\ es\ la\ directiva\ correcta\ para\ incluir\ un\ header\ llamado\ \<B\>beta\.h\<\/B\>\ situado\ en\ el\ directorio\ donde\ se\ est\&aacute\;\ realizando\ la\ compilaci\&oacute\;n\?';
+ques[11] = new Object;
+ques[11].ans = new Array;
+ques[11].ans[0] = 'Declaraciones\ de\ variables\ y\ funciones';
+ques[11].ans[1] = 'Definiciones\ de\ variables\ y\ funciones';
+ques[11].ans[2] = 'Prototipos\ de\ directivas';
+ques[11].ans[3] = 'Inclusi\&oacute\;n\ de\ archivos\ fuente';
+ques[11].ans[4] = 'Todas\ las\ anteriores';
+ques[11].nrch = 5;
+ques[11].chos = -1;
+ques[11].corr = 0;
+ques[11].ques = 'Normalmente\ los\ headers\ contienen';
+ques[12] = new Object;
+ques[12].ans = new Array;
+ques[12].ans[0] = 'S\&oacute\;lo\ si\ la\ compilaci\&oacute\;n\ resulta\ exitosa';
+ques[12].ans[1] = 'S\&oacute\;lo\ si\ la\ condici\&oacute\;n\ resulta\ exitosa';
+ques[12].nrch = 2;
+ques[12].chos = -1;
+ques[12].corr = 1;
+ques[12].ques = 'Las\ directivas\ condicionales\ consideran\ un\ segmento\ de\ texto';
+ques[13] = new Object;
+ques[13].ans = new Array;
+ques[13].ans[0] = '3\*3\+1';
+ques[13].ans[1] = '3\*2\+1\+1';
+ques[13].ans[2] = 7;
+ques[13].ans[3] = 8;
+ques[13].nrch = 4;
+ques[13].chos = -1;
+ques[13].corr = 1;
+ques[13].ques = 'El\ resultado\ de\ preprocesar\ la\ siguiente\ macro\:\ \<BR\>\ \<PRE\>\#define\ FUNCION\(x\)\ 3\*x\+1\<\/PRE\>\ aplicada\ al\ argumento\ \<B\>2\+1\<\/B\>\ ser\&aacute\;\ ';
+ques[14] = new Object;
+ques[14].ans = new Array;
+ques[14].ans[0] = 'Rodeando\ los\ argumentos\ entre\ signos\ \&lt\;\&gt\;';
+ques[14].ans[1] = 'Rodeando\ los\ argumentos\ con\ corchetes';
+ques[14].ans[2] = 'Poniendo\ la\ macro\ completa\ entre\ comillas';
+ques[14].ans[3] = 'Rodeando\ los\ argumentos\ con\ par\&eacute\;ntesis';
+ques[14].nrch = 4;
+ques[14].chos = -1;
+ques[14].corr = 3;
+ques[14].ques = 'El\ problema\ de\ la\ expansi\&oacute\;n\ err\&oacute\;nea\ de\ las\ macros\ se\ soluciona\ ';
+ttl = "Test 2: El Preprocesador";
+nr = 15;
+/* ------ BEGIN MCHOICE2.SRC-------------------------------- */
+
+wrans=15; /* penaliz por wrong */
+noans=10; /* penaliz por no ans */
+psco=100; /* perfect score */
+ns="0123456789";
+
+/* -------------------------------------------------- */
+function getImgIndex(q,a) {
+    imgindex = 0;
+    i = 0;
+    while(i < q) {
+        imgindex += ques[i].nrch;
+        i++;
+    }
+    imgindex += a;
+    return imgindex;
+}
+
+function getMaxImgIndex() {
+    return getImgIndex(nr-1,0) + ques[nr-1].nrch;
+}
+
+function lightIt(q,a){
+    if(testDone)
+        return;
+    imgindex = getImgIndex(q,a);
+    document.images[imgindex].src="nr/select.gif";
+}
+
+function dimIt(q,a){
+    if(testDone)
+        return;
+    imgindex = getImgIndex(q,a);
+    if(ques[q].chos != a) 
+        document.images[imgindex].src="nr/unselect.gif";
+}
+
+function unChoose(q){
+    if(testDone)
+        return;
+    imgindex = getImgIndex(q,ques[q].chos);
+    document.images[imgindex].src="nr/unselect.gif";
+}
+
+function choseIt(q, a){
+    if(testDone)
+        return;
+    imgindex = getImgIndex(q, a);
+
+    if(ques[q].chos >= 0) 
+        unChoose(q);
+    
+    if(ques[q].chos == a) {
+        ques[q].chos = -1;
+        return;
+    }
+    lightIt(q, a);
+    ques[q].chos = a;
+}
+
+
+function clearTest()
+{
+    document.images[getMaxImgIndex()+1].src="nr/repetirp.gif";
+    setTimeout('document.images[getMaxImgIndex()+1].src="nr/repetir.gif"',1000);
+
+    for(var i=0; i<nr; i++) 
+	for(var j=0; j<ques[i].nrch; j++) {
+		v = getImgIndex(i,j);
+		document.images[v].src="nr/unselect.gif";
+		ques[i].chos = -1;
+	}
+    testDone = 0;
+}
+
+
+function ckSco(){
+    document.images[getMaxImgIndex()].src="nr/termp.gif";
+    setTimeout('document.images[getMaxImgIndex()].src="nr/term.gif"',1000);
+	
+    for(var i=0; i<nr; i++)
+	if(ques[i].chos == -1) {
+		mensaje('No ha contestado<BR>todas las preguntas<BR>');
+		return;
+	}
+
+    testDone = 1; /* inhabilita cambios */
+
+    for (var i=0; i<nr; i++){
+        v = getImgIndex(i,ques[i].corr);
+        document.images[v].src="nr/correct.gif";
+    }
+
+
+    corr = 0;
+    for (var i=0;i<nr;i++)
+	if(ques[i].chos != ques[i].corr) {
+		v = getImgIndex(i,ques[i].chos);
+		document.images[v].src="nr/wrong.gif";
+	} else 
+            corr++;
+    showSco(corr, nr);
+}
+
+function showSco(corr, nr) {
+	score = 100 * corr / nr;
+	score = round_decimals(score,2);
+	msg = 'Su puntaje: <B>'+score+'</B><BR>Correctas: '+corr+' de '+nr+' respuestas<BR>';
+	mensaje(msg);
+}
+
+function mensaje(msg) {
+	nw=window.open("","Test",
+		'width=300,height=80,directories=no,status=no,'+
+		'location=no,toolbar=no,scrollbars=no,resize=no,'+
+		'menubar=no,copyhistory=no');
+	
+	nw.document.write('<HTML><HEAD><SCRIPT LANGUAGE="JavaScript" type="text/javascript">'+
+		'function litbut() { document.images[0].src="nr/cerrarl.gif"; }'+
+		'function dimbut() { document.images[0].src="nr/cerrar.gif"; }'+
+		'function closew() { document.images[0].src="nr/cerrarp.gif";' +
+		'setTimeout(\'document.images[0].src="nr/cerrar.gif"\',1000);'+
+		'self.close();}</SCRIPT></HEAD><BODY><CENTER>');
+	nw.document.write(msg);
+	nw.document.write('<BR><A HREF="nada.html" onClick="closew();return false;" '+
+		'onMouseOver="litbut();return true;" '+
+		'onMouseOut="dimbut();return true;">'+
+		'<IMG SRC="nr/cerrar.gif" BORDER=0 NAME="but"></A>');
+	nw.document.write('</CENTER></BODY></HTML>');
+	nw.document.close();
+	cl = nw.setTimeout("self.close()",50000);	
+}
+
+function litbut(){
+    document.images[getMaxImgIndex()].src="nr/terml.gif";
+}
+
+function dimbut(){
+    document.images[getMaxImgIndex()].src="nr/term.gif";
+}
+
+
+function litrep(){
+    document.images[getMaxImgIndex()+1].src="nr/repetirl.gif";
+}
+
+function dimrep(){
+    document.images[getMaxImgIndex()+1].src="nr/repetir.gif";
+}
+
+
+
+// End Hiding -->
+</SCRIPT>
+
+	<script language="JavaScript" type="text/javascript">
+          <!--
+
+          /* This script is Copyright (c) Paul McFedries and
+          Logophilia Limited (http://www.mcfedries.com/).
+          Permission is granted to use this script as long as
+          this Copyright notice remains in place.*/
+
+          function round_decimals(original_number, decimals) {
+              var result1 = original_number * Math.pow(10, decimals)
+              var result2 = Math.round(result1)
+
+              var result3 = result2 / Math.pow(10, decimals)
+              return pad_with_zeros(result3, decimals)
+          }
+
+          function pad_with_zeros(rounded_value, decimal_places) {
+
+              // Convert the number to a string
+              var value_string = rounded_value.toString()
+
+              // Locate the decimal point
+              var decimal_location = value_string.indexOf(".")
+
+              // Is there a decimal point?
+              if (decimal_location == -1) {
+
+                  // If no, then all decimal places will be padded with 0s
+                  decimal_part_length = 0
+
+                  // If decimal_places is greater than zero, tack on a decimal point
+                  value_string += decimal_places > 0 ? "." : ""
+              }
+              else {
+
+                  // If yes, then only the extra decimal places will be padded with 0s
+                  decimal_part_length = value_string.length - decimal_location - 1
+              }
+
+              // Calculate the number of decimal places that need to be padded with 0s
+              var pad_total = decimal_places - decimal_part_length
+
+              if (pad_total > 0) {
+
+                  // Pad the string with 0s
+                  for (var counter = 1; counter <= pad_total; counter++)
+                      value_string += "0"
+                  }
+              return value_string
+          }
+
+          //-->
+          </script>
+</HEAD>
+<BODY BGCOLOR="WHITE">
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Hide from JavaScript-Impaired Browsers
+    testDone=0;
+
+    document.write(
+    '<TABLE BORDER=0 CELLPADDING=2 CELLSPACING=0 '+
+    'WIDTH="80%" ALIGN=CENTER>\n'+
+    '<TR><TD COLSPAN=2 ALIGN=LEFT><H1><BR><BR>'+ttl+'</H1></TD></TR>');
+
+
+    for (var i=0;  i<nr;   i++) {
+        document.write('<TR><TD COLSPAN=2 VALIGN=TOP><HR>');
+        document.write(i+1 + '. ');
+        document.write(ques[i].ques+'</TD></TR>\n');
+
+        for(var j=0; j<ques[i].nrch; j++){
+            document.write('<TR><TD><A HREF="mchoice.html" '+
+                'onMouseOver="lightIt('+i+','+j+'); return true"' +
+                ' onMouseOut="dimIt('+i+','+j+'); return true" '+
+                'onClick="choseIt('+i+','+j+'); return false">'+
+            ' <IMG SRC="nr/unselect.gif" WIDTH=14 HEIGHT=14 BORDER=0>'+
+            '</TD><TD ALIGN=LEFT>'+ques[i].ans[j]+'</TD>\n</TR>\n');
+        }
+     }
+
+    document.write('</TABLE><HR><CENTER>'+
+    '<A HREF="mchoice.html" '+
+    'onClick="ckSco();return false;" '+
+    'onMouseOver="litbut();return true;" '+
+    'onMouseOut="dimbut();return true;">'+
+    '<IMG SRC="nr/term.gif" BORDER=0 NAME="but"></A>'+
+    '&nbsp;&nbsp;<A HREF="mchoice.html" '+
+    'onClick="clearTest();return false;" '+
+    'onMouseOver="litrep();return true;" '+
+    'onMouseOut="dimrep();return true;">'+
+    '<IMG SRC="nr/repetir.gif" BORDER=0 NAME="rep"></A><P>');
+
+// End Hiding -->
+</SCRIPT>
+<!-- You may put any other instructions or
+     next lesson assignments here. -->
+     
+</BODY>
+</HTML>

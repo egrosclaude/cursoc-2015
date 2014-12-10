@@ -1,0 +1,431 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+  <meta http-equiv="CONTENT-TYPE"
+ content="text/html; charset=iso-8859-1">
+  <title>4. Constantes</title>
+  <meta name="GENERATOR" content="StarOffice/5.2 (Linux)">
+  <meta name="AUTHOR" content="Eduardo Grosclaude">
+  <meta name="CREATED" content="20010508;23501400">
+  <meta name="CHANGEDBY" content="Eduardo Grosclaude">
+  <meta name="CHANGED" content="20010816;17390700">
+  <style>
+	<!--
+		PRE { margin-left: 0.4cm }
+	-->
+	</style>
+</head>
+<body>
+<p style="page-break-before: always;">
+</p>
+<h1 align="justify">4. Constantes</h1>
+<p align="justify">Las constantes num&eacute;ricas en un programa C
+pueden escribirse en varias bases.<br>
+<br>
+Puede resultar de suma utilidad ver la <a href="info/info4.html#info1">tabla
+ASCII</a> &nbsp;para&nbsp;entender mejor el cap&iacute;tulo.</p>
+<br>
+<h2 align="justify"><a name="enteras"></a>Constantes enteras</h2>
+<p
+ style="border: 1px solid rgb(0, 0, 0); padding: 0.05cm; margin-bottom: 0cm; margin-left: 0.4cm; margin-right: 2.5cm; page-break-inside: avoid;"
+ align="justify">
+<b>10, -1</b> son constantes decimales.</p>
+<p
+ style="border: 1px solid rgb(0, 0, 0); padding: 0.05cm; margin-bottom: 0cm; margin-left: 0.4cm; margin-right: 2.5cm; page-break-inside: avoid;"
+ align="justify">
+<b>010, -012 </b>son constantes octales por comenzar en "0".
+</p>
+<p
+ style="border: 1px solid rgb(0, 0, 0); padding: 0.05cm; margin-bottom: 0cm; margin-left: 0.4cm; margin-right: 2.5cm; page-break-inside: avoid;"
+ align="justify">
+<b>0x10, -0x1B, 0Xbf01</b> son constantes hexadecimales por comenzar
+en "0x" o "0X".</p>
+<p
+ style="border: 1px solid rgb(0, 0, 0); padding: 0.05cm; margin-bottom: 0cm; margin-left: 0.4cm; margin-right: 2.5cm; page-break-inside: avoid;"
+ align="justify">
+<b>'A'</b> es una constante de car&aacute;cter. En un computador que
+sigue la convenci&oacute;n del c&oacute;digo ASCII, equivale al
+decimal 65, hexadecimal 0x41, etc.</p>
+<p><br>
+</p>
+<h2 align="justify"><a name="long"></a>Constantes long</h2>
+<p align="justify">Una constante entera puede indicarse como 'long'
+agregando una letra <b>L</b> may&uacute;scula o min&uacute;scula:</p>
+<pre
+ style="margin-bottom: 0.5cm; color: rgb(0, 153, 0); font-weight: bold;">0L, 43l </pre>
+<p>
+Si bien num&eacute;ricamente son equivalentes a 0 y a 43 <b>int</b>,
+el compilador al encontrarlas manejar&aacute; constantes de
+tama&ntilde;o
+<b>long</b> (construir&aacute; objetos de datos sobre la cantidad de
+bits correspondientes a un long). Esto puede ser importante en
+ciertas ocasiones. Por ejemplo, al invocar a funciones con argumentos
+formales <b>long</b>, usando argumentos reales que caben en un
+entero.<br>
+<br>
+<br>
+</p>
+<h2><a name="unsigned"></a>Constantes unsigned</h2>
+<p style="margin-right: 0px;" align="justify" dir="ltr">Para hacer
+m&aacute;s claro el prop&oacute;sito de
+una constante positiva, o para forzar la promoci&oacute;n de una
+expresi&oacute;n, puede not&aacute;rsela como <b>unsigned</b>. Esto
+tiene que ver con las <a
+ href="../Cap3/cursoC-3.html#reglas+de+promoci%F3n" target="material"><font
+ color="#000000"><strong><em>reglas de promoci&oacute;n</em></strong></font>
+</a> expresadas en el cap&iacute;tulo 3. <br>
+<br>
+Constantes unsigned son, por ejemplo:<br>
+<br>
+<font color="#008000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<b style="color: rgb(0, 153, 0); font-weight: bold;">32u</b><span
+ style="color: rgb(0, 153, 0); font-weight: bold;">&nbsp; y&nbsp; </span><b
+ style="color: rgb(0, 153, 0); font-weight: bold;">298U</b></font></p>
+<p>&nbsp;</p>
+<h2 align="justify"><a name="string"></a>Constantes string</h2>
+<p>El texto comprendido entre comillas dobles (") en un programa
+C es interpretado por el compilador como una constante string, con
+propiedades similares a las de un arreglo de caracteres. El proceso
+de compilaci&oacute;n, al identificarse una constante string, es como
+sigue:</p>
+<ul>
+  <li>
+    <p><strong>el compilador reserva una zona de memoria en la imagen
+del programa que est&aacute; construyendo, del tama&ntilde;o del string
+m&aacute;s uno.</strong> </p>
+  </li>
+  <li>
+    <p><strong>se copian los caracteres entre comillas en esa zona,
+agregando al final un byte conteniendo un cero ('\0').</strong> </p>
+  </li>
+  <li>
+    <p><strong>se reemplaza la referencia a la constante string en el
+texto del programa por la direcci&oacute;n donde qued&oacute;
+almacenada.</strong> </p>
+  </li>
+</ul>
+<p style="margin-bottom: 0cm;" align="justify"><a href=""></a><a
+ href="../Cap1/info/info1.html#info2">La cadena registrada por
+el compilador ser&aacute; almacenada al momento de ejecuci&oacute;n
+en la zona del programa correspondiente a datos est&aacute;ticos
+inicializados o <b>bss</b></a>. </p>
+<p style="margin-bottom: 0cm;" align="justify">As&iacute;, una
+constante
+string equivale a una direcci&oacute;n de memoria<b>: la
+direcci&oacute;n
+donde est&aacute; almacenado el primer car&aacute;cter</b>. El
+car&aacute;cter '\0' del final se&ntilde;aliza el fin de la cadena, y
+sirve como protocolo para las funciones de biblioteca standard que se
+ocupan de manejo de strings.</p>
+<p style="margin-bottom: 0cm;" align="justify">&iquest;Hay diferencias
+entre '\0', '0' y "0"? Muchas. </p>
+<ul>
+  <li>
+    <p style="margin-bottom: 0cm;" align="justify">La primera constante
+es un entero. Su valor es 0. </p>
+  </li>
+  <li>
+    <p style="margin-bottom: 0cm;" align="justify">La segunda es de
+car&aacute;cter. Ocupa un objeto de datos de 8 bits de tama&ntilde;o.
+Su valor es 48 decimal en computadoras cuyo juego de caracteres
+est&eacute; basado en ASCII. </p>
+  </li>
+  <li>
+    <p style="margin-bottom: 0cm;" align="justify">La tercera es una
+constante string, y se eval&uacute;a a una direcci&oacute;n. Ocupa un
+objeto de datos del tama&ntilde;o de una direcci&oacute;n
+(frecuentemente 16 o 32 bits), adem&aacute;s del espacio de memoria
+ubicado a partir de esa direcci&oacute;n y ocupado por los caracteres
+del string. Ese espacio de memoria est&aacute; ocupado por un byte 48
+decimal (el primer y &uacute;nico car&aacute;cter del string) y a
+continuaci&oacute;n viene un byte 0 (se&ntilde;al de fin del string). </p>
+  </li>
+</ul>
+<p style="margin-bottom: 0cm;" align="justify"><br>
+</p>
+<p style="margin-bottom: 0cm;" align="justify">Si tenemos las
+declaraciones y asignaciones siguientes:</p>
+<pre style="font-weight: bold;"><font color="#008000"><br><span
+ style="color: rgb(0, 153, 0);">char a,b,c;<br><br>a='\0';<br>b= '0';<br>c= "0";</span>
+</font></pre>
+<p style="margin-bottom: 0cm;" align="justify">La primera
+asignaci&oacute;n
+es perfectamente v&aacute;lida y equivale a <b>a=0</b>. La segunda
+tambi&eacute;n es correcta y equivale a <b>b=48</b> en computadores
+basados en ASCII. La tercera ser&aacute; rechazada por el compilador,
+gener&aacute;ndose un error de <strong>"asignaci&oacute;n no portable
+de puntero"</strong> . Los objetos a ambos lados del signo igual son de
+diferente naturaleza: a la izquierda tenemos algo que puede ser
+directamente usado como un dato (una constante o una variable); a la
+derecha, algo que referencia, indirectamente, a un dato (una
+direcci&oacute;n). Se dice que la variable y la constante string
+<b>tienen diferente nivel de indirecci&oacute;n.</b>
+</p>
+<p style="margin-bottom: 0cm;" align="justify"><br>
+</p>
+<table border="0" cellpadding="4" cellspacing="0" width="100%">
+  <colgroup><col width="128"><col width="128"></colgroup><thead> <tr
+ valign="top">
+    <td width="50%">
+    <p><font color="#000000"><img src="img/ejemplos0.gif" name="Imagen1"
+ align="right" border="1" height="343" width="343"><br clear="right">
+    </font><br>
+    </p>
+    </td>
+    <td width="50%">
+    <p style="margin-bottom: 0cm;" align="left"><font size="2">El
+gr&aacute;fico muestra el resultado de asignar algunas constantes
+relacionadas con el problema anterior, suponiendo una arquitectura
+donde los enteros y las direcciones de memoria son de 16 bits.</font><br>
+    </p>
+    <p style="margin-bottom: 0cm;" align="left"><font size="2">Las tres
+primeras asignaciones dejan en <b>a</b><span> valores
+aritm&eacute;ticos 0, 48 y 0.</span></font><br>
+    </p>
+    <p style="margin-bottom: 0cm;" align="left"><font size="2">Las dos
+&uacute;ltimas asignaciones dejan en <b>a</b><span> la
+direcci&oacute;n de una cadena almacenada en memoria. Las cadenas
+apuntadas son las que est&aacute;n representadas en el diagrama.</span></font></p>
+    <p style="margin-bottom: 0cm;" align="left"><font size="2">La
+primera cadena contendr&aacute; el c&oacute;digo ASCII del
+car&aacute;cter 0 y un cero binario se&ntilde;alizando el fin del
+string. La segunda contendr&aacute; un cero binario (expresado por la
+constante de car&aacute;cter '\0') y un cero binario fin de string. </font>
+    </p>
+    </td>
+  </tr>
+  </thead>
+</table>
+<p style="margin-bottom: 0cm;" align="justify">
+</p>
+<h2 align="justify"><a name="car&aacute;cter"></a>Constantes de
+car&aacute;cter</h2>
+<p align="justify">Las constantes de car&aacute;cter son una forma
+expresiva y portable de especificar constantes num&eacute;ricas.
+Internamente, durante la compilaci&oacute;n y ejecuci&oacute;n del
+programa, el compilador las entiende como valores num&eacute;ricos
+sobre ocho bits. As&iacute;, es perfectamente l&iacute;cito escribir
+expresiones como 'A' + 1 (que equivale a 66, o a 0x42, o a la
+constante de car&aacute;cter 'B').</p>
+<p align="justify">Algunos caracteres especiales tienen una
+graf&iacute;a
+especial:</p>
+<p
+ style="border: 1px solid rgb(0, 0, 0); padding: 0.05cm; margin-bottom: 0cm; margin-left: 0.3cm; margin-right: 3cm;">
+<b>\b</b> car&aacute;cter 'backspace', ASCII 8</p>
+<p
+ style="border: 1px solid rgb(0, 0, 0); padding: 0.05cm; margin-bottom: 0cm; margin-left: 0.3cm; margin-right: 3cm;">
+<b>\t</b> tabulador, ASCII 9</p>
+<p
+ style="border: 1px solid rgb(0, 0, 0); padding: 0.05cm; margin-bottom: 0cm; margin-left: 0.3cm; margin-right: 3cm;">
+<b>\n</b> fin de l&iacute;nea, ASCII 10 (UNIX) o secuencia 13,10
+(DOS)</p>
+<p
+ style="border: 1px solid rgb(0, 0, 0); padding: 0.05cm; margin-bottom: 0cm; margin-left: 0.3cm; margin-right: 3cm;">
+<b>\r </b>retorno de carro, ASCII 13</p>
+<p align="justify"><br>
+</p>
+<p align="justify">Una forma alternativa de escribir constantes de
+car&aacute;cter es mediante su c&oacute;digo ASCII:</p>
+<pre
+ style="margin-bottom: 0.5cm; color: rgb(0, 153, 0); font-weight: bold;">'\033', '\x1B' </pre>
+<p align="justify">Aqu&iacute; representamos el car&aacute;cter cuyo
+c&oacute;digo ASCII
+es 27 decimal, en dos bases. La barra invertida (<i>backslash</i>)
+muestra que el contenido de las comillas simples debe ser
+interpretado como el c&oacute;digo del car&aacute;cter. Si el
+car&aacute;cter siguiente al backslash es x o X, el c&oacute;digo
+est&aacute; en hexadecimal; si no, est&aacute; en octal. Para
+representar el car&aacute;cter backslash, sin su significado como
+modificador de secuencias de otros caracteres, lo escribimos dos
+veces seguidas.</p>
+<p align="justify">Estas constantes de car&aacute;cter pueden ser
+tambi&eacute;n escritas respectivamente como las constantes <b>num&eacute;ricas</b>
+033, 27 o 0x1B, ya que son aritm&eacute;ticamente equivalentes; pero
+con las comillas simples indicamos que el programador "ve"
+a estas constantes como caracteres, lo que puede agregar expresividad
+a un segmento de programa.</p>
+<p align="justify">Por ejemplo, 0 es claramente una constante
+num&eacute;rica;
+pero si escribimos '\0' (que es num&eacute;ricamente equivalente),
+ponemos en evidencia que pensamos en el <b>car&aacute;cter</b> cuyo
+c&oacute;digo ASCII es 0. El car&aacute;cter '\0' (ASCII 0) es
+distinto de '0' (ASCII 48). La expresi&oacute;n de las constantes de
+car&aacute;cter mediante backslash y alg&uacute;n otro contenido se
+llama una <b>secuencia de escape.</b></p>
+<p align="justify"><br>
+<br>
+</p>
+<h2><a name="car&aacute;cter en strings"></a>Constantes de car&aacute;cter
+en strings</h2>
+<p align="justify">Todas estas notaciones para las constantes de
+car&aacute;cter pueden intervenir en la escritura de constantes
+string.</p>
+<p style="margin-bottom: 0cm;" align="justify">El mecanismo de
+reconocimiento de constantes de caracteres dentro de strings asegura
+que todo el juego de caracteres de la m&aacute;quina pueda ser
+expresado dentro de una constante string, aun cuando no sea
+imprimible o no pueda producirse con el teclado. Cuando el compilador
+se encuentre analizando una constante string asignar&aacute; un
+significado especial al car&aacute;cter barra invertida o backslash
+(\). La aparici&oacute;n de un backslash permite referirse a los
+caracteres por su c&oacute;digo en el sistema de la m&aacute;quina
+(por lo com&uacute;n, el ASCII). </p>
+<p style="margin-bottom: 0cm;" align="justify"><br>
+</p>
+<p style="margin-bottom: 0cm;" align="justify"><br>
+</p>
+<h2 align="justify"><a name="punto flotante"></a>Constantes de punto
+flotante</h2>
+<p align="justify">Las constantes en punto flotante se caracterizan por
+llevar un punto decimal o un car&aacute;cter 'e' (que indica que
+est&aacute; en notaci&oacute;n exponencial). As&iacute;:<br>
+<br>
+&nbsp;&nbsp;&nbsp;<span
+ style="color: rgb(0, 153, 0); font-weight: bold;">&nbsp;&nbsp;&nbsp;</span><font
+ color="#008000"><span style="color: rgb(0, 153, 0); font-weight: bold;">
+10.23,&nbsp;&nbsp; .999,&nbsp;&nbsp; 0.,&nbsp;&nbsp; 1.e10,&nbsp;&nbsp;
+1.e-10,&nbsp;&nbsp; 1e10 </span><br>
+</font><br>
+son constantes en punto flotante. <br>
+<br>
+La constante <font color="#008000">6.02e23</font> se interpreta como
+el n&uacute;mero <font color="#008000">6.02</font> multiplicado por <font
+ color="#008000"> 10<sup>23</sup></font>. <br>
+<br>
+La constante <font color="#008000">-5e-1</font> es igual a <font
+ color="#008000">-1/2</font> &nbsp;.</p>
+<p align="justify"><br>
+<br>
+</p>
+<h2>Constantes enumeradas</h2>
+<p align="justify">Como una alternativa m&aacute;s legible y expresiva
+a la definici&oacute;n de constantes de preprocesador, se pueden
+definir grupos de constantes reunidas por una declaraci&oacute;n. Una
+declaraci&oacute;n de constantes enumeradas hace que las constantes
+tomen valores consecutivos de una secuencia.</p>
+<p align="justify">Si no se especifica el primer inicializador, vale 0.
+Si alguno se especifica, la inicializaci&oacute;n de los restantes
+contin&uacute;a la secuencia.</p>
+<h3>Ejemplos</h3>
+<pre><font style="font-weight: bold; color: rgb(0, 153, 0);"
+ color="#008000">enum meses { ENE =   1,  FEB, MAR, ABR, MAY, JUN, <br>             JUL,AGO, SEP, OCT, NOV, <br>             DIC };  </font><span
+ style="font-weight: bold; color: rgb(0, 153, 0);">      </span>     <br></pre>
+<p>En este ejemplo, los valores de las constantes son ENE = 1, FEB = 2,
+MAR = 3, etc.</p>
+<p align="justify">Las constantes de una enumeraci&oacute;n no
+necesitan tener valores distintos, pero todos los nombres en las
+diferentes declaraciones enum de un programa deben ser diferentes.</p>
+<pre><font color="#008000"><span
+ style="color: rgb(0, 153, 0); font-weight: bold;">enum varios { ALFA, BETA, GAMMA, DELTA =    5, IOTA, PI =  </span><br
+ style="color: rgb(0, 153, 0); font-weight: bold;"><span
+ style="color: rgb(0, 153, 0); font-weight: bold;">              1, RHO     }; </span>			  </font></pre>
+<p>
+Aqu&iacute; los valores asumidos son respectivamente 0, 1, 2, 5, 6, y
+nuevamente 1 y 2. </p>
+<p><br>
+</p>
+<hr>
+<p></p>
+<h2><a name="ejercicios2"></a><a name="ejercicios"></a>Ejercicios</h2>
+<p align="justify">1. Indicar si las siguientes constantes est&aacute;n
+bien formadas, y en caso afirmativo indicar su tipo y dar su valor
+decimal.</p>
+<table border="0" cellpadding="4" cellspacing="0" height="294"
+ width="600">
+  <colgroup><col width="292"><col width="292"><col width="292"></colgroup><thead>
+  <tr valign="top">
+    <td height="27" width="292">
+    <pre style="text-align: left;">a. 'C'</pre>
+    </td>
+    <td width="292">
+    <pre style="text-align: left;">h. '0'</pre>
+    </td>
+    <td width="292">
+    <pre style="text-align: left;">o. '0xAB'</pre>
+    </td>
+  </tr>
+  </thead> <tbody>
+    <tr valign="top">
+      <td height="27" width="292">
+      <pre style="text-align: left;">b. 70</pre>
+      </td>
+      <td width="292">
+      <pre style="text-align: left;">i. 1A</pre>
+      </td>
+      <td width="292">
+      <pre style="text-align: left;">p. 0xABL</pre>
+      </td>
+    </tr>
+    <tr valign="top">
+      <td height="27" width="292">
+      <pre style="text-align: left;">c. 070</pre>
+      </td>
+      <td width="292">
+      <pre style="text-align: left;">j. '010'</pre>
+      </td>
+      <td width="292">
+      <pre style="text-align: left;">q. 0xaB</pre>
+      </td>
+    </tr>
+    <tr valign="top">
+      <td height="27" width="292">
+      <pre style="text-align: left;">d. 080</pre>
+      </td>
+      <td width="292">
+      <pre style="text-align: left;">k. 0x10</pre>
+      </td>
+      <td width="292">
+      <pre style="text-align: left;">r. '0xAB'</pre>
+      </td>
+    </tr>
+    <tr valign="top">
+      <td height="27" width="292">
+      <pre style="text-align: left;">e. 0XFUL</pre>
+      </td>
+      <td width="292">
+      <pre style="text-align: left;">l. '\030'</pre>
+      </td>
+      <td width="292">
+      <pre style="text-align: left;">s. -40L</pre>
+      </td>
+    </tr>
+    <tr valign="top">
+      <td height="27" width="292">
+      <pre style="text-align: left;">f. 015L</pre>
+      </td>
+      <td width="292">
+      <pre style="text-align: left;">m. x41</pre>
+      </td>
+      <td width="292">
+      <pre style="text-align: left;">t. 'B'</pre>
+      </td>
+    </tr>
+    <tr valign="top">
+      <td height="27" width="292">
+      <pre style="text-align: left;">g. '\xBB'</pre>
+      </td>
+      <td width="292">
+      <pre style="text-align: left;">n. 'AB'</pre>
+      </td>
+      <td width="292">
+      <pre style="text-align: left;">u. 322U</pre>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p align="justify">2. Indicar qu&eacute; caracteres componen las
+constantes string siguientes:
+</p>
+<pre>a. "ABC\bU\tZ"<br>b. "\103B\x41"</pre>
+<p align="justify">3. &iquest;C&oacute;mo se imprimir&aacute;n estas
+constantes string?</p>
+<pre style="margin-bottom: 0.5cm;">a. "\0BA"<br>b. "\\0BA"<br>c. "BA\0CD"<br>&nbsp;</pre>
+<a href="adicionales/adic4.html#adic1">Ejercicios Adicionales<font
+ color="#000000"> </font> <br>
+</a><br>
+<a href="adicionales/adic4.html#adic2">Ejercicios Avanzados<br>
+<br>
+<hr></a>
+</body>
+</html>

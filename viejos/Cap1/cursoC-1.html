@@ -1,0 +1,499 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+  <meta http-equiv="CONTENT-TYPE"
+ content="text/html; charset=iso-8859-1">
+  <title>1. Introducci&oacute;n al lenguaje C</title>
+  <meta name="GENERATOR" content="StarOffice/5.2 (Linux)">
+  <meta name="AUTHOR" content="Eduardo Grosclaude">
+  <meta name="CREATED" content="20010508;18165800">
+  <meta name="CHANGEDBY" content="Eduardo Grosclaude">
+  <meta name="CHANGED" content="20010818;18524900">
+  <style>
+	<!--
+		@page { margin-left: 2.5cm; margin-right: 1.5cm }
+		PRE { margin-left: 0.4cm }
+	-->
+	</style>
+</head>
+<body bgcolor="#ffffff">
+<p style="page-break-before: always;">
+</p>
+<h1 align="justify"><a name="introducci&oacute;n al lenguaje C"></a>1.
+Introducci&oacute;n al Lenguaje C</h1>
+<p align="justify">El lenguaje de programaci&oacute;n C fue creado por
+Dennis Ritchie en 1972 en Bell Telephone Laboratories, con el objetivo
+de reescribir un sistema operativo, el UNIX, en un lenguaje de alto
+nivel, para poder adaptarlo (<i>portarlo</i>) a diferentes
+arquitecturas. Por este motivo sus creadores se propusieron metas de
+dise&ntilde;o especiales, tales como: </p>
+<ul style="font-weight: bold; font-style: italic;">
+  <li>Posibilidad de acceder al "bajo nivel" (poder utilizar todos los
+recursos del hardware). </li>
+  <li>C&oacute;digo generado eficiente en memoria y tiempo (programas
+peque&ntilde;os y veloces) </li>
+  <li>Compilador portable (implementable en todas las arquitecturas)</li>
+</ul>
+<p align="justify">La primera definici&oacute;n oficial del lenguaje
+fue dada en 1978 por <b>Brian Kernighan y Dennis Ritchie</b> en su
+libro "El lenguaje de programaci&oacute;n C". Este lenguaje fue llamado
+"C K&amp;R". En 1983 se cre&oacute; el comit&eacute; ANSI que en 1988
+estableci&oacute; el standard ANSI C, con algunas reformas sobre el C
+K&amp;R. Simult&aacute;neamente Kernighan y Ritchie publicaron la
+segunda edici&oacute;n de su libro, describiendo la mayor parte de las
+caracter&iacute;sticas del ANSI C.
+<table border="0" cellpadding="4" cellspacing="0" width="100%">
+  <colgroup><col width="51"><col width="51"><col width="51"><col
+ width="51"><col width="51"></colgroup><thead> <tr valign="top">
+    <td width="20%"><br>
+    </td>
+    <td width="20%"><img src="img/kernighan.jpg" name="Imagen3"
+ align="right" border="0" height="142" width="130"><br clear="right">
+    <br>
+    </td>
+    <td width="20%"><br>
+    </td>
+    <td width="20%"><img src="img/dennis_ritchie.jpg" name="Imagen4"
+ align="right" border="0" height="150" width="121"><br clear="right">
+    <br>
+    </td>
+    <td width="20%"><br>
+    </td>
+  </tr>
+  </thead> <tbody>
+    <tr valign="top">
+      <td width="20%"><br>
+      </td>
+      <td width="20%">
+      <p align="center"><font size="2"><i>Brian Kernighan</i></font></p>
+      </td>
+      <td width="20%"><br>
+      </td>
+      <td width="20%">
+      <p align="center"><font size="2"><i>Dennis Ritchie</i></font></p>
+      </td>
+      <td width="20%"><br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</p>
+<p align="justify">Actualmente existen implementaciones de C para todas
+las arquitecturas y sistemas operativos, y es el lenguaje m&aacute;s
+utilizado para la programaci&oacute;n de sistemas. Por su gran
+eficiencia resulta ideal para la programaci&oacute;n de sistemas
+operativos, drivers de dispositivos, herramientas de
+programaci&oacute;n. El 95% del sistema operativo UNIX est&aacute;
+escrito en C, as&iacute; como la gran mayor&iacute;a de los modernos
+sistemas y ambientes operativos y programas de aplicaci&oacute;n que
+corren sobre ellos.<br>
+<a href="info/info1.html#info1">Mas informaci&oacute;n ...</a> </p>
+<h2 align="justify"><a name="caracter&iacute;sticas del lenguaje"></a>Caracter&iacute;sticas
+del lenguaje</h2>
+<p align="justify">C es un lenguaje compilado. A nivel
+sint&aacute;ctico, presenta grandes similitudes formales con Pascal,
+pero las diferencias entre ambos son importantes. A pesar de permitir
+operaciones de bajo nivel, tiene las estructuras de control, y permite
+la estructuraci&oacute;n de datos, propias de los lenguajes
+procedurales de alto nivel como Pascal. </p>
+<p align="justify">Un programa en C es, por lo general, m&aacute;s
+sint&eacute;tico que en otros lenguajes procedurales como Pascal; la
+idea central que atraviesa todo el lenguaje es la minimalidad. La
+definici&oacute;n del lenguaje consta de muy pocos elementos; tiene muy
+pocas palabras reservadas. Como rasgo distintivo, en C no existen,
+rigurosamente hablando, funciones o procedimientos de uso general del
+programador. Por ejemplo, no tiene funciones de entrada/salida; la
+definici&oacute;n del lenguaje apenas alcanza a las estructuras de
+control y los operadores. La idea de definir un lenguaje sin funciones
+es, por un lado, hacer posible que el compilador sea peque&ntilde;o,
+f&aacute;cil de escribir e inmediatamente portable; y por otro,
+permitir que sea el usuario quien defina sus propias funciones cuando
+el problema de programaci&oacute;n a resolver tenga requerimientos
+especiales. </p>
+<p align="justify">Sin embargo, se ha establecido un conjunto
+m&iacute;nimo de funciones, llamado la <b>biblioteca standard</b> del
+lenguaje C, que todos los compiladores proveen, a veces con agregados.
+La filosof&iacute;a de la biblioteca standard es la portabilidad, es
+decir, casi no incluye funciones que sean espec&iacute;ficas de un
+sistema operativo determinado. Las que incluye est&aacute;n orientadas
+a la programaci&oacute;n de sistemas, y a veces no resultan suficientes
+para el programador de aplicaciones. No provee, por ejemplo, la
+capacidad de manejo de archivos indexados, ni funciones de
+entrada/salida interactiva por consola que sean seguras ("a prueba de
+usuarios"). Esta deficiencia se remedia utilizando bibliotecas de
+funciones "de terceras partes" (creadas por el usuario u obtenidas de
+otros programadores). </p>
+<p align="justify">El usuario puede escribir sus propios procedimientos
+(llamados <b>funciones</b> aunque no devuelvan valores). Aunque existe
+la noci&oacute;n de bloque de sentencias, el lenguaje se dice <i>no</i>
+estructurado en bloques porque no pueden definirse funciones dentro de
+otras. Las funciones de la biblioteca standard no tienen ning&uacute;n
+privilegio sobre las del usuario y sus nombres no son palabras
+reservadas; el usuario puede reemplazarlas por sus propias funciones
+simplemente d&aacute;ndoles el mismo nombre. </p>
+<p align="justify">El lenguaje entrega completamente el control de la
+m&aacute;quina subyacente al programador, no realizando controles de
+tiempo de ejecuci&oacute;n. Es decir, no verifica condiciones de error
+comunes como <i>overflow</i> de variables, errores de entrada/salida,
+o consistencia de argumentos en llamadas a funciones. Como resultado,
+es frecuente que el principiante, y aun el experto, cometan errores de
+programaci&oacute;n que no se hacen evidentes enseguida, ocasionando
+problemas y costos de desarrollo. Permite una gran libertad
+sint&aacute;ctica al programador. No es fuertemente tipado. Cuando es
+necesario, se realizan conversiones autom&aacute;ticas de tipo en las
+asignaciones, a veces con efectos laterales inconvenientes si no se
+tiene precauci&oacute;n. Una funci&oacute;n que recibe determinados
+par&aacute;metros formales puede ser invocada con argumentos reales de
+otro tipo. </p>
+<p align="justify">Se ha dicho que estas caracter&iacute;sticas
+"liberales" posibilitan la realizaci&oacute;n de proyectos complejos
+con m&aacute;s facilidad que otros lenguajes como Pascal o Ada,
+m&aacute;s estrictos; aunque al mismo tiempo, as&iacute; resulta
+m&aacute;s dif&iacute;cil detectar errores de programaci&oacute;n en
+tiempo de compilaci&oacute;n. En este sentido, seg&uacute;n los
+partidarios de la tipificaci&oacute;n estricta, C no es un buen
+lenguaje. Gran parte del esfuerzo de desarrollo del standard ANSI se
+dedic&oacute; a dotar al C de elementos para mejorar esta deficiencia. </p>
+<p align="justify">Los tipos de datos no tienen un tama&ntilde;o
+determinado por la definici&oacute;n del lenguaje, sino que diferentes
+implementaciones pueden adoptar diferentes convenciones.
+Parad&oacute;jicamente, esta caracter&iacute;stica obedece al objetivo
+de lograr la portabilidad de los programas en C. El programador
+est&aacute; obligado a no hacer ninguna suposici&oacute;n sobre los
+tama&ntilde;os de los objetos de datos, ya que lo contrario
+har&iacute;a al software dependiente de una arquitectura determinada. </p>
+<p align="justify">Una caracter&iacute;stica especial del lenguaje C es
+que el pasaje de argumentos a funciones se realiza siempre por valor.
+&iquest;Qu&eacute; ocurre cuando una funci&oacute;n debe modificar
+datos que le son pasados como argumentos? La &uacute;nica salida es
+pasarle -por valor- la direcci&oacute;n del dato a modificar. Las
+consecuencias de este hecho son m&aacute;s fuertes de lo que parece a
+primera vista, ya que surge la necesidad de todo un conjunto de
+t&eacute;cnicas de manejo de punteros que no siempre son bien
+comprendidas por los programadores poco experimentados, y abre la
+puerta a sutiles y escurridizos errores de programaci&oacute;n.
+Quiz&aacute;s este punto, junto con el de la ausencia de chequeos en
+tiempo de ejecuci&oacute;n, sean los que le dan al C fama de
+"dif&iacute;cil de aprender". </p>
+<p align="justify">Por &uacute;ltimo, el C no es un lenguaje orientado
+a objetos, sino que adhiere al paradigma tradicional de
+programaci&oacute;n procedural. No soporta la orientaci&oacute;n a
+objetos propiamente dicha, al no proporcionar herramientas
+fundamentales, como la herencia. Sin embargo, algunas
+caracter&iacute;sticas del lenguaje permiten que un proyecto de
+programaci&oacute;n se beneficie de todas maneras con la
+aplicaci&oacute;n de algunos principios de la orientaci&oacute;n a
+objetos, tales como el ocultamiento de informaci&oacute;n y el
+encapsulamiento de responsabilidades. El lenguaje C++, orientado a
+objetos, <b>no </b><span>es una versi&oacute;n m&aacute;s avanzada
+del lenguaje o un compilador de C con m&aacute;s capacidades, sino que
+se trata de un lenguaje completamente diferente.</span> </p>
+<p style="margin-bottom: 0cm;" align="justify">Algunas nuevas
+caracter&iacute;sticas de C99 son: </p>
+<ul>
+  <li>
+    <p align="left">Matrices de tama&ntilde;o variable </p>
+  </li>
+  <li>
+    <p align="left">Soporte de n&uacute;meros complejos </p>
+  </li>
+  <li>
+    <p align="left">Tipos <b>long long int</b> y <b>unsigned long
+long int</b> de al menos 64 bits </p>
+  </li>
+  <li>
+    <p align="left">Familia de funciones <b>vscanf()</b> </p>
+  </li>
+  <li>
+    <p align="left">Comentarios al estilo de C++ prefijando las
+l&iacute;neas con la secuencia "//". </p>
+  </li>
+  <li>
+    <p align="left">Familia de funciones <b>snprintf()</b> </p>
+  </li>
+  <li>
+    <p align="left">Tipo boolean</p>
+  </li>
+</ul>
+<p align="justify">&nbsp;
+</p>
+<h2 align="justify"><a name="el ciclo de compilaci&oacute;n"></a>El ciclo de
+compilaci&oacute;n</h2>
+<p align="justify">Las herramientas esenciales de un ambiente de
+desarrollo, adem&aacute;s de cualquier editor de textos, son el <b>compilador</b>,
+el <b>linkeditor</b> o <i>linker</i> y el <b>bibliotecario</b>. A
+estas herramientas b&aacute;sicas se agregan otras, &uacute;tiles para
+automatizar la compilaci&oacute;n de proyectos extensos, almacenar y
+recuperar versiones de programas fuente, chequear sintaxis en forma
+previa a la compilaci&oacute;n, etc. Seg&uacute;n el ambiente operativo
+y producto de software de que se trate, estas herramientas pueden
+encontrarse integradas en una interfaz de usuario uniforme, en modo
+texto o gr&aacute;fico, o ser comandos de l&iacute;nea independientes,
+con salidas de texto simples. </p>
+<h3 align="justify">Compilador</h3>
+<p align="justify">El compilador acepta un archivo fuente, posiblemente
+relacionado con otros (una<b> unidad de traducci&oacute;n</b>), y
+genera con &eacute;l un <b>m&oacute;dulo objeto</b>. Este
+m&oacute;dulo objeto contiene porciones de c&oacute;digo ejecutable
+mezclado con referencias, a&uacute;n no resueltas, a variables o
+funciones cuya definici&oacute;n no figura en los fuentes de entrada.
+Estas referencias quedan en forma simb&oacute;lica en el m&oacute;dulo
+objeto hasta que se resuelvan en un paso posterior. </p>
+<h3 align="justify">Linkeditor o <i>linker</i></h3>
+<p align="justify">El linkeditor recibe como entrada un conjunto de
+m&oacute;dulos objeto y busca resolver, o enlazar, las referencias
+simb&oacute;licas en ellos, buscando la definici&oacute;n de las
+variables o funciones faltantes en los mismos objetos o en bibliotecas.
+Estas pueden ser la biblioteca standard u otras provistas por el
+usuario. Cuando encuentra la definici&oacute;n de un objeto buscado (es
+decir, de una variable o funci&oacute;n), el linker la copia en el
+archivo resultante de salida (la <i>resuelve</i>). El objetivo del
+linker es resolver todas las referencias pendientes para producir un
+programa ejecutable. </p>
+<h3 align="justify">Bibliotecario</h3>
+<p align="justify">El bibliotecario es un administrador de
+m&oacute;dulos objeto. Su funci&oacute;n es reunir m&oacute;dulos
+objeto en archivos llamados bibliotecas, y luego permitir la
+extracci&oacute;n, borrado, reemplazo y agregado de m&oacute;dulos. El
+conjunto de m&oacute;dulos en una biblioteca se completa con una tabla
+de informaci&oacute;n sobre sus contenidos para que el linker pueda
+encontrar r&aacute;pidamente aquellos m&oacute;dulos donde se ha
+definido una variable o funci&oacute;n, y as&iacute; extraerlos durante
+el proceso de linkedici&oacute;n. El bibliotecario es utilizado por el
+usuario cuando desea mantener sus propias bibliotecas. La
+creaci&oacute;n de bibliotecas propias del usuario ahorra tiempo de
+compilaci&oacute;n y permite la distribuci&oacute;n de software sin
+revelar la forma en que se han escrito los fuentes y
+protegi&eacute;ndolo de modificaciones.
+<table border="0" cellpadding="4" cellspacing="0" width="100%">
+  <colgroup><col width="256"></colgroup><thead> <tr>
+    <td width="100%">
+    <p align="center"><br>
+    </p>
+    </td>
+  </tr>
+  </thead> <tbody>
+    <tr>
+      <td width="100%">
+      <p align="right"><font size="2"><img src="img/ciclo.jpg"
+ name="Imagen1" align="bottom" border="0" height="346" width="465"></font></p>
+      </td>
+    </tr>
+    <tr>
+      <td width="100%">
+      <p align="center"><font size="2">El ciclo de compilaci&oacute;n
+produce un ejecutable a partir de archivos fuente</font></p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</p>
+<p align="justify">&nbsp;
+</p>
+<h2 align="justify"><a name="el primer ejemplo"></a>El primer ejemplo</h2>
+<p align="justify">El cl&aacute;sico ejemplo de todas las
+introducciones al lenguaje C es el programa <b>hello.c</b>:</p>
+<pre style="text-align: justify;"><font color="#008000"><br><span
+ style="font-weight: bold; color: rgb(0, 153, 0);">#include &lt;stdio.h&gt;<br>/* El primer programa! */<br>main()<br>{<br>        printf("Hola, gente!\n");<br>}</span>
+</font></pre>
+<br>
+<u><font size="4">Ejecute los siguientes pasos para ver el primer
+ejemplo en C funcionando</font></u>
+<ul>
+  <li>
+    <p align="justify">1.Bajar el archivo <a
+ onmouseover="window.status='Primer ejemplo de C'; return true"
+ onmouseout="window.status=' '" href="ejemplos/hola.c">hola.c</a>
+&nbsp; y guardar en&nbsp;el directorio local de trabajo</p>
+  </li>
+  <li>
+    <p align="justify">2.&nbsp; Sin cambiarde directorio, ejecutar el
+comando:</p>
+    <p style="color: rgb(255, 153, 0); font-weight: bold;"><em>$ make
+hola</em></p>
+  </li>
+  <li>
+    <p align="justify">3. Finalmente ejecutar el programa asi:</p>
+    <p><em
+ style="color: rgb(255, 153, 0); font-weight: bold; font-style: italic;">$
+./hola</em><span style="color: rgb(255, 153, 0);"><span
+ style="font-weight: bold;"></span><span style="font-style: italic;"> </span>&nbsp;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+(el . significa el directorio actual de trabajo)</p>
+  </li>
+</ul>
+<br>
+<font size="4"><u>Se puede hacer lo mismo de esta manera:</u></font>
+<ul>
+  <li>
+    <p align="justify">1.&nbsp; Bajar el archivo&nbsp; <a
+ onmouseover="window.status='Primer ejemplo de C'; return true"
+ onmouseout="window.status=' '" href="ejemplos/hola.c">hola.c</a>
+&nbsp; y guardar en&nbsp;el directorio local de trabajo</p>
+  </li>
+  <li>
+    <p align="justify">2.&nbsp; Sin cambiar de directorio, ejecutar el
+comando:</p>
+    <p style="font-weight: bold; color: rgb(255, 153, 0);"><em>$ gcc
+hola.c&nbsp; - o&nbsp; hola</em></p>
+  </li>
+  <li>
+    <p align="justify">3. Finalmente ejecutar el programa asi:</p>
+    <p><em style="font-weight: bold; color: rgb(255, 153, 0);">$./hola</em><span
+ style="font-weight: bold; color: rgb(255, 153, 0);">&nbsp;&nbsp;</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+(el . significa el directorio actual de trabajo) </p>
+  </li>
+</ul>
+<br>
+La diferencia es que en el primer caso utilizamos la herramienta <em><a
+ onmouseover="window.status='Información sobre el utilitario make'; return true"
+ onmouseout="window.status=' '" href="info/info1.html#info3"><em>make</em>
+(mas informaci&oacute;n)</a></em> que nos asiste en la
+compilaci&oacute;n de proyectos, mientras que en el segundo caso
+invocamos directamente al compilador. En este &uacute;ltimo caso, le
+decimos al compilador (gcc)&nbsp;que compile el archivo hola.c y que la
+salida (-o de out) se llame hola. Probar que ocurre si hacemos: gcc
+hola.c.<br>
+En el&nbsp;primer caso el utilitario <em><a
+ onmouseover="window.status='Mas Información de make en el ejemplo'; return true"
+ onmouseout="window.status=' '" href="info/info1.html#info4"><em>make</em></a></em>
+hace todo esto por nosotros.&nbsp;&nbsp;
+<ul>
+</ul>
+<br>
+<font size="4"><strong>Funcionamiento el programa</strong></font>
+<p></p>
+<ul>
+  <li>Este programa minimal comienza con una <b>directiva de
+preprocesador</b> que indica incluir en la unidad de traducci&oacute;n
+al archivo <i>header</i> <b>stdio.h</b>. Este contiene, entre otras
+cosas, la declaraci&oacute;n (o <b>prototipo</b>) de la funci&oacute;n
+de salida de caracteres <b>printf</b>. Los prototipos se incluyen para
+advertir al compilador de los tipos de las funciones y de sus
+argumentos. </li>
+  <li>
+    <p align="justify">Entre los pares de caracteres especiales <b>/*</b><span>
+y </span><b>*/ </b><span>se puede insertar cualquier cantidad de
+l&iacute;neas de comentarios.</span> </p>
+  </li>
+  <li>
+    <p align="justify">La funci&oacute;n <b>main()</b> es el cuerpo
+principal del programa (es por donde comenzar&aacute; la
+ejecuci&oacute;n). Terminada la ejecuci&oacute;n de main(),
+terminar&aacute; el programa. </p>
+  </li>
+  <li>
+    <p align="justify">La funci&oacute;n printf() imprimir&aacute; la
+cadena entre comillas, que es una <b>constante string</b> terminada
+por un car&aacute;cter de <b>nueva l&iacute;nea</b><span> (la
+secuencia especial "\n")</span>. </p>
+  </li>
+</ul>
+<p align="justify"><br>
+&nbsp; </p>
+<h2 align="justify"><a name="mapa de memoria"></a>Mapa de memoria de un
+programa <font size="-1"><a href="info/info1.html#info2">Mas
+informaci&oacute;n ...</a></font> </h2>
+<br>
+<hr>
+&nbsp;
+<h2 align="justify"><a name="ejercicios"></a>Ejercicios</h2>
+<p style="margin-bottom: 0cm;" align="left">1. &iquest;Qu&eacute;
+nombres son adecuados para los archivos fuente C? </p>
+<p style="margin-bottom: 0cm;" align="left">2. Describa las etapas del
+ciclo de compilaci&oacute;n. </p>
+<p style="margin-bottom: 0cm;" align="left">3. &iquest;Cu&aacute;l
+ser&iacute;a el resultado de: </p>
+<ul>
+  <li>
+    <p style="margin-bottom: 0cm;" align="left">Editar un archivo
+fuente? </p>
+  </li>
+  <li>
+    <p style="margin-bottom: 0cm;" align="left">Ejecutar un archivo
+fuente? </p>
+  </li>
+  <li>
+    <p style="margin-bottom: 0cm;" align="left">Editar un archivo
+objeto? </p>
+  </li>
+  <li>
+    <p style="margin-bottom: 0cm;" align="left">Compilar un archivo
+objeto? </p>
+  </li>
+  <li>
+    <p style="margin-bottom: 0cm;" align="left">Editar una biblioteca?</p>
+  </li>
+</ul>
+<p align="left">4. &iquest;Qu&eacute; pasar&iacute;a si un programa C <b>no</b>
+contuviera una funci&oacute;n <b>main()</b>?.&nbsp;&nbsp;Haga la
+prueba con&nbsp; <a
+ onmouseover="window.status='Primer ejemplo de C'; return true"
+ onmouseout="window.status=' '" href="ejemplos/hola.c">hola.c</a>
+&nbsp; </p>
+<p align="left">5. Edite el programa <b>hola.c</b> y
+modif&iacute;quelo seg&uacute;n las pautas que siguen. Interprete los
+errores de compilaci&oacute;n. Si resulta un programa&nbsp;ejecutable,
+vea qu&eacute; hace el programa. </p>
+<ul>
+  <li>
+    <p style="margin-bottom: 0cm;" align="left">Quite los
+par&eacute;ntesis de main() </p>
+  </li>
+  <li>
+    <p style="margin-bottom: 0cm;" align="left">Quite la llave
+izquierda de main() </p>
+  </li>
+  <li>
+    <p style="margin-bottom: 0cm;" align="left">Quite las comillas
+izquierdas </p>
+  </li>
+  <li>
+    <p style="margin-bottom: 0cm;" align="left">Quite los caracteres
+"\n" </p>
+  </li>
+  <li>
+    <p style="margin-bottom: 0cm;" align="left">Agregue al final de la
+cadena los caracteres "\n\n\n\n" </p>
+  </li>
+  <li>
+    <p style="margin-bottom: 0cm;" align="left">Agregue al final de la
+cadena los caracteres "\nAdi&oacute;s mundo!\n" </p>
+  </li>
+  <li>
+    <p style="margin-bottom: 0cm;" align="left">Quite las comillas
+derechas </p>
+  </li>
+  <li>
+    <p style="margin-bottom: 0cm;" align="left">Quite el signo punto y
+coma. </p>
+  </li>
+  <li>
+    <p style="margin-bottom: 0cm;" align="left">Quite la llave derecha
+de main() </p>
+  </li>
+  <li>
+    <p style="margin-bottom: 0cm;" align="left">Agregue un punto y coma
+en cualquier lugar del texto </p>
+  </li>
+  <li>
+    <p style="margin-bottom: 0cm;" align="left">Agregue una coma o un
+d&iacute;gito en cualquier lugar del texto </p>
+  </li>
+  <li>
+    <p style="margin-bottom: 0cm;" align="left">Reemplace la palabra <b>main</b>
+por <b>program</b>, manteniendo los par&eacute;ntesis. </p>
+  </li>
+  <li>
+    <p style="margin-bottom: 0cm;" align="left">Elimine la apertura o
+cierre de los comentarios</p>
+  </li>
+</ul>
+<a href="adicionales/adic1.html#adic1">Ejercicios Adicionales<font
+ color="#000000"> </font> <br>
+</a><br>
+<a href="adicionales/adic1.html#adic2">Ejercicios Avanzados<br>
+<br>
+<hr> <br>
+</a>
+</body>
+</html>
