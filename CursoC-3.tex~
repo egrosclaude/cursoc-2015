@@ -1,3 +1,4 @@
+
 \chapter{Tipos de datos y expresiones}
 
 En general, las \textbf{expresiones} en C se construyen conectando, mediante \textbf{operadores}, diversos elementos, tales
@@ -346,19 +347,17 @@ d=1.1561255726
 
 \begin{enumerate}
 	\item ¿Cuáles de entre estas declaraciones contienen errores?
-		\begin{multicols}{2}
-		\begin{enumerate}[label=\alph*.]
-			\item integer a;
-			\item short i,j,k;
-			\item long float (h);
-			\item double long d3;
-			\item unsigned float n;
-			\item char 2j;
-			\item int MY;
-			\item float ancho, alto, long;
-			\item bool i;
-		\end{enumerate}
-		\end{multicols}
+	\begin{enumerate}[label=\alph*.]
+		\item integer a;
+		\item short i,j,k;
+		\item long float (h);
+		\item double long d3;
+		\item unsigned float n;
+		\item char 2j;
+		\item int MY;
+		\item float ancho, alto, long;
+		\item bool i;
+	\end{enumerate}
 	\item Dé declaraciones de variables con tipos de datos adecuados para almacenar:
 	\begin{enumerate}[label=\alph*.]
 		\item La edad de una persona.

@@ -1,0 +1,225 @@
+
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb,amsfonts,textcomp}
+\usepackage{xcolor}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{hhline}
+\PassOptionsToPackage{hyphens}{url}\usepackage{hyperref}
+\usepackage{float}
+\usepackage{xkeyval}
+\usepackage[pdftex]{graphicx}
+\usepackage[yyyymmdd,hhmmss]{datetime}
+\usepackage{appendix}
+\usepackage{listings}
+%\usepackage{wasysym}
+%\usepackage[centering,width=8.5in,height=11in]{geometry}
+\usepackage[centering,a4paper]{geometry}
+\usepackage{pstricks}
+\usepackage{tikz}
+\usetikzlibrary{calc, backgrounds}
+\usepackage{pdfpages}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+\definecolor{lstbackground}{rgb}{0.95,0.95,0.95}
+%\lstset{frame=tb,
+%	backgroundcolor=\color{lstbackground},
+%  language=Bash,
+%  aboveskip=3mm,
+%  belowskip=3mm,
+%  showstringspaces=false,
+%  columns=flexible,
+%  basicstyle={\small\ttfamily},
+%  numbers=none,
+%  numberstyle=\tiny\color{gray},
+%  keywordstyle=\color{blue},
+%  commentstyle=\color{dkgreen},
+%  stringstyle=\color{mauve},
+%  breaklines=true,
+%  breakatwhitespace=true
+%  tabsize=3
+%}
+
+\lstset{frame=tb,
+	backgroundcolor=\color{lstbackground},
+%  language=Bash,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+%  numberstyle=\tiny\color{gray},
+%  keywordstyle=\color{blue},
+%  commentstyle=\color{dkgreen},
+%  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true
+  tabsize=4
+}
+
+\usepackage{verbatim}
+\begin{comment}
+	\hypersetup{
+		pdftex, 
+		colorlinks=true, 
+		linkcolor=blue, 
+		citecolor=blue, 
+		filecolor=blue, 
+		urlcolor=blue, 
+	pdftitle={Software Libre}, 
+	pdfauthor={Eduardo Grosclaude}, 
+	pdfsubject={Documento de la materia Software Libre}, 
+	pdfkeywords={Software Libre, Tecnicatura en Administración de Sistemas y Software Libre, Universidad Nacional del Comahue}
+	}
+\end{comment}	
+
+%\addto\captionsspanish {%
+%	\def\appendixname{Apéndices}
+%}
+% Outline numbering
+\setcounter{secnumdepth}{1}
+% Reset section numbering between parts
+\makeatletter
+\@addtoreset{section}{part}
+\makeatother  
+% List styles
+\newcommand\liststyleLi{%
+\renewcommand\labelitemi{\tiny${\blacksquare}$}
+\renewcommand\labelitemii{\tiny${\square}$}
+\renewcommand\labelitemiii{\tiny${\circ}$}
+\renewcommand\labelitemiv{\tiny${\circ}$}
+}
+\newcommand\liststyleLii{%
+\renewcommand\labelitemi{{\textbullet}}
+\renewcommand\labelitemii{${\circ}$}
+\renewcommand\labelitemiii{${\blacksquare}$}
+\renewcommand\labelitemiv{{\textbullet}}
+}
+\newcommand\liststyleLiii{%
+\renewcommand\labelitemi{{\textbullet}}
+\renewcommand\labelitemii{${\circ}$}
+\renewcommand\labelitemiii{${\blacksquare}$}
+\renewcommand\labelitemiv{{\textbullet}}
+}
+
+\liststyleLi
+
+% Page layout (geometry)
+\setlength\voffset{-1in}
+\setlength\hoffset{-1in}
+\setlength\topmargin{2cm}
+\setlength\oddsidemargin{2cm}
+\setlength\textheight{23.246668cm}
+\setlength\textwidth{17.006cm}
+\setlength\footskip{26.144882pt}
+\setlength\headheight{1.016cm}
+\setlength\headsep{0.508cm}
+% Footnote rule
+\setlength{\skip\footins}{0.119cm}
+\renewcommand\footnoterule{\vspace*{-0.018cm}\setlength\leftskip{0pt}\setlength\rightskip{0pt plus 1fil}\noindent\textcolor{black}{\rule{0.25\columnwidth}{0.018cm}}\vspace*{0.101cm}}
+% Pages styles
+\makeatletter
+\newcommand\ps@Standard{
+  \renewcommand\@oddhead{{\raggedleft Cabecera \ } {\raggedright \thepage{}}}
+  \renewcommand\@evenhead{\@oddhead}
+  \renewcommand\@oddfoot{}
+  \renewcommand\@evenfoot{\@oddfoot}
+  \renewcommand\thepage{\arabic{page}}
+}
+\makeatother
+% \pagestyle{Standard}
+\usepackage{fancyhdr}
+%\usepackage{libertine}
+
+\usepackage{lmodern}
+\renewcommand*\familydefault{\sfdefault} %% Only if the base font of the document is to be sans serif
+
+
+% \renewcommand*\familydefault{\sfdefault}
+\pagestyle{fancy}
+% footnotes configuration
+\makeatletter
+\renewcommand\thefootnote{\arabic{footnote}}
+\makeatother
+\title{Redes II}
+\author{Eduardo Grosclaude}
+\date{2014-08-13}
+\usepackage{graphicx}
+
+\usepackage{xkeyval}
+\usepackage{pifont}
+\usepackage{xcolor}
+\newcommand{\revisar}[1]{{\color{red}[#1]}}
+
+
+
+%\usepackage[hundred]{vrsion}
+
+\newcommand{\borrador}{
+\revisar{\today, \currenttime  -  Material en preparación, se ruega no imprimir mientras aparezca esta nota}
+}
+
+
+%\newcommand{\nota}[1]{{\color{red}[#1]}}
+%\newcommand{\revisar}[1]{}
+\newcommand{\nota}[1]{}
+
+\newcommand{\nonota}[1]{#1}
+
+\newcommand{\quotes}[1]{``#1''}
+
+   
+\newcommand{\shade}[1]{\textcolor{black!50}{#1}}
+
+% ancho opcional, por defecto 15cm
+% \figura{copyleft}{Símbolo de Copyleft}{copyleft.png}
+% \figura[6]{copyleft}{Símbolo de Copyleft}{copyleft.png}
+\newcommand{\figura}[4][15]{
+ \begin{figure}[htbp] 
+ \centering 
+ \includegraphics[width=#1cm]{./img/#4} 
+ \caption{#3} 
+ \label{fig:#2} 
+ \end{figure} 
+}
+
+\newcommand{\tabla}[4]{
+ \begin{table} 
+ \centering 
+ \small
+ \begin{tabular}{#3}
+ #4
+ \end{tabular}
+ \caption{#2}
+ \label{tab:#1} 
+ \end{table} 
+}
+
+\usepackage{mdframed}
+
+\newcommand{\recuadro}[1]{\vspace*{0.2cm}
+\begin{minipage}[l]{0.84\textwidth}
+\begin{mdframed}
+#1
+\end{mdframed}
+\end{minipage}\vspace*{0.4cm}
+}
+
+% \newcommand{\recuadro2}[1]{
+% \fcolorbox{black}{grey}{
+% \parbox[t]{1.0\linewidth}{ \vspace*{0.4cm}#1\vspace*{0.4cm} } 
+% }
+% 
+\usepackage{sectsty}
+%\usepackage[compact]{titlesec} 
+\definecolor{bl}{rgb}{0.0,0.2,0.6} 
+\allsectionsfont{\color{bl}\scshape\selectfont}
+
+
+\newcommand{\code}[1]{\lstinline$#1$}
+%\newcommand{\code}[1]{\begin{verbatim}{#1}\end{verbatim}}

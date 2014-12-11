@@ -22,24 +22,13 @@
 
 
 
-\usepackage{amsthm} %load after amsmath
-
-\newtheoremstyle{ejemplo}% hname
-{11pt}% Space above
-{3pt}% Space below
-{\footnotesize}% Body font
-{}% Indent amount
-{\bfseries}% Theorem head font
-{}% Punctuation after theorem head
-{\newline}% Space after theorem head
-{}% Theorem head spec (can be left empty, meaning ‘normal’)
-
-\theoremstyle{ejemplo}
-\newtheorem{ejemplo}{Ejemplo}
-
-
-\usepackage{multicol}
-
+\usepackage{amsthm}
+%\theoremstyle{}
+\newtheorem{exmp}{Ejemplo}
+% \begin{exmp}
+% This is the example.
+% \end{exmp}
+% 
 
 %\usepackage{wasysym}
 \definecolor{dkgreen}{rgb}{0,0.6,0}
