@@ -258,25 +258,45 @@ Para ver el primer ejemplo en C en funcionamiento:
 
 \begin{enumerate}
 	\item Copiar el programa con cualquier editor de textos y guardarlo en un archivo llamado \texttt{hola.c} en el directorio de trabajo del usuario.
-	\item Sin cambiar de directorio, ejecutar el comando \lstinline{make hola} en una consola o terminal.
-	\item Ejecutar el programa con el comando \lstinline{./hola}. Notar el \textit{punto y barra} del principio, que le indican al \textbf{shell} que debe buscar el programa en el directorio activo.
+	\item Sin cambiar de directorio, invocar al compilador ejecutando el comando \lstinline{gcc hola.c -o hola}. Por defecto, el compilador \textbf{gcc} invocará al vinculador \textbf{ld} para generar el ejecutable a partir del archivo objeto intermedio generado. 
+	\item Ejecutar el programa con el comando \lstinline{./hola}. 
 \end{enumerate}
+
+Notar el \textit{punto y barra} del principio al ejecutar el programa. El punto y barra le indican al \textbf{shell} que debe buscar el programa en el directorio activo.
 
 Lo mismo, pero de otra manera: 
 
 \begin{enumerate}
-\item Como antes, copiar el programa, o usar el mismo archivo fuente de hace un momento.
-\item Sin cambiar de directorio, ejecutar el comando \lstinline{gcc hola.c -o hola}. 
-\item Ejecutar el programa con el comando \lstinline{./hola}. 
+	\item Como antes, copiar el programa, o usar el mismo archivo fuente de hace un momento.
+	\item Sin cambiar de directorio, ejecutar el comando \lstinline{make hola} en una consola o terminal.
+	\item Ejecutar el programa con el comando \lstinline{./hola}. 
 \end{enumerate}
 
-
-La diferencia es que en el primer caso utilizamos la herramienta \texttt{make}, que nos asiste en la compilación de proyectos,
-mientras que en el segundo caso invocamos directamente al compilador \texttt{gcc}. Por defecto, el compilador gcc invocará al vinculador para generar el ejecutable a partir del archivo objeto intermedio generado. En el ejemplo, le decimos al compilador que procese el archivo fuente \texttt{hola.c}, y que el ejecutable de salida (opción \texttt{-o}, de \textit{output}) se llame \texttt{hola}. 
+La diferencia es que en el primer caso invocamos directamente al compilador \texttt{gcc},
+mientras que en el segundo caso utilizamos la herramienta \texttt{make}, que nos asiste en la compilación de proyectos. En el ejemplo, le decimos al compilador que procese el archivo fuente \texttt{hola.c}, y que el ejecutable de salida (opción \texttt{-o}, de \textit{output}) se llame \texttt{hola}. 
 
 
 % \subsection[Mapa de memoria de un programa Mas información ... ]{Mapa de memoria de un programa \href{info/info1.html#info2}{Mas información ...} }
 
+\subsection{El comando make}
+Cuando damos un comando como \lstinline{make hola}, utilizamos el comando \textbf{make} para compilar y vincular el programa \textbf{hola.c}. El comando make contiene la inteligencia para:
+\begin{itemize}
+ 	\item buscar, en el directorio activo, archivos fuente llamados \textbf{hola.*}; 
+ 	\item determinar (a partir de la extensión) que el hallado se trata de un programa en C;
+ 	\item ver que no existe en el directorio activo un programa ejecutable llamado hola, o que, si existe, su fecha de última modificación es anterior a la del fuente;
+ 	\item razonar que, por lo tanto, es necesario compilar el fuente \textbf{hola.c} para producir el ejecutable \textbf{hola};  
+ 	\item e invocar con una cantidad de opciones por defecto al compilador \textbf{gcc}, y renombrar la salida con el nombre
+\textbf{hola}. Éste será el ejecutable que deseamos producir.
+\end{itemize} 
+
+Si se invoca al comando \textbf{make} una segunda vez, éste comprobará, en base a las fechas de
+modificación de los archivos fuente y ejecutable, que no es necesaria la compilación (ya que el
+ejecutable es posterior al fuente). Si editamos el fuente para cambiar algo en el programa, invocar
+nuevamente a make ahora repetirá la compilación (porque ahora el ejecutable es anterior al fuente).
+
+\subsection{Mapa de memoria de un programa}
+
+%TODO
 
 \section{Ejercicios}
 \begin{enumerate}

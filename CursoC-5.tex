@@ -110,13 +110,7 @@ está declarada, y muere al terminar la función. \textbf{No son inicializadas} 
 \end{description}
 
 \begin{ejemplo}
-\noindent
-\begin{itemize}
-	\item Aquí \texttt{m}, por ser externa, tiene clase de almacenamiento \textbf{estática}. 
-	\item Las variables \texttt{j}, \texttt{k} y \texttt{l} son locales, pero sólo \texttt{j} es \textbf{automática}. 
-	\item La variable \texttt{l} es \textbf{estática} (tiene propiedades de vida similares a las de \texttt{m}). 
-		\item Por su parte \texttt{k} es de tipo \textbf{registro}, lo que quiere decir que el compilador, siempre que resulte posible, mantendrá sus contenidos en algún registro de CPU de tamaño adecuado. 
-\end{itemize}
+En el segmento de programa siguiente:
 \begin{lstlisting}
 int m;
 int fun()
@@ -127,6 +121,12 @@ int fun()
 	...
 }
 \end{lstlisting}
+\begin{itemize}
+	\item La variable \texttt{m}, por ser externa, tiene clase de almacenamiento \textbf{estática}. 
+	\item Las variables \texttt{j}, \texttt{k} y \texttt{l} son locales, pero sólo \texttt{j} es \textbf{automática}. 
+	\item La variable \texttt{l} es \textbf{estática} (tiene propiedades de vida similares a las de \texttt{m}). 
+		\item Por su parte \texttt{k} es de tipo \textbf{registro}, lo que quiere decir que el compilador, siempre que resulte posible, mantendrá sus contenidos en algún registro de CPU de tamaño adecuado. 
+\end{itemize}
 \end{ejemplo}
 
 
@@ -190,33 +190,85 @@ quedado allí de ejecuciones previas, para alojar allí sus variables. A esto se
 vea inicializadas con basura.
 
 \figura[11]{stack1}{Objetos de datos en el stack.}{stack1.eps}
-\figura[11]{stack2}{Objetos de datos en el stack bis.}{stack2.eps}
+\figura[11]{stack2}{Objetos de datos en el stack.}{stack2.eps}
 
 \begin{ejemplo}
 Con el código de la Fig. \ref{fig:stack1}, el estado del stack en momentos sucesivos será: 
 \begin{enumerate}
-\item Antes de entrar a fun1() se tiene el stack vacío.
-\item Al entrar a fun1() se disponen sus variables locales en el stack, en orden de aparición.
-\item Al entrar a fun2() se dispone su variable local en el stack.
-\item Al salir de fun2() y volver a fun1() se desaloja la variable local de fun2().
-\item Al salir de fun1() se desmantela el stack completamente y se vuelve al estado inicial.
+\item Antes de entrar a \texttt{fun1()} se tiene el stack vacío.
+\item Al entrar a \texttt{fun1()} se disponen sus variables locales en el stack, en orden de aparición.
+\item Al entrar a \texttt{fun2()} se dispone en el stack su variable local.
+\item Al salir de \texttt{fun2()} y volver a \texttt{fun1()} se desaloja la variable local de \texttt{fun2()}.
+\item Al salir de \texttt{fun1()} se desmantela el stack completamente y se vuelve al estado inicial.
 \end{enumerate}
 \end{ejemplo}
 
 \begin{ejemplo}
 Con el código de la Fig. \ref{fig:stack2}, que invoca a dos funciones secuencialmente, el estado del stack en momentos sucesivos será: 
 \begin{enumerate}
-\item Antes de entrar a fun1() se tiene el stack vacío.
-\item Al entrar a fun1() se disponen sus variables locales en el stack, en orden de aparición.
-\item Al terminar fun1() se desmantela el stack.
-\item Al entrar en fun2() se dispone su variable local, cuyo objeto de datos tendrá \textit{basura} debida al valor de a dejado por fun1().
-\item Al salir de fun2() se desmantela su stack completamente y se vuelve al estado inicial.
+\item Antes de entrar a \texttt{fun1()} se tiene el stack vacío.
+\item Al entrar a \texttt{fun1()} se disponen sus variables locales en el stack, en orden de aparición.
+\item Al terminar \texttt{fun1()} se desmantela el stack.
+\item Al entrar en \texttt{fun2()} se dispone en el stack su variable local, cuyo objeto de datos tendrá \textit{basura} debida al valor de a dejado por \texttt{fun1()}.
+\item Al salir de \texttt{fun2()} se desmantela su stack completamente y se vuelve al estado inicial.
 \end{enumerate}
 \end{ejemplo}
 
 \section{Liga}
+La liga es la propiedad que determina si las variables y funciones definidas en una unidad de traducción serán o no visibles por el linker. Una vez que un conjunto de unidades de traducción pasa exitosamente la compilación, tenemos un
+conjunto de módulos objeto. Cada módulo objeto puede contener, en forma simbólica, pendiente de
+resolución, \textbf{referencias} a variables o funciones definidas en otros módulos.
+La propiedad de las variables y funciones que permite que el linker encuentre la \textbf{definición} de un
+objeto para aparearlo con su \textbf{referencia} es la \textbf{liga externa}. Tienen liga externa por defecto las \textbf{variables externas y
+las funciones}, de modo que todas éstas pueden ser referenciadas desde otras unidades de traducción.
+
+El concepto de liga externa es importante cuando el proyecto de desarrollo abarca varias unidades de
+traducción que deben dar lugar a un ejecutable. Aprovechando la propiedad de liga externa de las
+funciones, se puede ubicar cada definición de función, o un conjunto de ellas, en un archivo separado.
+Esto suele facilitar el mantenimiento y aportar claridad a la estructura de un proyecto de desarrollo.
+
+La excepción a la regla de liga externa se produce cuando las \textbf{variables externas o funciones} son
+declaradas con el modificador \textbf{static}. Este modificador cambia el tipo de los objetos a liga interna. Un
+objeto que normalmente sería de liga externa, declarado como static, pasa a ser visible únicamente
+dentro de la unidad de traducción donde ha sido declarado.
+
+Esta particularidad permite realizar, en cierta medida, ocultamiento de información. Si una unidad de
+traducción utiliza variables externas o funciones de su uso privado, que no deben hacerse visibles
+desde afuera, puede declarárselas static, con lo cual se harán inaccesibles a toda otra unidad de
+traducción. El caso típico se presenta cuando se desea hacer opacas las funciones que implementan un
+tipo de datos abstracto, haciéndolas de liga interna mientras que las funciones públicas (las de interfaz)
+se dejan con liga externa.
+
+Finalmente, las variables \textbf{locales}, al ser visibles únicamente dentro de su función, se dice que \textbf{no tienen liga} (el linker nunca llega a operar con ellas).
 
 \begin{ejemplo}
+En el ejemplo dado en el Cuadro \ref{tab:ejliga}, \texttt{fun1()}, \texttt{fun2()} y \texttt{fun3()} están definidas en unas unidades de traducción distintas de la de \texttt{main()}. El fuente \textbf{alfa.c} es capaz de dar origen a un programa ejecutable (porque contiene el punto de entrada al programa), pero solamente si al momento de linkedición se logra que el linker resuelva las
+referencias pendientes a \texttt{fun1()} y a \texttt{fun2()} (que no están definidas en \textbf{alfa.c}). Por motivos similares,
+las referencias en \textbf{gamma} necesitan de las definiciones en \textbf{beta} al momento de linkedición.
+
+En la práctica logramos esto de varias maneras.
+\begin{enumerate}
+	\item O bien, con:
+\begin{lstlisting}
+gcc alfa.c beta.c gamma.c -o alfa
+\end{lstlisting}
+
+que significa \quotes{compilar separadamente los tres fuentes, linkeditarlos juntos y al ejecutable resultado
+renombrarlo como \textbf{alfa}}; 
+\item o bien con:
+
+\begin{lstlisting}
+gcc -c alfa.c
+gcc -c beta.c
+gcc -c gamma.c
+gcc alfa.o beta.o gamma.o -o alfa
+\end{lstlisting}
+
+que es la misma tarea pero distribuida en etapas separadas;
+\item o bien preparando un archivo \textbf{makefile} indicando este modo de construcción e invocar a \textbf{make}.
+\end{enumerate}
+
+
 \begin{table}
 \centering	
 \begin{tabular}{l|l|l}
@@ -256,58 +308,11 @@ int fun3()
 \end{table}
 \end{ejemplo}
 
-Una vez que un conjunto de unidades de traducción pasa exitosamente la compilación, tenemos un
-conjunto de módulos objeto. Cada módulo objeto puede contener, en forma simbólica, pendiente de
-resolución, \textbf{referencias} a variables o funciones definidas en otros módulos.
-La propiedad de las variables y funciones que permite que el linker encuentre la \textbf{definición} de un
-objeto para aparearlo con su \textbf{referencia} es la \textbf{liga externa}. Tienen liga externa las \textbf{variables externas y
-las funciones}, de modo que todas éstas pueden ser referenciadas desde otras unidades de traducción.
-
-El concepto de liga externa es importante cuando el proyecto de desarrollo abarca varias unidades de
-traducción que deben dar lugar a un ejecutable. Aprovechando la propiedad de liga externa de las
-funciones, se puede ubicar cada definición de función, o un conjunto de ellas, en un archivo separado.
-Esto suele facilitar el mantenimiento y aportar claridad a la estructura de un proyecto de desarrollo.
-
-En el ejemplo dado en Cuadro \ref{tab:ejliga}, \texttt{fun1()}, \texttt{fun2()} y \texttt{fun3()} están definidas en unas unidades de traducción distintas de la de \texttt{main()}. El fuente \textbf{alfa.c} es capaz de dar origen a un programa ejecutable (porque contiene el punto de
-entrada al programa), pero solamente si al momento de linkedición se logra que el linker resuelva las
-referencias pendientes a \texttt{fun1()} y a \texttt{fun2()} (que no están definidas en \textbf{alfa.c}). Por motivos similares,
-las referencias en \textbf{gamma} necesitan de las definiciones en \textbf{beta} al momento de linkedición.
-
-En la práctica logramos esto de varias maneras.
-\begin{enumerate}
-	\item O bien, con:
-\begin{lstlisting}
-gcc alfa.c beta.c gamma.c -o alfa
-\end{lstlisting}
-
-que significa \quotes{compilar separadamente los tres fuentes, linkeditarlos juntos y al ejecutable resultado
-renombrarlo como \textbf{alfa}}; 
-\item o bien con:
-
-\begin{lstlisting}
-gcc -c alfa.c
-gcc -c beta.c
-gcc -c gamma.c
-gcc alfa.o beta.o gamma.o -o alfa
-\end{lstlisting}
-
-que es la misma tarea pero distribuida en etapas separadas;
-\item o bien preparando un archivo \textbf{makefile} indicando este modo de construcción e invocar a \textbf{make}.
-\end{enumerate}
-
-La excepción a la regla de liga externa se produce cuando las variables externas o funciones son
-declaradas con el modificador static. Este modificador cambia el tipo de los objetos a liga interna. Un
-objeto que normalmente sería de liga externa, declarado como static, pasa a ser visible únicamente
-dentro de la unidad de traducción donde ha sido declarado.
-Esta particularidad permite realizar, en cierta medida, ocultamiento de información. Si una unidad de
-traducción utiliza variables externas o funciones de su uso privado, que no deben hacerse visibles
-desde afuera, puede declarárselas static, con lo cual se harán inaccesibles a toda otra unidad de
-traducción. El caso típico se presenta cuando se desea hacer opacas las funciones que implementan un
-tipo de datos abstracto, haciéndolas de liga interna mientras que las funciones públicas (las de interfaz)
-se dejan con liga externa.
-
 
 \begin{ejemplo}
+El ejemplo del Cuadro \ref{tab:ejliga2} es casi idéntico al anterior, salvo que la función \texttt{fun3()} ahora está declarada \texttt{static}, y por este motivo no podrá ser vista por el linker para resolver la referencia pendiente de \texttt{fun2()} en
+lambda.c. La función \texttt{fun3()} tiene liga interna. Las tres unidades de traducción jamás podrán satisfacer la compilación.
+
 \begin{table}
 \centering	
 \begin{tabular}{l|l|l}
@@ -347,77 +352,123 @@ int fun2()
 \end{table}
 \end{ejemplo}
 
-Este ejemplo es casi idéntico al anterior, salvo que la función fun3() ahora está declarada static y por
-este motivo no podrá ser vista por el linker para resolver la referencia pendiente de fun2() en
-lambda.c. La función fun3() tiene liga interna. Las tres unidades de traducción jamás podrán
-satisfacer la compilación.
-Finalmente, las variables locales, al ser visibles únicamente dentro de su función, se dice que no
-tienen liga (el linker nunca llega a operar con ellas).
 
 \section{Declaraciones y definiciones}
-Normalmente una declaración de variable (de la forma \texttt{especificación\_de\_tipo identificador}) funciona
-también como definición de la variable. Es decir, no sólo queda advertido el compilador de cuál es el
-tipo del objeto que se va a utilizar, sino que también se crea el espacio de memoria (el objeto de datos)
+\begin{description}
+	\item[Declaraciones] Una \textbf{declaración} consiste en la \textbf{mención} de un objeto (variable o función) antes de su uso.
+	\item[Definiciones] Una \textbf{definición} consiste en una sentencia de \textbf{creación} de dicha variable o función, que a partir de la ejecución de esa sentencia comienza a ser una entidad viva del programa.
+\end{description}
+
+
+Normalmente una \textbf{declaración} de variable (de la forma \texttt{especificación\_de\_tipo identificador}) funciona
+también como \textbf{definición} de la variable. Es decir, no sólo queda advertido el compilador de cuál es el
+\textbf{tipo} del objeto que se va a utilizar, sino que también se crea el espacio de memoria (el \textbf{objeto de datos})
 que va a alojar la información asociada.
 
-La excepción a esto son los objetos declarados extern. Cuando la declaración de una variable
-cualquiera aparece precedida del modificador extern, ésta indica el tipo asociado, pero no habilita al
-compilador para crear el objeto de datos; se trata de una variable cuya definición debe ser encontrada
-en otra unidad de traducción. La declaración extern tan sólo enuncia el tipo y nombre de la variable
-para que el compilador lo tenga en cuenta.
+\begin{ejemplo}
+Son declaraciones que además funcionan como definiciones:
+\begin{lstlisting}
+int a;
+float b, c;
+int fun() 
+{
+	...
+}
+\end{lstlisting}
+\end{ejemplo}
 
-Una variable externa es visible desde todas las funciones de la unidad de traducción y puede ser
+
+Cuando la declaración de una variable cualquiera aparece precedida del modificador \texttt{extern}, ésta indica el nombre y tipo asociado, pero no habilita al compilador para crear el objeto de datos; se trata de una variable cuya \textbf{definición} puede ser encontrada
+\textbf{más adelante, o aun en otra unidad de traducción}. La declaración \texttt{extern} tan sólo enuncia el tipo y nombre de la variable para que el compilador los tenga en cuenta.
+
+\begin{ejemplo}
+Las declaraciones siguientes no crean objetos de datos y por lo tanto \textbf{no son} definiciones.
+\begin{lstlisting}
+extern int a;
+extern float b, c;
+int fun();
+\end{lstlisting}
+\end{ejemplo}
+
+Una variable externa es visible desde todas las funciones de la unidad de traducción, y además puede ser
 utilizada desde otras. Esto se debe a la propiedad de liga externa de las variables externas: son visibles
 al linker como candidatos para resolver referencias pendientes.
 
 El requisito para poder utilizar una variable definida en otra unidad de traducción es declararla con el
-modificador extern en aquella unidad de traducción donde se va a utilizar.
-
-Ejemplo
+modificador \textbf{extern} en aquella unidad de traducción donde se va a utilizar.
 
 
-delta.c
+\begin{ejemplo}
+
+En el Cuadro \ref{tab:ejliga3}, el texto \texttt{delta.c} es una unidad de traducción que declara dos variables externas y dos funciones, pero
+hace \textbf{opacas} a la variable \texttt{n} y a la función \texttt{fun2()} con el modificador \textbf{static}. 
+\begin{itemize}
+\item La función \texttt{fun1()} puede
+utilizar a todas ellas por estar dentro de la misma unidad de traducción, pero \texttt{fun3()}, que está en otra,
+sólo puede referenciar a \texttt{m} y a \texttt{fun1()}, que son de liga externa. Para ello debe declarar a \texttt{m} como
+\texttt{extern}, o de lo contrario no superará la compilación (\textit{\quotes{todo uso debe ser precedido por una
+declaración}}).
+\item Si, además, \texttt{eta.c} declarara una variable \texttt{extern int n}, con la intención de referirse a la variable \texttt{n}
+definida en \texttt{delta.c}, la referencia no podría ser resuelta a causa de la condición de liga interna de \texttt{n}.
+
+\item Los usos de funciones (como \texttt{fun1()} en \texttt{eta.c}) pueden aparecer sin declaración previa, pero en este caso
+el compilador asumirá tipos de datos default para los argumentos y para el tipo del valor devuelto por
+la función (\textbf{int} en todos los casos).
+\end{itemize}
+
+
+\begin{table}
+\centering	
+\begin{tabular}{l|l}
+delta.c & eta.c \\
+\hline
+\begin{codecell}
 int m;
 static int n;
 int fun1()
 {
-n=fun2();
-...
+	n=fun2();
+	...
 }
 static int fun2()
 {
-...
-eta.c
+	...
+}
+\end{codecell}
+&
+\begin{codecell}
 extern int m;
 int fun3()
 {
-m=fun1();
-}
+	m=fun1();
 }
 
-El texto delta.c es una unidad de traducción que declara dos variables externas y dos funciones, pero
-hace opacas a la variable n y a la función fun2() con el modificador static. La función fun1() puede
-utilizar a todas ellas por estar dentro de la misma unidad de traducción, pero fun3(), que está en otra,
-sólo puede referenciar a m y a fun1(), que son de liga externa. Para ello debe declarar a m como
-extern, o de lo contrario no superará la compilación ("todo uso debe ser precedido por una
-declaración").
-Si, además, eta.c declarara una variable extern int n, con la intención de referirse a la variable n
-definida en delta.c, la referencia no podría ser resuelta a causa de la condición de liga interna de n.
-Los usos de funciones (como fun1() en eta.c)pueden aparecer sin declaración previa, pero en este caso
-el compilador asumirá tipos de datos default para los argumentos y para el tipo del valor devuelto por
-la función (int en todos los casos).
+\end{codecell}
+\\
+\end{tabular}
+ \caption{Liga de las variables}
+ \label{tab:ejliga3} 
+\end{table}
+\end{ejemplo}
+
+
+
+
+
+
 
 \section{Modificadores especiales}
 
 \begin{description}
 	\item[Const] 
-	El modificador const indica que una variable no será modificada. Solamente puede inicializarse, al
+	El modificador const indica que una variable no será modificada. Una variable \texttt{const} solamente puede inicializarse al
 momento de carga del programa (y debería hacerse así, ya que no hay otra manera de asignarle un
 valor).
-const int a=12; /* se declara un entero constante, con inicialización */
-a++;
-/* el compilador no aprobará esta sentencia */
-El modificador const también permite expresar, en el prototipo de una función, que un argumento no
+\begin{lstlisting}
+const int a=12; 	/* se declara un entero constante, con inicializacion */
+a++;				/* el compilador no aprobara esta sentencia */
+\end{lstlisting}
+El modificador \texttt{const} también permite expresar, en el prototipo de una función, que un argumento no
 podrá ser modificado por la función, aun cuando sea pasado por referencia.
 \item [Volatile]
 Los compiladores modernos aplican una cantidad de pasos de optimización cuando ven instrucciones
@@ -428,29 +479,48 @@ compilador de que una variable será modificada asincrónicamente con la ejecuci
 ejemplo, por efecto de una rutina de atención de interrupciones) y por lo tanto el optimizador no puede
 inferir correctamente su utilidad dentro del programa. Esto evitará que el compilador aplique la lógica
 de optimización a las instrucciones que involucran a esta variable.
+\end{description}
 
-Por ejemplo, el ciclo siguiente podría ser reescrito por un optimizador, extrayendo del ciclo la
-asignación \texttt{a=beta} en el entendimiento de que beta no cambiará en ninguno de los pasos del ciclo.
-sin optimizar
-\begin{lstlisting}
+\begin{ejemplo}
+
+El ciclo del Cuadro \ref{tab:ciclo} podría ser reescrito por un optimizador, extrayendo del ciclo la
+asignación \texttt{a=beta} en el entendimiento de que \texttt{beta} no cambiará en ninguno de los pasos del ciclo.
+\begin{table}
+\centering	
+\begin{tabular}{l|l|l}
+Sin optimizar & Optimizado & Optimización inhibida\\
+\hline
+\begin{codecell}
 while(!fin) {
-a = beta;
-b = fun(a);
+	a = beta;
+	b = fun(a);
 }
-"optimizado"
+\end{codecell}
+&
+\begin{codecell}
 a = beta;
 while(!fin)
-b = fun(a);
+	b = fun(a);
+\end{codecell}
+&
+\begin{codecell}
+volatile int beta;
+while(!fin) {
+	a = beta;
+	b = fun(a);
+}
+\end{codecell}
+\\
+\end{tabular} 
+  \caption{Optimización de ciclos}
+  \label{tab:ciclo} 
+\end{table}
 
-\end{lstlisting}
 Sin embargo, si esperamos que la variable beta cambie por acción de algún agente externo a la rutina
 en cuestión, con la declaración previa
-\begin{lstlisting}
-volatile int beta;
-\end{lstlisting}
-el compilador se abstendrá de optimizar las líneas donde intervenga beta.
-
-\end{description}
+\texttt{volatile int beta}
+el compilador se abstendrá de optimizar las líneas donde intervenga \texttt{beta}.
+\end{ejemplo}
 
 \section{Ejercicios}
 \begin{enumerate}
@@ -459,14 +529,14 @@ la variable a y repita la experiencia.
 \begin{lstlisting}
 int fun()
 {
-int a;
-a = a + 1;
-return a;
+	int a;
+	a = a + 1;
+	return a;
 }
 main()
 {
-printf("%d\n", fun());
-printf("%d\n", fun());
+	printf("%d\n", fun());
+	printf("%d\n", fun());
 }
 \end{lstlisting}
 \item ¿Qué imprime este programa?
@@ -474,15 +544,15 @@ printf("%d\n", fun());
 int alfa;
 int fun()
 {
-int alfa;
-alfa = 1;
-return alfa;
+	int alfa;
+	alfa = 1;
+	return alfa;
 }
 main()
 {
-alfa = 2;
-printf("%d\n",fun());
-printf("%d\n",alfa);
+	alfa = 2;
+	printf("%d\n",fun());
+	printf("%d\n",alfa);
 }
 \end{lstlisting}
 \item ¿Qué imprime este programa?
@@ -490,121 +560,269 @@ printf("%d\n",alfa);
 int alfa;
 int fun(int alfa)
 {
-alfa = 1;
-return alfa;
+	alfa = 1;
+	return alfa;
 }
 main()
 {
-alfa = 2;
-printf("%d\n",fun(alfa));
-printf("%d\n",alfa);
+	alfa = 2;
+	printf("%d\n",fun(alfa));
+	printf("%d\n",alfa);
 }
 \end{lstlisting}
  \item Copie y compile, juntas, las unidades de traducción que se indican abajo. ¿Qué hace falta para que
 la compilación sea exitosa?
-fuente1.c
+
+	
+\begin{tabular}{p{4cm}|p{5cm}}
+fuente1.c & fuente2.c\\
+\hline
+\begin{codecell}
 int a;
 int fun1(int x)
 {
-return 2 * x;
+	return 2 * x;
 }
-fuente2.c
+\end{codecell}
+&
+\begin{codecell}
 main()
 {
-a = 1;
-printf("d\n", fun1(a));
+	a = 1;
+	printf("d\n", fun1(a));
 }
+\end{codecell}
+\\
+\end{tabular} 
+
 \item ¿Qué ocurre si un fuente intenta modificar una variable externa, declarada en otra unidad de
-traducción como const? Prepare, compile y ejecute un ejemplo.
+traducción como \texttt{const}? Prepare, compile y ejecute un ejemplo.
 \item ¿Qué resultado puede esperarse de la compilación de estos fuentes?
-\begin{lstlisting}
-header.h
+
+\begin{tabular}{p{4cm}|p{5cm}|p{4cm}}
+header.h & fuente1.c &fuente2.c\\
+\hline
+\begin{codecell}
 #include <stdio.h>
 #define VALOR 6
-fuente1.c
+\end{codecell}
+&
+\begin{codecell}
 #include "header.h"
 main()
 {
-static int c;
-printf("%d\n",fun(c));
+	static int c;
+	printf("%d\n",fun(c));
 }
-fuente2.c
+\end{codecell}
+&
+\begin{codecell}
 #include "header.h"
 int fun(int x)
 {
-return VALOR * x;
+	return VALOR * x;
 }
-\end{lstlisting}
-\item Podemos denotar esquemáticamente que un módulo objeto prueba.o contiene un elemento de datos
-x y una función fun(), ambos de liga externa, de esta manera:
-prueba.o
-x
-fun()
+\end{codecell}
+\\
+\end{tabular}
+
+\item Denotemos esquemáticamente que un módulo objeto \texttt{prueba.o} contiene un objeto de datos
+\texttt{x} y una función \texttt{fun()}, ambos de liga externa, de esta manera:
+
+
+\begin{tabular}{|c|}
+\hline
+prueba.o\\
+\hline
+x\\
+fun()\\
+\hline
+\end{tabular}
+
 Si se tiene un conjunto de archivos y unidades de traducción que se compilarán para formar los
 respectivos módulos objeto, ¿cómo se aplicaría la notación anterior al conjunto de módulos objeto
-resultantes? Hacer el diagrama para los casos siguientes. ¿Hay colisión de nombres? ¿Hay referencias que el linker no pueda resolver? Cada grupo de fuentes, ¿puede producir un ejecutable?
-hdr1.h
-a)
-b)
-c)
-d)
-fuente1.c
-fuente2.c
-fuente3.c
-#define UNO 1 #include "hdr1.h" #include "hdr1.h" #include "hdr1.h"
-#define DOS 2 main() { int fun1(int x) { int a;
-extern int a; int b; return x + fun2(x); 
-              b = fun1(a); } 
-              } static int 
-                fun2(int x) { 
-                return x + DOS; 
-                } 
-extern int c; #include "hdr1.h" int a, b, c=1; main() {
-extern int int fun1(int x) { int fun2(int x) { int d;
-fun1(int p), return fun2(x)+1; return x - 1; d = fun1(3);
-fun2(int p); } } }
-int fun1(int int fun3(int x) { main() {
-return x + return x + 3; int a;
-} } a = fun1(a);
-int fun2(int static int }
-return x + fun2(int x) { 
-} return x + 4; 
-  } 
-static int a int b;
-static int b main() {
-int fun2(int b = 2;
-return x printf(š%dŠ,
-} fun1(3));
- }
-x) {
-1;
-x) {
-2;
-int fun1(int x) {
-extern int b;
-x = b - fun2(x);
-}
-= 1;
-= 1;
-x) {
-- a;
+resultantes? Hacer el diagrama para los casos que aparecen en el Cuadro \ref{tab:fuentes}. ¿Hay colisión de nombres? ¿Hay referencias que el linker no pueda resolver? Cada grupo de fuentes, ¿puede producir un ejecutable?
+
 \item  Un conjunto de programas debe modelar eventos relativos a un aeropuerto. Se necesita preparar una
 implementación de las estructuras de datos y funciones del aeropuerto, para ser usada por los demás
 programas. Especifique las variables y funciones (en pseudocódigo) que podrán satisfacer los
 siguientes requerimientos. Preste atención a las declaraciones extern y static.
-El aeropuerto tendrá cinco pistas.
-Se mantendrá un contador de la cantidad total de aviones en el aeropuerto y uno de la cantidad
+\begin{itemize}
+	\item El aeropuerto tendrá cinco pistas.
+\item Se mantendrá un contador de la cantidad total de aviones en el aeropuerto y uno de la cantidad
 total de aviones en el aire.
-Para cada pista se mantendrá la cantidad de aviones esperando permiso para despegar de ella y la
+\item Para cada pista se mantendrá la cantidad de aviones esperando permiso para despegar de ella y la
 cantidad de aviones esperando permiso para aterrizar en ella.
-Habrá una función para modelar el aterrizaje y otra para modelar el despegue por una pista dada
+\item Habrá una función para modelar el aterrizaje y otra para modelar el despegue por una pista dada
 (decrementando o incrementando convenientemente la cantidad de aviones en una pista dada, en
 tierra y en el aire).
-Habrá una función para consultar, y otra para establecer, la cantidad de aviones esperando
+\item Habrá una función para consultar, y otra para establecer, la cantidad de aviones esperando
 aterrizar o despegar por cada pista.
-Habrá una función para consultar la cantidad de aviones en tierra y otra para consultar la cantidad
+\item Habrá una función para consultar la cantidad de aviones en tierra y otra para consultar la cantidad
 de aviones en el aire.
-
-No deberá ser posible que un programa modifique el estado de las estructuras de datos sino a
+\item No deberá ser posible que un programa modifique el estado de las estructuras de datos sino a
 través de las funciones dichas.
+\end{itemize}
+\item ¿Cuáles pueden ser los \quotes{agentes externos} al programa que sean capaces de cambiar el valor de una variable \texttt{volatile}?
 \end{enumerate}
+
+
+\begin{table}
+\centering
+\begin{tabular}{p{0.2cm}|p{3cm}|p{3.5cm}|p{3.5cm}|p{3cm}}
+& hdr1.h & fuente1.c & fuente2.c & fuente3.c\\
+\hline
+
+
+a)
+&
+\begin{codecell}
+#define UNO 1   
+#define DOS 2 
+extern int a;
+\end{codecell}
+&
+\begin{codecell}
+#include "hdr1.h"
+main() 
+{ 
+	int b;
+	b = fun1(a);
+}
+\end{codecell}
+&
+\begin{codecell}
+#include "hdr1.h"
+int fun1(int x) 
+{
+	return x+fun2(x);
+}
+static int 
+	fun2(int x) 
+{
+	return x + DOS;
+}
+\end{codecell}
+&
+\begin{codecell}
+#include "hdr1.h"
+int a;
+\end{codecell}\\
+\hline
+
+
+
+b)
+&
+\begin{codecell}
+extern int c;
+extern int 
+	fun1(int p), 
+	fun2(int p);
+\end{codecell}
+&
+\begin{codecell}
+#include "hdr1.h"
+int fun1(int x)
+{
+	return 
+		fun2(x)+1;
+}
+\end{codecell}
+&
+\begin{codecell}
+int a, b, c=1;
+int fun2(int x)
+{
+	return x-1;
+}
+\end{codecell}
+&
+\begin{codecell}
+main()
+{
+	int d;
+	d = fun1(3);
+}
+\end{codecell}\\
+\hline
+
+
+
+c)
+&
+\begin{codecell}
+ 
+\end{codecell}
+&
+\begin{codecell}
+int fun1(int x)
+{
+	return x+1;
+}
+int fun2(int x)
+{
+	return x+2;
+}
+\end{codecell}
+&
+\begin{codecell}
+int fun3(int x)
+{
+	return x+3;
+}
+static int 
+	fun2(int x)
+{
+	return x+4;
+}
+\end{codecell}
+&
+\begin{codecell}
+main()
+{
+	int a;
+	a = fun1(a);
+}
+\end{codecell}\\
+\hline
+
+d)
+&
+\begin{codecell}
+
+\end{codecell}
+&
+\begin{codecell}
+int fun1(int x)
+{
+	extern int b;
+	x = b-fun2(x);
+}
+\end{codecell}
+&
+\begin{codecell}
+static int 
+	a = 1;
+static int 
+	b = 1;
+int fun2(int x) 
+{
+	return x-a;
+}
+\end{codecell}
+&
+\begin{codecell}
+int b;
+main()
+{
+	b = 2;
+	printf("%d",
+		fun1(3));
+}
+\end{codecell}\\
+\hline
+\end{tabular}
+\caption{Conjuntos de fuentes y liga}
+\label{tab:fuentes}
+\end{table}

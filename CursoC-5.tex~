@@ -24,8 +24,11 @@ diferencias entre ambas son muchas e importantes. Por supuesto, la primera conse
 es declarada. Una variable externa puede ser usada \textbf{desde cualquier función de la unidad de traducción},
 siendo suficiente que la declaración se encuentre antes que el uso.
 
-\subsection{Ejemplo}
-
+\begin{ejemplo}
+La variable \texttt{m} declarada al principio es externa, y puede ser vista desde \texttt{fun1()} y \texttt{fun2()}. Sin embargo,
+\texttt{fun1()} declara su propia variable m local, y toda operación con \texttt{m} dentro de \texttt{fun1()} se referirá a esta
+última. Por otro lado, la variable \texttt{n} es también externa, pero es visible sólo por \texttt{fun2()}, porque \textbf{todo uso
+de las variables debe estar precedido por su declaración}. Si apareciera una referencia a la variable \texttt{n} en \texttt{fun1()}, se dispararía un error de compilación. 
 \begin{lstlisting}
 int m;
 int fun1() 
@@ -41,11 +44,8 @@ int fun2()
 	...
 }
 \end{lstlisting}
+\end{ejemplo}
 
-La variable \texttt{m} declarada al principio es externa, y puede ser vista desde \texttt{fun1()} y \texttt{fun2()}. Sin embargo,
-\texttt{fun1()} declara su propia variable m local, y toda operación con \texttt{m} dentro de \texttt{fun1()} se referirá a esta
-última. Por otro lado, la variable \texttt{n} es también externa, pero es visible sólo por \texttt{fun2()}, porque \textbf{todo uso
-de las variables debe estar precedido por su declaración}. Si apareciera una referencia a la variable \texttt{n} en \texttt{fun1()}, se dispararía un error de compilación. 
 
 \section{Vida de las variables}
 
@@ -53,8 +53,8 @@ Una variable externa se crea al \textbf{momento de carga} del programa, y \textb
 del mismo. Una variable local \textbf{se crea y se destruye} a cada invocación de la función donde esté
 declarada (excepción: las locales estáticas).
 
-\subsection{Ejemplo}
-
+\begin{ejemplo}
+Cada vez que \texttt{fun2()} asigna el resultado de \texttt{fun1()} a \texttt{j}, está utilizando el mismo objeto de datos de la misma variable \texttt{j}, porque ésta es externa; pero cada invocación de \texttt{fun1()} crea un nuevo objeto de datos para la variable \texttt{k}, el cual se destruye al terminar esta función.
 \begin{lstlisting}
 int j;
 int fun1()
@@ -67,9 +67,16 @@ int fun2()
 	j=fun1();
 }
 \end{lstlisting}
-Cada vez que \texttt{fun2()} asigna el resultado de \texttt{fun1()} a \texttt{j}, está utilizando el mismo objeto de datos de la misma variable \texttt{j}, porque ésta es externa; pero cada invocación de \texttt{fun1()} crea un nuevo objeto de datos para la variable \texttt{k}, el cual se destruye al terminar esta función.
+\end{ejemplo}
 
-\subsection{Ejemplo}
+\begin{ejemplo}
+
+La diferencia con el ejemplo anterior es que ahora \texttt{k} es declarada con el modificador \textbf{static}. Esto hace
+que \texttt{k} tenga las mismas propiedades de vida que una variable externa. A cada invocación de \texttt{fun1()},
+ésta utiliza el mismo objeto de datos, sin modificarlo, para la variable \texttt{k}. Si lee su valor, encontrará el
+contenido que pueda haberle quedado de la invocación anterior. Si le asigna un valor, la invocación siguiente de \texttt{fun1()}
+encontrará ese valor en \texttt{k}. Este ejemplo muestra que alcance y vida no son propiedades equivalentes en
+C. 
 \begin{lstlisting}
 int j;
 int fun1()
@@ -82,16 +89,10 @@ int fun2()
 	j=fun1();
 }
 \end{lstlisting}
-
-La diferencia con el ejemplo anterior es que ahora \texttt{k} es declarada con el modificador \textbf{static}. Esto hace
-que \texttt{k} tenga las mismas propiedades de vida que una variable externa. A cada invocación de \texttt{fun1()},
-ésta utiliza el mismo objeto de datos, sin modificarlo, para la variable \texttt{k}. Si lee su valor, encontrará el
-contenido que pueda haberle quedado de la invocación anterior. Si le asigna un valor, la invocación siguiente de \texttt{fun1()}
-encontrará ese valor en \texttt{k}. Este ejemplo muestra que alcance y vida no son propiedades equivalentes en
-C. 
-
 La propiedad que diferencia ambas instancias de \texttt{k} es la \textbf{clase de almacenamiento}; en el primer caso,
 \texttt{k} es local y automática; en el segundo, \texttt{k} es local pero estática. 
+\end{ejemplo}
+
 
 \section{Clases de almacenamiento}
 Dependiendo de cómo son almacenados los contenidos de las variables (es decir, en qué lugar del mapa de memoria del programa se mantienen los objetos de datos), éstas pueden tener varias clases de almacenamiento. Una variable \textbf{externa} tiene clase de almacenamiento \textbf{estática}. Una variable \textbf{local} tiene -salvo indicación contraria- clase de almacenamiento \textbf{automática}. Una tercera clase de almacenamiento es la llamada \textbf{registro}. La clase de almacenamiento determina, como se vio recién, la vida de las variables.
@@ -108,8 +109,14 @@ está declarada, y muere al terminar la función. \textbf{No son inicializadas} 
 \item [Variables registro] Una variable registro no ocupará memoria, sino que será mantenida en un registro del procesador.
 \end{description}
 
-\subsection{Ejemplo}
-
+\begin{ejemplo}
+\noindent
+\begin{itemize}
+	\item Aquí \texttt{m}, por ser externa, tiene clase de almacenamiento \textbf{estática}. 
+	\item Las variables \texttt{j}, \texttt{k} y \texttt{l} son locales, pero sólo \texttt{j} es \textbf{automática}. 
+	\item La variable \texttt{l} es \textbf{estática} (tiene propiedades de vida similares a las de \texttt{m}). 
+		\item Por su parte \texttt{k} es de tipo \textbf{registro}, lo que quiere decir que el compilador, siempre que resulte posible, mantendrá sus contenidos en algún registro de CPU de tamaño adecuado. 
+\end{itemize}
 \begin{lstlisting}
 int m;
 int fun()
@@ -120,13 +127,7 @@ int fun()
 	...
 }
 \end{lstlisting}
-
-\begin{itemize}
-	\item Aquí \texttt{m}, por ser externa, tiene clase de almacenamiento \textbf{estática}. 
-	\item Las variables \texttt{j}, \texttt{k} y \texttt{l} son locales, pero sólo \texttt{j} es \textbf{automática}. 
-	\item La variable \texttt{l} es \textbf{estática} (tiene propiedades de vida similares a las de \texttt{m}). 
-		\item Por su parte \texttt{k} es de tipo \textbf{registro}, lo que quiere decir que el compilador, siempre que resulte posible, mantendrá sus contenidos en algún registro de CPU de tamaño adecuado. 
-\end{itemize}
+\end{ejemplo}
 
 
 Una declaración \texttt{register} debe tomarse solamente como una \textit{recomendación} hecha por el programador al compilador, ya que no hay garantías de que, al tiempo de ejecución, resulte posible utilizar un registro para esa variable. Más aún, el mismo programa, compilado y corrido en diferentes arquitecturas, podrá utilizar diferentes cantidades de registros para sus variables.
@@ -141,8 +142,9 @@ no haya indicación alguna por parte del programador.
 
 La clase de almacenamiento automática es natural para las variables locales; ¿cuál es la idea de declarar variables locales que sean estáticas? Generalmente se desea aprovechar la capacidad de \quotes{recordar la historia} de las variables estáticas, utilizando el valor al momento de la última invocación para producir uno nuevo. Por ejemplo, una función puede contar la cantidad de veces que ha sido llamada.
 
-\subsection{Ejemplo}
-\begin{exmp}
+
+\begin{ejemplo}
+Aquí el lazo while se ejecuta 50 veces. La inicialización (implícita o explícita) de una variable estática se produce una única vez, al momento de carga del programa. Por el contrario, la inicialización (explícita) de una automática se hace al crear cada instancia de la misma (al momento de la entrada del control a la función).
 
 \begin{lstlisting}
 int veces()
@@ -157,10 +159,9 @@ int fun()
 	}
 }
 \end{lstlisting}
-\end{exmp}
+\end{ejemplo}
 
 
-Aquí el lazo while se ejecuta 50 veces. La inicialización (implícita o explícita) de una variable estática se produce una única vez, al momento de carga del programa. Por el contrario, la inicialización (explícita) de una automática se hace al crear cada instancia de la misma (al momento de la entrada del control a la función).
 
 
 
@@ -188,65 +189,34 @@ variables. Cada función, al recibir el control, toma parte del stack, con los c
 quedado allí de ejecuciones previas, para alojar allí sus variables. A esto se debe que el programa las
 vea inicializadas con basura.
 
-\subsection{Ejemplo}
-stack
-Antes de entrar a fun1()
--
--
--
-Al entrar a fun1()
-int fun1()
-{
-int a, b;
-fun2(a,b);
-}
-int fun2()
-{
-int c;
-...
-}
-a
-b
--
-Al entrar a fun2()
-a
-b
-c
-Al salir de fun2() y volver a fun1()
-a
-b
--
-Al salir de fun1()
--
--
--
+\figura[11]{stack1}{Objetos de datos en el stack.}{stack1.eps}
+\figura[11]{stack2}{Objetos de datos en el stack bis.}{stack2.eps}
+
+\begin{ejemplo}
+Con el código de la Fig. \ref{fig:stack1}, el estado del stack en momentos sucesivos será: 
+\begin{enumerate}
+\item Antes de entrar a fun1() se tiene el stack vacío.
+\item Al entrar a fun1() se disponen sus variables locales en el stack, en orden de aparición.
+\item Al entrar a fun2() se dispone su variable local en el stack.
+\item Al salir de fun2() y volver a fun1() se desaloja la variable local de fun2().
+\item Al salir de fun1() se desmantela el stack completamente y se vuelve al estado inicial.
+\end{enumerate}
+\end{ejemplo}
+
+\begin{ejemplo}
+Con el código de la Fig. \ref{fig:stack2}, que invoca a dos funciones secuencialmente, el estado del stack en momentos sucesivos será: 
+\begin{enumerate}
+\item Antes de entrar a fun1() se tiene el stack vacío.
+\item Al entrar a fun1() se disponen sus variables locales en el stack, en orden de aparición.
+\item Al terminar fun1() se desmantela el stack.
+\item Al entrar en fun2() se dispone su variable local, cuyo objeto de datos tendrá \textit{basura} debida al valor de a dejado por fun1().
+\item Al salir de fun2() se desmantela su stack completamente y se vuelve al estado inicial.
+\end{enumerate}
+\end{ejemplo}
+
 \section{Liga}
-Una vez que un conjunto de unidades de traducción pasa exitosamente la compilación, tenemos un
-conjunto de módulos objeto. Cada módulo objeto puede contener, en forma simbólica, pendiente de
-resolución, \textbf{referencias} a variables o funciones definidas en otros módulos.
-La propiedad de las variables y funciones que permite que el linker encuentre la \textbf{definición} de un
-objeto para aparearlo con su \textbf{referencia} es la \textbf{liga externa}. Tienen liga externa las \textbf{variables externas y
-las funciones}, de modo que todas éstas pueden ser referenciadas desde otras unidades de traducción.
 
-\subsection{Ejemplo}
-
-
-% \tabla{ejliga}{Liga de las variables.}{l|l|l}
-% {
-% alfa.c & beta.c & gamma.c \\
-% \hline
-% \texttt{main()}   		& \texttt{int fun1()} 		& \texttt{int fun2()}	\\
-% \texttt{\{} 			& \texttt{\{} 				& \texttt{\{}				\\
-% \texttt{	fun1();} 	& \texttt{	...}			& \texttt{  ...}			\\
-% \texttt{	fun2();} 	& \texttt{\}}				& \texttt{	fun3();}			\\
-% \texttt{\}}				&							& \texttt{	...}			\\
-% 						&							& \texttt{\}}					\\
-% 						&							& \texttt{int fun3()}					\\
-% 						&							& \texttt{\{}					\\
-% 						&							& \texttt{	 ...}					\\
-% 						&							& \texttt{\}}					\\
-% }
-
+\begin{ejemplo}
 \begin{table}
 \centering	
 \begin{tabular}{l|l|l}
@@ -284,8 +254,14 @@ int fun3()
  \caption{Liga de las variables}
  \label{tab:ejliga} 
 \end{table}
+\end{ejemplo}
 
-
+Una vez que un conjunto de unidades de traducción pasa exitosamente la compilación, tenemos un
+conjunto de módulos objeto. Cada módulo objeto puede contener, en forma simbólica, pendiente de
+resolución, \textbf{referencias} a variables o funciones definidas en otros módulos.
+La propiedad de las variables y funciones que permite que el linker encuentre la \textbf{definición} de un
+objeto para aparearlo con su \textbf{referencia} es la \textbf{liga externa}. Tienen liga externa las \textbf{variables externas y
+las funciones}, de modo que todas éstas pueden ser referenciadas desde otras unidades de traducción.
 
 El concepto de liga externa es importante cuando el proyecto de desarrollo abarca varias unidades de
 traducción que deben dar lugar a un ejecutable. Aprovechando la propiedad de liga externa de las
@@ -329,57 +305,77 @@ desde afuera, puede declarárselas static, con lo cual se harán inaccesibles a 
 traducción. El caso típico se presenta cuando se desea hacer opacas las funciones que implementan un
 tipo de datos abstracto, haciéndolas de liga interna mientras que las funciones públicas (las de interfaz)
 se dejan con liga externa.
-- 35 -
-Declaración y definición de variables
-Eduardo Grosclaude 2001
-Ejemplo
-iota.c
+
+
+\begin{ejemplo}
+\begin{table}
+\centering	
+\begin{tabular}{l|l|l}
+iota.c & kappa.c & lambda.c \\
+\hline
+\begin{codecell}
 main()
 {
-fun1();
-fun2();
+	fun1();
+	fun2();
 }
-kappa.c
+\end{codecell}
+&
+\begin{codecell}
 int fun1()
 {
-...
+	...
 }
 static int fun3()
 {
-...
+	...
 }
-lambda.c
+\end{codecell}
+&
+\begin{codecell}
 int fun2()
 {
-...
-fun3();
-....
+	...
+	fun3();
+	...
 }
+\end{codecell}
+\\
+\end{tabular}
+ \caption{Liga de las variables}
+ \label{tab:ejliga2} 
+\end{table}
+\end{ejemplo}
+
 Este ejemplo es casi idéntico al anterior, salvo que la función fun3() ahora está declarada static y por
 este motivo no podrá ser vista por el linker para resolver la referencia pendiente de fun2() en
 lambda.c. La función fun3() tiene liga interna. Las tres unidades de traducción jamás podrán
 satisfacer la compilación.
 Finalmente, las variables locales, al ser visibles únicamente dentro de su función, se dice que no
 tienen liga (el linker nunca llega a operar con ellas).
-Declaración y definición de variables
-Normalmente una declaración de variable (de la forma especificación_de_tipo identificador) funciona
+
+\section{Declaraciones y definiciones}
+Normalmente una declaración de variable (de la forma \texttt{especificación\_de\_tipo identificador}) funciona
 también como definición de la variable. Es decir, no sólo queda advertido el compilador de cuál es el
 tipo del objeto que se va a utilizar, sino que también se crea el espacio de memoria (el objeto de datos)
 que va a alojar la información asociada.
+
 La excepción a esto son los objetos declarados extern. Cuando la declaración de una variable
 cualquiera aparece precedida del modificador extern, ésta indica el tipo asociado, pero no habilita al
 compilador para crear el objeto de datos; se trata de una variable cuya definición debe ser encontrada
 en otra unidad de traducción. La declaración extern tan sólo enuncia el tipo y nombre de la variable
 para que el compilador lo tenga en cuenta.
+
 Una variable externa es visible desde todas las funciones de la unidad de traducción y puede ser
 utilizada desde otras. Esto se debe a la propiedad de liga externa de las variables externas: son visibles
 al linker como candidatos para resolver referencias pendientes.
+
 El requisito para poder utilizar una variable definida en otra unidad de traducción es declararla con el
 modificador extern en aquella unidad de traducción donde se va a utilizar.
+
 Ejemplo
-- 36 -
-Lenguaje C
-Modificadores especiales
+
+
 delta.c
 int m;
 static int n;
@@ -398,6 +394,7 @@ int fun3()
 m=fun1();
 }
 }
+
 El texto delta.c es una unidad de traducción que declara dos variables externas y dos funciones, pero
 hace opacas a la variable n y a la función fun2() con el modificador static. La función fun1() puede
 utilizar a todas ellas por estar dentro de la misma unidad de traducción, pero fun3(), que está en otra,
@@ -409,9 +406,12 @@ definida en delta.c, la referencia no podría ser resuelta a causa de la condici
 Los usos de funciones (como fun1() en eta.c)pueden aparecer sin declaración previa, pero en este caso
 el compilador asumirá tipos de datos default para los argumentos y para el tipo del valor devuelto por
 la función (int en todos los casos).
-Modificadores especiales
-Const
-El modificador const indica que una variable no será modificada. Solamente puede inicializarse, al
+
+\section{Modificadores especiales}
+
+\begin{description}
+	\item[Const] 
+	El modificador const indica que una variable no será modificada. Solamente puede inicializarse, al
 momento de carga del programa (y debería hacerse así, ya que no hay otra manera de asignarle un
 valor).
 const int a=12; /* se declara un entero constante, con inicialización */
@@ -419,7 +419,7 @@ a++;
 /* el compilador no aprobará esta sentencia */
 El modificador const también permite expresar, en el prototipo de una función, que un argumento no
 podrá ser modificado por la función, aun cuando sea pasado por referencia.
-Volatile
+\item [Volatile]
 Los compiladores modernos aplican una cantidad de pasos de optimización cuando ven instrucciones
 aparentemente redundantes o sin efectos, porque su desplazamiento o eliminación puede implicar
 ventajas en tiempo de ejecución o espacio de almacenamiento. Esto es especialmente así si las
@@ -428,12 +428,11 @@ compilador de que una variable será modificada asincrónicamente con la ejecuci
 ejemplo, por efecto de una rutina de atención de interrupciones) y por lo tanto el optimizador no puede
 inferir correctamente su utilidad dentro del programa. Esto evitará que el compilador aplique la lógica
 de optimización a las instrucciones que involucran a esta variable.
-- 37 -
-Ejercicios
-Eduardo Grosclaude 2001
+
 Por ejemplo, el ciclo siguiente podría ser reescrito por un optimizador, extrayendo del ciclo la
-asignación a = beta en el entendimiento de que beta no cambiará en ninguno de los pasos del ciclo.
+asignación \texttt{a=beta} en el entendimiento de que beta no cambiará en ninguno de los pasos del ciclo.
 sin optimizar
+\begin{lstlisting}
 while(!fin) {
 a = beta;
 b = fun(a);
@@ -442,13 +441,22 @@ b = fun(a);
 a = beta;
 while(!fin)
 b = fun(a);
-SIn embargo, si esperamos que la variable beta cambie por acción de algún agente externo a la rutina
+
+\end{lstlisting}
+Sin embargo, si esperamos que la variable beta cambie por acción de algún agente externo a la rutina
 en cuestión, con la declaración previa
+\begin{lstlisting}
 volatile int beta;
+\end{lstlisting}
 el compilador se abstendrá de optimizar las líneas donde intervenga beta.
-Ejercicios
-1. Copie, compile y ejecute el siguiente programa. Posteriormente agregue un modificador static sobre
+
+\end{description}
+
+\section{Ejercicios}
+\begin{enumerate}
+	\item Copie, compile y ejecute el siguiente programa. Posteriormente agregue un modificador static sobre
 la variable a y repita la experiencia.
+\begin{lstlisting}
 int fun()
 {
 int a;
@@ -460,7 +468,9 @@ main()
 printf("%d\n", fun());
 printf("%d\n", fun());
 }
-2. ¿Qué imprime este programa?
+\end{lstlisting}
+\item ¿Qué imprime este programa?
+\begin{lstlisting}
 int alfa;
 int fun()
 {
@@ -474,10 +484,9 @@ alfa = 2;
 printf("%d\n",fun());
 printf("%d\n",alfa);
 }
-- 38 -
-Lenguaje C
-Ejercicios
-3. ¿Qué imprime este programa?
+\end{lstlisting}
+\item ¿Qué imprime este programa?
+\begin{lstlisting}
 int alfa;
 int fun(int alfa)
 {
@@ -490,7 +499,8 @@ alfa = 2;
 printf("%d\n",fun(alfa));
 printf("%d\n",alfa);
 }
-4. Copie y compile, juntas, las unidades de traducción que se indican abajo. ¿Qué hace falta para que
+\end{lstlisting}
+ \item Copie y compile, juntas, las unidades de traducción que se indican abajo. ¿Qué hace falta para que
 la compilación sea exitosa?
 fuente1.c
 int a;
@@ -504,9 +514,10 @@ main()
 a = 1;
 printf("d\n", fun1(a));
 }
-5. ¿Qué ocurre si un fuente intenta modificar una variable externa, declarada en otra unidad de
+\item ¿Qué ocurre si un fuente intenta modificar una variable externa, declarada en otra unidad de
 traducción como const? Prepare, compile y ejecute un ejemplo.
-6. ¿Qué resultado puede esperarse de la compilación de estos fuentes?
+\item ¿Qué resultado puede esperarse de la compilación de estos fuentes?
+\begin{lstlisting}
 header.h
 #include <stdio.h>
 #define VALOR 6
@@ -523,18 +534,15 @@ int fun(int x)
 {
 return VALOR * x;
 }
-7. Podemos denotar esquemáticamente que un módulo objeto prueba.o contiene un elemento de datos
+\end{lstlisting}
+\item Podemos denotar esquemáticamente que un módulo objeto prueba.o contiene un elemento de datos
 x y una función fun(), ambos de liga externa, de esta manera:
 prueba.o
 x
 fun()
 Si se tiene un conjunto de archivos y unidades de traducción que se compilarán para formar los
 respectivos módulos objeto, ¿cómo se aplicaría la notación anterior al conjunto de módulos objeto
-resultantes? Hacer el diagrama para los casos siguientes. ¿Hay colisión de nombres? ¿Hay referencias
-- 39 -
-Ejercicios
-Eduardo Grosclaude 2001
-que el linker no pueda resolver? Cada grupo de fuentes, ¿puede producir un ejecutable?
+resultantes? Hacer el diagrama para los casos siguientes. ¿Hay colisión de nombres? ¿Hay referencias que el linker no pueda resolver? Cada grupo de fuentes, ¿puede producir un ejecutable?
 hdr1.h
 a)
 b)
@@ -580,7 +588,7 @@ x = b - fun2(x);
 = 1;
 x) {
 - a;
-8. Un conjunto de programas debe modelar eventos relativos a un aeropuerto. Se necesita preparar una
+\item  Un conjunto de programas debe modelar eventos relativos a un aeropuerto. Se necesita preparar una
 implementación de las estructuras de datos y funciones del aeropuerto, para ser usada por los demás
 programas. Especifique las variables y funciones (en pseudocódigo) que podrán satisfacer los
 siguientes requerimientos. Preste atención a las declaraciones extern y static.
@@ -596,8 +604,7 @@ Habrá una función para consultar, y otra para establecer, la cantidad de avion
 aterrizar o despegar por cada pista.
 Habrá una función para consultar la cantidad de aviones en tierra y otra para consultar la cantidad
 de aviones en el aire.
-- 40 -
-Lenguaje C
-Ejercicios
+
 No deberá ser posible que un programa modifique el estado de las estructuras de datos sino a
 través de las funciones dichas.
+\end{enumerate}
