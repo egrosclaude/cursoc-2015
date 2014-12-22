@@ -9,8 +9,8 @@
 \BOOKMARK [2][-]{section*.7}{Funcionamiento del programa}{section.1.4}% 9
 \BOOKMARK [2][-]{section*.8}{Compilaci\363n del programa}{section.1.4}% 10
 \BOOKMARK [2][-]{section*.9}{El comando make}{section.1.4}% 11
-\BOOKMARK [2][-]{section*.10}{Mapa de memoria de un programa}{section.1.4}% 12
-\BOOKMARK [1][-]{section.1.5}{Ejercicios}{chapter.1}% 13
+\BOOKMARK [1][-]{section.1.5}{Mapa de memoria de un programa}{chapter.1}% 12
+\BOOKMARK [1][-]{section.1.6}{Ejercicios}{chapter.1}% 13
 \BOOKMARK [0][-]{chapter.2}{El preprocesador}{}% 14
 \BOOKMARK [1][-]{section.2.1}{Directivas de preprocesador}{chapter.2}% 15
 \BOOKMARK [1][-]{section.2.2}{Definici\363n de s\355mbolos}{chapter.2}% 16
@@ -50,3 +50,13 @@
 \BOOKMARK [1][-]{section.5.6}{Declaraciones y definiciones}{chapter.5}% 50
 \BOOKMARK [1][-]{section.5.7}{Modificadores especiales}{chapter.5}% 51
 \BOOKMARK [1][-]{section.5.8}{Ejercicios}{chapter.5}% 52
+\BOOKMARK [0][-]{chapter.6}{Operadores}{}% 53
+\BOOKMARK [1][-]{section.6.1}{Operadores aritm\351ticos}{chapter.6}% 54
+\BOOKMARK [1][-]{section.6.2}{Operadores de relaci\363n}{chapter.6}% 55
+\BOOKMARK [1][-]{section.6.3}{Operadores l\363gicos}{chapter.6}% 56
+\BOOKMARK [2][-]{section*.26}{Constantes l\363gicas}{section.6.3}% 57
+\BOOKMARK [1][-]{section.6.4}{Operadores de bits}{chapter.6}% 58
+\BOOKMARK [1][-]{section.6.5}{Operadores especiales}{chapter.6}% 59
+\BOOKMARK [1][-]{section.6.6}{Precedencia y orden de evaluaci\363n}{chapter.6}% 60
+\BOOKMARK [1][-]{section.6.7}{Resumen}{chapter.6}% 61
+\BOOKMARK [1][-]{section.6.8}{Ejercicios}{chapter.6}% 62

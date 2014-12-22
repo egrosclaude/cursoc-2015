@@ -10,44 +10,54 @@
 \contentsline {subsection}{Funcionamiento del programa}{9}{section*.7}
 \contentsline {subsection}{Compilaci\IeC {\'o}n del programa}{9}{section*.8}
 \contentsline {subsection}{El comando make}{10}{section*.9}
-\contentsline {subsection}{Mapa de memoria de un programa}{10}{section*.10}
-\contentsline {section}{\numberline {1.5}Ejercicios}{10}{section.1.5}
-\contentsline {chapter}{\numberline {2}El preprocesador}{13}{chapter.2}
-\contentsline {section}{\numberline {2.1}Directivas de preprocesador}{13}{section.2.1}
-\contentsline {section}{\numberline {2.2}Definici\IeC {\'o}n de s\IeC {\'\i }mbolos}{15}{section.2.2}
-\contentsline {section}{\numberline {2.3}Definici\IeC {\'o}n de macros}{15}{section.2.3}
-\contentsline {section}{\numberline {2.4}Compilaci\IeC {\'o}n condicional}{16}{section.2.4}
-\contentsline {section}{\numberline {2.5}Observaciones}{16}{section.2.5}
-\contentsline {section}{\numberline {2.6}Ejercicios}{17}{section.2.6}
-\contentsline {chapter}{\numberline {3}Tipos de datos y expresiones}{19}{chapter.3}
-\contentsline {section}{\numberline {3.1}Declaraci\IeC {\'o}n de variables}{19}{section.3.1}
-\contentsline {section}{\numberline {3.2}Tama\IeC {\~n}os de los objetos de datos}{20}{section.3.2}
-\contentsline {section}{\numberline {3.3}Operaciones con distintos tipos}{21}{section.3.3}
-\contentsline {subsection}{Truncamiento en asignaciones}{21}{section*.12}
-\contentsline {subsection}{Promoci\IeC {\'o}n autom\IeC {\'a}tica de expresiones}{22}{section*.13}
-\contentsline {subsection}{Operador cast}{22}{section*.14}
-\contentsline {subsection}{Reglas de promoci\IeC {\'o}n en expresiones}{23}{section*.15}
-\contentsline {section}{\numberline {3.4}Observaciones}{23}{section.3.4}
-\contentsline {section}{\numberline {3.5}Una herramienta: printf()}{24}{section.3.5}
-\contentsline {subsection}{Ejemplos}{24}{section*.17}
-\contentsline {section}{\numberline {3.6}Ejercicios}{25}{section.3.6}
-\contentsline {chapter}{\numberline {4}Constantes}{29}{chapter.4}
-\contentsline {section}{\numberline {4.1}Constantes enteras}{29}{section.4.1}
-\contentsline {section}{\numberline {4.2}Constantes long}{29}{section.4.2}
-\contentsline {section}{\numberline {4.3}Constantes unsigned}{29}{section.4.3}
-\contentsline {section}{\numberline {4.4}Constantes string}{29}{section.4.4}
-\contentsline {section}{\numberline {4.5}Constantes de car\IeC {\'a}cter}{30}{section.4.5}
-\contentsline {subsection}{Constantes de car\IeC {\'a}cter en strings}{31}{section*.18}
-\contentsline {section}{\numberline {4.6}Constantes de punto flotante}{31}{section.4.6}
-\contentsline {section}{\numberline {4.7}Constantes enumeradas}{32}{section.4.7}
-\contentsline {section}{\numberline {4.8}Ejemplos}{32}{section.4.8}
-\contentsline {section}{\numberline {4.9}Ejercicios}{32}{section.4.9}
-\contentsline {chapter}{\numberline {5}Propiedades de las variables}{35}{chapter.5}
-\contentsline {section}{\numberline {5.1}Alcance de las variables}{35}{section.5.1}
-\contentsline {section}{\numberline {5.2}Vida de las variables}{36}{section.5.2}
-\contentsline {section}{\numberline {5.3}Clases de almacenamiento}{36}{section.5.3}
-\contentsline {section}{\numberline {5.4}Variables y mapa de memoria}{38}{section.5.4}
-\contentsline {section}{\numberline {5.5}Liga}{39}{section.5.5}
-\contentsline {section}{\numberline {5.6}Declaraciones y definiciones}{40}{section.5.6}
-\contentsline {section}{\numberline {5.7}Modificadores especiales}{42}{section.5.7}
-\contentsline {section}{\numberline {5.8}Ejercicios}{43}{section.5.8}
+\contentsline {section}{\numberline {1.5}Mapa de memoria de un programa}{10}{section.1.5}
+\contentsline {section}{\numberline {1.6}Ejercicios}{12}{section.1.6}
+\contentsline {chapter}{\numberline {2}El preprocesador}{15}{chapter.2}
+\contentsline {section}{\numberline {2.1}Directivas de preprocesador}{15}{section.2.1}
+\contentsline {section}{\numberline {2.2}Definici\IeC {\'o}n de s\IeC {\'\i }mbolos}{16}{section.2.2}
+\contentsline {section}{\numberline {2.3}Definici\IeC {\'o}n de macros}{17}{section.2.3}
+\contentsline {section}{\numberline {2.4}Compilaci\IeC {\'o}n condicional}{18}{section.2.4}
+\contentsline {section}{\numberline {2.5}Observaciones}{18}{section.2.5}
+\contentsline {section}{\numberline {2.6}Ejercicios}{19}{section.2.6}
+\contentsline {chapter}{\numberline {3}Tipos de datos y expresiones}{21}{chapter.3}
+\contentsline {section}{\numberline {3.1}Declaraci\IeC {\'o}n de variables}{21}{section.3.1}
+\contentsline {section}{\numberline {3.2}Tama\IeC {\~n}os de los objetos de datos}{22}{section.3.2}
+\contentsline {section}{\numberline {3.3}Operaciones con distintos tipos}{23}{section.3.3}
+\contentsline {subsection}{Truncamiento en asignaciones}{23}{section*.12}
+\contentsline {subsection}{Promoci\IeC {\'o}n autom\IeC {\'a}tica de expresiones}{24}{section*.13}
+\contentsline {subsection}{Operador cast}{24}{section*.14}
+\contentsline {subsection}{Reglas de promoci\IeC {\'o}n en expresiones}{25}{section*.15}
+\contentsline {section}{\numberline {3.4}Observaciones}{25}{section.3.4}
+\contentsline {section}{\numberline {3.5}Una herramienta: printf()}{26}{section.3.5}
+\contentsline {subsection}{Ejemplos}{26}{section*.17}
+\contentsline {section}{\numberline {3.6}Ejercicios}{27}{section.3.6}
+\contentsline {chapter}{\numberline {4}Constantes}{31}{chapter.4}
+\contentsline {section}{\numberline {4.1}Constantes enteras}{31}{section.4.1}
+\contentsline {section}{\numberline {4.2}Constantes long}{31}{section.4.2}
+\contentsline {section}{\numberline {4.3}Constantes unsigned}{31}{section.4.3}
+\contentsline {section}{\numberline {4.4}Constantes string}{31}{section.4.4}
+\contentsline {section}{\numberline {4.5}Constantes de car\IeC {\'a}cter}{32}{section.4.5}
+\contentsline {subsection}{Constantes de car\IeC {\'a}cter en strings}{33}{section*.18}
+\contentsline {section}{\numberline {4.6}Constantes de punto flotante}{33}{section.4.6}
+\contentsline {section}{\numberline {4.7}Constantes enumeradas}{34}{section.4.7}
+\contentsline {section}{\numberline {4.8}Ejemplos}{34}{section.4.8}
+\contentsline {section}{\numberline {4.9}Ejercicios}{34}{section.4.9}
+\contentsline {chapter}{\numberline {5}Propiedades de las variables}{37}{chapter.5}
+\contentsline {section}{\numberline {5.1}Alcance de las variables}{37}{section.5.1}
+\contentsline {section}{\numberline {5.2}Vida de las variables}{38}{section.5.2}
+\contentsline {section}{\numberline {5.3}Clases de almacenamiento}{38}{section.5.3}
+\contentsline {section}{\numberline {5.4}Variables y mapa de memoria}{40}{section.5.4}
+\contentsline {section}{\numberline {5.5}Liga}{41}{section.5.5}
+\contentsline {section}{\numberline {5.6}Declaraciones y definiciones}{42}{section.5.6}
+\contentsline {section}{\numberline {5.7}Modificadores especiales}{44}{section.5.7}
+\contentsline {section}{\numberline {5.8}Ejercicios}{45}{section.5.8}
+\contentsline {chapter}{\numberline {6}Operadores}{51}{chapter.6}
+\contentsline {section}{\numberline {6.1}Operadores aritm\IeC {\'e}ticos}{51}{section.6.1}
+\contentsline {section}{\numberline {6.2}Operadores de relaci\IeC {\'o}n}{52}{section.6.2}
+\contentsline {section}{\numberline {6.3}Operadores l\IeC {\'o}gicos}{52}{section.6.3}
+\contentsline {subsection}{Constantes l\IeC {\'o}gicas}{53}{section*.26}
+\contentsline {section}{\numberline {6.4}Operadores de bits}{53}{section.6.4}
+\contentsline {section}{\numberline {6.5}Operadores especiales}{54}{section.6.5}
+\contentsline {section}{\numberline {6.6}Precedencia y orden de evaluaci\IeC {\'o}n}{54}{section.6.6}
+\contentsline {section}{\numberline {6.7}Resumen}{55}{section.6.7}
+\contentsline {section}{\numberline {6.8}Ejercicios}{55}{section.6.8}

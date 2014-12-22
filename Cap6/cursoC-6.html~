@@ -1,0 +1,479 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+  <meta http-equiv="CONTENT-TYPE"
+ content="text/html; charset=iso-8859-1">
+  <title>6. Operadores</title>
+  <meta name="GENERATOR" content="StarOffice/5.2 (Linux)">
+  <meta name="AUTHOR" content="Eduardo Grosclaude">
+  <meta name="CREATED" content="20010510;19252200">
+  <meta name="CHANGEDBY" content="Eduardo Grosclaude">
+  <meta name="CHANGED" content="20010816;20533200">
+  <style>
+	<!--
+		PRE { margin-left: 0.4cm }
+	-->
+	</style>
+</head>
+<body bgcolor="#ffffff">
+<p style="page-break-before: always;">
+</p>
+<h1 align="justify">6. Operadores</h1>
+<h2 align="justify"><a name="aritm&eacute;ticos"></a>Operadores
+aritm&eacute;ticos</h2>
+<p align="justify">El C tiene un conjunto de operadores muy rico,
+incluyendo algunos que es dif&iacute;cil encontrar en otros lenguajes
+de programaci&oacute;n. Comenzamos por los operadores
+aritm&eacute;ticos.</p>
+<p
+ style="border: 1pt solid rgb(0, 0, 0); padding: 0.05cm; margin-bottom: 0cm; margin-left: 0.51cm; margin-right: 5cm; page-break-inside: avoid;"
+ align="justify">
+<b>+, -, *, / (operaciones aritm&eacute;ticas usuales)</b></p>
+<p
+ style="border: 1pt solid rgb(0, 0, 0); padding: 0.05cm; margin-bottom: 0cm; margin-left: 0.51cm; margin-right: 5cm; page-break-inside: avoid;"
+ align="justify">
+<b>% (operador m&oacute;dulo)</b></p>
+<p
+ style="border: 1pt solid rgb(0, 0, 0); padding: 0.05cm; margin-bottom: 0cm; margin-left: 0.51cm; margin-right: 5cm; page-break-inside: avoid;"
+ align="justify">
+<b>++, -- (incremento y decremento)</b></p>
+<h3>Ejemplo</h3>
+<pre style="color: rgb(0, 128, 0); font-weight: bold;"><strong>unsigned char a,b;<br>a=VALOR / 256;<br>b=VALOR % 256;</strong>  <br>  </pre>
+<p align="justify">Aqu&iacute; <b>a </b>y<b> b</b> reciben
+respectivamente el cociente y
+el resto de dividir un <b>VALOR</b> por 256. Imprimi&eacute;ndolos
+podemos ver c&oacute;mo una CPU en la cual un <b>unsigned short int</b>
+tuviera un tama&ntilde;o de 16 bits almacenar&iacute;a ese <b>VALOR</b>
+sobre dos bytes.</p>
+<p align="justify">No existe operador de exponenciaci&oacute;n en C. En
+cambio est&aacute; implementada una funci&oacute;n <b>pow()</b> en la
+<b>biblioteca standard.</b></p>
+<p align="justify">No existe operador de divisi&oacute;n entera opuesto
+a la divisi&oacute;n entre n&uacute;meros reales, como en Pascal. Sin
+embargo, la divisi&oacute;n entre enteros da un entero: el resultado
+se trunca debido a las reglas de evaluaci&oacute;n de expresiones.</p>
+<h3>Ejemplo</h3>
+<pre><font color="#008000"><strong>float c;<br>int j,k;<br>j=3; <br>k=2;<br>c=j/k;</strong> <br></font>
+</pre>
+<p align="justify">La divisi&oacute;n de <b>j </b>por<b> k</b> es
+<b>entera</b>.
+</p>
+<p align="justify">Los operadores de incremento y decremento <b>++</b>
+y<b> -- </b>equivalen a las sentencias del tipo <b>a=a+1</b> o <b>b=b-1</b>.
+Suman o restan una unidad a su argumento, que debe ser un tipo
+entero. Se comportan diferentemente seg&uacute;n que se apliquen en
+forma prefija o sufija. </p>
+<table border="1" bordercolor="#000000" cellpadding="4" cellspacing="0"
+ width="100%">
+  <colgroup><col width="256"></colgroup><thead> <tr>
+    <td valign="top" width="100%">
+    <p>Aplicados como prefijos, el valor devuelto por la
+expresi&oacute;n es el valor incrementado o decrementado.</p>
+    </td>
+  </tr>
+  </thead> <tbody>
+    <tr>
+      <td valign="top" width="100%">
+      <p>Aplicados como sufijos, el incremento o decremento se realiza
+como efecto lateral, pero el valor devuelto por la expresi&oacute;n es
+el anterior al incremento o decremento.</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h3>Ejemplos</h3>
+<dl>
+  <dl>
+    <dd>
+      <table border="1" bordercolor="#000000" cellpadding="2"
+ cellspacing="0" width="219">
+        <colgroup><col width="127"><col width="39"><col width="39"></colgroup><tbody>
+          <tr>
+            <td rowspan="2" bgcolor="#cccccc" width="127">
+            <p align="center"><b>Sentencias</b></p>
+            </td>
+            <td colspan="2" bgcolor="#cccccc" valign="top" width="82">
+            <p align="center"><b>Resultado</b></p>
+            </td>
+          </tr>
+          <tr valign="top">
+            <td bgcolor="#cccccc" width="39">
+            <p align="center"><b>a</b></p>
+            </td>
+            <td bgcolor="#cccccc" width="39">
+            <p align="center"><b>b</b></p>
+            </td>
+          </tr>
+          <tr valign="top">
+            <td width="127">
+            <p align="center">a=5; b=++a;</p>
+            </td>
+            <td width="39">
+            <p align="center">6</p>
+            </td>
+            <td width="39">
+            <p align="center">6</p>
+            </td>
+          </tr>
+          <tr valign="top">
+            <td width="127">
+            <p align="center">a=5; b=a++; </p>
+            </td>
+            <td width="39">
+            <p align="center">6</p>
+            </td>
+            <td width="39">
+            <p align="center">5</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </dd>
+  </dl>
+</dl>
+<p style="margin-bottom: 0cm;" align="justify">Existe una forma de
+abreviar la notaci&oacute;n en
+las expresiones del tipo <b>a=a*b, a=a+b</b>. Podemos escribir
+respectivamente
+</p>
+<pre><font style="color: rgb(0, 128, 0); font-weight: bold;"
+ color="#008000"><strong>a *= b;<br>a += b;</strong></font><span
+ style="color: rgb(0, 128, 0); font-weight: bold;"> </span><br></pre>
+<p align="justify">Esto se aplica a todos los operadores
+aritm&eacute;ticos y de bits.<br>
+</p>
+<br>
+<h2 align="justify"><a name="de relaci&oacute;n"></a>Operadores de
+relaci&oacute;n</h2>
+<p style="margin-bottom: 0cm;" align="justify">
+</p>
+<p
+ style="border: 1pt solid rgb(0, 0, 0); padding: 0.05cm; margin-bottom: 0cm; margin-left: 0.51cm; margin-right: 5cm; page-break-inside: avoid;"
+ align="justify">
+<b>== (igual)</b></p>
+<p
+ style="border: 1pt solid rgb(0, 0, 0); padding: 0.05cm; margin-bottom: 0cm; margin-left: 0.51cm; margin-right: 5cm; page-break-inside: avoid;"
+ align="justify">
+<b>&lt;, &gt;, &lt; = ,&gt; =</b></p>
+<p
+ style="border: 1pt solid rgb(0, 0, 0); padding: 0.05cm; margin-bottom: 0cm; margin-left: 0.51cm; margin-right: 5cm; page-break-inside: avoid;"
+ align="justify">
+<b>!= (distinto de)</b></p>
+<p align="justify">Es un error muy com&uacute;n sustituir el operador
+de relaci&oacute;n <b>"=="</b> por el de asignaci&oacute;n
+<b>"=".</b> Este error l&oacute;gico no provocar&aacute; error de
+compilaci&oacute;n ni de ejecuci&oacute;n, sino que ser&aacute;
+interpretado como una asignaci&oacute;n, que en C puede ser hecha en el
+mismo contexto que una comparaci&oacute;n. La sentencia:
+</p>
+<pre><strong><font color="#008000">if(a=38)<br>     ...</font></strong>
+     </pre>
+<p align="justify"><b>es v&aacute;lida y asigna el valor 38 a la
+variable a!</b> La expresi&oacute;n <b>a=38</b>, como se ver&aacute;
+enseguida, es legal como expresi&oacute;n l&oacute;gica y su valor de
+verdad es TRUE. </p>
+<br>
+<h2 align="justify"><a name="l&oacute;gicos"></a>Operadores l&oacute;gicos</h2>
+<p
+ style="border: 1pt solid rgb(0, 0, 0); padding: 0.05cm; margin-bottom: 0cm; margin-left: 0.51cm; margin-right: 5cm; page-break-inside: avoid;"
+ align="justify">
+<b>!, &amp;&amp;, || (not, and, or)</b></p>
+<h3 align="justify">Ejemplo</h3>
+<pre style="margin-bottom: 0.51cm;"><font style="color: rgb(0, 128, 0);"
+ color="#008000"><strong>a==b || !(c &lt; 2)</strong></font><span
+ style="color: rgb(0, 128, 0);">  </span>  </pre>
+<p style="margin-bottom: 0cm;" align="justify">es una expresi&oacute;n
+l&oacute;gica (<i>a igual a b o no c menor
+que 2).</i><br>
+</p>
+<p align="justify">Al no existir tipo booleano en C, los valores
+l&oacute;gicos se equiparan a los aritm&eacute;ticos. Una
+expresi&oacute;n
+formada con un operador ||, &amp;&amp; o ! da <b>1 si es V, 0 si es
+F</b>. Adem&aacute;s, <b>toda expresi&oacute;n cuyo valor
+aritm&eacute;tico
+sea diferente de 0 es "verdadera". Toda expresi&oacute;n
+que d&eacute; 0 es "falsa".</b></p>
+<h3 align="justify">Ejemplos</h3>
+<ul>
+  <li>
+    <p><font color="#800040"><strong>a - b</strong>,<span> que es una
+expresi&oacute;n aritm&eacute;tica, es tambi&eacute;n una
+expresi&oacute;n l&oacute;gica. Ser&aacute; <strong>F </strong>cuando
+    <strong>a </strong>sea <strong><em>igual </em></strong>a<strong>
+b</strong> .</span></font></p>
+  </li>
+  <li>
+    <p><font color="#800040"><strong>a</strong><span> como
+expresi&oacute;n l&oacute;gica ser&aacute; <strong>V</strong>
+s&oacute;lo cuando a sea <strong><em>distinto</em></strong> de <strong>0</strong>
+.</span></font></p>
+  </li>
+  <li>
+    <p><font color="#800040"><strong>a = 8</strong><span> es una
+expresi&oacute;n de asignaci&oacute;n. Su valor aritm&eacute;tico es el
+valor asignado, por lo cual, como expresi&oacute;n l&oacute;gica, es <strong>V</strong>,
+ya que <strong>8</strong> es <strong><em>distinto</em></strong> de <strong>0</strong>.</span></font></p>
+  </li>
+</ul>
+<p align="justify">Generalmente los compiladores definen dos
+s&iacute;mbolos
+o macros, <b>FALSE</b> y <b>TRUE</b>, en el header <b>stdlib.h, </b>y
+a veces tambi&eacute;n en otros. Su definici&oacute;n suele ser la
+siguiente:</p>
+<pre><font color="#0080ff"><strong>#define FALSE  0<br>#define TRUE   !FALSE</strong></font>   <br>    </pre>
+<p style="margin-bottom: 0cm;" align="justify">Es conveniente utilizar
+estos s&iacute;mbolos para agregar expresividad a los programas.<br>
+</p>
+<h2 align="justify"><a name="de bits"></a>Operadores de bits</h2>
+<p
+ style="border: 1pt solid rgb(0, 0, 0); padding: 0.05cm; margin-bottom: 0cm; margin-left: 0.51cm; margin-right: 5cm; page-break-inside: avoid;"
+ align="justify">
+<b>~ (negaci&oacute;n)</b></p>
+<p
+ style="border: 1pt solid rgb(0, 0, 0); padding: 0.05cm; margin-bottom: 0cm; margin-left: 0.51cm; margin-right: 5cm; page-break-inside: avoid;"
+ align="justify">
+<b>&amp;, | (and, or)</b></p>
+<p
+ style="border: 1pt solid rgb(0, 0, 0); padding: 0.05cm; margin-bottom: 0cm; margin-left: 0.51cm; margin-right: 5cm; page-break-inside: avoid;"
+ align="justify">
+<b>^ (or exclusivo)</b></p>
+<p
+ style="border: 1pt solid rgb(0, 0, 0); padding: 0.05cm; margin-bottom: 0cm; margin-left: 0.51cm; margin-right: 5cm; page-break-inside: avoid;"
+ align="justify">
+<b>&gt;&gt;, &lt;&lt; (desplazamiento a derecha y a izquierda)</b></p>
+<p style="margin-bottom: 0cm;" align="justify"><br>
+</p>
+<p align="justify">El operador de negaci&oacute;n es unario y provoca
+el complemento a uno de su operando. Los operadores <b>and</b>, <b>or</b>
+y <b>or exclusivo</b> son binarios. </p>
+<h3>Ejemplos</h3>
+<pre><strong><font style="color: rgb(0, 128, 0); font-weight: bold;"
+ color="#008000">unsigned char a;<br><br>a= ~255;             /* a &lt;-- 0    */<br>a= 0xf0 ^ 255;       /* a &lt;-- 0x0f */<br>a= 0xf0 &amp; 0x0f;     /* a &lt;-- 0x00 */<br>a= 0xf0 | 0x0f;      /* a &lt;-- 0xff */</font><span
+ style="color: rgb(0, 128, 0); font-weight: bold;">                </span><br></strong>
+</pre>
+<p align="justify">
+Los operadores &gt;&gt; y &lt;&lt; desplazan los bits de un objeto de
+tipo char, int o long, con p&eacute;rdida, una cantidad dada de
+posiciones.
+</p>
+<h3 align="justify">Ejemplos</h3>
+<pre><font color="#008000">
+<strong>unsigned char a,b,c;<br><br>     a=1&lt;&lt;4;<br>     b=2&gt;&gt;1;<br>     c&lt;&lt;= 2; </strong>  </font> <br></pre>
+<p align="justify">
+En el primer caso el 1 se desplaza 4 bits; a vale finalmente 16. En
+el segundo, el bit 1 de la constante 2, a uno, se desplaza un lugar;
+b vale 1. En el tercero, c se desplaza dos bits a la izquierda. Un
+desplazamiento a la izquierda en un bit equivale a una
+multiplicaci&oacute;n
+por 2; un desplazamiento a la derecha en un bit equivale a una
+divisi&oacute;n por 2. Si el bit menos significativo es 1 (si el
+n&uacute;mero es impar), al desplazar a la derecha ese bit se pierde
+(la divisi&oacute;n no es exacta). Si el bit m&aacute;s significativo
+es 1 (si el n&uacute;mero es igual o mayor que la mitad de su rango
+posible), al desplazar a la izquierda ese bit se pierde (la
+multiplicaci&oacute;n dar&iacute;a <i>overflow</i>).<br>
+</p>
+<h2 align="justify"><a name="especiales"></a>Operadores especiales</h2>
+<p
+ style="border: 1pt solid rgb(0, 0, 0); padding: 0.05cm; margin-bottom: 0cm; margin-left: 0.51cm; margin-right: 5cm; page-break-inside: avoid;"
+ align="justify">
+<b>= (asignaci&oacute;n)</b></p>
+<p
+ style="border: 1pt solid rgb(0, 0, 0); padding: 0.05cm; margin-bottom: 0cm; margin-left: 0.51cm; margin-right: 5cm; page-break-inside: avoid;"
+ align="justify">
+<b>= (inicializaci&oacute;n)</b></p>
+<p
+ style="border: 1pt solid rgb(0, 0, 0); padding: 0.05cm; margin-bottom: 0cm; margin-left: 0.51cm; margin-right: 5cm; page-break-inside: avoid;"
+ align="justify">
+<b>?: (ternario)</b></p>
+<p align="justify">Distinguimos los operadores de <b>asignaci&oacute;n</b>
+e <b>inicializaci&oacute;n</b>, que son operaciones diferentes aunque
+desafortunadamente son representadas por el mismo signo. </p>
+<p align="justify">Una inicializaci&oacute;n es la operaci&oacute;n que
+permite asignar un valor inicial a una variable en el momento de su
+creaci&oacute;n:</p>
+<pre style="margin-bottom: 0.51cm;"><font color="#008000"><strong>int a=1;</strong></font></pre>
+<p align="justify">El operador ternario comprueba el valor
+l&oacute;gico
+de una expresi&oacute;n y seg&uacute;n este valor se eval&uacute;a a
+una u otra de las restantes expresiones. Si tenemos:</p>
+<pre style="margin-bottom: 0.51cm; color: rgb(0, 128, 0);"><strong>a=(expresion_1) ? expresion_2 : expresion_3;</strong>    </pre>
+<p align="justify">entonces, si <b>expresion_1</b> es verdadera, el
+ternario se evaluar&aacute;
+a <b>expresion_2</b>, y ese valor ser&aacute; asignado a la variable
+a. Si <b>expresion_1</b> es falsa, a quedar&aacute; con el valor
+<b>expresion_3</b>.</p>
+<h3 align="justify">Ejemplo</h3>
+<pre style="margin-bottom: 0.51cm;"><font color="#008000"><strong>c = b + (a &lt; 0) ? -a : a;</strong></font>         </pre>
+<p align="justify">asigna a <b>c</b> el valor de <b>b</b> m&aacute;s
+el valor absoluto
+de <b>a</b>.<br>
+<br>
+</p>
+<h2><a name="precedencia"></a>Precedencia y orden de evaluaci&oacute;n</h2>
+<p align="justify">En una expresi&oacute;n compleja, formada por varias
+subexpresiones conectadas por operadores, es peligroso hacer depender
+el resultado del orden de evaluaci&oacute;n de las subexpresiones. Si
+los operadores tienen la misma precedencia, la evaluaci&oacute;n se
+hace de izquierda a derecha, pero en caso contrario el orden de
+evaluaci&oacute;n no queda definido. Por ejemplo, en la expresi&oacute;n</p>
+<pre style="margin-bottom: 0.5cm;"><font style="color: rgb(0, 128, 0);"
+ color="#008000"><strong>w * x / ++y + z / y</strong></font><span
+ style="color: rgb(0, 128, 0);">  </span>      </pre>
+<p align="justify">Se puede contar con que primeramente se
+ejecutar&aacute; <b>w *x </b>y
+s&oacute;lo entonces<b> x / ++y</b>, porque los operadores de
+multiplicaci&oacute;n y divisi&oacute;n son de la misma precedencia,
+pero no se puede asegurar que <b>w * x / ++y</b> sea evaluado antes o
+despu&eacute;s de <b>z / y</b>, lo que hace que el resultado de esta
+expresi&oacute;n sea <b>indefinido</b> en C. El remedio es
+secuencializar la ejecuci&oacute;n dividiendo las expresiones en
+sentencias:</p>
+<pre><font style="color: rgb(0, 128, 0);" color="#008000"><strong>a = w * x / ++y;<br>b = a + z / y; </strong></font><span
+ style="color: rgb(0, 128, 0);">  </span>   <br> <br></pre>
+<h2><a name="resumen"></a>Resumen</h2>
+<p align="justify">La tabla siguiente ilustra las relaciones de
+precedencia entre los diferentes operadores. La tabla est&aacute;
+ordenada con los operadores de mayor precedencia a la cabeza. Los que
+se encuentran en el mismo rengl&oacute;n tienen la misma precedencia.
+</p>
+<table border="1" bordercolor="#000000" cellpadding="4" cellspacing="0"
+ height="546" width="261">
+  <colgroup><col width="238"></colgroup><thead> <tr>
+    <td valign="top" width="238">
+    <p align="center"><b>()</b> (llamada a funci&oacute;n) <b>[]</b>
+(indexaci&oacute;n de arreglo) <br>
+    <b>-&gt; . </b>(acceso a miembros de estructuras)</p>
+    </td>
+  </tr>
+  </thead> <tbody>
+    <tr>
+      <td valign="top" width="238">
+      <p align="center"><b>! ~</b> (negaci&oacute;n y complemento a uno)<br>
+      <b>++ --</b> (incremento y decremento)<br>
+      <b>* </b>(indirecci&oacute;n) <b>&amp;</b> (direcci&oacute;n
+de) <br>
+      <b>()</b> (cast, conversi&oacute;n forzada de tipo)<br>
+      <b>sizeof</b> (tama&ntilde;o de variables o tipos)<br>
+      <b>+ </b>unario, <b>- </b>unario</p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" width="238">
+      <p align="center"><b>* / % </b>(aritm&eacute;ticos)</p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" width="238">
+      <p align="center"><b>+ -</b><span> (suma y resta)</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" width="238">
+      <p align="center"><b>&lt;&lt; &gt;&gt; </b>(desplazamiento de
+bits)</p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" width="238">
+      <p align="center"><b>&lt; &lt;= &gt;= &gt; </b> (de
+relaci&oacute;n)</p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" width="238">
+      <p align="center">== != (igual y distinto de)</p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" width="238">
+      <p align="center"><b>&amp;</b> (AND de bits)</p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" width="238">
+      <p align="center"><b>^</b> (XOR de bits)</p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" width="238">
+      <p align="center"><b>| </b>(OR de bits)</p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" width="238">
+      <p align="center"><b>&amp;&amp;</b> (AND l&oacute;gico)</p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" width="238">
+      <p align="center"><b>||</b> (OR l&oacute;gico)</p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" width="238">
+      <p align="center"><b>?: </b>(operador ternario)</p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" width="238">
+      <p align="center"><b>= </b><span>(asignaci&oacute;n)</span></p>
+      <p align="center"><b>+= -= *= /= %= <br>
+&amp;= ^= |= <br>
+&lt;&lt;= &gt;&gt; = </b><span>(</span>abreviados)</p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" width="238">
+      <p align="center"><b>, </b>(operador coma)</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p style="margin-bottom: 0cm;"><br>
+</p>
+<p>
+</p>
+<hr>
+<p></p>
+<h2><a name="ejercicios"></a>Ejercicios</h2>
+<p align="justify">1. &iquest;Qu&eacute; valor l&oacute;gico tienen las
+expresiones siguientes?</p>
+<pre style="margin-left: 0cm;">a. TRUE &amp;&amp; FALSE<br>b. TRUE || FALSE<br>c. 0 &amp;&amp; 1<br>d. 0 || 1<br>e. (c &gt; 2) ? (b &lt; 5) : (2 != a)<br>f. (b == c) ? 2 : FALSE;<br>g. c == a;<br>h. C = A;  <br>i. 0 || TRUE j. TRUE || 2-(1+1) <br>k. TRUE &amp;&amp;  !FALSE <br>l. !(TRUE &amp;&amp; !FALSE)<br>m. x == y  &gt;  2<br></pre>
+<p>
+2. Escriba una macro IDEM(x,y) que devuelva el valor l&oacute;gico TRUE
+si x e y son iguales, y FALSE en caso contrario. Escriba NIDEM(x,y) que
+devuelva TRUE si las expresiones x e y son diferentes y FALSE si son
+iguales.
+</p>
+<p align="justify">3. Escriba una macro PAR(x) que diga si un entero es
+par. Muestre una versi&oacute;n usando el operador <b>%, </b>una
+usando el operador <b>&gt;&gt;, </b><span>una
+usando el operador </span><b>&amp; </b><span>y
+una usando el operador </span><b>|</b><span>.</span></p>
+<p align="justify"> 4.&nbsp; Escriba macros MIN(x,y) y MAX(x,y) que
+devuelvan el menor y el mayor elemento entre x e y. Usando las
+anteriores, escriba macros MIN3(x,y,z) y MAX3(x,y,z)que devuelvan el
+menor y el mayor elemento entre
+tres expresiones.</p>
+<p align="justify"> 5. &iquest;Cu&aacute;l es el significado
+aritm&eacute;tico
+de la expresi&oacute;n <b>1&lt;&lt;x</b> para diferentes valores de
+<b>x</b><span>=0, 1, 2...</span> ?</p>
+<p align="justify">6. Utilice el resultado anterior para escribir una
+macro DOSALA(x) que calcule 2 elevado a la x-&eacute;sima potencia.</p>
+<p align="justify"> 7. &iquest;A qu&eacute; otra expresi&oacute;n es
+igual <b>a&lt;b || a&lt;c &amp;&amp; c&lt;d</b> ?</p>
+<pre style="margin-bottom: 0.5cm;">a&lt;b || (a&lt;c &amp;&amp; c&lt;d)<br>(a&lt;b || a&lt;c) &amp;&amp; c&lt;d</pre>
+<p align="justify">8. Reescribir utilizando abreviaturas:</p>
+<pre style="margin-bottom: 0.5cm;">a = a + 1;<br>b = b * 2;<br>b = b - 1;<br>c = c - 2;<br>d = d % 2;<br>e = e &amp; 0x0F;<br>a = a + 1; <br>b = b + a;<br>a = a - 1; <br>c = c * a;</pre>
+<p align="justify"><br>
+<a href="adicionales/adic6.html#adic1">Ejercicios Adicionales<font
+ color="#000000"> </font> <br>
+</a><br>
+<a href="adicionales/adic6.html#adic2">Ejercicios Avanzados<br>
+<br>
+<hr></a> </p>
+</body>
+</html>

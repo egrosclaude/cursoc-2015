@@ -161,6 +161,7 @@ Algunas nuevas características de C99 son:
 \item Tipo boolean
 \end{itemize}
 
+%TODO C11
 
 \section{El ciclo de compilación}
 Las herramientas esenciales de un ambiente de desarrollo, además de
@@ -258,24 +259,130 @@ Para ver el primer ejemplo en C en funcionamiento:
 
 \begin{enumerate}
 	\item Copiar el programa con cualquier editor de textos y guardarlo en un archivo llamado \texttt{hola.c} en el directorio de trabajo del usuario.
-	\item Sin cambiar de directorio, ejecutar el comando \lstinline{make hola} en una consola o terminal.
-	\item Ejecutar el programa con el comando \lstinline{./hola}. Notar el \textit{punto y barra} del principio, que le indican al \textbf{shell} que debe buscar el programa en el directorio activo.
+	\item Sin cambiar de directorio, invocar al compilador ejecutando el comando \lstinline{gcc hola.c -o hola}. Por defecto, el compilador \textbf{gcc} invocará al vinculador \textbf{ld} para generar el ejecutable a partir del archivo objeto intermedio generado. 
+	\item Ejecutar el programa con el comando \lstinline{./hola}. 
 \end{enumerate}
+
+Notar el \textit{punto y barra} del principio al ejecutar el programa. El punto y barra le indican al \textbf{shell} que debe buscar el programa en el directorio activo.
 
 Lo mismo, pero de otra manera: 
 
 \begin{enumerate}
-\item Como antes, copiar el programa, o usar el mismo archivo fuente de hace un momento.
-\item Sin cambiar de directorio, ejecutar el comando \lstinline{gcc hola.c -o hola}. 
-\item Ejecutar el programa con el comando \lstinline{./hola}. 
+	\item Como antes, copiar el programa, o usar el mismo archivo fuente de hace un momento.
+	\item Sin cambiar de directorio, ejecutar el comando \lstinline{make hola} en una consola o terminal.
+	\item Ejecutar el programa con el comando \lstinline{./hola}. 
 \end{enumerate}
 
-
-La diferencia es que en el primer caso utilizamos la herramienta \texttt{make}, que nos asiste en la compilación de proyectos,
-mientras que en el segundo caso invocamos directamente al compilador \texttt{gcc}. Por defecto, el compilador gcc invocará al vinculador para generar el ejecutable a partir del archivo objeto intermedio generado. En el ejemplo, le decimos al compilador que procese el archivo fuente \texttt{hola.c}, y que el ejecutable de salida (opción \texttt{-o}, de \textit{output}) se llame \texttt{hola}. 
+La diferencia es que en el primer caso invocamos directamente al compilador \texttt{gcc},
+mientras que en el segundo caso utilizamos la herramienta \texttt{make}, que nos asiste en la compilación de proyectos. En el ejemplo, le decimos al compilador que procese el archivo fuente \texttt{hola.c}, y que el ejecutable de salida (opción \texttt{-o}, de \textit{output}) se llame \texttt{hola}. 
 
 
 % \subsection[Mapa de memoria de un programa Mas información ... ]{Mapa de memoria de un programa \href{info/info1.html#info2}{Mas información ...} }
+
+\subsection{El comando make}
+Cuando damos un comando como \lstinline{make hola}, utilizamos el comando \textbf{make} para compilar y vincular el programa \textbf{hola.c}. El comando \textbf{make} contiene la inteligencia para:
+\begin{itemize}
+ 	\item buscar, en el directorio activo, archivos fuente llamados \textbf{hola.*}; 
+ 	\item determinar (a partir de la extensión) que el hallado se trata de un programa en C;
+ 	\item ver que no existe en el directorio activo un programa ejecutable llamado \textbf{hola}, o que, si existe, su fecha de última modificación es anterior a la del fuente;
+ 	\item razonar que, por lo tanto, es necesario compilar el fuente \textbf{hola.c} para producir el ejecutable \textbf{hola};  
+ 	\item e invocar con una cantidad de opciones por defecto al compilador \textbf{gcc}, y renombrar la salida con el nombre
+\textbf{hola}. Éste será el ejecutable que deseamos producir.
+\end{itemize} 
+
+Si se invoca al comando \textbf{make} una segunda vez, éste comprobará, en base a las fechas de
+modificación de los archivos fuente y ejecutable, que no es necesaria la compilación (ya que el
+ejecutable es posterior al fuente). Si editamos el fuente para cambiar algo en el programa, invocar
+nuevamente a make ahora repetirá la compilación (porque ahora el ejecutable es anterior al fuente).
+
+%TODO
+%\subsection{Makefiles}
+
+
+\section{Mapa de memoria de un programa}
+Luego de la compilación y vinculación, el programa ejecutable queda contenido en un archivo. Al ser invocado, el sistema operativo lo carga en memoria, y allí se despliega en una cantidad de secciones de diferentes tamaños y con distintas funciones. 
+
+Los sistemas operativos modernos, salvo raras excepciones, administran la memoria física  usando sistemas de memoria virtual. Cada sistema de memoria virtual funciona de modo diferente. La manera como se distribuyen realmente las secciones de un programa en la memoria física depende fuertemente de la
+forma de administración de memoria del sistema operativo para el cual ha sido compilado y vinculado. Sin embargo,
+el siguiente modelo puede servir de referencia para ilustrar algunas particularidades y problemas
+que irán surgiendo con el estudio del lenguaje.
+
+El programa cargado en memoria se dividirá en cuatro regiones: código o texto, datos
+estáticos, datos dinámicos (o heap), y pila (o stack).
+
+%TODO
+% epigrafe El mapa de memoria de un programa se divide conceptualmente en cuatro regiones
+% figura
+
+
+\begin{description}
+	\item[Texto del programa] La región de texto contendrá el \textbf{código del programa}, es decir, la versión ejecutable de las
+\textbf{instrucciones} que escribió el programador, traducidas por el compilador al lenguaje de la máquina. En
+general, el programa fuente C se compondrá de funciones, que serán replicadas a nivel de máquina por
+subrutinas en el lenguaje del procesador subyacente. Algunas instrucciones C resultarán en última
+instancia en invocaciones a funciones del sistema (por ejemplo, cuando necesitamos escribir en un
+archivo).
+	\item[Datos estáticos] La región de datos estáticos es un lugar de almacenamiento para datos del programa que quedan
+definidos al momento de la compilación. Se trata de datos cuya vida o instanciación no depende de la
+invocación de las funciones. Son las variables estáticas, definidas en el cuerpo del programa que es
+común a todas las funciones. A su vez, esta zona se divide en dos: la de \textbf{datos estáticos inicializados}
+explícitamente por el programa (zona a veces llamada \textbf{bss} por motivos históricos) y la zona de \textbf{datos
+estáticos sin inicializar} (a veces llamada \textbf{data}), que será llenada con ceros binarios al momento de la
+carga del programa.
+	\item[Stack] El stack, o \textbf{pila}, aloja las variables locales de las funciones a medida que esas funciones son invocadas. Cada función que declare variables locales obtendrá espacio de almacenamiento para esas variables en el stack. Al terminar la función, como el ámbito de sus variables desaparece, esas variables son desalojadas y el espacio que ocupaban vuelve a quedar disponible. 
+	\item[Heap] Un programa C puede utilizar estructuras de datos dinámicas, como listas o árboles, que vayan
+creciendo al agregárseles elementos. El programa puede \quotes{pedir} memoria cada vez que necesite alojar
+un nuevo elemento de estas estructuras dinámicas, o para crear buffers temporarios para cualquier uso
+que sea necesario. El \textbf{heap} es la zona de donde el programa obtiene esos trozos de memoria, solicitada en forma dinámica al sistema operativo. El límite del heap se irá desplazando hacia las direcciones superiores.
+
+\end{description}
+
+El tamaño de las regiones de código y de datos estáticos está determinado al momento de compilación
+y es inamovible. Las otras dos regiones quedan en un bloque cuyo tamaño inicial es ajustado por el
+sistema operativo al momento de la carga, pero puede variar durante la ejecución. Este bloque es
+compartido entre ambas regiones. Una de ellas, la de datos dinámicos o heap, crece "hacia arriba"
+(hacia direcciones de memoria más altas); la otra, la pila del programa o stack, crece "hacia abajo" (en
+sentido opuesto).
+
+A diferencia de otros lenguajes con administración de memoria automática, en C normalmente es necesario solicitar explícitamente cada segmento de memoria asignada dinámicamente. Es responsabilidad del programador, también, liberar esta memoria cuando no ya sea necesaria, ya que en C no existe un
+mecanismo de \quotes{recolección de basura}, lo cual sí existe en otros lenguajes, para desalojar
+automáticamente objetos que ya no se utilicen.
+
+Por otro lado, un programa que realice una cadena de invocaciones de muchas funciones, y
+especialmente si éstas utilizan muchas variables locales, hará crecer notablemente su stack,
+desplazando el tope de la pila hacia abajo. La región del stack es el lugar para la creación y destrucción
+de variables locales, que son aquellas que viven mientras tiene lugar la ejecución de la función a la que
+pertenecen. La destrucción de estas variables sí es automática, y se produce al momento de finalizar la
+ejecución de la función.
+
+Este modelo será útil en varias ocasiones para explicar algunas cuestiones especiales del lenguaje C.
+
+%TODO http://www.ualberta.ca/CNS/RESEARCH/LinuxClusters/mem.html
+
+\begin{ejemplo}
+Analicemos en qué lugares quedarán alojados los elementos del programa siguiente.
+
+\begin{lstlisting}
+int a = 1;
+int b;
+int fun()
+{
+	int c;
+	c = a + b;
+}
+main()
+{
+	fun();
+}
+\end{lstlisting} 
+
+\begin{itemize}
+	\item Las variables a y b corresponden a la zona de datos estáticos. La variable a está inicializada con 1, pero como b no está inicializada, recibirá un valor 0.
+\item La variable c aparecerá en el stack cuando se ejecute la función fun().
+\item Las instrucciones de máquina procedentes de la compilación del programa (funciones main() y fun()) serán almacenadas en la región de texto. 
+
+\end{itemize}\end{ejemplo}
+
 
 
 \section{Ejercicios}

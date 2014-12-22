@@ -9,8 +9,7 @@ El preprocesador cumple estas directivas en forma similar a como podrían ser he
 
 El preprocesador sirve para eliminar redundancia y aumentar la expresividad de los programas en C, facilitando su mantenimiento. Si una variable o función se utiliza en varios archivos fuente, es posible aislar su declaración, colocándola en un único archivo aparte que será incluido al tiempo de compilación en los demás fuentes. Esto facilita toda modificación de elementos comunes en los fuentes de un proyecto. Por otro lado, si una misma constante o expresión aparece repetidas veces en un texto, y es posible que su valor deba cambiarse más adelante, es muy conveniente definir esa constante con un símbolo y especificar su valor sólo una vez, mediante un símbolo o macro.
 
-
-\figura[17]{preproc1}{El preprocesador realiza ediciones automáticas de los fuentes antes de entregar el resultado al compilador.}{preprocesador.pdf}
+5\figura[12]{preproc1}{El preprocesador realiza ediciones automáticas de los fuentes.}{ciclo-wmf.eps}
  
 Una de las funciones del preprocesador es sustituir símbolos, o cadenas de texto dadas, por otras 
 (Fig. \ref{fig:preproc1}). La directiva \texttt{define} establece la relación entre los símbolos y su \textbf{expansión}, o cadena 
@@ -18,9 +17,9 @@ a sustituir. Los símbolos indicados con una directiva de definición \texttt{de
 
 Las directivas del preprocesador no pertenecen al lenguaje C en un sentido estricto. El preprocesador \textbf{no comprende ningún aspecto sintáctico ni semántico} de C. Las \textbf{macros} definidas en un programa C \textbf{no son variables ni funciones}, sino simplemente cadenas de texto que serán sustituidas por otras. Las directivas pueden aparecer en cualquier lugar del programa, pero sus efectos se ponen en vigor recién a partir del punto del programa en que aparecen y hasta el final de la unidad de traducción. Es decir, un símbolo o macro puede utilizarse sólo después de la aparición de la directiva que la define, y no antes. Tampoco puede utilizarse en una unidad de traducción diferente, salvo que vuelva a ser definida en ella (los símbolos de preprocesador no se \quotes{propagan} entre unidades de traducción).
 
-Las directivas para incluir archivos suelen darse al principio de los programas, porque en general se desea que su efecto alcance a todo el archivo fuente. Por esta razón los archivos preparados para ser incluidos se denominan \textit{headers} o archivos de cabecera. La implementación de la Biblioteca Standard que viene con un compilador posee sus propios headers, uno por cada módulo de la biblioteca, que declaran funciones y variables de uso general. Estos headers contienen texto legible por humanos, y están en algún subdirectorio predeterminado (llamado \texttt{/usr/include} en UNIX, y dependiendo del compilador en otros sistemas operativos). El usuario puede escribir sus propios headers, y no necesita ubicarlos en el directorio reservado del compilador; puede almacenarlos en el directorio activo durante la compilación. 
+Las directivas para incluir archivos suelen darse al principio de los programas, ya que en general se desea que su efecto alcance a todo el archivo fuente. Por esta razón los archivos preparados para ser incluidos se denominan \textit{headers} o archivos de cabecera. La implementación de la Biblioteca Standard que viene con un compilador posee sus propios headers, uno por cada módulo de la biblioteca, que declaran funciones y variables de uso general. Estos headers contienen texto legible por humanos, y están en algún subdirectorio predeterminado (llamado \texttt{/usr/include} en UNIX, y dependiendo del compilador en otros sistemas operativos). El usuario puede escribir sus propios headers, y no necesita ubicarlos en el directorio reservado del compilador; puede almacenarlos en el directorio activo durante la compilación. 
 
-En los párrafos anteriores, nótese que decimos declarar funciones, y no definirlas; la diferencia es importante y se verá con detalle más adelante. Recordemos por el momento que \textbf{en los headers} de la Biblioteca Standard no aparecen \textbf{definiciones} -es decir, textos- de funciones, sino solamente \textbf{declaraciones o prototipos}, que sirven para anunciar al compilador los tipos y cantidad de los argumentos, etc.
+En los párrafos anteriores, nótese que decimos \textbf{declarar} funciones, y no \textbf{definirlas}; la diferencia es importante y se verá en profundidad más adelante. Recordemos por el momento que \textbf{en los headers} de la Biblioteca Standard no aparecen \textbf{definiciones} -es decir, textos- de funciones, sino solamente \textbf{declaraciones o prototipos}, que sirven para anunciar al compilador detalles como los tipos y cantidad de los argumentos de las funciones.
 
 No se considera buena práctica de programación colocar la definición de una función de uso frecuente en un header. Esto obligaría a recompilar siempre la función cada vez que se la utilizara. Por el contrario, lo ideal sería compilarla una única vez, produciendo un módulo objeto (y posiblemente incorporándolo a una biblioteca). Esto ahorraría el tiempo correspondiente a su compilación, ocupando
 sólo el necesario para la vinculación.
@@ -31,14 +30,14 @@ sólo el necesario para la vinculación.
 
 Si el programa dice:
 \begin{lstlisting}
-a=2*3.14159*20.299322;
+a = 2 * 3.14159 * 20.299322;
 \end{lstlisting}
 Es mucho más claro poner, en su lugar:
 \begin{lstlisting}
 #define PI	3.14159
 #define RADIO	20.299322
 
-a=2*PI*RADIO;
+a = 2 * PI * RADIO;
 \end{lstlisting}
 
 
@@ -97,9 +96,10 @@ precedencia debida, y evitar efectos laterales.
 
 Una característica interesante del preprocesador es que permite la \textbf{compilación condicional} de segmentos de la unidad de traducción, en base a valores de símbolos. Una directiva condicional es aquella que comprueba si un símbolo dado ha sido definido, o si su definición coincide con cierta cadena. El texto del programa que figura entre la directiva y su \texttt{end} será considerado sólo si la comprobación resulta exitosa. Los símbolos o macros pueden ser definidos al tiempo de la compilación, sin alterar el texto del programa, permitiendo así una parametrización del programa en forma separada de su escritura.
 
+\begin{ejemplo}
 Con las directivas condicionales:
 \begin{itemize}
-	\item En el primer caso, definimos una macro \texttt{CARTEL} que equivaldrá a invocar a una función \quotes{imprimir},
+	\item Definimos una macro \texttt{CARTEL} que equivaldrá a invocar a una función \quotes{imprimir},
 pero sólo si el símbolo \texttt{DEBUG} ha sido definido. En otro caso, equivaldrá a la cadena vacía. 
 \begin{lstlisting}
 #ifdef DEBUG
@@ -108,7 +108,15 @@ pero sólo si el símbolo \texttt{DEBUG} ha sido definido. En otro caso, equival
 #define CARTEL(x)
 #endif
 \end{lstlisting}
-\item En el segundo caso, se incluirá uno u otro header dependiendo del valor del símbolo \texttt{SISTEMA}. Tanto
+\item El segmento siguiente muestra un caso con lógica inversa pero equivalente al ejemplo anterior.
+\begin{lstlisting}
+#ifndef DEBUG
+#define CARTEL(x)
+#else
+#define CARTEL(x) imprimir(x)
+#endif
+\end{lstlisting}
+\item En el caso siguiente, se incluirá uno u otro header dependiendo del valor del símbolo \texttt{SISTEMA}. Tanto
 \texttt{DEBUG} como \texttt{SISTEMA} pueden tomar valores al momento de compilación, si se dan como
 argumentos para el compilador. De esta manera se puede modificar el comportamiento del programa
 sin necesidad de editarlo.
@@ -120,16 +128,10 @@ sin necesidad de editarlo.
 #include "header2.h"
 #endif
 \end{lstlisting}
-\item El segmento siguiente muestra un caso con lógica inversa pero equivalente al ejemplo anterior.
-\begin{lstlisting}
-#ifndef DEBUG
-#define CARTEL(x)
-#else
-#define CARTEL(x) imprimir(x)
-#endif
-\end{lstlisting}
+
 \end{itemize}
 
+\end{ejemplo}
 
 
 

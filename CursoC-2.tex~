@@ -31,14 +31,14 @@ sólo el necesario para la vinculación.
 
 Si el programa dice:
 \begin{lstlisting}
-a=2*3.14159*20.299322;
+a = 2 * 3.14159 * 20.299322;
 \end{lstlisting}
 Es mucho más claro poner, en su lugar:
 \begin{lstlisting}
 #define PI	3.14159
 #define RADIO	20.299322
 
-a=2*PI*RADIO;
+a = 2 * PI * RADIO;
 \end{lstlisting}
 
 
@@ -97,9 +97,10 @@ precedencia debida, y evitar efectos laterales.
 
 Una característica interesante del preprocesador es que permite la \textbf{compilación condicional} de segmentos de la unidad de traducción, en base a valores de símbolos. Una directiva condicional es aquella que comprueba si un símbolo dado ha sido definido, o si su definición coincide con cierta cadena. El texto del programa que figura entre la directiva y su \texttt{end} será considerado sólo si la comprobación resulta exitosa. Los símbolos o macros pueden ser definidos al tiempo de la compilación, sin alterar el texto del programa, permitiendo así una parametrización del programa en forma separada de su escritura.
 
+\begin{ejemplo}
 Con las directivas condicionales:
 \begin{itemize}
-	\item En el primer caso, definimos una macro \texttt{CARTEL} que equivaldrá a invocar a una función \quotes{imprimir},
+	\item Definimos una macro \texttt{CARTEL} que equivaldrá a invocar a una función \quotes{imprimir},
 pero sólo si el símbolo \texttt{DEBUG} ha sido definido. En otro caso, equivaldrá a la cadena vacía. 
 \begin{lstlisting}
 #ifdef DEBUG
@@ -108,7 +109,15 @@ pero sólo si el símbolo \texttt{DEBUG} ha sido definido. En otro caso, equival
 #define CARTEL(x)
 #endif
 \end{lstlisting}
-\item En el segundo caso, se incluirá uno u otro header dependiendo del valor del símbolo \texttt{SISTEMA}. Tanto
+\item El segmento siguiente muestra un caso con lógica inversa pero equivalente al ejemplo anterior.
+\begin{lstlisting}
+#ifndef DEBUG
+#define CARTEL(x)
+#else
+#define CARTEL(x) imprimir(x)
+#endif
+\end{lstlisting}
+\item En el caso siguiente, se incluirá uno u otro header dependiendo del valor del símbolo \texttt{SISTEMA}. Tanto
 \texttt{DEBUG} como \texttt{SISTEMA} pueden tomar valores al momento de compilación, si se dan como
 argumentos para el compilador. De esta manera se puede modificar el comportamiento del programa
 sin necesidad de editarlo.
@@ -120,16 +129,10 @@ sin necesidad de editarlo.
 #include "header2.h"
 #endif
 \end{lstlisting}
-\item El segmento siguiente muestra un caso con lógica inversa pero equivalente al ejemplo anterior.
-\begin{lstlisting}
-#ifndef DEBUG
-#define CARTEL(x)
-#else
-#define CARTEL(x) imprimir(x)
-#endif
-\end{lstlisting}
+
 \end{itemize}
 
+\end{ejemplo}
 
 
 

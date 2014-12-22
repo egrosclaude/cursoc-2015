@@ -18,8 +18,7 @@
 \usepackage{appendix}
 \usepackage{listings}
 \usepackage{enumitem}
-
-
+\usepackage{fancyvrb}
 
 
 \usepackage{amsthm} %load after amsmath
@@ -35,7 +34,7 @@
 {}% Theorem head spec (can be left empty, meaning ‘normal’)
 
 \theoremstyle{ejemplo}
-\newtheorem{ejemplo}{Ejemplo}
+\newtheorem{ejemplo}{Ejemplo}[section]
 
 
 \usepackage{multicol}
@@ -114,6 +113,7 @@
     backgroundcolor=\color{white}}%
   }
   {}
+
 
 
 \usepackage[font=small,skip=1cm]{caption}
