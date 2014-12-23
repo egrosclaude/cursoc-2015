@@ -35,5 +35,9 @@
 %\newpage
 \input{CursoC-5}
 %\newpage
+\input{CursoC-6}
+%\newpage
+\input{CursoC-7}
+%\newpage
 
 \end{document}

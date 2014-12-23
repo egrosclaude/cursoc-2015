@@ -9,23 +9,22 @@ El preprocesador cumple estas directivas en forma similar a como podrían ser he
 
 El preprocesador sirve para eliminar redundancia y aumentar la expresividad de los programas en C, facilitando su mantenimiento. Si una variable o función se utiliza en varios archivos fuente, es posible aislar su declaración, colocándola en un único archivo aparte que será incluido al tiempo de compilación en los demás fuentes. Esto facilita toda modificación de elementos comunes en los fuentes de un proyecto. Por otro lado, si una misma constante o expresión aparece repetidas veces en un texto, y es posible que su valor deba cambiarse más adelante, es muy conveniente definir esa constante con un símbolo y especificar su valor sólo una vez, mediante un símbolo o macro.
 
-
-\figura[17]{preproc1}{El preprocesador realiza ediciones automáticas de los fuentes antes de entregar el resultado al compilador.}{preprocesador.pdf}
+5\figura[12]{preproc1}{El preprocesador realiza ediciones automáticas de los fuentes.}{ciclo-wmf.eps}
  
 Una de las funciones del preprocesador es sustituir símbolos, o cadenas de texto dadas, por otras 
-(Fig. \ref{fig:preproc1}). La directiva \texttt{define} establece la relación entre los símbolos y su \textbf{expansión}, o cadena 
-a sustituir. Los símbolos indicados con una directiva de definición \texttt{define} se guardan en una \textbf{tabla de símbolos} durante el preprocesamiento. Habitualmente se llama \textbf{símbolos} a aquellas cadenas que son directamente sustituibles por una expresión, reservándose el nombre de \textbf{macros} para aquellos símbolos cuya expansión es parametrizable (es decir, llevan argumentos formales y reales como en el caso de las funciones). La cadena de expansión puede ser cualquiera, no necesariamente un elemento sintácticamente válido de C.
+(Fig. \ref{fig:preproc1}). La directiva \lstinline{define} establece la relación entre los símbolos y su \textbf{expansión}, o cadena 
+a sustituir. Los símbolos indicados con una directiva de definición \lstinline{define} se guardan en una \textbf{tabla de símbolos} durante el preprocesamiento. Habitualmente se llama \textbf{símbolos} a aquellas cadenas que son directamente sustituibles por una expresión, reservándose el nombre de \textbf{macros} para aquellos símbolos cuya expansión es parametrizable (es decir, llevan argumentos formales y reales como en el caso de las funciones). La cadena de expansión puede ser cualquiera, no necesariamente un elemento sintácticamente válido de C.
 
 Las directivas del preprocesador no pertenecen al lenguaje C en un sentido estricto. El preprocesador \textbf{no comprende ningún aspecto sintáctico ni semántico} de C. Las \textbf{macros} definidas en un programa C \textbf{no son variables ni funciones}, sino simplemente cadenas de texto que serán sustituidas por otras. Las directivas pueden aparecer en cualquier lugar del programa, pero sus efectos se ponen en vigor recién a partir del punto del programa en que aparecen y hasta el final de la unidad de traducción. Es decir, un símbolo o macro puede utilizarse sólo después de la aparición de la directiva que la define, y no antes. Tampoco puede utilizarse en una unidad de traducción diferente, salvo que vuelva a ser definida en ella (los símbolos de preprocesador no se \quotes{propagan} entre unidades de traducción).
 
-Las directivas para incluir archivos suelen darse al principio de los programas, porque en general se desea que su efecto alcance a todo el archivo fuente. Por esta razón los archivos preparados para ser incluidos se denominan \textit{headers} o archivos de cabecera. La implementación de la Biblioteca Standard que viene con un compilador posee sus propios headers, uno por cada módulo de la biblioteca, que declaran funciones y variables de uso general. Estos headers contienen texto legible por humanos, y están en algún subdirectorio predeterminado (llamado \texttt{/usr/include} en UNIX, y dependiendo del compilador en otros sistemas operativos). El usuario puede escribir sus propios headers, y no necesita ubicarlos en el directorio reservado del compilador; puede almacenarlos en el directorio activo durante la compilación. 
+Las directivas para incluir archivos suelen darse al principio de los programas, ya que en general se desea que su efecto alcance a todo el archivo fuente. Por esta razón los archivos preparados para ser incluidos se denominan \textit{headers} o archivos de cabecera. La implementación de la Biblioteca Standard que viene con un compilador posee sus propios headers, uno por cada módulo de la biblioteca, que declaran funciones y variables de uso general. Estos headers contienen texto legible por humanos, y están en algún subdirectorio predeterminado (llamado \lstinline{/usr/include} en UNIX, y dependiendo del compilador en otros sistemas operativos). El usuario puede escribir sus propios headers, y no necesita ubicarlos en el directorio reservado del compilador; puede almacenarlos en el directorio activo durante la compilación. 
 
-En los párrafos anteriores, nótese que decimos declarar funciones, y no definirlas; la diferencia es importante y se verá con detalle más adelante. Recordemos por el momento que \textbf{en los headers} de la Biblioteca Standard no aparecen \textbf{definiciones} -es decir, textos- de funciones, sino solamente \textbf{declaraciones o prototipos}, que sirven para anunciar al compilador los tipos y cantidad de los argumentos, etc.
+En los párrafos anteriores, nótese que decimos \textbf{declarar} funciones, y no \textbf{definirlas}; la diferencia es importante y se verá en profundidad más adelante. Recordemos por el momento que \textbf{en los headers} de la Biblioteca Standard no aparecen \textbf{definiciones} -es decir, textos- de funciones, sino solamente \textbf{declaraciones o prototipos}, que sirven para anunciar al compilador detalles como los tipos y cantidad de los argumentos de las funciones.
 
 No se considera buena práctica de programación colocar la definición de una función de uso frecuente en un header. Esto obligaría a recompilar siempre la función cada vez que se la utilizara. Por el contrario, lo ideal sería compilarla una única vez, produciendo un módulo objeto (y posiblemente incorporándolo a una biblioteca). Esto ahorraría el tiempo correspondiente a su compilación, ocupando
 sólo el necesario para la vinculación.
 
-% La directiva \texttt{\#include} hace que el preprocesador inserte y preprocese otros archivos en el punto donde se indica la directiva. El resultado de preprocesar el archivo incluido puede ser definir otros símbolos y macros, o aun incluir otros archivos. Los archivos destinados a ser incluidos son habitualmente llamados archivos de cabecera o headers. Las directivas de inclusión son anidables, es decir, pueden incluirse headers que a su vez contengan directivas de inclusión. 
+% La directiva \lstinline{\#include} hace que el preprocesador inserte y preprocese otros archivos en el punto donde se indica la directiva. El resultado de preprocesar el archivo incluido puede ser definir otros símbolos y macros, o aun incluir otros archivos. Los archivos destinados a ser incluidos son habitualmente llamados archivos de cabecera o headers. Las directivas de inclusión son anidables, es decir, pueden incluirse headers que a su vez contengan directivas de inclusión. 
 
 \section{Definición de símbolos}
 
@@ -53,9 +52,9 @@ Con las siguientes directivas:
 \end{lstlisting}
 
 \begin{itemize}
-	\item Se incluye el header de biblioteca standard \texttt{stdio.h}, que contiene declaraciones necesarias para
+	\item Se incluye el header de biblioteca standard \lstinline{stdio.h}, que contiene declaraciones necesarias para
 poder utilizar funciones de entrada/salida standard (hacia consola y hacia archivos).
-\item Se incluye un header \texttt{aux.h} escrito por el usuario. Al indicar el nombre del header entre ángulos, como en la línea anterior, especificamos que la búsqueda debe hacerse en los directorios reservados del compilador. Al indicarlo entre comillas, nos referimos al directorio actual.
+\item Se incluye un header \lstinline{aux.h} escrito por el usuario. Al indicar el nombre del header entre ángulos, como en la línea anterior, especificamos que la búsqueda debe hacerse en los directorios reservados del compilador. Al indicarlo entre comillas, nos referimos al directorio actual.
 \item Se define un símbolo MAXITEM equivalente a la constante numérica 100.
 \item Se define una macro DOBLE(X) que deberá sustituirse por la cadena 2*(argumento de la llamada
 a la macro).
@@ -80,7 +79,7 @@ llamada, sino que \textbf{se sustituyen textualmente} en el cuerpo de la macro. 
 #define DOBLE(X) 2*X
 b=DOBLE(40+5);
 \end{lstlisting}
-el resultado será \texttt{b=2*40+5}; y no \texttt{b=2*45}, ni \texttt{b=2*(40+5)}, que presumiblemente es lo que desea el
+el resultado será \lstinline{b=2*40+5}; y no \lstinline{b=2*45}, ni \lstinline{b=2*(40+5)}, que presumiblemente es lo que desea el
 programador.
 
 Este problema puede solucionarse redefiniendo la macro así:
@@ -95,13 +94,13 @@ precedencia debida, y evitar efectos laterales.
 
 \section{Compilación condicional}
 
-Una característica interesante del preprocesador es que permite la \textbf{compilación condicional} de segmentos de la unidad de traducción, en base a valores de símbolos. Una directiva condicional es aquella que comprueba si un símbolo dado ha sido definido, o si su definición coincide con cierta cadena. El texto del programa que figura entre la directiva y su \texttt{end} será considerado sólo si la comprobación resulta exitosa. Los símbolos o macros pueden ser definidos al tiempo de la compilación, sin alterar el texto del programa, permitiendo así una parametrización del programa en forma separada de su escritura.
+Una característica interesante del preprocesador es que permite la \textbf{compilación condicional} de segmentos de la unidad de traducción, en base a valores de símbolos. Una directiva condicional es aquella que comprueba si un símbolo dado ha sido definido, o si su definición coincide con cierta cadena. El texto del programa que figura entre la directiva y su \lstinline{end} será considerado sólo si la comprobación resulta exitosa. Los símbolos o macros pueden ser definidos al tiempo de la compilación, sin alterar el texto del programa, permitiendo así una parametrización del programa en forma separada de su escritura.
 
 \begin{ejemplo}
 Con las directivas condicionales:
 \begin{itemize}
-	\item Definimos una macro \texttt{CARTEL} que equivaldrá a invocar a una función \quotes{imprimir},
-pero sólo si el símbolo \texttt{DEBUG} ha sido definido. En otro caso, equivaldrá a la cadena vacía. 
+	\item Definimos una macro \lstinline{CARTEL} que equivaldrá a invocar a una función \quotes{imprimir},
+pero sólo si el símbolo \lstinline{DEBUG} ha sido definido. En otro caso, equivaldrá a la cadena vacía. 
 \begin{lstlisting}
 #ifdef DEBUG
 #define CARTEL(x)	imprimir(x)
@@ -117,8 +116,8 @@ pero sólo si el símbolo \texttt{DEBUG} ha sido definido. En otro caso, equival
 #define CARTEL(x) imprimir(x)
 #endif
 \end{lstlisting}
-\item En el caso siguiente, se incluirá uno u otro header dependiendo del valor del símbolo \texttt{SISTEMA}. Tanto
-\texttt{DEBUG} como \texttt{SISTEMA} pueden tomar valores al momento de compilación, si se dan como
+\item En el caso siguiente, se incluirá uno u otro header dependiendo del valor del símbolo \lstinline{SISTEMA}. Tanto
+\lstinline{DEBUG} como \lstinline{SISTEMA} pueden tomar valores al momento de compilación, si se dan como
 argumentos para el compilador. De esta manera se puede modificar el comportamiento del programa
 sin necesidad de editarlo.
 
@@ -212,5 +211,5 @@ PRECIO=27.7;
 alfa=doble(6)+5;
 \end{lstlisting}
 \end{enumerate}
-\item Investigue la función de los símbolos predefinidos \texttt{\_\_STDC\_\_}, \texttt{\_\_FILE\_\_} y \texttt{\_\_LINE\_\_}.
+\item Investigue la función de los símbolos predefinidos \lstinline{__STDC__}, \lstinline{__FILE__} y \lstinline{__LINE__}.
 \end{enumerate}

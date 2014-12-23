@@ -177,7 +177,7 @@ texto o modo gráfico.
 
 Cuando encontramos varias de estas herramientas integradas en una sola aplicación, decimos que se trata de un \textbf{IDE} (\textit{Integrated Development Environment}) o ambiente de desarrollo integrado. Un IDE oculta el ciclo de compilación al usuario, con la intención de simplificar el proceso de desarrollo. Sin embargo, conviene conocer qué función se cumple, y qué producto se espera, en cada fase del ciclo de compilación, para poder interpretar las diferentes situaciones de error y poder corregirlas.
 
-\figura[12]{ciclo}{El ciclo de compilación produce un ejecutable \\a partir de archivos fuente.}{ciclo.eps}
+\figura[12]{ciclo}{El ciclo de compilación produce un ejecutable a partir de archivos fuente.}{ciclo.eps}
 
 \subsection{Compilador}
 \begin{itemize}
@@ -207,7 +207,7 @@ referencias pendientes para producir un programa ejecutable.
 
 \subsection{Bibliotecario}
 \begin{itemize}
-	\item El bibliotecario es un administrador de módulos objeto. Su función
+	\item El bibliotecario es un programa administrador de módulos objeto. Su función
 es reunir módulos objeto en archivos llamados \textbf{bibliotecas}, y luego
 permitir la extracción, borrado, reemplazo y agregado de módulos.
 El conjunto de módulos en una biblioteca se completa con una tabla de
@@ -307,13 +307,18 @@ forma de administración de memoria del sistema operativo para el cual ha sido c
 el siguiente modelo puede servir de referencia para ilustrar algunas particularidades y problemas
 que irán surgiendo con el estudio del lenguaje.
 
-El programa cargado en memoria se dividirá en cuatro regiones: código o texto, datos
-estáticos, datos dinámicos (o heap), y pila (o stack).
+El programa cargado en memoria (Fig. \ref{fig:mapa}) se dividirá en cuatro regiones: código o \textbf{texto}, \textbf{datos
+estáticos}, \textbf{heap} (o región de datos dinámicos), y \textbf{stack} (o pila). 
 
-%TODO
-% epigrafe El mapa de memoria de un programa se divide conceptualmente en cuatro regiones
-% figura
+El tamaño de las regiones de código y de datos estáticos está determinado al momento de compilación
+y es inamovible. Las otras dos regiones quedan en un bloque cuyo tamaño inicial es ajustado por el
+sistema operativo al momento de la carga, pero puede variar durante la ejecución. Este bloque es
+compartido entre ambas regiones. Una de ellas, la de datos dinámicos, o heap, crece "hacia arriba"
+(hacia direcciones de memoria más altas); la otra, la pila del programa, o stack, crece "hacia abajo" (en
+sentido opuesto).
 
+
+\figura[4]{mapa}{El mapa de memoria de un programa se divide conceptualmente en cuatro regiones}{mapadememoria.eps}
 
 \begin{description}
 	\item[Texto del programa] La región de texto contendrá el \textbf{código del programa}, es decir, la versión ejecutable de las
@@ -337,12 +342,6 @@ que sea necesario. El \textbf{heap} es la zona de donde el programa obtiene esos
 
 \end{description}
 
-El tamaño de las regiones de código y de datos estáticos está determinado al momento de compilación
-y es inamovible. Las otras dos regiones quedan en un bloque cuyo tamaño inicial es ajustado por el
-sistema operativo al momento de la carga, pero puede variar durante la ejecución. Este bloque es
-compartido entre ambas regiones. Una de ellas, la de datos dinámicos o heap, crece "hacia arriba"
-(hacia direcciones de memoria más altas); la otra, la pila del programa o stack, crece "hacia abajo" (en
-sentido opuesto).
 
 A diferencia de otros lenguajes con administración de memoria automática, en C normalmente es necesario solicitar explícitamente cada segmento de memoria asignada dinámicamente. Es responsabilidad del programador, también, liberar esta memoria cuando no ya sea necesaria, ya que en C no existe un
 mecanismo de \quotes{recolección de basura}, lo cual sí existe en otros lenguajes, para desalojar
