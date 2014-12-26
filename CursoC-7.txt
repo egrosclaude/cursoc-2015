@@ -1,0 +1,313 @@
+
+
+
+
+****** 7. Estructuras de control ******
+Las estructuras de control del C no presentan, en conjunto, grandes diferencias
+con las del resto de los lenguajes estructurados del tipo de Pascal. En
+general, se corresponden casi uno a uno, con las diferencias sintácticas de
+cada caso.
+En los esquemas siguientes, donde figura una sentencia puede reemplazarse por
+varias sentencias encerradas entre llaves (un bloque).
+Estructura alternativa
+Formas típicas de la estructura alternativa son:
+if(expresión)
+    sentencia;
+
+if(expresión)
+    sentencia;
+else
+    sentencia;
+**** Ejemplos ****
+if(a==8)c++;
+    if(c > = 2 || func(b) < 0)
+    if(d)
+        c++;
+    else
+        c += 2;
+En el segundo ejemplo aparecen estructuras anidadas. La cláusula else se aparea
+con el if más interno, salvo que se utilicen llaves, así:
+if(c > = 2) {
+    if(d)
+        c++;
+} else
+    c += 2;
+
+En general, la indentación debe sugerir la estructura; pero es, por supuesto,
+la ubicación de las llaves, y no la indentación, la que determina la
+estructura.
+
+Estructuras repetitivas
+El C dispone de las estructuras adecuadas para procesar conjuntos de 0 o más
+datos (while) y 1 o más datos (do...while).
+**** Estructura while ****
+while(expresión)
+    sentencia;
+**** Estructura do...while ****
+En un lazo while, la comprobación de la expresión se hace al principio de cada
+ciclo. En cambio, en el lazo do...while, se hace al final.
+do {
+    sentencias;
+} while(expresión);
+Ambas estructuras ejecutan su cuerpo de sentencias mientras la expresión
+resulte verdadera.
+**** Estructura for ****
+La iteración es un caso particular de lazo while donde necesitamos que un
+bloque de sentencias se repita una cantidad previamente conocida de veces.
+Estos casos implican la inicialización de variables de control, el incremento o
+decremento de las mismas, y la comprobación por valor límite.
+Estas tareas administrativas se pueden hacer más cómoda y expresivamente con un
+lazo for. El esquema es:
+for(inicialización; condición_mientras;  incremento)
+    sentencia;
+Donde
+    * inicialización es una o más sentencias, separadas por comas, que se
+      ejecutan una única vez al entrar al lazo.
+    * condición_mientras es una expresión lógica, que se comprueba al principio
+      de cada iteración; mientras resulte verdadera se continúa ejecutando el
+      cuerpo.
+    * incremento es una o más sentencias, separadas por comas, que se realizan
+      al final de cada ejecución del cuerpo de la iteración.
+La estructura for es equivalente al siguiente lazo while:
+inicialización;
+while(condición_mientras) {
+    sentencia;
+    incremento;
+}
+Aunque el uso más común de las sentencias de incremento es avanzar o retroceder
+un contador de la cantidad de iteraciones, nada impide que se utilice esa
+sección para cualquier otro fin.
+Cualesquiera de las secciones inicialización, condición_mientras o incremento
+pueden estar vacías. En particular, la sentencia
+for( ; ; )
+es un lazo infinito.
+**** Ejemplos ****
+Este lazo acumula los números 1 a 10 sobre la variable a:
+for(i=1; i<=10; i++)
+    a += i;
+
+Si se quiere asegurar que la variable a tiene un valor inicial cero, se puede
+escribir:
+for(i=1, a=0; i<=10; i++)a += i;
+
+Aprovechando la propiedad del corto circuito en las expresiones lógicas, se
+puede introducir el cuerpo del lazo for en la comprobación (aunque no es
+recomendable si complica la lectura):
+
+for(i=1, a=0; i<=10&amp;&amp; a+=i; i++);
+
+Nótese que el cuerpo de este último for es la sentencia nula. A propósito: es
+un error muy común utilizar un signo ";" de más, así:
+for(i=1; i<=10; i++);
+    a += i;
+
+Esta estructura llevará la variable i desde 1 hasta 10 sin ejecutar ningún otro
+trabajo (lo que se repite es la sentencia nula) y después incrementará a, una
+sola vez, en el valor de la última iteración de i.
+La propiedad de que toda asignación tiene un valor como expresión (el valor
+asignado) permite escribir estructuras de control tales como
+
+while( (a=leercaracter()) != '\033' )
+        procesar(a);
+
+La anterior es una forma muy sintética de la clásica estructura de Pascal:
+a=leercaracter();
+while( a != '\033' ) {
+    procesar(a);
+    a = leercaracter();
+}
+Las expresiones conectadas por los operadores lógicos se evalúan de izquierda a
+derecha, y la evaluación se detiene apenas alcanza a determinarse el valor de
+verdad de la expresión (propiedad "del corto circuito"). Así, si suponemos que
+procesar() siempre devuelve un valor distinto de cero,
+while((a=leercaracter()) != '\033' &amp;&amp; procesar(a));
+equivale a los lazos anteriores.
+Otra versión, utilizando la estructura do...while, podría ser:
+do {
+    if((a=leercaracter()) != '\033')
+        procesar(a);
+} while(a
+    != '\033');
+
+Si utilizamos for, que es esencialmente un while:
+
+for( ; (a=leercaracter()) != '\033'; ) procesar(a);
+
+Aquí dejamos vacías las secciones de inicialización y de incremento. También,
+pero menos claro:
+
+for( ; (a=leercaracter()) != '\033'; procesar(a) );
+
+Estructura de selección
+Dadas varias alternativas, la estructura de selección desvía el control al
+segmento de programa correspondiente. La sintaxis de la estructura switch es
+como sigue:
+switch(expresión_entera) {
+    case expresión_constante1:
+        sentencias;
+        break;
+    case expresión_constante2:
+        sentencias;
+        break;
+    default:
+        sentencias;
+}
+Al entrar al switch, se comprueba el valor de la expresión entera, y si
+coincide con alguna de las constantes propuestas en los rótulos case, se deriva
+el control directamente allí. La sección default no es obligatoria. Sirve para
+derivar allí todos los casos que no se contemplen explícitamente.
+En las expresiones_constantes no se permite la aparición de variables ni
+funciones. Un ejemplo válido con expresiones_constantes sería:
+#define ARRIBA 10
+#define ABAJO   8
+
+switch(valor(tecla)) {
+    case 127+ARRIBA:
+        arriba();
+        break;
+    case 127+ABAJO:
+        abajo();
+        break;
+}
+La sentencia break es necesaria aquí porque, al contrario que en Pascal, el
+control no se detiene al llegar al siguiente rótulo.
+**** Ejemplo ****
+Esta estructura recibe como entrada las variables m y a (mes y año) y da como
+salida d (la cantidad de días del mes).
+switch(m) {
+    case 2:
+        d=28 + bisiesto(a) ? 1 : 0;
+        break;
+    case 4:
+    case 6:
+    case 9:
+    case 11:
+        d= 30;
+    break; default:
+        d= 31;
+    }
+Tanto si m vale 4, 6, 9, como 11, asignamos 30 a d. Al no haber un break
+intermedio, el control cae hasta la asignación d=30.
+La estructura switch tiene varias limitaciones con respecto a su análogo el
+case de Pascal. A saber, no se puede comparar la expresión de selección con
+expresiones no constantes, ni utilizar rangos (el concepto de rango no está
+definido en C).
+
+Transferencia incondicional
+Hay varias sentencias de transferencia incondicional de control en C. Algunas
+tienen aplicación exclusivamente como modificadoras del control dentro de
+estructuras, como break y continue.
+**** Sentencia continue ****
+Utilizada dentro de un lazo while, do...while o for, hace que el control salte
+directamente a la comprobación de la condición de iteración. Así:
+for(i=0; i<100; i++) {
+    if(no_procesar(i))
+        continue;
+    procesar(i);
+}
+
+En este lazo, si la función no_procesar() devuelve valor distinto de cero, no
+se ejecuta el resto del lazo (la función procesar() y otras, si las hubiera,
+hasta la llave final del lazo). Se comprueba la validez de la expresión i<100,
+y si corresponde se inicia una nueva iteración.
+**** Sentencia break ****
+La sentencia break, por el contrario, hace que el control abandone
+definitivamente el lazo:
+while(expresión) {
+    if(ya_no_procesar())
+        break;
+    procesar();
+}
+seguir();
+
+Cuando la función ya_no_procesar() dé distinto de cero, el control saltará a la
+función seguir(), terminando la ejecución de la estructura repetitiva.
+**** Sentencia goto ****
+Un rótulo es un nombre, seguido del carácter ":", que se asocia a un segmento
+de un programa. La sentencia goto transfiere el control a la instrucción
+siguiente a un rótulo. Aunque no promueve la programación estructurada, y se
+sabe que su abuso es perjudicial, goto es útil para resolver algunas
+situaciones. Por ejemplo: anidamiento de lazos con salida forzada.
+for(i=0; i<10; i++) {
+    for(j=0; j<50; j++) {
+        if(ya_no_procesar(i,j))
+            goto final;
+        procesar(i,j);
+    }
+}
+final: imprimir(i,j);
+
+Aquí se podría implementar una estrategia estructurada, en base a break, pero
+el control quedaría retenido en el lazo exterior y se requeriría más lógica
+para resolver este problema. Se complicaría la legibilidad del programa
+innecesariamente.
+Los rótulos a los que puede dirigirse un goto tienen un espacio de nombres
+propio. Es decir, no hay peligro de conflicto entre un rótulo y una variable
+del mismo nombre. Además, el ámbito de un rótulo es local a la función (una
+sentencia goto sólo puede acceder a los rótulos dentro del texto de la función
+donde aparece).
+**** La sentencia return ****
+Permite devolver un valor a la función llamadora. Implica una transferencia de
+control incondicional hasta el punto de llamada de la función que se esté
+ejecutando.
+Observaciones
+Hay errores de programación típicos, relacionados con estructuras de control en
+C, que vale la pena enumerar:
+    * Terminar el encabezado de las estructuras de control con un punto y coma
+      extra
+    * Olvidar la sentencia break separando casos de un switch
+    * Confundir el significado de un lazo do...while tomando la condición de
+      mientras como si fuera una condición de hasta (por analogía con repeat de
+      Pascal).
+===============================================================================
+Ejercicios
+1. Reescribir estas sentencias usando while en vez de for:
+for(i=0; i<=10; i++)
+    a = i;
+
+for( ; j<100; j+=2) {
+    a = j;
+    b = j * 2;
+}
+
+for( ; ; )
+    a++;
+2. Si la función quedanDatos() devuelve el valor lógico que sugiere su nombre,
+¿cuál es la estructura preferible?
+while(quedanDatos()) {
+    procesar();
+}
+
+do {
+    procesar();
+} while(quedanDatos());
+3. ¿Cuál es el error de programación en estos ejemplos?
+for(i = 0; i < 10; i++);
+    a = i - 50L;
+
+while(i < 100) {
+    procesar(i);
+    a = a + i;
+}
+4. ¿Cuál es el valor de x a la salida de los lazos siguientes?
+for(x = 0; x<100; x++);
+
+for(x = 32; x<55; x += 3);
+
+for(x =  10;x>0; x--);
+5. ¿Cuántas X escriben estas líneas?
+for (x = 0; x < 10; x++)
+    for (y = 5;  y >  0; y--)
+        escribir("X");
+6. Escribir sentencias que impriman la tabla de multiplicar para un entero
+dado.
+7. Imprimir la tabla de los diez primeros números primos (sólo divisibles por
+sí mismos y por la unidad).
+8. Escribir las sentencias para calcular el factorial de un entero.
+
+
+Ejercicios_Adicionales
+
+Ejercicios_Avanzados
+
+===============================================================================

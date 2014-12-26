@@ -1,0 +1,249 @@
+
+
+
+
+\chapter{Funciones}
+
+Una unidad de traducción en C contiene un conjunto de funciones. Si entre ellas
+existe una con el nombre especial \textbf{main}, entonces esa unidad de traducción puede
+dar origen a un programa ejecutable, y el comienzo de la función main será el
+punto de entrada al programa.
+
+\section{Declaración y definición de funciones} 
+
+Los tipos de datos de los parámetros recibidos y del resultado que devuelve la
+función quedan especificados en su cabecera. El valor devuelto se expresa
+mediante \textbf{return}:
+
+\begin{ejemplo}
+Una función que recibe un int y un long, y devuelve un int.
+\begin{lstlisting}
+int fun1(int alfa, long beta)
+{
+	...
+}	
+\end{lstlisting}
+
+Una función que recibe dos doubles y devuelve un double.
+\begin{lstlisting}
+double sumar(double x, double y)
+{
+	...
+	return x+y;
+}	
+\end{lstlisting}
+\end{ejemplo}
+
+El caso especial de una función que no desea devolver ningún valor se
+especifica con el modificador \textbf{void}, y en tal caso un return, si lo hay, no debe
+tener argumento. Los paréntesis son necesarios aunque la función no lleve
+parámetros, y en ese caso es recomendable indicarlo con un parámetro void:
+
+\begin{ejemplo}
+Una función que recibe un int, y no devuelve ningún valor.
+\begin{lstlisting}
+void procesar(int k)
+{
+	...
+}	
+\end{lstlisting}
+
+Una función que devuelve un int, y no recibe argumentos.
+\begin{lstlisting}
+int hora(void)
+{
+	...
+}	
+\end{lstlisting}
+\end{ejemplo}
+
+Una función puede ser declarada de un tipo cualquiera y sin embargo no contar
+con una instrucción return. En ese caso su valor de retorno queda
+indeterminado. Además, la función que llama a otra puede utilizar o ignorar el
+valor devuelto, a voluntad, sin provocar errores.
+
+\begin{ejemplo}
+En el caso siguiente se recoge basura en la variable \texttt{a}, ya que \texttt{fun2} no devuelve
+ningún valor pese a ser declarada como de tipo entero.
+\begin{lstlisting}
+int fun2(int x)
+{
+    ...
+    return;
+}
+
+    ...
+    a=fun2(1);
+\end{lstlisting}
+\end{ejemplo}
+
+
+El cuerpo de la función, y en general cualquier cuerpo de instrucciones entre
+llaves, es considerado un bloque. Las \textbf{variables locales} son aquellas declaradas
+dentro del cuerpo de una función, y su declaración debe aparecer antes de
+cualquier sentencia ejecutable. Es legal ubicar la declaración de variables
+como la primera sección dentro de cualquier bloque, aun cuando ya se hayan
+incluido sentencias ejecutables. Sin embargo, no es legal declarar funciones
+dentro de funciones. 
+
+\begin{ejemplo}
+La variable \texttt{v} declarada dentro del bloque
+interno opaca a la declarada al principio de la función.
+\begin{lstlisting}
+int fun3()
+{
+    int j,k,v;
+
+     for(i=0; i<10; i++) {
+        double v;
+        ...
+}
+\end{lstlisting}
+\end{ejemplo}
+
+	
+
+\section{Prototipos de funciones}
+En general, como ocurre con las variables, el uso de una función debe estar
+precedido por su declaración. Sin embargo, el compilador trata el caso de las
+funciones con un poco más de flexibilidad. Un uso de variable sin declaración
+es ilegal, mientras que un uso de función sin definición obliga al compilador a
+suponer ciertos hechos, pero permite proseguir la compilación.
+
+La suposición que hará el compilador, en la primera instancia en que se utilice
+una función y en ausencia de una definición previa, es que el resultado y los
+parámetros de la función son del tipo más \quotes{simple} que pueda representarlos.
+Esto vale tanto para las funciones escritas por el usuario como para las mismas
+funciones de la biblioteca standard. 
+
+Así, si se intenta calcular $e^5$:
+\begin{lstlisting}
+main()
+{
+    double a;
+    a=exp(5);
+}
+\end{lstlisting}
+
+Nada permite al compilador suponer que la función exp() debe devolver algo
+distinto de un entero (el hecho de que se esté asignando su valor a un double
+no es informativo, dada la conversión automática de expresiones que hace el C).
+Además, el argumento 5 puede tomarse a primera vista como int, pudiendo ser que
+en la definición real de la función se haya especificado como double, o alguna
+otra elección de tipo.
+
+En cualquier caso, esto es problemático, porque la comunicación de parámetros
+entre funciones, normalmente, se hace mediante el stack del programa, donde los
+objetos se almacenan como sucesiones de bytes. La función llamada intentará
+recuperar del stack los bytes necesarios para \quotes{armar} los objetos que necesita,
+mientras que la función que llama le ha dejado en el mismo stack menos
+información de la esperada. El programa compilará correctamente pero los datos
+pasados a y desde la función serán truncamientos de los valores deseados.
+
+\section{Redeclaración de funciones}
+Otro problema, relacionado con el anterior, es el que ocurre si permitimos que
+el compilador construya esa declaración provisoria y luego, en la misma unidad
+de traducción, damos la definición de la función, y ésta no concuerda con la
+imaginada por el compilador. La compilación abortará con error de
+\quotes{redeclaración de función}.
+La forma de advertir al compilador de los tipos correctos antes del uso de la
+función es, o bien, definirla (proporcionando su fuente), o incluir su
+prototipo:
+\begin{lstlisting}
+double exp(double x); /* prototipo de exp() */
+main()
+{
+    double a;
+    a=exp(5);
+}
+\end{lstlisting}
+
+En el caso particular de las funciones de biblioteca standard, cada grupo de
+funciones cuenta con su header conteniendo estas declaraciones, que podemos
+utilizar para ahorrarnos tipeo. Para las matemáticas, utilizamos el header
+math.h:
+\begin{lstlisting}
+#include <math.h>
+main()
+{
+    double a;
+    a=exp(5);
+}
+\end{lstlisting}
+
+Un problema más serio que el de la redeclaración de funciones es cuando una
+función es compilada en una unidad de traducción separada A y luego se la
+utiliza, desde una función en otra unidad de traducción B, pero con una
+declaración incorrecta, ya sea porque se ha suministrado un prototipo erróneo o
+porque no se ha suministrado ningún prototipo explícito. y el implícito, que
+puede inferir el compilador, no es el correcto. En este caso la compilación y
+la linkedición tendrán lugar sin errores, pero la conducta al momento de
+ejecución depende de la diferencia entre ambos prototipos, el real y el
+inferido.
+
+\section{Recursividad}
+Las funciones en C pueden ser recursivas, es decir, pueden invocarse a sí
+mismas directa o indirectamente. Siguiendo el principio de que las estructuras
+de programación deben replicar la estructura de los datos, la recursividad de
+funciones es una manera ideal de tratar las estructuras de datos recursivas,
+como árboles, listas, etc.
+\begin{lstlisting}
+int factorial(int x)
+{
+    if(x==0)
+        return 1;
+    return x * factorial(x-1);
+}
+\end{lstlisting}
+
+
+\section{Ejercicios}
+\begin{enumerate}
+	\item Escribir una función que reciba tres argumentos enteros y devuelva un
+entero, su suma.
+\item Escribir una función que reciba dos argumentos enteros y devuelva un long,
+su producto.
+\item Escribir una función que reciba dos argumentos enteros a y b, y utilice a
+las dos anteriores para calcular:
+\begin{lstlisting}
+(a * b + b * 5 + 2) * (a + b + 1)
+\end{lstlisting}
+\item Escribir un programa que utilice la función anterior para realizar el
+cálculo con a=7 y b=3.
+\item ¿Qué está mal en estos ejemplos?
+\begin{enumerate}[label=\alph*.]
+\item 
+\begin{lstlisting}
+int f1(int x, int y);
+{
+    int z;
+    z = x - y;
+    return z;
+}
+\end{lstlisting}
+
+\item 
+\begin{lstlisting}
+void f2(int k)
+{
+    return k + 3;
+}
+\end{lstlisting}
+
+\item 
+\begin{lstlisting}
+int f3(long k)
+{
+    return (k < 0) ? -1 : 1;
+}
+printf("%d\n",f3(8));
+\end{lstlisting}
+\end{enumerate}
+\item Escribir una función que reciba dos argumentos, uno de tipo int y el otro de
+tipo char. La función debe repetir la impresión del char tantas veces como lo
+diga el otro argumento. Escribir un programa para probar la función.
+
+\end{enumerate}
+
+%TODO Ejercicios_Adicionales Ejercicios_Avanzados
+

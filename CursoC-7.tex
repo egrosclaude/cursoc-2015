@@ -1,0 +1,474 @@
+
+
+\chapter{Estructuras de control}
+
+Las estructuras de control de C no presentan, en conjunto, grandes diferencias
+con las del resto de los lenguajes estructurados. En los esquemas siguientes, donde figura una sentencia puede reemplazarse por
+varias sentencias encerradas entre llaves (un bloque).
+
+\section{Estructura alternativa}
+
+Como en la casi totalidad de los lenguajes de programación, la estructura alternativa permite ejecutar un bloque de una o más sentencias cuando la expresión condicional es $V$, y opcionalmente otro bloque cuando dicha expresión es $F$.
+Formas típicas de la estructura alternativa son las siguientes.
+
+\begin{lstlisting}
+if(expresion)
+    sentencia;
+
+if(expresion) {
+    sentencias
+    ...
+}
+
+if(expresion)
+    sentencia;
+else
+    sentencia;
+\end{lstlisting}
+
+\begin{ejemplo}
+El formato de C es libre, y las llaves sólo son necesarias cuando las sentencias de ejecución condicional son más de una. 
+\begin{lstlisting}
+if(a == 8) c++;
+\end{lstlisting}
+Las condiciones lógicas se construyen en base a operadores de relación y lógicos. 
+\begin{lstlisting}
+if(c >= 2 || func(b) < 0)
+\end{lstlisting}
+La cláusula else indica el bloque que se ejcutará en el caso negativo de la condición. 
+\begin{lstlisting}
+if(d)
+	c++;
+else
+	c += 2;
+\end{lstlisting}
+En las estructuras anidadas, la cláusula \texttt{else} se aparea
+con el \texttt{if} más interno, salvo que las llaves expresen otra cosa. 
+
+En el cuadro siguiente, las llaves del Listado 1 muestran cómo están asociadas las estructuras. En el Listado 2, se han quitado, con lo cual la semántica cambia, pero se mantiene la misma indentación, lo que puede dar lugar a confusión. El Listado 2 en realidad es equivalente al Listado 3, que utiliza llaves aunque en forma redundante, y además tiene la indentación correcta.
+
+En general, el estilo de programación debe sugerir la estructura, usando indentación; pero es, por supuesto,
+la ubicación de las llaves, y no la indentación, la que determina la
+estructura.\\
+
+\centering
+\begin{tabular}{l|l|l}
+Listado 1 & Listado 2 & Listado 3\\
+\hline
+\begin{codecell}
+if(c >= 2) {
+    if(d)
+        c++;
+} else
+    c += 2;
+\end{codecell}
+&
+\begin{codecell}
+if(c >= 2) 
+    if(d)
+        c++;
+else
+    c += 2;
+\end{codecell}
+&
+\begin{codecell}
+if(c >= 2) { 
+    if(d)
+        c++;
+	else
+    	c += 2;
+}
+\end{codecell}
+\end{tabular}
+\end{ejemplo}
+
+\section{Estructuras repetitivas}
+
+El lenguaje C dispone de las estructuras adecuadas para procesar conjuntos de \textbf{0 o más}
+datos (estructura \texttt{while}) y \textbf{1 o más} datos (estructura \texttt{do-while}).
+
+Ambas estructuras ejecutan su cuerpo de sentencias mientras la expresión
+resulte verdadera, pero en un lazo \texttt{while}, la comprobación de la expresión se hace \textbf{al principio de cada
+ciclo}. En cambio, en el lazo \texttt{do-while}, se hace \textbf{al final}.
+
+
+\subsection{Estructura while}
+\begin{lstlisting}
+while(expresion)
+    sentencia;
+\end{lstlisting}
+
+\subsection{Estructura do-while}
+\begin{lstlisting}
+do {
+    sentencias;
+} while(expresion);
+\end{lstlisting}
+
+
+\subsection{Estructura for}
+
+La iteración es un caso particular de lazo \texttt{while} donde necesitamos que un
+bloque de sentencias se repita una cantidad previamente conocida de veces.
+Estos casos implican la inicialización de variables de control, el incremento o
+decremento de las mismas, y la comprobación por valor límite.
+Estas tareas administrativas se pueden hacer más cómoda y expresivamente con un
+lazo \texttt{for}. 
+
+El esquema es:
+\begin{lstlisting}
+for(inicializacion; condicion_mientras;  incremento)
+    sentencia;
+\end{lstlisting}
+
+Donde:
+\begin{itemize}
+	\item \textbf{inicialización} es una o más sentencias, separadas por comas, que se
+      ejecutan una única vez al entrar al lazo.
+	\item \textbf{condición\_mientras} es una expresión lógica, que se comprueba al principio
+      de cada iteración. Mientras resulte verdadera, se continúa ejecutando el
+      cuerpo.
+	\item \textbf{incremento} es una o más sentencias, separadas por comas, que se realizan
+      al final de cada ejecución del cuerpo de la iteración. 
+\end{itemize}
+    
+La estructura for es equivalente al siguiente lazo while:
+\begin{lstlisting}
+inicializacion;
+while(condicion_mientras) {
+    sentencia;
+    incremento;
+}
+\end{lstlisting}
+
+Aunque el uso más común de las \textbf{sentencias de incremento} es hacer avanzar o retroceder
+un contador de la cantidad de iteraciones, nada impide que se utilice esa
+sección para cualquier otro fin. 
+
+Cualesquiera de las secciones inicialización, condición\_mientras o incremento
+pueden estar vacías. En particular, la sentencia:
+\begin{lstlisting}
+for( ; ; )
+\end{lstlisting}
+es un lazo infinito.
+
+\begin{ejemplo}\noindent
+\begin{itemize}
+	\item El siguiente lazo acumula los números 1 a 10 sobre la variable \texttt{a}:
+\begin{lstlisting}
+for(i=1; i<=10; i++)
+    a += i;
+\end{lstlisting}
+
+\item Si se quiere asegurar que la variable \texttt{a} tiene un valor inicial cero, se puede
+escribir:
+\begin{lstlisting}
+for(i=1, a=0; i<=10; i++)
+	a += i;
+\end{lstlisting}
+
+\item Aprovechando la propiedad del corto circuito en las expresiones lógicas, se
+puede introducir el cuerpo del lazo \texttt{for} en la comprobación (aunque no es
+recomendable si complica la lectura):
+
+\begin{lstlisting}
+for(i=1, a=0; i<=10 && a+=i; i++);
+\end{lstlisting}
+
+Nótese que el cuerpo de este último for es la sentencia nula. A propósito: es
+un error muy común utilizar un signo ";" de más, así:
+\begin{lstlisting}
+for(i=1; i<=10; i++);
+    a += i;
+\end{lstlisting}
+
+Esta estructura llevará la variable \texttt{i} desde 1 hasta 10 sin ejecutar ningún otro
+trabajo (lo que se repite es la sentencia nula) y después incrementará \texttt{a}, una
+sola vez, en el valor de la última iteración de \texttt{i}.
+
+\item Una clásica estructura de control para un proceso consumidor de objetos:
+\begin{lstlisting}
+a=leercaracter();
+while( a != '\033' ) {
+    procesar(a);
+    a = leercaracter();
+}
+\end{lstlisting}
+
+\item La propiedad de que toda asignación en C tiene un valor como expresión (el valor
+asignado) permite reescribir la estructura de control anterior como:
+
+\begin{lstlisting}
+while( (a=leercaracter()) != '\033' )
+        procesar(a);
+\end{lstlisting}
+
+\item Las expresiones conectadas por los operadores lógicos se evalúan de izquierda a
+derecha, y la evaluación se detiene apenas alcanza a determinarse el valor de
+verdad de la expresión (propiedad \quotes{del corto circuito}). Así, si suponemos que
+procesar() siempre devuelve un valor distinto de cero, la sentencia siguiente equivale a los lazos anteriores.
+
+\begin{lstlisting}
+while((a=leercaracter()) != '\033' && procesar(a));
+\end{lstlisting}
+\item Otra versión, utilizando la estructura do-while, podría ser:
+\begin{lstlisting}
+do {
+    if((a=leercaracter()) != '\033')
+        procesar(a);
+} while(a != '\033');
+\end{lstlisting}
+
+\item Si utilizamos \texttt{for}, que es esencialmente un \textit{while}:
+
+\begin{lstlisting}
+for( ; (a=leercaracter()) != '\033'; ) procesar(a);
+\end{lstlisting}
+
+Aquí dejamos vacías las secciones de inicialización y de incremento. 
+\item También, pero algo menos claro:
+
+\begin{lstlisting}
+for( ; (a=leercaracter()) != '\033'; procesar(a) );
+\end{lstlisting}
+\end{itemize}
+\end{ejemplo}
+
+\section{Estructura de selección}
+
+La estructura de selección (\textit{switch}) es una estructura alternativa múltiple. Dadas varias alternativas, la estructura de selección desvía el control al
+segmento de programa correspondiente. La sintaxis de la estructura \texttt{switch} es
+como sigue:
+\begin{lstlisting}
+switch(expresion_entera) {
+    case expresion_constante1:
+        sentencias;
+        break;
+    case expresion_constante2:
+        sentencias;
+        break;
+    default:
+        sentencias;
+}
+\end{lstlisting}
+Al entrar al switch, se comprueba el valor de la expresión entera, y si
+coincide con alguna de las constantes propuestas en los rótulos \texttt{case}, se deriva
+el control directamente allí. La sección \texttt{default} no es obligatoria. Sirve para
+derivar allí todos los casos que no se contemplen explícitamente.
+En las expresiones\_constantes no se permite la aparición de variables ni
+funciones. Un ejemplo válido con expresiones\_constantes sería:
+
+\begin{lstlisting}
+#define ARRIBA 10
+#define ABAJO   8
+
+switch(valor(tecla)) {
+    case 127+ARRIBA:
+        arriba();
+        break;
+    case 127+ABAJO:
+        abajo();
+        break;
+}
+\end{lstlisting}
+La sentencia \texttt{break}
+ es necesaria aquí porque, al contrario que en Pascal, el
+control no se detiene al llegar al siguiente rótulo.
+
+\begin{ejemplo}
+Esta estructura recibe como entrada las variables \texttt{m} y \texttt{a} (mes y año) y da como
+salida \texttt{d} (la cantidad de días del mes).
+
+\begin{lstlisting}
+switch(m) {
+    case 2:
+        d=28 + bisiesto(a) ? 1 : 0;
+        break;
+    case 4:
+    case 6:
+    case 9:
+    case 11:
+        d= 30;
+    break; default:
+        d= 31;
+    }
+\end{lstlisting}
+Si \texttt{m} vale 4, 6, 9, u 11, la variable \texttt{d} recibe el valor 30. Al no haber un \texttt{break}
+intermedio, el control cae hasta la asignación \lstinline{d = 30}.
+
+La estructura switch tiene algunas limitaciones con respecto a sus análogos en otros lenguajes. A saber, no se puede comparar la expresión de selección con
+expresiones no constantes, ni utilizar rangos (el concepto de rango no está
+definido en C).
+\end{ejemplo}
+
+\section{Transferencia incondicional}
+Hay varias sentencias de transferencia incondicional de control en C. Algunas
+tienen aplicación exclusivamente como modificadoras del control dentro de
+estructuras, como break y continue.
+
+\subsection{Sentencia continue}
+Utilizada dentro de un lazo while, do-while o for, hace que el control salte
+directamente a la comprobación de la condición de iteración. Así:
+\begin{lstlisting}
+for(i=0; i<100; i++) {
+    if(no_procesar(i))
+        continue;
+    procesar(i);
+}
+\end{lstlisting}
+
+En este lazo, si la función \lstinline{no_procesar()} devuelve valor distinto de cero, no
+se ejecuta el resto del lazo (la función procesar() y otras, si las hubiera,
+hasta la llave final del lazo). Se comprueba la validez de la expresión i<100,
+y si corresponde se inicia una nueva iteración.
+
+\subsection{Sentencia break}
+La sentencia break, por el contrario, hace que el control abandone
+definitivamente el lazo:
+\begin{lstlisting}
+while(expresion) {
+    if(ya_no_procesar())
+        break;
+    procesar();
+}
+seguir();
+\end{lstlisting}
+
+Cuando la función \lstinline{ya_no_procesar()} dé distinto de cero, el control saltará a la
+función \lstinline{seguir()}, terminando la ejecución de la estructura repetitiva.
+
+\subsection{Sentencia goto}
+Un rótulo es un nombre, seguido del carácter ":", que se asocia a un segmento
+de un programa. La sentencia \texttt{goto} transfiere el control a la instrucción
+siguiente a un rótulo. Aunque no promueve la programación estructurada, y se
+sabe que su abuso es perjudicial, \texttt{goto} es útil para resolver algunas
+situaciones. Por ejemplo: anidamiento de lazos con salida forzada.
+\begin{lstlisting}
+for(i=0; i<10; i++) {
+    for(j=0; j<50; j++) {
+        if(ya_no_procesar(i,j))
+            goto final;
+        procesar(i,j);
+    }
+}
+final: imprimir(i,j);
+\end{lstlisting}
+
+Aquí se podría implementar una estrategia estructurada, en base a \texttt{break}, pero
+el control quedaría retenido en el lazo exterior y se requeriría más lógica
+para resolver este problema. Se complicaría la legibilidad del programa
+innecesariamente.
+
+Los rótulos a los que puede dirigirse un \texttt{goto} tienen un espacio de nombres
+propio. Es decir, no hay peligro de conflicto entre un rótulo y una variable
+del mismo nombre. Además, el ámbito de un rótulo es local a la función (una
+sentencia \texttt{goto} sólo puede acceder a los rótulos dentro del texto de la función
+donde aparece).
+
+\subsection{Sentencia return}
+Permite devolver un valor a la función llamadora. Implica una transferencia de
+control incondicional hasta el punto de llamada de la función que se esté
+ejecutando.
+
+\section{Observaciones}
+Hay errores de programación típicos, relacionados con estructuras de control en
+C, que vale la pena enumerar:
+\begin{itemize}
+	\item Terminar el encabezado de las estructuras de control con un punto y coma
+      extra
+    \item Olvidar la sentencia break separando casos de un switch
+    \item Confundir el significado de un lazo do-while tomando la condición de
+      mientras como si fuera una condición de hasta (por analogía con repeat de
+      Pascal).
+\end{itemize}
+    
+\section{Ejercicios}
+
+
+\begin{enumerate}
+\item Reescribir estas sentencias usando while en vez de for:
+\begin{enumerate}[label=\alph*.]
+	\item 
+\begin{lstlisting}
+for(i=0; i<=10; i++)
+    a = i;
+\end{lstlisting}
+
+\item 
+\begin{lstlisting}
+for( ; j<100; j+=2) {
+    a = j;
+    b = j * 2;
+}
+\end{lstlisting}
+
+\item 
+\begin{lstlisting}
+for( ; ; )
+    a++;
+\end{lstlisting}
+\end{enumerate}
+
+\item Si la función \lstinline{quedanDatos()} devuelve el valor lógico que sugiere su nombre,
+¿cuál es la estructura preferible?
+\begin{enumerate}[label=\alph*.]
+\item 
+\begin{lstlisting}
+while(quedanDatos()) {
+    procesar();
+}
+\end{lstlisting}
+
+\item 
+\begin{lstlisting}
+do {
+    procesar();
+} while(quedanDatos());
+\end{lstlisting}
+\end{enumerate}
+\item ¿Cuál es el error de programación en estos ejemplos?
+	\begin{enumerate}[label=\alph*.]
+\item 
+\begin{lstlisting}
+for(i = 0; i < 10; i++);
+    a = i - 50L;
+\end{lstlisting}
+
+\item 
+\begin{lstlisting}
+while(i < 100) {
+    procesar(i);
+    a = a + i;
+}
+\end{lstlisting}
+\end{enumerate}
+\item ¿Cuál es el valor de x a la salida de los lazos siguientes?
+	\begin{enumerate}[label=\alph*.]
+	\item 
+\begin{lstlisting}
+for(x = 0; x<100; x++);
+\end{lstlisting}
+
+	\item 
+\begin{lstlisting}
+for(x = 32; x<55; x += 3);
+\end{lstlisting}
+
+	\item 
+\begin{lstlisting}
+for(x =  10;x>0; x--);
+\end{lstlisting}
+\end{enumerate}
+\item ¿Cuántas X escriben estas líneas?
+\begin{lstlisting}
+for (x = 0; x < 10; x++)
+    for (y = 5;  y >  0; y--)
+        escribir("X");
+\end{lstlisting}
+\item Escribir sentencias que impriman la tabla de multiplicar para un entero
+dado.
+\item Imprimir la tabla de los diez primeros números primos (sólo divisibles por
+sí mismos y por la unidad).
+\item Escribir las sentencias para calcular el factorial de un entero.
+\end{enumerate}
+%TODO Ejercicios_Adicionales Ejercicios_Avanzados
