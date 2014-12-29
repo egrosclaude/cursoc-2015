@@ -15,7 +15,7 @@ elementos se acceden indexando el bloque con expresiones enteras entre
 corchetes.
 \\
 \\ 
-\recuadro{En C, los arreglos se indexan a partir de 0.}
+\importante{En C, los arreglos se indexan a partir de 0.}
 
 \begin{ejemplo}
 Declaraciones y uso de arreglos.
@@ -256,11 +256,12 @@ union intchar k;
 k.i = 30541;
 b = k.a[2];
 \end{lstlisting}
-
-      El diagrama ilustra los diferentes desplazamientos u [Union y Estructura]
+\nota{
+      El diagrama ilustra los diferentes desplazamientos u Union y Estructura
 offsets a los que se ubican los miembros en una union y en
   una struct, suponiendo una arquitectura subyacente donde
                               los ints miden cuatro bytes.
+}
 
 \section{Campos de bits}
 Se pueden definir estructuras donde los miembros son agrupaciones de bits. Esta
@@ -295,7 +296,9 @@ struct disp {
         online : 1,
         estado : 4;
 };
+\end{lstlisting}
 
+\begin{lstlisting}
 struct disp d;
 d.encendido = 1;
 while(!d.online);
@@ -321,7 +324,7 @@ elementos consecutivos.
 Dar ejemplos de inicialización y de asignación.
 \item Declarar una estructura \textbf{segmento} conteniendo dos estructuras \textbf{punto}. Dar
 ejemplos de inicialización y de asignación. Dar una función que calcule su
-longitud.
+longitud. Dar una función que reciba un segmento $S$ y un punto $p$, y devuelva \lstinline{TRUE} si $p \in S$. 
 \item ¿Cuál es el error en estas sentencias de inicialización?
 \begin{enumerate} [label=\alph*.]
 
@@ -330,19 +333,19 @@ longitud.
 struct alfa {
 	int a, b;
 };
+alfa = { 10, 25 };
 \end{lstlisting}
 
 \item 
 \begin{lstlisting}
-alfa = { 10, 25 };
 struct alfa {
 	int a, b;
 };
+alfa d = { 10, 25 };
 \end{lstlisting}
 
 \item 
 \begin{lstlisting}
-alfa d = { 10, 25 };
 union dato{
 	char dato_a[4];
 	long dato_n;
@@ -352,4 +355,3 @@ union dato{
 \end{enumerate}
 
 %TODO Ejercicios_Adicionales  Ejercicios_Avanzados
-

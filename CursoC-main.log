@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.2.24)  26 DEC 2014 11:29
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.2.24)  29 DEC 2014 09:41
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2370,12 +2370,17 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 226.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 226.
-Package mdframed Info: mdframed works in twoside mode on input line 250.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 250.
-Package mdframed Info: mdframed inside a box 
- mdframed uses option nobreak mdframed on input line 250.
+ <./img/emblem-important.png, id=839, 77.088pt x 77.088pt>
+File: ./img/emblem-important.png Graphic file (type png)
+
+<use ./img/emblem-important.png>
+Package pdftex.def Info: ./img/emblem-important.png used on input line 250.
+(pdftex.def)             Requested size: 24.19484pt x 24.19461pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 233--251
+
+ []
+
 
 Underfull \hbox (badness 10000) in paragraph at lines 233--251
 
@@ -2433,7 +2438,7 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 272.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 272.
-[29]
+[29 <./img/emblem-important.png>]
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <10> on input line 275.
 LaTeX Font Info:    External font `lmex10' loaded for size
@@ -3069,7 +3074,7 @@ Package epstopdf Info: Source file: <./img/stack1.eps>
 (epstopdf)             \includegraphics on input line 192.
 Package epstopdf Info: Output file is already uptodate.
 
-<./img/stack1-eps-converted-to.pdf, id=1135, 649.42625pt x 451.6875pt>
+<./img/stack1-eps-converted-to.pdf, id=1138, 649.42625pt x 451.6875pt>
 File: ./img/stack1-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./img/stack1-eps-converted-to.pdf>
@@ -3087,7 +3092,7 @@ Package epstopdf Info: Source file: <./img/stack2.eps>
 (epstopdf)             \includegraphics on input line 193.
 Package epstopdf Info: Output file is already uptodate.
 
-<./img/stack2-eps-converted-to.pdf, id=1136, 650.43pt x 545.03625pt>
+<./img/stack2-eps-converted-to.pdf, id=1139, 650.43pt x 545.03625pt>
 File: ./img/stack2-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./img/stack2-eps-converted-to.pdf>
@@ -4449,12 +4454,15 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 4.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 4.
-Package mdframed Info: mdframed works in twoside mode on input line 18.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 18.
-Package mdframed Info: mdframed inside a box 
- mdframed uses option nobreak mdframed on input line 18.
+File: ./img/emblem-important.png Graphic file (type png)
+<use ./img/emblem-important.png>
+Package pdftex.def Info: ./img/emblem-important.png used on input line 18.
+(pdftex.def)             Requested size: 24.19484pt x 24.19461pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 12--19
+
+ []
+
 
 Underfull \hbox (badness 10000) in paragraph at lines 12--19
 
@@ -4635,58 +4643,58 @@ Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 242.
  [78]
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 265.
+(babel)             in language  on input line 266.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 265.
+(babel)             in language  on input line 266.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 265.
+(babel)             in language  on input line 266.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 265.
+(babel)             in language  on input line 266.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 265.
+(babel)             in language  on input line 266.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 265.
-LaTeX Info: Redefining \. on input line 304.
-LaTeX Info: Redefining \% on input line 304.
-LaTeX Info: Redefining \. on input line 304.
-LaTeX Info: Redefining \% on input line 304.
+(babel)             in language  on input line 266.
+LaTeX Info: Redefining \. on input line 310.
+LaTeX Info: Redefining \% on input line 310.
+LaTeX Info: Redefining \. on input line 310.
+LaTeX Info: Redefining \% on input line 310.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 304.
+(babel)             in language  on input line 310.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 304.
+(babel)             in language  on input line 310.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 304.
+(babel)             in language  on input line 310.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 304.
+(babel)             in language  on input line 310.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 304.
+(babel)             in language  on input line 310.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 304.
+(babel)             in language  on input line 310.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 304.
+(babel)             in language  on input line 310.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 304.
+(babel)             in language  on input line 310.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 304.
+(babel)             in language  on input line 310.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 304.
+(babel)             in language  on input line 310.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 304.
+(babel)             in language  on input line 310.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 304.
+(babel)             in language  on input line 310.
  [79]
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 310.
+(babel)             in language  on input line 313.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 310.
+(babel)             in language  on input line 313.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 310.
+(babel)             in language  on input line 313.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 310.
+(babel)             in language  on input line 313.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 310.
+(babel)             in language  on input line 313.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 310.
+(babel)             in language  on input line 313.
 )
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 47.
 LaTeX Info: Redefining \. on input line 47.
@@ -4734,10 +4742,10 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 47.
  ) 
 Here is how much of TeX's memory you used:
- 21490 strings out of 494925
- 335833 string characters out of 6178544
- 473304 words of memory out of 5000000
- 22794 multiletter control sequences out of 15000+600000
+ 21495 strings out of 494925
+ 335938 string characters out of 6178544
+ 474574 words of memory out of 5000000
+ 22797 multiletter control sequences out of 15000+600000
  97638 words of font info for 84 fonts, out of 8000000 for 9000
  62 hyphenation exceptions out of 8191
  55i,17n,92p,1086b,2203s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -4757,10 +4765,10 @@ m/lmsy9.pfb></usr/share/texmf/fonts/type1/public/lm/lmtk10.pfb></usr/share/texm
 f/fonts/type1/public/lm/lmtt10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt
 9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam7.
 pfb>
-Output written on CursoC-main.pdf (80 pages, 894734 bytes).
+Output written on CursoC-main.pdf (80 pages, 898866 bytes).
 PDF statistics:
- 2581 PDF objects out of 2984 (max. 8388607)
- 2445 compressed objects within 25 object streams
+ 2584 PDF objects out of 2984 (max. 8388607)
+ 2446 compressed objects within 25 object streams
  1503 named destinations out of 1728 (max. 500000)
- 780 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 785 words of extra memory for PDF output out of 10000 (max. 10000000)
 

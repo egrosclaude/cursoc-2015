@@ -215,7 +215,7 @@ Con el código de la Fig. \ref{fig:stack2}, que invoca a dos funciones secuencia
 \end{ejemplo}
 
 \section{Liga}
-La liga es la propiedad que determina si las variables y funciones definidas en una unidad de traducción serán o no visibles por el linker. Una vez que un conjunto de unidades de traducción pasa exitosamente la compilación, tenemos un
+La \textbf{liga} es la propiedad que determina si las variables y funciones definidas en una unidad de traducción serán o no visibles por el linker. Una vez que un conjunto de unidades de traducción pasa exitosamente la compilación, tenemos un
 conjunto de módulos objeto. Cada módulo objeto puede contener, en forma simbólica, pendiente de
 resolución, \textbf{referencias} a variables o funciones definidas en otros módulos.
 La propiedad de las variables y funciones que permite que el linker encuentre la \textbf{definición} de un
@@ -354,10 +354,10 @@ int fun2()
 
 
 \section{Declaraciones y definiciones}
-\begin{description}
-	\item[Declaraciones] Una \textbf{declaración} consiste en la \textbf{mención} de un objeto (variable o función) antes de su uso.
-	\item[Definiciones] Una \textbf{definición} consiste en una sentencia de \textbf{creación} de dicha variable o función, que a partir de la ejecución de esa sentencia comienza a ser una entidad viva del programa.
-\end{description}
+\begin{itemize}
+	\item Una \textbf{declaración} consiste en la \textbf{mención} de un objeto (variable o función) antes de su uso.
+	\item Una \textbf{definición} consiste en una sentencia de \textbf{creación} de dicha variable o función, que a partir de la ejecución de esa sentencia comienza a ser una entidad viva del programa.
+\end{itemize}
 
 
 Normalmente una \textbf{declaración} de variable (de la forma \texttt{especificación\_de\_tipo identificador}) funciona

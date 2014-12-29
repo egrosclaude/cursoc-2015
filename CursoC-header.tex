@@ -327,6 +327,32 @@
 \end{minipage}
 }
 
+\usepackage{float}
+\newcommand{\importantex}[1]{
+\begin{minipage}[c]{\linewidth}
+     \begin{minipage}[Ht]{0.10\linewidth}
+          \begin{figure}[H]
+              \includegraphics[width=0.5\linewidth]{./img/emblem-important.png}
+          \end{figure}
+      \end{minipage}
+%      \begin{minipage}[t]{1em}\end{minipage}
+      \begin{minipage}[h]{0.80\linewidth}
+#1
+      \end{minipage}
+\end{minipage}
+}
+
+\newcommand{\importante}[1]{
+\begin{minipage}[c]{\linewidth}
+     \begin{minipage}[h]{0.10\linewidth}
+          \includegraphics[width=0.5\linewidth]{./img/emblem-important.png}%
+      \end{minipage}\begin{minipage}[h]{0.80\linewidth}
+#1
+      \end{minipage}
+\end{minipage}
+}
+
+
 \newcommand{\code}[1]{\lstinline$#1$}
 
 %\usepackage{C}

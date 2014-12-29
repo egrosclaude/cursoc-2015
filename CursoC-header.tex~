@@ -327,6 +327,22 @@
 \end{minipage}
 }
 
+\usepackage{float}
+\newcommand{\importante}[1]{
+\begin{minipage}[t]{\linewidth}
+      \begin{minipage}[t]{0.10\linewidth}
+          \begin{figure}[H]
+              \includegraphics[width=0.8\linewidth]{./img/emblem-important.png}
+          \end{figure}
+      \end{minipage}
+      \begin{minipage}[t]{0.80\linewidth}
+#1
+      \end{minipage}
+\end{minipage}
+}
+
+
+
 \newcommand{\code}[1]{\lstinline$#1$}
 
 %\usepackage{C}

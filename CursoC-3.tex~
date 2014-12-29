@@ -233,7 +233,7 @@ ellos.
 Entendemos por \quotes{promoción entera} el acto de llevar los objetos de tipo \texttt{char}, \texttt{enum} y \textbf{campos de bits} a \textbf{int}; o, si los bits de un int no alcanzan a representarlo, a \textbf{unsigned int}.
 \\
 \\
-\recuadro{
+\importante{
 \begin{enumerate}
 \item Si cualquier operando es long double, se convierte el otro a long double.
 \item Si no, si cualquier operando es double, se convierte el otro a double.
@@ -449,12 +449,13 @@ se puede averiguar esto?
 \end{enumerate}
 \item Aplicar operador cast donde sea necesario para obtener resultados apropiados:
 \begin{enumerate}[label=\alph*.] 
-	\item \
+	\item 
 	\begin{lstlisting}
 int a; long b; float c;
 a = 1; b = 2; c = a / b;
 	\end{lstlisting} 
-	\item \
+
+	\item 
 	\begin{lstlisting}
 long a; 
 int b,c;
