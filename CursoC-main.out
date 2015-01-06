@@ -1,93 +1,126 @@
 \BOOKMARK [0][-]{chapter.1}{Introducci\363n al Lenguaje C}{}% 1
 \BOOKMARK [1][-]{section.1.1}{Caracter\355sticas del lenguaje}{chapter.1}% 2
-\BOOKMARK [1][-]{section.1.2}{Evoluci\363n del lenguaje}{chapter.1}% 3
-\BOOKMARK [1][-]{section.1.3}{El ciclo de compilaci\363n}{chapter.1}% 4
-\BOOKMARK [2][-]{section*.4}{Compilador}{section.1.3}% 5
-\BOOKMARK [2][-]{section*.5}{Vinculador, linkeditor o linker}{section.1.3}% 6
-\BOOKMARK [2][-]{section*.6}{Bibliotecario}{section.1.3}% 7
-\BOOKMARK [1][-]{section.1.4}{Un primer ejemplo}{chapter.1}% 8
-\BOOKMARK [2][-]{section*.7}{Funcionamiento del programa}{section.1.4}% 9
-\BOOKMARK [2][-]{section*.8}{Compilaci\363n del programa}{section.1.4}% 10
-\BOOKMARK [2][-]{section*.9}{El comando make}{section.1.4}% 11
-\BOOKMARK [1][-]{section.1.5}{Mapa de memoria de un programa}{chapter.1}% 12
-\BOOKMARK [1][-]{section.1.6}{Ejercicios}{chapter.1}% 13
-\BOOKMARK [0][-]{chapter.2}{El preprocesador}{}% 14
-\BOOKMARK [1][-]{section.2.1}{Directivas de preprocesador}{chapter.2}% 15
-\BOOKMARK [2][-]{section*.12}{S\355mbolos y macros}{section.2.1}% 16
-\BOOKMARK [2][-]{section*.13}{Headers}{section.2.1}% 17
-\BOOKMARK [1][-]{section.2.2}{Definici\363n de s\355mbolos}{chapter.2}% 18
-\BOOKMARK [1][-]{section.2.3}{Definici\363n de macros}{chapter.2}% 19
-\BOOKMARK [2][-]{section*.14}{Macros vs. funciones}{section.2.3}% 20
-\BOOKMARK [1][-]{section.2.4}{Compilaci\363n condicional}{chapter.2}% 21
-\BOOKMARK [1][-]{section.2.5}{Observaciones}{chapter.2}% 22
-\BOOKMARK [1][-]{section.2.6}{Ejercicios}{chapter.2}% 23
-\BOOKMARK [0][-]{chapter.3}{Tipos de datos y expresiones}{}% 24
-\BOOKMARK [1][-]{section.3.1}{Declaraci\363n de variables}{chapter.3}% 25
-\BOOKMARK [1][-]{section.3.2}{Tama\361os de los objetos de datos}{chapter.3}% 26
-\BOOKMARK [1][-]{section.3.3}{Operaciones con distintos tipos}{chapter.3}% 27
-\BOOKMARK [2][-]{section*.15}{Truncamiento en asignaciones}{section.3.3}% 28
-\BOOKMARK [2][-]{section*.16}{Promoci\363n autom\341tica de expresiones}{section.3.3}% 29
-\BOOKMARK [2][-]{section*.17}{Operador cast}{section.3.3}% 30
-\BOOKMARK [2][-]{section*.18}{Reglas de promoci\363n en expresiones}{section.3.3}% 31
-\BOOKMARK [1][-]{section.3.4}{Observaciones}{chapter.3}% 32
-\BOOKMARK [1][-]{section.3.5}{Una herramienta: printf\(\)}{chapter.3}% 33
-\BOOKMARK [2][-]{section*.20}{Ejemplos}{section.3.5}% 34
-\BOOKMARK [1][-]{section.3.6}{Ejercicios}{chapter.3}% 35
-\BOOKMARK [0][-]{chapter.4}{Constantes}{}% 36
-\BOOKMARK [1][-]{section.4.1}{Constantes enteras}{chapter.4}% 37
-\BOOKMARK [1][-]{section.4.2}{Constantes long}{chapter.4}% 38
-\BOOKMARK [1][-]{section.4.3}{Constantes unsigned}{chapter.4}% 39
-\BOOKMARK [1][-]{section.4.4}{Constantes string}{chapter.4}% 40
-\BOOKMARK [1][-]{section.4.5}{Constantes de car\341cter}{chapter.4}% 41
-\BOOKMARK [2][-]{section*.21}{Constantes de car\341cter en strings}{section.4.5}% 42
-\BOOKMARK [1][-]{section.4.6}{Constantes de punto flotante}{chapter.4}% 43
-\BOOKMARK [1][-]{section.4.7}{Constantes enumeradas}{chapter.4}% 44
-\BOOKMARK [1][-]{section.4.8}{Ejemplos}{chapter.4}% 45
-\BOOKMARK [1][-]{section.4.9}{Ejercicios}{chapter.4}% 46
-\BOOKMARK [0][-]{chapter.5}{Propiedades de las variables}{}% 47
-\BOOKMARK [1][-]{section.5.1}{Alcance de las variables}{chapter.5}% 48
-\BOOKMARK [1][-]{section.5.2}{Vida de las variables}{chapter.5}% 49
-\BOOKMARK [1][-]{section.5.3}{Clases de almacenamiento}{chapter.5}% 50
-\BOOKMARK [1][-]{section.5.4}{Variables y mapa de memoria}{chapter.5}% 51
-\BOOKMARK [1][-]{section.5.5}{Liga}{chapter.5}% 52
-\BOOKMARK [1][-]{section.5.6}{Declaraciones y definiciones}{chapter.5}% 53
-\BOOKMARK [1][-]{section.5.7}{Modificadores especiales}{chapter.5}% 54
-\BOOKMARK [1][-]{section.5.8}{Ejercicios}{chapter.5}% 55
-\BOOKMARK [0][-]{chapter.6}{Operadores}{}% 56
-\BOOKMARK [1][-]{section.6.1}{Operadores aritm\351ticos}{chapter.6}% 57
-\BOOKMARK [1][-]{section.6.2}{Operadores de relaci\363n}{chapter.6}% 58
-\BOOKMARK [1][-]{section.6.3}{Operadores l\363gicos}{chapter.6}% 59
-\BOOKMARK [2][-]{section*.29}{Constantes l\363gicas}{section.6.3}% 60
-\BOOKMARK [1][-]{section.6.4}{Operadores de bits}{chapter.6}% 61
-\BOOKMARK [1][-]{section.6.5}{Operadores especiales}{chapter.6}% 62
-\BOOKMARK [1][-]{section.6.6}{Precedencia y orden de evaluaci\363n}{chapter.6}% 63
-\BOOKMARK [1][-]{section.6.7}{Resumen}{chapter.6}% 64
-\BOOKMARK [1][-]{section.6.8}{Ejercicios}{chapter.6}% 65
-\BOOKMARK [0][-]{chapter.7}{Estructuras de control}{}% 66
-\BOOKMARK [1][-]{section.7.1}{Estructura alternativa}{chapter.7}% 67
-\BOOKMARK [1][-]{section.7.2}{Estructuras repetitivas}{chapter.7}% 68
-\BOOKMARK [2][-]{section*.31}{Estructura while}{section.7.2}% 69
-\BOOKMARK [2][-]{section*.32}{Estructura do-while}{section.7.2}% 70
-\BOOKMARK [2][-]{section*.33}{Estructura for}{section.7.2}% 71
-\BOOKMARK [1][-]{section.7.3}{Estructura de selecci\363n}{chapter.7}% 72
-\BOOKMARK [1][-]{section.7.4}{Transferencia incondicional}{chapter.7}% 73
-\BOOKMARK [2][-]{section*.34}{Sentencia continue}{section.7.4}% 74
-\BOOKMARK [2][-]{section*.35}{Sentencia break}{section.7.4}% 75
-\BOOKMARK [2][-]{section*.36}{Sentencia goto}{section.7.4}% 76
-\BOOKMARK [2][-]{section*.37}{Sentencia return}{section.7.4}% 77
-\BOOKMARK [1][-]{section.7.5}{Observaciones}{chapter.7}% 78
-\BOOKMARK [1][-]{section.7.6}{Ejercicios}{chapter.7}% 79
-\BOOKMARK [0][-]{chapter.8}{Funciones}{}% 80
-\BOOKMARK [1][-]{section.8.1}{Declaraci\363n y definici\363n de funciones}{chapter.8}% 81
-\BOOKMARK [1][-]{section.8.2}{Prototipos de funciones}{chapter.8}% 82
-\BOOKMARK [1][-]{section.8.3}{Redeclaraci\363n de funciones}{chapter.8}% 83
-\BOOKMARK [1][-]{section.8.4}{Recursividad}{chapter.8}% 84
-\BOOKMARK [1][-]{section.8.5}{Ejercicios}{chapter.8}% 85
-\BOOKMARK [0][-]{chapter.9}{Arreglos y variables estructuradas}{}% 86
-\BOOKMARK [1][-]{section.9.1}{Inicializaci\363n de arreglos}{chapter.9}% 87
-\BOOKMARK [1][-]{section.9.2}{Errores frecuentes}{chapter.9}% 88
-\BOOKMARK [1][-]{section.9.3}{Arreglos multidimensionales}{chapter.9}% 89
-\BOOKMARK [1][-]{section.9.4}{Estructuras y uniones}{chapter.9}% 90
-\BOOKMARK [1][-]{section.9.5}{Uniones}{chapter.9}% 91
-\BOOKMARK [1][-]{section.9.6}{Campos de bits}{chapter.9}% 92
-\BOOKMARK [1][-]{section.9.7}{Ejercicios}{chapter.9}% 93
+\BOOKMARK [2][-]{section*.2}{Minimalidad}{section.1.1}% 3
+\BOOKMARK [2][-]{section*.2}{Versatilidad... a un precio}{section.1.1}% 4
+\BOOKMARK [2][-]{section*.2}{Portabilidad}{section.1.1}% 5
+\BOOKMARK [2][-]{section*.2}{Biblioteca Standard}{section.1.1}% 6
+\BOOKMARK [2][-]{section*.2}{Paradigma procedural}{section.1.1}% 7
+\BOOKMARK [1][-]{section.1.2}{Evoluci\363n del lenguaje}{chapter.1}% 8
+\BOOKMARK [1][-]{section.1.3}{El ciclo de compilaci\363n}{chapter.1}% 9
+\BOOKMARK [2][-]{figure.caption.4}{Compilador}{section.1.3}% 10
+\BOOKMARK [2][-]{figure.caption.4}{Vinculador, linkeditor o linker}{section.1.3}% 11
+\BOOKMARK [2][-]{figure.caption.4}{Bibliotecario}{section.1.3}% 12
+\BOOKMARK [1][-]{section.1.4}{Un primer ejemplo}{chapter.1}% 13
+\BOOKMARK [2][-]{lstnumber.-1.6}{Funcionamiento del programa}{section.1.4}% 14
+\BOOKMARK [2][-]{lstnumber.-1.6}{Compilaci\363n del programa}{section.1.4}% 15
+\BOOKMARK [2][-]{Item.6}{El comando make}{section.1.4}% 16
+\BOOKMARK [1][-]{section.1.5}{Mapa de memoria de un programa}{chapter.1}% 17
+\BOOKMARK [1][-]{section.1.6}{Ejercicios}{chapter.1}% 18
+\BOOKMARK [0][-]{chapter.2}{El preprocesador}{}% 19
+\BOOKMARK [1][-]{section.2.1}{Directivas de preprocesador}{chapter.2}% 20
+\BOOKMARK [2][-]{section*.7}{S\355mbolos y macros}{section.2.1}% 21
+\BOOKMARK [2][-]{ejemplo.2.1}{Headers}{section.2.1}% 22
+\BOOKMARK [1][-]{section.2.2}{Definici\363n de s\355mbolos}{chapter.2}% 23
+\BOOKMARK [1][-]{section.2.3}{Definici\363n de macros}{chapter.2}% 24
+\BOOKMARK [2][-]{lstnumber.-7.2}{Macros vs. funciones}{section.2.3}% 25
+\BOOKMARK [1][-]{section.2.4}{Compilaci\363n condicional}{chapter.2}% 26
+\BOOKMARK [1][-]{section.2.5}{Observaciones}{chapter.2}% 27
+\BOOKMARK [1][-]{section.2.6}{Ejercicios}{chapter.2}% 28
+\BOOKMARK [0][-]{chapter.3}{Tipos de datos y expresiones}{}% 29
+\BOOKMARK [1][-]{section.3.1}{Declaraci\363n de variables}{chapter.3}% 30
+\BOOKMARK [1][-]{section.3.2}{Tama\361os de los objetos de datos}{chapter.3}% 31
+\BOOKMARK [1][-]{section.3.3}{Operaciones con distintos tipos}{chapter.3}% 32
+\BOOKMARK [2][-]{section*.9}{Truncamiento en asignaciones}{section.3.3}% 33
+\BOOKMARK [2][-]{lstnumber.-25.1}{Promoci\363n autom\341tica de expresiones}{section.3.3}% 34
+\BOOKMARK [2][-]{lstnumber.-27.1}{Operador cast}{section.3.3}% 35
+\BOOKMARK [2][-]{lstnumber.-30.1}{Reglas de promoci\363n en expresiones}{section.3.3}% 36
+\BOOKMARK [1][-]{section.3.4}{Observaciones}{chapter.3}% 37
+\BOOKMARK [1][-]{section.3.5}{Una herramienta: printf\(\)}{chapter.3}% 38
+\BOOKMARK [1][-]{section.3.6}{Ejercicios}{chapter.3}% 39
+\BOOKMARK [0][-]{chapter.4}{Constantes}{}% 40
+\BOOKMARK [1][-]{section.4.1}{Constantes num\351ricas}{chapter.4}% 41
+\BOOKMARK [2][-]{section*.11}{Constantes enteras}{section.4.1}% 42
+\BOOKMARK [2][-]{section*.11}{Constantes long}{section.4.1}% 43
+\BOOKMARK [2][-]{section*.11}{Constantes unsigned}{section.4.1}% 44
+\BOOKMARK [2][-]{section*.11}{Constantes de punto flotante}{section.4.1}% 45
+\BOOKMARK [1][-]{section.4.2}{Constantes string}{chapter.4}% 46
+\BOOKMARK [2][-]{section*.12}{El cero final}{section.4.2}% 47
+\BOOKMARK [1][-]{section.4.3}{Constantes de car\341cter}{chapter.4}% 48
+\BOOKMARK [2][-]{section*.13}{Constantes de car\341cter en strings}{section.4.3}% 49
+\BOOKMARK [1][-]{section.4.4}{Constantes enumeradas}{chapter.4}% 50
+\BOOKMARK [1][-]{section.4.5}{Ejercicios}{chapter.4}% 51
+\BOOKMARK [0][-]{chapter.5}{Propiedades de las variables}{}% 52
+\BOOKMARK [1][-]{section.5.1}{Alcance de las variables}{chapter.5}% 53
+\BOOKMARK [1][-]{section.5.2}{Vida de las variables}{chapter.5}% 54
+\BOOKMARK [1][-]{section.5.3}{Clases de almacenamiento}{chapter.5}% 55
+\BOOKMARK [2][-]{lstnumber.-50.11}{Variables y mapa de memoria}{section.5.3}% 56
+\BOOKMARK [1][-]{section.5.4}{Liga}{chapter.5}% 57
+\BOOKMARK [1][-]{section.5.5}{Declaraciones y definiciones}{chapter.5}% 58
+\BOOKMARK [1][-]{section.5.6}{Modificadores especiales}{chapter.5}% 59
+\BOOKMARK [1][-]{section.5.7}{Ejercicios}{chapter.5}% 60
+\BOOKMARK [0][-]{chapter.6}{Operadores}{}% 61
+\BOOKMARK [1][-]{section.6.1}{Operadores aritm\351ticos}{chapter.6}% 62
+\BOOKMARK [2][-]{lstnumber.-96.2}{Abreviaturas}{section.6.1}% 63
+\BOOKMARK [1][-]{section.6.2}{Operadores de relaci\363n}{chapter.6}% 64
+\BOOKMARK [1][-]{section.6.3}{Operadores l\363gicos}{chapter.6}% 65
+\BOOKMARK [2][-]{ejemplo.6.5}{Constantes l\363gicas}{section.6.3}% 66
+\BOOKMARK [1][-]{section.6.4}{Operadores de bits}{chapter.6}% 67
+\BOOKMARK [1][-]{section.6.5}{Operadores especiales}{chapter.6}% 68
+\BOOKMARK [1][-]{section.6.6}{Precedencia y orden de evaluaci\363n}{chapter.6}% 69
+\BOOKMARK [1][-]{section.6.7}{Resumen}{chapter.6}% 70
+\BOOKMARK [1][-]{section.6.8}{Ejercicios}{chapter.6}% 71
+\BOOKMARK [0][-]{chapter.7}{Estructuras de control}{}% 72
+\BOOKMARK [1][-]{section.7.1}{Estructura alternativa}{chapter.7}% 73
+\BOOKMARK [1][-]{section.7.2}{Estructuras repetitivas}{chapter.7}% 74
+\BOOKMARK [2][-]{section*.22}{Estructura while}{section.7.2}% 75
+\BOOKMARK [2][-]{lstnumber.-116.2}{Estructura do-while}{section.7.2}% 76
+\BOOKMARK [2][-]{lstnumber.-117.3}{Estructura for}{section.7.2}% 77
+\BOOKMARK [1][-]{section.7.3}{Estructura de selecci\363n}{chapter.7}% 78
+\BOOKMARK [1][-]{section.7.4}{Transferencia incondicional}{chapter.7}% 79
+\BOOKMARK [2][-]{section*.23}{Sentencia continue}{section.7.4}% 80
+\BOOKMARK [2][-]{lstnumber.-134.5}{Sentencia break}{section.7.4}% 81
+\BOOKMARK [2][-]{lstnumber.-135.6}{Sentencia goto}{section.7.4}% 82
+\BOOKMARK [2][-]{lstnumber.-136.8}{Sentencia return}{section.7.4}% 83
+\BOOKMARK [1][-]{section.7.5}{Observaciones}{chapter.7}% 84
+\BOOKMARK [1][-]{section.7.6}{Ejercicios}{chapter.7}% 85
+\BOOKMARK [0][-]{chapter.8}{Funciones}{}% 86
+\BOOKMARK [1][-]{section.8.1}{Declaraci\363n y definici\363n de funciones}{chapter.8}% 87
+\BOOKMARK [1][-]{section.8.2}{Prototipos de funciones}{chapter.8}% 88
+\BOOKMARK [1][-]{section.8.3}{Redeclaraci\363n de funciones}{chapter.8}% 89
+\BOOKMARK [1][-]{section.8.4}{Recursividad}{chapter.8}% 90
+\BOOKMARK [1][-]{section.8.5}{Ejercicios}{chapter.8}% 91
+\BOOKMARK [0][-]{chapter.9}{Variables estructuradas}{}% 92
+\BOOKMARK [1][-]{section.9.1}{Arreglos}{chapter.9}% 93
+\BOOKMARK [2][-]{lstnumber.-165.3}{Inicializaci\363n de arreglos}{section.9.1}% 94
+\BOOKMARK [2][-]{lstnumber.-168.1}{Errores frecuentes con arreglos}{section.9.1}% 95
+\BOOKMARK [1][-]{section.9.2}{Arreglos multidimensionales}{chapter.9}% 96
+\BOOKMARK [1][-]{section.9.3}{Estructuras y uniones}{chapter.9}% 97
+\BOOKMARK [2][-]{section*.24}{Estructuras}{section.9.3}% 98
+\BOOKMARK [2][-]{lstnumber.-180.11}{Uniones}{section.9.3}% 99
+\BOOKMARK [2][-]{lstnumber.-182.3}{Campos de bits}{section.9.3}% 100
+\BOOKMARK [1][-]{section.9.4}{Ejercicios}{chapter.9}% 101
+\BOOKMARK [0][-]{chapter.10}{Apuntadores y Direcciones}{}% 102
+\BOOKMARK [1][-]{section.10.1}{Operadores especiales}{chapter.10}% 103
+\BOOKMARK [1][-]{section.10.2}{Aritm\351tica de punteros}{chapter.10}% 104
+\BOOKMARK [2][-]{section*.25}{Asignaci\363n entre punteros}{section.10.2}% 105
+\BOOKMARK [2][-]{section*.25}{Suma de enteros a punteros}{section.10.2}% 106
+\BOOKMARK [2][-]{section*.25}{Resta de punteros}{section.10.2}% 107
+\BOOKMARK [1][-]{section.10.3}{Punteros y arreglos}{chapter.10}% 108
+\BOOKMARK [1][-]{section.10.4}{Punteros y cadenas de texto}{chapter.10}% 109
+\BOOKMARK [1][-]{section.10.5}{Pasaje por referencia}{chapter.10}% 110
+\BOOKMARK [1][-]{section.10.6}{Punteros y argumentos de funciones}{chapter.10}% 111
+\BOOKMARK [1][-]{section.10.7}{Ejercicios}{chapter.10}% 112
+\BOOKMARK [1][-]{section.10.8}{Errores m\341s frecuentes}{chapter.10}% 113
+\BOOKMARK [2][-]{section*.26}{Punteros sin inicializar}{section.10.8}% 114
+\BOOKMARK [2][-]{lstnumber.-221.5}{Confundir punteros con arreglos}{section.10.8}% 115
+\BOOKMARK [2][-]{lstnumber.-229.3}{No analizar el nivel de indirecci\363n}{section.10.8}% 116
+\BOOKMARK [1][-]{section.10.9}{Arreglos de punteros}{chapter.10}% 117
+\BOOKMARK [1][-]{section.10.10}{Estructuras referenciadas por punteros}{chapter.10}% 118
+\BOOKMARK [1][-]{section.10.11}{Estructuras de datos recursivas}{chapter.10}% 119
+\BOOKMARK [1][-]{section.10.12}{Construcci\363n de tipos}{chapter.10}% 120
+\BOOKMARK [1][-]{section.10.13}{Asignaci\363n din\341mica de memoria}{chapter.10}% 121
+\BOOKMARK [1][-]{section.10.14}{Punteros a funciones}{chapter.10}% 122
+\BOOKMARK [1][-]{section.10.15}{Aplicaci\363n de punteros a funciones}{chapter.10}% 123
+\BOOKMARK [1][-]{section.10.16}{Punteros a punteros}{chapter.10}% 124
+\BOOKMARK [1][-]{section.10.17}{Una herramienta: gets\(\)}{chapter.10}% 125
+\BOOKMARK [1][-]{section.10.18}{Ejercicios}{chapter.10}% 126

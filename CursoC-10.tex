@@ -1,0 +1,530 @@
+
+
+
+\chapter{Apuntadores y Direcciones}
+
+El tema de esta unidad es el más complejo del lenguaje C y por este motivo se
+han separado los contenidos en dos partes (llamadas 10 y 10b).
+
+La memoria del computador está organizada como un vector o arreglo
+unidimensional. Los índices en este arreglo son las direcciones de memoria.
+Este arreglo puede accederse indexando a cada byte individualmente, y en
+particular a cada estructura de datos del programa, mediante su dirección de
+comienzo.
+
+Para manipular direcciones se utilizan en C variables especiales llamadas
+apuntadores o punteros, que son aquellas capaces de contener direcciones. En la
+declaración de un apuntador se especifica el tipo de los objetos de datos cuya
+dirección contendrá.
+
+La notación:
+\begin{lstlisting}
+char *p;
+\end{lstlisting}
+es la declaración de una variable puntero a carácter. El contenido de la
+variable \lstinline{p} puede ser, en principio, cualquiera dentro del rango de direcciones
+de la máquina subyacente al programa. Una vez habiendo recibido un valor, se
+dice que la variable \lstinline{p} apunta a algún objeto en memoria.
+
+Esquemáticamente representamos la situación de una variable que contiene una
+dirección (y por lo tanto \quotes{apunta a esa dirección}) según el diagrama siguiente
+(mas\_información). La posición 1 de la memoria aloja un puntero que actualmente
+apunta a la posición 5.
+
+%[arreglo memoria]
+
+El tema de apuntadores (o punteros) y direcciones es crucial en la programación
+en C, y parece ser el origen más frecuente de errores. Programas con mala
+lógica de acceso a memoria pueden ser declarados válidos por el compilador: su
+compilación puede ser exitosa y sin embargo ser completamente erróneos en
+ejecución. Esta es una de las críticas más frecuentes al lenguaje C, aunque en
+rigor de verdad, el problema no es del lenguaje, sino del programador con una
+mala comprensión de las cuestiones del lenguaje relacionadas con memoria.
+
+Es fundamental, para no cometer estos errores, comprender en profundidad los
+conceptos de direcciones y punteros, así como la sintaxis de las
+declaraciones de punteros, para asegurarnos de que escribimos lo que se pretende
+lograr.
+
+\section{Operadores especiales}
+Para manipular punteros se hacen necesarios dos operadores especiales:
+
+\begin{tabular}{c|l}
+%\lstinline{\&} & Operador \quotes{dirección de} o de referencia\\
+%\lstinline{\*} & Operador de indirección o de dereferenciación\\
+\end{tabular}
+
+
+\begin{itemize}
+	\item El operador \textbf{dirección} devuelve \textbf{la dirección de un objeto}. La construcción
+siguiente:
+\begin{lstlisting}
+p = &a;
+\end{lstlisting}
+puede leerse: \quotes{asignar a \texttt{p} la dirección de \texttt{a}}.
+\item El operador de \textbf{indirección}, o de \textbf{dereferenciación}, surte el efecto contrario:
+accede al \textbf{objeto apuntado por} una dirección. La construcción
+\begin{lstlisting}
+a = *p;
+\end{lstlisting}
+puede leerse como \quotes{a es igual a lo apuntado por p}.
+\end{itemize}
+
+
+Para obtener el efecto lógicamente esperado, en las expresiones anteriores
+\lstinline{p} deberá ser un \textbf{puntero}, capaz de recibir y entregar una dirección.
+
+En general, si el contenido de la variable \texttt{p} es igual a la dirección de \lstinline{a}, es decir, \lstinline{&a}, la expresión de dereferenciación \lstinline{*p} puede aparecer
+en cualquier contexto en el que apareciera \lstinline{a}. En particular, es legal asignar
+indirectamente a través de un apuntador. 
+
+\begin{ejemplo}
+Las instrucciones
+\begin{lstlisting}
+int a, *p;
+p = &a;
+*p = 1;
+\end{lstlisting}
+equivalen a
+\begin{lstlisting}
+a = 1;
+\end{lstlisting}
+\end{ejemplo}
+
+\section{Aritmética de punteros}
+Son operaciones legales asignar punteros entre sí, sumar algebraicamente un
+entero a un puntero y restar dos punteros. Las consecuencias de cada operación
+se esquematizan en las figuras siguientes.
+
+\subsection{Asignación entre punteros}
+Luego de asignar un puntero a otro, ambos apuntan al mismo objeto. Cualquier
+modificación al objeto apuntado por uno se refleja al accederlo mediante el
+otro puntero.
+
+\subsection{Suma de enteros a punteros}
+La suma algebraica de una dirección más un entero es nuevamente una dirección.
+El sentido de la operación es desplazar el punto de llegada del apuntador
+(hacia arriba o hacia abajo en memoria) en tantas unidades como diga el entero,
+con la particularidad de que el resultado final es dependiente del tamaño del
+objeto apuntado. Esto es en general lo que desea el programador al aplicar un
+incremento a un apuntador.
+
+Es decir que sumar (o restar) una unidad a un puntero, lo incrementa
+(decrementa) en tantos bytes como mida el objeto al cual apunta.
+Por ejemplo, para punteros a carácter, la instrucción p++ incrementa el valor
+del puntero en uno,que es el sizeof() de los chars; pero si p es un puntero a
+long, en una arquitectura donde los longs miden cuatro bytes, p++ incrementa el
+valor de p en cuatro (y p queda apuntando \quotes{un long más allá en la memoria}). El
+cálculo realizado al tiempo de ejecución para la instrucción p+i, donde p es un
+puntero a tipo e i es un entero, es siempre p+i*sizeof(tipo).
+
+
+\subsection{Resta de punteros}
+El sentido de una resta de punteros (o, equivalentemente, de una diferencia de
+direcciones) es obtener el tamaño del área de memoria comprendida entre los
+objetos apuntados por ambos punteros. La resta tendrá sentido únicamente si se
+hace entre variables que apuntan a objetos del mismo tipo.
+
+Nuevamente se aplica la lógica del punto anterior: el resultado obtenido
+quedará expresado en unidades del tamaño del objeto apuntado. Es decir, si una
+diferencia entre punteros a long da 3, debe entenderse el resultado como
+equivalente a 3 longs, y por lo tanto a 3*sizeof(long) bytes.
+
+
+\section{Punteros y arreglos}
+Una consecuencia de que sea posible sumar enteros a punteros es que se puede
+simular el recorrido de un arreglo mediante el incremento sucesivo de un
+puntero. La operación de acceder a un elemento del arreglo es equivalente a
+obtener el objeto apuntado por el puntero. Las sentencias:
+\begin{lstlisting}
+int *p;
+int a[10];
+p = &a[0];
+\end{lstlisting}
+
+Habilitan al programador para acceder a cada elemento del arreglo a mediante
+aritmética sobre el puntero p. Como el nombre de un arreglo se evalúa a su
+dirección inicial, la última sentencia también puede escribirse simplemente
+así:
+\begin{lstlisting}
+p = a;
+\end{lstlisting}
+
+\begin{ejemplo}
+Supongamos dadas las definiciones siguientes:
+\begin{lstlisting}
+int alfa[] = { 2, 4, 6, 7, 4, 2, 3, 1 };
+int *p, *q;
+int b;
+\end{lstlisting}
+Con estas definiciones, veamos algunas manipulaciones de arreglos y punteros. 
+
+\begin{lstlisting}
+p = alfa;        /* el nombre de un arreglo
+                    equivale a su direccion    */
+\end{lstlisting}
+
+\begin{lstlisting}
+*p = 3;          /* equivalente a alfa[0] = 3  */
+*(p+2) = 4;      /* equivalente a alfa[2] = 4  */
+b = *p;          /* equiv. a b = alfa[0]       */
+*(p+3) = *(p+6); /* sobreescribe el 7 con el 3 */
+\end{lstlisting}
+
+\begin{lstlisting}
+q = alfa + 2;    /* apunta al tercer elemento  */
+\end{lstlisting}
+
+\begin{lstlisting}
+printf("%d\n",*q);                /* imprime 4 */
+printf ("%d\n",q - p);            /* imprime 2 */
+\end{lstlisting}
+
+\begin{lstlisting}
+p += q;          /* ERROR - la suma de punteros
+                              no esta definida */
+\end{lstlisting}
+Los dos segmentos de código siguientes hacen exactamente la misma tarea pero de maneras diferentes.
+
+% \begin{tabular}{l|l}
+% \hline\\
+% \codecell{
+% int i;
+% long tabla[10];
+% for(i = 0; i < 10; i++)
+%     suma += tabla[i];
+% }
+% &
+% \codecell{
+% long *p;
+% long tabla[10];
+% for(p = tabla; p < tabla+10; p++)
+%     suma += *p;
+% }\\
+% \hline\\
+% \end{tabular}
+\end{ejemplo}
+
+
+\section{Punteros y cadenas de texto}
+
+Un caso típico del uso de punteros ocurre cuando se necesita
+trabajar con \textbf{cadenas de texto}, a veces llamadas \textbf{strings}, o \textbf{constantes string}. 
+
+Como se vio en la sección \ref{sec:constantesstring}, las constantes string son todas aquellas secuencias de caracteres (eventualmente la secuencia vacía) en el texto del programa, que aparecen entre comillas. La representación interna de las constantes string durante la compilación, con el \textbf{cero final}, y con la referencia a la constante reemplazada por su dirección, se trasladará al programa compilado y aparecerá en la memoria, en la zona de datos estáticos, al momento de ejecución del programa. 
+
+Como la constante string es reemplazada por la dirección de su primer carácter, la asignación o inicialización de una constante string a un puntero es legal, y almacena en el puntero dicha dirección. En la inicialización de punteros, las constantes string son un caso especialmente frecuente.
+
+\begin{ejemplo}
+Un puntero a carácter inicializado con una constante string.
+\begin{lstlisting}
+char *s = "Lenguaje C";
+\end{lstlisting}
+\end{ejemplo}
+
+\begin{ejemplo}
+La inicialización
+de \texttt{s} y la asignación de \texttt{t} cargan a ambas variables con las direcciones del primer
+carácter, o direcciones iniciales, de las cadenas respectivas.
+\begin{lstlisting}
+char *s = "Esta es una cadena";
+char *t;
+t = "Esta es otra cadena";
+\end{lstlisting}
+\end{ejemplo}
+
+Representamos en el diagrama el carácter 0 final (que no es imprimible) con el
+símbolo \textcurrency. La expresión en C de este carácter es simplemente 0 (un entero) o
+\lstinline{'\0'} (una constante carácter cuyo código ASCII es cero).
+
+La función de biblioteca standard \lstinline{printf()} permite imprimir una cadena con el
+especificador de conversión \lstinline{%s}.
+
+\begin{ejemplo}
+Las líneas siguientes;
+\begin{lstlisting}
+char *s = "Cadena de prueba";
+char *t;
+t = s + 7;
+printf("%s\n", s);
+printf("%s\n", t);
+\end{lstlisting}
+O bien, equivalentemente:
+\begin{lstlisting}
+char *s = "Cadena de prueba";
+printf("%s\n", s);
+printf("%s\n", s + 7);
+\end{lstlisting}
+
+imprimen:
+\begin{lstlisting}
+Cadena de prueba
+de prueba
+\end{lstlisting}
+\end{ejemplo}
+
+\begin{ejemplo}
+Una función que recorre una cadena ASCIIZ buscando un carácter y devuelve la
+primera dirección donde se lo halló, o bien el puntero nulo (NULL).
+\begin{lstlisting}
+char *donde(char *p, char c)
+{
+    for( ; *p != 0; p++)
+        if(*p == c)
+             return p;
+    return NULL;
+}
+
+main()
+{
+    char *cadena = "Buscando exactamente esto";
+    char *s;
+    s = donde(cadena, 'e');
+    if(s != NULL)
+        printf("%s\n", s);
+}
+\end{lstlisting}
+
+El ejemplo de uso imprime:
+\begin{lstlisting}
+exactamente esto
+\end{lstlisting}
+\end{ejemplo}
+
+\section{Pasaje por referencia}
+En C, donde todo pasaje de parámetros a funciones se realiza \textbf{por valor}, los punteros
+brindan una manera de entregar a las funciones \textbf{referencias a objetos}. 
+
+\importante{
+El pasaje
+por referencia permite que una función pueda \textbf{modificar} un objeto que es local a
+otra función.
+Un pasaje por referencia de un objeto implica entregar a la función \textbf{la dirección del objeto}.
+}
+
+\begin{ejemplo}
+Modificación de un objeto externo a una función.
+La función \texttt{f2()} debe poner a cero una variable entera que es externa a ella, por lo cual el argumento
+formal \texttt{h} debe ser la dirección de un entero.
+\begin{lstlisting}
+void f2(int *h)
+{
+    *h = 0;
+}
+
+int f1()
+{
+    int j,k;
+    int *p;
+
+    p = &j;
+    f2(p);		/* le pasamos una direccion */
+    f2(&k);		/* y tambien aqui           */
+}
+\end{lstlisting}
+\end{ejemplo}
+
+\begin{ejemplo}
+Uso incorrecto de argumentos pasados por valor.
+\begin{lstlisting}
+void swap(int x, int y) /* incorrecta */
+{
+    int temp;
+    temp = x;
+    x = y;
+    y= temp;
+}
+\end{lstlisting}
+La función \texttt{swap()}, que podría ser usada por un algoritmo de ordenamiento para
+intercambiar los valores de dos variables, está \textbf{incorrectamente escrita}, ya que
+los valores que intercambia son los de sus argumentos, que vienen a estar al
+nivel de variables locales. El uso de la función swap() no tendrá efecto en el
+exterior de la misma. La versión correcta debe escribirse con pasaje por
+referencia:
+\begin{lstlisting}
+void swap(int *x, int *y) /* correcta */
+{
+    int temp;
+    temp = *x;
+    *x = *y;
+    *y = temp;
+}
+\end{lstlisting}
+
+La invocación de \texttt{swap()} debe hacerse con las direcciones de los objetos a
+intercambiar:
+\begin{lstlisting}
+int a, b;
+swap(&a, &b);
+\end{lstlisting}
+\end{ejemplo}
+
+\section{Punteros y argumentos de funciones}
+En las funciones que reciben direcciones, los argumentos formales pueden tener
+cualquiera de dos notaciones: como punteros, o como arreglos. No importa qué objeto 
+sea exactamente el argumento real (arreglo o puntero): en ambos casos, la función únicamente
+\textbf{recibe una dirección} y no sabe, ni le importa, cuál es la naturaleza real del objeto exterior a
+ella.
+
+\begin{ejemplo}
+La función que busca un carácter en una cadena, vista más arriba, puede
+escribirse correctamente así, cambiando el tipo del argumento formal. El uso es
+exactamente el mismo que antes, sin cambios en la función que llama.
+\begin{lstlisting}
+char *donde(char p[], char c)
+{
+    int i;
+    for(i=0 ; p[i] != 0; i++)
+        if(p[i] == c)
+             return p+i;
+    return NULL;
+}
+\end{lstlisting}
+Nótese que dentro del cuerpo de la función podemos seguir utilizando la
+notación de punteros si lo deseamos, aun con la declaración del argumento
+formal como arreglo.
+\begin{lstlisting}
+char *donde(char p[], char c) /* el argumento p es un arreglo */
+{
+    for( ; *p != 0; p++)      /* pero se le puede aplicar el  */
+        if(*p == c)			  /* operador de dereferenciacion */
+             return p;
+    return NULL;
+}
+\end{lstlisting}
+\end{ejemplo}
+
+Del mismo modo, si quisiéramos, podríamos representar los argumentos como
+punteros y manipular los datos con indexación. Todo esto se debe, por un lado,
+a que las notaciones \texttt{*p} y \texttt{p[]}, para argumentos formales, expresan únicamente que
+el argumento es una dirección; y por otro lado, a la equivalencia entre las
+formas de acceso mediante apuntadores y mediante índices de arreglos.
+
+¡Esto no quiere decir que punteros y arreglos sean lo mismo! Véanse las
+observaciones en la próxima unidad.
+
+\section{Ejercicios}
+
+\begin{enumerate}
+	\item Dado el programa siguiente, ¿a dónde apunta \texttt{k1}?
+\begin{lstlisting}
+main()
+{
+    int k;
+    int *k1;
+}
+\end{lstlisting}
+	\item Dado el programa siguiente, ¿a dónde apunta \texttt{m1}?
+\begin{lstlisting}
+int *m1;
+main()
+{
+    ...
+}	
+\end{lstlisting}
+	\item ¿Cuánto espacio de almacenamiento ocupa un arreglo de diez enteros? ¿Cuánto
+espacio de almacenamiento ocupa un puntero a entero?
+	\item Declarar variables \texttt{long} llamadas a, b y c, y punteros a \texttt{long} llamados p, q y r; y dar
+las sentencias en C para realizar las operaciones siguientes. Para cada caso,
+esquematizar el estado final de la memoria.
+	\begin{enumerate}[label=\alph*.]
+		\item Cargar p con la dirección de a. Si ahora escribimos \lstinline{*p = 1000}, ¿qué
+      ocurre?
+		\item Cargar r con el contenido de p. Si ahora escribimos \lstinline{*r = 1000}, ¿qué
+      ocurre?
+		\item Cargar q con la dirección de b, y usar q para almacenar una constante \texttt{4L}
+      en el espacio de b.
+		\item Cargar en c la suma de a y b, pero sin escribir la expresión $a+b$.
+		\item Almacenar en c la suma de a y b pero haciendo todos los accesos a las
+      variables en forma indirecta.
+	\end{enumerate}
+\item Compilar y ejecutar:
+\begin{enumerate}[label=\alph*.]
+		\item 
+\begin{lstlisting}
+main()
+{
+    char *a = "Ejemplo";
+    printf("%s\n",a);
+}
+\end{lstlisting}
+
+\item 
+\begin{lstlisting}
+main()
+{
+    char *a;
+    printf("%s\n",a);
+}
+\end{lstlisting}		
+
+\item 
+\begin{lstlisting}
+main()
+{
+    char *a = "Ejemplo";
+    char *p;
+    p = a;
+    printf("%s\n", p);
+}
+\end{lstlisting}	
+\end{enumerate}
+
+
+
+	\item ¿Qué imprimirán estas sentencias?
+	\begin{enumerate}[label=\alph*.]
+\item \lstinline{char *s = "ABCDEFG";}
+\item \lstinline{printf("%s\n", s);}
+\item \lstinline{printf("%s\n", s + 0);}
+\item \lstinline{printf("%s\n", s + 1);}
+\item \lstinline{printf("%s\n", s + 6);}
+\item \lstinline{printf("%s\n", s + 7);}
+\item \lstinline{printf("%s\n", s + 8);}
+\end{enumerate}
+	\item ¿Son correctas estas sentencias? Bosqueje un diagrama del estado final de la
+memoria para aquellas que lo sean.
+	\begin{enumerate}[label=\alph*.]
+\item \lstinline{char *a = "Uno";}
+\item \lstinline{char *a, b; a = "Uno"; b = "Dos";}
+\item \lstinline{char *a,*b ; a = "Uno"; b = a;}
+\item \lstinline{char *a,*b ; a = "Uno"; b = *a;}
+\item \lstinline{char *a,*b ; a = "Uno"; *b = a;}
+\item \lstinline{char *a = "Dos"; *a = 'T';}
+\item \lstinline{char *a = "Dos"; a = "T";}
+\item \lstinline{char *a = "Dos"; *(a + 1) = 'i'; *(a + 2) = 'a';}
+\item \lstinline{char *a, *b ; b = a;}
+	\end{enumerate}
+	\item Escribir funciones para:
+	\begin{enumerate}[label=\alph*.]
+\item Calcular la longitud de una cadena.
+\item Dado un carácter determinado y una cadena, devolver la primera posición
+      de la cadena en la que se lo encuentre, o bien $-1$ si no se halla.
+\item Buscar una subcadena en otra, devolviendo un puntero a la posición donde
+      se la halle.
+	\end{enumerate}
+
+	\item Escribir una función para reemplazar en una cadena todas las ocurrencias de
+un carácter dado por otro, suponiendo:
+	\begin{enumerate}[label=\alph*.]
+\item Que no interesa conservar la cadena original, sino que se reemplazarán
+      los caracteres sobre la misma cadena.
+\item Que se pretende obtener una segunda copia, modificada, de la cadena
+      original, sin destruirla.
+	\end{enumerate}
+
+	\item Escribir funciones para:
+	\begin{enumerate}[label=\alph*.]
+\item Rellenar una cadena con un carácter dado, hasta que se encuentre el $0$
+      final, o hasta alcanzar $n$ iteraciones.
+\item Pasar una cadena a mayúsculas o minúsculas.
+	\end{enumerate}
+
+	\item Reescriba dos de las funciones escritas en 8 y dos de las escritas en 10
+usando la notación opuesta (cambiando punteros por arreglos).
+
+\end{enumerate}
+%TODO Ejercicios_Adicionales Ejercicios_Avanzados
+
+
+

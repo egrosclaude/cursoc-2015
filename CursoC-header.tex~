@@ -1,5 +1,5 @@
 
-\documentclass[11pt,a4paper]{book}
+\documentclass[11pt,a4paper,twocolumn]{book}
 \usepackage[utf8x]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[spanish]{babel}
@@ -20,7 +20,6 @@
 \usepackage{enumitem}
 \usepackage{fancyvrb}
 
-
 \usepackage{amsthm} %load after amsmath
 
 \newtheoremstyle{ejemplo}% hname
@@ -28,24 +27,27 @@
 {3pt}% Space below
 {\footnotesize}% Body font
 {}% Indent amount
-{\bfseries}% Theorem head font
+{\bfseries\color{bl}}% Theorem head font
 {}% Punctuation after theorem head
 {\newline}% Space after theorem head
 {}% Theorem head spec (can be left empty, meaning ‘normal’)
-
+%\newtheoremstyle{dotlessP}{}{}{\color{db}}{}{\color{db}\bfseries}{}{ }{}
 \theoremstyle{ejemplo}
-\newtheorem{ejemplo}{Ejemplo}[section]
+\newtheorem{ejemplo}{Ejemplo}[chapter]
 
+
+\newcounter{example}[section]
+ \newenvironment{example}[1][]{\refstepcounter{example}\par
+ 	\noindent\footnotesize\textbf{Ejemplo~\theexample  #1}}
 
 \usepackage{multicol}
-
-
-%\usepackage{wasysym}
 \definecolor{dkgreen}{rgb}{0,0.6,0}
 \definecolor{gray}{rgb}{0.5,0.5,0.5}
 \definecolor{mauve}{rgb}{0.58,0,0.82}
 \definecolor{lstbackground}{rgb}{0.95,0.95,0.95}
 \definecolor{white}{rgb}{100,100,100}
+
+
 % \lstset{frame=tb,
 % 	backgroundcolor=\color{lstbackground},
 %   language=Bash,
@@ -85,7 +87,7 @@
   tabsize=4
 }
 
-% \lstnewenvironment{codecell}
+% \lstnewenvironment{lstinlinecell}
 %   	{\lstset{
 % 	  aboveskip=3mm,
 % 	  belowskip=3mm,
@@ -328,22 +330,52 @@
 }
 
 \usepackage{float}
+
 \newcommand{\importante}[1]{
-\begin{minipage}[t]{\linewidth}
-      \begin{minipage}[t]{0.10\linewidth}
-          \begin{figure}[H]
-              \includegraphics[width=0.8\linewidth]{./img/emblem-important.png}
-          \end{figure}
-      \end{minipage}
-      \begin{minipage}[t]{0.80\linewidth}
+\bigskip
+\noindent
+\begin{minipage}[c]{\linewidth}
+	\rule{\linewidth}{0.1pt}
+	\\{ }\\
+     	\begin{minipage}[h]{0.10\linewidth}
+        	$\vcenter{\hbox{\includegraphics[width=0.5\linewidth]{./img/emblem-important.png}}}$
+     	\end{minipage}
+     	\begin{minipage}[h]{0.80\linewidth}\footnotesize
 #1
-      \end{minipage}
+     	\end{minipage}
+    \\{ }\\
+	\rule{\linewidth}{0.1pt}
 \end{minipage}
+\bigskip
 }
 
-
+\newenvironment{importantex}[1][]{
+\noindent
+\begin{minipage}[c]{\linewidth}
+	\rule{\linewidth}{0.1pt}
+	\\{ }\\
+     	\begin{minipage}[h]{0.10\linewidth}
+        	$\vcenter{\hbox{\includegraphics[width=0.5\linewidth]{./img/emblem-important.png}}}$
+     	\end{minipage}
+     	\begin{minipage}[h]{0.80\linewidth}\footnotesize
+{#1}
+     	\end{minipage}
+    \\{ }\\
+	\rule{\linewidth}{0.1pt}
+\end{minipage}
+\bigskip
+}
 
 \newcommand{\code}[1]{\lstinline$#1$}
 
 %\usepackage{C}
 %\clearpage\clearpage\setcounter{page}{1}\pagestyle{HTML}
+
+
+
+\usepackage{titlesec}
+
+\titleformat{\section}
+  {\normalfont\Large\bfseries\color{bl}}{\thesection}{1em}{}[{\titlerule[0.8pt]}]
+
+%\allsectionsfont{\color{bl}\scshape\selectfont}

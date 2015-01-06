@@ -1,29 +1,40 @@
 \chapter{Constantes}
+
+\section{Constantes numéricas}
+
 Las constantes numéricas en un programa C pueden escribirse en varias bases. Además, la forma de escribirlas puede modificar el tamaño de los \textbf{objetos de datos} donde se almacenan.
 
-\section{Constantes enteras}
+\subsection{Constantes enteras}
 \begin{itemize}
 	\item \lstinline{10, -1} son constantes \textbf{decimales}.
-	\item \lstinline{010, -012} son constantes \textbf{octales} por comenzar en \texttt{0}.
-	\item \lstinline{0x10, -0x1B, 0Xbf01} son constantes \textbf{hexadecimales} por comenzar en \texttt{0x} o \texttt{0X}.
+	\item \lstinline{010, -012} son constantes \textbf{octales} por comenzar en \code{0}.
+	\item \lstinline{0x10, -0x1B, 0Xbf01} son constantes \textbf{hexadecimales} por comenzar en \code{0x} o \code{0X}.
 	\item \lstinline{'A'} es una constante de carácter. En una computadora que sigue la convención del código ASCII,
-equivale al decimal \texttt{65}, hexadecimal \texttt{0x41}, etc.
+equivale al decimal \code{65}, hexadecimal \code{0x41}, etc.
 \end{itemize}
 
 
-\section{Constantes long} 
+\subsection{Constantes long} 
 Una constante entera puede indicarse como \textbf{long} agregando una letra L mayúscula o minúscula: \lstinline{0L, 43l}.
 Si bien numéricamente son equivalentes a 0 y a 43 int, el compilador, al encontrarlas, manejará
 constantes de tamaño long (construirá objetos de datos sobre la cantidad de bits correspondientes a un
 long). Esto puede ser importante en ciertas ocasiones: por ejemplo, al invocar a funciones con
 argumentos formales long, usando argumentos reales que caben en un entero.
 	
-\section{Constantes unsigned}
+\subsection{Constantes unsigned}
 Para hacer más claro el propósito de una constante positiva, o para forzar la promoción de una
 expresión, puede notársela como \textbf{unsigned}. Esto tiene que ver con las reglas de promoción expresadas
-en el capítulo 3. Constantes unsigned son, por ejemplo, \texttt{32u} y \texttt{298U}. 
+en el capítulo 3. Constantes unsigned son, por ejemplo, \code{32u} y \code{298U}. 
+
+\subsection{Constantes de punto flotante}
+Las constantes en punto flotante se caracterizan por llevar un punto decimal o un carácter 'e' (que
+indica que está en notación exponencial). Así \code{10.23, .999, 0., 1.e10, 1.e-10, 1e10} son constantes en
+punto flotante. La constante \code{6.02e23} se interpreta como el número \code{6.02} multiplicado por $10^{23}$. La
+constante \code{-5e-1} es igual a \code{-1/2}.
+
 
 \section{Constantes string}
+\label{sec:constantesstring}
 El texto comprendido entre comillas dobles en un programa C es interpretado por el compilador
 como una \textbf{constante string}, con propiedades similares a las de un arreglo de caracteres. 
 
@@ -39,20 +50,31 @@ quedó almacenada}.
 
 La cadena registrada por el compilador será almacenada al momento de ejecución en la zona del
 programa correspondiente a \textbf{datos estáticos inicializados} (zona a veces llamada \quotes{bss}).
-Así, una constante string \textbf{equivale a una dirección de memoria}: la dirección donde está almacenado
-el primer carácter. El carácter \lstinline{'\0'} del final señaliza el fin de la cadena, y sirve como protocolo para
-las funciones de biblioteca standard que se ocupan de manejo de strings.
+Así, una constante string \textbf{equivale a, o se evalúa a}, una dirección de memoria: la dirección donde está almacenado
+su primer carácter. 
+
+\subsection{El cero final}
+
+El carácter \lstinline{'\0'} impuesto por el compilador al final de la secuencia de caracteres señaliza el fin de la cadena, y tiene la importante misión de funcionar como \textbf{protocolo} o \textbf{señal de terminación} para aquellas funciones de la Biblioteca Standard que manejan strings (copia de cadenas, búsqueda de caracteres, comparación de cadenas, etc.). Debido a esta representación interna, algunas veces se las ve mencionadas con el nombre de
+\textbf{cadenas ASCIIZ} (caracteres ASCII seguidos de cero).
+
+Gracias a esta representación con el \textbf{cero final}, las cadenas ASCIIZ en C \textbf{no tienen una longitud máxima}. El final de la cadena simplemente ocurre donde aparezca un carácter cero.
+
+\importante{
+Al construir o manipular cadenas ASCIIZ, es necesario cumplir con el protocolo de terminarlas con su \textbf{cero final} para
+poder utilizar las funciones que trabajan con strings. De lo contrario, esas funciones \textbf{no encontrarán el final del string}.
+}
 
 ¿Hay diferencias entre \lstinline{'\0'}, \lstinline{'0'} y \lstinline{"0"}? Muchas.
+
 \begin{itemize}
 	\item La primera constante, \lstinline{'\0'}, es un entero. Su valor aritmético es 0. Todos los bits del objeto de datos donde está representada son 0.
-\item La segunda, \lstinline{'0'}, es una constante de carácter. Ocupa un objeto de datos de 8 bits de tamaño. Su valor es 48 decimal
-en computadoras cuyo juego de caracteres esté basado en ASCII, pero puede ser diferente en otras. 
-\item La tercera, \lstinline{"0"}, es una constante string, y se evalúa a una dirección. Es decir, en cualquier expresión donde figure, su valor aritmético es una dirección de memoria dentro del espacio de direccions del programa. Ocupa un objeto de datos del
+	\item La segunda, \lstinline{'0'}, es una constante de carácter. Ocupa un objeto de datos de 8 bits de tamaño. Su valor es \textbf{48 decimal} en aquellas computadoras cuyo juego de caracteres esté basado en ASCII, pero puede ser diferente en otras. 
+	\item La tercera, \lstinline{"0"}, es una constante string, y se evalúa a una dirección. Es decir, en cualquier expresión donde figure, su valor aritmético es una dirección de memoria dentro del espacio de direcciones del programa. Ocupa un objeto de datos del
 tamaño de una dirección (frecuentemente 16 o 32 bits), además del espacio de memoria ubicado a partir de esa dirección y ocupado por los caracteres del string. Ese espacio de memoria está ocupado por un byte igual a \lstinline{'0'} (el primer y único carácter del string), que como hemos visto equivale a 48 decimal en computadoras que adoptan ASCII, y a continuación viene un byte \lstinline{'\0'}, o sea, 0 (señal de fin del string).
 \end{itemize}
 
-
+\begin{ejemplo}
 Si tenemos las declaraciones y asignaciones siguientes, donde las tres variables declaradas son char:
 \begin{lstlisting}
 char a,b,c;
@@ -61,18 +83,18 @@ b='0';
 c="0";
 \end{lstlisting}
 
-
 \begin{itemize}
 	\item La primera asignación es perfectamente válida y equivale a \lstinline{a=0}. 
 	\item La segunda asignación también es correcta y equivale a \lstinline{b=48} en computadores basados en ASCII. 
  	\item La tercera asignación será rechazada por el compilador, generándose un error de \quotes{asignación no portable de puntero}. Los objetos a ambos lados del signo igual son de diferente naturaleza: a la izquierda tenemos algo que puede ser directamente \textbf{usado como un dato} (una constante o una variable); a la derecha, algo que, indirectamente, \textbf{referencia a un dato} (una dirección). Se dice que la variable y la constante string tienen \textbf{diferente nivel de indirección}.
 \end{itemize}
+\end{ejemplo}
 
 \section{Constantes de carácter}
 El gráfico muestra el resultado de asignar algunas constantes relacionadas con el problema anterior, suponiendo una arquitectura donde los enteros y las direcciones de memoria son de 16 bits. Las tres primeras asignaciones dejan en \lstinline{a} valores
 aritméticos 0, 48 y 0.
 
-Las dos últimas asignaciones dejan en \texttt{a} la dirección de una cadena almacenada en memoria. Las cadenas apuntadas son las que están representadas en el diagrama. 
+Las dos últimas asignaciones dejan en \code{a} la dirección de una cadena almacenada en memoria. Las cadenas apuntadas son las que están representadas en el diagrama. 
 
 La primera cadena contendrá el código ASCII del carácter 0 y un cero binario señalizando el fin del string. La
 segunda contendrá un cero binario (expresado por la constante de carácter \lstinline{'\0'}) y un cero binario fin de string.
@@ -99,7 +121,7 @@ otros caracteres, lo escribimos dos veces seguidas.
 
 
 Estas constantes de carácter pueden ser también escritas respectivamente como las constantes
-numéricas \texttt{033}, \texttt{27} o \texttt{0x1B}, ya que son aritméticamente equivalentes; pero con las comillas simples
+numéricas \code{033}, \code{27} o \code{0x1B}, ya que son aritméticamente equivalentes; pero con las comillas simples
 indicamos que el programador \quotes{ve} a estas constantes como caracteres, lo que puede agregar
 expresividad a un segmento de programa.
 
@@ -116,36 +138,35 @@ Todas estas notaciones para las constantes de carácter pueden intervenir en la 
 string. El mecanismo de reconocimiento de constantes de caracteres dentro de strings asegura que todo el
 juego de caracteres de la máquina pueda ser expresado dentro de una constante string, aun cuando no
 sea imprimible o no pueda producirse con el teclado. Cuando el compilador se encuentre analizando
-una constante string asignará un significado especial al carácter \textbf{barra invertida} o backslash (\texttt{\\}). La
+una constante string asignará un significado especial al carácter \textbf{barra invertida} o backslash (\code{\\}). La
 aparición de un backslash permite referirse a los caracteres por su código en el sistema de la máquina
 (por lo común, el ASCII).
-
-\section{Constantes de punto flotante}
-Las constantes en punto flotante se caracterizan por llevar un punto decimal o un carácter 'e' (que
-indica que está en notación exponencial). Así \texttt{10.23, .999, 0., 1.e10, 1.e-10, 1e10} son constantes en
-punto flotante. La constante \texttt{6.02e23} se interpreta como el número \texttt{6.02} multiplicado por $10^{23}$. La
-constante \texttt{-5e-1} es igual a \texttt{-1/2}.
 
 \section{Constantes enumeradas}
 Como una alternativa más legible y expresiva a la definición de constantes de preprocesador, se
 pueden definir grupos de constantes reunidas por una declaración. Una declaración de \textbf{constantes
-enumeradas} hace que las constantes tomen valores consecutivos de una secuencia. Si no se especifica el primer inicializador, vale 0. Si alguno se especifica, la inicialización de los
-restantes continúa la secuencia.
+enumeradas} hace que las constantes tomen valores consecutivos de una secuencia. 
 
-\section{Ejemplos}
+Si no se especifica el primer inicializador, vale 0. Si alguno se especifica, la inicialización de los
+restantes continúa la secuencia. Las constantes de una enumeración no necesitan tener valores distintos, pero todos los nombres en las
+diferentes declaraciones \lstinline{enum} de un programa deben ser diferentes.
+
+
+\begin{ejemplo}
+Aquí los valores de las constantes son ENE = 1, FEB = 2, MAR = 3, etc.
 \begin{lstlisting}
 enum meses { 
 	ENE = 1, FEB, MAR, ABR, MAY, JUN, 
 	JUL,AGO, SEP, OCT, NOV, DIC 
 };
 \end{lstlisting}
-En este ejemplo, los valores de las constantes son ENE = 1, FEB = 2, MAR = 3, etc.
-Las constantes de una enumeración no necesitan tener valores distintos, pero todos los nombres en las
-diferentes declaraciones \texttt{enum} de un programa deben ser diferentes.
+\end{ejemplo}
+\begin{ejemplo}
+Aquí los valores asumidos son respectivamente 0, 1, 2, 5, 6, y nuevamente 1 y 2.
 \begin{lstlisting}
 enum varios { ALFA, BETA, GAMMA, DELTA = 5,IOTA, PI = 1, RHO };	
 \end{lstlisting}
-Aquí los valores asumidos son respectivamente 0, 1, 2, 5, 6, y nuevamente 1 y 2.
+\end{ejemplo}
 
 \section{Ejercicios}
 \begin{enumerate}

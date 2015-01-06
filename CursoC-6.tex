@@ -11,7 +11,7 @@ El C tiene un conjunto de operadores muy rico, incluyendo algunos operadores que
 \end{itemize}
 
 \begin{ejemplo}
-Aquí \code{a} y \code{b} reciben respectivamente el cociente y el resto de dividir un VALOR por 256. Imprimiéndolos podemos ver cómo una CPU, en la cual un \code{unsigned short int} tuviera un tamaño de 16 bits, almacenaría ese VALOR sobre dos bytes.
+Aquí \lstinline{a} y \lstinline{b} reciben respectivamente el cociente y el resto de dividir un VALOR por 256. Imprimiéndolos podemos ver cómo una CPU, en la cual un \lstinline{unsigned short int} tuviera un tamaño de 16 bits, almacenaría ese VALOR sobre dos bytes.
 \begin{lstlisting}
 unsigned char a,b;
 a=VALOR / 256;
@@ -20,7 +20,7 @@ b=VALOR % 256;
 \end{ejemplo}  
 
 \begin{ejemplo}
-La siguiente división de \code{j} por \code{k} es entera. La variable \code{c} valdrá 1.
+La siguiente división de \lstinline{j} por \lstinline{k} es entera. La variable \lstinline{c} valdrá 1.
 \begin{lstlisting}
 float c;
 int j,k;
@@ -83,7 +83,7 @@ b=--a;
 \end{itemize}
 \end{ejemplo}
 
-
+\subsection{Abreviaturas}
 Existe una forma de abreviar la notación en las expresiones del tipo \lstinline{a = a*b} y \lstinline{a = a+b}. Podemos escribir, respectivamente:
 \begin{lstlisting}
 a *= b;
@@ -127,7 +127,7 @@ Al no existir tipo booleano en C, los valores lógicos se equiparan a los aritm�
 \begin{ejemplo}
 \noindent
 \begin{itemize}
-	\item \lstinline{a - b}, que es una expresión aritmética, es también una expresión lógica. Será $F$ cuando a sea igual a b.
+\item \lstinline{a - b}, que es una expresión aritmética, es también una expresión lógica. Será $F$ cuando a sea igual a b.
 \item \lstinline{a} como expresión lógica será $V$ sólo cuando a sea distinto de 0 .
 
 \item \lstinline{a = 8} es una expresión de asignación. Su valor aritmético es el valor asignado, por lo cual, como expresión lógica, es $V$, ya que 8 es distinto de 0.

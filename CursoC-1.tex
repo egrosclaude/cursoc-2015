@@ -34,10 +34,13 @@ importantes. A pesar de permitir \textbf{operaciones de bajo nivel}, tiene las
 \textbf{estructuras de control}, y permite la \textbf{estructuración de datos}, propias
 de los lenguajes procedurales de alto nivel. 
 
+\subsection{Minimalidad}
 Un programa en C es, por lo general, más \textbf{sintético} que en otros
 lenguajes procedurales; la idea central que atraviesa todo
 el lenguaje es la minimalidad. La definición del lenguaje consta de
-muy pocos elementos, y tiene muy pocas \textbf{palabras reservadas}. Como rasgo
+muy pocos elementos, y tiene muy pocas \textbf{palabras reservadas}. 
+
+Como rasgo
 distintivo, en C no existen, rigurosamente hablando, funciones o
 procedimientos de uso general del programador. Por ejemplo, \textbf{no tiene
 funciones de entrada/salida}; la definición del lenguaje apenas
@@ -46,9 +49,63 @@ definir un lenguaje sin funciones es, por un lado, hacer posible que el
 compilador sea \textbf{pequeño, fácil de escribir e inmediatamente
 portable}; y por otro, permitir que sea el usuario quien defina sus
 propias funciones cuando el problema de programación a resolver tenga
-requerimientos especiales. 
+requerimientos especiales. El usuario puede escribir sus propios procedimientos (llamados
+\textbf{funciones} aunque no devuelvan valores). Aunque existe la
+noción de \textbf{bloque} de sentencias (sentencias encerradas entre llaves), el lenguaje se dice \textbf{\textit{no}
+estructurado en bloques} porque no pueden definirse funciones dentro de
+otras. 
 
-Sin embargo, se ha establecido un conjunto mínimo de funciones,
+\subsection{Versatilidad... a un precio}
+El lenguaje entrega completamente el control de la máquina subyacente
+al programador, no realizando controles de tiempo de ejecución. Es
+decir, no verifica condiciones de error comunes como \textbf{\textit{overflow}
+de variables}, \textbf{errores de entrada/salida}, o \textbf{consistencia de argumentos}
+en llamadas a funciones. Ofrece una gran libertad sintáctica al programador. No
+es fuertemente tipado. Cuando es necesario, se realizan \textbf{conversiones
+automáticas de tipo} en las asignaciones, a veces \textbf{con efectos
+laterales inconvenientes} si no se tiene precaución. Una función que
+recibe determinados parámetros formales puede ser invocada con
+argumentos reales de otro tipo. 
+
+Se ha dicho que estas características
+\quotes{liberales} posibilitan la realización de
+proyectos complejos con más facilidad que otros lenguajes como Pascal
+o Ada, más estrictos; aunque al mismo tiempo, así resulta más
+difícil detectar errores de programación en tiempo de
+compilación. Como resultado, es frecuente que el
+principiante, y aun el experto, cometan errores de programación que
+no se hacen evidentes enseguida, ocasionando problemas y costos de
+desarrollo. En este sentido, según los partidarios de la
+tipificación estricta, C no es un buen lenguaje. Gran parte del
+esfuerzo de desarrollo del estándar ANSI se dedicó a dotar al C de
+elementos para mejorar esta deficiencia. 
+
+Una característica especial del lenguaje C es que el \textbf{pasaje de
+argumentos a funciones} se realiza siempre \textbf{por valor}. ¿Qué ocurre
+cuando una función debe \textbf{modificar} datos que recibe como
+argumentos? La única salida es pasarle -por valor- la dirección del
+dato a modificar. Las consecuencias de este hecho son más fuertes de
+lo que parece a primera vista, ya que surge la necesidad de todo un
+conjunto de técnicas de \textbf{manejo de punteros} que no siempre son bien
+comprendidas por los programadores poco experimentados, y abre la
+puerta a sutiles y escurridizos errores de programación. Quizás
+este punto, junto con el de la ausencia de comprobaciones en tiempo de
+ejecución, sean los que le dan al C fama de \quotes{difícil
+de aprender}. 
+
+\subsection{Portabilidad}
+Los \textbf{tipos de datos} no tienen un tamaño determinado por la definición
+del lenguaje, sino que diferentes implementaciones pueden adoptar
+diferentes convenciones. Paradójicamente, esta característica
+obedece al objetivo de lograr la \textbf{portabilidad} de los programas en C. El
+programador está obligado a no hacer ninguna suposición sobre los
+tamaños de los \textbf{objetos de datos}, ya que lo contrario haría al
+software dependiente de una arquitectura determinada (\quotes{no portable}). 
+
+
+
+\subsection{Biblioteca Standard}
+Pese a no estar formalmente definidas funciones de entrada/salida en el lenguaje, se ha establecido un conjunto mínimo de funciones,
 llamado la \textbf{Biblioteca Standard} del lenguaje C, que todos los
 compiladores proveen, a veces con agregados. La filosofía de la
 Biblioteca Standard es la portabilidad, es decir, casi no incluye
@@ -62,62 +119,14 @@ se remedia utilizando bibliotecas de funciones \quotes{de
 terceras partes} (creadas por el usuario u obtenidas de
 otros programadores). 
 
-El usuario puede escribir sus propios procedimientos (llamados
-\textbf{funciones} aunque no devuelvan valores). Aunque existe la
-noción de \textbf{bloque} de sentencias (sentencias encerradas entre llaves), el lenguaje se dice \textbf{\textit{no}
-estructurado en bloques} porque no pueden definirse funciones dentro de
-otras. Las funciones de la Biblioteca Standard no tienen ningún
+Las funciones de la Biblioteca Standard no tienen ningún
 privilegio sobre las del usuario y \textbf{sus nombres no son palabras
 reservadas}; el usuario puede reemplazarlas por sus propias funciones
 simplemente dándoles el mismo nombre. 
 
-El lenguaje entrega completamente el control de la máquina subyacente
-al programador, no realizando controles de tiempo de ejecución. Es
-decir, no verifica condiciones de error comunes como \textbf{\textit{overflow}
-de variables}, \textbf{errores de entrada/salida}, o \textbf{consistencia de argumentos}
-en llamadas a funciones. Como resultado, es frecuente que el
-principiante, y aun el experto, cometan errores de programación que
-no se hacen evidentes enseguida, ocasionando problemas y costos de
-desarrollo. Permite una gran libertad sintáctica al programador. No
-es fuertemente tipado. Cuando es necesario, se realizan \textbf{conversiones
-automáticas de tipo} en las asignaciones, a veces \textbf{con efectos
-laterales inconvenientes} si no se tiene precaución. Una función que
-recibe determinados parámetros formales puede ser invocada con
-argumentos reales de otro tipo. 
-
-Se ha dicho que estas características
-\quotes{liberales} posibilitan la realización de
-proyectos complejos con más facilidad que otros lenguajes como Pascal
-o Ada, más estrictos; aunque al mismo tiempo, así resulta más
-difícil detectar errores de programación en tiempo de
-compilación. En este sentido, según los partidarios de la
-tipificación estricta, C no es un buen lenguaje. Gran parte del
-esfuerzo de desarrollo del estándar ANSI se dedicó a dotar al C de
-elementos para mejorar esta deficiencia. 
-
-Los \textbf{tipos de datos} no tienen un tamaño determinado por la definición
-del lenguaje, sino que diferentes implementaciones pueden adoptar
-diferentes convenciones. Paradójicamente, esta característica
-obedece al objetivo de lograr la \textbf{portabilidad} de los programas en C. El
-programador está obligado a no hacer ninguna suposición sobre los
-tamaños de los objetos de datos, ya que lo contrario haría al
-software dependiente de una arquitectura determinada (\quotes{no portable}). 
-
-Una característica especial del lenguaje C es que el \textbf{pasaje de
-argumentos a funciones} se realiza siempre \textbf{por valor}. ¿Qué ocurre
-cuando una función debe \textbf{modificar} datos que recibe como
-argumentos? La única salida es pasarle -por valor- la dirección del
-dato a modificar. Las consecuencias de este hecho son más fuertes de
-lo que parece a primera vista, ya que surge la necesidad de todo un
-conjunto de técnicas de \textbf{manejo de punteros} que no siempre son bien
-comprendidas por los programadores poco experimentados, y abre la
-puerta a sutiles y escurridizos errores de programación. Quizás
-este punto, junto con el de la ausencia de chequeos en tiempo de
-ejecución, sean los que le dan al C fama de \quotes{difícil
-de aprender}. 
-
+\subsection{Paradigma procedural}
 Por último, el C \textbf{no es un lenguaje orientado a objetos}, sino que
-adhiere al paradigma tradicional de \textbf{programación procedural}. No
+adhiere al paradigma tradicional de \textbf{programación imperativa o procedural}. No
 soporta la orientación a objetos propiamente dicha, al no
 proporcionar herramientas fundamentales, como la herencia. Sin embargo,
 algunas características del lenguaje permiten que un proyecto de
@@ -128,6 +137,7 @@ responsabilidades. El lenguaje C++, orientado a objetos, \textbf{no }es
 una versión más avanzada del lenguaje o un compilador de C con
 más capacidades, sino que \textbf{se trata de un lenguaje completamente
 diferente}. 
+
 
 \section{Evolución del lenguaje}
 La primera definición oficial del lenguaje fue dada en 1978 por
@@ -154,10 +164,10 @@ Algunas nuevas características de C99 son:
 \begin{itemize}
 \item Matrices de tamaño variable 
 \item Soporte de números complejos 
-\item Tipos \texttt{long long int} y \texttt{unsigned long long int} de al menos 64 bits 
-\item Familia de funciones \texttt{vscanf()} 
-\item Comentarios al estilo de C++ prefijando las líneas con la secuencia \texttt{//}. 
-\item Familia de funciones \texttt{snprintf()} 
+\item Tipos \lstinline{long long int} y \lstinline{unsigned long long int} de al menos 64 bits 
+\item Familia de funciones \lstinline{vscanf()} 
+\item Comentarios al estilo de C++ prefijando las líneas con la secuencia \lstinline{//}. 
+\item Familia de funciones \lstinline{snprintf()} 
 \item Tipo boolean
 \end{itemize}
 
@@ -249,16 +259,16 @@ argumentos.
 \item La función \textbf{main()} es el cuerpo principal del programa
 (es por donde comenzará la ejecución). Todas las funciones en C están delimitadas por un par de llaves. Terminada la ejecución de
 main(), terminará el programa. 
-\item La función \texttt{printf()} imprimirá la cadena entre comillas, que es
+\item La función \lstinline{printf()} imprimirá la cadena entre comillas, que es
 una \textbf{constante string} terminada por un carácter de
-\textbf{nueva línea} (la secuencia especial \quotes{\texttt{{\textbackslash}n}}). 
+\textbf{nueva línea} (la secuencia especial \quotes{\lstinline{\n}}). 
 \end{itemize}
 
 \subsection{Compilación del programa}
 Para ver el primer ejemplo en C en funcionamiento:
 
 \begin{enumerate}
-	\item Copiar el programa con cualquier editor de textos y guardarlo en un archivo llamado \texttt{hola.c} en el directorio de trabajo del usuario.
+	\item Copiar el programa con cualquier editor de textos y guardarlo en un archivo llamado \lstinline{hola.c} en el directorio de trabajo del usuario.
 	\item Sin cambiar de directorio, invocar al compilador ejecutando el comando \lstinline{gcc hola.c -o hola}. Por defecto, el compilador \textbf{gcc} invocará al vinculador \textbf{ld} para generar el ejecutable a partir del archivo objeto intermedio generado. 
 	\item Ejecutar el programa con el comando \lstinline{./hola}. 
 \end{enumerate}
@@ -273,8 +283,8 @@ Lo mismo, pero de otra manera:
 	\item Ejecutar el programa con el comando \lstinline{./hola}. 
 \end{enumerate}
 
-La diferencia es que en el primer caso invocamos directamente al compilador \texttt{gcc},
-mientras que en el segundo caso utilizamos la herramienta \texttt{make}, que nos asiste en la compilación de proyectos. En el ejemplo, le decimos al compilador que procese el archivo fuente \texttt{hola.c}, y que el ejecutable de salida (opción \texttt{-o}, de \textit{output}) se llame \texttt{hola}. 
+La diferencia es que en el primer caso invocamos directamente al compilador \lstinline{gcc},
+mientras que en el segundo caso utilizamos la herramienta \lstinline{make}, que nos asiste en la compilación de proyectos. En el ejemplo, le decimos al compilador que procese el archivo fuente \lstinline{hola.c}, y que el ejecutable de salida (opción \lstinline{-o}, de \textit{output}) se llame \lstinline{hola}. 
 
 
 % \subsection[Mapa de memoria de un programa Mas información ... ]{Mapa de memoria de un programa \href{info/info1.html#info2}{Mas información ...} }
@@ -342,10 +352,11 @@ que sea necesario. El \textbf{heap} es la zona de donde el programa obtiene esos
 
 \end{description}
 
-
+\importante{
 A diferencia de otros lenguajes con administración de memoria automática, en C normalmente es necesario solicitar explícitamente cada segmento de memoria asignada dinámicamente. Es responsabilidad del programador, también, liberar esta memoria cuando no ya sea necesaria, ya que en C no existe un
 mecanismo de \quotes{recolección de basura}, lo cual sí existe en otros lenguajes, para desalojar
 automáticamente objetos que ya no se utilicen.
+}
 
 Por otro lado, un programa que realice una cadena de invocaciones de muchas funciones, y
 especialmente si éstas utilizan muchas variables locales, hará crecer notablemente su stack,
@@ -397,7 +408,7 @@ main()
 		\item Editar una biblioteca?
 		\end{itemize}
 	\item ¿Qué pasaría si un programa en C \textbf{no} contuviera una función \textbf{main()}? Haga la prueba modificando \textbf{hola.c}.
-	\item Edite el programa \texttt{hola.c} y modifíquelo según las pautas que siguen. Interprete los errores de compilación. Identifique en qué etapa del ciclo de compilación ocurren los errores. Si resulta un programa ejecutable, observe qué hace el programa y por qué. 
+	\item Edite el programa \lstinline{hola.c} y modifíquelo según las pautas que siguen. Interprete los errores de compilación. Identifique en qué etapa del ciclo de compilación ocurren los errores. Si resulta un programa ejecutable, observe qué hace el programa y por qué. 
 		\begin{itemize}
 		\item Quite los paréntesis de main(). 
 		\item Quite la llave izquierda de main().

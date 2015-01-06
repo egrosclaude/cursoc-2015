@@ -20,10 +20,15 @@ a sustituir. Los símbolos indicados con una directiva de definición \lstinline
 
 Habitualmente se llama \textbf{símbolos} a aquellas cadenas que son directamente sustituibles por una expresión, reservándose el nombre de \textbf{macros} para aquellos símbolos cuya expansión es parametrizable (es decir, llevan argumentos formales y reales como en el caso de las funciones). La cadena de expansión puede ser cualquiera, no necesariamente un elemento sintácticamente válido de C.
 
+\figura[10]{direct}{Transformaciones realizadas por directivas de preprocesador.}{directivas.eps}
 
 \begin{ejemplo}
-El programa ejemplo \textbf{hola.c} escrito usando directivas de inclusión de archivos, símbolos y macros, y mostrando las sucesivas transformaciones que hará el preprocesador. El texto del programa una vez preprocesado quedará idéntico al del programa \textbf{hola.c} anteriormente presentado, y listo para ingresar a la etapa de compilación propiamente dicha. 
+La Fig. \ref{fig:direct} muestra el programa ejemplo \textbf{hola.c} escrito usando directivas de inclusión de archivos, símbolos y macros, y las sucesivas transformaciones que hará el preprocesador. 
 
+El texto del programa una vez preprocesado quedará idéntico al del programa \textbf{hola.c} anteriormente presentado, y listo para ingresar a la etapa de compilación propiamente dicha. 
+\end{ejemplo}
+
+\nota{
 \begin{enumerate}
 	\item 
 \begin{lstlisting}
@@ -67,7 +72,7 @@ main()
 \end{lstlisting}
 
 \end{enumerate}
-\end{ejemplo}
+}
 
 \subsection{Headers}
 Las directivas para incluir archivos suelen darse al principio de los programas, ya que en general se desea que su efecto alcance a todo el archivo fuente. Por esta razón los archivos preparados para ser incluidos se denominan \textit{headers} o archivos de cabecera. La implementación de la Biblioteca Standard que viene con un compilador posee sus propios headers, uno por cada módulo de la biblioteca, que \textbf{declaran} funciones y variables de uso general. Estos headers contienen texto legible por humanos, y están en algún subdirectorio predeterminado (llamado \lstinline{/usr/include} en UNIX, y dependiendo del compilador en otros sistemas operativos). El usuario puede escribir sus propios headers, y no necesita ubicarlos en el directorio reservado del compilador; puede almacenarlos en el directorio activo durante la compilación. 
@@ -249,16 +254,19 @@ c=PROMEDIO(a,b);
 \end{lstlisting}
 \item  ¿Qué está mal en los ejemplos que siguen?
 	\begin{enumerate}[label=\alph*.]
-\item  \
+
+\item  
 \begin{lstlisting}
 #define PRECIO 27.5
 PRECIO=27.7;
 \end{lstlisting}
-\item  \
+
+\item  
 \begin{lstlisting}
 #define 3.14 PI
 \end{lstlisting}
-\item  \
+
+\item  
 \begin{lstlisting}
 #define doble(x) 2*x;
 alfa=doble(6)+5;

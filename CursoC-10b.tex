@@ -1,0 +1,652 @@
+
+
+
+
+
+\section{Errores más frecuentes}
+
+\subsection{Punteros sin inicializar}
+El utilizar un puntero sin inicializar parece estar entre las primeras causas
+de errores en C.
+
+\begin{ejemplo}
+Si bien sintácticamente correctas, las líneas del ejemplo presentan un problema
+muy común en C. Declaran un puntero a entero, \lstinline{p}, y almacenan un valor entero en
+la dirección apuntada por el mismo. 
+
+\begin{lstlisting}
+/* Incorrecto */
+   int *p;
+   *p = 8;
+\end{lstlisting}   
+
+Como \lstinline{p} es un puntero, su contenido será interpretado como una dirección de memoria. El problema es que el contenido de \lstinline{p} es \textbf{impredecible}:
+\begin{itemize}
+	\item Si la variable \lstinline{p} es local, su clase de almacenamiento es \textbf{auto} y
+por lo tanto contiene \textbf{basura}, salvo inicialización explícita. 
+	\item Si \lstinline{p} es externa, \textbf{será inicializada a 0}. 
+\end{itemize}
+
+En el primer caso, esa dirección es aleatoria. En el segundo caso, será \lstinline{cero}, que en la mayoría de los sistemas operativos conocidos es una dirección \textbf{inaccesible} para los procesos no privilegiados.  
+
+En cualquier caso, el programa compilará pero se encontrará con problemas de ejecución. Lo que falta es hacer que \lstinline{p} apunte a alguna zona válida.
+
+Direcciones válidas, que pueden ser manipuladas mediante punteros, son las de
+los objetos conocidos por el programa: \textbf{variables, estructuras, arreglos,
+funciones, bloques de memoria asignados dinámicamente}, son todos objetos cuya
+dirección ha sido \textbf{obtenida legítimamente}, ya sea al momento de carga o al
+momento de ejecución. 
+\end{ejemplo}
+
+\importante {Si un puntero no está explícitamente inicializado a
+alguna dirección válida dentro del espacio del programa, se estará escribiendo
+en \textbf{alguna dirección potencialmente prohibida}. En el mejor de los casos, el
+programa intentará escribir en el espacio de memoria de otro proceso y el
+sistema operativo \textbf{lo terminará}. En casos más sutiles, el programa continuará
+funcionando pero luego de \textbf{corromper algún área de memoria impredecible} dentro
+del espacio del proceso. 
+
+Este problema es por lo general difícil de detectar,
+porque el efecto puede no mostrar ninguna relación con el origen del problema.
+El error puede estar en una instrucción que se ejecuta pero corrompe la
+memoria, y sin embargo manifestarse recién cuando se accede a esa zona de
+memoria corrupta. Para este momento, el control del programa puede estar en un
+punto arbitrariamente lejano de la instrucción que causó el problema.
+}
+
+\begin{ejemplo}
+La solución al problema de los punteros sin inicializar es asegurarse, \textbf{siempre}, que los punteros apuntan a \textbf{lugares válidos
+del programa}, asignándoles \textbf{direcciones de objetos conocidos}. 
+
+\begin{lstlisting}
+/* Correcto */
+	int a;
+	int *p;
+	p = &a;
+	*p = 8;	
+\end{lstlisting}
+\end{ejemplo}
+
+
+\subsection{Confundir punteros con arreglos}
+Es imprescindible comprender rigurosamente la diferencia entre arreglos y
+punteros. Aunque son intercambiables en algunos contextos, suponer que son lo
+mismo lleva a graves errores. Es frecuente confundirlos, y esta confusión es
+explicable a partir de algunos hechos que se enumeran a continuación. No hay que
+dejarse engañar por ellos.
+
+\begin{enumerate}
+	\item \textbf{Ambos se evalúan a direcciones.}
+	
+El nombre de un arreglo equivale a una dirección, y usar un puntero equivale a
+usar la dirección que contiene. Es decir, tienen usos similares.
+
+\begin{enumerate}[label=\alph*.]
+
+\item 
+\begin{lstlisting}
+char formato[] = "%d %d\n";
+printf(formato, 5, -1);
+\end{lstlisting} 
+
+\item 
+\begin{lstlisting}
+char *formato = "%d %d\n";
+printf(formato, 5, -1);
+\end{lstlisting} 
+
+Aquí usamos como equivalentes a un arreglo y a un puntero, porque de cualquiera
+de las dos maneras estamos expresando una dirección en la invocación a \lstinline{printf()}.
+\end{enumerate}
+
+
+
+\item \textbf{Como argumentos formales, son equivalentes.}
+
+En una función, un argumento formal que sea una dirección puede ser declarado
+como puntero o como arreglo, intercambiablemente. Convirtamos los ejemplos de
+más arriba a funciones:
+
+\begin{enumerate}[label=\alph*.]
+\item 
+\begin{lstlisting}
+int fun(char *s, int x, int y)
+{
+       printf(s, x, y);
+}
+\end{lstlisting} 
+
+\item 
+\begin{lstlisting}
+int fun(char s[], int x, int y)
+{
+        printf(s, x, y);
+}
+\end{lstlisting} 
+\end{enumerate}
+
+Ambas formas son válidas, porque lo único que estamos expresando es que un
+argumento es una dirección; y, como se ha dicho, tanto punteros como nombres de
+arreglos los representan. Además, cualquiera de las funciones escritas puede
+usarse en cualquiera de las dos maneras siguientes, pasando punteros o arreglos
+en la llamada:
+
+\begin{enumerate}[label=\alph*.]
+\item 
+\begin{lstlisting}
+char formato[] = "%d %d\n";
+   fun(formato, 5, -1);
+\end{lstlisting} 
+
+\item 
+\begin{lstlisting}
+char *formato = "%d %d\n";
+   fun(formato, 5, -1);
+\end{lstlisting} 
+\end{enumerate}
+
+
+\item \textbf{Comparten operadores.}
+
+Se pueden aplicar los mismos operadores de acceso a ambos; a saber, se puede
+dereferenciar un arreglo (igual que un puntero) para acceder a un elemento y se
+puede indexar un puntero (como un arreglo) para acceder a una posición dentro
+del espacio al que apunta.
+
+\begin{enumerate}[label=\alph*.]
+\item 
+\begin{lstlisting}
+char cadena[] = "abcdefghijkl";
+   char c;
+   c = *(cadena + 4); /* c = 'e' */
+\end{lstlisting} 
+
+\item 
+\begin{lstlisting}
+char *cadena = "abcdefghijkl";
+   char c;
+   c = cadena[4];     /* c = 'e' */
+\end{lstlisting} 
+\end{enumerate}
+
+\end{enumerate}
+
+
+
+En muchas formas, entonces, punteros y arreglos pueden ser intercambiados
+porque son dos maneras de acceder a direcciones de memoria, pero \textbf{un arreglo no
+es un puntero}, y \textbf{ninguno de ellos es una dirección} (aunque las representan),
+porque:
+
+\begin{itemize}
+	\item 
+Un arreglo tiene memoria asignada para todos sus elementos (desde la carga
+      del programa, para arreglos globales o \lstinline{static}, y desde la entrada a la
+      función donde se lo declara, para los arreglos locales).
+	\item 
+Un puntero, en cambio, solamente contiene una dirección, que puede ser o
+      no válida en el sentido de apuntar o no a un objeto existente en el
+      espacio direccionable por el programa. La validez de la dirección
+      contenida en un puntero es responsabilidad del programador.
+\end{itemize}
+
+\subsection{No analizar el nivel de indirección}
+Una variable de un tipo básico cualquiera contiene un dato que puede ser
+directamente utilizado en una expresión para hacer cálculos. En cambio, un puntero que
+apunte a esa variable contiene su dirección; es una \textbf{referencia} al dato, y
+necesita ser \textbf{dereferenciado} para acceder al dato. La variable y su puntero
+tienen \textbf{diferente nivel de indirección}. 
+
+\figura[12]{indir}{Diferentes niveles de indirección.}{indireccion.eps}
+
+Un \lstinline{char}, un \lstinline{int}, un \lstinline{long}, un \lstinline{double}, una estructura de un tipo definido por el
+usuario, tienen un mismo nivel de indirección, que podríamos llamar \quotes{el nivel
+0}. Un puntero, una dirección, un nombre de arreglo, tienen un \quotes{nivel de
+indirección 1}. La Fig. \ref{fig:indir} esquematiza situaciones donde los niveles de indirección son \textbf{0, 1, y 2}.
+
+Aplicar el operador \lstinline{&} (dirección de) a algo aumenta su nivel de
+indirección. Aplicar el operador \lstinline{*} (dereferenciación) lo decrementa.
+
+\importante{
+Cuando escribimos una expresión, o hacemos una asignación, o proveemos
+argumentos reales para una función, etc., necesitamos que los niveles de
+indirección de los elementos que componen la expresión sean consistentes, es
+decir, que el resultado final de cada subexpresión tenga el nivel de
+indirección necesario.
+
+El concepto de consistencia de niveles de indirección es análogo al que usamos al escribir una ecuación con magnitudes físicas, donde ambos
+miembros de la ecuación deben tener el mismo sentido físico. Por ejemplo, si
+$V=velocidad$, $E=espacio$, $T=tiempo$, no tiene sentido en Física escribir la igualdad $V=E*T$,
+simplemente porque si \textbf{multiplicamos} metros por segundo no obtenemos $m/s$, que son
+las unidades de $V$. Del mismo modo podemos verificar la consistencia de las
+expresiones en C preguntándonos qué nivel de indirección debe tener cada
+subexpresión.
+}
+
+
+
+\begin{ejemplo}
+Este tipo de análisis es sumamente útil para prevenir errores de programación.
+Conviene utilizarlo para dar una segunda mirada crítica a las expresiones que
+escribimos.
+
+\begin{lstlisting}
+char *s = "cadena";
+char *t;
+char u;
+t = s + 2; /* CORRECTO */
+u = s;     /* INCORRECTO */
+u = *s;    /* CORRECTO */
+t = &u;    /* CORRECTO */	
+\end{lstlisting}
+
+La asignación \lstinline{t = s + 2} es correcta porque la suma de una dirección más un
+entero está definida y devuelve una dirección; con lo cual la expresión
+mantiene el mismo nivel de indirección en ambos miembros (\textbf{puntero = dirección}).
+
+En cambio, la asignación \lstinline{u = s} intenta asignar una dirección (la dirección contenida en \lstinline{s}) a un
+char. No se respeta el mismo nivel de indirección en ambos miembros de la
+asignación (\textbf{puntero = char}), de modo que ésta es incorrecta y será rechazada por el compilador.
+
+En las dos últimas asignaciones se usan los operadores de dirección y de
+indirección para hacer consistentes los niveles de indirección de ambos
+miembros:
+\begin{lstlisting}
+		u = *s;
+		char = lo apuntado por(puntero a char);
+		char = char;
+\end{lstlisting}
+
+\begin{lstlisting}
+		t = &u;
+		puntero a char = direccion de(char);
+		direccion de char = direccion de char;
+\end{lstlisting}
+
+\end{ejemplo}
+
+\section{Arreglos de punteros}
+Una construcción especialmente útil es la de \textbf{arreglos de punteros a carácter}.
+Esta construcción permite expresar una lista de rótulos y navegar por ellos con
+la indexación natural de los arreglos.
+
+\begin{ejemplo}
+Aquí el tipo de los elementos del arreglo mes es puntero a carácter. Cada
+elemento se inicializa en la declaración a una constante string.
+
+\begin{lstlisting}
+char *mes[] = { "Ene","Feb","Mar","Abr","May","Jun",
+                "Jul","Ago","Sep","Oct","Nov","Dic" };
+
+printf("Mes: %s\n",mes[6]);
+\end{lstlisting}
+
+
+\end{ejemplo}
+
+
+\section{Estructuras referenciadas por punteros}
+En el caso particular de \textbf{estructuras o uniones referenciadas por punteros}, la
+notación para acceder a sus miembros cambia ligeramente, reemplazando el
+operador \quotes{punto} por \quotes{\lstinline{->}}.
+\begin{ejemplo}
+Accedemos a los miembros de la estructura \lstinline{persona} en forma directa:
+\begin{lstlisting}
+struct persona p;
+p.DNI = 14233326;
+p.edad = 40;
+\end{lstlisting}
+En forma indirecta:
+\begin{lstlisting}
+struct persona p, *pp;
+pp = &p;
+pp->DNI = 14233326;
+pp->edad = 40;
+\end{lstlisting}
+\end{ejemplo}
+
+
+\section{Estructuras de datos recursivas}
+Las estructuras de datos recursivas se expresan efectivamente creando miembros que sean punteros a
+estructuras del mismo tipo.
+\begin{lstlisting}
+struct itemlista {
+    double dato;
+    struct itemlista *proximoitem;
+}
+\end{lstlisting}
+
+\begin{lstlisting}
+struct nodoarbol {
+    int valor;
+    struct nodoarbol *hijoizquierdo;
+    struct nodoarbol *hermanoderecho;
+}
+\end{lstlisting}
+
+En cambio, no es legal la composición de estructuras dentro de sí mismas:
+\begin{lstlisting}
+struct itemlista { /* INCORRECTO */
+    double dato;
+    struct itemlista proximoitem;
+}
+\end{lstlisting}
+
+\section{Construcción de tipos}
+Aunque la construcción de \textbf{tipos definidos por el usuario} no es una
+característica directamente ligada a los punteros o a las variables
+estructuradas, es un momento apropiado para introducirla. El lenguaje C admite la
+generación de nuevos nombres para tipos (en particular, los tipos estructurados) mediante la primitiva
+\lstinline{typedef}.
+
+\begin{ejemplo}
+Las declaraciones del ejemplo anterior se podrían reescribir más claramente de
+la forma que sigue.
+\begin{lstlisting}
+typedef struct nodoarbol {
+    int valor;
+    struct nodoarbol *hijoizquierdo;
+    struct nodoarbol *hermanoderecho;
+}nodo;
+typedef struct nodoarbol *nodop;	
+\end{lstlisting}
+
+Entonces, el tipo de un argumento de una función podría quedar expresado
+sintéticamente como \lstinline{nodop}:
+\begin{lstlisting}
+nodop crearnodo(nodop padre);
+\end{lstlisting}
+
+La construcción con \lstinline{typedef} no es indispensable, pero aporta claridad al estilo
+de programación, y, bien manejada, promueve la portabilidad.
+\end{ejemplo}
+
+
+\section{Asignación dinámica de memoria}
+Se ha visto la necesidad de que los punteros apunten a direcciones válidas.
+¿Qué hacer cuando la lógica del programa pide la creación de estructuras de
+datos en forma dinámica? Los punteros son muy convenientes para manejarlas,
+pero se debe asegurar que apunten a zonas de memoria legítimamente obtenidas
+por el programa.
+
+En C se tiene como \textbf{herramientas básicas de gestión dinámica de memoria} a las
+funciones \lstinline{malloc()} y \lstinline{free()}. Con \lstinline{malloc()} pedimos una cantidad de bytes
+contiguos que serán tomados del \textbf{heap}. La función \lstinline{malloc()} devuelve la dirección
+del bloque de memoria asignado. Esta dirección debe reservarse en un puntero
+para uso futuro y para liberarla con \lstinline{free()}.
+
+\begin{ejemplo}
+En lugar de hacer que \lstinline{p} apunte a un objeto existente al momento de compilación,
+solicitamos tanta memoria como sea necesaria para alojar un entero y ponemos a
+\lstinline{p} apuntando allí. Luego podemos hacer la asignación. Luego del uso se debe
+liberar la zona apuntada por \lstinline{p}.
+\begin{lstlisting}
+/* Correcto */
+int *p;
+p = malloc(sizeof(int));
+*p = 8;
+free(p);
+\end{lstlisting}
+Para ser completamente correcto, el programa del ejemplo debería verificar que \lstinline{malloc()} no
+devuelva \textbf{NULL} por ser imposible satisfacer el requerimiento de memoria. El
+símbolo \lstinline{NULL} corresponde a la dirección 0, o, equivalentemente, al \textbf{puntero
+nulo}, y nunca es una dirección utilizable.
+\end{ejemplo}
+
+
+
+
+\begin{ejemplo}
+La propiedad de poder aplicar indexación a los punteros hace que, virtualmente,
+el C sea capaz de proporcionarnos \textbf{arreglos dimensionables en tiempo de
+ejecución}. En efecto:
+
+\begin{lstlisting}
+double *tabla;
+tabla = malloc(k);
+tabla[50] = 15.25;
+\end{lstlisting}
+
+Estas líneas son virtualmente equivalentes a un arreglo de $k$ elementos \lstinline{double},
+donde $k$, por supuesto, puede ser calculado en tiempo de ejecución.
+
+Una variante de \lstinline{malloc()} es la función \lstinline{calloc()}, que solicita una cantidad dada de
+elementos de memoria, de un tamaño también dado, y además garantiza que todo el
+bloque de memoria concedido esté \textbf{inicializado con ceros binarios}.
+
+\begin{lstlisting}
+float *lista;
+int i;
+lista = calloc(k, sizeof(float));
+for(i=0; i<k; i++)
+    lista[i] = fun(i);
+\end{lstlisting}
+\end{ejemplo}
+
+
+
+\section{Punteros a funciones}
+Así como se pueden tomar las direcciones de los elementos de datos, es posible
+manipular las \textbf{direcciones iniciales de los segmentos de código} representados
+por las funciones de un programa C, mediante punteros a funciones. Esta
+característica es \textbf{sumamente poderosa}.
+
+La declaración de un puntero a función tiene una sintaxis algo complicada: debe
+indicar \textbf{el tipo devuelto} por la función y los \textbf{tipos de los argumentos}. El nombre del puntero, con el signo de \quotes{puntero} incluido, debe estar \textbf{entre paréntesis} en la declaración.
+
+\begin{ejemplo}
+Definición de un puntero llamado \lstinline{p}, a una función que recibe dos enteros y devuelve un entero:
+\begin{lstlisting}
+int (*p)(int x, int y);
+\end{lstlisting}
+
+o también:
+\begin{lstlisting}
+int (*p)(int, int);
+\end{lstlisting}
+
+Los paréntesis alrededor de \lstinline{*p} son importantes: sin ellos, se define una
+\textbf{función que devuelve un puntero a entero}, que no es lo que se pretende.
+
+Asignación del puntero \lstinline{p}:
+\begin{lstlisting}
+int fun(int x, int y)
+{
+    ...
+}
+p = fun;
+\end{lstlisting}
+Uso del puntero \lstinline{p} para invocar a la función \lstinline{fun} cuya dirección tiene asignada:
+\begin{lstlisting}
+a = (*p)(k1, 20 - k2);
+\end{lstlisting}
+\end{ejemplo}
+
+\section{Aplicación de punteros a funciones}
+La Biblioteca Standard contiene una función, \lstinline{qsort()}, que realiza el ordenamiento de una
+tabla de datos mediante el método de \textbf{Quicksort}. Para que pueda ser
+completamente flexible (para poder ordenar datos de cualquier naturaleza y según cualquier criterio), la
+función acepta a su vez una \textbf{función provista por el usuario}, que determina el
+\textbf{orden de dos elementos}. 
+
+Es responsabilidad del usuario, entonces, definir
+cuándo un elemento es mayor que el otro, a través de esta función de
+comparación. La función de ordenamiento recibe un puntero a la función de comparación y la
+invoca repetidamente.
+
+La función de comparación sólo debe aceptar \lstinline{p1} y \lstinline{p2}, dos punteros a un par de
+datos, y seguir el protocolo siguiente:
+
+\begin{tabular}{c|c}
+Si & Devolver \\
+\hline
+\lstinline$*p1 < *p2$ & un número menor que cero\\
+\hline
+\lstinline$*p1 == *p2$ & cero\\
+\hline
+\lstinline$*p1 < *p2$ & un número mayor que cero\\
+\end{tabular}
+
+\begin{ejemplo}
+La declaración de argumentos formales como \lstinline{void *} expresa que esos argumentos pueden tratarse de
+direcciones de objetos de cualquier tipo.
+\begin{lstlisting}
+#include <stdlib.h>
+
+struct p {
+    ...
+    char nombre[40];
+    double salario;
+    ...
+} lista[100];
+
+int cmpSalario(const void *p1, const void *p2)
+{
+    return p1->salario - p2->salario;
+}
+
+int cmpNombre(const void *p1, const void *p2)
+{
+    return strncmp(p1->nombre, p2->nombre, 40);
+}
+\end{lstlisting}
+
+Con estas definiciones, la tabla \textbf{lista} se puede ordenar por uno u otro campo de
+la estructura con las sentencias:
+\begin{lstlisting}
+qsort(lista, 100, sizeof(struct p),cmpSalario);
+\end{lstlisting}
+\begin{lstlisting}
+qsort(lista, 100, sizeof(struct p),cmpNombre);
+\end{lstlisting}
+\end{ejemplo}
+
+
+\section{Punteros a punteros}
+La indirección mediante punteros puede ser \textbf{doble, triple}, etc. Los punteros
+dobles tienen aplicación en el manejo de conjuntos de strings o matrices
+bidimensionales. 
+
+Como en el caso de punteros a funciones, esto brinda una gran
+potencia, pero a costa de complicar enormemente la notación y la programación,
+por lo que se recomienda no abordar el tema en un curso introductorio y, sólo
+una vez dominadas las técnicas y conceptos básicos de punteros, referirse a una
+fuente como el libro de Kernighan y Ritchie, 2ª edición.
+
+\begin{ejemplo}
+Un ejemplo de uso de punteros dobles. 
+\begin{itemize}
+	\item En estas sentencias, el puntero \lstinline{q} recibe la dirección de \lstinline{a}; pero \lstinline{p} recibe la dirección de \lstinline{q}. Luego, \lstinline{p} contiene \quotes{la dirección de la dirección} de \lstinline{a}. 
+	\item Similarmente, la expresión \lstinline{*p} significa \quotes{lo apuntado por \lstinline{p}}; pero entonces \lstinline{**p} significa \quotes{lo apuntado por lo apuntado por p}.
+\end{itemize}
+\begin{lstlisting}
+int **p;    /* un puntero doble */
+int *q;
+int a;
+q = &a;		/* q recibe la direccion de a */
+p = &q;		/* p recibe la direccion de q */
+			
+**p = 8;    /* la variable a recibe un valor 8 */
+\end{lstlisting}
+\end{ejemplo}
+
+\section{Una herramienta: gets()}
+
+Para facilitar la práctica damos la descripción de otra función de Biblioteca
+Standard.
+
+La función \lstinline{gets()} pide al usuario una cadena terminada por \lstinline{ENTER}. Recibe como
+argumento un espacio de memoria (expresado por una dirección) donde copiará los
+caracteres tipeados. El fin de la cadena recibirá automáticamente un \textbf{cero final} para hacerla compatible con
+las funciones de tratamiento de strings de la Biblioteca Standard.
+
+La función \lstinline{gets()} debe recibir la dirección de un área
+de memoria legal para el programa y donde no haya riesgo de sobreescribir
+contenidos. Es importante comprender la teoría dada en este capítulo para
+evitar el \textbf{uso de un puntero no inicializado}, una situación de error frecuente 
+cuando se utilizan \lstinline{gets()} y funciones similares. 
+
+
+\begin{ejemplo}
+
+Creamos un área de memoria utilizable por gets() simplemente definiendo un arreglo de caracteres del tamaño deseado. 
+\begin{lstlisting}
+main()
+{
+    char arreglo[100];
+    gets(arreglo);
+}
+\end{lstlisting}
+
+El puntero del siguiente ejemplo no está inicializado. Por ser una variable local,
+contiene \textbf{basura}, y por lo tanto apunta a un lugar impredecible.
+\begin{lstlisting}
+main()
+{
+    char *s;
+    gets(s); /* Mal!!! */
+}
+\end{lstlisting}
+
+Podemos corregir el ejemplo anterior proveyendo espacio legítimo a donde apunte \lstinline{s}, reservándolo
+estáticamente mediante la declaración del arreglo.
+
+\begin{lstlisting}
+main()
+{
+    char arreglo[100];
+    char *s;
+    s = arreglo;
+    gets(s); 		/* Ahora si */
+}
+\end{lstlisting}
+
+En el tercer ejemplo usamos asignación dinámica y liberación de memoria. En un
+sentido estricto, en este caso particular no es necesaria la liberación, porque
+la terminación del programa devuelve todas las estructuras creadas
+dinámicamente; pero es útil habituarse a la disciplina de aparear cada
+invocación de \lstinline{malloc()} con el correspondiente \lstinline{free()}.
+
+\begin{lstlisting}
+main()
+{
+    char *s;
+    s = malloc(100); /* Ahora si */
+    gets(s);
+    printf("ingresado: %s\n",s);
+    free(s);
+}
+\end{lstlisting}
+\end{ejemplo}
+
+\section{Ejercicios}
+\begin{enumerate}
+
+\item ¿Qué objetos se declaran en las sentencias siguientes?
+\begin{enumerate}[label=\alph*.]
+	\item double (*nu)(int kappa);
+	\item int (*xi)(int *rho);
+	\item long phi();
+	\item int *chi;
+	\item int pi[3];
+	\item long *beta[3];
+	\item int *(gamma[3]);
+	\item int (*delta)[3];
+	\item void (*eta[5])(int *rho);
+	\item int *mu(long delta);
+\end{enumerate}
+
+\item Construir una función que reciba un arreglo de punteros a string A y un
+string B, y busque a B en el array A, devolviendo su índice en el array, o bien
+$-1$ si no se halla.
+\item Construir una función iterativa que imprima una cadena en forma inversa.
+Muestre una versión y una recursiva.
+\item Construir un programa que lea una sucesión de palabras y las busque en un
+pequeño diccionario. Al finalizar debe imprimir la cuenta de ocurrencias de
+cada palabra en el diccionario.
+\item Construir un programa que lea una sucesión de palabras y las almacene en un
+arreglo de punteros a carácter.
+\item Ordenar lexicográficamente el arreglo de punteros del ejercicio 4.
+\end{enumerate}
+
+%TODO Ejercicios_Adicionales Ejercicios_Avanzados

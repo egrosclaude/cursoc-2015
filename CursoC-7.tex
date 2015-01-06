@@ -4,7 +4,7 @@
 
 Las estructuras de control de C no presentan, en conjunto, grandes diferencias
 con las del resto de los lenguajes estructurados. En los esquemas siguientes, donde figura una sentencia puede reemplazarse por
-varias sentencias encerradas entre llaves (un bloque).
+varias sentencias encerradas entre llaves (un \textbf{bloque}).
 
 \section{Estructura alternativa}
 
@@ -35,21 +35,17 @@ Las condiciones lógicas se construyen en base a operadores de relación y lógi
 \begin{lstlisting}
 if(c >= 2 || func(b) < 0)
 \end{lstlisting}
-La cláusula else indica el bloque que se ejcutará en el caso negativo de la condición. 
+La cláusula \lstinline{else} indica el bloque que se ejecutará en el caso negativo de la condición. 
 \begin{lstlisting}
 if(d)
 	c++;
 else
 	c += 2;
 \end{lstlisting}
-En las estructuras anidadas, la cláusula \texttt{else} se aparea
-con el \texttt{if} más interno, salvo que las llaves expresen otra cosa. 
+En las estructuras anidadas, la cláusula \lstinline{else} se aparea
+con el \lstinline{if} más interno, salvo que las llaves expresen otra cosa. 
 
 En el cuadro siguiente, las llaves del Listado 1 muestran cómo están asociadas las estructuras. En el Listado 2, se han quitado, con lo cual la semántica cambia, pero se mantiene la misma indentación, lo que puede dar lugar a confusión. El Listado 2 en realidad es equivalente al Listado 3, que utiliza llaves aunque en forma redundante, y además tiene la indentación correcta.
-
-En general, el estilo de programación debe sugerir la estructura, usando indentación; pero es, por supuesto,
-la ubicación de las llaves, y no la indentación, la que determina la
-estructura.\\
 
 \centering
 \begin{tabular}{l|l|l}
@@ -82,14 +78,20 @@ if(c >= 2) {
 \end{tabular}
 \end{ejemplo}
 
+
+\importante{En general, el estilo de programación debe sugerir la estructura, usando indentación; pero es, por supuesto,
+la ubicación de las llaves, y no la indentación, la que determina la
+estructura.}
+
+
 \section{Estructuras repetitivas}
 
 El lenguaje C dispone de las estructuras adecuadas para procesar conjuntos de \textbf{0 o más}
-datos (estructura \texttt{while}) y \textbf{1 o más} datos (estructura \texttt{do-while}).
+datos (estructura \lstinline{while}) y \textbf{1 o más} datos (estructura \lstinline{do-while}).
 
 Ambas estructuras ejecutan su cuerpo de sentencias mientras la expresión
-resulte verdadera, pero en un lazo \texttt{while}, la comprobación de la expresión se hace \textbf{al principio de cada
-ciclo}. En cambio, en el lazo \texttt{do-while}, se hace \textbf{al final}.
+resulte verdadera, pero en un lazo \lstinline{while}, la comprobación de la expresión se hace \textbf{al principio de cada
+ciclo}. En cambio, en el lazo \lstinline{do-while}, se hace \textbf{al final}.
 
 
 \subsection{Estructura while}
@@ -108,12 +110,12 @@ do {
 
 \subsection{Estructura for}
 
-La iteración es un caso particular de lazo \texttt{while} donde necesitamos que un
+La iteración es un caso particular de lazo \lstinline{while} donde necesitamos que un
 bloque de sentencias se repita una cantidad previamente conocida de veces.
 Estos casos implican la inicialización de variables de control, el incremento o
 decremento de las mismas, y la comprobación por valor límite.
 Estas tareas administrativas se pueden hacer más cómoda y expresivamente con un
-lazo \texttt{for}. 
+lazo \lstinline{for}. 
 
 El esquema es:
 \begin{lstlisting}
@@ -154,13 +156,13 @@ es un lazo infinito.
 
 \begin{ejemplo}\noindent
 \begin{itemize}
-	\item El siguiente lazo acumula los números 1 a 10 sobre la variable \texttt{a}:
+	\item El siguiente lazo acumula los números 1 a 10 sobre la variable \lstinline{a}:
 \begin{lstlisting}
 for(i=1; i<=10; i++)
     a += i;
 \end{lstlisting}
 
-\item Si se quiere asegurar que la variable \texttt{a} tiene un valor inicial cero, se puede
+\item Si se quiere asegurar que la variable \lstinline{a} tiene un valor inicial cero, se puede
 escribir:
 \begin{lstlisting}
 for(i=1, a=0; i<=10; i++)
@@ -168,7 +170,7 @@ for(i=1, a=0; i<=10; i++)
 \end{lstlisting}
 
 \item Aprovechando la propiedad del corto circuito en las expresiones lógicas, se
-puede introducir el cuerpo del lazo \texttt{for} en la comprobación (aunque no es
+puede introducir el cuerpo del lazo \lstinline{for} en la comprobación (aunque no es
 recomendable si complica la lectura):
 
 \begin{lstlisting}
@@ -182,9 +184,9 @@ for(i=1; i<=10; i++);
     a += i;
 \end{lstlisting}
 
-Esta estructura llevará la variable \texttt{i} desde 1 hasta 10 sin ejecutar ningún otro
-trabajo (lo que se repite es la sentencia nula) y después incrementará \texttt{a}, una
-sola vez, en el valor de la última iteración de \texttt{i}.
+Esta estructura llevará la variable \lstinline{i} desde 1 hasta 10 sin ejecutar ningún otro
+trabajo (lo que se repite es la sentencia nula) y después incrementará \lstinline{a}, una
+sola vez, en el valor de la última iteración de \lstinline{i}.
 
 \item Una clásica estructura de control para un proceso consumidor de objetos:
 \begin{lstlisting}
@@ -219,7 +221,7 @@ do {
 } while(a != '\033');
 \end{lstlisting}
 
-\item Si utilizamos \texttt{for}, que es esencialmente un \textit{while}:
+\item Si utilizamos \lstinline{for}, que es esencialmente un \textit{while}:
 
 \begin{lstlisting}
 for( ; (a=leercaracter()) != '\033'; ) procesar(a);
@@ -237,7 +239,7 @@ for( ; (a=leercaracter()) != '\033'; procesar(a) );
 \section{Estructura de selección}
 
 La estructura de selección (\textit{switch}) es una estructura alternativa múltiple. Dadas varias alternativas, la estructura de selección desvía el control al
-segmento de programa correspondiente. La sintaxis de la estructura \texttt{switch} es
+segmento de programa correspondiente. La sintaxis de la estructura \lstinline{switch} es
 como sigue:
 \begin{lstlisting}
 switch(expresion_entera) {
@@ -252,8 +254,8 @@ switch(expresion_entera) {
 }
 \end{lstlisting}
 Al entrar al switch, se comprueba el valor de la expresión entera, y si
-coincide con alguna de las constantes propuestas en los rótulos \texttt{case}, se deriva
-el control directamente allí. La sección \texttt{default} no es obligatoria. Sirve para
+coincide con alguna de las constantes propuestas en los rótulos \lstinline{case}, se deriva
+el control directamente allí. La sección \lstinline{default} no es obligatoria. Sirve para
 derivar allí todos los casos que no se contemplen explícitamente.
 En las expresiones\_constantes no se permite la aparición de variables ni
 funciones. Un ejemplo válido con expresiones\_constantes sería:
@@ -271,13 +273,13 @@ switch(valor(tecla)) {
         break;
 }
 \end{lstlisting}
-La sentencia \texttt{break}
+La sentencia \lstinline{break}
  es necesaria aquí porque, al contrario que en Pascal, el
 control no se detiene al llegar al siguiente rótulo.
 
 \begin{ejemplo}
-Esta estructura recibe como entrada las variables \texttt{m} y \texttt{a} (mes y año) y da como
-salida \texttt{d} (la cantidad de días del mes).
+Esta estructura recibe como entrada las variables \lstinline{m} y \lstinline{a} (mes y año) y da como
+salida \lstinline{d} (la cantidad de días del mes).
 
 \begin{lstlisting}
 switch(m) {
@@ -293,7 +295,7 @@ switch(m) {
         d= 31;
     }
 \end{lstlisting}
-Si \texttt{m} vale 4, 6, 9, u 11, la variable \texttt{d} recibe el valor 30. Al no haber un \texttt{break}
+Si \lstinline{m} vale 4, 6, 9, u 11, la variable \lstinline{d} recibe el valor 30. Al no haber un \lstinline{break}
 intermedio, el control cae hasta la asignación \lstinline{d = 30}.
 
 La estructura switch tiene algunas limitaciones con respecto a sus análogos en otros lenguajes. A saber, no se puede comparar la expresión de selección con
@@ -339,9 +341,9 @@ función \lstinline{seguir()}, terminando la ejecución de la estructura repetit
 
 \subsection{Sentencia goto}
 Un rótulo es un nombre, seguido del carácter ":", que se asocia a un segmento
-de un programa. La sentencia \texttt{goto} transfiere el control a la instrucción
+de un programa. La sentencia \lstinline{goto} transfiere el control a la instrucción
 siguiente a un rótulo. Aunque no promueve la programación estructurada, y se
-sabe que su abuso es perjudicial, \texttt{goto} es útil para resolver algunas
+sabe que su abuso es perjudicial, \lstinline{goto} es útil para resolver algunas
 situaciones. Por ejemplo: anidamiento de lazos con salida forzada.
 \begin{lstlisting}
 for(i=0; i<10; i++) {
@@ -354,15 +356,15 @@ for(i=0; i<10; i++) {
 final: imprimir(i,j);
 \end{lstlisting}
 
-Aquí se podría implementar una estrategia estructurada, en base a \texttt{break}, pero
+Aquí se podría implementar una estrategia estructurada, en base a \lstinline{break}, pero
 el control quedaría retenido en el lazo exterior y se requeriría más lógica
 para resolver este problema. Se complicaría la legibilidad del programa
 innecesariamente.
 
-Los rótulos a los que puede dirigirse un \texttt{goto} tienen un espacio de nombres
+Los rótulos a los que puede dirigirse un \lstinline{goto} tienen un espacio de nombres
 propio. Es decir, no hay peligro de conflicto entre un rótulo y una variable
 del mismo nombre. Además, el ámbito de un rótulo es local a la función (una
-sentencia \texttt{goto} sólo puede acceder a los rótulos dentro del texto de la función
+sentencia \lstinline{goto} sólo puede acceder a los rótulos dentro del texto de la función
 donde aparece).
 
 \subsection{Sentencia return}

@@ -17,11 +17,11 @@ El compilador hace esto a veces en forma \textbf{automática}. Otras veces, el p
 
 Los \textbf{tipos básicos} son:
 \begin{itemize}
-	\item \texttt{char} (un elemento del tamaño de un byte)
-	\item \texttt{int} (un número entero con signo)
-	\item \texttt{long} (un entero largo)
-	\item \texttt{float} (un número en punto flotante)
-	\item \texttt{double} (un número en punto flotante, doble precisión)
+	\item \lstinline{char} (un elemento del tamaño de un byte)
+	\item \lstinline{int} (un número entero con signo)
+	\item \lstinline{long} (un entero largo)
+	\item \lstinline{float} (un número en punto flotante)
+	\item \lstinline{double} (un número en punto flotante, doble precisión)
 \end{itemize}
 
 Cuando declaramos una variable o forzamos una conversión de tipo, utilizamos una \textbf{especificación de
@@ -33,10 +33,10 @@ int alfa,beta;
 float x1,x2;
 \end{lstlisting}
 
-Los \textbf{tipos enteros} (\texttt{char}, \texttt{int} y \texttt{long}) admiten los modificadores \texttt{signed} (con signo) y \texttt{unsigned} (sin signo). Un objeto de datos \textbf{unsigned} utiliza todos sus bits para representar magnitud; un \textbf{signed} utiliza un bit para signo, en representación complemento a dos.
+Los \textbf{tipos enteros} (\lstinline{char}, \lstinline{int} y \lstinline{long}) admiten los modificadores \lstinline{signed} (con signo) y \lstinline{unsigned} (sin signo). Un objeto de datos \textbf{unsigned} utiliza todos sus bits para representar magnitud; un \textbf{signed} utiliza un bit para signo, en representación complemento a dos.
 
-El modificador \texttt{signed} sirve sobre todo para explicitar el signo de los chars. El default para un \texttt{int} es
-signed; el default para \texttt{char} puede ser signed o unsigned, dependiendo del compilador.
+El modificador \lstinline{signed} sirve sobre todo para explicitar el signo de los chars. El default para un \lstinline{int} es
+signed; el default para \lstinline{char} puede ser signed o unsigned, dependiendo del compilador.
 
 \begin{lstlisting}
 unsigned int edad;
@@ -44,7 +44,7 @@ signed char beta;
 \end{lstlisting}
 
 
-Un int puede afectarse con el modificador \texttt{short} (corto).
+Un int puede afectarse con el modificador \lstinline{short} (corto).
 
 \begin{lstlisting}
 short i;
@@ -74,11 +74,11 @@ short no es mayor que un int, que a su vez no es mayor que long}".
 Por supuesto, distintos tamaños en bits implican diferentes rangos de valores. Si deseamos \textbf{portar} un
 programa, hecho bajo una implementación del compilador, a otra, no es posible asegurar a priori el
 rango que tomará un tipo de datos. La fuente ideal para conocer los rangos de los diferentes tipos, en
-una implementación determinada, es -además del manual del compilador- el header \texttt{limits.h} de la
+una implementación determinada, es -además del manual del compilador- el header \lstinline{limits.h} de la
 Biblioteca Standard. Debe recordarse que cualquier suposición que hagamos sobre el rango o tamaño
 de un objeto de datos afecta la portabilidad de un programa en C.
 
-Las siguientes líneas son parte de un archivo \texttt{limits.h} para una implementación en particular:
+Las siguientes líneas son parte de un archivo \lstinline{limits.h} para una implementación en particular:
 
 \begin{lstlisting}
 /* Minimum and maximum values a 'signed short int' can hold. */
@@ -126,7 +126,7 @@ a=32767; /* a=0111111111111111 binario */
 a=a+1;
 \end{lstlisting}
 
-Al calcular el nuevo valor de \texttt{a}, aparece un 1 en el bit más significativo, lo cual, según la representación de los enteros, lo transforma en un negativo (el menor negativo que soporta el tipo de datos, -32768).
+Al calcular el nuevo valor de \lstinline{a}, aparece un 1 en el bit más significativo, lo cual, según la representación de los enteros, lo transforma en un negativo (el menor negativo que soporta el tipo de datos, -32768).
 
 Si el int es sin signo:
 
@@ -136,9 +136,9 @@ a=65535; /* maximo valor de unsigned int */
 a=a+1; 
 \end{lstlisting}
 
-el incremento de \texttt{a} provoca overflow, y el nuevo valor de \texttt{a} se trunca a 16 bits, volviendo así a 0.
+el incremento de \lstinline{a} provoca overflow, y el nuevo valor de \lstinline{a} se trunca a 16 bits, volviendo así a 0.
 
-Siempre se puede saber el tamaño en bits de un tipo de datos aplicando el operador \texttt{sizeof()} a una
+Siempre se puede saber el tamaño en bits de un tipo de datos aplicando el operador \lstinline{sizeof()} a una
 variable o a la especificación de tipo.
 
 \section{Operaciones con distintos tipos}
@@ -162,20 +162,20 @@ float b;
 a=b;
 \end{lstlisting}
 
-En esta asignación tenemos miembros de diferentes tamaños. El resultado en \texttt{a} será el truncamiento
-del valor entero de \texttt{b} a la cantidad de bits que permita un int. Es decir, se tomará la parte entera de \texttt{b}, y
-de ese valor se copiarán en el objeto de datos de \texttt{a} tantos bits como quepan en un int, tomándose
+En esta asignación tenemos miembros de diferentes tamaños. El resultado en \lstinline{a} será el truncamiento
+del valor entero de \lstinline{b} a la cantidad de bits que permita un int. Es decir, se tomará la parte entera de \lstinline{b}, y
+de ese valor se copiarán en el objeto de datos de \lstinline{a} tantos bits como quepan en un int, tomándose
 los menos significativos.
 
-Si el valor de \texttt{b} es, por ejemplo, 20.5, \texttt{a} terminará valiendo 20, lo que es similar a aplicar una función
-\quotes{parte entera} implícitamente, y no demasiado incongruente. Pero si la parte entera de \texttt{b} excede el
-rango de un entero (por ejemplo si \texttt{b=99232.5} en una plataforma donde los enteros son de 16 bits), el resultado en \texttt{a} no tendrá lógica aparente. En el primer caso, los bits menos significativos de \texttt{b} que \quotes{caben} en \texttt{a} conservan el valor de \texttt{b}; en el segundo caso, no.
+Si el valor de \lstinline{b} es, por ejemplo, 20.5, \lstinline{a} terminará valiendo 20, lo que es similar a aplicar una función
+\quotes{parte entera} implícitamente, y no demasiado incongruente. Pero si la parte entera de \lstinline{b} excede el
+rango de un entero (por ejemplo si \lstinline{b=99232.5} en una plataforma donde los enteros son de 16 bits), el resultado en \lstinline{a} no tendrá lógica aparente. En el primer caso, los bits menos significativos de \lstinline{b} que \quotes{caben} en \lstinline{a} conservan el valor de \lstinline{b}; en el segundo caso, no.
 
 En la sentencia:
 \begin{lstlisting}
 a=19.27 * b;	
 \end{lstlisting}
-\texttt{a} contendrá los \texttt{sizeof(int)} bits menos significativos del resultado de evaluar la expresión de la
+\lstinline{a} contendrá los \lstinline{sizeof(int)} bits menos significativos del resultado de evaluar la expresión de la
 derecha, truncada sin decimales.
 
 \subsection{Promoción automática de expresiones}
@@ -196,12 +196,12 @@ el hecho de que si declaramos previamente:
 \begin{lstlisting}
 float a;
 \end{lstlisting}
-el resultado es casi el mismo: \texttt{a} terminará conteniendo el valor float 1.0, porque el problema de
+el resultado es casi el mismo: \lstinline{a} terminará conteniendo el valor float 1.0, porque el problema de
 truncamiento se produce ya en la evaluación del miembro derecho de la asignación.
 
 
 \subsection{Operador cast}
-En el ejemplo anterior, ¿cómo recuperar el valor correcto, con decimales, de la división? Declarar a la variable \texttt{a} como \textbf{float} es necesario,
+En el ejemplo anterior, ¿cómo recuperar el valor correcto, con decimales, de la división? Declarar a la variable \lstinline{a} como \textbf{float} es necesario,
 pero no suficiente. Para que la expresión del miembro derecho sea \textbf{float} es necesario que \textbf{al menos uno}
 de sus operandos sea \textbf{float}. Hay dos formas de lograr esto; la primera es escribir cualquiera de las
 subexpresiones como constante en punto flotante (con punto decimal, o en notación exponencial):
@@ -221,7 +221,7 @@ a=(float)(3/2);
 \end{lstlisting}
 
 Aquí el operador \textbf{cast} se aplica a la expresión \textbf{ya evaluada como entero}, con lo que volvemos a tener
-un valor \textbf{1.0}, float, en \texttt{a}.
+un valor \textbf{1.0}, float, en \lstinline{a}.
 
 \subsection{Reglas de promoción en expresiones}
 
@@ -230,9 +230,8 @@ una lista muy detallada de las comprobaciones y conversiones que tienen lugar. P
 propósitos prácticos, basta tener en cuenta la regla de \textbf{llevar ambos operandos al tipo del \quotes{mayor}} de
 ellos.
 
-Entendemos por \quotes{promoción entera} el acto de llevar los objetos de tipo \texttt{char}, \texttt{enum} y \textbf{campos de bits} a \textbf{int}; o, si los bits de un int no alcanzan a representarlo, a \textbf{unsigned int}.
-\\
-\\
+Entendemos por \quotes{promoción entera} el acto de llevar los objetos de tipo \lstinline{char}, \lstinline{enum} y \textbf{campos de bits} a \textbf{int}; o, si los bits de un int no alcanzan a representarlo, a \textbf{unsigned int}.
+
 \importante{
 \begin{enumerate}
 \item Si cualquier operando es long double, se convierte el otro a long double.
@@ -250,7 +249,7 @@ Entendemos por \quotes{promoción entera} el acto de llevar los objetos de tipo 
 }
 
 \section{Observaciones}
-Nótese que \textbf{no existen} tipos \texttt{boolean} ni \texttt{string}. Más adelante veremos cómo manejar datos de
+Nótese que \textbf{no existen} tipos \lstinline{boolean} ni \lstinline{string}. Más adelante veremos cómo manejar datos de
 estas clases.
 
 El tipo \textbf{char}, pese a su nombre, no está restringido a la representación de caracteres. Por el contrario,
@@ -266,10 +265,10 @@ de máquina, el patrón de bits almacenado en el objeto de datos.
 
 
 \section{Una herramienta: printf()}
-Con el objeto de facilitar la práctica, describimos aquí la función de Biblioteca Standard \texttt{printf()}.
+Con el objeto de facilitar la práctica, describimos aquí la función de Biblioteca Standard \lstinline{printf()}.
 
 \begin{itemize}
-	\item La función de salida \texttt{printf()} lleva un \textbf{número variable de argumentos}.
+	\item La función de salida \lstinline{printf()} lleva un \textbf{número variable de argumentos}.
 	\item Su primer argumento siempre es una cadena o constante string, la \textbf{cadena de formato},
 conteniendo texto que será impreso, más, opcionalmente, \textbf{especificaciones de conversión}.
 	\item Las especificaciones de conversión comienzan con un signo \quotes{\lstinline$\%$}. Todo otro conjunto de
@@ -299,9 +298,8 @@ cantidad de decimales de un número, etc.
 \lstinline$\%x$ & entero hexadecimal\\
 }
 
-\subsection{Ejemplos}
-\begin{itemize}
-	\item Este programa escribe algunos valores con dos especificaciones de formato distintas.
+\begin{ejemplo}
+Este programa escribe algunos valores con dos especificaciones de formato distintas.
 
 \begin{lstlisting}
 main() {
@@ -318,8 +316,9 @@ vuelta no. 3: i=67, i=C
 vuelta no. 4: i=68, i=D
 vuelta no. 5: i=69, i=E
 \end{lstlisting}
-
-\item El programa siguiente escribe el mismo valor en doble precisión pero con diferentes
+\end{ejemplo}
+\begin{ejemplo}
+El programa siguiente escribe el mismo valor en doble precisión pero con diferentes
 modificadores del campo correspondiente, para incluir una cierta cantidad de decimales o alinear la impresión. 
 \begin{lstlisting}
 main() {
@@ -332,7 +331,7 @@ main() {
 	printf("d=%.10lf\n",d);
 }	
 \end{lstlisting}
-Salida:
+Salida del programa:
 \begin{lstlisting}
 d=1.156126
 d=            1.156126
@@ -340,7 +339,7 @@ d=        1.1561255726
 d=             1.15613
 d=1.1561255726
 \end{lstlisting}
-\end{itemize}
+\end{ejemplo}
 
 \section{Ejercicios}
 
@@ -372,9 +371,9 @@ comprobar el resultado de incrementarlas en una unidad. Imprima los valores de c
 después del incremento. Incluya \textbf{unsigneds}.
 	\item Lo mismo, pero dando a las variables los valores mínimos posibles, e imprimiéndolas antes y
 después de decrementarlas en una unidad.
-	\item Averigüe los tamaños de todos los tipos básicos en su sistema aplicando el operador sizeof().
-	\item Si se asigna la expresión (3-5) a un unsigned short, ¿cuál es el resultado? ¿Depende de qué formato de conversión utilicemos para imprimirlo?
-	\item ¿Qué hace falta corregir para que la variable \texttt{r} contenga la división exacta de \texttt{a} y \texttt{b}?
+	\item Averigüe los tamaños de todos los tipos básicos en su sistema aplicando el operador \lstinline{sizeof()}.
+	\item Si se asigna la expresión $(3-5)$ a un \lstinline{unsigned short}, ¿cuál es el resultado? ¿Depende de qué formato de conversión utilicemos para imprimirlo?
+	\item ¿Qué hace falta corregir para que la variable \lstinline{r} contenga la división exacta de \lstinline{a} y \lstinline{b}?
 	\begin{lstlisting}
 int a, b;
 float r;
@@ -426,26 +425,26 @@ main() {
 }
 	\end{lstlisting}
 
-\item Escriba un programa que analice la variable \texttt{v} conteniendo el valor 347 y produzca la salida:
+\item Escriba un programa que analice la variable \lstinline{v} conteniendo el valor 347 y produzca la salida:
 	\begin{lstlisting}
 3 centenas
 4 decenas
 7 unidades
 \end{lstlisting}
-(y, por supuesto, salidas acordes si \texttt{v} toma otros valores).
+(y, por supuesto, salidas acordes si \lstinline{v} toma otros valores).
 	\item Sumando los dígitos de un entero escrito en notación decimal se puede averiguar si es divisible por
 3 (se constata si la suma de los dígitos lo es). ¿Esto vale para números escritos en otras bases? ¿Cómo
 se puede averiguar esto?
 	\item Indicar el resultado final de los siguientes cálculos
 \begin{enumerate}[label=\alph*.]
-\item \texttt{int a; float b = 12.2; a = b;}
-\item \texttt{int a, b; a = 9; b = 2; a /= b;}
-\item \texttt{long a, b; a = 9; b = 2; a /= b;}
-\item \texttt{float a; int b, c; b = 9; c = 2; a = b/c;}
-\item \texttt{float a; int b, c; b = 9; c = 2; a = (float)(b/c);}
-\item \texttt{float a; int b, c; b = 9; c = 2; a = (float)b/c;}
-\item \texttt{short a, b, c; b = -2; c = 3; a = b * c;}
-\item \texttt{short a, b, c; b = -2; c = 3; a = (unsigned)b * c;}
+\item \lstinline{int a; float b = 12.2; a = b;}
+\item \lstinline{int a, b; a = 9; b = 2; a /= b;}
+\item \lstinline{long a, b; a = 9; b = 2; a /= b;}
+\item \lstinline{float a; int b, c; b = 9; c = 2; a = b/c;}
+\item \lstinline{float a; int b, c; b = 9; c = 2; a = (float)(b/c);}
+\item \lstinline{float a; int b, c; b = 9; c = 2; a = (float)b/c;}
+\item \lstinline{short a, b, c; b = -2; c = 3; a = b * c;}
+\item \lstinline{short a, b, c; b = -2; c = 3; a = (unsigned)b * c;}
 \end{enumerate}
 \item Aplicar operador cast donde sea necesario para obtener resultados apropiados:
 \begin{enumerate}[label=\alph*.] 

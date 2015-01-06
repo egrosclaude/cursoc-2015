@@ -1,21 +1,21 @@
 
 
 
-\chapter{Arreglos y variables estructuradas}
+\chapter{Variables estructuradas}
 
-Casi todos los lenguajes proveen una manera de combinar variables simples en
-alguna forma de agregación. La declaración
+Como casi todos los lenguajes, el C provee varias maneras de estructurar, o combinar, variables simples en
+alguna forma de agregación. Las variables estructuradas permiten manejar un conjunto de datos como una sola entidad.
+
+\section{Arreglos}
+La declaración
 \begin{lstlisting}
 tipo nombre[cant_elementos];
 \end{lstlisting}
 
 define un bloque llamado \lstinline{nombre} de \lstinline{cant_elementos} \textbf{objetos consecutivos} de tipo
 \lstinline{tipo}, lo que habitualmente recibe el nombre de \textbf{vector, array o arreglo}. Sus
-elementos se acceden indexando el bloque con expresiones enteras entre
+elementos se acceden \textbf{indexando} el bloque con expresiones enteras entre
 corchetes.
-\\
-\\ 
-\importante{En C, los arreglos se indexan a partir de 0.}
 
 \begin{ejemplo}
 Declaraciones y uso de arreglos.
@@ -35,7 +35,10 @@ for(i=0; i<10; i++)
 \end{lstlisting}
 \end{ejemplo}
 
-\section{Inicialización de arreglos}
+
+\importante{En C, los arreglos se indexan a partir de 0.}
+
+\subsection{Inicialización de arreglos}
 
 Al ser declarados, los arreglos pueden recibir una \textbf{inicialización}, que es una
 lista de valores del tipo correspondiente, indicados entre llaves. Esta
@@ -57,25 +60,57 @@ long altura[] = { 3600, 3400, 3200, 6950 };  /* se infiere "long altura[4]" */
 \end{lstlisting}
 \end{ejemplo}
 
-\section{Errores frecuentes}
+\subsection{Errores frecuentes con arreglos}
 
-Los siguientes son errores muy comunes, y lamentablemente el lenguaje C no
+Los siguientes son errores de programación muy comunes al tratar con arreglos, y lamentablemente el lenguaje C no
 provee ayuda para prevenirlos:
 \begin{itemize}
 \item \textbf{Indexación fuera de límites}
 	
 La dimensión dada en la declaración del arreglo dice cuántos elementos tiene.
 Esto no quiere decir que exista un elemento del arreglo con ese índice (porque
-se numeran a partir de 0):
+se numeran a partir de 0).
+
+
+\begin{ejemplo}
+La última instrucción equivale a acceder a un elemento fuera de los límites del
+arreglo. Este programa, aunque erróneo, \textbf{compilará correctamente}. 
 \begin{lstlisting}
 int tabla[5];
 
 tabla [5] = 1;	/* error! el ultimo elemento es tabla[4] */
 \end{lstlisting}
+\end{ejemplo}
 
-La última instrucción equivale a acceder a un elemento fuera de los límites del
-arreglo. Este programa, aunque erróneo, \textbf{compilará correctamente}. 
 
+
+
+
+\item \textbf{Asignación de arreglos}
+
+Es frecuente confundir las operaciones de inicialización y de asignación. La
+inicialización sólo es válida en el momento de la declaración: \textbf{no es legal
+asignar un arreglo}. La asignación debe forzosamente hacerse elemento por
+elemento.
+
+\begin{ejemplo}
+Notar la diferencia sintáctica entre inicialización y asignación.
+\begin{lstlisting}
+/* Inicializacion */
+int tabla[5] = { 1, 3, 2, 3, 4 }; 	/* correcto */
+
+/* Asignacion */
+int tabla[5];
+tabla[] = { 1, 3, 2, 3, 4 }; 		/* incorrecto */
+\end{lstlisting}
+La última sentencia no es compilable. Debe reemplazarse por:
+\begin{lstlisting}
+tabla[0] = 1;
+tabla[1] = 3; ...etc
+\end{lstlisting}
+\end{ejemplo}
+\end{itemize}
+\importante{ %TODO llevar a seccion de punteros
 Al
 momento de ejecución, la conducta dependerá de cuestiones estructurales del
 sistema operativo. En variantes modernas de UNIX puede resultar un error de
@@ -91,36 +126,18 @@ del espacio de memoria del proceso.
 
 Éste y otros casos de accesos no controlados a la memoria pueden tener consecuencias, también impredecibles, más adelante en la ejecución. Como la causa y la manifestación del error están separadas, esta clase de errores resulta muy difícil de diagnosticar.
 
-[Acceso  El diagrama ilustra dos casos de acceso indebido a un elemento inexistente
-al       de un arreglo. Suponemos tener una declaración tal como int tabla[5], y una
-Arreglo] instrucción errónea que hace referencia al elemento tabla[5].
+
+%TODO [Acceso al Arreglo]
+   El diagrama ilustra dos casos de acceso indebido a un elemento inexistente
+  de un arreglo. Suponemos tener una declaración tal como int tabla[5], y una
+ instrucción errónea que hace referencia al elemento tabla[5].
          En el primer caso, la variable estructurada tiene algún otro contenido
          contiguo dentro del espacio del proceso, y el acceso lee o escribe basura.
          En el segundo caso, el acceso cae fuera del espacio del proceso, y según la
          reacción del sistema operativo, puede ocurrir lo mismo que en el caso
          anterior, o bien el proceso puede ser terminado por la fuerza.
+}
 
-
-\item \textbf{Asignación de arreglos}
-
-Es frecuente confundir las operaciones de inicialización y de asignación. La
-inicialización sólo es válida en el momento de la declaración: \textbf{no es legal
-asignar un arreglo}. La asignación debe forzosamente hacerse elemento por
-elemento.
-\begin{lstlisting}
-/* Inicializacion */
-int tabla[5] = { 1, 3, 2, 3, 4 }; 	/* correcto */
-
-/* Asignacion */
-int tabla[5];
-tabla[] = { 1, 3, 2, 3, 4 }; 		/* incorrecto */
-\end{lstlisting}
-Esta instrucción no es compilable. Debe reemplazarse por:
-\begin{lstlisting}
-tabla[0] = 1;
-tabla[1] = 3; ...etc
-\end{lstlisting}
-\end{itemize}
 
 \section{Arreglos multidimensionales}
 En C se pueden simular matrices y arreglos de más dimensiones creando \textbf{arreglos
@@ -154,7 +171,8 @@ for(i=0; i<3; i++)
 
 \section{Estructuras y uniones}
 
-Las \textbf{variables estructuradas} de C permiten agrupar una cantidad de variables
+\subsection{Estructuras}
+Las \textbf{estructuras} de C permiten agrupar una cantidad de variables
 simples, de tipos eventualmente diferentes. Las estructuras y uniones aportan la
 ventaja de que es posible manipular este conjunto de variables como un todo.
 
@@ -234,7 +252,7 @@ struct punto puntomedio(struct punto p1, struct punto p2)
 \end{lstlisting}
 \end{ejemplo}
 
-\section{Uniones}
+\subsection{Uniones}
 En una estructura, el compilador calcula la dirección de inicio de cada uno de
 los miembros dentro de la estructura sumando los tamaños de los elementos de
 datos. Una \textbf{unión} es un caso especial de estructura donde todos los miembros
@@ -249,13 +267,16 @@ Este ejemplo de unión contiene dos miembros: un entero y un arreglo de tantos
 caracteres como bytes contiene un \lstinline{int} en la arquitectura destino. Ambos
 miembros, por la propiedad fundamental de los \lstinline{unions}, quedan \quotes{superpuestos} en
 memoria. El resultado es que podemos asignar un campo por un nombre y acceder
-por el otro. En este caso particular, podemos conocer qué valores recibe cada
-byte de los que forman un int.
+por el otro. 
+\begin{ejemplo}
+En este caso particular, podemos conocer qué valores recibe cada
+byte de los que forman un \lstinline{int}.
 \begin{lstlisting}
 union intchar k;
 k.i = 30541;
 b = k.a[2];
 \end{lstlisting}
+\end{ejemplo}
 \nota{
       El diagrama ilustra los diferentes desplazamientos u Union y Estructura
 offsets a los que se ubican los miembros en una union y en
@@ -263,7 +284,7 @@ offsets a los que se ubican los miembros en una union y en
                               los ints miden cuatro bytes.
 }
 
-\section{Campos de bits}
+\subsection{Campos de bits}
 Se pueden definir estructuras donde los miembros son agrupaciones de bits. Esta
 construcción es especialmente útil en programación de sistemas donde se
 necesita la máxima compactación de las estructuras de datos. Cada miembro de un
@@ -346,7 +367,7 @@ alfa d = { 10, 25 };
 
 \item 
 \begin{lstlisting}
-union dato{
+union dato {
 	char dato_a[4];
 	long dato_n;
 } xdato = { "ABC", 1000 };
