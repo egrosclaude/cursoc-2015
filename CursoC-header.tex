@@ -20,25 +20,33 @@
 \usepackage{enumitem}
 \usepackage{fancyvrb}
 
-\usepackage{amsthm} %load after amsmath
 
-\newtheoremstyle{ejemplo}% hname
-{11pt}% Space above
-{3pt}% Space below
-{\footnotesize}% Body font
-{}% Indent amount
-{\bfseries\color{bl}}% Theorem head font
-{}% Punctuation after theorem head
-{\newline}% Space after theorem head
-{}% Theorem head spec (can be left empty, meaning ‘normal’)
-%\newtheoremstyle{dotlessP}{}{}{\color{db}}{}{\color{db}\bfseries}{}{ }{}
-\theoremstyle{ejemplo}
-\newtheorem{ejemplo}{Ejemplo}[chapter]
+% Esto anduvo OK pero preferible newenvironment
+% \usepackage{amsthm} %load after amsmath
+% \newtheoremstyle{ejemplo}% hname
+% {11pt}% Space above
+% {3pt}% Space below
+% {\footnotesize}% Body font
+% {}% Indent amount
+% {\bfseries\color{bl}}% Theorem head font
+% {}% Punctuation after theorem head
+% {\newline}% Space after theorem head
+% {}% Theorem head spec (can be left empty, meaning ‘normal’)
+% %\newtheoremstyle{dotlessP}{}{}{\color{db}}{}{\color{db}\bfseries}{}{ }{}
+% \theoremstyle{ejemplo}
+% \newtheorem{ejemplo}{Ejemplo}[chapter]
+% 
+
+%%%%PERFECTO EJEMPLO
+\newcounter{ejemplo}[section]
+\newenvironment{ejemplo}{\stepcounter{ejemplo}\footnotesize{\bfseries\color{bl}{\noindent\\Ejemplo~\thechapter.\theejemplo}}\medskip\hrule\medskip}{\medskip}
 
 
-\newcounter{example}[section]
- \newenvironment{example}[1][]{\refstepcounter{example}\par
- 	\noindent\footnotesize\textbf{Ejemplo~\theexample  #1}}
+% {\noindent\ignorespaces}%
+% {\par\noindent%
+% \ignorespacesafterend}
+% 
+%{\stepcounter{ejemplo}\footnotesize{\noindent\bfseries\color{bl}{\\Ejemplo~\thechapter.\theejemplo}}\medskip\hrule\medskip\noindent}{\\\rule{15ex}{0.1pt}\hspace{\stretch{1}}\color{black}}%
 
 \usepackage{multicol}
 \definecolor{dkgreen}{rgb}{0,0.6,0}
@@ -73,7 +81,7 @@
   belowskip=3mm,
   showstringspaces=false,
   columns=flexible,
-  basicstyle={\small\ttfamily\bfseries},
+  basicstyle={\ttfamily\bfseries},
   numbers=none,
 %  xleftmargin=0.5cm,
 %  xrightmargin=0.5cm,
@@ -110,11 +118,11 @@
   }
   {}
 
+% environment para código en celdas de tablas
 \lstnewenvironment{codecell}
   {\lstset{basicstyle={\small\ttfamily},% basic font setting
     backgroundcolor=\color{white}}%
-  }
-  {}
+  }{}
 
 
 

@@ -41,8 +41,7 @@ Los operadores de incremento y decremento ($++$ y $--$) equivalen a las sentenci
 Sentencias & a & b \\
 \hline
 \begin{codecell}
-a=5; 
-b=a++;
+a=5; b=a++;
 \end{codecell}
 &
 6
@@ -50,8 +49,7 @@ b=a++;
 5\\
 \hline
 \begin{codecell}
-a=5; 
-b=++a;
+a=5; b=++a;
 \end{codecell}
 &
 6
@@ -59,8 +57,7 @@ b=++a;
 6\\
 \hline
 \begin{codecell}
-a=3; 
-b=a--;
+a=3; b=a--;
 \end{codecell}
 &
 2
@@ -68,8 +65,7 @@ b=a--;
 3\\	
 \hline
 \begin{codecell}
-a=3; 
-b=--a;
+a=3; b=--a;
 \end{codecell}
 &
 2
@@ -98,7 +94,7 @@ Esto se aplica a todos los operadores aritméticos y de bits.
 \item \lstinline{==} (igualdad)
 \item \lstinline{<, >, <=, >=}
 \item \lstinline{!=} (distinto de)
-
+\end{itemize}
 Es un error muy común sustituir el operador de relación \lstinline{==} por el de asignación \lstinline{=}. Este error lógico no provocará error de compilación ni de ejecución, sino que será interpretado como una asignación, que en C puede ser hecha en el mismo contexto que una comparación. La sentencia:
 \begin{lstlisting}
 if(a = 38)
@@ -107,7 +103,7 @@ if(a = 38)
 es sintácticamente válida, pero en lugar de \textbf{comparar} \lstinline{a} con 38, \textbf{asigna} el valor 38 a la variable \lstinline{a}. 
 
 La expresión \lstinline{a=38} es legal en C como expresión lógica. Su valor de verdad es \textbf{siempre} \lstinline{TRUE}, independientemente del valor que tuviera \lstinline{a} anteriormente. Si el programador desea obtener el valor lógico de la comparación de \lstinline{a} con 38, debe utilizar la expresión \lstinline{if(a == 38)}.
-\end{itemize}
+
 
 
 \section{Operadores lógicos}
@@ -122,7 +118,12 @@ a==b || !(c < 2)
 \end{lstlisting}
 \end{ejemplo}
 
-Al no existir tipo booleano en C, los valores lógicos se equiparan a los aritméticos. Una expresión formada con un operador \lstinline{||}, \lstinline{&&} o \lstinline{!} da 1 si es $V$, 0 si es $F$. Además, toda expresión cuyo valor aritmético sea diferente de 0 es \quotes{verdadera}. Toda expresión que dé 0 es \quotes{falsa}.
+Al no existir tipo booleano en C, los valores lógicos se equiparan a los aritméticos. 
+\begin{itemize}
+	\item Una expresión formada con un operador \lstinline{||}, \lstinline{&&} o \lstinline{!} arroja un valor aritmético $1$ si es $V$, y un valor $0$ si es $F$. 
+	\item Toda expresión cuyo valor aritmético sea diferente de $0$ es \quotes{verdadera}. 
+	\item Toda expresión que dé $0$ es \quotes{falsa}.
+\end{itemize}
 
 \begin{ejemplo}
 \noindent
@@ -161,7 +162,7 @@ El desplazamiento de bits es \textbf{con pérdida}, en el sentido de que:
 \end{itemize}
 
 \begin{ejemplo}
-El operador de negación es unario y provoca el complemento a uno de su operando. Los operadores and, or y or exclusivo son binarios.
+El operador de \textbf{negación} de bits es unario y provoca el complemento a uno de su operando. Los operadores \textbf{and}, \textbf{or} y \textbf{or exclusivo} de bits son binarios.
 \begin{lstlisting}
 unsigned char a;
 a = ~255;             /* a <-- 0    */
@@ -198,12 +199,21 @@ Distinguimos como especiales los operadores de \textbf{asignación} e \textbf{in
 \end{itemize}
 
 
-
-Una inicialización es la operación que permite asignar un valor inicial a una variable en el momento de su creación: 
+\subsection{Inicialización}
+Una inicialización es la operación que permite asignar un valor inicial a una variable en el momento de su definición: 
 \begin{lstlisting}
 int a=1;
 \end{lstlisting}
 
+
+\subsection{Asignación}
+Una asignación es la operación que permite asignar un valor a una variable que ha sido definida anteriormente: 
+\begin{lstlisting}
+int a;
+a=1;
+\end{lstlisting}
+
+\subsection{Operador ternario}
 El operador ternario comprueba el valor lógico de una expresión, y, según este valor, se evalúa a una u otra de las restantes expresiones. Supongamos tener la expresión siguiente.
 
 \begin{lstlisting}
@@ -222,9 +232,9 @@ asigna a \lstinline{c} el valor de \lstinline{b} más el valor absoluto de \lsti
 
 \section{Precedencia y orden de evaluación}
 
-En una expresión compleja, formada por varias subexpresiones conectadas por operadores, es peligroso hacer depender el resultado del orden de evaluación de las subexpresiones. Si los operadores tienen la misma precedencia, la evaluación se hace de izquierda a derecha, pero en caso contrario el orden de evaluación no queda definido. 
-
-Por ejemplo, en la expresión \lstinline{w*x/++y + z/y} se puede contar con que primeramente se ejecutará \lstinline{w*x} y sólo entonces \lstinline{w*x/++y}, porque los operadores de multiplicación y división son de la misma precedencia; pero no se puede asegurar que \lstinline{w*x/++y} sea evaluado antes o después de \lstinline{z/y}, lo que hace que el resultado de esta expresión sea \textbf{indefinido} en C. 
+En una expresión compleja, formada por varias subexpresiones conectadas por operadores, es peligroso hacer depender el resultado del orden de evaluación de las subexpresiones. Si los operadores en una subexpresión tienen la misma precedencia, la evaluación se hace de izquierda a derecha, pero en caso contrario el orden de evaluación no queda definido. 
+%TODO ACLARAR EL EJEMPLO
+Por ejemplo, en la expresión \lstinline{w*x/++y + z/y} se puede contar con que primeramente se ejecutará \lstinline{w*x} y sólo entonces \lstinline{w*x/++y}, porque los operadores de multiplicación y división son de la misma precedencia. Sin embargo, no se puede asegurar que \lstinline{w*x/++y} sea evaluado antes o después de \lstinline{z/y}, lo que hace que el resultado de esta expresión sea \textbf{indefinido} en C, ya que no sabemos cuál será el valor de \lstinline{y} que intervendrá en el cómputo de \lstinline{z/y}. 
 
 La solución es \textbf{secuencializar} la ejecución, dividiendo las expresiones en sentencias:
 \begin{lstlisting}

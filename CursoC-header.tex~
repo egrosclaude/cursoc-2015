@@ -1,5 +1,5 @@
 
-\documentclass[11pt,a4paper,twocolumn]{book}
+\documentclass[11pt,a4paper]{book}
 \usepackage[utf8x]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[spanish]{babel}
@@ -22,23 +22,26 @@
 
 \usepackage{amsthm} %load after amsmath
 
-\newtheoremstyle{ejemplo}% hname
-{11pt}% Space above
-{3pt}% Space below
-{\footnotesize}% Body font
-{}% Indent amount
-{\bfseries\color{bl}}% Theorem head font
-{}% Punctuation after theorem head
-{\newline}% Space after theorem head
-{}% Theorem head spec (can be left empty, meaning ‘normal’)
-%\newtheoremstyle{dotlessP}{}{}{\color{db}}{}{\color{db}\bfseries}{}{ }{}
-\theoremstyle{ejemplo}
-\newtheorem{ejemplo}{Ejemplo}[chapter]
+% Esto anduvo OK pero preferible newenvironment
+% \newtheoremstyle{ejemplo}% hname
+% {11pt}% Space above
+% {3pt}% Space below
+% {\footnotesize}% Body font
+% {}% Indent amount
+% {\bfseries\color{bl}}% Theorem head font
+% {}% Punctuation after theorem head
+% {\newline}% Space after theorem head
+% {}% Theorem head spec (can be left empty, meaning ‘normal’)
+% %\newtheoremstyle{dotlessP}{}{}{\color{db}}{}{\color{db}\bfseries}{}{ }{}
+% \theoremstyle{ejemplo}
+% \newtheorem{ejemplo}{Ejemplo}[chapter]
+% 
 
+\newcounter{ejemplo}[section]
+\newenvironment{ejemplo}
+%{\stepcounter{ejemplo}\footnotesize{\noindent\bfseries\color{bl}{\\Ejemplo~\thechapter.\theejemplo}}\medskip\hrule\medskip\noindent}{\\\rule{15ex}{0.1pt}\hspace{\stretch{1}}\color{black}}%
+{\stepcounter{ejemplo}\footnotesize{\bfseries\color{bl}{\noindent\\Ejemplo~\thechapter.\theejemplo}}\medskip\hrule\medskip}{\color{black}}
 
-\newcounter{example}[section]
- \newenvironment{example}[1][]{\refstepcounter{example}\par
- 	\noindent\footnotesize\textbf{Ejemplo~\theexample  #1}}
 
 \usepackage{multicol}
 \definecolor{dkgreen}{rgb}{0,0.6,0}

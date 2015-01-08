@@ -408,8 +408,8 @@ utilizar a todas ellas por estar dentro de la misma unidad de traducción, pero 
 sólo puede referenciar a \lstinline{m} y a \lstinline{fun1()}, que son de liga externa. Para ello debe declarar a \lstinline{m} como
 \lstinline{extern}, o de lo contrario no superará la compilación (\textit{\quotes{todo uso debe ser precedido por una
 declaración}}).
-\item Si, además, \lstinline{eta.c} declarara una variable \lstinline{extern int n}, con la intención de referirse a la variable \lstinline{n}
-definida en \lstinline{delta.c}, la referencia no podría ser resuelta a causa de la condición de liga interna de \lstinline{n}.
+\item Si, además, \lstinline{eta.c} declarara una variable \lstinline{extern int n}, con la intención de referirse a la variable \lstinline{n} definida en \lstinline{delta.c}, la referencia no podría ser resuelta a causa de la condición de liga interna de \lstinline{n}. 
+
 
 \item Los usos de funciones (como \lstinline{fun1()} en \lstinline{eta.c}) pueden aparecer sin declaración previa, pero en este caso
 el compilador asumirá tipos de datos default para los argumentos y para el tipo del valor devuelto por
@@ -823,6 +823,6 @@ main()
 \end{codecell}\\
 
 \end{tabular}
-\caption{Conjuntos de fuentes y liga}
+\caption{Conjuntos de fuentes y propiedad de liga}
 \label{tab:fuentes}
 \end{table}
