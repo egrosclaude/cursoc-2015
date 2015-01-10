@@ -1,18 +1,18 @@
 \select@language {spanish}
 \contentsline {chapter}{\numberline {1}Introducci\IeC {\'o}n al Lenguaje C}{7}{chapter.1}
 \contentsline {section}{\numberline {1.1}Caracter\IeC {\'\i }sticas del lenguaje}{7}{section.1.1}
-\contentsline {subsection}{Minimalidad}{7}{section*.2}
-\contentsline {subsection}{Versatilidad... a un precio}{8}{section*.2}
+\contentsline {subsection}{Paradigma procedural}{7}{section*.2}
+\contentsline {subsection}{Minimalidad}{8}{section*.2}
+\contentsline {subsection}{Versatilidad, a un precio}{8}{section*.2}
 \contentsline {subsection}{Portabilidad}{8}{section*.2}
-\contentsline {subsection}{Biblioteca Standard}{8}{section*.2}
-\contentsline {subsection}{Paradigma procedural}{9}{section*.2}
+\contentsline {subsection}{Biblioteca Standard}{9}{section*.2}
 \contentsline {section}{\numberline {1.2}Evoluci\IeC {\'o}n del lenguaje}{9}{section.1.2}
-\contentsline {section}{\numberline {1.3}El ciclo de compilaci\IeC {\'o}n}{9}{section.1.3}
+\contentsline {section}{\numberline {1.3}El ciclo de compilaci\IeC {\'o}n}{10}{section.1.3}
 \contentsline {subsection}{Compilador}{10}{figure.caption.4}
 \contentsline {subsection}{Vinculador, linkeditor o \textit {linker}}{11}{figure.caption.4}
 \contentsline {subsection}{Bibliotecario}{11}{figure.caption.4}
 \contentsline {section}{\numberline {1.4}Un primer ejemplo}{11}{section.1.4}
-\contentsline {subsection}{Funcionamiento del programa}{11}{lstnumber.-1.6}
+\contentsline {subsection}{Estructura del programa}{11}{lstnumber.-1.6}
 \contentsline {subsection}{Compilaci\IeC {\'o}n del programa}{12}{lstnumber.-1.6}
 \contentsline {subsection}{El comando make}{12}{Item.6}
 \contentsline {section}{\numberline {1.5}Mapa de memoria de un programa}{13}{section.1.5}
@@ -128,3 +128,19 @@
 \contentsline {section}{\numberline {10.16}Punteros a punteros}{101}{section.10.16}
 \contentsline {section}{\numberline {10.17}Una herramienta: gets()}{101}{section.10.17}
 \contentsline {section}{\numberline {10.18}Ejercicios}{102}{section.10.18}
+\contentsline {chapter}{\numberline {11}Entrada/Salida}{103}{chapter.11}
+\contentsline {section}{\numberline {11.1}Funciones de E/S Standard}{103}{section.11.1}
+\contentsline {subsection}{E/S standard de caracteres}{104}{section*.30}
+\contentsline {subsection}{E/S standard de l\IeC {\'\i }neas}{104}{lstnumber.-257.7}
+\contentsline {subsection}{E/S standard con formato}{105}{lstnumber.-258.7}
+\contentsline {subsection}{E/S standard sobre strings}{106}{lstnumber.-259.7}
+\contentsline {section}{\numberline {11.2}E/S sobre archivos}{106}{section.11.2}
+\contentsline {subsection}{Funciones ANSI C de E/S sobre archivos}{107}{section*.31}
+\contentsline {subsubsection}{Funciones ANSI C de caracteres sobre archivos}{107}{table.caption.32}
+\contentsline {subsubsection}{Funciones ANSI C de l\IeC {\'\i }neas sobre archivos}{108}{lstnumber.-268.13}
+\contentsline {subsubsection}{Funciones ANSI C con formato sobre archivos}{108}{lstnumber.-269.3}
+\contentsline {subsection}{Funciones ANSI C de acceso directo}{109}{lstnumber.-270.14}
+\contentsline {subsubsection}{Sincronizaci\IeC {\'o}n de E/S}{109}{lstnumber.-271.10}
+\contentsline {subsection}{Resumen de funciones ANSI C de E/S}{110}{lstnumber.-271.10}
+\contentsline {subsection}{Funciones POSIX de E/S sobre archivos}{110}{lstnumber.-287.3}
+\contentsline {section}{\numberline {11.3}Ejercicios}{112}{section.11.3}

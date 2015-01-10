@@ -1,0 +1,320 @@
+
+
+
+
+****** 13. Biblioteca Standard ******
+La Biblioteca Standard no forma parte del C, estrictamente hablando, pero todos
+los compiladores contienen una implementación, a veces con agregados o pequeñas
+variantes. Desde la oficialización del ANSI C, los contenidos de la biblioteca
+standard se han estabilizado y se puede contar con el mismo conjunto de
+funciones en todas las plataformas.
+Las funciones de la biblioteca standard están agrupadas en varias categorías.
+Para poder utilizar cualquiera de las funciones de cada categoría, es necesario
+incluir en el fuente el header asociado con la categoría. Esto no
+implicaincluir los textos de las funciones en la unidad de traducción, sino
+simplemente incorporar los prototipos de las funciones de la biblioteca. Es
+decir, incluir un header de biblioteca standard no define las funciones que se
+van a usar, sino que las declara. La resolución de las referencias a las
+funciones o variables de biblioteca standard quedan pendientes hasta la
+linkedición.
+Las categorías y los headers de la biblioteca standard son los siguientes. Una
+implementación de C puede aportar muchísimos otros headers más específicos. Con
+esta información no pretendemos reemplazar al manual del compilador sino
+orientar a los primeros pasos en el uso de la Biblioteca Standard.
+ ______________________________________________________________________
+|Categoría_________________________________________________|header____|
+|Macros_de_diagnóstico_de_errores__________________________|<assert.h>|
+|Macros_de_clasificación_de_caracteres_____________________|<ctype.h>_|
+|Variables_y_funciones_relacionadas_con_condiciones_de_error|<errno.h>_|
+|Características_de_la_representación_en_punto_flotante___|<float.h>_|
+|Rangos_de_tipos_de_datos,_dependientes_de_la_plataforma____|<limits.h>|
+|Definiciones_relacionadas_con_el_idioma_y_lugar_de_uso_____|<locale.h>|
+|Funciones_matemáticas_____________________________________|<math.h>__|
+|Saltos_no_locales__________________________________________|<setjmp.h>|
+|Manejo_de_señales_________________________________________|<signal.h>|
+|Listas_de_argumentos_variables_____________________________|<stdarg.h>|
+|Definiciones_de_algunos_tipos_y_constantes_comunes_________|<stddef.h>|
+|Entrada/salida_____________________________________________|<stdio.h>_|
+|Varias_funciones_útiles___________________________________|<stdlib.h>|
+|Operaciones_sobre_cadenas__________________________________|<string.h>|
+|Funciones_de_fecha_y_hora__________________________________|<time.h>__|
+Ya hemos visitado la mayoría de las funciones de la categoría de E/S. Nos
+quedan por explorar algunas otras de importancia.
+
+Funciones de strings (<stdio.h>)
+No existiendo un tipo de datos string en C, se lo implementa como un arreglo de
+caracteres, dado por su dirección inicial, y terminado en el carácter especial
+'\0'. Todas las funciones de strings de BS hacen uso de este protocolo de fin
+de string. Muchas de ellas han sido implementada en las prácticas de capítulos
+anteriores.
+Aquí las más importantes. Consultar también manual de las funciones strspn(),
+strcspn(), strpbrk(), strstr(), strtok().
+ ____________________________________________________________________________________________________
+|prototipo|significado_______________________________________________________________|ejemplo________|
+|char     |Copia la cadena ct sobre s, incluyendo el '\0'. Devuelve s.               |char alfa[10]; |
+|*strcpy  |                                                                          |strcpy(alfa,   |
+|(s,_ct)__|__________________________________________________________________________|"cadena");_____|
+|char     |Copia ct sobre s hasta n caracteres. Rellena con '\0' hasta el final si ct|char alfa[10]; |
+|*strncpy |tiene menos de n caracteres.                                              |strncpy(alfa,  |
+|(s, ct,  |                                                                          |"cadena", 4);  |
+|n)       |                                                                          |strncpy(alfa,  |
+|         |                                                                          |otro, sizeof   |
+|_________|__________________________________________________________________________|(alfa));_______|
+|char     |Concatena la cadena ct al final de s. Debe garantizarse espacio para      |char alfa[10] =|
+|*strcat  |realizar la operación.                                                   |"abc";         |
+|(s, ct)  |                                                                          |strcat(alfa,   |
+|_________|__________________________________________________________________________|"def");________|
+|char     |Idem hasta n caracteres.                                                  |               |
+|*strncat |                                                                          |               |
+|(s,_ct)__|__________________________________________________________________________|_______________|
+|int      |Compara las cadenas. Devuelve <0 si cs<ct, 0 si cs==ct, >0 si cs>ct.      |if(strcmp      |
+|strcmp   |                                                                          |(alfa,"abcdef")|
+|(cs, ct) |                                                                          |== 0)          |
+|         |                                                                          |    printf     |
+|_________|__________________________________________________________________________|("iguales\n");_|
+|int      |Idem hasta n caracteres.                                                  |               |
+|strncmp  |                                                                          |               |
+|(cs,_ct)_|__________________________________________________________________________|_______________|
+|char     |Devuelve un apuntador a la primera ocurrencia del carácter c en la cadena|char *p;       |
+|*strchr  |cs, o bien NULL si no se lo halla.                                        |char r[] =     |
+|(cs, c)  |                                                                          |"casualidad";  |
+|         |                                                                          |p = strchr(r,  |
+|         |                                                                          |'s');          |
+|         |                                                                          |strncpy(p,     |
+|_________|__________________________________________________________________________|"us",_2);______|
+|char     |Idem la última ocurrencia.                                               |               |
+|*strrchr |                                                                          |               |
+|(cs,_c)__|__________________________________________________________________________|_______________|
+|size_t   |Devuelve la longitud de la cadena, sin contar el '\0' final.              |for(i=0; i <   |
+|strlen   |                                                                          |strlen(s); i++)|
+|(cs)     |                                                                          |    printf     |
+|_________|__________________________________________________________________________|("%c\n",_s[i]);|
+
+Listas de argumentos variables (<stdarg.h>)
+Es posible definir funciones que reciban una cantidad arbitraria de parámetros
+reales. Para esto se prepara un encabezado de la función con los parámetros
+reales fijos que se desee y se indican los restantes, variables, mediante
+puntos suspensivos. Se recuperan los demás con macros especiales definidas en
+este header.
+Lamentablemente estas macros no permiten la creación de funciones sin
+argumentos fijos. Existe otro paquete de argumentos variables, definido en
+varargs.h, que sí lo permite; pero que no está comprendido en el estándar ANSI
+C y que no es compatible con stdarg.h.
+**** Ejemplo ****
+    #include <stdarg.h>
+    int sumar(int cuantos, ...)
+    {
+        va_list ap;
+        int suma=0;
+
+        va_start(ap, cuantos);
+        for(i=0; i<cuantos; i++)
+            suma += va_arg(ap, int);
+        va_end(ap);
+        return suma;
+   }
+Que se utilizaría como:
+    main()
+    {
+        printf("Resultado 1: %d\n", sumar(3, 4, 5, 6));
+        printf("Resultado 2: %d\n", sumar(2, 100, 2336));
+    }
+
+Funciones de tratamiento de errores (<errno.h> y <assert.h>)
+Esta zona de la Biblioteca provee indispensables herramientas de debugging. La
+variable externa errnoes un entero que toma un valor de acuerdo a condiciones
+de error provocadas por cualquiera de las funciones de la BS, y de acuerdo a
+una catalogación de errores que depende de la función. Si una función ANSI C
+devuelve un valor indicador de error (como NULL donde debería devolver un
+puntero, o negativo donde debería devolver un positivo), la variable errno
+contendrá más explicación sobre el motivo del error. Se consulta con las
+funciones strerror()o perror(). La función perror() admite una cadena
+arbitraria para indicar, por ejemplo, el lugar del programa donde se produce el
+error. Imprimirá esta cadena más la descripción del problema.
+La macro assertsirve para detener la ejecución cuando se alcanza un estado
+imposible para la lógica del programa. Para usarla adecuadamente es necesario
+identificar invariantes en el programa (condiciones que no deban jamás ser
+falsas). Si al evaluarse la macro resulta que su condición argumento es falsa,
+assert() aborta el programa indicando nombre del archivo fuente y línea donde
+estaba originalmente la llamada. Un programa en producción no debería fallar
+debido a assert.
+**** Ejemplos ****
+    #include <errno.h>
+    if(open("noexiste", O_RDONLY) < 0)
+        perror("Error en apertura");
+
+
+    #include <assert.h>
+    ...
+    assert(restantes >= 0);
+
+Funciones de fecha y hora (<time.h>)
+Existen dos tipos definidos en el header time.h para manejar datos de fechas.
+Por un lado, se tiene el tipo struct tm, que contiene los siguientes elementos
+que describen un momento en el tiempo:
+struct tm {
+int tm_sec,    /* segundos 0..59 */
+    tm_min,    /* minutos 0..59 */
+    tm_hour,   /* horas 0..23 */
+    tm_mday,   /* día del mes 1..31 */
+    tm_mon,    /* meses desde enero 0..11 */
+    tm_year,   /* años desde 1900 */
+    tm_wday,   /* días desde el domingo 0..6 */
+    tm_yday,   /* días desde enero 0..365 */
+    tm_isdst;  /* flag de ahorro diurno de luz */
+};
+Por otro lado, existe un segundo formato de representación interna de fechas,
+time_t, que es simplemente un entero conteniendo la cantidad de segundos desde
+el principio de la era UNIX ("the epoch"), acaecido el 1/1/1970 a la hora 0
+UTC. Este formato es el usado por la función time() que da la hora actual.
+Este formato entero puede convertirse a struct tm y viceversa con funciones
+definidas en esta zona de la BS, como mktime() y gmtime().
+El contenido de una estructura tm se puede imprimir con gran variedad de
+formatos con la función strftime(), que acepta una cantidad de especificaciones
+al estilo de printf(). Las funciones ctime() y asctime()son más sencillas.
+Devuelven una cadena conteniendo una fecha en formato normalizado (como el que
+aparece en los mensajes de correo electrónico). La primera recibe un puntero a
+time_t; la segunda, un puntero a struct tm.
+**** Ejemplo ****
+    time_t t;
+    struct tm *stm;
+
+    t = time(NULL);             /* recoge la hora actual */
+    printf("%s\n",ctime(&amp;t));   /* imprime en formato standard */
+
+    char area[100];
+    stm = gmtime(&amp;t);           /* convierte t a struct tm */
+    strftime(area,sizeof(area), /* prepara string segun formato del usuario */
+        "%A %b %d %H",stm);
+    printf("%s\n",area);        /* lo imprime */
+
+Funciones matemáticas (<math.h>)
+Aquí se encuentran las habituales funciones aritméticas avanzadas,
+trigonométricas y logarítmicas.
+ ____________________________________________________________________________________
+|sin(x)_|seno_de_x__________________________________________________________|________|
+|cos(x)_|coseno_de_x________________________________________________________|________|
+|tan(x)_|tangente_de_x______________________________________________________|________|
+|asin(x)|arco seno de x                                                     |Devuelve|
+|       |                                                                   |valores |
+|       |                                                                   |en el   |
+|       |                                                                   |rango [-|
+|       |                                                                   |pi/2,   |
+|_______|___________________________________________________________________|pi/2]___|
+|acos(x)|arco coseno de x                                                   |En el   |
+|       |                                                                   |rango   |
+|_______|___________________________________________________________________|[0,_pi]_|
+|atan(x)|arco tangente de x                                                 |Devuelve|
+|       |                                                                   |valores |
+|       |                                                                   |en el   |
+|       |                                                                   |rango [-|
+|       |                                                                   |pi/2,   |
+|_______|___________________________________________________________________|pi/2]___|
+|atan2  |arco tangente de y/x                                               |En el   |
+|(y,x)  |                                                                   |rango [-|
+|_______|___________________________________________________________________|pi,_pi]_|
+|sinh(x)|seno_hiperbólico_de_x_____________________________________________|________|
+|cosh(x)|coseno_hiperbólico_de_x___________________________________________|________|
+|tanh(x)|tangente_hiperbólica_de_x_________________________________________|________|
+|exp(x)_|función_exponencial_de_base_e_____________________________________|________|
+|log(x)_|logaritmo_natural__________________________________________________|________|
+|log10  |logaritmo de base decimal                                          |        |
+|(x)____|___________________________________________________________________|________|
+|pow    |xy                                                                 |Para x=0|
+|(x,y)  |                                                                   |debe ser|
+|       |                                                                   |y>0. Si |
+|       |                                                                   |x<0,    |
+|       |                                                                   |debe ser|
+|_______|___________________________________________________________________|y_entero|
+|sqrt(x)|raíz cuadrada de x                                                |Debe ser|
+|_______|___________________________________________________________________|x>=0____|
+|ceil(x)|menor entero no menor que x                                        |Devuelve|
+|       |                                                                   |un      |
+|_______|___________________________________________________________________|double__|
+|floor  |mayor entero no mayor que x                                        |Devuelve|
+|(x)    |                                                                   |un      |
+|_______|___________________________________________________________________|double__|
+|fabs(x)|Valor_absoluto_de_x________________________________________________|________|
+|ldexp  |Devuelve x * 2n                                                    |        |
+|(x,n)__|___________________________________________________________________|________|
+|frexp  |Divide a x en una potencia entera de 2, que se almacena en el lugar|        |
+|(x,exp)|apuntado_por_exp,_y_devuelve_una_mantisa_en_el_intervalo_[½,_1].__|________|
+|modf(x,|Divide a x en parte entera fraccionaria. El argumento ip debe ser  |        |
+|ip)____|un_puntero_a_entero._______________________________________________|________|
+|fmod   |Residuo de punto flotante de x/y.                                  |        |
+|(x,y)__|___________________________________________________________________|________|
+
+
+***** Funciones utilitarias (<stdlib.h>) *****
+El header stdlib.h agrupa las declaraciones de varias funciones no relacionadas
+entre sí, y que sirven a varios fines. Solamente las nombramos y encarecemos la
+lectura del manual.
+    * Funciones de conversión: las funciones atoi(), atol(), atof(), strtol(),
+      strtod(), strtoul(), toman cadenas representando números y generan los
+      elementos de datos del tipo correspondiente.
+    * Se pueden generar números aleatorios con rand() y srand().
+    * Aquí también se declaran las funciones de asignación de memoria como
+      malloc(), calloc(), realloc(), free().
+    * Para manejar datos en memoria con eficiencia se puede recurrir a qsort()y
+      bsearch(), que ordenan una tabla y realizan búsqueda binaria en la tabla
+      ordenada.
+Clasificación de caracteres (<ctype.h>)
+El header ctype.h contiene declaraciones de macros para averiguar la
+pertenencia de un carácter a determinados conjuntos. Son todas booleanas salvo
+las últimas que devuelven ints.
+ ______________________________________________________________________________
+|macro___|devuelve_TRUE_cuando_________________________________________________|
+|isalnum |isalpha(c) o isdigit(c) son TRUE                                     |
+|(c)_____|_____________________________________________________________________|
+|isalpha |isupper(c) o islower(c) son TRUE                                     |
+|(c)_____|_____________________________________________________________________|
+|iscntrl |c es un carácter de control                                         |
+|(c)_____|_____________________________________________________________________|
+|isdigit |c es un dígito decimal                                              |
+|(c)_____|_____________________________________________________________________|
+|isgraph |c es un carácter imprimible y no isspace(c)                         |
+|(c)_____|_____________________________________________________________________|
+|islower |c es una letra minúscula                                            |
+|(c)_____|_____________________________________________________________________|
+|isprint |c es un carácter imprimible, incluyendo el caso en que isspace(c) es|
+|(c)_____|TRUE_________________________________________________________________|
+|ispunct |c es imprimible pero no espacio, letra ni dígito                    |
+|(c)_____|_____________________________________________________________________|
+|isspace |c es espacio, fin de línea, tabulador                               |
+|(c)_____|_____________________________________________________________________|
+|isupper |c es letra mayúscula                                                |
+|(c)_____|_____________________________________________________________________|
+|isxdigit|c es dígito hexadecimal                                             |
+|(c)_____|_____________________________________________________________________|
+|tolower |devuelve c en minúscula                                             |
+|(c)_____|_____________________________________________________________________|
+|toupper |devuelve c en mayúscula                                             |
+|(c)_____|_____________________________________________________________________|
+
+
+===============================================================================
+Ejercicios
+1. Utilizar la función de cantidad variable de argumentos definida más arriba
+para obtener los promedios de los 2, 3, ..., n primeros elementos de un
+arreglo.
+2. Construir una función de lista variable de argumentos que efectúe la
+concatenación de una cantidad arbitraria de cadenas en una zona de memoria
+provista por la función que llama.
+3. Construir una función de cantidad variable de argumentos que sirva para
+imprimir, con un formato especificado, mensajes de debugging, conteniendo
+nombres y valores de variables.
+4. Construir un programa que separe la entrada standard en palabras, usando las
+macros de clasificación de caracteres. Debe considerar como delimitadores a los
+caracteres espacio, tabulador, signos de puntuación, etc.
+5. Dadas dos fechas y horas del día, calcular su diferencia. Utilizar las
+funciones de BS para convertir a tipos de datos convenientes e imprimir la
+diferencia en años, meses, días, horas, etc.
+6. Generar fechas al azar dentro de un período de tiempo dado.
+
+===============================================================================
+
+
+
+
+
+

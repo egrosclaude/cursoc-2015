@@ -28,11 +28,26 @@ sobre ellos.
 %\href{info/info1.html#info1}{Mas información ...} 
 
 \section{Características del lenguaje}
-C es un lenguaje compilado. A nivel sintáctico, presenta grandes
-similitudes formales con Pascal, pero las diferencias entre ambos son
+C es un lenguaje compilado. Sintácticamente, presenta similitudes formales 
+con C++, con Java, y aun con Pascal, pero las diferencias en otros aspectos son muy
 importantes. A pesar de permitir \textbf{operaciones de bajo nivel}, tiene las
 \textbf{estructuras de control}, y permite la \textbf{estructuración de datos}, propias
 de los lenguajes procedurales de alto nivel. 
+
+\subsection{Paradigma procedural}
+El lenguaje C \textbf{no es un lenguaje orientado a objetos}, sino que
+adhiere al paradigma tradicional de \textbf{programación imperativa o procedural}. No
+soporta la orientación a objetos propiamente dicha, al no
+proporcionar herramientas fundamentales, como la herencia. Sin embargo,
+algunas características del lenguaje permiten que un proyecto de
+programación se beneficie, de todas maneras, con la aplicación de
+algunos principios de la orientación a objetos, tales como el
+ocultamiento de información y el encapsulamiento de
+responsabilidades. El lenguaje \textbf{C++}, orientado a objetos, \textbf{no es}
+una versión más avanzada del lenguaje o un compilador de C con
+más capacidades, sino que \textbf{se trata de un lenguaje completamente
+diferente}. 
+
 
 \subsection{Minimalidad}
 Un programa en C es, por lo general, más \textbf{sintético} que en otros
@@ -40,8 +55,7 @@ lenguajes procedurales; la idea central que atraviesa todo
 el lenguaje es la minimalidad. La definición del lenguaje consta de
 muy pocos elementos, y tiene muy pocas \textbf{palabras reservadas}. 
 
-Como rasgo
-distintivo, en C no existen, rigurosamente hablando, funciones o
+Como rasgo distintivo, en C no existen, rigurosamente hablando, funciones o
 procedimientos de uso general del programador. Por ejemplo, \textbf{no tiene
 funciones de entrada/salida}; la definición del lenguaje apenas
 alcanza a \textbf{las estructuras de control y los operadores}. La idea de
@@ -55,9 +69,9 @@ noción de \textbf{bloque} de sentencias (sentencias encerradas entre llaves), e
 estructurado en bloques} porque no pueden definirse funciones dentro de
 otras. 
 
-\subsection{Versatilidad... a un precio}
+\subsection{Versatilidad, a un precio}
 El lenguaje entrega completamente el control de la máquina subyacente
-al programador, no realizando controles de tiempo de ejecución. Es
+al programador, no realizando controles en tiempo de ejecución. Es
 decir, no verifica condiciones de error comunes como \textbf{\textit{overflow}
 de variables}, \textbf{errores de entrada/salida}, o \textbf{consistencia de argumentos}
 en llamadas a funciones. Ofrece una gran libertad sintáctica al programador. No
@@ -83,7 +97,7 @@ elementos para mejorar esta deficiencia.
 Una característica especial del lenguaje C es que el \textbf{pasaje de
 argumentos a funciones} se realiza siempre \textbf{por valor}. ¿Qué ocurre
 cuando una función debe \textbf{modificar} datos que recibe como
-argumentos? La única salida es pasarle -por valor- la dirección del
+argumentos? La única salida es pasarle --por valor-- la dirección del
 dato a modificar. Las consecuencias de este hecho son más fuertes de
 lo que parece a primera vista, ya que surge la necesidad de todo un
 conjunto de técnicas de \textbf{manejo de punteros} que no siempre son bien
@@ -114,8 +128,8 @@ Aquellas que sí incluye están orientadas a la programación de sistemas, y a
 veces no resultan suficientes para el programador de aplicaciones. No
 provee, por ejemplo, la capacidad de manejo de archivos indexados, ni
 funciones de entrada/salida interactiva por consola que sean seguras
-(\quotes{a prueba de usuarios}). Esta deficiencia
-se remedia utilizando bibliotecas de funciones \quotes{de
+(\quotes{a prueba de usuarios}). Estas deficiencias
+se remedian utilizando bibliotecas de funciones \quotes{de
 terceras partes} (creadas por el usuario u obtenidas de
 otros programadores). 
 
@@ -123,20 +137,6 @@ Las funciones de la Biblioteca Standard no tienen ningún
 privilegio sobre las del usuario y \textbf{sus nombres no son palabras
 reservadas}; el usuario puede reemplazarlas por sus propias funciones
 simplemente dándoles el mismo nombre. 
-
-\subsection{Paradigma procedural}
-Por último, el C \textbf{no es un lenguaje orientado a objetos}, sino que
-adhiere al paradigma tradicional de \textbf{programación imperativa o procedural}. No
-soporta la orientación a objetos propiamente dicha, al no
-proporcionar herramientas fundamentales, como la herencia. Sin embargo,
-algunas características del lenguaje permiten que un proyecto de
-programación se beneficie de todas maneras con la aplicación de
-algunos principios de la orientación a objetos, tales como el
-ocultamiento de información y el encapsulamiento de
-responsabilidades. El lenguaje C++, orientado a objetos, \textbf{no }es
-una versión más avanzada del lenguaje o un compilador de C con
-más capacidades, sino que \textbf{se trata de un lenguaje completamente
-diferente}. 
 
 
 \section{Evolución del lenguaje}
@@ -246,7 +246,7 @@ main()
 }
 \end{lstlisting}
 
-\subsection{Funcionamiento del programa}
+\subsection{Estructura del programa}
 
 \begin{itemize}
 \item Este programa minimal comienza con una \textbf{directiva de preprocesador} que indica incluir en la unidad de traducción al
@@ -261,7 +261,7 @@ argumentos.
 main(), terminará el programa. 
 \item La función \lstinline{printf()} imprimirá la cadena entre comillas, que es
 una \textbf{constante string} terminada por un carácter de
-\textbf{nueva línea} (la secuencia especial \quotes{\lstinline{\n}}). 
+\textbf{nueva línea} (la secuencia especial \quotes{\lstinline{\\n}}). 
 \end{itemize}
 
 \subsection{Compilación del programa}
@@ -284,7 +284,7 @@ Lo mismo, pero de otra manera:
 \end{enumerate}
 
 La diferencia es que en el primer caso invocamos directamente al compilador \lstinline{gcc},
-mientras que en el segundo caso utilizamos la herramienta \lstinline{make}, que nos asiste en la compilación de proyectos. En el ejemplo, le decimos al compilador que procese el archivo fuente \lstinline{hola.c}, y que el ejecutable de salida (opción \lstinline{-o}, de \textit{output}) se llame \lstinline{hola}. 
+mientras que en el segundo caso utilizamos la herramienta \lstinline{make}, que nos asiste en la compilación de proyectos. En el ejemplo, le decimos al compilador que procese el archivo fuente \lstinline{hola.c}, y que el ejecutable de salida (opción \lstinline{-o}, de \textit{output}) reciba el nombre \lstinline{hola}. 
 
 
 % \subsection[Mapa de memoria de un programa Mas información ... ]{Mapa de memoria de un programa \href{info/info1.html#info2}{Mas información ...} }
@@ -303,7 +303,7 @@ Cuando damos un comando como \lstinline{make hola}, utilizamos el comando \textb
 Si se invoca al comando \textbf{make} una segunda vez, éste comprobará, en base a las fechas de
 modificación de los archivos fuente y ejecutable, que no es necesaria la compilación (ya que el
 ejecutable es posterior al fuente). Si editamos el fuente para cambiar algo en el programa, invocar
-nuevamente a make ahora repetirá la compilación (porque ahora el ejecutable es anterior al fuente).
+nuevamente a \textbf{make} ahora repetirá la compilación (porque ahora el fuente es posterior al ejecutable).
 
 %TODO
 %\subsection{Makefiles}
@@ -356,7 +356,6 @@ que sea necesario. El \textbf{heap} es la zona de donde el programa obtiene esos
 A diferencia de otros lenguajes con administración de memoria automática, en C normalmente es necesario solicitar explícitamente cada segmento de memoria asignada dinámicamente. Es responsabilidad del programador, también, liberar esta memoria cuando no ya sea necesaria, ya que en C no existe un
 mecanismo de \quotes{recolección de basura}, lo cual sí existe en otros lenguajes, para desalojar
 automáticamente objetos que ya no se utilicen.
-}
 
 Por otro lado, un programa que realice una cadena de invocaciones de muchas funciones, y
 especialmente si éstas utilizan muchas variables locales, hará crecer notablemente su stack,
@@ -364,6 +363,7 @@ desplazando el tope de la pila hacia abajo. La región del stack es el lugar par
 de variables locales, que son aquellas que viven mientras tiene lugar la ejecución de la función a la que
 pertenecen. La destrucción de estas variables sí es automática, y se produce al momento de finalizar la
 ejecución de la función.
+}
 
 Este modelo será útil en varias ocasiones para explicar algunas cuestiones especiales del lenguaje C.
 

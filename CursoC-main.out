@@ -1,17 +1,17 @@
 \BOOKMARK [0][-]{chapter.1}{Introducci\363n al Lenguaje C}{}% 1
 \BOOKMARK [1][-]{section.1.1}{Caracter\355sticas del lenguaje}{chapter.1}% 2
-\BOOKMARK [2][-]{section*.2}{Minimalidad}{section.1.1}% 3
-\BOOKMARK [2][-]{section*.2}{Versatilidad... a un precio}{section.1.1}% 4
-\BOOKMARK [2][-]{section*.2}{Portabilidad}{section.1.1}% 5
-\BOOKMARK [2][-]{section*.2}{Biblioteca Standard}{section.1.1}% 6
-\BOOKMARK [2][-]{section*.2}{Paradigma procedural}{section.1.1}% 7
+\BOOKMARK [2][-]{section*.2}{Paradigma procedural}{section.1.1}% 3
+\BOOKMARK [2][-]{section*.2}{Minimalidad}{section.1.1}% 4
+\BOOKMARK [2][-]{section*.2}{Versatilidad, a un precio}{section.1.1}% 5
+\BOOKMARK [2][-]{section*.2}{Portabilidad}{section.1.1}% 6
+\BOOKMARK [2][-]{section*.2}{Biblioteca Standard}{section.1.1}% 7
 \BOOKMARK [1][-]{section.1.2}{Evoluci\363n del lenguaje}{chapter.1}% 8
 \BOOKMARK [1][-]{section.1.3}{El ciclo de compilaci\363n}{chapter.1}% 9
 \BOOKMARK [2][-]{figure.caption.4}{Compilador}{section.1.3}% 10
 \BOOKMARK [2][-]{figure.caption.4}{Vinculador, linkeditor o linker}{section.1.3}% 11
 \BOOKMARK [2][-]{figure.caption.4}{Bibliotecario}{section.1.3}% 12
 \BOOKMARK [1][-]{section.1.4}{Un primer ejemplo}{chapter.1}% 13
-\BOOKMARK [2][-]{lstnumber.-1.6}{Funcionamiento del programa}{section.1.4}% 14
+\BOOKMARK [2][-]{lstnumber.-1.6}{Estructura del programa}{section.1.4}% 14
 \BOOKMARK [2][-]{lstnumber.-1.6}{Compilaci\363n del programa}{section.1.4}% 15
 \BOOKMARK [2][-]{Item.6}{El comando make}{section.1.4}% 16
 \BOOKMARK [1][-]{section.1.5}{Mapa de memoria de un programa}{chapter.1}% 17
@@ -127,3 +127,15 @@
 \BOOKMARK [1][-]{section.10.16}{Punteros a punteros}{chapter.10}% 127
 \BOOKMARK [1][-]{section.10.17}{Una herramienta: gets\(\)}{chapter.10}% 128
 \BOOKMARK [1][-]{section.10.18}{Ejercicios}{chapter.10}% 129
+\BOOKMARK [0][-]{chapter.11}{Entrada/Salida}{}% 130
+\BOOKMARK [1][-]{section.11.1}{Funciones de E/S Standard}{chapter.11}% 131
+\BOOKMARK [2][-]{section*.30}{E/S standard de caracteres}{section.11.1}% 132
+\BOOKMARK [2][-]{lstnumber.-257.7}{E/S standard de l\355neas}{section.11.1}% 133
+\BOOKMARK [2][-]{lstnumber.-258.7}{E/S standard con formato}{section.11.1}% 134
+\BOOKMARK [2][-]{lstnumber.-259.7}{E/S standard sobre strings}{section.11.1}% 135
+\BOOKMARK [1][-]{section.11.2}{E/S sobre archivos}{chapter.11}% 136
+\BOOKMARK [2][-]{section*.31}{Funciones ANSI C de E/S sobre archivos}{section.11.2}% 137
+\BOOKMARK [2][-]{lstnumber.-270.14}{Funciones ANSI C de acceso directo}{section.11.2}% 138
+\BOOKMARK [2][-]{lstnumber.-271.10}{Resumen de funciones ANSI C de E/S}{section.11.2}% 139
+\BOOKMARK [2][-]{lstnumber.-287.3}{Funciones POSIX de E/S sobre archivos}{section.11.2}% 140
+\BOOKMARK [1][-]{section.11.3}{Ejercicios}{chapter.11}% 141

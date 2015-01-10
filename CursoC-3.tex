@@ -67,14 +67,13 @@ long double pi;
 \section{Tamaños de los objetos de datos}
 
 El lenguaje C no define el tamaño de los objetos de datos de un tipo determinado. Es decir, un entero
-puede ocupar 16 bits en una implementación del compilador, 32 en otra, o aun 64. Un long puede tener o no más bits
-que un int. Un short puede ser o no más corto que un int. Según K\&R, lo único seguro es que "\textit{un
-short no es mayor que un int, que a su vez no es mayor que long}".
+puede ocupar 16 bits en una implementación del compilador, 32 en otra, o aun 64. Un \lstinline{long} puede tener, o no, más bits
+que un \lstinline{int}. Un \lstinline{short} puede ser, o no, más corto que un \lstinline{int}. Según \textbf{K\&R}, lo único seguro es que "\textit{un \lstinline{short} no es mayor que un \lstinline{int}, que a su vez no es mayor que \lstinline{long}}".
 
 Por supuesto, distintos tamaños en bits implican diferentes rangos de valores. Si deseamos \textbf{portar} un
 programa, hecho bajo una implementación del compilador, a otra, no es posible asegurar a priori el
 rango que tomará un tipo de datos. La fuente ideal para conocer los rangos de los diferentes tipos, en
-una implementación determinada, es -además del manual del compilador- el header \lstinline{limits.h} de la
+una implementación determinada, es --además del manual del compilador-- el header \lstinline{limits.h} de la
 Biblioteca Standard. Debe recordarse que cualquier suposición que hagamos sobre el rango o tamaño
 de un objeto de datos afecta la portabilidad de un programa en C.
 
@@ -265,6 +264,7 @@ de máquina, el patrón de bits almacenado en el objeto de datos.
 
 
 \section{Una herramienta: printf()}
+\label{sec:lafuncionprintf}
 Con el objeto de facilitar la práctica, describimos aquí la función de Biblioteca Standard \lstinline{printf()}.
 
 \begin{itemize}
