@@ -75,15 +75,15 @@
 \BOOKMARK [0][-]{chapter.7}{Estructuras de control}{}% 75
 \BOOKMARK [1][-]{section.7.1}{Estructura alternativa}{chapter.7}% 76
 \BOOKMARK [1][-]{section.7.2}{Estructuras repetitivas}{chapter.7}% 77
-\BOOKMARK [2][-]{section*.23}{Estructura while}{section.7.2}% 78
-\BOOKMARK [2][-]{lstnumber.-117.2}{Estructura do-while}{section.7.2}% 79
-\BOOKMARK [2][-]{lstnumber.-118.3}{Estructura for}{section.7.2}% 80
+\BOOKMARK [2][-]{section*.24}{Estructura while}{section.7.2}% 78
+\BOOKMARK [2][-]{lstnumber.-119.2}{Estructura do-while}{section.7.2}% 79
+\BOOKMARK [2][-]{lstnumber.-120.3}{Estructura for}{section.7.2}% 80
 \BOOKMARK [1][-]{section.7.3}{Estructura de selecci\363n}{chapter.7}% 81
 \BOOKMARK [1][-]{section.7.4}{Transferencia incondicional}{chapter.7}% 82
-\BOOKMARK [2][-]{section*.24}{Sentencia continue}{section.7.4}% 83
-\BOOKMARK [2][-]{lstnumber.-135.5}{Sentencia break}{section.7.4}% 84
-\BOOKMARK [2][-]{lstnumber.-136.6}{Sentencia goto}{section.7.4}% 85
-\BOOKMARK [2][-]{lstnumber.-137.8}{Sentencia return}{section.7.4}% 86
+\BOOKMARK [2][-]{section*.25}{Sentencia continue}{section.7.4}% 83
+\BOOKMARK [2][-]{lstnumber.-137.5}{Sentencia break}{section.7.4}% 84
+\BOOKMARK [2][-]{lstnumber.-138.6}{Sentencia goto}{section.7.4}% 85
+\BOOKMARK [2][-]{lstnumber.-139.8}{Sentencia return}{section.7.4}% 86
 \BOOKMARK [1][-]{section.7.5}{Observaciones}{chapter.7}% 87
 \BOOKMARK [1][-]{section.7.6}{Ejercicios}{chapter.7}% 88
 \BOOKMARK [0][-]{chapter.8}{Funciones}{}% 89
@@ -94,29 +94,29 @@
 \BOOKMARK [1][-]{section.8.5}{Ejercicios}{chapter.8}% 94
 \BOOKMARK [0][-]{chapter.9}{Variables estructuradas}{}% 95
 \BOOKMARK [1][-]{section.9.1}{Arreglos}{chapter.9}% 96
-\BOOKMARK [2][-]{lstnumber.-166.3}{Inicializaci\363n de arreglos}{section.9.1}% 97
-\BOOKMARK [2][-]{lstnumber.-169.1}{Errores frecuentes con arreglos}{section.9.1}% 98
+\BOOKMARK [2][-]{lstnumber.-168.3}{Inicializaci\363n de arreglos}{section.9.1}% 97
+\BOOKMARK [2][-]{lstnumber.-171.1}{Errores frecuentes con arreglos}{section.9.1}% 98
 \BOOKMARK [1][-]{section.9.2}{Arreglos multidimensionales}{chapter.9}% 99
 \BOOKMARK [1][-]{section.9.3}{Estructuras y uniones}{chapter.9}% 100
-\BOOKMARK [2][-]{section*.25}{Estructuras}{section.9.3}% 101
-\BOOKMARK [2][-]{lstnumber.-181.11}{Uniones}{section.9.3}% 102
-\BOOKMARK [2][-]{lstnumber.-183.3}{Campos de bits}{section.9.3}% 103
+\BOOKMARK [2][-]{section*.26}{Estructuras}{section.9.3}% 101
+\BOOKMARK [2][-]{lstnumber.-183.11}{Uniones}{section.9.3}% 102
+\BOOKMARK [2][-]{lstnumber.-185.3}{Campos de bits}{section.9.3}% 103
 \BOOKMARK [1][-]{section.9.4}{Ejercicios}{chapter.9}% 104
 \BOOKMARK [0][-]{chapter.10}{Apuntadores y Direcciones}{}% 105
 \BOOKMARK [1][-]{section.10.1}{Operadores especiales}{chapter.10}% 106
 \BOOKMARK [1][-]{section.10.2}{Aritm\351tica de punteros}{chapter.10}% 107
-\BOOKMARK [2][-]{section*.26}{Asignaci\363n entre punteros}{section.10.2}% 108
-\BOOKMARK [2][-]{section*.26}{Suma de enteros a punteros}{section.10.2}% 109
-\BOOKMARK [2][-]{section*.26}{Resta de punteros}{section.10.2}% 110
+\BOOKMARK [2][-]{section*.27}{Asignaci\363n entre punteros}{section.10.2}% 108
+\BOOKMARK [2][-]{section*.27}{Suma de enteros a punteros}{section.10.2}% 109
+\BOOKMARK [2][-]{section*.27}{Resta de punteros}{section.10.2}% 110
 \BOOKMARK [1][-]{section.10.3}{Punteros y arreglos}{chapter.10}% 111
 \BOOKMARK [1][-]{section.10.4}{Punteros y cadenas de texto}{chapter.10}% 112
 \BOOKMARK [1][-]{section.10.5}{Pasaje por referencia}{chapter.10}% 113
 \BOOKMARK [1][-]{section.10.6}{Punteros y argumentos de funciones}{chapter.10}% 114
 \BOOKMARK [1][-]{section.10.7}{Ejercicios}{chapter.10}% 115
 \BOOKMARK [1][-]{section.10.8}{Errores m\341s frecuentes}{chapter.10}% 116
-\BOOKMARK [2][-]{section*.27}{Punteros sin inicializar}{section.10.8}% 117
-\BOOKMARK [2][-]{lstnumber.-222.5}{Confundir punteros con arreglos}{section.10.8}% 118
-\BOOKMARK [2][-]{lstnumber.-230.3}{No analizar el nivel de indirecci\363n}{section.10.8}% 119
+\BOOKMARK [2][-]{section*.28}{Punteros sin inicializar}{section.10.8}% 117
+\BOOKMARK [2][-]{lstnumber.-224.5}{Confundir punteros con arreglos}{section.10.8}% 118
+\BOOKMARK [2][-]{lstnumber.-232.3}{No analizar el nivel de indirecci\363n}{section.10.8}% 119
 \BOOKMARK [1][-]{section.10.9}{Arreglos de punteros}{chapter.10}% 120
 \BOOKMARK [1][-]{section.10.10}{Estructuras referenciadas por punteros}{chapter.10}% 121
 \BOOKMARK [1][-]{section.10.11}{Estructuras de datos recursivas}{chapter.10}% 122
@@ -129,13 +129,14 @@
 \BOOKMARK [1][-]{section.10.18}{Ejercicios}{chapter.10}% 129
 \BOOKMARK [0][-]{chapter.11}{Entrada/Salida}{}% 130
 \BOOKMARK [1][-]{section.11.1}{Funciones de E/S Standard}{chapter.11}% 131
-\BOOKMARK [2][-]{section*.30}{E/S standard de caracteres}{section.11.1}% 132
-\BOOKMARK [2][-]{lstnumber.-257.7}{E/S standard de l\355neas}{section.11.1}% 133
-\BOOKMARK [2][-]{lstnumber.-258.7}{E/S standard con formato}{section.11.1}% 134
-\BOOKMARK [2][-]{lstnumber.-259.7}{E/S standard sobre strings}{section.11.1}% 135
+\BOOKMARK [2][-]{section*.31}{E/S standard de caracteres}{section.11.1}% 132
+\BOOKMARK [2][-]{lstnumber.-259.7}{E/S standard de l\355neas}{section.11.1}% 133
+\BOOKMARK [2][-]{lstnumber.-260.7}{E/S standard con formato}{section.11.1}% 134
+\BOOKMARK [2][-]{lstnumber.-261.7}{E/S standard sobre strings}{section.11.1}% 135
 \BOOKMARK [1][-]{section.11.2}{E/S sobre archivos}{chapter.11}% 136
-\BOOKMARK [2][-]{section*.31}{Funciones ANSI C de E/S sobre archivos}{section.11.2}% 137
-\BOOKMARK [2][-]{lstnumber.-270.14}{Funciones ANSI C de acceso directo}{section.11.2}% 138
-\BOOKMARK [2][-]{lstnumber.-271.10}{Resumen de funciones ANSI C de E/S}{section.11.2}% 139
-\BOOKMARK [2][-]{lstnumber.-287.3}{Funciones POSIX de E/S sobre archivos}{section.11.2}% 140
-\BOOKMARK [1][-]{section.11.3}{Ejercicios}{chapter.11}% 141
+\BOOKMARK [2][-]{section*.32}{Est\341ndares ANSI y POSIX}{section.11.2}% 137
+\BOOKMARK [2][-]{section*.32}{Funciones ANSI C de E/S sobre archivos}{section.11.2}% 138
+\BOOKMARK [2][-]{lstnumber.-272.14}{Funciones ANSI C de acceso directo}{section.11.2}% 139
+\BOOKMARK [2][-]{lstnumber.-273.10}{Resumen de funciones ANSI C de E/S}{section.11.2}% 140
+\BOOKMARK [2][-]{table.caption.34}{Funciones POSIX de E/S sobre archivos}{section.11.2}% 141
+\BOOKMARK [1][-]{section.11.3}{Ejercicios}{chapter.11}% 142

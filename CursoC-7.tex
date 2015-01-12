@@ -14,12 +14,16 @@ Formas típicas de la estructura alternativa son las siguientes.
 \begin{lstlisting}
 if(expresion)
     sentencia;
+\end{lstlisting}
 
+\begin{lstlisting}
 if(expresion) {
     sentencias
     ...
 }
+\end{lstlisting}
 
+\begin{lstlisting}
 if(expresion)
     sentencia;
 else
@@ -27,13 +31,13 @@ else
 \end{lstlisting}
 
 \begin{ejemplo}
-El formato de C es libre, y las llaves sólo son necesarias cuando las sentencias de ejecución condicional son más de una. 
+El formato en C es libre, y las llaves sólo son necesarias cuando las sentencias de ejecución condicional son más de una. 
 \begin{lstlisting}
 if(a == 8) c++;
 \end{lstlisting}
 Las condiciones lógicas se construyen en base a operadores de relación y lógicos. 
 \begin{lstlisting}
-if(c >= 2 || func(b) < 0)
+if(c >= 2 || fun(b) < 0)
 \end{lstlisting}
 La cláusula \lstinline{else} indica el bloque que se ejecutará en el caso negativo de la condición. 
 \begin{lstlisting}
@@ -45,8 +49,10 @@ else
 En las estructuras anidadas, la cláusula \lstinline{else} se aparea
 con el \lstinline{if} más interno, salvo que las llaves expresen otra cosa. 
 
-En el cuadro siguiente, las llaves del Listado 1 muestran cómo están asociadas las estructuras. En el Listado 2, se han quitado, con lo cual la semántica cambia, pero se mantiene la misma indentación, lo que puede dar lugar a confusión. El Listado 2 en realidad es equivalente al Listado 3, que utiliza llaves aunque en forma redundante, y además tiene la indentación correcta.
+En el Cuadro \ref{tab:indent}, las llaves del \textbf{Listado 1} muestran cómo están asociadas las estructuras. En el \textbf{Listado 2}, se han quitado, con lo cual la semántica cambia, pero se mantiene la misma indentación, lo que puede dar lugar a confusión. El \textbf{Listado 2} en realidad es equivalente al \textbf{Listado 3}, que utiliza llaves aunque en forma redundante, y además tiene la indentación correcta.
+\end{ejemplo}
 
+\begin{table}
 \centering
 \begin{tabular}{l|l|l}
 Listado 1 & Listado 2 & Listado 3\\
@@ -74,10 +80,11 @@ if(c >= 2) {
 	else
     	c += 2;
 }
-\end{codecell}
+\end{codecell}\\
 \end{tabular}
-\end{ejemplo}
-
+\caption{Estructuras alternativas anidadas e indentación.}
+\label{tab:indent}
+\end{table}
 
 \importante{En general, el estilo de programación debe sugerir la estructura, usando indentación; pero es, por supuesto,
 la ubicación de las llaves, y no la indentación, la que determina la

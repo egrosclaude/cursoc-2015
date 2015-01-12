@@ -16,7 +16,7 @@ Para la programación en C, la abstracción de un
 archivo es simplemente un flujo de bytes o stream, que se maneja con
 operaciones primitivas comunes y con independencia de cuál sea el origen y su destino de ese flujo.
 
-Si bien el C no contiene palabras reservadas de entrada/salida (E/S), la
+Si bien el C no contiene palabras reservadas de entrada/salida (\textbf{E/S}), la
 Biblioteca Standard sí provee un rico conjunto de funciones de E/S, tan amplio
 que suele provocar confusión en quienes se aproximan por primera vez al
 lenguaje. Primero veremos un resumen de las funciones de E/S standard
@@ -50,8 +50,8 @@ funciones C de nuestro sistema. Para mejor orientarnos, agregamos un mapa de est
 Los programas C reciben tres \textbf{canales de comunicación} con el ambiente abiertos
 antes de comenzar su ejecución. El uso típico de estos canales de comunicación
 es la lectura del teclado y la impresión sobre pantalla, aunque, si el sistema
-operativo lo soporta, la existencia de estos canales también hace posible la poderosa técnica de la
-\textbf{redirección}. 
+operativo lo soporta, la existencia de estos canales también hace posibles las poderosas técnicas de la
+\textbf{redirección} y el \textbf{piping}. 
 
 %TODO diagrama proceso con tres vias standard
 
@@ -60,7 +60,7 @@ quedando fuera de consideración algunas características indispensables en
 programas de producción, como seguridad, validación de datos, o la posibilidad de
 organizar la salida en pantalla. Por ejemplo, no hay una forma canónica de
 borrar la pantalla en C, ya que ésta es una función que depende fuertemente de
-la plataforma donde se ejecute el programa. Las características faltantes en la
+la plataforma y del ambiente donde se ejecute el programa. Las características faltantes en la
 E/S standard se compensan recurriendo a bibliotecas de terceras partes.
 
 \subsection{E/S standard de caracteres}
@@ -88,10 +88,9 @@ main()
 Las funciones \lstinline{gets()} y \lstinline{puts()} leen de teclado e imprimen, respectivamente,
 \textbf{líneas de caracteres} terminadas por la señal de fin de línea \lstinline{\n}. La función
 \lstinline{gets()} debe recibir como argumento \textbf{la dirección de un buffer o zona de memoria}
-donde depositar los caracteres provenientes de entrada standard. Estos son
-normalmente tipeados por el usuario, pero pueden provenir de archivos o ser
-resultado de la ejecución --eventualmente concurrente-- de otros programas,
-gracias a la redirección. 
+donde depositar los caracteres provenientes de entrada standard. Éstos pueden ser tipeados por 
+el usuario, o, gracias a la redirección, provenir de archivos, o ser
+resultado de la ejecución --eventualmente concurrente-- de otros programas. 
 
 Es un error muy frecuente ofrecer a \lstinline{gets()} un puntero
 no inicializado. La función \lstinline{gets()} ha sido descripta en la unidad sobre
@@ -198,15 +197,20 @@ main()
 {
     char area[1024];
     int a; long b;
-    sprintf(area, "%d %ld\n", -6534, 1273632);
+    
+	printf("1: %d %ld\n", -6534, 1273632);
+    sprintf(area, "%d %ld", -6534, 1273632);
+	printf("2: %s\n",area);
     sscanf(area, "%d %ld", &a, &b);
-    printf("%d %ld\n", a, b);
+    printf("3: %d %ld\n", a, b);
 }
 \end{lstlisting}
 
 El resultado debería ser:
 \begin{lstlisting}
--6534 1273632
+1: -6534 1273632
+2: -6534 1273632
+3: -6534 1273632
 \end{lstlisting}
 \end{ejemplo}
 
@@ -224,10 +228,11 @@ Por ejemplo, tanto DOS como UNIX soportan la noción de archivo de texto, pero
 con algunas diferencias a nivel de modelo de archivos. En ambos, un archivo de
 texto es una secuencia de líneas de texto, donde cada línea es una secuencia de
 caracteres terminado en fin de línea; pero en DOS, la convención de fin de
-línea es un par de caracteres (\textbf{CR,LF}) (equivalentes a ASCII 13 y 10) mientras
-que para UNIX, un fin de línea equivale solamente a \textbf{LF} (ASCII 10). Además DOS
-soporta la noción de carácter de fin de archivo (\textbf{EOF} o ASCII 26) mientras que
-no existe tal concepto en UNIX.
+línea es un par de caracteres (\textbf{CR, LF}) (equivalentes a ASCII 13 y 10, respectivamente) mientras
+que para UNIX, un fin de línea equivale solamente a \textbf{LF} (ASCII 10). Además DOS, a diferencia de UNIX,
+almacena un carácter especial (\textbf{EOF} o ASCII 26) al final de los archivos 
+de texto para señalar el fin del archivo.
+
 
 Por otro lado, diferentes sistemas de archivo proveen diferentes vistas sobre
 diferentes implementaciones. Un sistema operativo puede soportar o no la noción
@@ -235,12 +240,14 @@ de directorio, o la de links múltiples; o puede fijar determinadas condiciones
 sobre los nombres de archivos, todo esto en función de la organización íntima
 de sus estructuras de datos.
 
+\subsection{Estándares ANSI y POSIX}
 Siendo uno de sus objetivos de diseño el favorecer la producción de
 programas portables, el lenguaje C contempla la forma de resolver estos problemas de
 manera fácil para los programadores. Las funciones de entrada/salida sobre
 archivos de la Biblioteca Standard están divididas en dos grandes regiones: el
-conjunto de funciones del C standard, también llamadas funciones de entrada/
-salida \textbf{bufferizada}, definidas por ANSI, y las \textbf{funciones POSIX}, también llamadas
+conjunto de funciones del C standard, también llamadas funciones de 
+entrada/salida \textbf{bufferizada}, definidas por ANSI, y las 
+\textbf{funciones POSIX}, también llamadas
 funciones de entrada/salida \textbf{de bajo nivel}.
 
 Las funciones ANSI C tienen el objetivo de ocultar a los programas las
@@ -265,45 +272,42 @@ fundamental de las funciones ANSI es la entrada/salida bufferizada. Por
 ejemplo, una operación de escritura solicitada por una instrucción del programa
 no se efectiviza inmediatamente sino que se realiza sobre un buffer intermedio,
 administrado por las funciones de biblioteca standard y con su política propia
-de flushing o descarga al dispositivo. En cambio, las funciones POSIX hacen E/
-S directa a los dispositivos (o al menos, al sistema de E/S del sistema
-operativo) y por esto son las preferidas para la programación de drivers,
-servidores, etc., donde la performance y otros detalles finos deban ser
-controlados más directamente por el programa.
+de \textit{flushing} o descarga al dispositivo. 
 
 Las funciones de entrada/salida bufferizada reciben argumentos a imprimir y
 los van depositando en un buffer o zona de memoria intermedia.
 Cuando el buffer se llena, o cuando aparece un carácter de fin de línea, el
 buffer se descarga al dispositivo, escribiéndose los contenidos del buffer en
-pantalla, disco, etc.
+pantalla, disco, etc. En cambio, las funciones POSIX hacen E/S 
+directa a los dispositivos (o al menos, al sistema de E/S del sistema
+operativo) y por esto son las preferidas para la programación de drivers,
+servidores, etc., donde la performance y otros detalles finos deban ser
+controlados más directamente por el programa.
 
 \subsection{Funciones ANSI C de E/S sobre archivos}
 \label{subsec:esarchivosansic}
 Las funciones ANSI realizan todas las operaciones sobre archivos por medio de
-una estructura o bloque de control cuyo tipo en C se llama FILE. Esta
-estructura está definida en el header stdio.h y contiene, entre otras cosas,
+una estructura o bloque de control cuyo tipo en C se llama \lstinline{FILE}. Esta
+estructura está definida en el header \lstinline{stdio.h} y contiene, entre otras cosas,
 punteros a buffers para escritura y lectura. La primera operación necesaria es
-la apertura del archivo, que construye una estructura FILE, la inicializa con
-valores adecuados y devuelve un apuntador a la misma. El apuntador servirá para
-referenciarla durante todo el trabajo con el archivo y hasta que deba ser
+la \textbf{apertura} del archivo, que construye una estructura \lstinline{FILE}, la inicializa con
+valores adecuados y \textbf{devuelve un apuntador} a la misma (es decir, un valor de tipo \lstinline{FILE *}). El apuntador servirá para
+referenciar esa estructura durante todo el trabajo con el archivo y hasta que deba ser
 cerrado.
 
-En la apertura del archivo corresponde indicar el modo de acceso (la clase de
-operaciones que se van a a hacer sobre él). Como algunos sistemas operativos
+En la apertura del archivo corresponde indicar el \textbf{modo de acceso} (la clase de
+operaciones que se van a hacer sobre él). Como algunos sistemas operativos
 (notoriamente, el DOS) distinguen entre archivos de texto y binarios, el ANSI C
 provee dos formas de apertura, para indicar cómo se va a tratar el archivo.
-Cuando un archivo se abre en modo de texto, durante las operaciones de lectura
+Cuando un archivo se abre en \textbf{modo de texto}, durante las operaciones de lectura
 y escritura se aplicarán las conversiones de fines de línea y de fin de archivo
-propias de la plataforma. Para los archivos abiertos en modo binario, no se
+propias de la plataforma. Para los archivos abiertos en \textbf{modo binario}, no se
 aplicarán conversiones.
 
 En sistemas conformes a POSIX, como UNIX, no hay realmente diferencia entre los
 dos modos de apertura. Si se desea especificar una apertura de archivo en \textbf{modo
 binario} (para asegurar la portabilidad) se añade una \textbf{b} a la especificación de
-modo (por ejemplo, como en \lstinline{"wb+"}).
-
-En el Cuadro \ref{tab:modos} se resumen las especificaciones de modos de acceso en
-apertura de archivos.
+modo (por ejemplo, como en \lstinline{"wb+"}). En el Cuadro \ref{tab:modos} se resumen las especificaciones de modos de acceso en apertura de archivos. 
 
 \begin{table}[hbtp]
 \centering
@@ -340,12 +344,12 @@ Modo & Operación \\
 \end{codecell}& Abre un archivo para añadir información al final. \\
 				& Si no existe, lo crea.\\
 \end{tabular}
-\label{modos}
 \caption{Modos de acceso de archivos en E/S ANSI}
+\label{tab:modos}
 \end{table}
 
 Como en la entrada/salida standard, para manejar archivos tenemos funciones
-para E/S de caracteres, de líneas y con formato.
+para E/S \textbf{de caracteres, de líneas y con formato}.
 
 \subsubsection{Funciones ANSI C de caracteres sobre archivos}
 \label{subsubsec:esarchivosansiccaract}
@@ -379,6 +383,7 @@ principal.
     
 \begin{lstlisting}
     char area[BUFSIZ];
+    ...
     while(fgets(area, BUFSIZ, fp1) != NULL)
         fputs(area, fp2);
 \end{lstlisting}
@@ -388,9 +393,11 @@ principal.
 
 Existen funciones \lstinline{fprintf()} y \lstinline{fscanf()}, casi idénticas a \lstinline{printf()} y \lstinline{scanf()},
 pero donde se especifica el stream de entrada o de salida. Las funciones \lstinline{printf()} y \lstinline{scanf()} pueden verse como el caso particular de las primeras donde el
-stream es stdout o stdin, respectivamente.
+stream es \textbf{stdout} o \textbf{stdin}, respectivamente.
 
 \begin{ejemplo}
+Leer dos variables de un archivo y escribirlas, en el
+mismo formato, en un segundo archivo.
 \begin{lstlisting}
 #include <stdio.h>
 main()
@@ -409,23 +416,44 @@ main()
 \end{lstlisting}
 \end{ejemplo}
 
-El programa del ejemplo lee dos variables de un archivo y las escribe, en el
-mismo formato, en un segundo archivo.
+
 
 \subsection{Funciones ANSI C de acceso directo}
 \label{subsec:esarchivosansicdirect}
 
-Un conjunto muy útil de funciones ANSI permite el acceso directo, aleatorio, o
-random, sobre archivos, saltando por encima del modelo de E/S secuencial que
+Un conjunto muy útil de funciones ANSI permite el \textbf{acceso directo, aleatorio, o
+random} sobre archivos, saltando por encima del modelo de E/S secuencial que
 domina al resto de las funciones. Las funciones básicas de acceso directo son
 \lstinline{fread()} y \lstinline{fwrite()}, que leen bloques de un tamaño dado y en una cantidad dada.
 
-Son ideales para lectura y escritura directa de estructuras de datos, ya se
-trate de elementos individuales u organizados en arreglos. Al poder
-posicionarse el puntero de lectura o escritura en zonas arbitrarias de los
+El acceso directo a un archivo se logra manteniendo un dato en su estructura \lstinline{FILE}, 
+llamado el \textbf{puntero de lectura/escritura},
+correspondiente al punto dentro del archivo donde se efectuará la próxima lectura o escritura  
+cuando el programa lo requiera. Cada lectura o escritura de una cierta cantidad de bytes
+avanza este puntero en esa cantidad de bytes, dejando el puntero listo para la siguiente 
+operación a continuación de la última.
+ 
+Sin embargo, el valor del puntero de lectura/escritura puede consultarse o modificarse arbitrariamente, con funciones específicas. Cambiando explícitamente el valor de este dato, podemos hacerlo  
+apuntar a cualquier dirección dada, u \textit{offset}, dentro del archivo. Si hacemos que el puntero de escritura sea 
+igual al tamaño en bytes del archivo, la próxima escritura se hará a partir del final del
+archivo. Si hacemos que sea igual a 0, la próxima lectura (o escritura) se hará a partir del comienzo del archivo. Del mismo modo se puede modificar un trozo de información, de cualquier tamaño dado, en cualquier lugar del archivo. 
+
+Las funciones ANSI de acceso directo utilizan el puntero de lectura/escritura. Son ideales para lectura y escritura directa de estructuras de datos, ya sea que se trate de elementos individuales u organizados en arreglos. Al poder
+posicionarse el \textbf{puntero de lectura o escritura} en zonas arbitrarias de los
 archivos, se logra la capacidad de \textbf{E/S por registros con acceso aleatorio}.
 
+
 \begin{ejemplo}
+En el ejemplo suponemos que se han grabado en el archivo varios registros cuyo
+formato está representado por la estructura de la variable \lstinline{datos}. La función
+\lstinline{fseek()} posiciona el puntero de lectura en el \textit{offset} \lstinline{10 * sizeof(...)} (que debe
+ser un \lstinline{long}), significando que necesitamos acceder al \textbf{registro lógico} número 10 del
+archivo. A continuación se leen tantos bytes como mide un elemento de datos.
+
+Cambiando el tercer argumento de \lstinline{fread()} podemos leer en un solo acceso un
+vector completo de estas estructuras en lugar de un elemento individualmente.
+Luego de cambiar un valor del registro se lo vuelve a grabar, esta vez en un
+offset distinto (correspondiente al registro lógico 5).
 \begin{lstlisting}
 struct registro {
     int dato1;
@@ -440,20 +468,16 @@ fwrite(&datos, sizeof(struct registro), 1, fp);
 \end{lstlisting}
 \end{ejemplo}
 
-En el ejemplo suponemos que se han grabado en el archivo varios registros cuyo
-formato está representado por la estructura de la variable datos. La función
-\lstinline{fseek()} posiciona el puntero de lectura en el \textit{offset} \lstinline{10 * sizeof(...)} (que debe
-ser un \lstinline{long}), significando que necesitamos acceder al \textbf{registro lógico} 10 del
-archivo. A continuación se leen tantos bytes como mide un elemento de datos.
-Cambiando el tercer argumento de \lstinline{fread()} podemos leer en un solo acceso un
-vector completo de estas estructuras en lugar de un elemento individualmente.
-Luego de cambiar un valor del registro se lo vuelve a grabar, esta vez en un
-offset distinto (correspondiente al registro lógico 5).
+\subsubsection{Constantes de posicionamiento}
+\label{subsubsec:posicionamiento}
+Para posicionar el puntero de lectura/escritura en un offset determinado,
+existe la función \lstinline{fseek()}. El origen del desplazamiento se expresa 
+con las constantes \lstinline{SEEK_SET}, \lstinline{SEEK_END} y \lstinline{SEEK_CUR}.
 
 La constante \lstinline{SEEK_SET} indica que el posicionamiento solicitado debe entenderse
-como absoluto a partir del principio del archivo. Otras constantes son \lstinline{SEEK_CUR}
-(posicionamiento a partir del offset actual) y \lstinline{SEEK_END} (a partir del fin del
-archivo). El offset proporcionado puede ser negativo.
+como absoluto a partir del principio del archivo. La constante \lstinline{SEEK_CUR}
+indica posicionamiento a partir del offset actual, y \lstinline{SEEK_END}, a partir del fin del
+archivo. El offset proporcionado puede ser negativo.
 
 \subsubsection{Sincronización de E/S}
 Una restricción importante de la E/S en ANSI C es que no se pueden mezclar
@@ -463,13 +487,13 @@ puede ser seguida de uno o más \lstinline{fread()}, pero únicamente luego de u
 entre ambas. La operación de posicionamiento resincroniza ambos punteros y su
 ausencia puede hacer que se recupere basura.
 
-Este posicionamiento puede ser nulo, como por ejemplo en \lstinline{fseek(fp, 0L,SEEK_CUR)}
+Este posicionamiento puede ser nulo, como por ejemplo en \lstinline{fseek(fp, 0L, SEEK_CUR)}
 que no varía en absoluto la posición de los punteros, pero realiza la
 sincronización buscada.
 
 \subsection{Resumen de funciones ANSI C de E/S}
 Podemos resumir lo visto hasta aquí con los prototipos de las funciones ANSI de
-E/S en el cuadro siguiente.
+E/S en el Cuadro \ref{tab:resumenesansicarchivos}.
 
 \begin{table}[hbtp]
 \centering
@@ -568,6 +592,8 @@ FILE *stream);
 \end{codecell}
 \\
 \end{tabular}
+\caption{Funciones de E/S ANSI C para archivos.}
+\label{tab:resumenesansicarchivos}
 \end{table}
 
 %  _____________________________________________________________________________
@@ -598,18 +624,28 @@ FILE *stream);
 \label{subsec:esarchivosposix}
 
 Las funciones POSIX son la interfaz directa del programa con las llamadas al
-sistema, o system calls. Las funciones POSIX que operan sobre archivos lo hacen
+sistema, o \textbf{system calls}. Los programas que utilicen funciones POSIX deben incluir los headers de
+biblioteca standard \lstinline{unistd.h} y \lstinline{fcntl.h}.
+ 
+
+\subsubsection{Apertura de archivos}
+Las funciones POSIX que operan sobre archivos lo hacen
 a través de descriptores de archivos. Estos pertenecen a una tabla de archivos
 abiertos que tiene cada proceso o programa en ejecución y se corresponden con
 estructuras de datos del sistema operativo para manejar la escritura y la
 lectura en los archivos propiamente dichos.
 
 La tabla de archivos abiertos de un proceso se inicia con tres archivos
-abiertos (correspondientes a los streams de entrada standard, salida standard y
-salida standard de errores) que reciben los descriptores números 0, 1 y 2
-respectivamente. Los archivos que se abren subsiguientemente van ocupando el
-siguiente descriptor de archivo libre en esta tabla y por lo tanto reciben
-descriptores 3, 4, ..., etc. Cada nueva operación de apertura exitosa de un
+abiertos (correspondientes a los streams de \textbf{entrada standard}, \textbf{salida standard} y
+\textbf{salida standard de errores}), que reciben los descriptores números 0, 1 y 2
+respectivamente. Estos archivos son automáticamente provistos por el ambiente donde se ejecuta el 
+proceso, y al comenzar a ejecutarse los encuentra ya abiertos.
+
+Además de los tres descriptores standard abiertos por defecto, los programas abren otros archivos 
+usando la función \lstinline{open()}. 
+Los archivos que se abran subsiguientemente irán ocupando los
+siguientes descriptores de archivo libres en esta tabla, y por lo tanto reciben
+números de descriptor de 3 en adelante. Cada nueva operación de apertura exitosa de un
 archivo devuelve un nuevo descriptor. Este número de descriptor se utiliza
 durante el resto de la actividad sobre el archivo.
 
@@ -627,10 +663,54 @@ un archivo abierto mediante una función POSIX, es posible, dado su descriptor,
 obtener directamente el stream bufferizado correspondiente para manipularlo con
 funciones ANSI. Esto se logra con la función \lstinline{fdopen()}.
 
-Los programas que utilicen funciones POSIX deben incluir los headers de
-biblioteca standard \lstinline{unistd.h} y \lstinline{fcntl.h}.
 
+
+\paragraph{Flags}
+Las funciones de E/S POSIX permiten controlar varios aspectos de la entrada/salida sobre dispositivos o archivos. Existe un conjunto de \textit{flags}, u opciones, que modifican la conducta de cada operación.   
+Los flags se expresan como nombres simbólicos para constantes de bits, y se especifican en la apertura del archivo como segundo argumento de la función \lstinline{open()}. Todas las combinaciones válidas de flags pueden expresarse como un \lstinline{OR} de bits (operador \lstinline{|}) que acumula las constantes de bits correspondientes. Resumimos los flags más importantes existentes para este segundo argumento de \lstinline{open()} en el Cuadro \ref{tab:flags}.
+
+
+ \begin{table} 
+ \centering 
+ \small
+ \begin{tabular}{l|l}
+\begin{codecell}
+O_RDONLY
+\end{codecell} & El archivo se abre para lectura solamente\\
+\begin{codecell}
+O_RDWR
+\end{codecell}   & Se abre para escritura solamente\\
+\begin{codecell}
+O_APPEND
+\end{codecell} & El archivo puede ser leído o agregársele contenido\\
+\begin{codecell}
+O_CREAT
+\end{codecell}  & Si el archivo no existe, se lo crea\\
+\begin{codecell}
+O_EXCL
+\end{codecell}   & Si ya existe, se vuelve con indicación de error\\
+\begin{codecell}
+O_WRONLY
+\end{codecell} & Se abre para escritura solamente\\
+\begin{codecell}
+O_TRUNC
+\end{codecell}  & Si existe, se destruye antes de crearlo\\
+
+ \end{tabular}
+ \caption{Flags de apertura de archivos en funciones POSIX.}
+ \label{tab:flags} 
+ \end{table} 
+ 
 \begin{ejemplo}
+Este programa copia un archivo \lstinline{ejemplo.txt} sobre otro llamado \lstinline{copia.txt}, usando funciones POSIX \lstinline{read()} y \lstinline{write()} aplicadas a los descriptores obtenidos con \lstinline{open()}.
+\begin{itemize}
+	\item Abre el primer archivo en modo de sólo lectura con el \textit{flag}, u opción, \lstinline{O_RDONLY}.
+	\item Como necesita escribir sobre el segundo, utiliza el flag
+\lstinline{O_WRONLY}. 
+	\item Además, para el segundo archivo, especifica otros flags que van
+agregados al primero, y que son \lstinline{O_CREAT} (si no existe, se lo crea) y \lstinline{O_TRUNC} (si
+ya existe, se borran todos sus contenidos).
+\end{itemize}
 \begin{lstlisting}
 #include <unistd.h>
 #include <fcntl.h>
@@ -640,8 +720,7 @@ main()
     int fd1, fd2, bytes;
     if((fd1 = open("ejemplo.txt", O_RDONLY)) < 0)
         exit(1);
-    if((fd2 = open("copia.txt",
-               O_WRONLY|O_CREAT|O_TRUNC, 0660)) < 0)
+    if((fd2 = open("copia.txt", O_WRONLY|O_CREAT|O_TRUNC, 0660)) < 0)
         exit(1);
     while(bytes = read(fd1, area, sizeof(area)))
         write(fd2, area, bytes);
@@ -651,36 +730,18 @@ main()
 \end{lstlisting}
 \end{ejemplo}
 
-Este programa copia dos archivos usando funciones POSIX read() y write()
-aplicadas a los descriptores obtenidos con open().
-Abre el primer archivo en modo de sólo lectura con el flag, u opción, \lstinline{O_RDONLY},
-en tanto que necesita escribir sobre el segundo, por lo cual utiliza el flag
-\lstinline{O_WRONLY}. Además, para el segundo archivo, especifica otros flags que van
-agregados al primero y que son \lstinline{O_CREAT} (si no existe, se lo crea) y \lstinline{O_TRUNC} (si
-ya existe, se borran todos sus contenidos).
-Los flags son nombres simbólicos para constantes de bits. Todas las
-combinaciones de flags posibles pueden expresarse como un \lstinline{OR} de bits. Resumimos
-los flags más importantes existentes para este segundo argumento de \lstinline{open()}.
-%  ___________________________________________________________
-% |O_RDONLY|El_archivo_se_abre_para_lectura_solamente_________|
-% |O_RDWR__|Se_abre_para_escritura_solamente__________________|
-% |O_APPEND|El_archivo_puede_ser_leído_o_agregársele_conteni|o
-% |O_CREAT_|Si_el_archivo_no_existe,_se_lo_crea_______________|
-% |O_EXCL__|Si_ya_existe,_se_vuelve_con_indicación_de_error__|
-% |O_WRONLY|Se_abre_para_escritura_solamente__________________|
-% |O_TRUNC_|Si_existe_se_destruye_antes_de_crearlo____________|
-% 
-El tercer argumento de \lstinline{open()} tiene sentido sólo al crear un archivo. Sirve
+
+\paragraph{Permisos de los archivos}
+El tercer argumento de \lstinline{open()} tiene sentido sólo al \textbf{crear} un archivo. Sirve
 para especificar los permisos con los que será creado, siempre según el
-concepto de UNIX de permisos de lectura, escritura y ejecución, distribuidos en
-clases de usuarios. Para los sistemas operativos que no cuentan con estas
-nociones, el tercer argumento simplemente se ignora, pero se mantiene la
-interfaz POSIX para asegurar la portabilidad de los programas.
-Nótese que las funciones ANSI C no permiten la especificación de estos permisos
-de creación.
+concepto de UNIX de permisos de \textbf{lectura, escritura y ejecución}, distribuidos en
+\textbf{clases de usuarios}. Para los sistemas operativos que no cuentan con estas
+nociones, el tercer argumento simplemente se ignora, pero se mantiene en la
+interfaz POSIX para asegurar la portabilidad de los programas. Nótese que las funciones ANSI C no permiten la especificación de estos permisos de creación.
 
-Como para los flags, hay algunas constantes de bits útiles.
+Como para los flags, hay algunas constantes de bits útiles, que se detallan en el Cuadro \ref{tab:permisos}.
 
+%TODO S_IREAD; S_IWRITE; S_IEXEC son obsoletas y por compatibilidad con BSD
 %  ____________________________________________________
 % |_________________|Dueño____________|Grupo__|Otros__|
 % |Lectura__________|S_IRUSR_(S_IREAD)_|S_IRGRP|S_IROTH|
@@ -689,27 +750,92 @@ Como para los flags, hay algunas constantes de bits útiles.
 % |Los_tres_permisos|S_IRWXU___________|S_IRWXG|S_IRWXO|
 % 
 
+
+\begin{table}
+\centering
+\begin{tabular}{l|l|l|l}
+	& Dueño & Grupo & Otros \\
+\hline
+Lectura & 
+\begin{codecell}
+S_IRUSR
+\end{codecell}
+& 
+\begin{codecell}
+S_IRGRP
+\end{codecell}
+ & 
+\begin{codecell}
+S_IROTH
+\end{codecell}
+ \\
+Escritura & 
+\begin{codecell}
+S_IWUSR
+\end{codecell}
+& 
+\begin{codecell}
+S_IWGRP
+\end{codecell}
+ & 
+\begin{codecell}
+S_IWOTH
+\end{codecell}
+ \\
+Ejecución & 
+\begin{codecell}
+S_IXUSR
+\end{codecell}
+ & 
+\begin{codecell}
+S_IXGRP
+\end{codecell}
+ & 
+\begin{codecell}
+S_IXOTH
+\end{codecell}
+ \\
+Los tres permisos & 
+\begin{codecell}
+S_IRWXU
+\end{codecell}
+ & 
+\begin{codecell}
+S_IRWXG 
+\end{codecell}
+& 
+\begin{codecell}
+S_IRWXO
+\end{codecell}
+\\
+\end{tabular}
+ \caption{Flags de permisos de archivos en funciones POSIX.}
+ \label{tab:permisos} 
+ \end{table} 
+
+
+
 \begin{ejemplo}
+Si el archivo \lstinline{prueba.dat} no existe, se lo crea; se abre para lectura y
+escritura y con todos los permisos para el creador, pero sólo con permiso de
+lectura para el grupo del dueño. El resto de los usuarios no tiene ningún
+permiso sobre el archivo.
 \begin{lstlisting}
 int fd = open("prueba.dat", O_RDWR|O_CREAT, S_IRWXU|S_IRGRP);	
 \end{lstlisting}
 \end{ejemplo}
 
-Si el archivo \lstinline{prueba.dat} no existe, se lo crea; se abre para lectura y
-escritura y con todos los permisos para el creador, pero sólo con permiso de
-lectura para el grupo del dueño. El resto de los usuarios no tiene ningún
-permiso sobre el archivo.
 
+\subsubsection{Posicionamiento en archivos}
 Para posicionar el puntero de lectura/escritura en un offset determinado,
 existe la función \lstinline{lseek()}. El origen del desplazamiento se expresa, como en las
 funciones ANSI C de acceso directo, con las constantes \lstinline{SEEK_SET}, \lstinline{SEEK_END} y
-\lstinline{SEEK_CUR}.
+\lstinline{SEEK_CUR} (ver \ref{subsubsec:posicionamiento}).
 
 \begin{ejemplo}
 Repetimos el ejemplo dado para las funciones ANSI donde se lee el registro
 lógico número 10 y tras una modificación se lo copia en el registro lógico 5,
 esta vez con funciones POSIX.
-
 \begin{lstlisting}
 lseek(fd, 10L * sizeof(struct registro), SEEK_SET);
 read(fd, &datos, sizeof(struct registro));
@@ -727,6 +853,8 @@ write(fd, &datos, sizeof(struct registro));
 vocales.
 \item Escribir una función que reemplace los caracteres no imprimibles por
 caracteres punto.
+\item Construir un programa que imprima su entrada invertida, carácter por carácter.
+\item Construir un programa que imprima su entrada invertida, línea por línea.
 \item Construir un programa que cuente la cantidad de palabras de un archivo,
 separadas por blancos, tabuladores o fin de línea.
 \item Construir un programa que cuente la cantidad de caracteres y de líneas de un
