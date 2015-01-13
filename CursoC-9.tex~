@@ -1,0 +1,378 @@
+
+
+
+\chapter{Variables estructuradas}
+
+Como casi todos los lenguajes, el C provee varias maneras de estructurar, o combinar, variables simples en
+alguna forma de agregación. Las variables estructuradas permiten manejar un conjunto de datos como una sola entidad.
+
+\section{Arreglos}
+La declaración
+\begin{lstlisting}
+tipo nombre[cant_elementos];
+\end{lstlisting}
+
+define un bloque llamado \lstinline{nombre} de \lstinline{cant_elementos} \textbf{objetos consecutivos} de tipo
+\lstinline{tipo}, lo que habitualmente recibe el nombre de \textbf{vector, array o arreglo}. Sus
+elementos se acceden \textbf{indexando} el bloque con expresiones enteras entre
+corchetes.
+
+\begin{ejemplo}
+Declaraciones y uso de arreglos.
+\begin{lstlisting}
+int dias[12];
+\end{lstlisting}
+\begin{lstlisting}
+dias[0] = 31;
+enero = dias[0];
+febrero = dias[1];
+a = dias[6 * b - 1];
+\end{lstlisting}
+\begin{lstlisting}
+double saldo[10];
+for(i=0; i<10; i++)
+    saldo[i] = entradas[i] - salidas[i];
+\end{lstlisting}
+\end{ejemplo}
+
+
+\importante{En C, los arreglos se indexan a partir de 0.}
+
+\subsection{Inicialización de arreglos}
+
+Al ser declarados, los arreglos pueden recibir una \textbf{inicialización}, que es una
+lista de valores del tipo correspondiente, indicados entre llaves. Esta
+inicialización puede ser completa o incompleta. Si se omite la dimensión del
+arreglo, el compilador la infiere por la cantidad de valores de inicialización.
+
+\begin{ejemplo}
+Inicializaciones completas e incompletas.
+\begin{lstlisting}
+/* inicializacion completa */
+int dias[12] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };   
+\end{lstlisting}
+\begin{lstlisting}
+/* inicializacion incompleta */
+double saldo[10] = { 150.40, 170.20 };     
+\end{lstlisting}
+\begin{lstlisting}
+long altura[] = { 3600, 3400, 3200, 6950 };  /* se infiere "long altura[4]" */
+\end{lstlisting}
+\end{ejemplo}
+
+\subsection{Errores frecuentes con arreglos}
+
+Los siguientes son errores de programación muy comunes al tratar con arreglos, y lamentablemente el lenguaje C no
+provee ayuda para prevenirlos:
+\begin{itemize}
+\item \textbf{Indexación fuera de límites}
+	
+La dimensión dada en la declaración del arreglo dice cuántos elementos tiene.
+Esto no quiere decir que exista un elemento del arreglo con ese índice (porque
+se numeran a partir de 0).
+
+
+\begin{ejemplo}
+La última instrucción equivale a acceder a un elemento fuera de los límites del
+arreglo. Este programa, aunque erróneo, \textbf{compilará correctamente}. 
+\begin{lstlisting}
+int tabla[5];
+
+tabla [5] = 1;	/* error! el ultimo elemento es tabla[4] */
+\end{lstlisting}
+\end{ejemplo}
+
+
+
+
+
+\item \textbf{Asignación de arreglos}
+
+Es frecuente confundir las operaciones de inicialización y de asignación. La
+inicialización sólo es válida en el momento de la declaración: \textbf{no es legal
+asignar un arreglo}. La asignación debe forzosamente hacerse elemento por
+elemento.
+
+\begin{ejemplo}
+Notar la diferencia sintáctica entre inicialización y asignación.
+\begin{lstlisting}
+/* Inicializacion */
+int tabla[5] = { 1, 3, 2, 3, 4 }; 	/* correcto */
+
+/* Asignacion */
+int tabla[5];
+tabla[] = { 1, 3, 2, 3, 4 }; 		/* incorrecto */
+\end{lstlisting}
+La última sentencia no es compilable. Debe reemplazarse por:
+\begin{lstlisting}
+tabla[0] = 1;
+tabla[1] = 3; ...etc
+\end{lstlisting}
+\end{ejemplo}
+\end{itemize}
+\importante{ %TODO llevar a seccion de punteros
+Al
+momento de ejecución, la conducta dependerá de cuestiones estructurales del
+sistema operativo. En variantes modernas de UNIX puede resultar un error de
+\textbf{violación de segmentación}, o \textbf{falla de segmentación}, lo que indica que el proceso
+ha \textbf{rebasado los límites de su espacio asignado} y el sistema de protección del
+sistema operativo ha terminado el proceso.
+
+Sin embargo, en algunos otros casos, el error puede pasar inadvertido al
+momento de ejecución, porque la dirección del acceso, a pesar de superar los límites del
+arreglo, no cae fuera del espacio de memoria del proceso. En este caso la ejecución
+proseguirá, pero \textbf{se habrá leído o escrito basura} en alguna zona impredecible
+del espacio de memoria del proceso. 
+
+Éste y otros casos de accesos no controlados a la memoria pueden tener consecuencias, también impredecibles, más adelante en la ejecución. Como la causa y la manifestación del error están separadas, esta clase de errores resulta muy difícil de diagnosticar.
+
+
+%TODO [Acceso al Arreglo]
+   El diagrama ilustra dos casos de acceso indebido a un elemento inexistente
+  de un arreglo. Suponemos tener una declaración tal como int tabla[5], y una
+ instrucción errónea que hace referencia al elemento tabla[5].
+         En el primer caso, la variable estructurada tiene algún otro contenido
+         contiguo dentro del espacio del proceso, y el acceso lee o escribe basura.
+         En el segundo caso, el acceso cae fuera del espacio del proceso, y según la
+         reacción del sistema operativo, puede ocurrir lo mismo que en el caso
+         anterior, o bien el proceso puede ser terminado por la fuerza.
+}
+
+
+\section{Arreglos multidimensionales}
+En C se pueden simular matrices y arreglos de más dimensiones creando \textbf{arreglos
+cuyos elementos son arreglos}. La declaración:
+\begin{lstlisting}
+int matriz[3][4];
+\end{lstlisting}
+expresa un arreglo de tres posiciones cuyos elementos son arreglos de cuatro
+posiciones. Una declaración con inicialización podría escribirse así:
+\begin{lstlisting}
+int matriz[3][4] = {
+    {1, 2, 5, 7},
+    {3, 0, 0, 1},
+    {2, 8, 5, 4}};
+\end{lstlisting}
+y correspondería a una matriz de tres filas por cuatro columnas.
+La primera dimensión de un arreglo multidimensional puede ser inferida:
+\begin{lstlisting}
+int matriz[][4] = {
+    {1, 2, 5, 7},
+    {3, 0, 0, 1},
+    {2, 8, 5, 4}};
+\end{lstlisting}
+El recorrido de toda una matriz implica necesariamente un lazo doble, a dos
+variables:
+\begin{lstlisting}
+for(i=0; i<3; i++)
+    for(j=0; j<4; j++)
+      a[i][j] = i  + j;	
+\end{lstlisting}
+
+\section{Estructuras y uniones}
+
+\subsection{Estructuras}
+Las \textbf{estructuras} de C permiten agrupar una cantidad de variables
+simples, de tipos eventualmente diferentes. Las estructuras y uniones aportan la
+ventaja de que es posible manipular este conjunto de variables como un todo.
+
+Es posible inicializar estructuras, asignar conjuntos de constantes a las
+estructuras, asignar estructuras entre sí, pasarlas como argumentos reales a
+funciones, y devolverlas como valor de salida de funciones. En particular, ésta
+viene a ser la única manera de que una función devuelva más de un dato.
+
+\begin{ejemplo}
+Las declaraciones siguientes no definen variables, con espacio de
+almacenamiento, sino que simplemente enuncian un nuevo tipo que puede usarse en
+nuevas declaraciones de variables. 
+\begin{lstlisting}
+struct persona {
+    long DNI;
+    char nombre[40];
+    int edad;
+};
+
+struct cliente {
+    int num_cliente;
+    struct persona p;
+    double saldo;
+};	
+\end{lstlisting}
+El nombre o \textit{tag} dado a la estructura es el
+nombre del nuevo tipo. En las instrucciones siguientes se utilizan los tags
+definidos anteriormente y se acceden a los diferentes miembros de las
+estructuras.
+
+\begin{lstlisting}
+struct cliente c1, c2;
+
+c1.num_cliente = 1001;
+c1.p.DNI = 14233326;   /* acceso anidado */
+c1.p.edad=40;
+
+c2 = c1;               /* copia de estructuras */
+struct persona p1 = {17698735, "Juan Perez", 30};
+c2.p = p1;	
+\end{lstlisting}
+Una declaración con inicialización completa:
+\begin{lstlisting}
+struct cliente c3 = {
+    1002,
+    {17698735, "Juan Perez", 30},
+    150.25 };
+\end{lstlisting}
+\end{ejemplo}
+
+\begin{ejemplo}
+Es legal declarar una variable \lstinline{struct} junto con la enunciación de su
+tipo, con o sin el tag asociado y con o sin inicialización.
+\begin{lstlisting}
+struct complejo { double real, imag; } c;
+struct { double real, imag; } c;
+struct complejo {
+   double real, imag;
+} c = { 20.5, -7.3 };
+\end{lstlisting}
+\end{ejemplo}
+
+\begin{ejemplo}
+Una función que recibe y devuelve estructuras:
+\begin{lstlisting}
+struct punto {
+    int x, y;
+};
+
+struct punto puntomedio(struct punto p1, struct punto p2)
+{
+    struct punto z;
+    z.x = (p1.x + p2.x) / 2;
+    z.y = (p1.y + p2.y) / 2;
+    return z;
+}
+\end{lstlisting}
+\end{ejemplo}
+
+\subsection{Uniones}
+En una estructura, el compilador calcula la dirección de inicio de cada uno de
+los miembros dentro de la estructura sumando los tamaños de los elementos de
+datos. Una \textbf{unión} es un caso especial de estructura donde todos los miembros
+\quotes{nacen} en el mismo lugar de origen de la estructura.
+\begin{lstlisting}
+union intchar {
+    int i;
+    char a[sizeof(int)];
+};
+\end{lstlisting}
+Este ejemplo de unión contiene dos miembros: un entero y un arreglo de tantos
+caracteres como bytes contiene un \lstinline{int} en la arquitectura destino. Ambos
+miembros, por la propiedad fundamental de los \lstinline{unions}, quedan \quotes{superpuestos} en
+memoria. El resultado es que podemos asignar un campo por un nombre y acceder
+por el otro. 
+\begin{ejemplo}
+En este caso particular, podemos conocer qué valores recibe cada
+byte de los que forman un \lstinline{int}.
+\begin{lstlisting}
+union intchar k;
+k.i = 30541;
+b = k.a[2];
+\end{lstlisting}
+\end{ejemplo}
+\nota{
+      El diagrama ilustra los diferentes desplazamientos u Union y Estructura
+offsets a los que se ubican los miembros en una union y en
+  una struct, suponiendo una arquitectura subyacente donde
+                              los ints miden cuatro bytes.
+}
+
+\subsection{Campos de bits}
+Se pueden definir estructuras donde los miembros son agrupaciones de bits. Esta
+construcción es especialmente útil en programación de sistemas donde se
+necesita la máxima compactación de las estructuras de datos. Cada miembro de un
+\textbf{campo de bits} es un \lstinline{unsigned int} que lleva explícitamente un \quotes{ancho} indicando
+la cantidad de bits que contiene.
+\begin{lstlisting}
+struct disp {
+    unsigned int encendido : 1;
+    unsigned int
+        online : 1,
+        estado : 4;
+};
+\end{lstlisting}
+\begin{ejemplo}
+Imaginemos, en base a la declaración anterior, un dispositivo mapeado en memoria con el cual
+comunicarnos en base a un protocolo, también imaginario. Implementamos con un
+campo de bits un registro de control \lstinline{encendido}, que permite encenderlo o apagarlo,
+consultar su disponibilidad (\lstinline{online} o no), y hacer una lectura de un valor
+de \lstinline{estado} de cuatro bits (que entonces puede tomar valores entre 0 y 15). Todo
+el registro de comunicación cabe en un byte.
+
+Podríamos encender nuestro dispositivo imaginario, esperar a que se ponga
+online, tomar el promedio de diez lecturas de estado y apagarlo, con las
+instrucciones siguientes. Como se ve, no hay diferencia sintáctica de acceso con las
+estructuras.
+\begin{lstlisting}
+struct disp {
+    unsigned int encendido : 1;
+    unsigned int
+        online : 1,
+        estado : 4;
+};
+\end{lstlisting}
+
+\begin{lstlisting}
+struct disp d;
+d.encendido = 1;
+while(!d.online);
+for(p=0, i=0; i<10; i++)
+    p += d.estado;
+p /= 10;
+d.encendido = 0;
+\end{lstlisting}
+\end{ejemplo}
+
+
+\section{Ejercicios}
+\begin{enumerate}
+\item Escribir una declaración con inicialización de un arreglo de diez elementos
+\lstinline{double}, todos inicialmente iguales a $2.25$.
+\item Escribir las sentencias para copiar un arreglo de cinco \lstinline{longs} en otro.
+\item Escribir las sentencias para obtener el producto escalar de dos vectores.
+\item Escribir una función que devuelva la posición donde se halla el menor
+elemento de un arreglo de \lstinline{floats}.
+\item Dado un vector de diez elementos, escribir todos los promedios de cuatro
+elementos consecutivos.
+\item Declarar una estructura punto conteniendo coordenadas x e y de tipo \lstinline{double}.
+Dar ejemplos de inicialización y de asignación.
+\item Declarar una estructura \textbf{segmento} conteniendo dos estructuras \textbf{punto}. Dar
+ejemplos de inicialización y de asignación. Dar una función que calcule su
+longitud. Dar una función que reciba un segmento $S$ y un punto $p$, y devuelva \lstinline{TRUE} si $p \in S$. 
+\item ¿Cuál es el error en estas sentencias de inicialización?
+\begin{enumerate} [label=\alph*.]
+
+\item 
+\begin{lstlisting}
+struct alfa {
+	int a, b;
+};
+alfa = { 10, 25 };
+\end{lstlisting}
+
+\item 
+\begin{lstlisting}
+struct alfa {
+	int a, b;
+};
+alfa d = { 10, 25 };
+\end{lstlisting}
+
+\item 
+\begin{lstlisting}
+union dato {
+	char dato_a[4];
+	long dato_n;
+} xdato = { "ABC", 1000 };
+\end{lstlisting}
+\end{enumerate}
+\end{enumerate}
+
+%TODO Ejercicios_Adicionales  Ejercicios_Avanzados

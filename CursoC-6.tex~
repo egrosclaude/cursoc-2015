@@ -1,0 +1,351 @@
+\chapter{Operadores}
+\section{Operadores aritméticos}
+
+El C tiene un conjunto de operadores muy rico, incluyendo algunos operadores que es difícil encontrar en otros lenguajes de programación. Comenzamos por los operadores aritméticos.
+\begin{itemize}
+	\item $+$, $-$, $*$, $/$ (operaciones aritméticas usuales)
+	\item $++$, $--$ (incremento y decremento)
+	\item $\%$ (operador módulo)
+	\item No existe operador de \textbf{exponenciación} en C. En cambio, está implementada una función \lstinline{pow()} en la Biblioteca Standard.
+	\item No existe operador de \textbf{división entera}, opuesto a la división entre números reales, como en Pascal. Sin embargo, la división entre enteros da un entero: el resultado se trunca debido a las reglas de evaluación de expresiones.
+\end{itemize}
+
+\begin{ejemplo}
+Aquí \lstinline{a} y \lstinline{b} reciben respectivamente el cociente y el resto de dividir un VALOR por 256. Imprimiéndolos podemos ver cómo una CPU, en la cual un \lstinline{unsigned short int} tuviera un tamaño de 16 bits, almacenaría ese VALOR sobre dos bytes.
+\begin{lstlisting}
+unsigned char a,b;
+a=VALOR / 256;
+b=VALOR % 256;  	
+\end{lstlisting}
+\end{ejemplo}  
+
+\begin{ejemplo}
+La siguiente división de \lstinline{j} por \lstinline{k} es entera. La variable \lstinline{c} valdrá 1.
+\begin{lstlisting}
+float c;
+int j,k;
+j=3; 
+k=2;
+c=j/k; 
+\end{lstlisting}
+\end{ejemplo}
+
+
+
+\begin{ejemplo}
+Los operadores de incremento y decremento ($++$ y $--$) equivalen a las sentencias del tipo \lstinline{a = a+1} o \lstinline{b = b-1}. Suman o restan una unidad a su argumento, que debe ser un tipo entero. Se comportan diferentemente según que se apliquen en forma prefija o sufija.
+
+
+\centering
+\begin{tabular}{l|l|l}
+Sentencias & a & b \\
+\hline
+\begin{codecell}
+a=5; 
+b=a++;
+\end{codecell}
+&
+6
+&
+5\\
+\hline
+\begin{codecell}
+a=5; 
+b=++a;
+\end{codecell}
+&
+6
+&
+6\\
+\hline
+\begin{codecell}
+a=3; 
+b=a--;
+\end{codecell}
+&
+2
+&
+3\\	
+\hline
+\begin{codecell}
+a=3; 
+b=--a;
+\end{codecell}
+&
+2
+&
+2\\
+\end{tabular}
+
+\begin{itemize}
+	\item Aplicados como prefijos, el valor devuelto por la expresión es el valor incrementado o decrementado.
+	\item Aplicados como sufijos, el incremento o decremento se realiza como efecto lateral, pero el valor devuelto por la expresión es el anterior al incremento o decremento.
+\end{itemize}
+\end{ejemplo}
+
+\subsection{Abreviaturas}
+Existe una forma de abreviar la notación en las expresiones del tipo \lstinline{a = a*b} y \lstinline{a = a+b}. Podemos escribir, respectivamente:
+\begin{lstlisting}
+a *= b;
+a += b; 
+\end{lstlisting}
+
+Esto se aplica a todos los operadores aritméticos y de bits.
+
+\section{Operadores de relación}
+
+\begin{itemize}
+\item \lstinline{==} (igualdad)
+\item \lstinline{<, >, <=, >=}
+\item \lstinline{!=} (distinto de)
+
+Es un error muy común sustituir el operador de relación \lstinline{==} por el de asignación \lstinline{=}. Este error lógico no provocará error de compilación ni de ejecución, sino que será interpretado como una asignación, que en C puede ser hecha en el mismo contexto que una comparación. La sentencia:
+\begin{lstlisting}
+if(a = 38)
+     ...
+\end{lstlisting}     
+es sintácticamente válida, pero en lugar de \textbf{comparar} \lstinline{a} con 38, \textbf{asigna} el valor 38 a la variable \lstinline{a}. 
+
+La expresión \lstinline{a=38} es legal en C como expresión lógica. Su valor de verdad es \textbf{siempre} \lstinline{TRUE}, independientemente del valor que tuviera \lstinline{a} anteriormente. Si el programador desea obtener el valor lógico de la comparación de \lstinline{a} con 38, debe utilizar la expresión \lstinline{if(a == 38)}.
+\end{itemize}
+
+
+\section{Operadores lógicos}
+\begin{lstlisting}
+!, &&, || (not, and, or)	
+\end{lstlisting}
+
+\begin{ejemplo}
+La siguiente es una expresión lógica (\quotes{\lstinline{a} igual a \lstinline{b} o no \lstinline{c} menor que 2}).
+\begin{lstlisting}
+a==b || !(c < 2)    
+\end{lstlisting}
+\end{ejemplo}
+
+Al no existir tipo booleano en C, los valores lógicos se equiparan a los aritméticos. Una expresión formada con un operador \lstinline{||}, \lstinline{&&} o \lstinline{!} da 1 si es $V$, 0 si es $F$. Además, toda expresión cuyo valor aritmético sea diferente de 0 es \quotes{verdadera}. Toda expresión que dé 0 es \quotes{falsa}.
+
+\begin{ejemplo}
+\noindent
+\begin{itemize}
+\item \lstinline{a - b}, que es una expresión aritmética, es también una expresión lógica. Será $F$ cuando a sea igual a b.
+\item \lstinline{a} como expresión lógica será $V$ sólo cuando a sea distinto de 0 .
+
+\item \lstinline{a = 8} es una expresión de asignación. Su valor aritmético es el valor asignado, por lo cual, como expresión lógica, es $V$, ya que 8 es distinto de 0.
+
+\end{itemize}
+\end{ejemplo}
+
+\subsection{Constantes lógicas}
+Generalmente los compiladores definen dos símbolos o macros, \lstinline{FALSE} y \lstinline{TRUE}, en el header \lstinline{stdlib.h}, y a veces también en otros. Su definición suele ser la siguiente:
+
+\begin{lstlisting}
+#define FALSE  0
+#define TRUE   !FALSE   
+\end{lstlisting}
+    
+Es conveniente utilizar estos símbolos para agregar expresividad a los programas.
+
+\section{Operadores de bits}
+\begin{itemize}
+	\item \lstinline{~} (negación de bits)
+	\item \lstinline{&, |} (\textbf{and}, \textbf{or} de bits)
+	\item \lstinline{^} (\textbf{or} de bits exclusivo)
+	\item \lstinline{>>, <<} (desplazamiento de bits a derecha y a izquierda)
+
+El desplazamiento de bits es \textbf{con pérdida}, en el sentido de que:
+\begin{itemize}
+	\item Un desplazamiento a la izquierda en un bit equivale a una multiplicación por 2; un desplazamiento a la derecha en un bit equivale a una división por 2. 
+	\item Si el bit menos significativo es 1 (si el número es impar), al desplazar a la derecha ese bit se pierde (la división no es exacta).
+	\item Si el bit más significativo es 1 (si el número es igual o mayor que la mitad de su rango posible), al desplazar a la izquierda ese bit se pierde (la multiplicación da overflow).
+\end{itemize}
+\end{itemize}
+
+\begin{ejemplo}
+El operador de negación es unario y provoca el complemento a uno de su operando. Los operadores and, or y or exclusivo son binarios.
+\begin{lstlisting}
+unsigned char a;
+a = ~255;             /* a <-- 0    */
+a = 0xf0 ^ 255;       /* a <-- 0x0f */
+a = 0xf0 & 0x0f;      /* a <-- 0x00 */
+a = 0xf0 | 0x0f;      /* a <-- 0xff */                
+\end{lstlisting}
+\end{ejemplo}
+
+\begin{ejemplo}
+Los operadores \lstinline{>>} y \lstinline{<<} desplazan los bits de un objeto de tipo \lstinline{char}, \lstinline{int} o \lstinline{long}, una cantidad dada de posiciones. 
+\begin{lstlisting}
+unsigned char a,b,c;
+a = 1 << 4;
+b = 2 >> 1;
+c <<= 2;    
+\end{lstlisting}
+\begin{itemize}
+	\item En el primer caso, el 1 se desplaza 4 bits a la izquierda; \lstinline{a} vale finalmente 16. 
+	\item En el segundo caso, el bit 1 de la constante 2, a uno, se desplaza un lugar a la derecha; \lstinline{b} vale 1. 
+	\item En el tercero, \lstinline{c} se desplaza dos bits a la izquierda. 
+\end{itemize}
+\end{ejemplo}
+
+
+\section{Operadores especiales}
+
+Distinguimos como especiales los operadores de \textbf{asignación} e \textbf{inicialización}, que son operaciones diferentes aunque desafortunadamente son representadas por el mismo signo, y el operador \textbf{ternario}.
+
+\begin{itemize}
+	\item \lstinline{=} (operador de asignación)
+	\item \lstinline{=} (operador de inicialización)
+	\item ?: (operador ternario)
+\end{itemize}
+
+
+
+Una inicialización es la operación que permite asignar un valor inicial a una variable en el momento de su creación: 
+\begin{lstlisting}
+int a=1;
+\end{lstlisting}
+
+El operador ternario comprueba el valor lógico de una expresión, y, según este valor, se evalúa a una u otra de las restantes expresiones. Supongamos tener la expresión siguiente.
+
+\begin{lstlisting}
+a = (expresion_1) ? expresion_2 : expresion_3;    
+\end{lstlisting}
+
+Entonces, si \lstinline{expresion_1} es $V$, el ternario se evaluará a \lstinline{expresion_2}, y ese valor será asignado a la variable \lstinline{a}. Si \lstinline{expresion_1} es $F$, \lstinline{a} quedará con el valor \lstinline{expresion_3}.
+
+\begin{ejemplo}
+La expresión
+\begin{lstlisting}
+c = b + (a < 0) ? -a : a;   
+\end{lstlisting}      
+asigna a \lstinline{c} el valor de \lstinline{b} más el valor absoluto de \lstinline{a}.
+\end{ejemplo}
+
+\section{Precedencia y orden de evaluación}
+
+En una expresión compleja, formada por varias subexpresiones conectadas por operadores, es peligroso hacer depender el resultado del orden de evaluación de las subexpresiones. Si los operadores tienen la misma precedencia, la evaluación se hace de izquierda a derecha, pero en caso contrario el orden de evaluación no queda definido. 
+
+Por ejemplo, en la expresión \lstinline{w*x/++y + z/y} se puede contar con que primeramente se ejecutará \lstinline{w*x} y sólo entonces \lstinline{w*x/++y}, porque los operadores de multiplicación y división son de la misma precedencia; pero no se puede asegurar que \lstinline{w*x/++y} sea evaluado antes o después de \lstinline{z/y}, lo que hace que el resultado de esta expresión sea \textbf{indefinido} en C. 
+
+La solución es \textbf{secuencializar} la ejecución, dividiendo las expresiones en sentencias:
+\begin{lstlisting}
+a = w * x / ++y;
+b = a + z / y;     	
+\end{lstlisting}
+ 
+\section{Resumen}
+
+El Cuadro \ref{tab:preced} ilustra las relaciones de precedencia entre los diferentes operadores. La tabla está ordenada con los operadores de mayor precedencia a la cabeza. Los que se encuentran en el mismo renglón tienen la misma precedencia.
+
+\tabla{preced}{Relaciones de precedencia entre operadores}{c|l|l}
+{
+Precedencia & Operador &\\
+\hline
+1 &\lstinline{()} & Llamada a función\\
+  & \lstinline{[]} & Indexación de arreglo\\ 
+ &\lstinline{-> .} & Acceso a miembros de estructuras\\
+ \hline
+2 &\lstinline{! ~} & Negación y complemento a uno\\
+ &\lstinline{++ --}& Incremento y decremento\\
+ &\lstinline{*} & Indirección \\
+  &\lstinline{&} & Dirección de\\
+ &\lstinline{()} & Conversión forzada de tipo (\textit{cast})\\
+ &\lstinline{sizeof} & Tamaño de variables o tipos\\
+ &\lstinline{+} unario &\\
+  &\lstinline{-} unario &\\
+ \hline
+3 &\lstinline{* / \%}& Multiplicación, división y módulo\\
+ \hline
+4 &\lstinline{+ -} & Suma y resta\\
+ \hline
+5 &\lstinline{\<\< \>\>} & Desplazamiento de bits\\
+ \hline
+6 &\lstinline{\< \<= \>= \>} & Operadores de relación\\
+ \hline
+7 &\lstinline{== !=} & Operadores lógicos de igualdad \\
+ \hline
+8 &\lstinline{&} &AND de bits\\
+ \hline
+9 &\lstinline{^} &XOR de bits\\
+ \hline
+10 &\lstinline{|} &OR de bits\\
+ \hline
+11&\lstinline{&&}& AND lógico\\
+ \hline
+12&\lstinline{||}& OR lógico\\
+ \hline
+13&\lstinline{?:}& Operador ternario\\
+&\lstinline{=} &Asignación\\
+ \hline
+14 &\lstinline{+= -= *= /= \%=}& Aritméticos y lógicos abreviados\\
+&\lstinline{&= ^= |=} &\\
+&\lstinline{\<\<= \>\>=} & \\
+ \hline
+15&\lstinline{,} & Operador coma\\
+}
+\section{Ejercicios}
+\begin{enumerate}
+\item ¿Qué valor lógico tienen las expresiones siguientes?
+\begin{enumerate}[label=\alph*.]
+	\item \lstinline{TRUE && FALSE}
+	\item \lstinline{TRUE || FALSE}
+	\item \lstinline{0 && 1}
+	\item \lstinline{0 || 1}
+	\item \lstinline{(c > 2) ? (b < 5) : (2 != a)}
+	\item \lstinline{(b == c) ? 2 : FALSE;}
+	\item \lstinline{c == a;}
+	\item \lstinline{C = A;}
+	\item \lstinline{0 || TRUE}
+	\item \lstinline{TRUE || 2-(1+1)}
+	\item \lstinline{TRUE &&  !FALSE}
+	\item \lstinline{!(TRUE && !FALSE)}
+	\item \lstinline{x == y  >  2}
+\end{enumerate}
+\item Escriba una macro \lstinline{IDEM(x,y)} que devuelva el valor lógico \lstinline{TRUE} si \lstinline{x} e \lstinline{y} son iguales, y \lstinline{FALSE} en caso contrario. Escriba \lstinline{NIDEM(x,y)} que devuelva \lstinline{TRUE} si las expresiones \lstinline{x} e \lstinline{y} son diferentes y \lstinline{FALSE} si son iguales.
+
+\item Escriba una macro \lstinline{PAR(x)} que diga si un entero es par. Muestre una versión usando el operador \lstinline{%}, una usando el operador \lstinline{>>}, una usando el operador \lstinline{&} y una usando el operador \lstinline{|}.
+
+\item  Escriba macros \lstinline{MIN(x,y)} y \lstinline{MAX(x,y)} que devuelvan el menor y el mayor elemento entre \lstinline{x} e \lstinline{y}. Usando las anteriores, escriba macros \lstinline{MIN3(x,y,z)} y \lstinline{MAX3(x,y,z)} que devuelvan el menor y el mayor elemento entre tres expresiones.
+
+\item ¿Cuál es el significado aritmético de la expresión \lstinline{1<<x} para diferentes valores de \lstinline{x} = 0, 1, 2... ?
+
+\item Utilice el resultado anterior para escribir una macro \lstinline{DOSALA(x)} que calcule $2$ elevado a la $x$-ésima potencia.
+
+\item ¿A qué otra expresión es igual \lstinline{a<b || a<c && c<d}?
+
+\begin{enumerate}[label=\alph*.]
+	\item \lstinline{a<b || (a<c && c<d)}
+	\item \lstinline{(a<b || a<c) && c<d}
+\end{enumerate}
+
+\item Reescribir utilizando abreviaturas:
+\begin{enumerate}[label=\alph*.]
+	\item \lstinline{a = a + 1;}
+	\item \lstinline{b = b * 2;}
+	\item \lstinline{b = b - 1;}
+	\item \lstinline{c = c - 2;}
+	\item \lstinline{d = d % 2;}
+	\item \lstinline{e = e & 0x0F;}
+	\item \lstinline{a = a + 1;}
+	\item \lstinline{b = b + a;}
+	\item \lstinline{a = a - 1;}
+	\item \lstinline{c = c * a;}
+\end{enumerate}
+
+\item ¿Qué escribirá este programa?
+\begin{lstlisting}
+main()
+{
+	int a = 1;
+	int b;
+
+	b = a || 12;
+
+	printf("%d\n",b);
+}
+
+\end{lstlisting}
+\end{enumerate}
+
+%TODO Ejercicios Adicionales 
+
+%TODO Ejercicios Avanzados

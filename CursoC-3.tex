@@ -166,7 +166,7 @@ del valor entero de \lstinline{b} a la cantidad de bits que permita un int. Es d
 de ese valor se copiarán en el objeto de datos de \lstinline{a} tantos bits como quepan en un int, tomándose
 los menos significativos.
 
-Si el valor de \lstinline{b} es, por ejemplo, 20.5, \lstinline{a} terminará valiendo 20, lo que es similar a aplicar una función
+Si el valor de \lstinline{b} es, por ejemplo, 20.5, \lstinline{a} valdrá finalmente 20, lo que es similar a aplicar una función
 \quotes{parte entera} implícitamente, y no demasiado incongruente. Pero si la parte entera de \lstinline{b} excede el
 rango de un entero (por ejemplo si \lstinline{b=99232.5} en una plataforma donde los enteros son de 16 bits), el resultado en \lstinline{a} no tendrá lógica aparente. En el primer caso, los bits menos significativos de \lstinline{b} que \quotes{caben} en \lstinline{a} conservan el valor de \lstinline{b}; en el segundo caso, no.
 
@@ -195,7 +195,7 @@ el hecho de que si declaramos previamente:
 \begin{lstlisting}
 float a;
 \end{lstlisting}
-el resultado es casi el mismo: \lstinline{a} terminará conteniendo el valor float 1.0, porque el problema de
+el resultado es casi el mismo: \lstinline{a} contendrá finalmente el valor float 1.0, porque el problema de
 truncamiento se produce ya en la evaluación del miembro derecho de la asignación.
 
 
