@@ -551,6 +551,7 @@ p = &q;		/* p recibe la direccion de q */
 \end{ejemplo}
 
 \section{Una herramienta: gets()}
+\label{sec:lafunciongets}
 
 Para facilitar la práctica damos la descripción de otra función de Biblioteca
 Standard.

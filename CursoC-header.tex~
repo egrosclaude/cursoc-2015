@@ -16,13 +16,14 @@
 \usepackage[yyyymmdd,hhmmss]{datetime}
 \usepackage[usenames,dvipsnames]{xcolor}
 \usepackage{appendix}
-\usepackage{listings}
+%\usepackage{listings}
+\usepackage{listingsutf8}
 \usepackage{enumitem}
 \usepackage{fancyvrb}
 
-\usepackage{amsthm} %load after amsmath
 
 % Esto anduvo OK pero preferible newenvironment
+% \usepackage{amsthm} %load after amsmath
 % \newtheoremstyle{ejemplo}% hname
 % {11pt}% Space above
 % {3pt}% Space below
@@ -37,11 +38,16 @@
 % \newtheorem{ejemplo}{Ejemplo}[chapter]
 % 
 
+%%%%PERFECTO EJEMPLO
 \newcounter{ejemplo}[section]
-\newenvironment{ejemplo}
-%{\stepcounter{ejemplo}\footnotesize{\noindent\bfseries\color{bl}{\\Ejemplo~\thechapter.\theejemplo}}\medskip\hrule\medskip\noindent}{\\\rule{15ex}{0.1pt}\hspace{\stretch{1}}\color{black}}%
-{\stepcounter{ejemplo}\footnotesize{\bfseries\color{bl}{\noindent\\Ejemplo~\thechapter.\theejemplo}}\medskip\hrule\medskip}{\color{black}}
+\newenvironment{ejemplo}{\stepcounter{ejemplo}\footnotesize{\bfseries\color{bl}{\noindent\\Ejemplo~\thechapter.\theejemplo}}\medskip\hrule\medskip}{\medskip}
 
+
+% {\noindent\ignorespaces}%
+% {\par\noindent%
+% \ignorespacesafterend}
+% 
+%{\stepcounter{ejemplo}\footnotesize{\noindent\bfseries\color{bl}{\\Ejemplo~\thechapter.\theejemplo}}\medskip\hrule\medskip\noindent}{\\\rule{15ex}{0.1pt}\hspace{\stretch{1}}\color{black}}%
 
 \usepackage{multicol}
 \definecolor{dkgreen}{rgb}{0,0.6,0}
@@ -76,7 +82,7 @@
   belowskip=3mm,
   showstringspaces=false,
   columns=flexible,
-  basicstyle={\small\ttfamily\bfseries},
+  basicstyle={\ttfamily\bfseries},
   numbers=none,
 %  xleftmargin=0.5cm,
 %  xrightmargin=0.5cm,
@@ -113,11 +119,11 @@
   }
   {}
 
+% environment para código en celdas de tablas
 \lstnewenvironment{codecell}
   {\lstset{basicstyle={\small\ttfamily},% basic font setting
     backgroundcolor=\color{white}}%
-  }
-  {}
+  }{}
 
 
 

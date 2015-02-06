@@ -111,13 +111,15 @@ incremento a un apuntador.
 
 Es decir que sumar (o restar) una unidad a un puntero, lo incrementa
 (decrementa) en tantos bytes como mida el objeto al cual apunta.
-Por ejemplo, para punteros a carácter, la instrucción p++ incrementa el valor
-del puntero en uno,que es el sizeof() de los chars; pero si p es un puntero a
-long, en una arquitectura donde los longs miden cuatro bytes, p++ incrementa el
-valor de p en cuatro (y p queda apuntando \quotes{un long más allá en la memoria}). El
-cálculo realizado al tiempo de ejecución para la instrucción p+i, donde p es un
-puntero a tipo e i es un entero, es siempre p+i*sizeof(tipo).
+Por ejemplo, para punteros a carácter, la instrucción \lstinline{p++} incrementa el valor
+del puntero en $1$, que es el \lstinline{sizeof()} de los \lstinline{chars}; pero si \lstinline{p} es un puntero a
+\lstinline{long}, en una arquitectura donde los \lstinline{longs} miden cuatro bytes, \lstinline{p++} incrementa el
+valor de \lstinline{p} en $4$ (y \lstinline{p} queda apuntando \quotes{un \lstinline{long} más allá} en la memoria). 
 
+\importante{El
+resultado al tiempo de ejecución para la expresión \lstinline{p + i}, donde \lstinline{p} es un
+puntero a \lstinline{tipo} e \lstinline{i} es un entero, es siempre \lstinline{p + i * sizeof(tipo)}.
+}
 
 \subsection{Resta de punteros}
 El sentido de una resta de punteros (o, equivalentemente, de una diferencia de
@@ -525,6 +527,5 @@ usando la notación opuesta (cambiando punteros por arreglos).
 
 \end{enumerate}
 %TODO Ejercicios_Adicionales Ejercicios_Avanzados
-
 
 
