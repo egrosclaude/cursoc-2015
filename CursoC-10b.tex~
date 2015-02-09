@@ -208,14 +208,14 @@ Aplicar el operador \lstinline{&} (dirección de) a algo aumenta su nivel de
 indirección. Aplicar el operador \lstinline{*} (dereferenciación) lo decrementa.
 
 \importante{
-Cuando escribimos una expresión, o hacemos una asignación, o proveemos
-argumentos reales para una función, etc., necesitamos que los niveles de
-indirección de los elementos que componen la expresión sean consistentes, es
+Al escribir una expresión, o hacer una asignación, o proveer
+argumentos reales para una función, etc., es necesario que los niveles de
+indirección de los elementos que componen la expresión sean \textbf{consistentes}, es
 decir, que el resultado final de cada subexpresión tenga el nivel de
-indirección necesario.
+indirección adecuado.
 
-El concepto de consistencia de niveles de indirección es análogo al que usamos al escribir una ecuación con magnitudes físicas, donde ambos
-miembros de la ecuación deben tener el mismo sentido físico. Por ejemplo, si
+\medskip
+El concepto de consistencia de niveles de indirección es análogo al que se usa al escribir una ecuación con magnitudes físicas, donde ambos miembros de la ecuación deben tener el mismo sentido físico. Por ejemplo, si
 $V=velocidad$, $E=espacio$, $T=tiempo$, no tiene sentido en Física escribir la igualdad $V=E*T$,
 simplemente porque si \textbf{multiplicamos} metros por segundo no obtenemos $m/s$, que son
 las unidades de $V$. Del mismo modo podemos verificar la consistencia de las
@@ -474,9 +474,12 @@ cuándo un elemento es mayor que el otro, a través de esta función de
 comparación. La función de ordenamiento recibe un puntero a la función de comparación y la
 invoca repetidamente.
 
+
 La función de comparación sólo debe aceptar \lstinline{p1} y \lstinline{p2}, dos punteros a un par de
 datos, y seguir el protocolo siguiente:
 
+\medskip
+\medskip
 \begin{tabular}{c|c}
 Si & Devolver \\
 \hline
@@ -486,6 +489,9 @@ Si & Devolver \\
 \hline
 \lstinline$*p1 < *p2$ & un número mayor que cero\\
 \end{tabular}
+\medskip
+\medskip
+
 
 \begin{ejemplo}
 La declaración de argumentos formales como \lstinline{void *} expresa que esos argumentos pueden tratarse de
@@ -598,7 +604,7 @@ main()
     char arreglo[100];
     char *s;
     s = arreglo;
-    gets(s); 		/* Ahora si */
+    gets(s); 		/* ¡Ahora sí! */
 }
 \end{lstlisting}
 
@@ -612,7 +618,7 @@ invocación de \lstinline{malloc()} con el correspondiente \lstinline{free()}.
 main()
 {
     char *s;
-    s = malloc(100); /* Ahora si */
+    s = malloc(100); /* ¡Ahora sí! */
     gets(s);
     printf("ingresado: %s\n",s);
     free(s);

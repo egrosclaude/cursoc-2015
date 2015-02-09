@@ -131,7 +131,7 @@ Si el int es sin signo:
 
 \begin{lstlisting}
 unsigned a;
-a=65535; /* maximo valor de unsigned int */
+a=65535; /* máximo valor de unsigned int */
 a=a+1; 
 \end{lstlisting}
 

@@ -151,3 +151,19 @@
 \contentsline {subsubsection}{Permisos de los archivos}{115}{lstnumber.-297.15}
 \contentsline {subsection}{Posicionamiento en archivos}{116}{lstnumber.-310.1}
 \contentsline {section}{\numberline {12.9}Ejercicios}{116}{section.12.9}
+\contentsline {chapter}{\numberline {13}Comunicaci\IeC {\'o}n con el ambiente}{119}{chapter.13}
+\contentsline {section}{\numberline {13.1}Redirecci\IeC {\'o}n y piping}{119}{section.13.1}
+\contentsline {section}{\numberline {13.2}Variables de ambiente}{120}{section.13.2}
+\contentsline {section}{\numberline {13.3}Argumentos de ejecuci\IeC {\'o}n}{120}{section.13.3}
+\contentsline {section}{\numberline {13.4}Salida del programa}{121}{section.13.4}
+\contentsline {section}{\numberline {13.5}Opciones}{122}{section.13.5}
+\contentsline {section}{\numberline {13.6}Ejercicios}{123}{section.13.6}
+\contentsline {chapter}{\numberline {14}La Biblioteca Standard}{125}{chapter.14}
+\contentsline {section}{\numberline {14.1}Cadenas o strings}{125}{section.14.1}
+\contentsline {section}{\numberline {14.2}Listas de argumentos variables}{125}{section.14.2}
+\contentsline {section}{\numberline {14.3}Tratamiento de errores}{127}{section.14.3}
+\contentsline {section}{\numberline {14.4}Funciones de fecha y hora}{128}{section.14.4}
+\contentsline {section}{\numberline {14.5}Funciones matem\IeC {\'a}ticas}{128}{section.14.5}
+\contentsline {section}{\numberline {14.6}Funciones utilitarias}{129}{section.14.6}
+\contentsline {section}{\numberline {14.7}Clasificaci\IeC {\'o}n de caracteres}{130}{section.14.7}
+\contentsline {section}{\numberline {14.8}Ejercicios}{130}{section.14.8}

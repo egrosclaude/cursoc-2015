@@ -217,10 +217,10 @@ a=1;
 El operador ternario comprueba el valor lógico de una expresión, y, según este valor, se evalúa a una u otra de las restantes expresiones. Supongamos tener la expresión siguiente.
 
 \begin{lstlisting}
-a = (expresion_1) ? expresion_2 : expresion_3;    
+a = (expresión_1) ? expresión_2 : expresión_3;    
 \end{lstlisting}
 
-Entonces, si \lstinline{expresion_1} es $V$, el ternario se evaluará a \lstinline{expresion_2}, y ese valor será asignado a la variable \lstinline{a}. Si \lstinline{expresion_1} es $F$, \lstinline{a} quedará con el valor \lstinline{expresion_3}.
+Entonces, si \lstinline{expresión_1} es $V$, el ternario se evaluará a \lstinline{expresión_2}, y ese valor será asignado a la variable \lstinline{a}. Si \lstinline{expresión_1} es $F$, \lstinline{a} quedará con el valor \lstinline{expresión_3}.
 
 \begin{ejemplo}
 La expresión

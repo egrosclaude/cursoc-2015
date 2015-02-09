@@ -3,13 +3,15 @@
 
 
 \chapter{La Biblioteca Standard}
-La Biblioteca Standard no forma parte del C, estrictamente hablando, pero todos
-los compiladores contienen una implementación, a veces con agregados o pequeñas
+La Biblioteca Standard no forma parte del lenguaje C, estrictamente hablando, pero todos
+los compiladores contienen una implementación de ella, a veces con agregados o pequeñas
 variantes. Desde la oficialización del ANSI C, los contenidos de la Biblioteca
 Standard se han estabilizado y se puede contar con el mismo conjunto de
 funciones en todas las plataformas.
 
-Las funciones de la biblioteca standard están agrupadas en varias categorías.
+Las funciones de la Biblioteca Standard están agrupadas en varias categorías, cada una representada en un header, según el Cuadro \ref{tab:catbs}. Una
+implementación de C puede, sin embargo, aportar muchísimos otros headers, más específicos. 
+
 Para poder utilizar cualquiera de las funciones de cada categoría, es necesario
 incluir en el fuente el header asociado con la categoría. Esto no
 implica incluir los textos de las funciones en la unidad de traducción, sino
@@ -19,15 +21,15 @@ van a usar, sino que las \textbf{declara}. La resolución de las referencias a l
 funciones o variables de Biblioteca Standard quedan pendientes hasta la
 linkedición.
 
-Las categorías y los headers de la biblioteca standard son los siguientes. Una
-implementación de C puede aportar muchísimos otros headers más específicos. Con
-esta información no pretendemos reemplazar al manual del compilador sino
+Ya hemos visitado la mayoría de las funciones de la categoría de funciones de E/S. Nos
+quedan por explorar algunas otras de importancia. Con
+esta información no pretendemos reemplazar al manual del compilador, sino
 orientar a los primeros pasos en el uso de la Biblioteca Standard.
 
-\tabla{catbs}{Categorías de funciones de la Biblioteca Standard.}{2}{
+\tabla{catbs}{Categorías de funciones de la Biblioteca Standard.}{l|l}{
 
-Categoría & header \\
-\hrule
+Categoría & Header \\
+\hline
 Macros de diagnóstico de errores	&	<assert.h> \\
 Macros de clasificación de caracteres	&	<ctype.h> \\
 Variables y funciones relacionadas con condiciones de error & <errno.h>\\
@@ -45,121 +47,136 @@ Operaciones sobre cadenas & <string.h>\\
 Funciones de fecha y hora & <time.h>\\
 }
 
-Ya hemos visitado la mayoría de las funciones de la categoría de funciones de E/S. Nos
-quedan por explorar algunas otras de importancia.
 
-\section{Funciones de strings (<stdio.h>)}
+\section{Cadenas o strings}
 No existiendo un tipo de datos string en C, se lo implementa como un arreglo de
 caracteres, dado por su dirección inicial, y terminado en el carácter especial
-'\0'. Todas las funciones de strings de BS hacen uso de este protocolo de fin
+\code{'\\0'}. Todas las funciones de strings de BS, declaradas en el header \code{string.h}, hacen uso de este protocolo de fin
 de string. Muchas de ellas han sido implementada en las prácticas de capítulos
 anteriores.
 
-Aquí las más importantes. Consultar también manual de las funciones \code{strspn()},
+En el Cuadro \ref{tab:strings} aparecen las más utilizadas. Es imporatante consultar también el manual de las funciones \code{strspn()},
 \code{strcspn()}, \code{strpbrk()}, \code{strstr()}, \code{strtok()}.
- ____________________________________________________________________________________________________
-|prototipo|significado_______________________________________________________________|ejemplo________|
-|char     |Copia la cadena ct sobre s, incluyendo el '\0'. Devuelve s.               |char alfa[10]; |
-|*strcpy  |                                                                          |strcpy(alfa,   |
-|(s,_ct)__|__________________________________________________________________________|"cadena");_____|
-|char     |Copia ct sobre s hasta n caracteres. Rellena con '\0' hasta el final si ct|char alfa[10]; |
-|*strncpy |tiene menos de n caracteres.                                              |strncpy(alfa,  |
-|(s, ct,  |                                                                          |"cadena", 4);  |
-|n)       |                                                                          |strncpy(alfa,  |
-|         |                                                                          |otro, sizeof   |
-|_________|__________________________________________________________________________|(alfa));_______|
-|char     |Concatena la cadena ct al final de s. Debe garantizarse espacio para      |char alfa[10] =|
-|*strcat  |realizar la operación.                                                   |"abc";         |
-|(s, ct)  |                                                                          |strcat(alfa,   |
-|_________|__________________________________________________________________________|"def");________|
-|char     |Idem hasta n caracteres.                                                  |               |
-|*strncat |                                                                          |               |
-|(s,_ct)__|__________________________________________________________________________|_______________|
-|int      |Compara las cadenas. Devuelve <0 si cs<ct, 0 si cs==ct, >0 si cs>ct.      |if(strcmp      |
-|strcmp   |                                                                          |(alfa,"abcdef")|
-|(cs, ct) |                                                                          |== 0)          |
-|         |                                                                          |    printf     |
-|_________|__________________________________________________________________________|("iguales\n");_|
-|int      |Idem hasta n caracteres.                                                  |               |
-|strncmp  |                                                                          |               |
-|(cs,_ct)_|__________________________________________________________________________|_______________|
-|char     |Devuelve un apuntador a la primera ocurrencia del carácter c en la cadena|char *p;       |
-|*strchr  |cs, o bien NULL si no se lo halla.                                        |char r[] =     |
-|(cs, c)  |                                                                          |"casualidad";  |
-|         |                                                                          |p = strchr(r,  |
-|         |                                                                          |'s');          |
-|         |                                                                          |strncpy(p,     |
-|_________|__________________________________________________________________________|"us",_2);______|
-|char     |Idem la última ocurrencia.                                               |               |
-|*strrchr |                                                                          |               |
-|(cs,_c)__|__________________________________________________________________________|_______________|
-|size_t   |Devuelve la longitud de la cadena, sin contar el '\0' final.              |for(i=0; i <   |
-|strlen   |                                                                          |strlen(s); i++)|
-|(cs)     |                                                                          |    printf     |
-|_________|__________________________________________________________________________|("%c\n",_s[i]);|
 
-Listas de argumentos variables (<stdarg.h>)
-Es posible definir funciones que reciban una cantidad arbitraria de parámetros
-reales. Para esto se prepara un encabezado de la función con los parámetros
+\tabla{strings}{Funciones de Biblioteca Standard para strings.}{l|l|l}{
+Prototipo & Efecto & Ejemplo \\
+\hline
+\code{char *strcpy(s,ct);} 	& Copia la cadena ct sobre s,  		 & \code{char alfa[10];} 			\\
+  							& incluyendo el 0 final. Devuelve s. & \code{strcpy(alfa,"cadena");} 	\\
+\hline
+\code{char *strncpy(s,ct);} 	& Copia ct sobre s hasta $n$ caracteres. & \code{char alfa[10];}		\\
+							& Rellena con 0 hasta el final, si ct 	 & \code{strncpy(alfa,"cadena",4);} \\
+							& mide menos de $n$ caracteres. 		 & \code{strncpy(alfa,otro,sizeof(alfa));} \\
+\hline
+\code{char *strcat(s,ct);} 	& Concatena la cadena ct al final de s.  & \code{char alfa[10]="abc";} \\
+							& Debe garantizarse espacio para 		 & \code{strcat(alfa,"def");}\\
+							& completar la operación. 				 & \\
+\hline
+\code{char *strncat(s,ct,n);}& Idem anterior, hasta $n$ caracteres. & \\
+\hline
+\code{int strcmp(cs,ct);} 	& Compara las cadenas. Devuelve  	& \code{if(strcmp(alfa,"abcdef")==0)} \\
+							& un valor menor que 0 si $cs<ct$,  &  \code{\ \ printf("Iguales\\n");} \\
+							& 0 si $cs==ct$, y mayor que 0 &  \\
+							&  si $cs>ct$. &  \\
+\hline
+\code{int strncmp(cs,ct,n);} & Idem anterior, hasta $n$ caracteres & \\
+\hline
+\code{char *strchr(cs,c);} & Devuelve un apuntador a la primera  & \code{char *p;} \\
+							& ocurrencia del carácter c en la  & \code{char r[] = "casualidad";} \\
+							& cadena cs, o bien NULL &   					\code{p = strchr(r,'s');} \\
+							&	si no se lo encuentra.					&						\code{strncpy(p,"us",2);} \\
+\hline
+\code{char *strrchr(cs,c);} & Idem anterior pero devuelve un & \\
+							& apuntador a la última ocurrencia. & \\
+\hline
+\code{size_t strlen(cs);}   & Devuelve la longitud de la cadena,& \code{for(i=0; i<strlen(s); i++)} \\
+							& sin contar el \code{'\0'} final. &  \code{\ \ printf("\%c\\n",s[i]);} \\
+}
+
+
+
+\section{Listas de argumentos variables}
+En C es posible definir funciones con una lista de argumentos de una longitud variable, es decir, 
+funciones que reciban una cantidad arbitraria de parámetros reales. La función de Biblioteca 
+Standard \code{printf()} es un claro ejemplo de esta clase de funciones, y el usuario puede definir las propias.
+Para esto se prepara un encabezado de la función con los parámetros
 reales fijos que se desee y se indican los restantes, variables, mediante
 puntos suspensivos. Se recuperan los demás con macros especiales definidas en
 este header.
-Lamentablemente estas macros no permiten la creación de funciones sin
+
+Lamentablemente las macros declaradas en el header \code{stdarg.h} no permiten la creación de funciones sin
 argumentos fijos. Existe otro paquete de argumentos variables, definido en
-varargs.h, que sí lo permite; pero que no está comprendido en el estándar ANSI
-C y que no es compatible con stdarg.h.
-**** Ejemplo ****
-    #include <stdarg.h>
-    int sumar(int cuantos, ...)
-    {
-        va_list ap;
-        int suma=0;
+\textbf{varargs.h}, que sí lo permite; pero que no está comprendido en el estándar ANSI
+C y que no es compatible con \code{stdarg.h}.
 
-        va_start(ap, cuantos);
-        for(i=0; i<cuantos; i++)
-            suma += va_arg(ap, int);
-        va_end(ap);
-        return suma;
-   }
+\begin{ejemplo}
+\begin{lstlisting}
+#include <stdarg.h>
+int sumar(int cuantos, ...)
+{
+	va_list ap;
+	int suma=0;
+
+	va_start(ap, cuantos);
+	for(i=0; i<cuantos; i++)
+		suma += va_arg(ap, int);
+	va_end(ap);
+	return suma;
+}
+\end{lstlisting}
 Que se utilizaría como:
-    main()
-    {
-        printf("Resultado 1: %d\n", sumar(3, 4, 5, 6));
-        printf("Resultado 2: %d\n", sumar(2, 100, 2336));
-    }
+\begin{lstlisting}
+main()
+{
+	printf("Resultado 1: %d\n", sumar(3, 4, 5, 6));
+	printf("Resultado 2: %d\n", sumar(2, 100, 2336));
+}
+\end{lstlisting}
+\end{ejemplo}
 
-Funciones de tratamiento de errores (<errno.h> y <assert.h>)
-Esta zona de la Biblioteca provee indispensables herramientas de debugging. La
-variable externa errnoes un entero que toma un valor de acuerdo a condiciones
+\section{Tratamiento de errores}
+Esta zona de la Biblioteca, declarada en los headers \code{errno.h} y \code{assert.h}, provee indispensables herramientas de \textit{debugging}. La
+variable externa \code{errno} es un entero que toma un valor de acuerdo a condiciones
 de error provocadas por cualquiera de las funciones de la BS, y de acuerdo a
 una catalogación de errores que depende de la función. Si una función ANSI C
 devuelve un valor indicador de error (como NULL donde debería devolver un
-puntero, o negativo donde debería devolver un positivo), la variable errno
+puntero, o negativo donde debería devolver un positivo), la variable \code{errno}
 contendrá más explicación sobre el motivo del error. Se consulta con las
-funciones strerror()o perror(). La función perror() admite una cadena
+funciones \code{strerror()} o \code{perror()}. La función \code{perror()} admite una cadena
 arbitraria para indicar, por ejemplo, el lugar del programa donde se produce el
 error. Imprimirá esta cadena más la descripción del problema.
-La macro assertsirve para detener la ejecución cuando se alcanza un estado
-imposible para la lógica del programa. Para usarla adecuadamente es necesario
-identificar invariantes en el programa (condiciones que no deban jamás ser
-falsas). Si al evaluarse la macro resulta que su condición argumento es falsa,
-assert() aborta el programa indicando nombre del archivo fuente y línea donde
-estaba originalmente la llamada. Un programa en producción no debería fallar
-debido a assert.
-**** Ejemplos ****
-    #include <errno.h>
+
+\begin{ejemplo}
+\begin{lstlisting}
+#include <errno.h>
     if(open("noexiste", O_RDONLY) < 0)
-        perror("Error en apertura");
+        perror("Error en apertura");	
+\end{lstlisting}
+\end{ejemplo}
+
+La macro \code{assert()} sirve para detener la ejecución cuando se alcanza un estado
+imposible para la lógica del programa. Para usarla adecuadamente es necesario
+identificar \textbf{invariantes} en el programa (condiciones que jamás deban ser
+falsas). Si al evaluarse la macro resulta que su condición argumento es falsa,
+\code{assert()} aborta el programa indicando nombre del archivo fuente y línea donde
+estaba originalmente la llamada. Un programa en producción no debería fallar
+debido a \code{assert()}.
 
 
-    #include <assert.h>
+\begin{ejemplo}
+\begin{lstlisting}
+#include <assert.h>
     ...
     assert(restantes >= 0);
+\end{lstlisting}
+\end{ejemplo}
 
-Funciones de fecha y hora (<time.h>)
-Existen dos tipos definidos en el header time.h para manejar datos de fechas.
-Por un lado, se tiene el tipo struct tm, que contiene los siguientes elementos
+\section{Funciones de fecha y hora}
+Existen dos tipos de datos definidos en el header \code{time.h} para manejar datos de fechas.
+Por un lado, se tiene el tipo \code{struct tm}, que contiene los siguientes elementos
 que describen un momento en el tiempo:
+
+\begin{lstlisting}
 struct tm {
 int tm_sec,    /* segundos 0..59 */
     tm_min,    /* minutos 0..59 */
@@ -170,158 +187,168 @@ int tm_sec,    /* segundos 0..59 */
     tm_wday,   /* días desde el domingo 0..6 */
     tm_yday,   /* días desde enero 0..365 */
     tm_isdst;  /* flag de ahorro diurno de luz */
-};
+};	
+\end{lstlisting}
+
 Por otro lado, existe un segundo formato de representación interna de fechas,
-time_t, que es simplemente un entero conteniendo la cantidad de segundos desde
-el principio de la era UNIX ("the epoch"), acaecido el 1/1/1970 a la hora 0
-UTC. Este formato es el usado por la función time() que da la hora actual.
-Este formato entero puede convertirse a struct tm y viceversa con funciones
-definidas en esta zona de la BS, como mktime() y gmtime().
-El contenido de una estructura tm se puede imprimir con gran variedad de
-formatos con la función strftime(), que acepta una cantidad de especificaciones
-al estilo de printf(). Las funciones ctime() y asctime()son más sencillas.
+\code{time_t}, que es simplemente un entero conteniendo la cantidad de segundos desde
+el principio de la \textbf{era UNIX} (\quotes{\textit{the epoch}}), acaecido el 1/1/1970 a la hora 0
+UTC. Este formato es el usado por la función \code{time()} que da la hora actual.
+Este formato entero puede convertirse a \code{struct tm} y viceversa con funciones
+definidas en esta zona de la BS, como \code{mktime()} y \code{gmtime()}.
+
+El contenido de una estructura \code{tm} se puede imprimir en una gran variedad de
+formatos, con la función \code{strftime()}, que acepta una cantidad de especificaciones
+al estilo de \code{printf()}. Las funciones \code{ctime()} y \code{asctime()} son más sencillas.
 Devuelven una cadena conteniendo una fecha en formato normalizado (como el que
 aparece en los mensajes de correo electrónico). La primera recibe un puntero a
-time_t; la segunda, un puntero a struct tm.
-**** Ejemplo ****
-    time_t t;
-    struct tm *stm;
+\code{time_t}; la segunda, un puntero a \code{struct tm}.
 
-    t = time(NULL);             /* recoge la hora actual */
-    printf("%s\n",ctime(&amp;t));   /* imprime en formato standard */
+\begin{ejemplo}
+\begin{lstlisting}
+time_t t;
+struct tm *stm;
 
-    char area[100];
-    stm = gmtime(&amp;t);           /* convierte t a struct tm */
-    strftime(area,sizeof(area), /* prepara string segun formato del usuario */
-        "%A %b %d %H",stm);
-    printf("%s\n",area);        /* lo imprime */
+t = time(NULL);                                 /* recoge la hora actual */
+printf("%s\n",ctime(&t));                       /* la imprime en formato standard */
 
-Funciones matemáticas (<math.h>)
-Aquí se encuentran las habituales funciones aritméticas avanzadas,
-trigonométricas y logarítmicas.
- ____________________________________________________________________________________
-|sin(x)_|seno_de_x__________________________________________________________|________|
-|cos(x)_|coseno_de_x________________________________________________________|________|
-|tan(x)_|tangente_de_x______________________________________________________|________|
-|asin(x)|arco seno de x                                                     |Devuelve|
-|       |                                                                   |valores |
-|       |                                                                   |en el   |
-|       |                                                                   |rango [-|
-|       |                                                                   |pi/2,   |
-|_______|___________________________________________________________________|pi/2]___|
-|acos(x)|arco coseno de x                                                   |En el   |
-|       |                                                                   |rango   |
-|_______|___________________________________________________________________|[0,_pi]_|
-|atan(x)|arco tangente de x                                                 |Devuelve|
-|       |                                                                   |valores |
-|       |                                                                   |en el   |
-|       |                                                                   |rango [-|
-|       |                                                                   |pi/2,   |
-|_______|___________________________________________________________________|pi/2]___|
-|atan2  |arco tangente de y/x                                               |En el   |
-|(y,x)  |                                                                   |rango [-|
-|_______|___________________________________________________________________|pi,_pi]_|
-|sinh(x)|seno_hiperbólico_de_x_____________________________________________|________|
-|cosh(x)|coseno_hiperbólico_de_x___________________________________________|________|
-|tanh(x)|tangente_hiperbólica_de_x_________________________________________|________|
-|exp(x)_|función_exponencial_de_base_e_____________________________________|________|
-|log(x)_|logaritmo_natural__________________________________________________|________|
-|log10  |logaritmo de base decimal                                          |        |
-|(x)____|___________________________________________________________________|________|
-|pow    |xy                                                                 |Para x=0|
-|(x,y)  |                                                                   |debe ser|
-|       |                                                                   |y>0. Si |
-|       |                                                                   |x<0,    |
-|       |                                                                   |debe ser|
-|_______|___________________________________________________________________|y_entero|
-|sqrt(x)|raíz cuadrada de x                                                |Debe ser|
-|_______|___________________________________________________________________|x>=0____|
-|ceil(x)|menor entero no menor que x                                        |Devuelve|
-|       |                                                                   |un      |
-|_______|___________________________________________________________________|double__|
-|floor  |mayor entero no mayor que x                                        |Devuelve|
-|(x)    |                                                                   |un      |
-|_______|___________________________________________________________________|double__|
-|fabs(x)|Valor_absoluto_de_x________________________________________________|________|
-|ldexp  |Devuelve x * 2n                                                    |        |
-|(x,n)__|___________________________________________________________________|________|
-|frexp  |Divide a x en una potencia entera de 2, que se almacena en el lugar|        |
-|(x,exp)|apuntado_por_exp,_y_devuelve_una_mantisa_en_el_intervalo_[½,_1].__|________|
-|modf(x,|Divide a x en parte entera fraccionaria. El argumento ip debe ser  |        |
-|ip)____|un_puntero_a_entero._______________________________________________|________|
-|fmod   |Residuo de punto flotante de x/y.                                  |        |
-|(x,y)__|___________________________________________________________________|________|
+char area[100];
+stm = gmtime(&t);                               /* convierte t a struct tm */
+strftime(area,sizeof(area),"%A %b %d %H",stm);  /* prepara string según formato del usuario */
+printf("%s\n",area);                            /* lo imprime */
+\end{lstlisting}
+\end{ejemplo}
+
+\section{Funciones matemáticas}
+El header \code{math.h} declara las habituales funciones aritméticas avanzadas,
+trigonométricas y logarítmicas. Todas ellas se presentan en \textbf{tres versiones}, que reciben y devuelven diferentes tipos de datos, y cuyos nombres están estructurados de acuerdo a dichos tipos de datos:
+\begin{itemize}
+	\item La versión básica recibe argumentos \code{double}, y devuelve un valor \code{double}. Por ejemplo, \code{sin(x)}.
+	\item Una versión de precisión limitada, donde se agrega una \code{f} al nombre de la función, que  recibe argumentos \code{float}, y devuelve un valor \code{float}. Por ejemplo, \code{sinf(x)}.
+	\item Una versión de precisión extendida, donde se agrega una \code{l} al nombre de la función, que recibe argumentos \code{long double}, y devuelve un valor \code{long double}. Por ejemplo, \code{sinl(x)}.
+\end{itemize}
+
+En el Cuadro \ref{tab:trig} se enumeran las versiones básicas. Aunque sólo se ejemplifica para $sin(x)$, todas las funciones matemáticas de la Biblioteca Standard presentan las tres versiones. Como siempre, se recomienda consultar los manuales de estas funciones.
+
+\importante{
+Para vincular la biblioteca matemática con un programa es necesario incluir la directiva de compilación \code{-lm}.
+}
+
+\tabla{trig}{Funciones matemáticas de la Biblioteca Standard.}{l|l|l}{
+\hline
+\code{double sin(double x);}	& Seno de $x$. & \\
+\code{float sinf(float x);}	&  &  \\
+\code{long double sinl(long double x);}	&  & \\
+\hline
+\code{double cos(double x);}	& Coseno de $x$. & \\
+\hline
+\code{double tan(double x);}	& Tangente de $x$. & \\
+\hline
+\code{double asin(double x);}	& Arco seno de $x$. & Toma valores en [$-\pi/2$, $\pi/2$].\\
+\hline
+\code{double acos(double x);}	& Arco coseno de $x$. & Toma valores en [$0$, $\pi$].\\
+\hline
+\code{double atan(double x);}	& Arco tangente de $x$. & Toma valores en  [$-\pi/2$, $\pi/2$].\\
+\hline
+\code{double atan2(double y,double x);}	& Arco tangente de $y/x$. & Toma valores en  [$-\pi$, $\pi$].\\
+\hline
+\code{double sinh(double x);} & Seno hiperbólico de $x$. \\
+\hline
+\code{double cosh(double x);} & Coseno hiperbólico de $x$. \\
+\hline
+\code{double tanh(double x);} & Tangente hiperbólica de $x$. \\
+\hline
+\code{double exp(double x);} & Función exponencial de base $e$. \\
+\hline
+\code{double log(double x);} & Logaritmo natural. \\
+\hline
+\code{double log10(double x);} & Logaritmo de base decimal. \\
+\hline
+\code{double pow(double x,double y);} & Potencia $x^y$ & Para $x=0$ debe ser $y>0$.\\
+		& 			&  Si $x<0$, $y$ debe ser entero.\\
+\hline
+\code{double sqrt(double x);}& Raíz cuadrada de $x$.						& Debe ser $x>=0$. \\
+\hline
+\code{double ceil(double x);} & Menor entero no menor que $x$.						&  \\
+\hline
+\code{double floor(double x);} & Mayor entero no mayor que $x$.						&  \\
+\hline
+\code{double fabs(double x);} & Valor absoluto de $x$.						&  \\
+\hline
+\code{double ldexp(double x,int n);} & Devuelve $x * 2^n$.						&  \\
+\hline
+\code{double frexp(double x,int *exp);} & Separa a $x$ en una potencia entera 		& La potencia de 2 se almacena \\
+\code{} 								&  de 2, y una mantisa en el  & en el lugar apuntado por $exp$.\\
+\code{} 								&  intervalo $[\frac{1}{2}, 1].$					& Devuelve la mantisa. \\
+\hline
+\code{double modf(double x,int *ip);} & Separa a $x$ en parte entera 						&  \\
+\code{} & y fraccionaria. 						&  \\
+\hline
+\code{double fmod(double x,double y);} & Residuo de punto flotante de $x/y$.						&  \\
+\hline
+}
 
 
-***** Funciones utilitarias (<stdlib.h>) *****
-El header stdlib.h agrupa las declaraciones de varias funciones no relacionadas
-entre sí, y que sirven a varios fines. Solamente las nombramos y encarecemos la
+\section{Funciones utilitarias}
+El header \code{stdlib.h} agrupa las declaraciones de varias funciones no relacionadas
+entre sí, y que sirven a varios fines. Solamente las nombramos, y encarecemos la
 lectura del manual.
-    * Funciones de conversión: las funciones atoi(), atol(), atof(), strtol(),
-      strtod(), strtoul(), toman cadenas representando números y generan los
+
+\begin{itemize}
+	\item Funciones de conversión: las funciones \code{atoi()}, \code{atol()}, \code{atof()}, \code{strtol()},
+      \code{strtod()}, \code{strtoul()}, toman cadenas representando números y generan los
       elementos de datos del tipo correspondiente.
-    * Se pueden generar números aleatorios con rand() y srand().
-    * Aquí también se declaran las funciones de asignación de memoria como
-      malloc(), calloc(), realloc(), free().
-    * Para manejar datos en memoria con eficiencia se puede recurrir a qsort()y
-      bsearch(), que ordenan una tabla y realizan búsqueda binaria en la tabla
+	\item Se pueden generar números aleatorios con \code{rand()} y \code{srand()}.
+	\item Aquí también se declaran las funciones de asignación de memoria como
+      \code{malloc()}, \code{calloc()}, \code{realloc()}, \code{free()}.
+	\item Para manejar datos en memoria con eficiencia se puede recurrir a \code{qsort()} y
+      \code{bsearch()}, que ordenan una tabla y realizan búsqueda binaria en la tabla
       ordenada.
-Clasificación de caracteres (<ctype.h>)
-El header ctype.h contiene declaraciones de macros para averiguar la
-pertenencia de un carácter a determinados conjuntos. Son todas booleanas salvo
-las últimas que devuelven ints.
- ______________________________________________________________________________
-|macro___|devuelve_TRUE_cuando_________________________________________________|
-|isalnum |isalpha(c) o isdigit(c) son TRUE                                     |
-|(c)_____|_____________________________________________________________________|
-|isalpha |isupper(c) o islower(c) son TRUE                                     |
-|(c)_____|_____________________________________________________________________|
-|iscntrl |c es un carácter de control                                         |
-|(c)_____|_____________________________________________________________________|
-|isdigit |c es un dígito decimal                                              |
-|(c)_____|_____________________________________________________________________|
-|isgraph |c es un carácter imprimible y no isspace(c)                         |
-|(c)_____|_____________________________________________________________________|
-|islower |c es una letra minúscula                                            |
-|(c)_____|_____________________________________________________________________|
-|isprint |c es un carácter imprimible, incluyendo el caso en que isspace(c) es|
-|(c)_____|TRUE_________________________________________________________________|
-|ispunct |c es imprimible pero no espacio, letra ni dígito                    |
-|(c)_____|_____________________________________________________________________|
-|isspace |c es espacio, fin de línea, tabulador                               |
-|(c)_____|_____________________________________________________________________|
-|isupper |c es letra mayúscula                                                |
-|(c)_____|_____________________________________________________________________|
-|isxdigit|c es dígito hexadecimal                                             |
-|(c)_____|_____________________________________________________________________|
-|tolower |devuelve c en minúscula                                             |
-|(c)_____|_____________________________________________________________________|
-|toupper |devuelve c en mayúscula                                             |
-|(c)_____|_____________________________________________________________________|
+\end{itemize}
+
+\section{Clasificación de caracteres}
+
+El header \code{ctype.h} contiene declaraciones de macros para averiguar la
+pertenencia de un carácter a determinados conjuntos (Cuadro \ref{tab:macros}). Son todas booleanas, salvo
+las últimas, que devuelven ints.
+
+\tabla{macros}{Macros de clasificación de caracteres.}{l|l}{
+Macro & Devuelve \\
+\hline
+\code{isalnum(c)} &  \code{TRUE} cuando \code{isalpha(c)} o \code{isdigit(c)} son \code{TRUE}                                    \\
+\code{isalpha(c)} &  \code{TRUE} cuando \code{isupper(c)} o \code{islower(c)} son \code{TRUE}                                     \\
+\code{iscntrl(c)} &  \code{TRUE} cuando \code{c} es un carácter de control                                         \\
+\code{isdigit(c)} &  \code{TRUE} cuando \code{c} es un dígito decimal                                              \\
+\code{isgraph(c)} &  \code{TRUE} cuando \code{c} es un carácter imprimible y no \code{isspace(c)}                         \\
+\code{islower(c)} &  \code{TRUE} cuando \code{c} es una letra minúscula                                            \\
+\code{isprint(c)} &  \code{TRUE} cuando \code{c} es un carácter imprimible, \\
+				   & incluyendo el caso en que \code{isspace(c)} es \code{TRUE}\\
+\code{ispunct(c)} &  \code{TRUE} cuando \code{c} es imprimible pero no espacio, letra ni dígito                    \\
+\code{isspace(c)} &  \code{TRUE} cuando \code{c} es espacio, fin de línea, tabulador                               \\
+\code{isupper(c)} &  \code{TRUE} cuando \code{c} es letra mayúscula                                                \\
+\code{isxdigit(c)} &  \code{TRUE} cuando \code{c} es dígito hexadecimal                                             \\
+\code{tolower(c)} &  \code{c} en minúscula                                             \\
+\code{toupper(c)} &  \code{c} en mayúscula                                             \\
+}
 
 
-===============================================================================
-Ejercicios
-1. Utilizar la función de cantidad variable de argumentos definida más arriba
+
+\section{Ejercicios}
+\begin{enumerate}
+	\item Utilizar la función de cantidad variable de argumentos definida más arriba
 para obtener los promedios de los 2, 3, ..., n primeros elementos de un
 arreglo.
-2. Construir una función de lista variable de argumentos que efectúe la
+	\item Construir una función de lista variable de argumentos que efectúe la
 concatenación de una cantidad arbitraria de cadenas en una zona de memoria
 provista por la función que llama.
-3. Construir una función de cantidad variable de argumentos que sirva para
+	\item Construir una función de cantidad variable de argumentos que sirva para
 imprimir, con un formato especificado, mensajes de debugging, conteniendo
 nombres y valores de variables.
-4. Construir un programa que separe la entrada standard en palabras, usando las
+	\item Construir un programa que separe la entrada standard en palabras, usando las
 macros de clasificación de caracteres. Debe considerar como delimitadores a los
 caracteres espacio, tabulador, signos de puntuación, etc.
-5. Dadas dos fechas y horas del día, calcular su diferencia. Utilizar las
+	\item Dadas dos fechas y horas del día, calcular su diferencia. Utilizar las
 funciones de BS para convertir a tipos de datos convenientes e imprimir la
 diferencia en años, meses, días, horas, etc.
-6. Generar fechas al azar dentro de un período de tiempo dado.
-
-===============================================================================
-
-
-
-
-
+	\item Generar fechas al azar dentro de un período de tiempo dado.
+\end{enumerate}

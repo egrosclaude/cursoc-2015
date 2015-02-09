@@ -12,19 +12,19 @@ Como en la casi totalidad de los lenguajes de programación, la estructura alter
 Formas típicas de la estructura alternativa son las siguientes.
 
 \begin{lstlisting}
-if(expresion)
+if(expresión)
     sentencia;
 \end{lstlisting}
 
 \begin{lstlisting}
-if(expresion) {
+if(expresión) {
     sentencias
     ...
 }
 \end{lstlisting}
 
 \begin{lstlisting}
-if(expresion)
+if(expresión)
     sentencia;
 else
     sentencia;
@@ -103,7 +103,7 @@ ciclo}. En cambio, en el lazo \lstinline{do-while}, se hace \textbf{al final}.
 
 \subsection{Estructura while}
 \begin{lstlisting}
-while(expresion)
+while(expresión)
     sentencia;
 \end{lstlisting}
 
@@ -111,7 +111,7 @@ while(expresion)
 \begin{lstlisting}
 do {
     sentencias;
-} while(expresion);
+} while(expresión);
 \end{lstlisting}
 
 
@@ -126,7 +126,7 @@ lazo \lstinline{for}.
 
 El esquema es:
 \begin{lstlisting}
-for(inicializacion; condicion_mientras;  incremento)
+for(inicialización; condición_mientras;  incremento)
     sentencia;
 \end{lstlisting}
 
@@ -143,8 +143,8 @@ Donde:
     
 La estructura for es equivalente al siguiente lazo while:
 \begin{lstlisting}
-inicializacion;
-while(condicion_mientras) {
+inicialización;
+while(condición_mientras) {
     sentencia;
     incremento;
 }
@@ -197,10 +197,10 @@ sola vez, en el valor de la última iteración de \lstinline{i}.
 
 \item Una clásica estructura de control para un proceso consumidor de objetos:
 \begin{lstlisting}
-a=leercaracter();
+a=leercarácter();
 while( a != '\033' ) {
     procesar(a);
-    a = leercaracter();
+    a = leercarácter();
 }
 \end{lstlisting}
 
@@ -208,7 +208,7 @@ while( a != '\033' ) {
 asignado) permite reescribir la estructura de control anterior como:
 
 \begin{lstlisting}
-while( (a=leercaracter()) != '\033' )
+while( (a=leercarácter()) != '\033' )
         procesar(a);
 \end{lstlisting}
 
@@ -218,12 +218,12 @@ verdad de la expresión (propiedad \quotes{del corto circuito}). Así, si supone
 procesar() siempre devuelve un valor distinto de cero, la sentencia siguiente equivale a los lazos anteriores.
 
 \begin{lstlisting}
-while((a=leercaracter()) != '\033' && procesar(a));
+while((a=leercarácter()) != '\033' && procesar(a));
 \end{lstlisting}
 \item Otra versión, utilizando la estructura do-while, podría ser:
 \begin{lstlisting}
 do {
-    if((a=leercaracter()) != '\033')
+    if((a=leercarácter()) != '\033')
         procesar(a);
 } while(a != '\033');
 \end{lstlisting}
@@ -231,14 +231,14 @@ do {
 \item Si utilizamos \lstinline{for}, que es esencialmente un \textit{while}:
 
 \begin{lstlisting}
-for( ; (a=leercaracter()) != '\033'; ) procesar(a);
+for( ; (a=leercarácter()) != '\033'; ) procesar(a);
 \end{lstlisting}
 
 Aquí dejamos vacías las secciones de inicialización y de incremento. 
 \item También, pero algo menos claro:
 
 \begin{lstlisting}
-for( ; (a=leercaracter()) != '\033'; procesar(a) );
+for( ; (a=leercarácter()) != '\033'; procesar(a) );
 \end{lstlisting}
 \end{itemize}
 \end{ejemplo}
@@ -249,11 +249,11 @@ La estructura de selección (\textit{switch}) es una estructura alternativa múl
 segmento de programa correspondiente. La sintaxis de la estructura \lstinline{switch} es
 como sigue:
 \begin{lstlisting}
-switch(expresion_entera) {
-    case expresion_constante1:
+switch(expresión_entera) {
+    case expresión_constante1:
         sentencias;
         break;
-    case expresion_constante2:
+    case expresión_constante2:
         sentencias;
         break;
     default:
@@ -335,7 +335,7 @@ y si corresponde se inicia una nueva iteración.
 La sentencia break, por el contrario, hace que el control abandone
 definitivamente el lazo:
 \begin{lstlisting}
-while(expresion) {
+while(expresión) {
     if(ya_no_procesar())
         break;
     procesar();

@@ -12,8 +12,8 @@ La declaración
 tipo nombre[cant_elementos];
 \end{lstlisting}
 
-define un bloque llamado \lstinline{nombre} de \lstinline{cant_elementos} \textbf{objetos consecutivos} de tipo
-\lstinline{tipo}, lo que habitualmente recibe el nombre de \textbf{vector, array o arreglo}. Sus
+define un bloque llamado \code{nombre} de \code{cant_elementos} \textbf{objetos consecutivos} de tipo
+\code{tipo}, lo que habitualmente recibe el nombre de \textbf{vector, array o arreglo}. Sus
 elementos se acceden \textbf{indexando} el bloque con expresiones enteras entre
 corchetes.
 
@@ -48,11 +48,11 @@ arreglo, el compilador la infiere por la cantidad de valores de inicialización.
 \begin{ejemplo}
 Inicializaciones completas e incompletas.
 \begin{lstlisting}
-/* inicializacion completa */
+/* inicialización completa */
 int dias[12] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };   
 \end{lstlisting}
 \begin{lstlisting}
-/* inicializacion incompleta */
+/* inicialización incompleta */
 double saldo[10] = { 150.40, 170.20 };     
 \end{lstlisting}
 \begin{lstlisting}
@@ -78,7 +78,7 @@ arreglo. Este programa, aunque erróneo, \textbf{compilará correctamente}.
 \begin{lstlisting}
 int tabla[5];
 
-tabla [5] = 1;	/* error! el ultimo elemento es tabla[4] */
+tabla [5] = 1;	/* ¡Error! el último elemento es tabla[4] */
 \end{lstlisting}
 \end{ejemplo}
 
@@ -224,7 +224,7 @@ struct cliente c3 = {
 \end{ejemplo}
 
 \begin{ejemplo}
-Es legal declarar una variable \lstinline{struct} junto con la enunciación de su
+Es legal declarar una variable \code{struct} junto con la enunciación de su
 tipo, con o sin el tag asociado y con o sin inicialización.
 \begin{lstlisting}
 struct complejo { double real, imag; } c;
@@ -264,13 +264,13 @@ union intchar {
 };
 \end{lstlisting}
 Este ejemplo de unión contiene dos miembros: un entero y un arreglo de tantos
-caracteres como bytes contiene un \lstinline{int} en la arquitectura destino. Ambos
-miembros, por la propiedad fundamental de los \lstinline{unions}, quedan \quotes{superpuestos} en
+caracteres como bytes contiene un \code{int} en la arquitectura destino. Ambos
+miembros, por la propiedad fundamental de los \code{unions}, quedan \quotes{superpuestos} en
 memoria. El resultado es que podemos asignar un campo por un nombre y acceder
 por el otro. 
 \begin{ejemplo}
 En este caso particular, podemos conocer qué valores recibe cada
-byte de los que forman un \lstinline{int}.
+byte de los que forman un \code{int}.
 \begin{lstlisting}
 union intchar k;
 k.i = 30541;
@@ -288,7 +288,7 @@ offsets a los que se ubican los miembros en una union y en
 Se pueden definir estructuras donde los miembros son agrupaciones de bits. Esta
 construcción es especialmente útil en programación de sistemas donde se
 necesita la máxima compactación de las estructuras de datos. Cada miembro de un
-\textbf{campo de bits} es un \lstinline{unsigned int} que lleva explícitamente un \quotes{ancho} indicando
+\textbf{campo de bits} es un \code{unsigned int} que lleva explícitamente un \quotes{ancho} indicando
 la cantidad de bits que contiene.
 \begin{lstlisting}
 struct disp {
@@ -301,9 +301,9 @@ struct disp {
 \begin{ejemplo}
 Imaginemos, en base a la declaración anterior, un dispositivo mapeado en memoria con el cual
 comunicarnos en base a un protocolo, también imaginario. Implementamos con un
-campo de bits un registro de control \lstinline{encendido}, que permite encenderlo o apagarlo,
-consultar su disponibilidad (\lstinline{online} o no), y hacer una lectura de un valor
-de \lstinline{estado} de cuatro bits (que entonces puede tomar valores entre 0 y 15). Todo
+campo de bits un registro de control \code{encendido}, que permite encenderlo o apagarlo,
+consultar su disponibilidad (\code{online} o no), y hacer una lectura de un valor
+de \code{estado} de cuatro bits (que entonces puede tomar valores entre 0 y 15). Todo
 el registro de comunicación cabe en un byte.
 
 Podríamos encender nuestro dispositivo imaginario, esperar a que se ponga
@@ -334,18 +334,18 @@ d.encendido = 0;
 \section{Ejercicios}
 \begin{enumerate}
 \item Escribir una declaración con inicialización de un arreglo de diez elementos
-\lstinline{double}, todos inicialmente iguales a $2.25$.
-\item Escribir las sentencias para copiar un arreglo de cinco \lstinline{longs} en otro.
+\code{double}, todos inicialmente iguales a $2.25$.
+\item Escribir las sentencias para copiar un arreglo de cinco \code{longs} en otro.
 \item Escribir las sentencias para obtener el producto escalar de dos vectores.
 \item Escribir una función que devuelva la posición donde se halla el menor
-elemento de un arreglo de \lstinline{floats}.
+elemento de un arreglo de \code{floats}.
 \item Dado un vector de diez elementos, escribir todos los promedios de cuatro
 elementos consecutivos.
-\item Declarar una estructura punto conteniendo coordenadas x e y de tipo \lstinline{double}.
+\item Declarar una estructura punto conteniendo coordenadas x e y de tipo \code{double}.
 Dar ejemplos de inicialización y de asignación.
 \item Declarar una estructura \textbf{segmento} conteniendo dos estructuras \textbf{punto}. Dar
 ejemplos de inicialización y de asignación. Dar una función que calcule su
-longitud. Dar una función que reciba un segmento $S$ y un punto $p$, y devuelva \lstinline{TRUE} si $p \in S$. 
+longitud. Dar una función que reciba un segmento $S$ y un punto $p$, y devuelva \code{TRUE} si $p \in S$. 
 \item ¿Cuál es el error en estas sentencias de inicialización?
 \begin{enumerate} [label=\alph*.]
 
