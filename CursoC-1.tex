@@ -164,10 +164,10 @@ Algunas nuevas características de C99 son:
 \begin{itemize}
 \item Matrices de tamaño variable 
 \item Soporte de números complejos 
-\item Tipos \lstinline{long long int} y \lstinline{unsigned long long int} de al menos 64 bits 
-\item Familia de funciones \lstinline{vscanf()} 
-\item Comentarios al estilo de C++ prefijando las líneas con la secuencia \lstinline{//}. 
-\item Familia de funciones \lstinline{snprintf()} 
+\item Tipos \code{long long int} y \code{unsigned long long int} de al menos 64 bits 
+\item Familia de funciones \code{vscanf()} 
+\item Comentarios al estilo de C++ prefijando las líneas con la secuencia \code{//}. 
+\item Familia de funciones \code{snprintf()} 
 \item Tipo boolean
 \end{itemize}
 
@@ -259,38 +259,38 @@ argumentos.
 \item La función \textbf{main()} es el cuerpo principal del programa
 (es por donde comenzará la ejecución). Todas las funciones en C están delimitadas por un par de llaves. Terminada la ejecución de
 main(), terminará el programa. 
-\item La función \lstinline{printf()} imprimirá la cadena entre comillas, que es
+\item La función \code{printf()} imprimirá la cadena entre comillas, que es
 una \textbf{constante string} terminada por un carácter de
-\textbf{nueva línea} (la secuencia especial \quotes{\lstinline{\\n}}). 
+\textbf{nueva línea} (la secuencia especial \quotes{\code{\\n}}). 
 \end{itemize}
 
 \subsection{Compilación del programa}
 Para ver el primer ejemplo en C en funcionamiento:
 
 \begin{enumerate}
-	\item Copiar el programa con cualquier editor de textos y guardarlo en un archivo llamado \lstinline{hola.c} en el directorio de trabajo del usuario.
-	\item Sin cambiar de directorio, invocar al compilador ejecutando el comando \lstinline{gcc hola.c -o hola}. Por defecto, el compilador \textbf{gcc} invocará al vinculador \textbf{ld} para generar el ejecutable a partir del archivo objeto intermedio generado. 
-	\item Ejecutar el programa con el comando \lstinline{./hola}. 
+	\item Copiar el programa con cualquier editor de textos y guardarlo en un archivo llamado \code{hola.c} en el directorio de trabajo del usuario.
+	\item Sin cambiar de directorio, invocar al compilador ejecutando el comando \code{gcc hola.c -o hola}. Por defecto, el compilador \textbf{gcc} invocará al vinculador \textbf{ld} para generar el ejecutable a partir del archivo objeto intermedio generado. 
+	\item Ejecutar el programa con el comando \code{./hola}. 
 \end{enumerate}
 
 Notar el \textit{punto y barra} del principio al ejecutar el programa. El punto y barra le indican al \textbf{shell} que debe buscar el programa en el directorio activo.
 
-Lo mismo, pero de otra manera: 
-
+\subsubsection{Otra manera} 
+%Lo mismo, pero de otra manera:
 \begin{enumerate}
 	\item Como antes, copiar el programa, o usar el mismo archivo fuente de hace un momento.
-	\item Sin cambiar de directorio, ejecutar el comando \lstinline{make hola} en una consola o terminal.
-	\item Ejecutar el programa con el comando \lstinline{./hola}. 
+	\item Sin cambiar de directorio, ejecutar el comando \code{make hola} en una consola o terminal.
+	\item Ejecutar el programa con el comando \code{./hola}. 
 \end{enumerate}
 
-La diferencia es que en el primer caso invocamos directamente al compilador \lstinline{gcc},
-mientras que en el segundo caso utilizamos la herramienta \lstinline{make}, que nos asiste en la compilación de proyectos. En el ejemplo, le decimos al compilador que procese el archivo fuente \lstinline{hola.c}, y que el ejecutable de salida (opción \lstinline{-o}, de \textit{output}) reciba el nombre \lstinline{hola}. 
+La diferencia es que en el primer caso invocamos directamente al compilador \code{gcc},
+mientras que en el segundo caso utilizamos la herramienta \code{make}, que nos asiste en la compilación de proyectos. En el ejemplo, le decimos al compilador que procese el archivo fuente \code{hola.c}, y que el ejecutable de salida (opción \code{-o}, de \textit{output}) reciba el nombre \code{hola}. 
 
 
 % \subsection[Mapa de memoria de un programa Mas información ... ]{Mapa de memoria de un programa \href{info/info1.html#info2}{Mas información ...} }
 
 \subsection{El comando make}
-Cuando damos un comando como \lstinline{make hola}, utilizamos el comando \textbf{make} para compilar y vincular el programa \textbf{hola.c}. El comando \textbf{make} contiene la inteligencia para:
+Cuando damos un comando como \code{make hola}, utilizamos el comando \textbf{make} para compilar y vincular el programa \textbf{hola.c}. El comando \textbf{make} contiene la inteligencia para:
 \begin{itemize}
  	\item buscar, en el directorio activo, archivos fuente llamados \textbf{hola.*}; 
  	\item determinar (a partir de la extensión) que el hallado se trata de un programa en C;
@@ -386,9 +386,9 @@ main()
 \end{lstlisting} 
 
 \begin{itemize}
-	\item Las variables a y b corresponden a la zona de datos estáticos. La variable a está inicializada con 1, pero como b no está inicializada, recibirá un valor 0.
-\item La variable c aparecerá en el stack cuando se ejecute la función fun().
-\item Las instrucciones de máquina procedentes de la compilación del programa (funciones main() y fun()) serán almacenadas en la región de texto. 
+	\item Las variables \code{a} y \code{b} corresponden a la zona de datos estáticos. La variable \code{a} está inicializada con 1, pero como \code{b} no está inicializada, recibirá un valor 0.
+\item La variable \code{c} aparecerá en el stack cuando se ejecute la función \code{fun()}.
+\item Las instrucciones de máquina procedentes de la compilación del programa (funciones \code{main()} y \code{fun()}) serán almacenadas en la región de texto. 
 
 \end{itemize}
 \end{ejemplo}
@@ -407,21 +407,21 @@ main()
 		\item Compilar un archivo objeto? 
 		\item Editar una biblioteca?
 		\end{itemize}
-	\item ¿Qué pasaría si un programa en C \textbf{no} contuviera una función \textbf{main()}? Haga la prueba modificando \textbf{hola.c}.
-	\item Edite el programa \lstinline{hola.c} y modifíquelo según las pautas que siguen. Interprete los errores de compilación. Identifique en qué etapa del ciclo de compilación ocurren los errores. Si resulta un programa ejecutable, observe qué hace el programa y por qué. 
+	\item ¿Qué pasaría si un programa en C \textbf{no} contuviera una función \code{main()}? Haga la prueba modificando \textbf{hola.c}.
+	\item Edite el programa \textbf{hola.c} y modifíquelo según las pautas que siguen. Interprete los errores de compilación. Identifique en qué etapa del ciclo de compilación ocurren los errores. Si resulta un programa ejecutable, observe qué hace el programa y por qué. 
 		\begin{itemize}
-		\item Quite los paréntesis de main(). 
-		\item Quite la llave izquierda de main().
+		\item Quite los paréntesis de \code{main()}. 
+		\item Quite la llave izquierda de \code{main()}.
 		\item Quite las comillas izquierdas.
-		\item Quite los caracteres \quotes{{\textbackslash}n}.
-		\item Agregue al final de la cadena los caracteres \quotes{{\textbackslash}n{\textbackslash}n{\textbackslash}n{\textbackslash}n}.
-		\item Agregue al final de la cadena los caracteres \quotes{{\textbackslash}nAdiós, mundo!{\textbackslash}n}.
+		\item Quite los caracteres \quotes{\code{\\n}}.
+		\item Agregue al final de la cadena los caracteres \quotes{\code{\\n\\n\\n\\n}}.
+		\item Agregue al final de la cadena los caracteres \quotes{\code{\\nAdiós, mundo!\\n}}.
 		\item Quite las comillas derechas.
 		\item Quite el signo punto y coma. 
-		\item Quite la llave derecha de main().
+		\item Quite la llave derecha de \code{main()}.
 		\item Agregue un punto y coma en cualquier lugar del texto.
 		\item Agregue una coma o un dígito en cualquier lugar del texto. 
-		\item Reemplace la palabra \textbf{main} por \textbf{program}, manteniendo los paréntesis. 
+		\item Reemplace la palabra \code{main} por \code{program}, manteniendo los paréntesis. 
 		\item Elimine la apertura o cierre de los comentarios.
 		\end{itemize}
 \end{enumerate}

@@ -1,7 +1,7 @@
 
 
 
-\chapter{Entrada/Salida}
+\chapter{Entrada/Salida Standard}
 
 El concepto de \textbf{Entrada/Salida} en C replica el de su ambiente nativo, el sistema
 operativo UNIX, donde todos los archivos son vistos como una sucesión de bytes,
@@ -63,9 +63,9 @@ borrar la pantalla en C, ya que ésta es una función que depende fuertemente de
 la plataforma y del ambiente donde se ejecute el programa. Las características faltantes en la
 E/S standard se compensan recurriendo a bibliotecas de terceras partes.
 
-\subsection{E/S standard de caracteres}
+\section{E/S standard de caracteres}
 \label{subsec:esstandardcaract}
-Las funciones de E/S standard de caracteres son \lstinline{getchar()} y \lstinline{putchar()}. Las funciones \lstinline{gets()} y \lstinline{puts()} leen de teclado e imprimen, respectivamente, \textbf{un carácter por vez}.
+Las funciones de E/S standard de caracteres son \lstinline{getchar()} y \lstinline{putchar()}. Las funciones \lstinline{getchar()} y \lstinline{putchar()} leen de teclado e imprimen, respectivamente, \textbf{un carácter por vez}.
 
 \begin{ejemplo}
 Un programa que copia la entrada en la salida, carácter a
@@ -83,7 +83,7 @@ main()
 \end{lstlisting}
 \end{ejemplo}
 
-\subsection{E/S standard de líneas}
+\section{E/S standard de líneas}
 \label{subsec:esstandardlineas}
 Las funciones \lstinline{gets()} y \lstinline{puts()} leen de teclado e imprimen, respectivamente,
 \textbf{líneas de caracteres} terminadas por la señal de fin de línea \lstinline{\n}. La función
@@ -130,7 +130,7 @@ inclusive, a problemas de seguridad. Por este motivo \lstinline{gets()} no es ut
 programas de producción.
 }
 
-\subsection{E/S standard con formato}
+\section{E/S standard con formato}
 \label{subsec:esstandardformato}
 Las funciones \lstinline{printf()} y \lstinline{scanf()} permiten imprimir e ingresar, respectivamente,
 \textbf{conjuntos de datos en formato legible, descriptos por cadenas de formato}. Las
@@ -180,7 +180,7 @@ El uso más recomendable de \lstinline{scanf()} es cuando se la utiliza para lee
 redirección, un flujo \textbf{generado automáticamente} por otro programa (y que, por lo
 tanto, tiene una gramática rigurosa y conocida).
 
-\subsection{E/S standard sobre strings}
+\section{E/S standard sobre strings}
 \label{subsec:esstandardstrings}
 
 La misma lógica de las funciones de E/S con formato sirve para que otras
@@ -214,11 +214,11 @@ El resultado debería ser:
 \end{lstlisting}
 \end{ejemplo}
 
-\section{E/S sobre archivos}
+\chapter{E/S sobre archivos}
 \label{sec:esarchivos}
 
-Diferentes sistemas operativos tienen diferentes sistemas de archivos y
-diferentes modelos de archivos. Los sistemas de archivos son los conjuntos de
+Diferentes sistemas operativos tienen diferentes \textbf{sistemas de archivos} y
+diferentes \textbf{modelos de archivos}. Los sistemas de archivos son los conjuntos de
 funciones particulares que cada sistema ofrece para acceder a los archivos y a
 la estructura de directorios que soporta. Los modelos de archivos son aquellas
 convenciones de formato u organización que son particulares de un sistema
@@ -240,7 +240,7 @@ de directorio, o la de links múltiples; o puede fijar determinadas condiciones
 sobre los nombres de archivos, todo esto en función de la organización íntima
 de sus estructuras de datos.
 
-\subsection{Estándares ANSI y POSIX}
+\section{Estándares ANSI y POSIX}
 Siendo uno de sus objetivos de diseño el favorecer la producción de
 programas portables, el lenguaje C contempla la forma de resolver estos problemas de
 manera fácil para los programadores. Las funciones de entrada/salida sobre
@@ -284,7 +284,7 @@ operativo) y por esto son las preferidas para la programación de drivers,
 servidores, etc., donde la performance y otros detalles finos deban ser
 controlados más directamente por el programa.
 
-\subsection{Funciones ANSI C de E/S sobre archivos}
+\section{Funciones ANSI C de E/S sobre archivos}
 \label{subsec:esarchivosansic}
 Las funciones ANSI realizan todas las operaciones sobre archivos por medio de
 una estructura o bloque de control cuyo tipo en C se llama \lstinline{FILE}. Esta
@@ -322,12 +322,12 @@ Modo & Operación \\
 \begin{codecell}
 "w"
 \end{codecell} & Se crea un nuevo archivo para escribir. \\
-				& Si el archivo existe, se inicializa y se sobreescribe.\\
+				& Si el archivo ya existe, se inicializa y se sobreescribe.\\
 \hline
 \begin{codecell}
 "a" 
 \end{codecell}& Abre un archivo que ya existe, para agregar información al final.\\ 
-				& Sólo se puede escribir a partir del final.\\
+				& Sólo se puede escribir a partir del final del archivo.\\
 \hline
 \begin{codecell}
 "r+"
@@ -337,7 +337,7 @@ Modo & Operación \\
 \begin{codecell}
 "w+"
 \end{codecell}& Crea un nuevo archivo para actualizarlo (lectura y escritura); \\
-				& si existe, lo sobreescribe.\\
+				& si ya existe, lo sobreescribe.\\
 \hline
 \begin{codecell}
 "a+"
@@ -351,9 +351,9 @@ Modo & Operación \\
 Como en la entrada/salida standard, para manejar archivos tenemos funciones
 para E/S \textbf{de caracteres, de líneas y con formato}.
 
-\subsubsection{Funciones ANSI C de caracteres sobre archivos}
+\section{Funciones ANSI C de caracteres sobre archivos}
 \label{subsubsec:esarchivosansiccaract}
-Las funciones son \lstinline{fgetc()} y \lstinline{fputc()}. Ejemplo que copia un archivo:
+Las funciones que leen y escriben sobre archivos \textbf{un carácter por vez} son \lstinline{fgetc()} y \lstinline{fputc()}. Ejemplo que copia un archivo:
 
 \begin{lstlisting}
 #include <stdio.h>
@@ -374,7 +374,7 @@ main()
 Hay otras funciones dentro de esta categoría, como \lstinline{ungetc()}, que \textbf{devuelve un
 carácter} al flujo de donde se leyó.
 
-\subsubsection{Funciones ANSI C de líneas sobre archivos}
+\section{Funciones ANSI C de líneas sobre archivos}
 \label{subsubsec:esarchivosansiclineas}
 Mismo ejemplo anterior, en base a líneas, usando las funciones \lstinline{fgets()} y \lstinline{fputs()}. La
 declaración de variables \lstinline{FILE *} y las sentencias de apertura y cierre de
@@ -388,7 +388,7 @@ principal.
         fputs(area, fp2);
 \end{lstlisting}
 
-\subsubsection{Funciones ANSI C con formato sobre archivos}
+\section{Funciones ANSI C con formato sobre archivos}
 \label{subsubsec:esarchivosansicformato}
 
 Existen funciones \lstinline{fprintf()} y \lstinline{fscanf()}, casi idénticas a \lstinline{printf()} y \lstinline{scanf()},
@@ -418,7 +418,7 @@ main()
 
 
 
-\subsection{Funciones ANSI C de acceso directo}
+\section{Funciones ANSI C de acceso directo}
 \label{subsec:esarchivosansicdirect}
 
 Un conjunto muy útil de funciones ANSI permite el \textbf{acceso directo, aleatorio, o
@@ -468,7 +468,7 @@ fwrite(&datos, sizeof(struct registro), 1, fp);
 \end{lstlisting}
 \end{ejemplo}
 
-\subsubsection{Constantes de posicionamiento}
+\subsection{Constantes de posicionamiento}
 \label{subsubsec:posicionamiento}
 Para posicionar el puntero de lectura/escritura en un offset determinado,
 existe la función \lstinline{fseek()}. El origen del desplazamiento se expresa 
@@ -479,7 +479,7 @@ como absoluto a partir del principio del archivo. La constante \lstinline{SEEK_C
 indica posicionamiento a partir del offset actual, y \lstinline{SEEK_END}, a partir del fin del
 archivo. El offset proporcionado puede ser negativo.
 
-\subsubsection{Sincronización de E/S}
+\subsection{Sincronización de E/S}
 Una restricción importante de la E/S en ANSI C es que no se pueden mezclar
 instrucciones de entrada y de salida sin que intervenga una operación
 intermedia de posicionamiento. Es decir, una sucesión de invocaciones a \lstinline{fwrite()} 
@@ -491,7 +491,7 @@ Este posicionamiento puede ser nulo, como por ejemplo en \lstinline{fseek(fp, 0L
 que no varía en absoluto la posición de los punteros, pero realiza la
 sincronización buscada.
 
-\subsection{Resumen de funciones ANSI C de E/S}
+\section{Resumen de funciones ANSI C de E/S}
 Podemos resumir lo visto hasta aquí con los prototipos de las funciones ANSI de
 E/S en el Cuadro \ref{tab:resumenesansicarchivos}.
 
@@ -620,7 +620,7 @@ FILE *stream);
 % |_____________|_______________________________|*stream);______________________|
 % 
 
-\subsection{Funciones POSIX de E/S sobre archivos}
+\section{Funciones POSIX de E/S sobre archivos}
 \label{subsec:esarchivosposix}
 
 Las funciones POSIX son la interfaz directa del programa con las llamadas al
@@ -628,7 +628,7 @@ sistema, o \textbf{system calls}. Los programas que utilicen funciones POSIX deb
 biblioteca standard \lstinline{unistd.h} y \lstinline{fcntl.h}.
  
 
-\subsubsection{Apertura de archivos}
+\subsection{Apertura de archivos}
 Las funciones POSIX que operan sobre archivos lo hacen
 a través de descriptores de archivos. Estos pertenecen a una tabla de archivos
 abiertos que tiene cada proceso o programa en ejecución y se corresponden con
@@ -665,7 +665,7 @@ funciones ANSI. Esto se logra con la función \lstinline{fdopen()}.
 
 
 
-\paragraph{Flags}
+\subsubsection{Flags}
 Las funciones de E/S POSIX permiten controlar varios aspectos de la entrada/salida sobre dispositivos o archivos. Existe un conjunto de \textit{flags}, u opciones, que modifican la conducta de cada operación.   
 Los flags se expresan como nombres simbólicos para constantes de bits, y se especifican en la apertura del archivo como segundo argumento de la función \lstinline{open()}. Todas las combinaciones válidas de flags pueden expresarse como un \lstinline{OR} de bits (operador \lstinline{|}) que acumula las constantes de bits correspondientes. Resumimos los flags más importantes existentes para este segundo argumento de \lstinline{open()} en el Cuadro \ref{tab:flags}.
 
@@ -731,7 +731,7 @@ main()
 \end{ejemplo}
 
 
-\paragraph{Permisos de los archivos}
+\subsubsection{Permisos de los archivos}
 El tercer argumento de \lstinline{open()} tiene sentido sólo al \textbf{crear} un archivo. Sirve
 para especificar los permisos con los que será creado, siempre según el
 concepto de UNIX de permisos de \textbf{lectura, escritura y ejecución}, distribuidos en
@@ -826,7 +826,7 @@ int fd = open("prueba.dat", O_RDWR|O_CREAT, S_IRWXU|S_IRGRP);
 \end{ejemplo}
 
 
-\subsubsection{Posicionamiento en archivos}
+\subsection{Posicionamiento en archivos}
 Para posicionar el puntero de lectura/escritura en un offset determinado,
 existe la función \lstinline{lseek()}. El origen del desplazamiento se expresa, como en las
 funciones ANSI C de acceso directo, con las constantes \lstinline{SEEK_SET}, \lstinline{SEEK_END} y

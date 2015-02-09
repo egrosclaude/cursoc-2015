@@ -70,7 +70,6 @@ int fun2()
 \end{ejemplo}
 
 \begin{ejemplo}
-
 La diferencia con el ejemplo anterior es que ahora \lstinline{k} es declarada con el modificador \textbf{static}. Esto hace
 que \lstinline{k} tenga las mismas propiedades de vida que una variable externa. A cada invocación de \lstinline{fun1()},
 ésta utiliza el mismo objeto de datos, sin modificarlo, para la variable \lstinline{k}. Si lee su valor, encontrará el
@@ -399,7 +398,6 @@ modificador \textbf{extern} en aquella unidad de traducción donde se va a utili
 
 
 \begin{ejemplo}
-
 En el Cuadro \ref{tab:ejliga3}, el texto \lstinline{delta.c} es una unidad de traducción que declara dos variables externas y dos funciones, pero
 hace \textbf{opacas} a la variable \lstinline{n} y a la función \lstinline{fun2()} con el modificador \textbf{static}. 
 \begin{itemize}
@@ -482,7 +480,6 @@ de optimización a las instrucciones que involucran a esta variable.
 \end{description}
 
 \begin{ejemplo}
-
 El ciclo \lstinline{while} del Cuadro \ref{tab:ciclo} podría ser reescrito por un optimizador, extrayendo del ciclo la
 asignación \lstinline{a=beta} en el entendimiento de que \lstinline{beta} no cambiará en ninguno de los pasos del ciclo.
 \begin{table}

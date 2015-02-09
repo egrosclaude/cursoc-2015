@@ -1,0 +1,23 @@
+
+\documentclass[11pt,a4paper]{book}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+
+
+\usepackage[spanish]{babel}
+\usepackage{changepage}
+\newcounter{ejemplo}[section]
+\newenvironment{ejemplo}[1][\unskip]{\stepcounter{ejemplo}\footnotesize{\noindent\\Ejemplo~\thechapter.\theejemplo}\medskip\hrule\medskip\noindent}{\medskip}
+
+
+\begin{document}
+\section{Un ejemplo}
+
+\begin{ejemplo}
+Una línea que forma un párrafo.
+
+Otro párrafo, que quiero que también esté sin indentación.
+\end{ejemplo}
+
+\end{document}
+

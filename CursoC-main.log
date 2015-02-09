@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.2.24)  6 FEB 2015 17:13
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.2.24)  8 FEB 2015 23:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -496,28 +496,110 @@ Package: appendix 2009/09/02 v1.2b extra appendix facilities
 \c@@ppsavesec=\count145
 \c@@ppsaveapp=\count146
 )
+(/usr/share/texlive/texmf-dist/tex/latex/enumitem/enumitem.sty
+Package: enumitem 2011/09/28 v3.5.2 Customized lists
+\labelindent=\skip49
+\enit@outerparindent=\dimen122
+\enit@toks=\toks33
+\enit@inbox=\box30
+\enitdp@description=\count147
+)
+(/usr/share/texlive/texmf-dist/tex/latex/fancyvrb/fancyvrb.sty
+Package: fancyvrb 2008/02/07
+
+Style option: `fancyvrb' v2.7a, with DG/SPQR fixes, and firstline=lastline fix 
+<2008/02/07> (tvz)
+\FV@CodeLineNo=\count148
+\FV@InFile=\read1
+\FV@TabBox=\box31
+\c@FancyVerbLine=\count149
+\FV@StepNumber=\count150
+\FV@OutFile=\write3
+)
+(/usr/share/texlive/texmf-dist/tex/latex/tocloft/tocloft.sty
+Package: tocloft 2013/05/02 v2.3f parameterised ToC, etc., typesetting
+Package tocloft Info: The document has chapter divisions on input line 44.
+\cftparskip=\skip50
+\cftbeforetoctitleskip=\skip51
+\cftaftertoctitleskip=\skip52
+\cftbeforepartskip=\skip53
+\cftpartnumwidth=\skip54
+\cftpartindent=\skip55
+\cftbeforechapskip=\skip56
+\cftchapindent=\skip57
+\cftchapnumwidth=\skip58
+\cftbeforesecskip=\skip59
+\cftsecindent=\skip60
+\cftsecnumwidth=\skip61
+\cftbeforesubsecskip=\skip62
+\cftsubsecindent=\skip63
+\cftsubsecnumwidth=\skip64
+\cftbeforesubsubsecskip=\skip65
+\cftsubsubsecindent=\skip66
+\cftsubsubsecnumwidth=\skip67
+\cftbeforeparaskip=\skip68
+\cftparaindent=\skip69
+\cftparanumwidth=\skip70
+\cftbeforesubparaskip=\skip71
+\cftsubparaindent=\skip72
+\cftsubparanumwidth=\skip73
+\cftbeforeloftitleskip=\skip74
+\cftafterloftitleskip=\skip75
+\cftbeforefigskip=\skip76
+\cftfigindent=\skip77
+\cftfignumwidth=\skip78
+\c@lofdepth=\count151
+\c@lotdepth=\count152
+\cftbeforelottitleskip=\skip79
+\cftafterlottitleskip=\skip80
+\cftbeforetabskip=\skip81
+\cfttabindent=\skip82
+\cfttabnumwidth=\skip83
+)
+(/usr/share/texlive/texmf-dist/tex/latex/koma-script/tocstyle.sty
+Package: tocstyle 2009/11/09 v0.2d-alpha LaTeX2e KOMA-Script package (versatile
+ toc styles)
+
+
+Package tocstyle Warning: THIS IS AN ALPHA VERSION!
+(tocstyle)                USAGE OF THIS VERSION IS ON YOUR OWN RISK!
+(tocstyle)                EVERYTHING MAY HAPPEN!
+(tocstyle)                EVERYTHING MAY CHANGE IN FUTURE!
+(tocstyle)                THERE IS NO SUPPORT, IF YOU USE THIS PACKAGE!
+(tocstyle)                Maybe it would be better, not to load this package.
+
+\tocstyle@indentstyle=\count153
+Package tocstyle Info: no tocstyle.cfg found on input line 838.
+)
+exclude: 
+exclude: 
+exclude: 
+exclude: 
+exclude: 
+exclude: 
+exclude: 
 (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/listingsutf8.sty
 Package: listingsutf8 2011/11/10 v1.2 Allow UTF-8 in listings input (HO)
 
 (/usr/share/texlive/texmf-dist/tex/latex/listings/listings.sty
-\lst@mode=\count147
-\lst@gtempboxa=\box30
-\lst@token=\toks33
-\lst@length=\count148
-\lst@currlwidth=\dimen122
-\lst@column=\count149
-\lst@pos=\count150
-\lst@lostspace=\dimen123
-\lst@width=\dimen124
-\lst@newlines=\count151
-\lst@lineno=\count152
-\lst@maxwidth=\dimen125
+\lst@mode=\count154
+\lst@gtempboxa=\box32
+\lst@token=\toks34
+\lst@length=\count155
+\lst@currlwidth=\dimen123
+\lst@column=\count156
+\lst@pos=\count157
+\lst@lostspace=\dimen124
+\lst@width=\dimen125
+\lst@newlines=\count158
+\lst@lineno=\count159
+\lst@maxwidth=\dimen126
 
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2013/08/26 1.5b (Carsten Heinz)
-\c@lstnumber=\count153
-\lst@skipnumbers=\count154
-\lst@framebox=\box31
+\c@lstnumber=\count160
+\lst@skipnumbers=\count161
+\lst@framebox=\box33
 )
 (/usr/share/texlive/texmf-dist/tex/latex/listings/listings.cfg
 File: listings.cfg 2013/08/26 1.5b listings configuration
@@ -528,43 +610,24 @@ Package: listings 2013/08/26 1.5b (Carsten Heinz)
 Package: stringenc 2011/12/02 v1.10 Convert strings between diff. encodings (HO
 )
 ))
-(/usr/share/texlive/texmf-dist/tex/latex/enumitem/enumitem.sty
-Package: enumitem 2011/09/28 v3.5.2 Customized lists
-\labelindent=\skip49
-\enit@outerparindent=\dimen126
-\enit@toks=\toks34
-\enit@inbox=\box32
-\enitdp@description=\count155
-)
-(/usr/share/texlive/texmf-dist/tex/latex/fancyvrb/fancyvrb.sty
-Package: fancyvrb 2008/02/07
+\c@ejemplo=\count162
 
-Style option: `fancyvrb' v2.7a, with DG/SPQR fixes, and firstline=lastline fix 
-<2008/02/07> (tvz)
-\FV@CodeLineNo=\count156
-\FV@InFile=\read1
-\FV@TabBox=\box33
-\c@FancyVerbLine=\count157
-\FV@StepNumber=\count158
-\FV@OutFile=\write3
-)
-\c@ejemplo=\count159
- (/usr/share/texlive/texmf-dist/tex/latex/tools/multicol.sty
+(/usr/share/texlive/texmf-dist/tex/latex/tools/multicol.sty
 Package: multicol 2011/06/27 v1.7a multicolumn formatting (FMi)
-\c@tracingmulticols=\count160
+\c@tracingmulticols=\count163
 \mult@box=\box34
 \multicol@leftmargin=\dimen127
-\c@unbalance=\count161
-\c@collectmore=\count162
-\doublecol@number=\count163
-\multicoltolerance=\count164
-\multicolpretolerance=\count165
+\c@unbalance=\count164
+\c@collectmore=\count165
+\doublecol@number=\count166
+\multicoltolerance=\count167
+\multicolpretolerance=\count168
 \full@width=\dimen128
 \page@free=\dimen129
 \premulticols=\dimen130
 \postmulticols=\dimen131
-\multicolsep=\skip50
-\multicolbaselineskip=\skip51
+\multicolsep=\skip84
+\multicolbaselineskip=\skip85
 \partial@page=\box35
 \last@line=\box36
 \mult@rightbox=\box37
@@ -588,15 +651,16 @@ Package: multicol 2011/06/27 v1.7a multicolumn formatting (FMi)
 \@tempa=\box55
 \@tempa=\box56
 \@tempa=\box57
-\c@columnbadness=\count166
-\c@finalcolumnbadness=\count167
+\c@columnbadness=\count169
+\c@finalcolumnbadness=\count170
 \last@try=\dimen132
 \multicolovershoot=\dimen133
 \multicolundershoot=\dimen134
 \mult@nat@firstbox=\box58
 \colbreak@box=\box59
-\multicol@sort@counter=\count168
-) (/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
+\multicol@sort@counter=\count171
+)
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
 Package: caption 2013/05/02 v3.3-89 Customizing captions (AR)
 
 (/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
@@ -610,7 +674,7 @@ Package caption3 Info: TeX engine: e-TeX on input line 57.
 \caption@parindent=\dimen140
 \caption@hangindent=\dimen141
 )
-\c@ContinuedFloat=\count169
+\c@ContinuedFloat=\count172
 Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
 Package caption Info: listings package is loaded.
@@ -622,15 +686,15 @@ Package: verbatim 2003/08/22 v1.5q LaTeX2e package for verbatim enhancements
 \verbatim@in@stream=\read2
 )
 (/usr/share/texlive/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
-\fancy@headwidth=\skip52
-\f@ncyO@elh=\skip53
-\f@ncyO@erh=\skip54
-\f@ncyO@olh=\skip55
-\f@ncyO@orh=\skip56
-\f@ncyO@elf=\skip57
-\f@ncyO@erf=\skip58
-\f@ncyO@olf=\skip59
-\f@ncyO@orf=\skip60
+\fancy@headwidth=\skip86
+\f@ncyO@elh=\skip87
+\f@ncyO@erh=\skip88
+\f@ncyO@olh=\skip89
+\f@ncyO@orh=\skip90
+\f@ncyO@elf=\skip91
+\f@ncyO@erf=\skip92
+\f@ncyO@olf=\skip93
+\f@ncyO@orf=\skip94
 )
 (/usr/share/texmf/tex/latex/lm/lmodern.sty
 Package: lmodern 2009/10/30 v1.6 Latin Modern Fonts
@@ -694,18 +758,18 @@ Package: l3seq 2013/07/28 v4581 L3 Sequences and stacks
 )
 (/usr/share/texlive/texmf-dist/tex/latex/l3kernel/l3int.sty
 Package: l3int 2013/08/02 v4583 L3 Integers
-\c_max_int=\count170
-\l_tmpa_int=\count171
-\l_tmpb_int=\count172
-\g_tmpa_int=\count173
-\g_tmpb_int=\count174
+\c_max_int=\count173
+\l_tmpa_int=\count174
+\l_tmpb_int=\count175
+\g_tmpa_int=\count176
+\g_tmpb_int=\count177
 )
 (/usr/share/texlive/texmf-dist/tex/latex/l3kernel/l3quark.sty
 Package: l3quark 2013/07/21 v4564 L3 Quarks
 )
 (/usr/share/texlive/texmf-dist/tex/latex/l3kernel/l3prg.sty
 Package: l3prg 2013/08/25 v4587 L3 Control structures
-\g__prg_map_int=\count175
+\g__prg_map_int=\count178
 )
 (/usr/share/texlive/texmf-dist/tex/latex/l3kernel/l3clist.sty
 Package: l3clist 2013/07/28 v4581 L3 Comma separated lists
@@ -721,11 +785,11 @@ Package: l3msg 2013/07/28 v4581 L3 Messages
 )
 (/usr/share/texlive/texmf-dist/tex/latex/l3kernel/l3file.sty
 Package: l3file 2013/10/13 v4596 L3 File and I/O operations
-\l_iow_line_count_int=\count176
-\l__iow_target_count_int=\count177
-\l__iow_current_line_int=\count178
-\l__iow_current_word_int=\count179
-\l__iow_current_indentation_int=\count180
+\l_iow_line_count_int=\count179
+\l__iow_target_count_int=\count180
+\l__iow_current_line_int=\count181
+\l__iow_current_word_int=\count182
+\l__iow_current_indentation_int=\count183
 )
 (/usr/share/texlive/texmf-dist/tex/latex/l3kernel/l3skip.sty
 Package: l3skip 2013/07/28 v4581 L3 Dimensions and skips
@@ -735,12 +799,12 @@ Package: l3skip 2013/07/28 v4581 L3 Dimensions and skips
 \l_tmpb_dim=\dimen145
 \g_tmpa_dim=\dimen146
 \g_tmpb_dim=\dimen147
-\c_zero_skip=\skip61
-\c_max_skip=\skip62
-\l_tmpa_skip=\skip63
-\l_tmpb_skip=\skip64
-\g_tmpa_skip=\skip65
-\g_tmpb_skip=\skip66
+\c_zero_skip=\skip95
+\c_max_skip=\skip96
+\l_tmpa_skip=\skip97
+\l_tmpb_skip=\skip98
+\g_tmpa_skip=\skip99
+\g_tmpb_skip=\skip100
 \c_zero_muskip=\muskip12
 \c_max_muskip=\muskip13
 \l_tmpa_muskip=\muskip14
@@ -750,20 +814,20 @@ Package: l3skip 2013/07/28 v4581 L3 Dimensions and skips
 )
 (/usr/share/texlive/texmf-dist/tex/latex/l3kernel/l3keys.sty
 Package: l3keys 2013/07/28 v4581 L3 Experimental key-value interfaces
-\g__keyval_level_int=\count181
-\l_keys_choice_int=\count182
+\g__keyval_level_int=\count184
+\l_keys_choice_int=\count185
 )
 (/usr/share/texlive/texmf-dist/tex/latex/l3kernel/l3fp.sty
 Package: l3fp 2013/07/09 v4521 L3 Floating points
-\c__fp_leading_shift_int=\count183
-\c__fp_middle_shift_int=\count184
-\c__fp_trailing_shift_int=\count185
-\c__fp_big_leading_shift_int=\count186
-\c__fp_big_middle_shift_int=\count187
-\c__fp_big_trailing_shift_int=\count188
-\c__fp_Bigg_leading_shift_int=\count189
-\c__fp_Bigg_middle_shift_int=\count190
-\c__fp_Bigg_trailing_shift_int=\count191
+\c__fp_leading_shift_int=\count186
+\c__fp_middle_shift_int=\count187
+\c__fp_trailing_shift_int=\count188
+\c__fp_big_leading_shift_int=\count189
+\c__fp_big_middle_shift_int=\count190
+\c__fp_big_trailing_shift_int=\count191
+\c__fp_Bigg_leading_shift_int=\count192
+\c__fp_Bigg_middle_shift_int=\count193
+\c__fp_Bigg_trailing_shift_int=\count194
 )
 (/usr/share/texlive/texmf-dist/tex/latex/l3kernel/l3box.sty
 Package: l3box 2013/07/28 v4581 L3 Experimental boxes
@@ -800,8 +864,8 @@ Package: l3color 2012/08/29 v4156 L3 Experimental color support
 )
 (/usr/share/texlive/texmf-dist/tex/latex/l3kernel/l3luatex.sty
 Package: l3luatex 2013/07/28 v4581 L3 Experimental LuaTeX-specific functions
-\g__cctab_allocate_int=\count192
-\g__cctab_stack_int=\count193
+\g__cctab_allocate_int=\count195
+\g__cctab_stack_int=\count196
 )
 (/usr/share/texlive/texmf-dist/tex/latex/l3kernel/l3candidates.sty
 Package: l3candidates 2013/07/24 v4576 L3 Experimental additions to l3kernel
@@ -823,11 +887,11 @@ Package: l3candidates 2013/07/24 v4576 L3 Experimental additions to l3kernel
 \l__coffin_scaled_width_dim=\dimen172
 ))
 Package: xparse 2013/10/13 v4597 L3 Experimental document command parser
-\l__xparse_current_arg_int=\count194
-\l__xparse_m_args_int=\count195
-\l__xparse_mandatory_args_int=\count196
-\l__xparse_processor_int=\count197
-\l__xparse_v_nesting_int=\count198
+\l__xparse_current_arg_int=\count197
+\l__xparse_m_args_int=\count198
+\l__xparse_mandatory_args_int=\count199
+\l__xparse_processor_int=\count200
+\l__xparse_v_nesting_int=\count201
 )
 (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/zref-abspage.sty
 Package: zref-abspage 2012/04/04 v2.24 Module abspage for zref (HO)
@@ -838,53 +902,54 @@ Package zref Info: New property list: main on input line 759.
 Package zref Info: New property: default on input line 760.
 Package zref Info: New property: page on input line 761.
 )
-\c@abspage=\count199
+Normal \count register pool exhausted, switching to extended pool.
+\c@abspage=\count277
 Package zref Info: New property: abspage on input line 62.
 )
 (/usr/share/texlive/texmf-dist/tex/latex/needspace/needspace.sty
 Package: needspace 2010/09/12 v1.3d reserve vertical space
 )
-\mdf@templength=\skip67
-\c@mdf@globalstyle@cnt=\count200
-\mdf@skipabove@length=\skip68
-\mdf@skipbelow@length=\skip69
-\mdf@leftmargin@length=\skip70
-\mdf@rightmargin@length=\skip71
-\mdf@innerleftmargin@length=\skip72
-\mdf@innerrightmargin@length=\skip73
-\mdf@innertopmargin@length=\skip74
-\mdf@innerbottommargin@length=\skip75
-\mdf@splittopskip@length=\skip76
-\mdf@splitbottomskip@length=\skip77
-\mdf@outermargin@length=\skip78
-\mdf@innermargin@length=\skip79
-\mdf@linewidth@length=\skip80
-\mdf@innerlinewidth@length=\skip81
-\mdf@middlelinewidth@length=\skip82
-\mdf@outerlinewidth@length=\skip83
-\mdf@roundcorner@length=\skip84
-\mdf@footenotedistance@length=\skip85
-\mdf@userdefinedwidth@length=\skip86
-\mdf@needspace@length=\skip87
-\mdf@frametitleaboveskip@length=\skip88
-\mdf@frametitlebelowskip@length=\skip89
-\mdf@frametitlerulewidth@length=\skip90
-\mdf@frametitleleftmargin@length=\skip91
-\mdf@frametitlerightmargin@length=\skip92
-\mdf@shadowsize@length=\skip93
-\mdf@extratopheight@length=\skip94
-\mdf@subtitleabovelinewidth@length=\skip95
-\mdf@subtitlebelowlinewidth@length=\skip96
-\mdf@subtitleaboveskip@length=\skip97
-\mdf@subtitlebelowskip@length=\skip98
-\mdf@subtitleinneraboveskip@length=\skip99
-\mdf@subtitleinnerbelowskip@length=\skip100
-\mdf@subsubtitleabovelinewidth@length=\skip101
-\mdf@subsubtitlebelowlinewidth@length=\skip102
-\mdf@subsubtitleaboveskip@length=\skip103
-\mdf@subsubtitlebelowskip@length=\skip104
-\mdf@subsubtitleinneraboveskip@length=\skip105
-\mdf@subsubtitleinnerbelowskip@length=\skip106
+\mdf@templength=\skip101
+\c@mdf@globalstyle@cnt=\count278
+\mdf@skipabove@length=\skip102
+\mdf@skipbelow@length=\skip103
+\mdf@leftmargin@length=\skip104
+\mdf@rightmargin@length=\skip105
+\mdf@innerleftmargin@length=\skip106
+\mdf@innerrightmargin@length=\skip107
+\mdf@innertopmargin@length=\skip108
+\mdf@innerbottommargin@length=\skip109
+\mdf@splittopskip@length=\skip110
+\mdf@splitbottomskip@length=\skip111
+\mdf@outermargin@length=\skip112
+\mdf@innermargin@length=\skip113
+\mdf@linewidth@length=\skip114
+\mdf@innerlinewidth@length=\skip115
+\mdf@middlelinewidth@length=\skip116
+\mdf@outerlinewidth@length=\skip117
+\mdf@roundcorner@length=\skip118
+\mdf@footenotedistance@length=\skip119
+\mdf@userdefinedwidth@length=\skip120
+\mdf@needspace@length=\skip121
+\mdf@frametitleaboveskip@length=\skip122
+\mdf@frametitlebelowskip@length=\skip123
+\mdf@frametitlerulewidth@length=\skip124
+\mdf@frametitleleftmargin@length=\skip125
+\mdf@frametitlerightmargin@length=\skip126
+\mdf@shadowsize@length=\skip127
+\mdf@extratopheight@length=\skip128
+\mdf@subtitleabovelinewidth@length=\skip129
+\mdf@subtitlebelowlinewidth@length=\skip130
+\mdf@subtitleaboveskip@length=\skip131
+\mdf@subtitlebelowskip@length=\skip132
+\mdf@subtitleinneraboveskip@length=\skip133
+\mdf@subtitleinnerbelowskip@length=\skip134
+\mdf@subsubtitleabovelinewidth@length=\skip135
+\mdf@subsubtitlebelowlinewidth@length=\skip136
+\mdf@subsubtitleaboveskip@length=\skip137
+\mdf@subsubtitlebelowskip@length=\skip138
+\mdf@subsubtitleinneraboveskip@length=\skip139
+\mdf@subsubtitleinnerbelowskip@length=\skip140
 
 (/usr/share/texlive/texmf-dist/tex/latex/mdframed/md-frame-0.mdf
 File: md-frame-0.mdf 2013/07/01\ 1.9b: md-frame-0
@@ -894,34 +959,34 @@ File: md-frame-0.mdf 2013/07/01\ 1.9b: md-frame-0
 \mdf@splitbox@one=\box77
 \mdf@splitbox@two=\box78
 \mdf@splitbox@save=\box79
-\mdfsplitboxwidth=\skip107
-\mdfsplitboxtotalwidth=\skip108
-\mdfsplitboxheight=\skip109
-\mdfsplitboxdepth=\skip110
-\mdfsplitboxtotalheight=\skip111
-\mdfframetitleboxwidth=\skip112
-\mdfframetitleboxtotalwidth=\skip113
-\mdfframetitleboxheight=\skip114
-\mdfframetitleboxdepth=\skip115
-\mdfframetitleboxtotalheight=\skip116
-\mdffootnoteboxwidth=\skip117
-\mdffootnoteboxtotalwidth=\skip118
-\mdffootnoteboxheight=\skip119
-\mdffootnoteboxdepth=\skip120
-\mdffootnoteboxtotalheight=\skip121
-\mdftotallinewidth=\skip122
-\mdfboundingboxwidth=\skip123
-\mdfboundingboxtotalwidth=\skip124
-\mdfboundingboxheight=\skip125
-\mdfboundingboxdepth=\skip126
-\mdfboundingboxtotalheight=\skip127
-\mdf@freevspace@length=\skip128
-\mdf@horizontalwidthofbox@length=\skip129
-\mdf@verticalmarginwhole@length=\skip130
-\mdf@horizontalspaceofbox=\skip131
-\mdfsubtitleheight=\skip132
-\mdfsubsubtitleheight=\skip133
-\c@mdfcountframes=\count201
+\mdfsplitboxwidth=\skip141
+\mdfsplitboxtotalwidth=\skip142
+\mdfsplitboxheight=\skip143
+\mdfsplitboxdepth=\skip144
+\mdfsplitboxtotalheight=\skip145
+\mdfframetitleboxwidth=\skip146
+\mdfframetitleboxtotalwidth=\skip147
+\mdfframetitleboxheight=\skip148
+\mdfframetitleboxdepth=\skip149
+\mdfframetitleboxtotalheight=\skip150
+\mdffootnoteboxwidth=\skip151
+\mdffootnoteboxtotalwidth=\skip152
+\mdffootnoteboxheight=\skip153
+\mdffootnoteboxdepth=\skip154
+\mdffootnoteboxtotalheight=\skip155
+\mdftotallinewidth=\skip156
+\mdfboundingboxwidth=\skip157
+\mdfboundingboxtotalwidth=\skip158
+\mdfboundingboxheight=\skip159
+\mdfboundingboxdepth=\skip160
+\mdfboundingboxtotalheight=\skip161
+\mdf@freevspace@length=\skip162
+\mdf@horizontalwidthofbox@length=\skip163
+\mdf@verticalmarginwhole@length=\skip164
+\mdf@horizontalspaceofbox=\skip165
+\mdfsubtitleheight=\skip166
+\mdfsubsubtitleheight=\skip167
+\c@mdfcountframes=\count279
 
 ****** mdframed patching \endmdf@trivlist
 
@@ -939,11 +1004,10 @@ File: md-frame-0.mdf 2013/07/01\ 1.9b: md-frame-0
 . Defining document command \mdtheorem with arg. spec. ' O{} m o m o ' on line
 . 701.
 .................................................
-Normal \count register pool exhausted, switching to extended pool.
-\mdf@envdepth=\count277
-\c@mdf@env@i=\count278
-\c@mdf@env@ii=\count279
-\c@mdf@zref@counter=\count280
+\mdf@envdepth=\count280
+\c@mdf@env@i=\count281
+\c@mdf@env@ii=\count282
+\c@mdf@zref@counter=\count283
 Package zref Info: New property: mdf@pagevalue on input line 895.
 )
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/pifont.sty
@@ -965,8 +1029,8 @@ les
 (/usr/share/texlive/texmf-dist/tex/latex/titlesec/titlesec.sty
 Package: titlesec 2011/12/15 v2.10.0 Sectioning titles
 \ttl@box=\box80
-\beforetitleunit=\skip134
-\aftertitleunit=\skip135
+\beforetitleunit=\skip168
+\aftertitleunit=\skip169
 \ttl@plus=\dimen173
 \ttl@minus=\dimen174
 \ttl@toksa=\toks37
@@ -1017,16 +1081,16 @@ LaTeX Info: Redefining \% on input line 20.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count281
+\scratchcounter=\count284
 \scratchdimen=\dimen178
 \scratchbox=\box81
-\nofMPsegments=\count282
-\nofMParguments=\count283
+\nofMPsegments=\count285
+\nofMParguments=\count286
 \everyMPshowfont=\toks38
-\MPscratchCnt=\count284
+\MPscratchCnt=\count287
 \MPscratchDim=\dimen179
-\MPnumerator=\count285
-\makeMPintoPDFobject=\count286
+\MPnumerator=\count288
+\makeMPintoPDFobject=\count289
 \everyMPtoPDFconversion=\toks39
 )
 \AtBeginShipoutBox=\box82
@@ -1037,7 +1101,7 @@ Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
-\c@section@level=\count287
+\c@section@level=\count290
 )
 LaTeX Info: Redefining \ref on input line 20.
 LaTeX Info: Redefining \pageref on input line 20.
@@ -1063,47 +1127,56 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-\c@lstlisting=\count288
-Package caption Info: Begin \AtBeginDocument code.
-Package caption Info: End \AtBeginDocument code.
-LaTeX Font Info:    Try loading font information for OT1+lmr on input line 22.
+Package tocstyle Info: prepare \l@part for redefinition on input line 20.
+LaTeX Font Info:    Try loading font information for OT1+lmr on input line 20.
 
 (/usr/share/texmf/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OML+lmm on input line 22.
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 20.
 
 (/usr/share/texmf/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 22.
+LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 20.
 
 
 (/usr/share/texmf/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMX+lmex on input line 22.
+LaTeX Font Info:    Try loading font information for OMX+lmex on input line 20.
 
 
 (/usr/share/texmf/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 22.
+(Font)              <12> on input line 20.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 22.
+(Font)              <8> on input line 20.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 22.
-LaTeX Font Info:    Try loading font information for U+msa on input line 22.
+(Font)              <6> on input line 20.
+LaTeX Font Info:    Try loading font information for U+msa on input line 20.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 22.
+LaTeX Font Info:    Try loading font information for U+msb on input line 20.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
+Package tocstyle Info: prepare \l@chapter for redefinition on input line 20.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <10.95> on input line 20.
+Package tocstyle Info: prepare \l@section for redefinition on input line 20.
+Package tocstyle Info: prepare \l@subsection for redefinition on input line 20.
+
+Package tocstyle Info: prepare \l@table for redefinition on input line 20.
+Package tocstyle Info: prepare \l@figure for redefinition on input line 20.
+\c@lstlisting=\count291
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: End \AtBeginDocument code.
 Package babel Info: Redefining spanish shorthand <<
 (babel)             in language  on input line 22.
 Package babel Info: Redefining spanish shorthand >>
@@ -1161,146 +1234,840 @@ Package babel Info: Redefining spanish shorthand "!
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 25.
 
-[2]
-
-LaTeX Font Warning: Font shape `T1/lmss/bx/sc' undefined
-(Font)              using `T1/lmss/bx/n' instead on input line 26.
-
-(./CursoC-main.toc
+[2] (./CursoC-main.toc
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10.95> on input line 3.
+
+number indent by \l@... (toc, 0):  0.0pt
+text indent by \l@... (toc, 0):  16.33182pt
+number indent by parent (toc, 0):  0.0pt
+text indent calculated (toc, 0): 18.06747pt
+number indent calculated (toc, 0): 0.0pt
+number indent by \l@... (toc, 1):  16.33182pt
+text indent by \l@... (toc, 1):  30.48608pt
+number indent by parent (toc, 1):  18.06747pt
+text indent calculated (toc, 1): 30.4166pt
+number indent calculated (toc, 1): 18.06747pt
+number indent by \l@... (toc, 2):  41.37396pt
+text indent by \l@... (toc, 2):  34.84117pt
+number indent by parent (toc, 2):  48.48407pt
+text indent calculated (toc, 2): 34.84117pt
+number indent calculated (toc, 2): 48.48407pt
+number indent by \l@... (toc, 2):  41.37396pt
+text indent by \l@... (toc, 2):  34.84117pt
+number indent by parent (toc, 2):  48.48407pt
+text indent calculated (toc, 2): 34.84117pt
+number indent calculated (toc, 2): 48.48407pt
+number indent by \l@... (toc, 2):  41.37396pt
+text indent by \l@... (toc, 2):  34.84117pt
+number indent by parent (toc, 2):  48.48407pt
+text indent calculated (toc, 2): 34.84117pt
+number indent calculated (toc, 2): 48.48407pt
+number indent by \l@... (toc, 2):  41.37396pt
+text indent by \l@... (toc, 2):  34.84117pt
+number indent by parent (toc, 2):  48.48407pt
+text indent calculated (toc, 2): 34.84117pt
+number indent calculated (toc, 2): 48.48407pt
+number indent by \l@... (toc, 2):  41.37396pt
+text indent by \l@... (toc, 2):  34.84117pt
+number indent by parent (toc, 2):  48.48407pt
+text indent calculated (toc, 2): 34.84117pt
+number indent calculated (toc, 2): 48.48407pt
+number indent by \l@... (toc, 1):  16.33182pt
+text indent by \l@... (toc, 1):  30.48608pt
+number indent by parent (toc, 1):  18.06747pt
+text indent calculated (toc, 1): 30.4166pt
+number indent calculated (toc, 1): 18.06747pt
+number indent by \l@... (toc, 1):  16.33182pt
+text indent by \l@... (toc, 1):  30.48608pt
+number indent by parent (toc, 1):  18.06747pt
+text indent calculated (toc, 1): 30.4166pt
+number indent calculated (toc, 1): 18.06747pt
+number indent by \l@... (toc, 2):  41.37396pt
+text indent by \l@... (toc, 2):  34.84117pt
+number indent by parent (toc, 2):  48.48407pt
+text indent calculated (toc, 2): 34.84117pt
+number indent calculated (toc, 2): 48.48407pt
+number indent by \l@... (toc, 2):  41.37396pt
+text indent by \l@... (toc, 2):  34.84117pt
+number indent by parent (toc, 2):  48.48407pt
+text indent calculated (toc, 2): 34.84117pt
+number indent calculated (toc, 2): 48.48407pt
 LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <10.95> not available
 (Font)              Font shape `T1/lmss/m/sl' tried instead on input line 12.
+number indent by \l@... (toc, 2):  41.37396pt
+text indent by \l@... (toc, 2):  34.84117pt
+number indent by parent (toc, 2):  48.48407pt
+text indent calculated (toc, 2): 34.84117pt
+number indent calculated (toc, 2): 48.48407pt
+number indent by \l@... (toc, 1):  16.33182pt
+text indent by \l@... (toc, 1):  30.48608pt
+number indent by parent (toc, 1):  18.06747pt
+text indent calculated (toc, 1): 30.4166pt
+number indent calculated (toc, 1): 18.06747pt
+number indent by \l@... (toc, 2):  41.37396pt
+text indent by \l@... (toc, 2):  34.84117pt
+number indent by parent (toc, 2):  48.48407pt
+text indent calculated (toc, 2): 34.84117pt
+number indent calculated (toc, 2): 48.48407pt
+number indent by \l@... (toc, 2):  41.37396pt
+text indent by \l@... (toc, 2):  34.84117pt
+number indent by parent (toc, 2):  48.48407pt
+text indent calculated (toc, 2): 34.84117pt
+number indent calculated (toc, 2): 48.48407pt
+number indent by \l@... (toc, 2):  41.37396pt
+text indent by \l@... (toc, 2):  34.84117pt
+number indent by parent (toc, 2):  48.48407pt
+text indent calculated (toc, 2): 34.84117pt
+number indent calculated (toc, 2): 48.48407pt
+number indent by \l@... (toc, 1):  16.33182pt
+text indent by \l@... (toc, 1):  30.48608pt
+number indent by parent (toc, 1):  18.06747pt
+text indent calculated (toc, 1): 30.4166pt
+number indent calculated (toc, 1): 18.06747pt
+number indent by \l@... (toc, 1):  16.33182pt
+text indent by \l@... (toc, 1):  30.48608pt
+number indent by parent (toc, 1):  18.06747pt
+text indent calculated (toc, 1): 30.4166pt
+number indent calculated (toc, 1): 18.06747pt
+number indent by \l@... (toc, 0):  0.0pt
+text indent by \l@... (toc, 0):  16.33182pt
+number indent by parent (toc, 0):  0.0pt
+text indent calculated (toc, 0): 18.06747pt
+number indent calculated (toc, 0): 0.0pt
+number indent by \l@... (toc, 1):  16.33182pt
+text indent by \l@... (toc, 1):  30.48608pt
+number indent by parent (toc, 1):  18.06747pt
+text indent calculated (toc, 1): 30.4166pt
+number indent calculated (toc, 1): 18.06747pt
+number indent by \l@... (toc, 2):  41.37396pt
+text indent by \l@... (toc, 2):  34.84117pt
+number indent by parent (toc, 2):  48.48407pt
+text indent calculated (toc, 2): 34.84117pt
+number indent calculated (toc, 2): 48.48407pt
+number indent by \l@... (toc, 2):  41.37396pt
+text indent by \l@... (toc, 2):  34.84117pt
+number indent by parent (toc, 2):  48.48407pt
+text indent calculated (toc, 2): 34.84117pt
+number indent calculated (toc, 2): 48.48407pt
+number indent by \l@... (toc, 1):  16.33182pt
+text indent by \l@... (toc, 1):  30.48608pt
+number indent by parent (toc, 1):  18.06747pt
+text indent calculated (toc, 1): 30.4166pt
+number indent calculated (toc, 1): 18.06747pt
+number indent by \l@... (toc, 1):  16.33182pt
+text indent by \l@... (toc, 1):  30.48608pt
+number indent by parent (toc, 1):  18.06747pt
+text indent calculated (toc, 1): 30.4166pt
+number indent calculated (toc, 1): 18.06747pt
+number indent by \l@... (toc, 2):  41.37396pt
+text indent by \l@... (toc, 2):  34.84117pt
+number indent by parent (toc, 2):  48.48407pt
+text indent calculated (toc, 2): 34.84117pt
+number indent calculated (toc, 2): 48.48407pt
+number indent by \l@... (toc, 1):  16.33182pt
+text indent by \l@... (toc, 1):  30.48608pt
+number indent by parent (toc, 1):  18.06747pt
+text indent calculated (toc, 1): 30.4166pt
+number indent calculated (toc, 1): 18.06747pt
+number indent by \l@... (toc, 1):  16.33182pt
+text indent by \l@... (toc, 1):  30.48608pt
+number indent by parent (toc, 1):  18.06747pt
+text indent calculated (toc, 1): 30.4166pt
+number indent calculated (toc, 1): 18.06747pt
+number indent by \l@... (toc, 1):  16.33182pt
+text indent by \l@... (toc, 1):  30.48608pt
+number indent by parent (toc, 1):  18.06747pt
+text indent calculated (toc, 1): 30.4166pt
+number indent calculated (toc, 1): 18.06747pt
+number indent by \l@... (toc, 0):  0.0pt
+text indent by \l@... (toc, 0):  16.33182pt
+number indent by parent (toc, 0):  0.0pt
+text indent calculated (toc, 0): 18.06747pt
+number indent calculated (toc, 0): 0.0pt
+number indent by \l@... (toc, 1):  16.33182pt
+text indent by \l@... (toc, 1):  30.48608pt
+number indent by parent (toc, 1):  18.06747pt
+text indent calculated (toc, 1): 30.4166pt
+number indent calculated (toc, 1): 18.06747pt
+number indent by \l@... (toc, 1):  16.33182pt
+text indent by \l@... (toc, 1):  30.48608pt
+number indent by parent (toc, 1):  18.06747pt
+text indent calculated (toc, 1): 30.4166pt
+number indent calculated (toc, 1): 18.06747pt
+number indent by \l@... (toc, 1):  16.33182pt
+text indent by \l@... (toc, 1):  30.48608pt
+number indent by parent (toc, 1):  18.06747pt
+text indent calculated (toc, 1): 30.4166pt
+number indent calculated (toc, 1): 18.06747pt
+number indent by \l@... (toc, 2):  41.37396pt
+text indent by \l@... (toc, 2):  34.84117pt
+number indent by parent (toc, 2):  48.48407pt
+text indent calculated (toc, 2): 34.84117pt
+number indent calculated (toc, 2): 48.48407pt
+number indent by \l@... (toc, 2):  41.37396pt
+text indent by \l@... (toc, 2):  34.84117pt
+number indent by parent (toc, 2):  48.48407pt
+text indent calculated (toc, 2): 34.84117pt
+number indent calculated (toc, 2): 48.48407pt
+number indent by \l@... (toc, 2):  41.37396pt
+text indent by \l@... (toc, 2):  34.84117pt
+number indent by parent (toc, 2):  48.48407pt
+text indent calculated (toc, 2): 34.84117pt
+number indent calculated (toc, 2): 48.48407pt
+number indent by \l@... (toc, 2):  41.37396pt
+text indent by \l@... (toc, 2):  34.84117pt
+number indent by parent (toc, 2):  48.48407pt
+text indent calculated (toc, 2): 34.84117pt
+number indent calculated (toc, 2): 48.48407pt
+number indent by \l@... (toc, 1):  16.33182pt
+text indent by \l@... (toc, 1):  30.48608pt
+number indent by parent (toc, 1):  18.06747pt
+text indent calculated (toc, 1): 30.4166pt
+number indent calculated (toc, 1): 18.06747pt
+number indent by \l@... (toc, 1):  16.33182pt
+text indent by \l@... (toc, 1):  30.48608pt
+number indent by parent (toc, 1):  18.06747pt
+text indent calculated (toc, 1): 30.4166pt
+number indent calculated (toc, 1): 18.06747pt
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 39.
+(babel)             in language  on input line 41.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 39.
+(babel)             in language  on input line 41.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 39.
+(babel)             in language  on input line 41.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 39.
+(babel)             in language  on input line 41.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 39.
+(babel)             in language  on input line 41.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 39.
+(babel)             in language  on input line 41.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 39.
+(babel)             in language  on input line 41.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 39.
+(babel)             in language  on input line 41.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 39.
+(babel)             in language  on input line 41.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 39.
+(babel)             in language  on input line 41.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 39.
+(babel)             in language  on input line 41.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 39.
- [3
-
-]
-LaTeX Info: Redefining \. on input line 84.
-LaTeX Info: Redefining \% on input line 84.
-LaTeX Info: Redefining \. on input line 84.
-LaTeX Info: Redefining \% on input line 84.
+(babel)             in language  on input line 41.
+[3]
+number indent by \l@... (toc, 1):  16.33182pt
+text indent by \l@... (toc, 1):  30.48608pt
+number indent by parent (toc, 1):  18.06747pt
+text indent calculated (toc, 1): 30.4166pt
+number indent calculated (toc, 1): 18.06747pt
+number indent by \l@... (toc, 0):  0.0pt
+text indent by \l@... (toc, 0):  16.33182pt
+number indent by parent (toc, 0):  0.0pt
+text indent calculated (toc, 0): 18.06747pt
+number indent calculated (toc, 0): 0.0pt
+number indent by \l@... (toc, 1):  16.33182pt
+text indent by \l@... (toc, 1):  30.48608pt
+number indent by parent (toc, 1):  18.06747pt
+text indent calculated (toc, 1): 30.4166pt
+number indent calculated (toc, 1): 18.06747pt
+number indent by \l@... (toc, 2):  41.37396pt
+text indent by \l@... (toc, 2):  34.84117pt
+number indent by parent (toc, 2):  48.48407pt
+text indent calculated (toc, 2): 34.84117pt
+number indent calculated (toc, 2): 48.48407pt
+number indent by \l@... (toc, 2):  41.37396pt
+text indent by \l@... (toc, 2):  34.84117pt
+number indent by parent (toc, 2):  48.48407pt
+text indent calculated (toc, 2): 34.84117pt
+number indent calculated (toc, 2): 48.48407pt
+number indent by \l@... (toc, 2):  41.37396pt
+text indent by \l@... (toc, 2):  34.84117pt
+number indent by parent (toc, 2):  48.48407pt
+text indent calculated (toc, 2): 34.84117pt
+number indent calculated (toc, 2): 48.48407pt
+number indent by \l@... (toc, 2):  41.37396pt
+text indent by \l@... (toc, 2):  34.84117pt
+number indent by parent (toc, 2):  48.48407pt
+text indent calculated (toc, 2): 34.84117pt
+number indent calculated (toc, 2): 48.48407pt
+number indent by \l@... (toc, 1):  16.33182pt
+text indent by \l@... (toc, 1):  30.48608pt
+number indent by parent (toc, 1):  18.06747pt
+text indent calculated (toc, 1): 30.4166pt
+number indent calculated (toc, 1): 18.06747pt
+number indent by \l@... (toc, 2):  41.37396pt
+text indent by \l@... (toc, 2):  34.84117pt
+number indent by parent (toc, 2):  48.48407pt
+text indent calculated (toc, 2): 34.84117pt
+number indent calculated (toc, 2): 48.48407pt
+number indent by \l@... (toc, 1):  16.33182pt
+text indent by \l@... (toc, 1):  30.48608pt
+number indent by parent (toc, 1):  18.06747pt
+text indent calculated (toc, 1): 30.4166pt
+number indent calculated (toc, 1): 18.06747pt
+number indent by \l@... (toc, 2):  41.37396pt
+text indent by \l@... (toc, 2):  34.84117pt
+number indent by parent (toc, 2):  48.48407pt
+text indent calculated (toc, 2): 34.84117pt
+number indent calculated (toc, 2): 48.48407pt
+number indent by \l@... (toc, 1):  16.33182pt
+text indent by \l@... (toc, 1):  30.48608pt
+number indent by parent (toc, 1):  18.06747pt
+text indent calculated (toc, 1): 30.4166pt
+number indent calculated (toc, 1): 18.06747pt
+number indent by \l@... (toc, 1):  16.33182pt
+text indent by \l@... (toc, 1):  30.48608pt
+number indent by parent (toc, 1):  18.06747pt
+text indent calculated (toc, 1): 30.4166pt
+number indent calculated (toc, 1): 18.06747pt
+number indent by \l@... (toc, 0):  0.0pt
+text indent by \l@... (toc, 0):  16.33182pt
+number indent by parent (toc, 0):  0.0pt
+text indent calculated (toc, 0): 18.06747pt
+number indent calculated (toc, 0): 0.0pt
+number indent by \l@... (toc, 1):  16.33182pt
+text indent by \l@... (toc, 1):  30.48608pt
+number indent by parent (toc, 1):  18.06747pt
+text indent calculated (toc, 1): 30.4166pt
+number indent calculated (toc, 1): 18.06747pt
+number indent by \l@... (toc, 1):  16.33182pt
+text indent by \l@... (toc, 1):  30.48608pt
+number indent by parent (toc, 1):  18.06747pt
+text indent calculated (toc, 1): 30.4166pt
+number indent calculated (toc, 1): 18.06747pt
+number indent by \l@... (toc, 1):  16.33182pt
+text indent by \l@... (toc, 1):  30.48608pt
+number indent by parent (toc, 1):  18.06747pt
+text indent calculated (toc, 1): 30.4166pt
+number indent calculated (toc, 1): 18.06747pt
+number indent by \l@... (toc, 2):  41.37396pt
+text indent by \l@... (toc, 2):  34.84117pt
+number indent by parent (toc, 2):  48.48407pt
+text indent calculated (toc, 2): 34.84117pt
+number indent calculated (toc, 2): 48.48407pt
+number indent by \l@... (toc, 1):  16.33182pt
+text indent by \l@... (toc, 1):  30.48608pt
+number indent by parent (toc, 1):  18.06747pt
+text indent calculated (toc, 1): 30.4166pt
+number indent calculated (toc, 1): 18.06747pt
+number indent by \l@... (toc, 1):  16.33182pt
+text indent by \l@... (toc, 1):  30.48608pt
+number indent by parent (toc, 1):  18.06747pt
+text indent calculated (toc, 1): 30.4166pt
+number indent calculated (toc, 1): 18.06747pt
+number indent by \l@... (toc, 1):  16.33182pt
+text indent by \l@... (toc, 1):  30.48608pt
+number indent by parent (toc, 1):  18.06747pt
+text indent calculated (toc, 1): 30.4166pt
+number indent calculated (toc, 1): 18.06747pt
+number indent by \l@... (toc, 1):  16.33182pt
+text indent by \l@... (toc, 1):  30.48608pt
+number indent by parent (toc, 1):  18.06747pt
+text indent calculated (toc, 1): 30.4166pt
+number indent calculated (toc, 1): 18.06747pt
+number indent by \l@... (toc, 0):  0.0pt
+text indent by \l@... (toc, 0):  16.33182pt
+number indent by parent (toc, 0):  0.0pt
+text indent calculated (toc, 0): 18.06747pt
+number indent calculated (toc, 0): 0.0pt
+number indent by \l@... (toc, 1):  16.33182pt
+text indent by \l@... (toc, 1):  30.48608pt
+number indent by parent (toc, 1):  18.06747pt
+text indent calculated (toc, 1): 30.4166pt
+number indent calculated (toc, 1): 18.06747pt
+number indent by \l@... (toc, 2):  41.37396pt
+text indent by \l@... (toc, 2):  34.84117pt
+number indent by parent (toc, 2):  48.48407pt
+text indent calculated (toc, 2): 34.84117pt
+number indent calculated (toc, 2): 48.48407pt
+number indent by \l@... (toc, 1):  16.33182pt
+text indent by \l@... (toc, 1):  30.48608pt
+number indent by parent (toc, 1):  18.06747pt
+text indent calculated (toc, 1): 30.4166pt
+number indent calculated (toc, 1): 18.06747pt
+number indent by \l@... (toc, 1):  16.33182pt
+text indent by \l@... (toc, 1):  30.48608pt
+number indent by parent (toc, 1):  18.06747pt
+text indent calculated (toc, 1): 30.4166pt
+number indent calculated (toc, 1): 18.06747pt
+number indent by \l@... (toc, 2):  41.37396pt
+text indent by \l@... (toc, 2):  34.84117pt
+number indent by parent (toc, 2):  48.48407pt
+text indent calculated (toc, 2): 34.84117pt
+number indent calculated (toc, 2): 48.48407pt
+number indent by \l@... (toc, 1):  16.33182pt
+text indent by \l@... (toc, 1):  30.48608pt
+number indent by parent (toc, 1):  18.06747pt
+text indent calculated (toc, 1): 30.4166pt
+number indent calculated (toc, 1): 18.06747pt
+number indent by \l@... (toc, 1):  16.33182pt
+text indent by \l@... (toc, 1):  30.48608pt
+number indent by parent (toc, 1):  18.06747pt
+text indent calculated (toc, 1): 30.4166pt
+number indent calculated (toc, 1): 18.06747pt
+number indent by \l@... (toc, 2):  41.37396pt
+text indent by \l@... (toc, 2):  34.84117pt
+number indent by parent (toc, 2):  48.48407pt
+text indent calculated (toc, 2): 34.84117pt
+number indent calculated (toc, 2): 48.48407pt
+number indent by \l@... (toc, 2):  41.37396pt
+text indent by \l@... (toc, 2):  34.84117pt
+number indent by parent (toc, 2):  48.48407pt
+text indent calculated (toc, 2): 34.84117pt
+number indent calculated (toc, 2): 48.48407pt
+number indent by \l@... (toc, 2):  41.37396pt
+text indent by \l@... (toc, 2):  34.84117pt
+number indent by parent (toc, 2):  48.48407pt
+text indent calculated (toc, 2): 34.84117pt
+number indent calculated (toc, 2): 48.48407pt
+number indent by \l@... (toc, 1):  16.33182pt
+text indent by \l@... (toc, 1):  30.48608pt
+number indent by parent (toc, 1):  18.06747pt
+text indent calculated (toc, 1): 30.4166pt
+number indent calculated (toc, 1): 18.06747pt
+number indent by \l@... (toc, 1):  16.33182pt
+text indent by \l@... (toc, 1):  30.48608pt
+number indent by parent (toc, 1):  18.06747pt
+text indent calculated (toc, 1): 30.4166pt
+number indent calculated (toc, 1): 18.06747pt
+number indent by \l@... (toc, 1):  16.33182pt
+text indent by \l@... (toc, 1):  30.48608pt
+number indent by parent (toc, 1):  18.06747pt
+text indent calculated (toc, 1): 30.4166pt
+number indent calculated (toc, 1): 18.06747pt
+number indent by \l@... (toc, 0):  0.0pt
+text indent by \l@... (toc, 0):  16.33182pt
+number indent by parent (toc, 0):  0.0pt
+text indent calculated (toc, 0): 18.06747pt
+number indent calculated (toc, 0): 0.0pt
+number indent by \l@... (toc, 1):  16.33182pt
+text indent by \l@... (toc, 1):  30.48608pt
+number indent by parent (toc, 1):  18.06747pt
+text indent calculated (toc, 1): 30.4166pt
+number indent calculated (toc, 1): 18.06747pt
+number indent by \l@... (toc, 1):  16.33182pt
+text indent by \l@... (toc, 1):  30.48608pt
+number indent by parent (toc, 1):  18.06747pt
+text indent calculated (toc, 1): 30.4166pt
+number indent calculated (toc, 1): 18.06747pt
+number indent by \l@... (toc, 2):  41.37396pt
+text indent by \l@... (toc, 2):  34.84117pt
+number indent by parent (toc, 2):  48.48407pt
+text indent calculated (toc, 2): 34.84117pt
+number indent calculated (toc, 2): 48.48407pt
+number indent by \l@... (toc, 2):  41.37396pt
+text indent by \l@... (toc, 2):  34.84117pt
+number indent by parent (toc, 2):  48.48407pt
+text indent calculated (toc, 2): 34.84117pt
+number indent calculated (toc, 2): 48.48407pt
+number indent by \l@... (toc, 2):  41.37396pt
+text indent by \l@... (toc, 2):  34.84117pt
+number indent by parent (toc, 2):  48.48407pt
+text indent calculated (toc, 2): 34.84117pt
+number indent calculated (toc, 2): 48.48407pt
+number indent by \l@... (toc, 1):  16.33182pt
+text indent by \l@... (toc, 1):  30.48608pt
+number indent by parent (toc, 1):  18.06747pt
+text indent calculated (toc, 1): 30.4166pt
+number indent calculated (toc, 1): 18.06747pt
+number indent by \l@... (toc, 1):  16.33182pt
+text indent by \l@... (toc, 1):  30.48608pt
+number indent by parent (toc, 1):  18.06747pt
+text indent calculated (toc, 1): 30.4166pt
+number indent calculated (toc, 1): 18.06747pt
+number indent by \l@... (toc, 2):  41.37396pt
+text indent by \l@... (toc, 2):  34.84117pt
+number indent by parent (toc, 2):  48.48407pt
+text indent calculated (toc, 2): 34.84117pt
+number indent calculated (toc, 2): 48.48407pt
+LaTeX Info: Redefining \. on input line 86.
+LaTeX Info: Redefining \% on input line 86.
+LaTeX Info: Redefining \. on input line 86.
+LaTeX Info: Redefining \% on input line 86.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 84.
+(babel)             in language  on input line 86.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 84.
+(babel)             in language  on input line 86.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 84.
+(babel)             in language  on input line 86.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 84.
+(babel)             in language  on input line 86.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 84.
+(babel)             in language  on input line 86.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 84.
+(babel)             in language  on input line 86.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 84.
+(babel)             in language  on input line 86.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 84.
+(babel)             in language  on input line 86.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 84.
+(babel)             in language  on input line 86.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 84.
+(babel)             in language  on input line 86.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 84.
+(babel)             in language  on input line 86.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 84.
- [4]
-Overfull \hbox (2.79823pt too wide) detected at line 122
-\T1/lmss/m/n/10.95 10.10. 
- []
-
-
-Overfull \hbox (2.79823pt too wide) detected at line 123
-\T1/lmss/m/n/10.95 10.11. 
- []
-
-
-Overfull \hbox (2.79823pt too wide) detected at line 124
-\T1/lmss/m/n/10.95 10.12. 
- []
-
-
-Overfull \hbox (2.79823pt too wide) detected at line 125
-\T1/lmss/m/n/10.95 10.13. 
- []
-
-
-Overfull \hbox (2.79823pt too wide) detected at line 126
-\T1/lmss/m/n/10.95 10.14. 
- []
-
-
-Overfull \hbox (2.79823pt too wide) detected at line 127
-\T1/lmss/m/n/10.95 10.15. 
- []
-
-
-Overfull \hbox (2.79823pt too wide) detected at line 128
-\T1/lmss/m/n/10.95 10.16. 
- []
-
-
-Overfull \hbox (2.79823pt too wide) detected at line 129
-\T1/lmss/m/n/10.95 10.17. 
- []
-
-LaTeX Info: Redefining \. on input line 130.
-LaTeX Info: Redefining \% on input line 130.
-LaTeX Info: Redefining \. on input line 130.
-LaTeX Info: Redefining \% on input line 130.
+(babel)             in language  on input line 86.
+[4]
+number indent by \l@... (toc, 2):  41.37396pt
+text indent by \l@... (toc, 2):  34.84117pt
+number indent by parent (toc, 2):  48.48407pt
+text indent calculated (toc, 2): 34.84117pt
+number indent calculated (toc, 2): 48.48407pt
+number indent by \l@... (toc, 2):  41.37396pt
+text indent by \l@... (toc, 2):  34.84117pt
+number indent by parent (toc, 2):  48.48407pt
+text indent calculated (toc, 2): 34.84117pt
+number indent calculated (toc, 2): 48.48407pt
+number indent by \l@... (toc, 2):  41.37396pt
+text indent by \l@... (toc, 2):  34.84117pt
+number indent by parent (toc, 2):  48.48407pt
+text indent calculated (toc, 2): 34.84117pt
+number indent calculated (toc, 2): 48.48407pt
+number indent by \l@... (toc, 1):  16.33182pt
+text indent by \l@... (toc, 1):  30.48608pt
+number indent by parent (toc, 1):  18.06747pt
+text indent calculated (toc, 1): 30.4166pt
+number indent calculated (toc, 1): 18.06747pt
+number indent by \l@... (toc, 1):  16.33182pt
+text indent by \l@... (toc, 1):  30.48608pt
+number indent by parent (toc, 1):  18.06747pt
+text indent calculated (toc, 1): 30.4166pt
+number indent calculated (toc, 1): 18.06747pt
+number indent by \l@... (toc, 0):  0.0pt
+text indent by \l@... (toc, 0):  16.33182pt
+number indent by parent (toc, 0):  0.0pt
+text indent calculated (toc, 0): 18.06747pt
+number indent calculated (toc, 0): 0.0pt
+number indent by \l@... (toc, 1):  16.33182pt
+text indent by \l@... (toc, 1):  30.48608pt
+number indent by parent (toc, 1):  18.06747pt
+text indent calculated (toc, 1): 30.4166pt
+number indent calculated (toc, 1): 18.06747pt
+number indent by \l@... (toc, 1):  16.33182pt
+text indent by \l@... (toc, 1):  30.48608pt
+number indent by parent (toc, 1):  18.06747pt
+text indent calculated (toc, 1): 30.4166pt
+number indent calculated (toc, 1): 18.06747pt
+number indent by \l@... (toc, 1):  16.33182pt
+text indent by \l@... (toc, 1):  30.48608pt
+number indent by parent (toc, 1):  18.06747pt
+text indent calculated (toc, 1): 30.4166pt
+number indent calculated (toc, 1): 18.06747pt
+number indent by \l@... (toc, 1):  16.33182pt
+text indent by \l@... (toc, 1):  30.48608pt
+number indent by parent (toc, 1):  18.06747pt
+text indent calculated (toc, 1): 30.4166pt
+number indent calculated (toc, 1): 18.06747pt
+number indent by \l@... (toc, 1):  16.33182pt
+text indent by \l@... (toc, 1):  30.48608pt
+number indent by parent (toc, 1):  18.06747pt
+text indent calculated (toc, 1): 30.4166pt
+number indent calculated (toc, 1): 18.06747pt
+number indent by \l@... (toc, 0):  0.0pt
+text indent by \l@... (toc, 0):  16.33182pt
+number indent by parent (toc, 0):  0.0pt
+text indent calculated (toc, 0): 18.06747pt
+number indent calculated (toc, 0): 0.0pt
+number indent by \l@... (toc, 1):  16.33182pt
+text indent by \l@... (toc, 1):  30.48608pt
+number indent by parent (toc, 1):  18.06747pt
+text indent calculated (toc, 1): 30.4166pt
+number indent calculated (toc, 1): 18.06747pt
+number indent by \l@... (toc, 2):  41.37396pt
+text indent by \l@... (toc, 2):  34.84117pt
+number indent by parent (toc, 2):  48.48407pt
+text indent calculated (toc, 2): 34.84117pt
+number indent calculated (toc, 2): 48.48407pt
+number indent by \l@... (toc, 2):  41.37396pt
+text indent by \l@... (toc, 2):  34.84117pt
+number indent by parent (toc, 2):  48.48407pt
+text indent calculated (toc, 2): 34.84117pt
+number indent calculated (toc, 2): 48.48407pt
+number indent by \l@... (toc, 1):  16.33182pt
+text indent by \l@... (toc, 1):  30.48608pt
+number indent by parent (toc, 1):  18.06747pt
+text indent calculated (toc, 1): 30.4166pt
+number indent calculated (toc, 1): 18.06747pt
+number indent by \l@... (toc, 1):  16.33182pt
+text indent by \l@... (toc, 1):  30.48608pt
+number indent by parent (toc, 1):  18.06747pt
+text indent calculated (toc, 1): 30.4166pt
+number indent calculated (toc, 1): 18.06747pt
+number indent by \l@... (toc, 2):  41.37396pt
+text indent by \l@... (toc, 2):  34.84117pt
+number indent by parent (toc, 2):  48.48407pt
+text indent calculated (toc, 2): 34.84117pt
+number indent calculated (toc, 2): 48.48407pt
+number indent by \l@... (toc, 2):  41.37396pt
+text indent by \l@... (toc, 2):  34.84117pt
+number indent by parent (toc, 2):  48.48407pt
+text indent calculated (toc, 2): 34.84117pt
+number indent calculated (toc, 2): 48.48407pt
+number indent by \l@... (toc, 2):  41.37396pt
+text indent by \l@... (toc, 2):  34.84117pt
+number indent by parent (toc, 2):  48.48407pt
+text indent calculated (toc, 2): 34.84117pt
+number indent calculated (toc, 2): 48.48407pt
+number indent by \l@... (toc, 1):  16.33182pt
+text indent by \l@... (toc, 1):  30.48608pt
+number indent by parent (toc, 1):  18.06747pt
+text indent calculated (toc, 1): 30.4166pt
+number indent calculated (toc, 1): 18.06747pt
+number indent by \l@... (toc, 0):  0.0pt
+text indent by \l@... (toc, 0):  16.33182pt
+number indent by parent (toc, 0):  0.0pt
+text indent calculated (toc, 0): 18.06747pt
+number indent calculated (toc, 0): 0.0pt
+number indent by \l@... (toc, 1):  16.33182pt
+text indent by \l@... (toc, 1):  30.48608pt
+number indent by parent (toc, 1):  18.06747pt
+text indent calculated (toc, 1): 30.4166pt
+number indent calculated (toc, 1): 18.06747pt
+number indent by \l@... (toc, 1):  16.33182pt
+text indent by \l@... (toc, 1):  30.48608pt
+number indent by parent (toc, 1):  18.06747pt
+text indent calculated (toc, 1): 30.4166pt
+number indent calculated (toc, 1): 18.06747pt
+number indent by \l@... (toc, 2):  41.37396pt
+text indent by \l@... (toc, 2):  34.84117pt
+number indent by parent (toc, 2):  48.48407pt
+text indent calculated (toc, 2): 34.84117pt
+number indent calculated (toc, 2): 48.48407pt
+number indent by \l@... (toc, 2):  41.37396pt
+text indent by \l@... (toc, 2):  34.84117pt
+number indent by parent (toc, 2):  48.48407pt
+text indent calculated (toc, 2): 34.84117pt
+number indent calculated (toc, 2): 48.48407pt
+number indent by \l@... (toc, 2):  41.37396pt
+text indent by \l@... (toc, 2):  34.84117pt
+number indent by parent (toc, 2):  48.48407pt
+text indent calculated (toc, 2): 34.84117pt
+number indent calculated (toc, 2): 48.48407pt
+number indent by \l@... (toc, 1):  16.33182pt
+text indent by \l@... (toc, 1):  30.48608pt
+number indent by parent (toc, 1):  18.06747pt
+text indent calculated (toc, 1): 30.4166pt
+number indent calculated (toc, 1): 18.06747pt
+number indent by \l@... (toc, 1):  16.33182pt
+text indent by \l@... (toc, 1):  30.48608pt
+number indent by parent (toc, 1):  18.06747pt
+text indent calculated (toc, 1): 30.4166pt
+number indent calculated (toc, 1): 18.06747pt
+number indent by \l@... (toc, 1):  16.33182pt
+text indent by \l@... (toc, 1):  30.48608pt
+number indent by parent (toc, 1):  18.06747pt
+text indent calculated (toc, 1): 30.4166pt
+number indent calculated (toc, 1): 18.06747pt
+number indent by \l@... (toc, 1):  16.33182pt
+text indent by \l@... (toc, 1):  30.48608pt
+number indent by parent (toc, 1):  18.06747pt
+text indent calculated (toc, 1): 30.4166pt
+number indent calculated (toc, 1): 18.06747pt
+number indent by \l@... (toc, 1):  16.33182pt
+text indent by \l@... (toc, 1):  30.48608pt
+number indent by parent (toc, 1):  18.06747pt
+text indent calculated (toc, 1): 30.4166pt
+number indent calculated (toc, 1): 18.06747pt
+number indent by \l@... (toc, 1):  16.33182pt
+text indent by \l@... (toc, 1):  30.48608pt
+number indent by parent (toc, 1):  18.06747pt
+text indent calculated (toc, 1): 30.4166pt
+number indent calculated (toc, 1): 18.06747pt
+number indent by \l@... (toc, 2):  41.37396pt
+text indent by \l@... (toc, 2):  34.84117pt
+number indent by parent (toc, 2):  48.48407pt
+text indent calculated (toc, 2): 34.84117pt
+number indent calculated (toc, 2): 48.48407pt
+number indent by \l@... (toc, 2):  41.37396pt
+text indent by \l@... (toc, 2):  34.84117pt
+number indent by parent (toc, 2):  48.48407pt
+text indent calculated (toc, 2): 34.84117pt
+number indent calculated (toc, 2): 48.48407pt
+number indent by \l@... (toc, 2):  41.37396pt
+text indent by \l@... (toc, 2):  34.84117pt
+number indent by parent (toc, 2):  48.48407pt
+text indent calculated (toc, 2): 34.84117pt
+number indent calculated (toc, 2): 48.48407pt
+number indent by \l@... (toc, 1):  16.33182pt
+text indent by \l@... (toc, 1):  30.48608pt
+number indent by parent (toc, 1):  18.06747pt
+text indent calculated (toc, 1): 30.4166pt
+number indent calculated (toc, 1): 18.06747pt
+number indent by \l@... (toc, 1):  16.33182pt
+text indent by \l@... (toc, 1):  30.48608pt
+number indent by parent (toc, 1):  18.06747pt
+text indent calculated (toc, 1): 30.4166pt
+number indent calculated (toc, 1): 18.06747pt
+number indent by \l@... (toc, 1):  16.33182pt
+text indent by \l@... (toc, 1):  30.48608pt
+number indent by parent (toc, 1):  18.06747pt
+text indent calculated (toc, 1): 30.4166pt
+number indent calculated (toc, 1): 18.06747pt
+number indent by \l@... (toc, 1):  16.33182pt
+text indent by \l@... (toc, 1):  30.48608pt
+number indent by parent (toc, 1):  18.06747pt
+text indent calculated (toc, 1): 30.4166pt
+number indent calculated (toc, 1): 18.06747pt
+number indent by \l@... (toc, 1):  16.33182pt
+text indent by \l@... (toc, 1):  30.48608pt
+number indent by parent (toc, 1):  18.06747pt
+text indent calculated (toc, 1): 30.4166pt
+number indent calculated (toc, 1): 18.06747pt
+number indent by \l@... (toc, 1):  16.33182pt
+text indent by \l@... (toc, 1):  30.48608pt
+number indent by parent (toc, 1):  18.06747pt
+text indent calculated (toc, 1): 30.4166pt
+number indent calculated (toc, 1): 18.06747pt
+number indent by \l@... (toc, 1):  16.33182pt
+text indent by \l@... (toc, 1):  30.48608pt
+number indent by parent (toc, 1):  18.06747pt
+text indent calculated (toc, 1): 30.4166pt
+number indent calculated (toc, 1): 18.06747pt
+number indent by \l@... (toc, 1):  16.33182pt
+text indent by \l@... (toc, 1):  30.48608pt
+number indent by parent (toc, 1):  18.06747pt
+text indent calculated (toc, 1): 30.4166pt
+number indent calculated (toc, 1): 18.06747pt
+number indent by \l@... (toc, 1):  16.33182pt
+text indent by \l@... (toc, 1):  30.48608pt
+number indent by parent (toc, 1):  18.06747pt
+text indent calculated (toc, 1): 30.4166pt
+number indent calculated (toc, 1): 18.06747pt
+LaTeX Info: Redefining \. on input line 131.
+LaTeX Info: Redefining \% on input line 131.
+LaTeX Info: Redefining \. on input line 131.
+LaTeX Info: Redefining \% on input line 131.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 130.
+(babel)             in language  on input line 131.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 130.
+(babel)             in language  on input line 131.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 130.
+(babel)             in language  on input line 131.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 130.
+(babel)             in language  on input line 131.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 130.
+(babel)             in language  on input line 131.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 130.
+(babel)             in language  on input line 131.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 130.
+(babel)             in language  on input line 131.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 130.
+(babel)             in language  on input line 131.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 130.
+(babel)             in language  on input line 131.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 130.
+(babel)             in language  on input line 131.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 130.
+(babel)             in language  on input line 131.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 130.
+(babel)             in language  on input line 131.
 [5]
-Overfull \hbox (2.79823pt too wide) detected at line 130
-\T1/lmss/m/n/10.95 10.18. 
- []
-
+number indent by \l@... (toc, 1):  16.33182pt
+text indent by \l@... (toc, 1):  30.48608pt
+number indent by parent (toc, 1):  18.06747pt
+text indent calculated (toc, 1): 30.4166pt
+number indent calculated (toc, 1): 18.06747pt
+number indent by \l@... (toc, 0):  0.0pt
+text indent by \l@... (toc, 0):  16.33182pt
+number indent by parent (toc, 0):  0.0pt
+text indent calculated (toc, 0): 18.06747pt
+number indent calculated (toc, 0): 0.0pt
+number indent by \l@... (toc, 1):  16.33182pt
+text indent by \l@... (toc, 1):  30.48608pt
+number indent by parent (toc, 1):  18.06747pt
+text indent calculated (toc, 1): 30.4166pt
+number indent calculated (toc, 1): 18.06747pt
+number indent by \l@... (toc, 1):  16.33182pt
+text indent by \l@... (toc, 1):  30.48608pt
+number indent by parent (toc, 1):  18.06747pt
+text indent calculated (toc, 1): 30.4166pt
+number indent calculated (toc, 1): 18.06747pt
+number indent by \l@... (toc, 1):  16.33182pt
+text indent by \l@... (toc, 1):  30.48608pt
+number indent by parent (toc, 1):  18.06747pt
+text indent calculated (toc, 1): 30.4166pt
+number indent calculated (toc, 1): 18.06747pt
+number indent by \l@... (toc, 1):  16.33182pt
+text indent by \l@... (toc, 1):  30.48608pt
+number indent by parent (toc, 1):  18.06747pt
+text indent calculated (toc, 1): 30.4166pt
+number indent calculated (toc, 1): 18.06747pt
+number indent by \l@... (toc, 1):  16.33182pt
+text indent by \l@... (toc, 1):  30.48608pt
+number indent by parent (toc, 1):  18.06747pt
+text indent calculated (toc, 1): 30.4166pt
+number indent calculated (toc, 1): 18.06747pt
+number indent by \l@... (toc, 0):  0.0pt
+text indent by \l@... (toc, 0):  16.33182pt
+number indent by parent (toc, 0):  0.0pt
+text indent calculated (toc, 0): 18.06747pt
+number indent calculated (toc, 0): 0.0pt
+number indent by \l@... (toc, 1):  16.33182pt
+text indent by \l@... (toc, 1):  30.48608pt
+number indent by parent (toc, 1):  18.06747pt
+text indent calculated (toc, 1): 30.4166pt
+number indent calculated (toc, 1): 18.06747pt
+number indent by \l@... (toc, 1):  16.33182pt
+text indent by \l@... (toc, 1):  30.48608pt
+number indent by parent (toc, 1):  18.06747pt
+text indent calculated (toc, 1): 30.4166pt
+number indent calculated (toc, 1): 18.06747pt
+number indent by \l@... (toc, 1):  16.33182pt
+text indent by \l@... (toc, 1):  30.48608pt
+number indent by parent (toc, 1):  18.06747pt
+text indent calculated (toc, 1): 30.4166pt
+number indent calculated (toc, 1): 18.06747pt
+number indent by \l@... (toc, 1):  16.33182pt
+text indent by \l@... (toc, 1):  30.48608pt
+number indent by parent (toc, 1):  18.06747pt
+text indent calculated (toc, 1): 30.4166pt
+number indent calculated (toc, 1): 18.06747pt
+number indent by \l@... (toc, 1):  16.33182pt
+text indent by \l@... (toc, 1):  30.48608pt
+number indent by parent (toc, 1):  18.06747pt
+text indent calculated (toc, 1): 30.4166pt
+number indent calculated (toc, 1): 18.06747pt
+number indent by \l@... (toc, 1):  16.33182pt
+text indent by \l@... (toc, 1):  30.48608pt
+number indent by parent (toc, 1):  18.06747pt
+text indent calculated (toc, 1): 30.4166pt
+number indent calculated (toc, 1): 18.06747pt
+number indent by \l@... (toc, 2):  41.37396pt
+text indent by \l@... (toc, 2):  34.84117pt
+number indent by parent (toc, 2):  48.48407pt
+text indent calculated (toc, 2): 34.84117pt
+number indent calculated (toc, 2): 48.48407pt
+number indent by \l@... (toc, 2):  41.37396pt
+text indent by \l@... (toc, 2):  34.84117pt
+number indent by parent (toc, 2):  48.48407pt
+text indent calculated (toc, 2): 34.84117pt
+number indent calculated (toc, 2): 48.48407pt
+number indent by \l@... (toc, 1):  16.33182pt
+text indent by \l@... (toc, 1):  30.48608pt
+number indent by parent (toc, 1):  18.06747pt
+text indent calculated (toc, 1): 30.4166pt
+number indent calculated (toc, 1): 18.06747pt
+number indent by \l@... (toc, 1):  16.33182pt
+text indent by \l@... (toc, 1):  30.48608pt
+number indent by parent (toc, 1):  18.06747pt
+text indent calculated (toc, 1): 30.4166pt
+number indent calculated (toc, 1): 18.06747pt
+number indent by \l@... (toc, 2):  41.37396pt
+text indent by \l@... (toc, 2):  34.84117pt
+number indent by parent (toc, 2):  48.48407pt
+text indent calculated (toc, 2): 34.84117pt
+number indent calculated (toc, 2): 48.48407pt
+number indent by \l@... (toc, 2):  41.37396pt
+text indent by \l@... (toc, 2):  34.84117pt
+number indent by parent (toc, 2):  48.48407pt
+text indent calculated (toc, 2): 34.84117pt
+number indent calculated (toc, 2): 48.48407pt
+number indent by \l@... (toc, 1):  16.33182pt
+text indent by \l@... (toc, 1):  30.48608pt
+number indent by parent (toc, 1):  18.06747pt
+text indent calculated (toc, 1): 30.4166pt
+number indent calculated (toc, 1): 18.06747pt
 )
 \tf@toc=\write5
 \openout5 = `CursoC-main.toc'.
@@ -1348,6 +2115,10 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 2.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 2.
+
+LaTeX Font Warning: Font shape `T1/lmss/bx/sc' undefined
+(Font)              using `T1/lmss/bx/n' instead on input line 2.
+
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <5> on input line 12.
 Package babel Info: Redefining spanish shorthand <<
@@ -1496,14 +2267,14 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 142.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 142.
- <./img/kernighan.jpg, id=749, 31.317pt x 34.2078pt>
+ <./img/kernighan.jpg, id=783, 31.317pt x 34.2078pt>
 File: ./img/kernighan.jpg Graphic file (type jpg)
 
 <use ./img/kernighan.jpg>
 Package pdftex.def Info: ./img/kernighan.jpg used on input line 155.
 (pdftex.def)             Requested size: 97.89114pt x 112.94345pt.
 
-<./img/dennis_ritchie.jpg, id=750, 121.45375pt x 150.5625pt>
+<./img/dennis_ritchie.jpg, id=784, 121.45375pt x 150.5625pt>
 File: ./img/dennis_ritchie.jpg Graphic file (type jpg)
 
 <use ./img/dennis_ritchie.jpg>
@@ -1569,7 +2340,7 @@ to.pdf ./img/ciclo.eps>
 (epstopdf)             \includegraphics on input line 190.
 Package epstopdf Info: Output file is already uptodate.
 
-<./img/ciclo-eps-converted-to.pdf, id=757, 447.6725pt x 413.545pt>
+<./img/ciclo-eps-converted-to.pdf, id=791, 447.6725pt x 413.545pt>
 File: ./img/ciclo-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./img/ciclo-eps-converted-to.pdf>
@@ -1722,34 +2493,34 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 292.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 292.
-LaTeX Info: Redefining \. on input line 307.
-LaTeX Info: Redefining \% on input line 307.
-LaTeX Info: Redefining \. on input line 307.
-LaTeX Info: Redefining \% on input line 307.
+LaTeX Info: Redefining \. on input line 301.
+LaTeX Info: Redefining \% on input line 301.
+LaTeX Info: Redefining \. on input line 301.
+LaTeX Info: Redefining \% on input line 301.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 307.
+(babel)             in language  on input line 301.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 307.
+(babel)             in language  on input line 301.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 307.
+(babel)             in language  on input line 301.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 307.
+(babel)             in language  on input line 301.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 307.
+(babel)             in language  on input line 301.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 307.
+(babel)             in language  on input line 301.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 307.
+(babel)             in language  on input line 301.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 307.
+(babel)             in language  on input line 301.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 307.
+(babel)             in language  on input line 301.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 307.
+(babel)             in language  on input line 301.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 307.
+(babel)             in language  on input line 301.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 307.
+(babel)             in language  on input line 301.
  [12]
 Package babel Info: Redefining spanish shorthand <<
 (babel)             in language  on input line 312.
@@ -1774,7 +2545,7 @@ nverted-to.pdf ./img/mapadememoria.eps>
 (epstopdf)             \includegraphics on input line 331.
 Package epstopdf Info: Output file is already uptodate.
 
-<./img/mapadememoria-eps-converted-to.pdf, id=785, 181.67876pt x 358.33875pt>
+<./img/mapadememoria-eps-converted-to.pdf, id=820, 181.67876pt x 358.33875pt>
 File: ./img/mapadememoria-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./img/mapadememoria-eps-converted-to.pdf>
@@ -1810,7 +2581,7 @@ Package babel Info: Redefining spanish shorthand "!
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 340.
  [13 <./img/mapadememoria-eps-converted-to.pdf>] <./img/emblem-important.png, i
-d=794, 77.088pt x 77.088pt>
+d=829, 77.088pt x 77.088pt>
 File: ./img/emblem-important.png Graphic file (type png)
 
 <use ./img/emblem-important.png>
@@ -1953,7 +2724,7 @@ Package epstopdf Info: Source file: <./img/ciclo-wmf.eps>
 ted-to.pdf ./img/ciclo-wmf.eps>
 (epstopdf)             \includegraphics on input line 8.
 Package epstopdf Info: Output file is already uptodate.
-<./img/ciclo-wmf-eps-converted-to.pdf, id=828, 459.7175pt x 381.425pt>
+<./img/ciclo-wmf-eps-converted-to.pdf, id=862, 459.7175pt x 381.425pt>
 File: ./img/ciclo-wmf-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./img/ciclo-wmf-eps-converted-to.pdf>
@@ -2024,7 +2795,7 @@ Package epstopdf Info: Source file: <./img/directivas.eps>
 rted-to.pdf ./img/directivas.eps>
 (epstopdf)             \includegraphics on input line 23.
 Package epstopdf Info: Output file is already uptodate.
-<./img/directivas-eps-converted-to.pdf, id=839, 361.35pt x 405.515pt>
+<./img/directivas-eps-converted-to.pdf, id=873, 361.35pt x 405.515pt>
 File: ./img/directivas-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./img/directivas-eps-converted-to.pdf>
@@ -2614,34 +3385,34 @@ LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <10> not available
 (Font)              Font shape `T1/lmtt/b/n' tried instead on input line 299.
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <9> on input line 308.
-LaTeX Info: Redefining \. on input line 320.
-LaTeX Info: Redefining \% on input line 320.
-LaTeX Info: Redefining \. on input line 320.
-LaTeX Info: Redefining \% on input line 320.
+LaTeX Info: Redefining \. on input line 321.
+LaTeX Info: Redefining \% on input line 321.
+LaTeX Info: Redefining \. on input line 321.
+LaTeX Info: Redefining \% on input line 321.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 320.
+(babel)             in language  on input line 321.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 320.
+(babel)             in language  on input line 321.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 320.
+(babel)             in language  on input line 321.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 320.
+(babel)             in language  on input line 321.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 320.
+(babel)             in language  on input line 321.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 320.
+(babel)             in language  on input line 321.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 320.
+(babel)             in language  on input line 321.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 320.
+(babel)             in language  on input line 321.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 320.
+(babel)             in language  on input line 321.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 320.
+(babel)             in language  on input line 321.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 320.
+(babel)             in language  on input line 321.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 320.
+(babel)             in language  on input line 321.
  [30]
 Package babel Info: Redefining spanish shorthand <<
 (babel)             in language  on input line 344.
@@ -3179,87 +3950,87 @@ Package babel Info: Redefining spanish shorthand "!
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 50.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 97.
+(babel)             in language  on input line 96.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 97.
+(babel)             in language  on input line 96.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 97.
+(babel)             in language  on input line 96.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 97.
+(babel)             in language  on input line 96.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 97.
+(babel)             in language  on input line 96.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 97.
-LaTeX Info: Redefining \. on input line 99.
-LaTeX Info: Redefining \% on input line 99.
-LaTeX Info: Redefining \. on input line 99.
-LaTeX Info: Redefining \% on input line 99.
+(babel)             in language  on input line 96.
+LaTeX Info: Redefining \. on input line 98.
+LaTeX Info: Redefining \% on input line 98.
+LaTeX Info: Redefining \. on input line 98.
+LaTeX Info: Redefining \% on input line 98.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 99.
+(babel)             in language  on input line 98.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 99.
+(babel)             in language  on input line 98.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 99.
+(babel)             in language  on input line 98.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 99.
+(babel)             in language  on input line 98.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 99.
+(babel)             in language  on input line 98.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 99.
+(babel)             in language  on input line 98.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 99.
+(babel)             in language  on input line 98.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 99.
+(babel)             in language  on input line 98.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 99.
+(babel)             in language  on input line 98.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 99.
+(babel)             in language  on input line 98.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 99.
+(babel)             in language  on input line 98.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 99.
+(babel)             in language  on input line 98.
  [42]
-LaTeX Info: Redefining \. on input line 149.
-LaTeX Info: Redefining \% on input line 149.
-LaTeX Info: Redefining \. on input line 149.
-LaTeX Info: Redefining \% on input line 149.
+LaTeX Info: Redefining \. on input line 148.
+LaTeX Info: Redefining \% on input line 148.
+LaTeX Info: Redefining \. on input line 148.
+LaTeX Info: Redefining \% on input line 148.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 149.
+(babel)             in language  on input line 148.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 149.
+(babel)             in language  on input line 148.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 149.
+(babel)             in language  on input line 148.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 149.
+(babel)             in language  on input line 148.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 149.
+(babel)             in language  on input line 148.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 149.
+(babel)             in language  on input line 148.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 149.
+(babel)             in language  on input line 148.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 149.
+(babel)             in language  on input line 148.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 149.
+(babel)             in language  on input line 148.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 149.
+(babel)             in language  on input line 148.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 149.
+(babel)             in language  on input line 148.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 149.
+(babel)             in language  on input line 148.
  [43]
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 170.
+(babel)             in language  on input line 169.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 170.
+(babel)             in language  on input line 169.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 170.
+(babel)             in language  on input line 169.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 170.
+(babel)             in language  on input line 169.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 170.
+(babel)             in language  on input line 169.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 170.
+(babel)             in language  on input line 169.
 Package epstopdf Info: Source file: <./img/stack1.eps>
 (epstopdf)                    date: 2014-12-11 14:43:34
 (epstopdf)                    size: 32188 bytes
@@ -3268,15 +4039,15 @@ Package epstopdf Info: Source file: <./img/stack1.eps>
 (epstopdf)                    size: 17941 bytes
 (epstopdf)             Command: <repstopdf --outfile=./img/stack1-eps-converted
 -to.pdf ./img/stack1.eps>
-(epstopdf)             \includegraphics on input line 192.
+(epstopdf)             \includegraphics on input line 191.
 Package epstopdf Info: Output file is already uptodate.
 
-<./img/stack1-eps-converted-to.pdf, id=1326, 649.42625pt x 451.6875pt>
+<./img/stack1-eps-converted-to.pdf, id=1360, 649.42625pt x 451.6875pt>
 File: ./img/stack1-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./img/stack1-eps-converted-to.pdf>
 Package pdftex.def Info: ./img/stack1-eps-converted-to.pdf used on input line 1
-92.
+91.
 (pdftex.def)             Requested size: 312.9803pt x 217.68283pt.
 Package epstopdf Info: Source file: <./img/stack2.eps>
 (epstopdf)                    date: 2014-12-11 14:38:24
@@ -3286,314 +4057,314 @@ Package epstopdf Info: Source file: <./img/stack2.eps>
 (epstopdf)                    size: 18744 bytes
 (epstopdf)             Command: <repstopdf --outfile=./img/stack2-eps-converted
 -to.pdf ./img/stack2.eps>
-(epstopdf)             \includegraphics on input line 193.
+(epstopdf)             \includegraphics on input line 192.
 Package epstopdf Info: Output file is already uptodate.
 
-<./img/stack2-eps-converted-to.pdf, id=1327, 650.43pt x 545.03625pt>
+<./img/stack2-eps-converted-to.pdf, id=1361, 650.43pt x 545.03625pt>
 File: ./img/stack2-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./img/stack2-eps-converted-to.pdf>
 Package pdftex.def Info: ./img/stack2-eps-converted-to.pdf used on input line 1
-93.
+92.
 (pdftex.def)             Requested size: 312.9803pt x 262.27144pt.
 LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <9> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 212.
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 211.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 217.
+(babel)             in language  on input line 216.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 217.
+(babel)             in language  on input line 216.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 217.
+(babel)             in language  on input line 216.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 217.
+(babel)             in language  on input line 216.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 217.
+(babel)             in language  on input line 216.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 217.
-LaTeX Info: Redefining \. on input line 224.
-LaTeX Info: Redefining \% on input line 224.
-LaTeX Info: Redefining \. on input line 224.
-LaTeX Info: Redefining \% on input line 224.
+(babel)             in language  on input line 216.
+LaTeX Info: Redefining \. on input line 223.
+LaTeX Info: Redefining \% on input line 223.
+LaTeX Info: Redefining \. on input line 223.
+LaTeX Info: Redefining \% on input line 223.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 224.
+(babel)             in language  on input line 223.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 224.
+(babel)             in language  on input line 223.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 224.
+(babel)             in language  on input line 223.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 224.
+(babel)             in language  on input line 223.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 224.
+(babel)             in language  on input line 223.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 224.
+(babel)             in language  on input line 223.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 224.
+(babel)             in language  on input line 223.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 224.
+(babel)             in language  on input line 223.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 224.
+(babel)             in language  on input line 223.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 224.
+(babel)             in language  on input line 223.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 224.
+(babel)             in language  on input line 223.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 224.
+(babel)             in language  on input line 223.
  [44]
-LaTeX Info: Redefining \. on input line 248.
-LaTeX Info: Redefining \% on input line 248.
-LaTeX Info: Redefining \. on input line 248.
-LaTeX Info: Redefining \% on input line 248.
+LaTeX Info: Redefining \. on input line 247.
+LaTeX Info: Redefining \% on input line 247.
+LaTeX Info: Redefining \. on input line 247.
+LaTeX Info: Redefining \% on input line 247.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 248.
+(babel)             in language  on input line 247.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 248.
+(babel)             in language  on input line 247.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 248.
+(babel)             in language  on input line 247.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 248.
+(babel)             in language  on input line 247.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 248.
+(babel)             in language  on input line 247.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 248.
+(babel)             in language  on input line 247.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 248.
+(babel)             in language  on input line 247.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 248.
+(babel)             in language  on input line 247.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 248.
+(babel)             in language  on input line 247.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 248.
+(babel)             in language  on input line 247.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 248.
+(babel)             in language  on input line 247.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 248.
+(babel)             in language  on input line 247.
  [45 <./img/stack1-eps-converted-to.pdf>]
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 356.
+(babel)             in language  on input line 355.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 356.
+(babel)             in language  on input line 355.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 356.
+(babel)             in language  on input line 355.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 356.
+(babel)             in language  on input line 355.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 356.
+(babel)             in language  on input line 355.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 356.
-LaTeX Info: Redefining \. on input line 359.
-LaTeX Info: Redefining \% on input line 359.
-LaTeX Info: Redefining \. on input line 359.
-LaTeX Info: Redefining \% on input line 359.
+(babel)             in language  on input line 355.
+LaTeX Info: Redefining \. on input line 358.
+LaTeX Info: Redefining \% on input line 358.
+LaTeX Info: Redefining \. on input line 358.
+LaTeX Info: Redefining \% on input line 358.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 359.
+(babel)             in language  on input line 358.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 359.
+(babel)             in language  on input line 358.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 359.
+(babel)             in language  on input line 358.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 359.
+(babel)             in language  on input line 358.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 359.
+(babel)             in language  on input line 358.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 359.
+(babel)             in language  on input line 358.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 359.
+(babel)             in language  on input line 358.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 359.
+(babel)             in language  on input line 358.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 359.
+(babel)             in language  on input line 358.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 359.
+(babel)             in language  on input line 358.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 359.
+(babel)             in language  on input line 358.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 359.
+(babel)             in language  on input line 358.
  [46 <./img/stack2-eps-converted-to.pdf>]
-LaTeX Info: Redefining \. on input line 359.
-LaTeX Info: Redefining \% on input line 359.
-LaTeX Info: Redefining \. on input line 359.
-LaTeX Info: Redefining \% on input line 359.
+LaTeX Info: Redefining \. on input line 358.
+LaTeX Info: Redefining \% on input line 358.
+LaTeX Info: Redefining \. on input line 358.
+LaTeX Info: Redefining \% on input line 358.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 359.
+(babel)             in language  on input line 358.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 359.
+(babel)             in language  on input line 358.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 359.
+(babel)             in language  on input line 358.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 359.
+(babel)             in language  on input line 358.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 359.
+(babel)             in language  on input line 358.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 359.
+(babel)             in language  on input line 358.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 359.
+(babel)             in language  on input line 358.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 359.
+(babel)             in language  on input line 358.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 359.
+(babel)             in language  on input line 358.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 359.
+(babel)             in language  on input line 358.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 359.
+(babel)             in language  on input line 358.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 359.
+(babel)             in language  on input line 358.
  [47]
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 460.
+(babel)             in language  on input line 458.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 460.
+(babel)             in language  on input line 458.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 460.
+(babel)             in language  on input line 458.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 460.
+(babel)             in language  on input line 458.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 460.
+(babel)             in language  on input line 458.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 460.
-LaTeX Info: Redefining \. on input line 467.
-LaTeX Info: Redefining \% on input line 467.
-LaTeX Info: Redefining \. on input line 467.
-LaTeX Info: Redefining \% on input line 467.
+(babel)             in language  on input line 458.
+LaTeX Info: Redefining \. on input line 465.
+LaTeX Info: Redefining \% on input line 465.
+LaTeX Info: Redefining \. on input line 465.
+LaTeX Info: Redefining \% on input line 465.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 467.
+(babel)             in language  on input line 465.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 467.
+(babel)             in language  on input line 465.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 467.
+(babel)             in language  on input line 465.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 467.
+(babel)             in language  on input line 465.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 467.
+(babel)             in language  on input line 465.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 467.
+(babel)             in language  on input line 465.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 467.
+(babel)             in language  on input line 465.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 467.
+(babel)             in language  on input line 465.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 467.
+(babel)             in language  on input line 465.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 467.
+(babel)             in language  on input line 465.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 467.
+(babel)             in language  on input line 465.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 467.
+(babel)             in language  on input line 465.
  [48]
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 525.
+(babel)             in language  on input line 522.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 525.
+(babel)             in language  on input line 522.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 525.
+(babel)             in language  on input line 522.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 525.
+(babel)             in language  on input line 522.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 525.
+(babel)             in language  on input line 522.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 525.
-LaTeX Info: Redefining \. on input line 533.
-LaTeX Info: Redefining \% on input line 533.
-LaTeX Info: Redefining \. on input line 533.
-LaTeX Info: Redefining \% on input line 533.
+(babel)             in language  on input line 522.
+LaTeX Info: Redefining \. on input line 530.
+LaTeX Info: Redefining \% on input line 530.
+LaTeX Info: Redefining \. on input line 530.
+LaTeX Info: Redefining \% on input line 530.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 533.
+(babel)             in language  on input line 530.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 533.
+(babel)             in language  on input line 530.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 533.
+(babel)             in language  on input line 530.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 533.
+(babel)             in language  on input line 530.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 533.
+(babel)             in language  on input line 530.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 533.
+(babel)             in language  on input line 530.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 533.
+(babel)             in language  on input line 530.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 533.
+(babel)             in language  on input line 530.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 533.
+(babel)             in language  on input line 530.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 533.
+(babel)             in language  on input line 530.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 533.
+(babel)             in language  on input line 530.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 533.
+(babel)             in language  on input line 530.
  [49]
-LaTeX Info: Redefining \. on input line 570.
-LaTeX Info: Redefining \% on input line 570.
-LaTeX Info: Redefining \. on input line 570.
-LaTeX Info: Redefining \% on input line 570.
+LaTeX Info: Redefining \. on input line 567.
+LaTeX Info: Redefining \% on input line 567.
+LaTeX Info: Redefining \. on input line 567.
+LaTeX Info: Redefining \% on input line 567.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 570.
+(babel)             in language  on input line 567.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 570.
+(babel)             in language  on input line 567.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 570.
+(babel)             in language  on input line 567.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 570.
+(babel)             in language  on input line 567.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 570.
+(babel)             in language  on input line 567.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 570.
+(babel)             in language  on input line 567.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 570.
+(babel)             in language  on input line 567.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 570.
+(babel)             in language  on input line 567.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 570.
+(babel)             in language  on input line 567.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 570.
+(babel)             in language  on input line 567.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 570.
+(babel)             in language  on input line 567.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 570.
+(babel)             in language  on input line 567.
  [50]
-LaTeX Info: Redefining \. on input line 656.
-LaTeX Info: Redefining \% on input line 656.
-LaTeX Info: Redefining \. on input line 656.
-LaTeX Info: Redefining \% on input line 656.
+LaTeX Info: Redefining \. on input line 653.
+LaTeX Info: Redefining \% on input line 653.
+LaTeX Info: Redefining \. on input line 653.
+LaTeX Info: Redefining \% on input line 653.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 656.
+(babel)             in language  on input line 653.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 656.
+(babel)             in language  on input line 653.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 656.
+(babel)             in language  on input line 653.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 656.
+(babel)             in language  on input line 653.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 656.
+(babel)             in language  on input line 653.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 656.
+(babel)             in language  on input line 653.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 656.
+(babel)             in language  on input line 653.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 656.
+(babel)             in language  on input line 653.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 656.
+(babel)             in language  on input line 653.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 656.
+(babel)             in language  on input line 653.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 656.
+(babel)             in language  on input line 653.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 656.
+(babel)             in language  on input line 653.
  [51]
-Overfull \hbox (3.83pt too wide) in paragraph at lines 677--678
+Overfull \hbox (3.83pt too wide) in paragraph at lines 674--675
 []|\T1/lmss/m/n/10.95 a)| 
  []
 
 
-Overfull \hbox (4.2255pt too wide) in paragraph at lines 715--716
+Overfull \hbox (4.2255pt too wide) in paragraph at lines 712--713
 []|\T1/lmss/m/n/10.95 b)| 
  []
 
 
-Overfull \hbox (3.43472pt too wide) in paragraph at lines 752--753
+Overfull \hbox (3.43472pt too wide) in paragraph at lines 749--750
 []|\T1/lmss/m/n/10.95 c)| 
  []
 
 
-Overfull \hbox (4.2255pt too wide) in paragraph at lines 790--791
+Overfull \hbox (4.2255pt too wide) in paragraph at lines 787--788
 []|\T1/lmss/m/n/10.95 d)| 
  []
 
@@ -3908,34 +4679,34 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 216.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 216.
-LaTeX Info: Redefining \. on input line 225.
-LaTeX Info: Redefining \% on input line 225.
-LaTeX Info: Redefining \. on input line 225.
-LaTeX Info: Redefining \% on input line 225.
+LaTeX Info: Redefining \. on input line 226.
+LaTeX Info: Redefining \% on input line 226.
+LaTeX Info: Redefining \. on input line 226.
+LaTeX Info: Redefining \% on input line 226.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 225.
+(babel)             in language  on input line 226.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 225.
+(babel)             in language  on input line 226.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 225.
+(babel)             in language  on input line 226.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 225.
+(babel)             in language  on input line 226.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 225.
+(babel)             in language  on input line 226.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 225.
+(babel)             in language  on input line 226.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 225.
+(babel)             in language  on input line 226.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 225.
+(babel)             in language  on input line 226.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 225.
+(babel)             in language  on input line 226.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 225.
+(babel)             in language  on input line 226.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 225.
+(babel)             in language  on input line 226.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 225.
+(babel)             in language  on input line 226.
 [58]
 Package babel Info: Redefining spanish shorthand <<
 (babel)             in language  on input line 233.
@@ -4961,34 +5732,34 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 174.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 174.
-LaTeX Info: Redefining \. on input line 238.
-LaTeX Info: Redefining \% on input line 238.
-LaTeX Info: Redefining \. on input line 238.
-LaTeX Info: Redefining \% on input line 238.
+LaTeX Info: Redefining \. on input line 239.
+LaTeX Info: Redefining \% on input line 239.
+LaTeX Info: Redefining \. on input line 239.
+LaTeX Info: Redefining \% on input line 239.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 238.
+(babel)             in language  on input line 239.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 238.
+(babel)             in language  on input line 239.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 238.
+(babel)             in language  on input line 239.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 238.
+(babel)             in language  on input line 239.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 238.
+(babel)             in language  on input line 239.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 238.
+(babel)             in language  on input line 239.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 238.
+(babel)             in language  on input line 239.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 238.
+(babel)             in language  on input line 239.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 238.
+(babel)             in language  on input line 239.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 238.
+(babel)             in language  on input line 239.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 238.
+(babel)             in language  on input line 239.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 238.
+(babel)             in language  on input line 239.
 [80]
 Package babel Info: Redefining spanish shorthand <<
 (babel)             in language  on input line 255.
@@ -5014,34 +5785,34 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 287.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 287.
-LaTeX Info: Redefining \. on input line 301.
-LaTeX Info: Redefining \% on input line 301.
-LaTeX Info: Redefining \. on input line 301.
-LaTeX Info: Redefining \% on input line 301.
+LaTeX Info: Redefining \. on input line 302.
+LaTeX Info: Redefining \% on input line 302.
+LaTeX Info: Redefining \. on input line 302.
+LaTeX Info: Redefining \% on input line 302.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 301.
+(babel)             in language  on input line 302.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 301.
+(babel)             in language  on input line 302.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 301.
+(babel)             in language  on input line 302.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 301.
+(babel)             in language  on input line 302.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 301.
+(babel)             in language  on input line 302.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 301.
+(babel)             in language  on input line 302.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 301.
+(babel)             in language  on input line 302.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 301.
+(babel)             in language  on input line 302.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 301.
+(babel)             in language  on input line 302.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 301.
+(babel)             in language  on input line 302.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 301.
+(babel)             in language  on input line 302.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 301.
+(babel)             in language  on input line 302.
  [81]
 Package babel Info: Redefining spanish shorthand <<
 (babel)             in language  on input line 334.
@@ -5404,34 +6175,34 @@ Underfull \hbox (badness 10000) in paragraph at lines 305--305
 
  []
 
-LaTeX Info: Redefining \. on input line 329.
-LaTeX Info: Redefining \% on input line 329.
-LaTeX Info: Redefining \. on input line 329.
-LaTeX Info: Redefining \% on input line 329.
+LaTeX Info: Redefining \. on input line 330.
+LaTeX Info: Redefining \% on input line 330.
+LaTeX Info: Redefining \. on input line 330.
+LaTeX Info: Redefining \% on input line 330.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 329.
+(babel)             in language  on input line 330.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 329.
+(babel)             in language  on input line 330.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 329.
+(babel)             in language  on input line 330.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 329.
+(babel)             in language  on input line 330.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 329.
+(babel)             in language  on input line 330.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 329.
+(babel)             in language  on input line 330.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 329.
+(babel)             in language  on input line 330.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 329.
+(babel)             in language  on input line 330.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 329.
+(babel)             in language  on input line 330.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 329.
+(babel)             in language  on input line 330.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 329.
+(babel)             in language  on input line 330.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 329.
+(babel)             in language  on input line 330.
 [89]
 Package babel Info: Redefining spanish shorthand <<
 (babel)             in language  on input line 364.
@@ -5680,7 +6451,7 @@ erted-to.pdf ./img/indireccion.eps>
 (epstopdf)             \includegraphics on input line 200.
 Package epstopdf Info: Output file is already uptodate.
 
-<./img/indireccion-eps-converted-to.pdf, id=2649, 574.145pt x 349.305pt>
+<./img/indireccion-eps-converted-to.pdf, id=2683, 574.145pt x 349.305pt>
 File: ./img/indireccion-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./img/indireccion-eps-converted-to.pdf>
@@ -5730,34 +6501,34 @@ Package babel Info: Redefining spanish shorthand "!
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 225.
 [95]
-LaTeX Info: Redefining \. on input line 257.
-LaTeX Info: Redefining \% on input line 257.
-LaTeX Info: Redefining \. on input line 257.
-LaTeX Info: Redefining \% on input line 257.
+LaTeX Info: Redefining \. on input line 258.
+LaTeX Info: Redefining \% on input line 258.
+LaTeX Info: Redefining \. on input line 258.
+LaTeX Info: Redefining \% on input line 258.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 257.
+(babel)             in language  on input line 258.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 257.
+(babel)             in language  on input line 258.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 257.
+(babel)             in language  on input line 258.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 257.
+(babel)             in language  on input line 258.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 257.
+(babel)             in language  on input line 258.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 257.
+(babel)             in language  on input line 258.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 257.
+(babel)             in language  on input line 258.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 257.
+(babel)             in language  on input line 258.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 257.
+(babel)             in language  on input line 258.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 257.
+(babel)             in language  on input line 258.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 257.
+(babel)             in language  on input line 258.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 257.
+(babel)             in language  on input line 258.
  [96 <./img/indireccion-eps-converted-to.pdf>]
 Package babel Info: Redefining spanish shorthand <<
 (babel)             in language  on input line 268.
@@ -5930,102 +6701,130 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 465.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 465.
-LaTeX Info: Redefining \. on input line 525.
-LaTeX Info: Redefining \% on input line 525.
-LaTeX Info: Redefining \. on input line 525.
-LaTeX Info: Redefining \% on input line 525.
+LaTeX Info: Redefining \. on input line 529.
+LaTeX Info: Redefining \% on input line 529.
+LaTeX Info: Redefining \. on input line 529.
+LaTeX Info: Redefining \% on input line 529.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 525.
+(babel)             in language  on input line 529.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 525.
+(babel)             in language  on input line 529.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 525.
+(babel)             in language  on input line 529.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 525.
+(babel)             in language  on input line 529.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 525.
+(babel)             in language  on input line 529.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 525.
+(babel)             in language  on input line 529.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 525.
+(babel)             in language  on input line 529.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 525.
+(babel)             in language  on input line 529.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 525.
+(babel)             in language  on input line 529.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 525.
+(babel)             in language  on input line 529.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 525.
+(babel)             in language  on input line 529.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 525.
+(babel)             in language  on input line 529.
  [100]
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 525.
+(babel)             in language  on input line 531.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 525.
+(babel)             in language  on input line 531.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 525.
+(babel)             in language  on input line 531.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 525.
+(babel)             in language  on input line 531.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 525.
+(babel)             in language  on input line 531.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 525.
+(babel)             in language  on input line 531.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 553.
+(babel)             in language  on input line 559.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 553.
+(babel)             in language  on input line 559.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 553.
+(babel)             in language  on input line 559.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 553.
+(babel)             in language  on input line 559.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 553.
+(babel)             in language  on input line 559.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 553.
-LaTeX Info: Redefining \. on input line 592.
-LaTeX Info: Redefining \% on input line 592.
-LaTeX Info: Redefining \. on input line 592.
-LaTeX Info: Redefining \% on input line 592.
+(babel)             in language  on input line 559.
+LaTeX Info: Redefining \. on input line 593.
+LaTeX Info: Redefining \% on input line 593.
+LaTeX Info: Redefining \. on input line 593.
+LaTeX Info: Redefining \% on input line 593.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 592.
+(babel)             in language  on input line 593.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 592.
+(babel)             in language  on input line 593.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 592.
+(babel)             in language  on input line 593.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 592.
+(babel)             in language  on input line 593.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 592.
+(babel)             in language  on input line 593.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 592.
+(babel)             in language  on input line 593.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 592.
+(babel)             in language  on input line 593.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 592.
+(babel)             in language  on input line 593.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 592.
+(babel)             in language  on input line 593.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 592.
+(babel)             in language  on input line 593.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 592.
+(babel)             in language  on input line 593.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 592.
+(babel)             in language  on input line 593.
 
 [101]
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 623.
+(babel)             in language  on input line 629.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 623.
+(babel)             in language  on input line 629.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 623.
+(babel)             in language  on input line 629.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 623.
+(babel)             in language  on input line 629.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 623.
+(babel)             in language  on input line 629.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 623.
-) (./CursoC-11.tex
+(babel)             in language  on input line 629.
+LaTeX Info: Redefining \. on input line 656.
+LaTeX Info: Redefining \% on input line 656.
+LaTeX Info: Redefining \. on input line 656.
+LaTeX Info: Redefining \% on input line 656.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 656.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 656.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 656.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 656.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 656.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 656.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 656.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 656.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 656.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 656.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 656.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 656.
+ [102]) (./CursoC-11.tex
 LaTeX Info: Redefining \. on input line 4.
 LaTeX Info: Redefining \% on input line 4.
 LaTeX Info: Redefining \. on input line 4.
@@ -6054,7 +6853,38 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 4.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 4.
- [102]
+ [103]
+LaTeX Info: Redefining \. on input line 4.
+LaTeX Info: Redefining \% on input line 4.
+LaTeX Info: Redefining \. on input line 4.
+LaTeX Info: Redefining \% on input line 4.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 4.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 4.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 4.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 4.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 4.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 4.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 4.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 4.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 4.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 4.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 4.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 4.
+ [104
+
+]
 Cap\'{\i }tulo 11.
 Package babel Info: Redefining spanish shorthand <<
 (babel)             in language  on input line 4.
@@ -6104,13 +6934,7 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 65.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 65.
-[103
-
-]
-
-Package hyperref Warning: The anchor of a bookmark and its parent's must not
-(hyperref)                be the same. Added a new anchor on input line 66.
-
+[105]
 Package babel Info: Redefining spanish shorthand <<
 (babel)             in language  on input line 66.
 Package babel Info: Redefining spanish shorthand >>
@@ -6136,7 +6960,7 @@ Package babel Info: Redefining spanish shorthand "!
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 86.
 File: ./img/emblem-important.png Graphic file (type png)
-<use ./img/emblem-important.png>
+ <use ./img/emblem-important.png>
 Package pdftex.def Info: ./img/emblem-important.png used on input line 131.
 (pdftex.def)             Requested size: 24.19484pt x 24.19461pt.
 
@@ -6177,7 +7001,7 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 132.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 132.
-[104]
+[106]
 Package babel Info: Redefining spanish shorthand <<
 (babel)             in language  on input line 133.
 Package babel Info: Redefining spanish shorthand >>
@@ -6232,7 +7056,7 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 183.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 183.
-[105]
+[107]
 Package babel Info: Redefining spanish shorthand <<
 (babel)             in language  on input line 183.
 Package babel Info: Redefining spanish shorthand >>
@@ -6245,6 +7069,10 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 183.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 183.
+LaTeX Info: Redefining \. on input line 217.
+LaTeX Info: Redefining \% on input line 217.
+LaTeX Info: Redefining \. on input line 217.
+LaTeX Info: Redefining \% on input line 217.
 Package babel Info: Redefining spanish shorthand <<
 (babel)             in language  on input line 217.
 Package babel Info: Redefining spanish shorthand >>
@@ -6257,315 +7085,394 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 217.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 217.
-
-
-Package hyperref Warning: The anchor of a bookmark and its parent's must not
-(hyperref)                be the same. Added a new anchor on input line 243.
-
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 243.
+(babel)             in language  on input line 217.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 243.
+(babel)             in language  on input line 217.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 243.
+(babel)             in language  on input line 217.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 243.
+(babel)             in language  on input line 217.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 243.
+(babel)             in language  on input line 217.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 243.
-LaTeX Info: Redefining \. on input line 266.
-LaTeX Info: Redefining \% on input line 266.
-LaTeX Info: Redefining \. on input line 266.
-LaTeX Info: Redefining \% on input line 266.
-Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 266.
-Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 266.
-Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 266.
-Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 266.
-Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 266.
-Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 266.
-Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 266.
-Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 266.
-Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 266.
-Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 266.
-Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 266.
-Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 266.
-[106]
-Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 287.
-Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 287.
-Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 287.
-Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 287.
-Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 287.
-Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 287.
-LaTeX Info: Redefining \. on input line 362.
-LaTeX Info: Redefining \% on input line 362.
-LaTeX Info: Redefining \. on input line 362.
-LaTeX Info: Redefining \% on input line 362.
-Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 362.
-Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 362.
-Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 362.
-Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 362.
-Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 362.
-Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 362.
-Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 362.
-Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 362.
-Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 362.
-Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 362.
-Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 362.
-Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 362.
- [107]
-LaTeX Info: Redefining \. on input line 398.
-LaTeX Info: Redefining \% on input line 398.
-LaTeX Info: Redefining \. on input line 398.
-LaTeX Info: Redefining \% on input line 398.
-Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 398.
-Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 398.
-Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 398.
-Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 398.
-Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 398.
-Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 398.
-Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 398.
-Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 398.
-Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 398.
-Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 398.
-Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 398.
-Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 398.
+(babel)             in language  on input line 217.
  [108]
+Cap\'{\i }tulo 12.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 421.
+(babel)             in language  on input line 217.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 421.
+(babel)             in language  on input line 217.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 421.
+(babel)             in language  on input line 217.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 421.
+(babel)             in language  on input line 217.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 421.
+(babel)             in language  on input line 217.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 421.
-LaTeX Info: Redefining \. on input line 461.
-LaTeX Info: Redefining \% on input line 461.
-LaTeX Info: Redefining \. on input line 461.
-LaTeX Info: Redefining \% on input line 461.
+(babel)             in language  on input line 217.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 461.
+(babel)             in language  on input line 243.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 461.
+(babel)             in language  on input line 243.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 461.
+(babel)             in language  on input line 243.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 461.
+(babel)             in language  on input line 243.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 461.
+(babel)             in language  on input line 243.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 461.
+(babel)             in language  on input line 243.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 461.
+(babel)             in language  on input line 276.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 461.
+(babel)             in language  on input line 276.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 461.
+(babel)             in language  on input line 276.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 461.
+(babel)             in language  on input line 276.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 461.
+(babel)             in language  on input line 276.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 461.
- [109]
+(babel)             in language  on input line 276.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 494.
+(babel)             in language  on input line 276.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 494.
+(babel)             in language  on input line 276.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 494.
+(babel)             in language  on input line 276.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 494.
+(babel)             in language  on input line 276.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 494.
+(babel)             in language  on input line 276.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 494.
+(babel)             in language  on input line 276.
+[109
+
+]
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 623.
+(babel)             in language  on input line 287.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 623.
+(babel)             in language  on input line 287.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 623.
+(babel)             in language  on input line 287.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 623.
+(babel)             in language  on input line 287.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 623.
+(babel)             in language  on input line 287.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 623.
-LaTeX Info: Redefining \. on input line 651.
-LaTeX Info: Redefining \% on input line 651.
-LaTeX Info: Redefining \. on input line 651.
-LaTeX Info: Redefining \% on input line 651.
+(babel)             in language  on input line 287.
+LaTeX Info: Redefining \. on input line 354.
+LaTeX Info: Redefining \% on input line 354.
+LaTeX Info: Redefining \. on input line 354.
+LaTeX Info: Redefining \% on input line 354.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 651.
+(babel)             in language  on input line 354.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 651.
+(babel)             in language  on input line 354.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 651.
+(babel)             in language  on input line 354.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 651.
+(babel)             in language  on input line 354.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 651.
+(babel)             in language  on input line 354.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 651.
+(babel)             in language  on input line 354.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 651.
+(babel)             in language  on input line 354.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 651.
+(babel)             in language  on input line 354.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 651.
+(babel)             in language  on input line 354.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 651.
+(babel)             in language  on input line 354.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 651.
+(babel)             in language  on input line 354.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 651.
+(babel)             in language  on input line 354.
  [110]
-LaTeX Info: Redefining \. on input line 707.
-LaTeX Info: Redefining \% on input line 707.
-LaTeX Info: Redefining \. on input line 707.
-LaTeX Info: Redefining \% on input line 707.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 707.
+(babel)             in language  on input line 354.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 707.
+(babel)             in language  on input line 354.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 707.
+(babel)             in language  on input line 354.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 707.
+(babel)             in language  on input line 354.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 707.
+(babel)             in language  on input line 354.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 707.
+(babel)             in language  on input line 354.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 707.
+(babel)             in language  on input line 377.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 707.
+(babel)             in language  on input line 377.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 707.
+(babel)             in language  on input line 377.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 707.
+(babel)             in language  on input line 377.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 707.
+(babel)             in language  on input line 377.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 707.
+(babel)             in language  on input line 377.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 391.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 391.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 391.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 391.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 391.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 391.
+LaTeX Info: Redefining \. on input line 412.
+LaTeX Info: Redefining \% on input line 412.
+LaTeX Info: Redefining \. on input line 412.
+LaTeX Info: Redefining \% on input line 412.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 412.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 412.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 412.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 412.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 412.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 412.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 412.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 412.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 412.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 412.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 412.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 412.
  [111]
-LaTeX Info: Redefining \. on input line 834.
-LaTeX Info: Redefining \% on input line 834.
-LaTeX Info: Redefining \. on input line 834.
-LaTeX Info: Redefining \% on input line 834.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 834.
+(babel)             in language  on input line 421.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 834.
+(babel)             in language  on input line 421.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 834.
+(babel)             in language  on input line 421.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 834.
+(babel)             in language  on input line 421.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 834.
+(babel)             in language  on input line 421.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 834.
+(babel)             in language  on input line 421.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 834.
+(babel)             in language  on input line 471.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 834.
+(babel)             in language  on input line 471.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 834.
+(babel)             in language  on input line 471.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 834.
+(babel)             in language  on input line 471.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 834.
+(babel)             in language  on input line 471.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 834.
+(babel)             in language  on input line 471.
+LaTeX Info: Redefining \. on input line 477.
+LaTeX Info: Redefining \% on input line 477.
+LaTeX Info: Redefining \. on input line 477.
+LaTeX Info: Redefining \% on input line 477.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 477.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 477.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 477.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 477.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 477.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 477.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 477.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 477.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 477.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 477.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 477.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 477.
  [112]
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 850.
+(babel)             in language  on input line 482.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 850.
+(babel)             in language  on input line 482.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 850.
+(babel)             in language  on input line 482.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 850.
+(babel)             in language  on input line 482.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 850.
+(babel)             in language  on input line 482.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 850.
-LaTeX Info: Redefining \. on input line 878.
-LaTeX Info: Redefining \% on input line 878.
-LaTeX Info: Redefining \. on input line 878.
-LaTeX Info: Redefining \% on input line 878.
+(babel)             in language  on input line 482.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 878.
+(babel)             in language  on input line 494.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 878.
+(babel)             in language  on input line 494.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 878.
+(babel)             in language  on input line 494.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 878.
+(babel)             in language  on input line 494.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 878.
+(babel)             in language  on input line 494.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 878.
+(babel)             in language  on input line 494.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 878.
+(babel)             in language  on input line 623.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 878.
+(babel)             in language  on input line 623.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 878.
+(babel)             in language  on input line 623.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 878.
+(babel)             in language  on input line 623.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 878.
+(babel)             in language  on input line 623.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 878.
- [113])
+(babel)             in language  on input line 623.
+LaTeX Info: Redefining \. on input line 629.
+LaTeX Info: Redefining \% on input line 629.
+LaTeX Info: Redefining \. on input line 629.
+LaTeX Info: Redefining \% on input line 629.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 629.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 629.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 629.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 629.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 629.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 629.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 629.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 629.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 629.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 629.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 629.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 629.
+ [113]
+
+Package hyperref Warning: The anchor of a bookmark and its parent's must not
+(hyperref)                be the same. Added a new anchor on input line 631.
+
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 631.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 631.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 631.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 631.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 631.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 631.
+LaTeX Info: Redefining \. on input line 718.
+LaTeX Info: Redefining \% on input line 718.
+LaTeX Info: Redefining \. on input line 718.
+LaTeX Info: Redefining \% on input line 718.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 718.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 718.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 718.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 718.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 718.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 718.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 718.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 718.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 718.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 718.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 718.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 718.
+[114]
+LaTeX Info: Redefining \. on input line 825.
+LaTeX Info: Redefining \% on input line 825.
+LaTeX Info: Redefining \. on input line 825.
+LaTeX Info: Redefining \% on input line 825.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 825.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 825.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 825.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 825.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 825.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 825.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 825.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 825.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 825.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 825.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 825.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 825.
+ [115]
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 829.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 829.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 829.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 829.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 829.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 829.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 850.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 850.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 850.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 850.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 850.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 850.
+)
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 50.
 LaTeX Info: Redefining \. on input line 50.
 LaTeX Info: Redefining \% on input line 50.
@@ -6595,7 +7502,36 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 50.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 50.
- [114]
+ [116]
+LaTeX Info: Redefining \. on input line 50.
+LaTeX Info: Redefining \% on input line 50.
+LaTeX Info: Redefining \. on input line 50.
+LaTeX Info: Redefining \% on input line 50.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 50.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 50.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 50.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 50.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 50.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 50.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 50.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 50.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 50.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 50.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 50.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 50.
+ [117]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 50.
  (./CursoC-main.aux
 LaTeX Info: Redefining \. on input line 24.
@@ -6604,24 +7540,21 @@ LaTeX Info: Redefining \% on input line 24.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 50.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 50.
 Package rerunfilecheck Info: File `CursoC-main.out' has not changed.
-(rerunfilecheck)             Checksum: 01A1B1A4E29A2E5C3F2F908DDC357ED5;9971.
+(rerunfilecheck)             Checksum: BCF25B38F1076B0F2CC876C3296E274E;10530.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 50.
  ) 
 Here is how much of TeX's memory you used:
- 22589 strings out of 494925
- 353006 string characters out of 6178544
- 483842 words of memory out of 5000000
- 23266 multiletter control sequences out of 15000+600000
+ 23125 strings out of 494925
+ 362715 string characters out of 6178544
+ 497658 words of memory out of 5000000
+ 23781 multiletter control sequences out of 15000+600000
  99283 words of font info for 89 fonts, out of 8000000 for 9000
  62 hyphenation exceptions out of 8191
- 55i,17n,92p,1086b,2169s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 55i,17n,92p,1086b,2234s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/share/texmf/fonts/enc/d
 vips/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/shar
 e/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf/fonts/enc/dvips/lm/l
@@ -6639,10 +7572,10 @@ onts/type1/public/lm/lmtk10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtko10
 .pfb></usr/share/texmf/fonts/type1/public/lm/lmtt10.pfb></usr/share/texmf/fonts
 /type1/public/lm/lmtt9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
 sfonts/symbols/msam7.pfb>
-Output written on CursoC-main.pdf (114 pages, 1108210 bytes).
+Output written on CursoC-main.pdf (117 pages, 1111300 bytes).
 PDF statistics:
- 3657 PDF objects out of 4296 (max. 8388607)
- 3472 compressed objects within 35 object streams
- 2105 named destinations out of 2487 (max. 500000)
- 1187 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 3711 PDF objects out of 4296 (max. 8388607)
+ 3522 compressed objects within 36 object streams
+ 2118 named destinations out of 2487 (max. 500000)
+ 1243 words of extra memory for PDF output out of 10000 (max. 10000000)
 

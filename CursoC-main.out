@@ -1,15 +1,15 @@
 \BOOKMARK [0][-]{chapter.1}{Introducci\363n al Lenguaje C}{}% 1
 \BOOKMARK [1][-]{section.1.1}{Caracter\355sticas del lenguaje}{chapter.1}% 2
-\BOOKMARK [2][-]{section*.2}{Paradigma procedural}{section.1.1}% 3
-\BOOKMARK [2][-]{section*.2}{Minimalidad}{section.1.1}% 4
-\BOOKMARK [2][-]{section*.2}{Versatilidad, a un precio}{section.1.1}% 5
-\BOOKMARK [2][-]{section*.2}{Portabilidad}{section.1.1}% 6
-\BOOKMARK [2][-]{section*.2}{Biblioteca Standard}{section.1.1}% 7
+\BOOKMARK [2][-]{section*.1}{Paradigma procedural}{section.1.1}% 3
+\BOOKMARK [2][-]{section*.1}{Minimalidad}{section.1.1}% 4
+\BOOKMARK [2][-]{section*.1}{Versatilidad, a un precio}{section.1.1}% 5
+\BOOKMARK [2][-]{section*.1}{Portabilidad}{section.1.1}% 6
+\BOOKMARK [2][-]{section*.1}{Biblioteca Standard}{section.1.1}% 7
 \BOOKMARK [1][-]{section.1.2}{Evoluci\363n del lenguaje}{chapter.1}% 8
 \BOOKMARK [1][-]{section.1.3}{El ciclo de compilaci\363n}{chapter.1}% 9
-\BOOKMARK [2][-]{figure.caption.4}{Compilador}{section.1.3}% 10
-\BOOKMARK [2][-]{figure.caption.4}{Vinculador, linkeditor o linker}{section.1.3}% 11
-\BOOKMARK [2][-]{figure.caption.4}{Bibliotecario}{section.1.3}% 12
+\BOOKMARK [2][-]{figure.caption.3}{Compilador}{section.1.3}% 10
+\BOOKMARK [2][-]{figure.caption.3}{Vinculador, linkeditor o linker}{section.1.3}% 11
+\BOOKMARK [2][-]{figure.caption.3}{Bibliotecario}{section.1.3}% 12
 \BOOKMARK [1][-]{section.1.4}{Un primer ejemplo}{chapter.1}% 13
 \BOOKMARK [2][-]{lstnumber.-1.6}{Estructura del programa}{section.1.4}% 14
 \BOOKMARK [2][-]{lstnumber.-1.6}{Compilaci\363n del programa}{section.1.4}% 15
@@ -18,8 +18,8 @@
 \BOOKMARK [1][-]{section.1.6}{Ejercicios}{chapter.1}% 18
 \BOOKMARK [0][-]{chapter.2}{El preprocesador}{}% 19
 \BOOKMARK [1][-]{section.2.1}{Directivas de preprocesador}{chapter.2}% 20
-\BOOKMARK [2][-]{section*.7}{S\355mbolos y macros}{section.2.1}% 21
-\BOOKMARK [2][-]{figure.caption.8}{Headers}{section.2.1}% 22
+\BOOKMARK [2][-]{section*.6}{S\355mbolos y macros}{section.2.1}% 21
+\BOOKMARK [2][-]{figure.caption.7}{Headers}{section.2.1}% 22
 \BOOKMARK [1][-]{section.2.2}{Definici\363n de s\355mbolos}{chapter.2}% 23
 \BOOKMARK [1][-]{section.2.3}{Definici\363n de macros}{chapter.2}% 24
 \BOOKMARK [2][-]{lstnumber.-7.2}{Macros vs. funciones}{section.2.3}% 25
@@ -30,7 +30,7 @@
 \BOOKMARK [1][-]{section.3.1}{Declaraci\363n de variables}{chapter.3}% 30
 \BOOKMARK [1][-]{section.3.2}{Tama\361os de los objetos de datos}{chapter.3}% 31
 \BOOKMARK [1][-]{section.3.3}{Operaciones con distintos tipos}{chapter.3}% 32
-\BOOKMARK [2][-]{section*.9}{Truncamiento en asignaciones}{section.3.3}% 33
+\BOOKMARK [2][-]{section*.8}{Truncamiento en asignaciones}{section.3.3}% 33
 \BOOKMARK [2][-]{lstnumber.-25.1}{Promoci\363n autom\341tica de expresiones}{section.3.3}% 34
 \BOOKMARK [2][-]{lstnumber.-27.1}{Operador cast}{section.3.3}% 35
 \BOOKMARK [2][-]{lstnumber.-30.1}{Reglas de promoci\363n en expresiones}{section.3.3}% 36
@@ -39,14 +39,14 @@
 \BOOKMARK [1][-]{section.3.6}{Ejercicios}{chapter.3}% 39
 \BOOKMARK [0][-]{chapter.4}{Constantes}{}% 40
 \BOOKMARK [1][-]{section.4.1}{Constantes num\351ricas}{chapter.4}% 41
-\BOOKMARK [2][-]{section*.11}{Constantes enteras}{section.4.1}% 42
-\BOOKMARK [2][-]{section*.11}{Constantes long}{section.4.1}% 43
-\BOOKMARK [2][-]{section*.11}{Constantes unsigned}{section.4.1}% 44
-\BOOKMARK [2][-]{section*.11}{Constantes de punto flotante}{section.4.1}% 45
+\BOOKMARK [2][-]{section*.10}{Constantes enteras}{section.4.1}% 42
+\BOOKMARK [2][-]{section*.10}{Constantes long}{section.4.1}% 43
+\BOOKMARK [2][-]{section*.10}{Constantes unsigned}{section.4.1}% 44
+\BOOKMARK [2][-]{section*.10}{Constantes de punto flotante}{section.4.1}% 45
 \BOOKMARK [1][-]{section.4.2}{Constantes string}{chapter.4}% 46
-\BOOKMARK [2][-]{section*.12}{El cero final}{section.4.2}% 47
+\BOOKMARK [2][-]{section*.11}{El cero final}{section.4.2}% 47
 \BOOKMARK [1][-]{section.4.3}{Constantes de car\341cter}{chapter.4}% 48
-\BOOKMARK [2][-]{section*.13}{Constantes de car\341cter en strings}{section.4.3}% 49
+\BOOKMARK [2][-]{section*.12}{Constantes de car\341cter en strings}{section.4.3}% 49
 \BOOKMARK [1][-]{section.4.4}{Constantes enumeradas}{chapter.4}% 50
 \BOOKMARK [1][-]{section.4.5}{Ejercicios}{chapter.4}% 51
 \BOOKMARK [0][-]{chapter.5}{Propiedades de las variables}{}% 52
@@ -66,7 +66,7 @@
 \BOOKMARK [2][-]{lstnumber.-100.1}{Constantes l\363gicas}{section.6.3}% 66
 \BOOKMARK [1][-]{section.6.4}{Operadores de bits}{chapter.6}% 67
 \BOOKMARK [1][-]{section.6.5}{Operadores especiales}{chapter.6}% 68
-\BOOKMARK [2][-]{section*.21}{Inicializaci\363n}{section.6.5}% 69
+\BOOKMARK [2][-]{section*.20}{Inicializaci\363n}{section.6.5}% 69
 \BOOKMARK [2][-]{lstnumber.-104.1}{Asignaci\363n}{section.6.5}% 70
 \BOOKMARK [2][-]{lstnumber.-105.2}{Operador ternario}{section.6.5}% 71
 \BOOKMARK [1][-]{section.6.6}{Precedencia y orden de evaluaci\363n}{chapter.6}% 72
@@ -75,12 +75,12 @@
 \BOOKMARK [0][-]{chapter.7}{Estructuras de control}{}% 75
 \BOOKMARK [1][-]{section.7.1}{Estructura alternativa}{chapter.7}% 76
 \BOOKMARK [1][-]{section.7.2}{Estructuras repetitivas}{chapter.7}% 77
-\BOOKMARK [2][-]{section*.24}{Estructura while}{section.7.2}% 78
+\BOOKMARK [2][-]{section*.23}{Estructura while}{section.7.2}% 78
 \BOOKMARK [2][-]{lstnumber.-119.2}{Estructura do-while}{section.7.2}% 79
 \BOOKMARK [2][-]{lstnumber.-120.3}{Estructura for}{section.7.2}% 80
 \BOOKMARK [1][-]{section.7.3}{Estructura de selecci\363n}{chapter.7}% 81
 \BOOKMARK [1][-]{section.7.4}{Transferencia incondicional}{chapter.7}% 82
-\BOOKMARK [2][-]{section*.25}{Sentencia continue}{section.7.4}% 83
+\BOOKMARK [2][-]{section*.24}{Sentencia continue}{section.7.4}% 83
 \BOOKMARK [2][-]{lstnumber.-137.5}{Sentencia break}{section.7.4}% 84
 \BOOKMARK [2][-]{lstnumber.-138.6}{Sentencia goto}{section.7.4}% 85
 \BOOKMARK [2][-]{lstnumber.-139.8}{Sentencia return}{section.7.4}% 86
@@ -98,23 +98,23 @@
 \BOOKMARK [2][-]{lstnumber.-171.1}{Errores frecuentes con arreglos}{section.9.1}% 98
 \BOOKMARK [1][-]{section.9.2}{Arreglos multidimensionales}{chapter.9}% 99
 \BOOKMARK [1][-]{section.9.3}{Estructuras y uniones}{chapter.9}% 100
-\BOOKMARK [2][-]{section*.26}{Estructuras}{section.9.3}% 101
+\BOOKMARK [2][-]{section*.25}{Estructuras}{section.9.3}% 101
 \BOOKMARK [2][-]{lstnumber.-183.11}{Uniones}{section.9.3}% 102
 \BOOKMARK [2][-]{lstnumber.-185.3}{Campos de bits}{section.9.3}% 103
 \BOOKMARK [1][-]{section.9.4}{Ejercicios}{chapter.9}% 104
 \BOOKMARK [0][-]{chapter.10}{Apuntadores y Direcciones}{}% 105
 \BOOKMARK [1][-]{section.10.1}{Operadores especiales}{chapter.10}% 106
 \BOOKMARK [1][-]{section.10.2}{Aritm\351tica de punteros}{chapter.10}% 107
-\BOOKMARK [2][-]{section*.27}{Asignaci\363n entre punteros}{section.10.2}% 108
-\BOOKMARK [2][-]{section*.27}{Suma de enteros a punteros}{section.10.2}% 109
-\BOOKMARK [2][-]{section*.27}{Resta de punteros}{section.10.2}% 110
+\BOOKMARK [2][-]{section*.26}{Asignaci\363n entre punteros}{section.10.2}% 108
+\BOOKMARK [2][-]{section*.26}{Suma de enteros a punteros}{section.10.2}% 109
+\BOOKMARK [2][-]{section*.26}{Resta de punteros}{section.10.2}% 110
 \BOOKMARK [1][-]{section.10.3}{Punteros y arreglos}{chapter.10}% 111
 \BOOKMARK [1][-]{section.10.4}{Punteros y cadenas de texto}{chapter.10}% 112
 \BOOKMARK [1][-]{section.10.5}{Pasaje por referencia}{chapter.10}% 113
 \BOOKMARK [1][-]{section.10.6}{Punteros y argumentos de funciones}{chapter.10}% 114
 \BOOKMARK [1][-]{section.10.7}{Ejercicios}{chapter.10}% 115
 \BOOKMARK [1][-]{section.10.8}{Errores m\341s frecuentes}{chapter.10}% 116
-\BOOKMARK [2][-]{section*.28}{Punteros sin inicializar}{section.10.8}% 117
+\BOOKMARK [2][-]{section*.27}{Punteros sin inicializar}{section.10.8}% 117
 \BOOKMARK [2][-]{lstnumber.-224.5}{Confundir punteros con arreglos}{section.10.8}% 118
 \BOOKMARK [2][-]{lstnumber.-232.3}{No analizar el nivel de indirecci\363n}{section.10.8}% 119
 \BOOKMARK [1][-]{section.10.9}{Arreglos de punteros}{chapter.10}% 120
@@ -127,16 +127,23 @@
 \BOOKMARK [1][-]{section.10.16}{Punteros a punteros}{chapter.10}% 127
 \BOOKMARK [1][-]{section.10.17}{Una herramienta: gets\(\)}{chapter.10}% 128
 \BOOKMARK [1][-]{section.10.18}{Ejercicios}{chapter.10}% 129
-\BOOKMARK [0][-]{chapter.11}{Entrada/Salida}{}% 130
+\BOOKMARK [0][-]{chapter.11}{Entrada/Salida Standard}{}% 130
 \BOOKMARK [1][-]{section.11.1}{Funciones de E/S Standard}{chapter.11}% 131
-\BOOKMARK [2][-]{section*.31}{E/S standard de caracteres}{section.11.1}% 132
-\BOOKMARK [2][-]{lstnumber.-259.7}{E/S standard de l\355neas}{section.11.1}% 133
-\BOOKMARK [2][-]{lstnumber.-260.7}{E/S standard con formato}{section.11.1}% 134
-\BOOKMARK [2][-]{lstnumber.-261.7}{E/S standard sobre strings}{section.11.1}% 135
-\BOOKMARK [1][-]{section.11.2}{E/S sobre archivos}{chapter.11}% 136
-\BOOKMARK [2][-]{section*.32}{Est\341ndares ANSI y POSIX}{section.11.2}% 137
-\BOOKMARK [2][-]{section*.32}{Funciones ANSI C de E/S sobre archivos}{section.11.2}% 138
-\BOOKMARK [2][-]{lstnumber.-272.14}{Funciones ANSI C de acceso directo}{section.11.2}% 139
-\BOOKMARK [2][-]{lstnumber.-273.10}{Resumen de funciones ANSI C de E/S}{section.11.2}% 140
-\BOOKMARK [2][-]{table.caption.34}{Funciones POSIX de E/S sobre archivos}{section.11.2}% 141
-\BOOKMARK [1][-]{section.11.3}{Ejercicios}{chapter.11}% 142
+\BOOKMARK [1][-]{section.11.2}{E/S standard de caracteres}{chapter.11}% 132
+\BOOKMARK [1][-]{section.11.3}{E/S standard de l\355neas}{chapter.11}% 133
+\BOOKMARK [1][-]{section.11.4}{E/S standard con formato}{chapter.11}% 134
+\BOOKMARK [1][-]{section.11.5}{E/S standard sobre strings}{chapter.11}% 135
+\BOOKMARK [0][-]{chapter.12}{E/S sobre archivos}{}% 136
+\BOOKMARK [1][-]{section.12.1}{Est\341ndares ANSI y POSIX}{chapter.12}% 137
+\BOOKMARK [1][-]{section.12.2}{Funciones ANSI C de E/S sobre archivos}{chapter.12}% 138
+\BOOKMARK [1][-]{section.12.3}{Funciones ANSI C de caracteres sobre archivos}{chapter.12}% 139
+\BOOKMARK [1][-]{section.12.4}{Funciones ANSI C de l\355neas sobre archivos}{chapter.12}% 140
+\BOOKMARK [1][-]{section.12.5}{Funciones ANSI C con formato sobre archivos}{chapter.12}% 141
+\BOOKMARK [1][-]{section.12.6}{Funciones ANSI C de acceso directo}{chapter.12}% 142
+\BOOKMARK [2][-]{lstnumber.-273.10}{Constantes de posicionamiento}{section.12.6}% 143
+\BOOKMARK [2][-]{lstnumber.-273.10}{Sincronizaci\363n de E/S}{section.12.6}% 144
+\BOOKMARK [1][-]{section.12.7}{Resumen de funciones ANSI C de E/S}{chapter.12}% 145
+\BOOKMARK [1][-]{section.12.8}{Funciones POSIX de E/S sobre archivos}{chapter.12}% 146
+\BOOKMARK [2][-]{section*.32}{Apertura de archivos}{section.12.8}% 147
+\BOOKMARK [2][-]{lstnumber.-310.1}{Posicionamiento en archivos}{section.12.8}% 148
+\BOOKMARK [1][-]{section.12.9}{Ejercicios}{chapter.12}% 149

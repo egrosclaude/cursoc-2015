@@ -2,53 +2,61 @@
 
 
 
-****** 13. Biblioteca Standard ******
+\chapter{La Biblioteca Standard}
 La Biblioteca Standard no forma parte del C, estrictamente hablando, pero todos
 los compiladores contienen una implementación, a veces con agregados o pequeñas
-variantes. Desde la oficialización del ANSI C, los contenidos de la biblioteca
-standard se han estabilizado y se puede contar con el mismo conjunto de
+variantes. Desde la oficialización del ANSI C, los contenidos de la Biblioteca
+Standard se han estabilizado y se puede contar con el mismo conjunto de
 funciones en todas las plataformas.
+
 Las funciones de la biblioteca standard están agrupadas en varias categorías.
 Para poder utilizar cualquiera de las funciones de cada categoría, es necesario
 incluir en el fuente el header asociado con la categoría. Esto no
-implicaincluir los textos de las funciones en la unidad de traducción, sino
+implica incluir los textos de las funciones en la unidad de traducción, sino
 simplemente incorporar los prototipos de las funciones de la biblioteca. Es
-decir, incluir un header de biblioteca standard no define las funciones que se
-van a usar, sino que las declara. La resolución de las referencias a las
-funciones o variables de biblioteca standard quedan pendientes hasta la
+decir, incluir un header de Biblioteca Standard no \textbf{define} las funciones que se
+van a usar, sino que las \textbf{declara}. La resolución de las referencias a las
+funciones o variables de Biblioteca Standard quedan pendientes hasta la
 linkedición.
+
 Las categorías y los headers de la biblioteca standard son los siguientes. Una
 implementación de C puede aportar muchísimos otros headers más específicos. Con
 esta información no pretendemos reemplazar al manual del compilador sino
 orientar a los primeros pasos en el uso de la Biblioteca Standard.
- ______________________________________________________________________
-|Categoría_________________________________________________|header____|
-|Macros_de_diagnóstico_de_errores__________________________|<assert.h>|
-|Macros_de_clasificación_de_caracteres_____________________|<ctype.h>_|
-|Variables_y_funciones_relacionadas_con_condiciones_de_error|<errno.h>_|
-|Características_de_la_representación_en_punto_flotante___|<float.h>_|
-|Rangos_de_tipos_de_datos,_dependientes_de_la_plataforma____|<limits.h>|
-|Definiciones_relacionadas_con_el_idioma_y_lugar_de_uso_____|<locale.h>|
-|Funciones_matemáticas_____________________________________|<math.h>__|
-|Saltos_no_locales__________________________________________|<setjmp.h>|
-|Manejo_de_señales_________________________________________|<signal.h>|
-|Listas_de_argumentos_variables_____________________________|<stdarg.h>|
-|Definiciones_de_algunos_tipos_y_constantes_comunes_________|<stddef.h>|
-|Entrada/salida_____________________________________________|<stdio.h>_|
-|Varias_funciones_útiles___________________________________|<stdlib.h>|
-|Operaciones_sobre_cadenas__________________________________|<string.h>|
-|Funciones_de_fecha_y_hora__________________________________|<time.h>__|
-Ya hemos visitado la mayoría de las funciones de la categoría de E/S. Nos
+
+\tabla{catbs}{Categorías de funciones de la Biblioteca Standard.}{2}{
+
+Categoría & header \\
+\hrule
+Macros de diagnóstico de errores	&	<assert.h> \\
+Macros de clasificación de caracteres	&	<ctype.h> \\
+Variables y funciones relacionadas con condiciones de error & <errno.h>\\
+Características de la representación en punto flotante	& <float.h>\\
+Rangos de tipos de datos, dependientes de la plataforma & <limits.h>\\
+Definiciones relacionadas con el idioma y lugar de uso & <locale.h>\\
+Funciones matemáticas & <math.h>\\
+Saltos no locales & <setjmp.h>\\
+Manejo de señales & <signal.h>\\
+Listas de argumentos variables & <stdarg.h>\\
+Definiciones de algunos tipos y constantes comunes & <stddef.h>\\
+Entrada/salida & <stdio.h>\\
+Varias funciones útiles & <stdlib.h>\\
+Operaciones sobre cadenas & <string.h>\\
+Funciones de fecha y hora & <time.h>\\
+}
+
+Ya hemos visitado la mayoría de las funciones de la categoría de funciones de E/S. Nos
 quedan por explorar algunas otras de importancia.
 
-Funciones de strings (<stdio.h>)
+\section{Funciones de strings (<stdio.h>)}
 No existiendo un tipo de datos string en C, se lo implementa como un arreglo de
 caracteres, dado por su dirección inicial, y terminado en el carácter especial
 '\0'. Todas las funciones de strings de BS hacen uso de este protocolo de fin
 de string. Muchas de ellas han sido implementada en las prácticas de capítulos
 anteriores.
-Aquí las más importantes. Consultar también manual de las funciones strspn(),
-strcspn(), strpbrk(), strstr(), strtok().
+
+Aquí las más importantes. Consultar también manual de las funciones \code{strspn()},
+\code{strcspn()}, \code{strpbrk()}, \code{strstr()}, \code{strtok()}.
  ____________________________________________________________________________________________________
 |prototipo|significado_______________________________________________________________|ejemplo________|
 |char     |Copia la cadena ct sobre s, incluyendo el '\0'. Devuelve s.               |char alfa[10]; |
@@ -312,7 +320,6 @@ diferencia en años, meses, días, horas, etc.
 6. Generar fechas al azar dentro de un período de tiempo dado.
 
 ===============================================================================
-
 
 
 
