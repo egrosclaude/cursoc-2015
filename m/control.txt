@@ -1,0 +1,76 @@
+¿Qué resultado final tiene la variable <emph>a</emph>?<br><code>a\=1;<br>if(1)<br>    a\=2;</code><br>{
+~ 1
+= 2
+~ ninguna de las anteriores
+}
+
+¿Qué resultado final tiene la variable <emph>a</emph>?<br><code>a\=1;<br>if(b\=\=2);<br>    a\=2;</code><br>{
+~ 1
+= 2
+~ depende del valor de b
+~ ninguna de las anteriores
+}
+
+¿Qué resultado final tiene la variable <emph>a</emph>?<br><code>a\=1;<br>if(b\=0)<br>    a\=2;</code><br>{
+= 1
+~ 2
+~ depende del valor de b
+~ ninguna de las anteriores
+}
+
+¿Qué resultado final tiene la variable <emph>a</emph>?<br><code>b\=3;<br>if(b\=\=1)<br>    a\=2;else if(b\=\=2) a\=3; else a\=4;</code><br>{
+~ 2 
+~ 3
+= 4
+~ no está definido
+}
+
+¿Qué resultado final tiene la variable a si inicialmente a, c y d valen 1?<br><code>switch(c) \{<br>  case 1: a\=a+d;<br>  case 2: a\=a-d;<br>\}</code><br>{
+= 1
+~ 2
+~ 3
+}
+
+¿Qué resultado final tiene la variable b si inicialmente b, c y d valen 1?<br><code>switch(c) \{<br>  case 1: b\=b+d;<br>  case 2: b\=b-d;<br>  default:<br>          b\=0;<br>\}</code><br>{
+= 0
+~ 1
+~ 2
+~ 3
+}
+
+¿Qué resultado final tiene la variable c?<br><code>c\=1;<br>for(i\=0; i<5; i++);<br>  for(j\=0; j<2; j++)<br>    c++;</code><br>{
+~ 1
+~ 2
+= 3
+~ 6
+~ 13
+}
+
+¿Cuántas X imprimen estas líneas?<br><code>c\=3; do \{ printf("X"); \} while(c--);</code><br>{
+~ 1
+~ 2
+~ 3
+= 4
+}
+
+¿Cuántas X imprimen estas líneas?<br><code>c\=3; do \{ printf("X"); \} while(--c);</code><br>{
+~ 1
+~ 2
+= 3
+~ 4
+}
+
+¿Cuántas X imprimen estas líneas?<br><code>c\=3; while(c--) printf("X"); </code><br>{
+~ 1
+~ 2
+= 3
+~ 4
+}
+
+¿Cuántas X imprimen estas líneas?<br><code>c\=3; while(--c) printf("X"); </code><br>{
+~ 1
+= 2
+~ 3
+~ 4
+}
+

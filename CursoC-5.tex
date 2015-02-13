@@ -70,11 +70,12 @@ int fun2()
 \end{ejemplo}
 
 \begin{ejemplo}
-La diferencia con el ejemplo anterior es que ahora \lstinline{k} es declarada con el modificador \textbf{static}. Esto hace
-que \lstinline{k} tenga las mismas propiedades de vida que una variable externa. A cada invocación de \lstinline{fun1()},
+La diferencia del siguiente ejemplo con el anterior es que ahora \lstinline{k} es declarada con el modificador \textbf{static}. Esto hace que \lstinline{k} tenga las mismas propiedades de vida que una variable externa. A cada invocación de \lstinline{fun1()},
 ésta utiliza el mismo objeto de datos, sin modificarlo, para la variable \lstinline{k}. Si lee su valor, encontrará el
 contenido que pueda haberle quedado de la invocación anterior. Si le asigna un valor, la invocación siguiente de \lstinline{fun1()}
-encontrará ese valor en \lstinline{k}. Este ejemplo muestra que alcance y vida no son propiedades equivalentes en
+encontrará ese valor en \lstinline{k}. 
+
+Este ejemplo muestra que alcance y vida no son propiedades equivalentes en
 C. 
 \begin{lstlisting}
 int j;
@@ -98,11 +99,11 @@ Dependiendo de cómo son almacenados los contenidos de las variables (es decir, 
 
 \begin{description}
 	\item[Variables estáticas] Las variables estáticas comienzan su vida al tiempo de carga del programa, es decir, aun antes de que
-se inicie la ejecución de la función main(). Existen durante todo el tiempo de ejecución del programa.
+se inicie la ejecución de la función \code{main()}. Existen durante todo el tiempo de ejecución del programa.
 Son \textbf{inicializadas con ceros binarios}, salvo que exista otra inicialización explícita. Son las variables
-externas y las locales declaradas static.
+externas y las locales declaradas \code{static}.
  \item [Variables automáticas] Esta clase abarca exclusivamente las variables, declaradas localmente a una función, que no sean
-declaradas static. El objeto de datos de una variable automática inicia su existencia al entrar el control a la función donde
+declaradas \code{static}. El objeto de datos de una variable automática inicia su existencia al entrar el control a la función donde
 está declarada, y muere al terminar la función. \textbf{No son inicializadas} implícitamente, es decir, contienen
 \textbf{basura} salvo que se las inicialice explícitamente.
 \item [Variables registro] Una variable registro no ocupará memoria, sino que será mantenida en un registro del procesador.
@@ -131,19 +132,38 @@ int fun()
 
 Una declaración \lstinline{register} debe tomarse solamente como una \textit{recomendación} hecha por el programador al compilador, ya que no hay garantías de que, al tiempo de ejecución, resulte posible utilizar un registro para esa variable. Más aún, el mismo programa, compilado y corrido en diferentes arquitecturas, podrá utilizar diferentes cantidades de registros para sus variables.
 
-Una variable register tendrá un tiempo de acceso muy inferior al de una variable en memoria, porque
-el acceso a un registro de CPU es mucho más rápido. En general resulta interesante que las variables
-más frecuentemente accedidas sean las declaradas como register; típicamente, los índices de arrays,
-variables de control de lazos, etc. Sin embargo, la declaración register es quizás algo anacrónica, ya que los compiladores modernos ejecutan una serie de optimizaciones que frecuentemente utilizan registros para mantener las variables, aun cuando
+Una variable \code{register} tendrá un tiempo de acceso muy inferior al de una variable en memoria, porque
+el acceso a un registro de CPU es mucho más rápido. La motivación de la clase de almacenamiento \textbf{registro} 
+se hace evidente en el Cuadro \ref{tab:tiempos} (tomado de \textit{Systems Performance: Enterprise and the Cloud}, Brendan Gregg, Prentice Hall, 2014).
+
+
+\tabla{tiempos}{Tiempos de acceso comunes, escalados a un segundo.}{l|l|l}
+{
+Evento & Absoluto & Escalado \\
+\hline
+1 ciclo de CPU & 0.3 ns & 1 s \\
+Acceso a cache de nivel 1 & 0.9 ns & 3 s \\
+Acceso a cache de nivel 2 & 2.8 ns & 9 s \\
+Acceso a cache de nivel 3 & 12.9 ns & 43 s \\
+Acceso a memoria DRAM principal desde CPU & 120 ns & 6 min \\
+E/S a disco de estado sólido & 50 a 150 $\mu$s & 2 a 6 días \\
+E/S a disco rígido electromecánico & 1 a 10 ms & 1 a 12 meses
+}
+
+En general resulta interesante que las variables
+más frecuentemente accedidas sean las declaradas como \code{register}; típicamente, los índices de arrays,
+variables de control de lazos, etc. Sin embargo, la declaración \code{register} es quizás algo anacrónica, ya que los compiladores modernos ejecutan una serie de optimizaciones que frecuentemente utilizan registros para mantener las variables, aun cuando
 no haya indicación alguna por parte del programador.
 
-%TODO cuadro velocidades
-
-La clase de almacenamiento automática es natural para las variables locales; ¿cuál es la idea de declarar variables locales que sean estáticas? Generalmente se desea aprovechar la capacidad de \quotes{recordar la historia} de las variables estáticas, utilizando el valor al momento de la última invocación para producir uno nuevo. Por ejemplo, una función puede contar la cantidad de veces que ha sido llamada.
 
 
-\begin{ejemplo}
-Aquí el ciclo while se ejecuta 50 veces. La inicialización (implícita o explícita) de una variable estática se produce una única vez, al momento de carga del programa. Por el contrario, la inicialización (explícita) de una automática se hace al crear cada instancia de la misma (al momento de la entrada del control a la función).
+
+\begin{ejemplo}[ (¿Por qué usar static?)]
+La clase de almacenamiento \textbf{automática} es la natural para las variables locales; ¿cuál es la idea de declarar variables locales que sean \textbf{estáticas}? Generalmente se desea aprovechar la capacidad de \quotes{recordar la historia} de las variables estáticas, utilizando el valor al momento de la última invocación para producir uno nuevo. 
+
+La inicialización (implícita o explícita) de una variable estática se produce una única vez, al momento de carga del programa. Por el contrario, la inicialización (explícita) de una variable automática se hace al crear cada instancia de la misma (al momento de la entrada del control a la función). 
+
+Usando variables estáticas, una función puede, por ejemplo, contar la cantidad de veces que ha sido llamada. En el código siguiente, el ciclo \textbf{while} se ejecuta 50 veces y la variable \code{vez} asume cada vez un valor dependiente del anterior, pese a ser local a la función \code{veces()}.
 
 \begin{lstlisting}
 int veces()
@@ -159,9 +179,6 @@ int fun()
 }
 \end{lstlisting}
 \end{ejemplo}
-
-
-
 
 
 

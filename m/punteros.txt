@@ -1,0 +1,117 @@
+El sentido de la expresión &p puede traducirse como{
+~ Lo apuntado por p
+= La dirección de p
+~ El arreglo comenzado por p
+~ *p
+~ La cadena apuntada por p
+}
+
+La expresión *p puede traducirse como{
+~ Multiplicar por p
+= Lo apuntado por p
+~ La dirección de p
+~ p
+}
+
+El sentido de la expresión &(*p) puede traducirse como{
+~ La dirección de p
+~ Lo apuntado por p
+~ Lo apuntado por la dirección de p
+= La dirección de lo apuntado por p
+}
+
+La expresión &(*p) equivale al valor de {
+~ *p
+~ &p
+= p
+}
+
+La expresión *(&p) equivale al valor de {
+~ *p
+~ &p
+= p
+}
+
+Con la declaración <br><code>char *k;</code><br>k será{
+~ un carácter
+= un puntero a carácter
+~ la dirección de un carácter
+~ todas las anteriores
+}
+
+Con la declaración <br><code> char k;</code><br>k será{
+= un carácter 
+~ un puntero a carácter
+~ la dirección de un carácter
+~ todas las anteriores
+}
+
+Con la declaración <br><code> int j;</code><br>la expresión &j será{
+~ un puntero
+= la dirección de j
+~ lo apuntado por j
+~ un arreglo
+}
+
+Con la declaración <br><code> int *j;</code><br>la expresión *j será{
+~ un puntero
+~ la dirección de j
+= lo apuntado por j
+~ un arreglo
+}
+
+La expresión p-q, si p y q son punteros a char, vale{
+~ La cantidad de bytes entre las direcciones apuntadas por p y q
+~ La diferencia entre las direcciones apuntadas por p y q
+~ La cantidad de bytes que hace falta desplazarse desde la dirección apuntada por p para llegar a la dirección apuntada por q
+= Todas las anteriores
+~ Ninguna de las anteriores
+}
+
+La expresión g-f, si g y f son punteros a long, vale{
+~ La cantidad de bytes entre las direcciones apuntadas por g y f
+= La cantidad de longs que caben entre las direcciones apuntadas por g y f
+~ La diferencia entre los longs apuntados por g y por f
+~ Todas las anteriores
+~ Ninguna de las anteriores
+}
+
+Con la declaración <br><code>char *s \= "abcdef";</code><br> construimos{
+~ Un arreglo
+~ Un puntero a una cadena terminada en "0"
+= Un puntero a una cadena terminada en '\0'
+~ Un puntero a un carácter '\0'
+~ Un puntero nulo
+}
+
+El puntero nulo es igual a{
+~ "0"
+= (char *)0
+~ (char) "0"
+~ '0'
+}
+
+Con la declaración <br><code>char *a[] \= \{"alfa", "beta", "gamma" \};</code><br>se tiene que a[1] equivale a {
+= la dirección de la cadena "beta"
+~ la dirección de la cadena "alfa"
+~ la letra 'l' dentro de la cadena "alfa"
+~ la letra 'b' dentro de la cadena "beta"
+~ ninguna de las anteriores
+}
+
+Con la declaración <br><code>char *a[] \= \{"alfa", "beta", "gamma" \};</code><br>se tiene que *a[1] equivale a {
+~ la dirección de la cadena "beta"
+~ la dirección de la cadena "alfa"
+~ la letra 'l' dentro de la cadena "alfa"
+= la letra 'b' dentro de la cadena "beta"
+~ ninguna de las anteriores
+}
+
+Con la declaración <br><code>char *a[] \= \{"alfa", "beta", "gamma" \};</code><br>la letra 't' dentro de la cadena "beta" se puede escribir como {
+~ a[1][2]
+~ *(a[1]+2)
+~ *(*(a+1)+2)
+= todas las anteriores
+~ ninguna de las anteriores
+}
+

@@ -1,0 +1,42 @@
+Elija dos constantes correctamente escritas:{
+= 0xFFU y 0XABL
+~ 0ABU y 010
+~ 0x10 y -0dB
+~ Todas las anteriores
+}
+
+Una constante de carácter correctamente escrita entre las siguientes es:{
+~ '0xAB'
+~ "A"
+= 'a'
+~ 265
+~ Todas las anteriores
+}
+
+La constante de carácter '0' en un sistema basado en ASCII tiene el valor decimal{
+~ 0
+= 48 
+~ "0"
+}
+
+La constante de carácter '\0' en un sistema basado en ASCII tiene el valor decimal{
+= 0
+~ 48
+~ "0"
+}
+
+La constante string "A\\103" se leerá una vez impresa como{
+~ AA
+~ A103
+~ A\\103
+= A\103
+}
+
+La cadena 'ABC0x25' es{
+~ Una constante decimal
+~ Una constante hexadecimal
+~ Una constante string
+~ Una constante de carácter
+= Ninguna de las anteriores
+}
+

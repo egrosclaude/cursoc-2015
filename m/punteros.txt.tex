@@ -1,0 +1,105 @@
+
+\question El sentido de la expresión &p puede traducirse como
+\choice Lo apuntado por p
+\correctchoice La dirección de p
+\choice El arreglo comenzado por p
+\choice *p
+\choice La cadena apuntada por p
+
+\question La expresión *p puede traducirse como
+\choice Multiplicar por p
+\correctchoice Lo apuntado por p
+\choice La dirección de p
+\choice p
+
+\question El sentido de la expresión &(*p) puede traducirse como
+\choice La dirección de p
+\choice Lo apuntado por p
+\choice Lo apuntado por la dirección de p
+\correctchoice La dirección de lo apuntado por p
+
+\question La expresión &(*p) equivale al valor de 
+\choice *p
+\choice &p
+\correctchoice p
+
+\question La expresión *(&p) equivale al valor de 
+\choice *p
+\choice &p
+\correctchoice p
+
+\question Con la declaración <br><code>char *k;</code><br>k será
+\choice un carácter
+\correctchoice un puntero a carácter
+\choice la dirección de un carácter
+\choice todas las anteriores
+
+\question Con la declaración <br><code> char k;</code><br>k será
+\correctchoice un carácter 
+\choice un puntero a carácter
+\choice la dirección de un carácter
+\choice todas las anteriores
+
+\question Con la declaración <br><code> int j;</code><br>la expresión &j será
+\choice un puntero
+\correctchoice la dirección de j
+\choice lo apuntado por j
+\choice un arreglo
+
+\question Con la declaración <br><code> int *j;</code><br>la expresión *j será
+\choice un puntero
+\choice la dirección de j
+\correctchoice lo apuntado por j
+\choice un arreglo
+
+\question La expresión p-q, si p y q son punteros a char, vale
+\choice La cantidad de bytes entre las direcciones apuntadas por p y q
+\choice La diferencia entre las direcciones apuntadas por p y q
+\choice La cantidad de bytes que hace falta desplazarse desde la dirección apuntada por p para llegar a la dirección apuntada por q
+\correctchoice Todas las anteriores
+\choice Ninguna de las anteriores
+
+\question La expresión g-f, si g y f son punteros a long, vale
+\choice La cantidad de bytes entre las direcciones apuntadas por g y f
+\correctchoice La cantidad de longs que caben entre las direcciones apuntadas por g y f
+\choice La diferencia entre los longs apuntados por g y por f
+\choice Todas las anteriores
+\choice Ninguna de las anteriores
+
+\question Con la declaración <br><code>char *s \= "abcdef";</code><br> construimos
+\correctchoice "abcdef";</code><br> construimos{
+\choice Un arreglo
+\choice Un puntero a una cadena terminada en "0"
+\correctchoice Un puntero a una cadena terminada en '\0'
+\choice Un puntero a un carácter '\0'
+\choice Un puntero nulo
+
+\question El puntero nulo es igual a
+\choice "0"
+\correctchoice (char *)0
+\choice (char) "0"
+\choice '0'
+
+\question Con la declaración <br><code>char *a[] \= \
+\correctchoice \{"alfa", "beta", "gamma" \};</code><br>se tiene que a[1] equivale a {
+\correctchoice la dirección de la cadena "beta"
+\choice la dirección de la cadena "alfa"
+\choice la letra 'l' dentro de la cadena "alfa"
+\choice la letra 'b' dentro de la cadena "beta"
+\choice ninguna de las anteriores
+
+\question Con la declaración <br><code>char *a[] \= \
+\correctchoice \{"alfa", "beta", "gamma" \};</code><br>se tiene que *a[1] equivale a {
+\choice la dirección de la cadena "beta"
+\choice la dirección de la cadena "alfa"
+\choice la letra 'l' dentro de la cadena "alfa"
+\correctchoice la letra 'b' dentro de la cadena "beta"
+\choice ninguna de las anteriores
+
+\question Con la declaración <br><code>char *a[] \= \
+\correctchoice \{"alfa", "beta", "gamma" \};</code><br>la letra 't' dentro de la cadena "beta" se puede escribir como {
+\choice a[1][2]
+\choice *(a[1]+2)
+\choice *(*(a+1)+2)
+\correctchoice todas las anteriores
+\choice ninguna de las anteriores

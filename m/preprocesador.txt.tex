@@ -1,0 +1,90 @@
+
+\question El preprocesador interviene
+\choice Después de la compilación del código
+\correctchoice Antes de la compilación del código
+
+\question El preprocesador promueve
+\correctchoice La legibilidad
+\choice La redundancia
+\choice La rapidez de ejecución
+\choice Todas las anteriores
+
+\question El preprocesador facilita
+\choice El mantenimiento
+\choice La legibilidad
+\choice La expresividad
+\correctchoice Todas las anteriores
+
+\question Las directivas de preprocesador
+\choice Están contenidas en el lenguaje C
+\choice Son variables de texto
+\correctchoice No pertenecen al lenguaje C
+\choice Son palabras reservadas
+\choice Son funciones de C
+
+\question El efecto de las directivas de preprocesador abarca
+\choice La función donde están declaradas
+\correctchoice La unidad de traducción
+\choice El proyecto de programación
+\choice El bloque donde están declaradas
+
+\question Los headers
+\choice Son escritos por el usuario
+\choice Vienen con el compilador
+\correctchoice Todas las anteriores
+\choice Ninguna de las anteriores
+
+\question Los headers que definen funciones
+\choice Son recomendables
+\choice Son imprescindibles
+\correctchoice No son recomendables
+\choice Son recomendables pero no imprescindibles
+
+\question ¿Cuál es la directiva de preprocesador correcta si queremos definir un símbolo ALFA con valor 1?
+\choice #ALFA \= 1
+\correctchoice 1
+\choice #define ALFA \= 1
+\correctchoice 1
+\correctchoice #define ALFA 1
+\choice #define 1 ALFA
+
+\question ¿Cuál es la directiva de preprocesador correcta si queremos incluir el header de biblioteca standard <emph>stdio.h</emph>?
+\choice #include stdio.h
+\choice #include <stdio>
+\correctchoice #include <stdio.h>
+\choice Cualquiera de las anteriores
+
+\question La directiva correcta para crear una macro que devuelva el doble de su argumento es
+\choice #DOBLE(x) 2*x
+\choice #define DOBLE 2*x
+\correctchoice #define DOBLE(x) 2*(x)
+\choice #define DOBLE(x) 2*(x);
+\choice #define DOBLE(x) 2 * (x)
+
+\question ¿Cuál es la directiva correcta para incluir un header llamado <emph>beta.h</emph> situado en el directorio donde se está realizando la compilación?
+\choice #define <beta.h>
+\choice #include <beta.h>
+\correctchoice #include "beta.h"
+
+\question Normalmente los headers contienen
+\correctchoice Declaraciones de variables y funciones
+\choice Definiciones de variables y funciones
+\choice Prototipos de directivas
+\choice Inclusión de archivos fuente
+\choice Todas las anteriores
+
+\question Las directivas condicionales consideran un segmento de texto
+\choice Sólo si la compilación resulta exitosa
+\correctchoice Sólo si la condición resulta exitosa
+
+\question El resultado de preprocesar la siguiente macro: <br> <br><code>#define FUNCION(x) 3*x+1</code><br> aplicada al argumento <emph>2+1</emph> será 
+\choice 3*3+1
+\correctchoice 3*2+1+1
+\choice 7
+\choice 8
+
+\question El problema de la expansión errónea de las macros se soluciona 
+\choice Rodeando los argumentos entre signos <>
+\choice Rodeando los argumentos con corchetes
+\choice Poniendo la macro completa entre comillas
+\correctchoice Rodeando los argumentos con paréntesis

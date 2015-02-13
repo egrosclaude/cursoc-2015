@@ -1,0 +1,124 @@
+Un objeto de datos es{
+~ Un tipo de datos
+~ Un tipo de datos abstracto
+~ Una variable
+= Un espacio de almacenamiento para contener valores
+}
+
+Un objeto de datos es ocupado{
+~ Al terminar la ejecución del programa
+= Al calcular cada subexpresión
+~ Al inicio de cada función
+}
+
+El tipo de las expresiones{
+~ Es asignado por el compilador
+~ Es asignado por el usuario
+= Las dos anteriores
+~ Es asignado por el linkeditor
+~ No puede ser modificado por el usuario
+}
+
+¿Cuál de las declaraciones siguientes <emph>no</emph> es correcta?{
+~ char byte;
+~ unsigned char integer;
+= unsigned double a;
+~ long UNO;
+~ long int eme;
+}
+
+¿Cuál de las declaraciones siguientes es incorrecta?{
+~ int i,j,k;
+~ char uvw;
+= unsigned a, short b;
+~ unsigned long int integer;
+}
+
+¿Cuál de las declaraciones siguientes es correcta?{
+= long size;
+~ double float a;
+~ unsigned long integer p;
+~ LONG alfa;
+}
+
+Una declaración <emph>signed</emph> indica que la variable contendrá{
+~ un número negativo o cero
+~ un número positivo o negativo
+~ un número no negativo
+= un número negativo, positivo o cero
+}
+
+El signo default de las variables de tipo int y de tipo char es, respectivamente,{
+~ signed y unsigned
+= signed y dependiente de la implementación
+~ unsigned y signed
+~ dependiente de la implementación y unsigned
+~ dependiente de la implementación en ambos casos
+}
+
+En la declaración siguiente, ¿cuál es el tipo básico interpretado por el compilador? <br> <br><code>unsigned short byte;</code><br>{
+~ char
+= int
+~ long
+}
+
+¿Cuál es la regla verdadera para los tamaños de los objetos de datos?{
+~ Un long es mayor que un short
+~ Un int es menor que un long
+~ Un short no es menor que un long
+= Un short no es mayor que un long
+}
+
+El valor máximo de un unsigned char suele estar en el orden de{
+~ las decenas
+= los cientos
+~ los miles
+~ las decenas de miles
+~ los millones
+}
+
+Cuando existe una condición de <emph>overflow</emph>:{
+~ El programa aborta con mensaje de error
+~ El programa es terminado por el subsistema de protección del sistema operativo
+= El valor se trunca
+~ El valor se redondea
+~ La variable vuelve a cero
+}
+
+Si un <emph>signed char</emph> vale 127 y se le suma 1:{
+~ queda en 0
+~ queda en -127
+~ queda en 128
+= queda en -128
+~ queda en -1
+}
+
+Si un unsigned int vale 0 y se le resta 1,{
+~ queda en 0
+~ queda en -1
+= queda en el valor del máximo entero sin signo
+~ queda en 65535
+~ queda en 32768
+}
+
+Si a y b son enteros, para obtener el valor de su cociente con decimales se debe escribir{
+~ a % b;
+~ a / b;
+= (float) a / b;
+~ float (a) / b;
+~ (float)(a / b);
+}
+
+Si a es int y b es long, ¿cuál es el tipo de la expresión siguiente?<br><code>a / b</code><br>{
+= long
+~ int
+~ float
+}
+
+Si a y b son char que tienen el máximo valor posible para los chars, el tipo de la expresión <br><code>a * b</code><br> es:{
+~ unsigned char
+~ unsigned
+~ int
+= char
+}
+

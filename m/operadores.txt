@@ -1,0 +1,104 @@
+El operador ^ en C significa{
+~ exponenciación en base 10
+~ exponenciación en base <emph>e</emph>
+= or exclusivo de bits
+~ or lógico exclusivo
+}
+
+Luego de ejecutar las sentencias <br><code>c\=1; a\=c++;</code><br> a y c valen respectivamente{
+~ 1 y 1
+= 1 y 2
+~ 2 y 2
+~ 2 y 1
+~ ninguna de las anteriores
+}
+
+Luego de ejecutar las sentencias <br><code>c\=1; a\=++c;</code><br> a y c valen respectivamente{
+~ 1 y 1
+~ 1 y 2
+= 2 y 2
+~ 2 y 1
+~ ninguna de las anteriores
+}
+
+Luego de ejecutar las sentencias <br><code>c\=1; a\=--c; a +\= c++;</code><br> a y c valen respectivamente{
+~ 1 y 1
+~ 1 y 2
+~ 2 y 2
+~ 2 y 1
+= ninguna de las anteriores
+}
+
+La sentencia <br><code>a \= a % 2;</code><br> puede escribirse también{
+~ a%%;
+= a %\= 2;
+~ a \=% 2;
+~ a%2;
+}
+
+Luego de ejecutar las sentencias <br><code>a \= 1; b \= 2; if(a \= b) b \= a;</code><br> las variables a y b valen respectivamente {
+~ 1 y 1
+~ 1 y 2
+= 2 y 2
+~ ninguno de los anteriores
+}
+
+Luego de ejecutar las sentencias <br><code>a \= 1; b \= 0; if(a \= b) b \= a;</code><br> las variables a y b valen respectivamente {
+= 0 y 0
+~ 0 y 2
+~ 2 y 2
+~ ninguno de los anteriores
+}
+
+¿Cuál de las reglas <emph>no es</emph> válida?{
+~ Toda expresión cuyo valor aritmético es 0 tiene valor lógico falso
+~ Toda expresión cuyo valor lógico es falso tiene valor aritmético 0
+~ Toda expresión cuyo valor aritmético es 1 tiene valor lógico verdadero
+= Toda expresión cuyo valor lógico es verdadero tiene valor aritmético 1
+}
+
+Indicar cuál de las expresiones tiene valor lógico falso:{
+~ a \=\= a
+~ 2 * a - a
+= a \= 0
+~ 1 !\= 0
+}
+
+La operación <br><code>a &\= 0x07</code><br> equivale a:{
+~ dividir a por 7
+~ dividir a por 8
+~ tomar el resto de dividir a por 7
+= tomar el resto de dividir a por 8
+~ restarle 8 a a
+~ restarle 7 a a
+}
+
+La operación <br><code>a >>\= 2</code><br> equivale a:{
+~ dividir a por dos
+= dividir a por cuatro
+~ multiplicar a por dos
+~ multiplicar a por cuatro
+}
+
+Dada la declaración <br><code>unsigned char a\=1;</code><br> la operación a <<\= a tiene como resultado{
+~ 0
+~ 1
+= 2
+~ 255
+~ 127
+}
+
+La expresión <br><code>(a \=\= b) ? c : d</code><br> vale{
+~ a si a es igual a b
+~ b si c es distinto de d
+~ c si c es igual a d
+= d si a es distinto de b
+}
+
+La sentencia <br><code>printf("%d\n", (1 !\= 2) ? 3 : 4);</code><br> imprime:{
+~ 1
+~ 2
+= 3
+~ 4
+}
+

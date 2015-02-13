@@ -1,0 +1,49 @@
+¿De qué tipo es la función siguiente?<br><code>float z(int p, short q) \{<br>  double g\=1;<br>  float h\=2;<br>  return g;<br>\}{
+~ int
+= float
+~ short
+~ double
+}
+
+¿Qué ocurre con el parámetro <emph>b</emph> en el cuerpo de la función siguiente?<br><code>int fun(int a) \{<br>  a \= 2 * b;<br>  return b;<br>  \}</code><br>{
+~ El código no compila porque falta declarar el parámetro b
+~ Se devuelve el valor de b que es basura por ser variable local
+= Se devuelve b si b es una global declarada más arriba
+}
+
+¿Cuál sería el prototipo más plausible para la función q() si su uso legal es como el siguiente?<br><code>float p, r; int s;<br>r \= q(p,s) / 2;</code><br>{
+~ r \= q(1, 2);
+= float q(float x, int y);
+~ float q(int x, int y);
+~ int q(float x, float y);
+}
+
+¿Cuál sería el prototipo más plausible para la función t() si su uso legal es como el siguiente?<br><code>double w;<br>w\=t(5e1, 2L);</code><br>{
+~ long t();
+~ double t(int x, int y);
+= double t(double x, long y);
+~ long t(double x, double y);
+}
+
+¿Con este prototipo, cuál es el parámetro cuyo tipo no es correcto en la invocación de la función?<br><code>void fun1(long x, double y, int g, char h);<br>fun2(500, 1.02e3, -12, 9);</code><br>{
+= x
+~ y
+~ g
+~ h
+}
+
+¿Con este prototipo, cuál es el parámetro cuyo tipo no es correcto en la invocación de la función?<br><code>void fun2(char a, unsigned b, int c, double d);<br>fun2('2', 100, 100, 100);</code><br>{
+~ a
+~ b
+~ c
+= d
+}
+
+¿Con quién está relacionado el problema en estas líneas?<br><code>void fun3(int e, unsigned short f, long int g, signed char h);<br>a \= fun3(1, 1, 1, 1);</code><br>{
+~ Con e
+~ Con f
+~ Con g
+~ Con h
+= Con a
+}
+

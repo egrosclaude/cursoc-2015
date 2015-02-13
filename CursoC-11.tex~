@@ -63,12 +63,12 @@ E/S standard se compensan recurriendo a bibliotecas de terceras partes.
 
 \section{E/S standard de caracteres}
 \label{subsec:esstandardcaract}
-Las funciones de E/S standard de caracteres son \lstinline{getchar()} y \lstinline{putchar()}. Las funciones \lstinline{getchar()} y \lstinline{putchar()} leen de teclado e imprimen, respectivamente, \textbf{un carácter por vez}.
+Las funciones de E/S standard de caracteres son \code{getchar()} y \code{putchar()}. Las funciones \code{getchar()} y \code{putchar()} leen de teclado e imprimen, respectivamente, \textbf{un carácter por vez}.
 
 \begin{ejemplo}
 Un programa que copia la entrada en la salida, carácter a
 carácter. Puede usarse, con redirección, para crear o copiar archivos, como un
-clon del comando \lstinline{cat} de UNIX.
+clon del comando \code{cat} de UNIX.
 
 \begin{lstlisting}
 #include <stdio.h>
@@ -83,21 +83,21 @@ main()
 
 \section{E/S standard de líneas}
 \label{subsec:esstandardlineas}
-Las funciones \lstinline{gets()} y \lstinline{puts()} leen de teclado e imprimen, respectivamente,
-\textbf{líneas de caracteres} terminadas por la señal de fin de línea \lstinline{\n}. La función
-\lstinline{gets()} debe recibir como argumento \textbf{la dirección de un buffer o zona de memoria}
+Las funciones \code{gets()} y \code{puts()} leen de teclado e imprimen, respectivamente,
+\textbf{líneas de caracteres} terminadas por la señal de fin de línea \code{\n}. La función
+\code{gets()} debe recibir como argumento \textbf{la dirección de un buffer o zona de memoria}
 donde depositar los caracteres provenientes de entrada standard. Éstos pueden ser tipeados por 
 el usuario, o, gracias a la redirección, provenir de archivos, o ser
 resultado de la ejecución --eventualmente concurrente-- de otros programas. 
 
-Es un error muy frecuente ofrecer a \lstinline{gets()} un puntero
-no inicializado. La función \lstinline{gets()} ha sido descripta en la unidad sobre
+Es un error muy frecuente ofrecer a \code{gets()} un puntero
+no inicializado. La función \code{gets()} ha sido descripta en la unidad sobre
 apuntadores y direcciones (ver Sección \ref{sec:lafunciongets}).
 
 
 \begin{ejemplo}
 El mismo programa, pero orientado a copiar un stream de texto línea por línea.
-La constante \lstinline{BUFSIZ} está definida en \lstinline{stdio.h} y es el tamaño del buffer de estas
+La constante \code{BUFSIZ} está definida en \code{stdio.h} y es el tamaño del buffer de estas
 funciones. Se puede sugerir esta elección para el buffer del programa, salvo
 que haya motivos para proporcionar otro tamaño.
 
@@ -112,31 +112,31 @@ main()
 \end{lstlisting}
 \end{ejemplo}
 
-La función \lstinline{gets()} elimina el \lstinline{\n} final con que termina la línea antes de
-almacenarla en su buffer. La función \lstinline{puts()} lo repone.
+La función \code{gets()} elimina el \code{\\n} final con que termina la línea antes de
+almacenarla en su buffer. La función \code{puts()} lo repone.
 
 \importante{
 Como el tamaño del buffer no es argumento para la función
-\lstinline{gets()}, ésta no conoce los límites del área de memoria de que dispone para
+\code{gets()}, ésta no conoce los límites del área de memoria de que dispone para
 dejar los resultados de una operación de entrada, y por lo tanto no puede hacer
 verificación en tiempo de ejecución. Podría ocurrir que una línea de entrada
 superara el tamaño del buffer: entonces esta entrada corromperá algún otro
 contenido del espacio del programa. 
 
 Esta condición se conoce como \textit{buffer overflow}, y el comportamiento en este caso queda indefinido; dando lugar,
-inclusive, a problemas de seguridad. Por este motivo \lstinline{gets()} no es utilizada en
+inclusive, a problemas de seguridad. Por este motivo \code{gets()} no es utilizada en
 programas de producción.
 }
 
 \section{E/S standard con formato}
 \label{subsec:esstandardformato}
-Las funciones \lstinline{printf()} y \lstinline{scanf()} permiten imprimir e ingresar, respectivamente,
+Las funciones \code{printf()} y \code{scanf()} permiten imprimir e ingresar, respectivamente,
 \textbf{conjuntos de datos en formato legible, descriptos por cadenas de formato}. Las
 cadenas se componen de especificaciones de conversión y son simétricamente las
-mismas para ambas funciones. La función \lstinline{printf()} y las cadenas de formato han
+mismas para ambas funciones. La función \code{printf()} y las cadenas de formato han
 sido descriptas en la unidad correspondiente a tipos de datos (ver sección \ref{sec:lafuncionprintf}).
 
-Inversamente a \lstinline{printf()}, la función \lstinline{scanf()} buscará en la entrada standard
+Inversamente a \code{printf()}, la función \code{scanf()} buscará en la entrada standard
 \textbf{patrones de caracteres} que estén de acuerdo con las especificaciones de conversión. Generará
 representaciones internas para los datos leídos, y los almacenará en variables.
 Para esto debe recibir las \textbf{direcciones} de dichas variables donde almacenar los
@@ -145,7 +145,7 @@ como argumentos, \textbf{las variables, y no las referencias} a las mismas.
 
 
 \begin{ejemplo}
-Leer de entrada standard un valor entero y un \lstinline{long}, e imprimirlos. Controlar que efectivamente se haya logrado leer ambos valores antes de imprimir las variables.
+Leer de entrada standard un valor entero y un \code{long}, e imprimirlos. Controlar que efectivamente se haya logrado leer ambos valores antes de imprimir las variables.
 \begin{lstlisting}
 main() 
 {
@@ -158,23 +158,23 @@ main()
 \end{ejemplo}
 
 \importante{
-El valor devuelto por \lstinline{scanf()} es la \textbf{cantidad de datos leídos y convertidos
+El valor devuelto por \code{scanf()} es la \textbf{cantidad de datos leídos y convertidos
 exitosamente}, y debería siempre comprobarse que es igual a lo esperado.
 }
 
-El uso de \lstinline{scanf()} es con frecuencia problemático. La función \lstinline{scanf()} consumirá
+El uso de \code{scanf()} es con frecuencia problemático. La función \code{scanf()} consumirá
 toda la entrada posible, pero se detendrá al encontrar un error (una entrada
 que no corresponda a lo descripto por la especificación de conversión) y \textbf{dejará
 el resto de la entrada sin procesar}, en el buffer de entrada. Si luego otra
 función de entrada intenta leer, se encontrará con esta entrada no consumida,
 lo cual puede dar origen a problemas de ejecución difíciles de diagnosticar. El
-error parecerá producirse en una instrucción \textbf{posterior} a la invocación de \lstinline{scanf()} culpable. 
+error parecerá producirse en una instrucción \textbf{posterior} a la invocación de \code{scanf()} culpable. 
 
-Por esta razón suele ser difícil combinar el uso de \lstinline{scanf()} con el de 
+Por esta razón suele ser difícil combinar el uso de \code{scanf()} con el de 
 otras funciones de entrada/salida. Además, no hay manera directa de validar que
 la entrada quede en el rango del tipo de datos destino.
 
-El uso más recomendable de \lstinline{scanf()} es cuando se la utiliza para leer, mediante
+El uso más recomendable de \code{scanf()} es cuando se la utiliza para leer, mediante
 redirección, un flujo \textbf{generado automáticamente} por otro programa (y que, por lo
 tanto, tiene una gramática rigurosa y conocida).
 
@@ -183,10 +183,10 @@ tanto, tiene una gramática rigurosa y conocida).
 
 La misma lógica de las funciones de E/S con formato sirve para que otras
 funciones lean variables con formato de un string, o impriman variables
-formateadas sobre una cadena. El efecto de \lstinline{sprintf()} sobre su cadena argumento
-es el mismo que tendría \lstinline{printf()} sobre salida standard. Por su parte la función 
-\lstinline{sscanf()} lee de un string en memoria, conteniendo datos en formato legible, y los
-recoge en representación binaria en variables, lo mismo que si \lstinline{scanf()} los
+formateadas sobre una cadena. El efecto de \code{sprintf()} sobre su cadena argumento
+es el mismo que tendría \code{printf()} sobre salida standard. Por su parte la función 
+\code{sscanf()} lee de un string en memoria, conteniendo datos en formato legible, y los
+recoge en representación binaria en variables, lo mismo que si \code{scanf()} los
 hubiera leído de entrada standard.
 
 \begin{ejemplo}
@@ -285,11 +285,11 @@ controlados más directamente por el programa.
 \section{Funciones ANSI C de E/S sobre archivos}
 \label{subsec:esarchivosansic}
 Las funciones ANSI realizan todas las operaciones sobre archivos por medio de
-una estructura o bloque de control cuyo tipo en C se llama \lstinline{FILE}. Esta
-estructura está definida en el header \lstinline{stdio.h} y contiene, entre otras cosas,
+una estructura o bloque de control cuyo tipo en C se llama \code{FILE}. Esta
+estructura está definida en el header \code{stdio.h} y contiene, entre otras cosas,
 punteros a buffers para escritura y lectura. La primera operación necesaria es
-la \textbf{apertura} del archivo, que construye una estructura \lstinline{FILE}, la inicializa con
-valores adecuados y \textbf{devuelve un apuntador} a la misma (es decir, un valor de tipo \lstinline{FILE *}). El apuntador servirá para
+la \textbf{apertura} del archivo, que construye una estructura \code{FILE}, la inicializa con
+valores adecuados y \textbf{devuelve un apuntador} a la misma (es decir, un valor de tipo \code{FILE *}). El apuntador servirá para
 referenciar esa estructura durante todo el trabajo con el archivo y hasta que deba ser
 cerrado.
 
@@ -351,7 +351,7 @@ para E/S \textbf{de caracteres, de líneas y con formato}.
 
 \section{Funciones ANSI C de caracteres sobre archivos}
 \label{subsubsec:esarchivosansiccaract}
-Las funciones que leen y escriben sobre archivos \textbf{un carácter por vez} son \lstinline{fgetc()} y \lstinline{fputc()}. Ejemplo que copia un archivo:
+Las funciones que leen y escriben sobre archivos \textbf{un carácter por vez} son \code{fgetc()} y \code{fputc()}. Ejemplo que copia un archivo:
 
 \begin{lstlisting}
 #include <stdio.h>
@@ -369,13 +369,13 @@ main()
 }
 \end{lstlisting}
 
-Hay otras funciones dentro de esta categoría, como \lstinline{ungetc()}, que \textbf{devuelve un
+Hay otras funciones dentro de esta categoría, como \code{ungetc()}, que \textbf{devuelve un
 carácter} al flujo de donde se leyó.
 
 \section{Funciones ANSI C de líneas sobre archivos}
 \label{subsubsec:esarchivosansiclineas}
-Mismo ejemplo anterior, en base a líneas, usando las funciones \lstinline{fgets()} y \lstinline{fputs()}. La
-declaración de variables \lstinline{FILE *} y las sentencias de apertura y cierre de
+Mismo ejemplo anterior, en base a líneas, usando las funciones \code{fgets()} y \code{fputs()}. La
+declaración de variables \code{FILE *} y las sentencias de apertura y cierre de
 archivos son idénticas al caso anterior. Enunciamos solamente el lazo
 principal.
     
@@ -389,8 +389,8 @@ principal.
 \section{Funciones ANSI C con formato sobre archivos}
 \label{subsubsec:esarchivosansicformato}
 
-Existen funciones \lstinline{fprintf()} y \lstinline{fscanf()}, casi idénticas a \lstinline{printf()} y \lstinline{scanf()},
-pero donde se especifica el stream de entrada o de salida. Las funciones \lstinline{printf()} y \lstinline{scanf()} pueden verse como el caso particular de las primeras donde el
+Existen funciones \code{fprintf()} y \code{fscanf()}, casi idénticas a \code{printf()} y \code{scanf()},
+pero donde se especifica el stream de entrada o de salida. Las funciones \code{printf()} y \code{scanf()} pueden verse como el caso particular de las primeras donde el
 stream es \textbf{stdout} o \textbf{stdin}, respectivamente.
 
 \begin{ejemplo}
@@ -422,9 +422,9 @@ main()
 Un conjunto muy útil de funciones ANSI permite el \textbf{acceso directo, aleatorio, o
 random} sobre archivos, saltando por encima del modelo de E/S secuencial que
 domina al resto de las funciones. Las funciones básicas de acceso directo son
-\lstinline{fread()} y \lstinline{fwrite()}, que leen bloques de un tamaño dado y en una cantidad dada.
+\code{fread()} y \code{fwrite()}, que leen bloques de un tamaño dado y en una cantidad dada.
 
-El acceso directo a un archivo se logra manteniendo un dato en su estructura \lstinline{FILE}, 
+El acceso directo a un archivo se logra manteniendo un dato en su estructura \code{FILE}, 
 llamado el \textbf{puntero de lectura/escritura},
 correspondiente al punto dentro del archivo donde se efectuará la próxima lectura o escritura  
 cuando el programa lo requiera. Cada lectura o escritura de una cierta cantidad de bytes
@@ -443,12 +443,12 @@ archivos, se logra la capacidad de \textbf{E/S por registros con acceso aleatori
 
 \begin{ejemplo}
 En el ejemplo suponemos que se han grabado en el archivo varios registros cuyo
-formato está representado por la estructura de la variable \lstinline{datos}. La función
-\lstinline{fseek()} posiciona el puntero de lectura en el \textit{offset} \lstinline{10 * sizeof(...)} (que debe
-ser un \lstinline{long}), significando que necesitamos acceder al \textbf{registro lógico} número 10 del
+formato está representado por la estructura de la variable \code{datos}. La función
+\code{fseek()} posiciona el puntero de lectura en el \textit{offset} \code{10 * sizeof(...)} (que debe
+ser un \code{long}), significando que necesitamos acceder al \textbf{registro lógico} número 10 del
 archivo. A continuación se leen tantos bytes como mide un elemento de datos.
 
-Cambiando el tercer argumento de \lstinline{fread()} podemos leer en un solo acceso un
+Cambiando el tercer argumento de \code{fread()} podemos leer en un solo acceso un
 vector completo de estas estructuras en lugar de un elemento individualmente.
 Luego de cambiar un valor del registro se lo vuelve a grabar, esta vez en un
 offset distinto (correspondiente al registro lógico 5).
@@ -469,23 +469,23 @@ fwrite(&datos, sizeof(struct registro), 1, fp);
 \subsection{Constantes de posicionamiento}
 \label{subsubsec:posicionamiento}
 Para posicionar el puntero de lectura/escritura en un offset determinado,
-existe la función \lstinline{fseek()}. El origen del desplazamiento se expresa 
-con las constantes \lstinline{SEEK_SET}, \lstinline{SEEK_END} y \lstinline{SEEK_CUR}.
+existe la función \code{fseek()}. El origen del desplazamiento se expresa 
+con las constantes \code{SEEK_SET}, \code{SEEK_END} y \code{SEEK_CUR}.
 
-La constante \lstinline{SEEK_SET} indica que el posicionamiento solicitado debe entenderse
-como absoluto a partir del principio del archivo. La constante \lstinline{SEEK_CUR}
-indica posicionamiento a partir del offset actual, y \lstinline{SEEK_END}, a partir del fin del
+La constante \code{SEEK_SET} indica que el posicionamiento solicitado debe entenderse
+como absoluto a partir del principio del archivo. La constante \code{SEEK_CUR}
+indica posicionamiento a partir del offset actual, y \code{SEEK_END}, a partir del fin del
 archivo. El offset proporcionado puede ser negativo.
 
 \subsection{Sincronización de E/S}
 Una restricción importante de la E/S en ANSI C es que no se pueden mezclar
 instrucciones de entrada y de salida sin que intervenga una operación
-intermedia de posicionamiento. Es decir, una sucesión de invocaciones a \lstinline{fwrite()} 
-puede ser seguida de uno o más \lstinline{fread()}, pero únicamente luego de un \lstinline{fseek()}
+intermedia de posicionamiento. Es decir, una sucesión de invocaciones a \code{fwrite()} 
+puede ser seguida de uno o más \code{fread()}, pero únicamente luego de un \code{fseek()}
 entre ambas. La operación de posicionamiento resincroniza ambos punteros y su
 ausencia puede hacer que se recupere basura.
 
-Este posicionamiento puede ser nulo, como por ejemplo en \lstinline{fseek(fp, 0L, SEEK_CUR)}
+Este posicionamiento puede ser nulo, como por ejemplo en \code{fseek(fp, 0L, SEEK_CUR)}
 que no varía en absoluto la posición de los punteros, pero realiza la
 sincronización buscada.
 
@@ -623,7 +623,7 @@ FILE *stream);
 
 Las funciones POSIX son la interfaz directa del programa con las llamadas al
 sistema, o \textbf{system calls}. Los programas que utilicen funciones POSIX deben incluir los headers de
-biblioteca standard \lstinline{unistd.h} y \lstinline{fcntl.h}.
+biblioteca standard \code{unistd.h} y \code{fcntl.h}.
  
 
 \subsection{Apertura de archivos}
@@ -640,7 +640,7 @@ respectivamente. Estos archivos son automáticamente provistos por el ambiente d
 proceso, y al comenzar a ejecutarse los encuentra ya abiertos.
 
 Además de los tres descriptores standard abiertos por defecto, los programas abren otros archivos 
-usando la función \lstinline{open()}. 
+usando la función \code{open()}. 
 Los archivos que se abran subsiguientemente irán ocupando los
 siguientes descriptores de archivo libres en esta tabla, y por lo tanto reciben
 números de descriptor de 3 en adelante. Cada nueva operación de apertura exitosa de un
@@ -651,21 +651,21 @@ Tanto las funciones ANSI C para archivos como las funciones POSIX de archivos
 manejan referencias obtenidas mediante la apertura y utilizadas durante toda la
 relación del programa con el archivo, pero las referencias son diferentes. La
 referencia al bloque de control utilizada por las funciones ANSI es de tipo
-\lstinline{FILE *}, mientras que el descriptor de archivo POSIX es un int. Por este motivo
+\code{FILE *}, mientras que el descriptor de archivo POSIX es un int. Por este motivo
 no se pueden mezclar las llamadas a funciones de uno y otro grupo.
 
-Sin embargo, sí es cierto que las estructuras de tipo \lstinline{FILE}, referenciadas por
-un \lstinline{FILE *}, como se dijo antes, se apoyan en funcionalidad aportada por
+Sin embargo, sí es cierto que las estructuras de tipo \code{FILE}, referenciadas por
+un \code{FILE *}, como se dijo antes, se apoyan en funcionalidad aportada por
 funciones POSIX, y por lo tanto contienen un descriptor de archivo. Si se tiene
 un archivo abierto mediante una función POSIX, es posible, dado su descriptor,
 obtener directamente el stream bufferizado correspondiente para manipularlo con
-funciones ANSI. Esto se logra con la función \lstinline{fdopen()}.
+funciones ANSI. Esto se logra con la función \code{fdopen()}.
 
 
 
 \subsubsection{Flags}
 Las funciones de E/S POSIX permiten controlar varios aspectos de la entrada/salida sobre dispositivos o archivos. Existe un conjunto de \textit{flags}, u opciones, que modifican la conducta de cada operación.   
-Los flags se expresan como nombres simbólicos para constantes de bits, y se especifican en la apertura del archivo como segundo argumento de la función \lstinline{open()}. Todas las combinaciones válidas de flags pueden expresarse como un \lstinline{OR} de bits (operador \lstinline{|}) que acumula las constantes de bits correspondientes. Resumimos los flags más importantes existentes para este segundo argumento de \lstinline{open()} en el Cuadro \ref{tab:flags}.
+Los flags se expresan como nombres simbólicos para constantes de bits, y se especifican en la apertura del archivo como segundo argumento de la función \code{open()}. Todas las combinaciones válidas de flags pueden expresarse como un \code{OR} de bits (operador \code{|}) que acumula las constantes de bits correspondientes. Resumimos los flags más importantes existentes para este segundo argumento de \code{open()} en el Cuadro \ref{tab:flags}.
 
 
  \begin{table} 
@@ -700,13 +700,13 @@ O_TRUNC
  \end{table} 
  
 \begin{ejemplo}
-Este programa copia un archivo \lstinline{ejemplo.txt} sobre otro llamado \lstinline{copia.txt}, usando funciones POSIX \lstinline{read()} y \lstinline{write()} aplicadas a los descriptores obtenidos con \lstinline{open()}.
+Este programa copia un archivo \code{ejemplo.txt} sobre otro llamado \code{copia.txt}, usando funciones POSIX \code{read()} y \code{write()} aplicadas a los descriptores obtenidos con \code{open()}.
 \begin{itemize}
-	\item Abre el primer archivo en modo de sólo lectura con el \textit{flag}, u opción, \lstinline{O_RDONLY}.
+	\item Abre el primer archivo en modo de sólo lectura con el \textit{flag}, u opción, \code{O_RDONLY}.
 	\item Como necesita escribir sobre el segundo, utiliza el flag
-\lstinline{O_WRONLY}. 
+\code{O_WRONLY}. 
 	\item Además, para el segundo archivo, especifica otros flags que van
-agregados al primero, y que son \lstinline{O_CREAT} (si no existe, se lo crea) y \lstinline{O_TRUNC} (si
+agregados al primero, y que son \code{O_CREAT} (si no existe, se lo crea) y \code{O_TRUNC} (si
 ya existe, se borran todos sus contenidos).
 \end{itemize}
 \begin{lstlisting}
@@ -730,7 +730,7 @@ main()
 
 
 \subsubsection{Permisos de los archivos}
-El tercer argumento de \lstinline{open()} tiene sentido sólo al \textbf{crear} un archivo. Sirve
+El tercer argumento de \code{open()} tiene sentido sólo al \textbf{crear} un archivo. Sirve
 para especificar los permisos con los que será creado, siempre según el
 concepto de UNIX de permisos de \textbf{lectura, escritura y ejecución}, distribuidos en
 \textbf{clases de usuarios}. Para los sistemas operativos que no cuentan con estas
@@ -814,7 +814,7 @@ S_IRWXO
 
 
 \begin{ejemplo}
-Si el archivo \lstinline{prueba.dat} no existe, se lo crea; se abre para lectura y
+Si el archivo \code{prueba.dat} no existe, se lo crea; se abre para lectura y
 escritura y con todos los permisos para el creador, pero sólo con permiso de
 lectura para el grupo del dueño. El resto de los usuarios no tiene ningún
 permiso sobre el archivo.
@@ -826,9 +826,9 @@ int fd = open("prueba.dat", O_RDWR|O_CREAT, S_IRWXU|S_IRGRP);
 
 \subsection{Posicionamiento en archivos}
 Para posicionar el puntero de lectura/escritura en un offset determinado,
-existe la función \lstinline{lseek()}. El origen del desplazamiento se expresa, como en las
-funciones ANSI C de acceso directo, con las constantes \lstinline{SEEK_SET}, \lstinline{SEEK_END} y
-\lstinline{SEEK_CUR} (ver \ref{subsubsec:posicionamiento}).
+existe la función \code{lseek()}. El origen del desplazamiento se expresa, como en las
+funciones ANSI C de acceso directo, con las constantes \code{SEEK_SET}, \code{SEEK_END} y
+\code{SEEK_CUR} (ver \ref{subsubsec:posicionamiento}).
 
 \begin{ejemplo}
 Repetimos el ejemplo dado para las funciones ANSI donde se lee el registro
@@ -846,6 +846,7 @@ write(fd, &datos, sizeof(struct registro));
 
 
 \section{Ejercicios}
+\label{sec:ej11}
 \begin{enumerate}
 \item Escribir una función que copie la entrada en la salida pero eliminando las
 vocales.
@@ -864,22 +865,28 @@ string de formato conteniendo una máscara de formato apropiada para imprimir un
 número en punto flotante. Por ejemplo, si se le dan como argumentos 7 y 2,
 deberá devolver el string \lstinline{"%7.2f"}. Aplicar la función para imprimir números en
 punto flotante.
-\item Escribir sobre un archivo una variable int con valor 1 y una variable long
+\item Escribir sobre un archivo una variable \code{int} con valor 1 y una variable \code{long}
 con valor 2. Hacerlo primero con funciones de E/S con formato, y luego con
 funciones de acceso directo. Examinar en cada caso el resultado visualizando el
-archivo y opcionalmente con un comando como \lstinline{od -bc}.
-\item Defina una estructura básica simple para un registro, a su gusto. Puede ser
+archivo y opcionalmente con un comando como \code{od -bc}.
+\item (*) Defina una estructura básica simple para un registro, a su gusto. Puede ser
 un registro de información personal, bibliográfica, etc. Construya funciones
 para leer estos datos del teclado e imprimirlos en pantalla. Luego, usando
 funciones ANSI C, construya funciones para leer y escribir una de estas
 estructuras en un archivo, dado un número de registro lógico determinado.
-\item Repita el ejercicio anterior reemplazando las funciones ANSI C por funciones
+\item (*) Repita el ejercicio anterior reemplazando las funciones ANSI C por funciones
 POSIX.
 \item Construya programas que utilicen las funciones anteriores, ANSI C o POSIX,
 y ofrezcan un menú de operaciones de administración: cargar un dato en el
 archivo, imprimir los datos contenidos en una posición determinada, listar la
 base generada completa, eliminar un registro, etc.
+\item Construir una función que pida por teclado datos personales (nombre, edad, ...) y los almacene en una estructura. Construir una función que imprima los valores recogidos por la función anterior. 
+\item Construir un programa que lea una cantidad de datos en lote y luego los imprima utilizando las funciones del ejercicio anterior. Generar un archivo de datos usando redirección.
+\item Realizar el mismo programa del punto anterior pero efectuando toda la E/S sobre archivos. El programa deberá poder leer el archivo de datos del punto anterior.
+\item Construir un programa que organice la salida de la función anterior para obtener un clon del comando \code{od} de UNIX.
+\item Construir un programa que lea el listado de un directorio en formato largo (la salida del comando \code{ls -l}) y devuelva la cantidad total de bytes ocupados.
+\item Construya programas que utilicen las funciones ANSI C o POSIX de los ejercicios anteriores \textbf{marcados con un asterisco}, y que ofrezcan un menú de operaciones de administración: cargar un dato en el archivo, imprimir los datos contenidos en una posición determinada, listar la base generada completa, eliminar un registro, etc.
 \end{enumerate}
 
 
-%TODO Ejercicios_Adicionales Ejercicios_Avanzados
+

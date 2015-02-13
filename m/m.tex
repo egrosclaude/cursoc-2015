@@ -1,0 +1,166 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+
+\title{}
+\author{}
+
+
+
+\newcounter{question}
+\newif\ifinchoices
+\inchoicesfalse
+\newenvironment{questions}{%
+  \list{\thequestion.}%
+  {%
+    \usecounter{question}%
+    \def\question{\inchoicesfalse\item}%
+    \settowidth{\leftmargin}{10.\hskip\labelsep}%
+    \labelwidth\leftmargin\advance\labelwidth-\labelsep
+  }%
+}
+{%
+  \endlist
+}%
+
+\newcounter{choice}
+\renewcommand\thechoice{\Alph{choice}}
+\newcommand\choicelabel{\thechoice.}
+\def\choice{%
+  \ifinchoices
+    % Do nothing
+  \else
+    \startchoices
+  \fi
+  \refstepcounter{choice}%
+  \ifnum\value{choice}>1\relax
+  \penalty -50\hskip 1em plus 1em\relax
+  \fi
+  \choicelabel
+  \nobreak\enskip
+}% choice
+\def\CorrectChoice{%
+  \choice
+  \addanswer{\thequestion}{\thechoice}%
+}
+\let\correctchoice\CorrectChoice
+
+\newcommand{\startchoices}{%
+  \inchoicestrue
+  \setcounter{choice}{0}%
+  \par % Uncomment this to have choices always start a new line
+  % If we're continuing the paragraph containing the question,
+  % then leave a bit of space before the first choice:
+  \ifvmode\else\enskip\fi
+}%
+
+\newbox\allanswers
+\setbox\allanswers=\hbox{}
+\newcommand{\addanswer}[2]{%
+  \global\setbox\allanswers=\hbox{\unhbox\allanswers #1.~#2\quad}%
+}
+\newcommand{\showanswers}{%
+  % \vfill
+%   \begin{center}
+%     Answers
+%   \end{center}
+   \noindent\unhbox\allanswers
+}
+
+
+
+%--------------------------------------------------------------------
+\begin{document}
+
+\section {Preguntas}
+
+\begin{questions}
+\question El principal objetivo de diseño de quienes crearon el C era
+\choice Posibilidad de acceder a los recursos de hardware
+\choice Portabilidad del compilador
+\choice Eficiencia del código generado
+\correctchoice Todas las anteriores
+
+\question La primera definición oficial del lenguaje fue dada por Kernighan y Ritchie en
+\choice 1975
+\correctchoice 1978
+\choice 1983
+\choice 1988
+
+\question Las palabras reservadas de C son
+\choice Muchas
+\correctchoice Pocas
+\choice Exactamente las de entrada/salida
+\choice Exactamente tantas como las de Pascal
+
+\question La <emph>Biblioteca Standard</emph> de C
+\choice Provee funciones para todas las necesidades
+\choice Está escrita por el usuario
+\correctchoice No provee funciones para todas las necesidades
+
+\question El lenguaje C
+\choice No realiza recolección de basura pero sí controles de tiempo de ejecución
+\choice No realiza controles de tiempo de ejecución pero sí recolección de basura
+\choice Realiza ambas cosas
+\correctchoice Ninguna de las dos cosas
+
+\question Los programas en C son portables porque
+\choice Se lo dotó de control de tipos de datos
+\correctchoice Los tipos de datos no tienen un tamaño definido por el lenguaje
+\choice Los tamaños de los tipos de datos son idénticos en todas las implementaciones
+\choice Se lo basó en una única arquitectura
+
+\question El pasaje de argumentos a funciones en C se hace
+\correctchoice por valor
+\choice por referencia
+\choice por nombre
+
+\question El lenguaje C pertenece al paradigma
+\choice Lógico
+\correctchoice Procedural
+\choice Funcional
+\choice Orientado a objetos
+
+\question Las herramientas del ciclo de compilación comprenden
+\choice compilador y linkeditor
+\correctchoice editor, compilador, linkeditor y bibliotecario
+\choice compilador y biblioteca standard
+
+\question El utilitario <emph>make</emph> genera
+\choice archivos objeto
+\choice ejecutables
+\choice bibliotecas
+\correctchoice todo lo anterior
+
+\question El mapa de memoria del programa comprende
+\choice Dos regiones estáticas y dos dinámicas
+\choice Cuatro regiones en total
+\choice Regiones de texto, de datos estáticos, de heap y de stack 
+\correctchoice Todo lo anterior
+
+\question La región de pila almacena
+\correctchoice las variables locales
+\choice las variables estáticas
+\choice las estructuras de datos dinámicas
+\choice el código del programa
+
+\end{questions}
+
+\section {Respuestas}
+\showanswers
+% \newpage
+% \begin{questions}
+%   \question $1+1= \mathord{?}$
+%     \choice $0$ \choice $1$ \correctchoice $2$ \choice $3$ \choice $4$
+% 
+%   \question $\sin \frac{\pi}{2} = \mathord{?}$
+%     \choice $0$ \correctchoice $1$ \choice $2$ \choice $\frac{\pi}{2}$
+% 
+%   \question What was the color of the bus driver's eyes?
+%     \choice Green \choice Yellow \correctchoice Blue \choice Red
+% \end{questions}
+% 
+% \showanswers
+
+\end{document}

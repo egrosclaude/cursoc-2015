@@ -1,0 +1,1364 @@
+// question: 0  name: Switch category to $course$/Valor por defecto para TALLERC/Variables 
+$CATEGORY: $course$/Valor por defecto para TALLERC/Variables
+
+
+// question: 1143  name: Cambiar la clase de almacenamiento de una variable implica afectar 
+::Cambiar la clase de almacenamiento de una variable implica afectar::Cambiar la clase de almacenamiento de una variable implica afectar{
+	= Cuándo aparece y desaparece# 
+	~El tamaño de los objetos de datos que contiene# 
+	~El ámbito de la variable dentro de la unidad de traducción# 
+	~Todo lo anterior# 
+}
+
+
+// question: 0  name: Switch category to $course$/Valor por defecto para TALLERC/Punteros 
+$CATEGORY: $course$/Valor por defecto para TALLERC/Punteros
+
+
+// question: 1109  name: Con la declaración  char k;k será 
+::Con la declaración  char k;k será::Con la declaración <br><code> char k;</code><br>k será{
+	= un carácter# 
+	~un puntero a carácter# 
+	~la dirección de un carácter# 
+	~todas las anteriores# 
+}
+
+
+// question: 1111  name: Con la declaración  int *j;la expresión *j será 
+::Con la declaración  int *j;la expresión *j será::Con la declaración <br><code> int *j;</code><br>la expresión *j será{
+	~un puntero# 
+	~la dirección de j# 
+	= lo apuntado por j# 
+	~un arreglo# 
+}
+
+
+// question: 1110  name: Con la declaración  int j;la expresión &j será 
+::Con la declaración  int j;la expresión &j será::Con la declaración <br><code> int j;</code><br>la expresión &j será{
+	~un puntero# 
+	= la dirección de j# 
+	~lo apuntado por j# 
+	~un arreglo# 
+}
+
+
+// question: 1118  name: Con la declaración char *a[] = {"alfa", "beta", "gamma" };la letra 't' dentro de la cadena "beta" se puede escribir como 
+::Con la declaración char *a[] \= \{"alfa", "beta", "gamma" \};la letra 't' dentro de la cadena "beta" se puede escribir como::Con la declaración <br><code>char *a[] \= \{"alfa", "beta", "gamma" \};</code><br>la letra 't' dentro de la cadena "beta" se puede escribir como{
+	~a[1][2]# 
+	~*(a[1]+2)# 
+	~*(*(a+1)+2)# 
+	= todas las anteriores# 
+	~ninguna de las anteriores# 
+}
+
+
+// question: 1117  name: Con la declaración char *a[] = {"alfa", "beta", "gamma" };se tiene que *a[1] equivale a 
+::Con la declaración char *a[] \= \{"alfa", "beta", "gamma" \};se tiene que *a[1] equivale a::Con la declaración <br><code>char *a[] \= \{"alfa", "beta", "gamma" \};</code><br>se tiene que *a[1] equivale a{
+	~la dirección de la cadena "beta"# 
+	~la dirección de la cadena "alfa"# 
+	~la letra 'l' dentro de la cadena "alfa"# 
+	= la letra 'b' dentro de la cadena "beta"# 
+	~ninguna de las anteriores# 
+}
+
+
+// question: 1116  name: Con la declaración char *a[] = {"alfa", "beta", "gamma" };se tiene que a[1] equivale a 
+::Con la declaración char *a[] \= \{"alfa", "beta", "gamma" \};se tiene que a[1] equivale a::Con la declaración <br><code>char *a[] \= \{"alfa", "beta", "gamma" \};</code><br>se tiene que a[1] equivale a{
+	= la dirección de la cadena "beta"# 
+	~la dirección de la cadena "alfa"# 
+	~la letra 'l' dentro de la cadena "alfa"# 
+	~la letra 'b' dentro de la cadena "beta"# 
+	~ninguna de las anteriores# 
+}
+
+
+// question: 1108  name: Con la declaración char *k;k será 
+::Con la declaración char *k;k será::Con la declaración <br><code>char *k;</code><br>k será{
+	~un carácter# 
+	= un puntero a carácter# 
+	~la dirección de un carácter# 
+	~todas las anteriores# 
+}
+
+
+// question: 1114  name: Con la declaración char *s = "abcdef"; construimos 
+::Con la declaración char *s \= "abcdef"; construimos::Con la declaración <br><code>char *s \= "abcdef";</code><br> construimos{
+	~Un arreglo# 
+	~Un puntero a una cadena terminada en "0"# 
+	= Un puntero a una cadena terminada en '\0'# 
+	~Un puntero a un carácter '\0'# 
+	~Un puntero nulo# 
+}
+
+
+// question: 0  name: Switch category to $course$/Valor por defecto para TALLERC/Arreglos 
+$CATEGORY: $course$/Valor por defecto para TALLERC/Arreglos
+
+
+// question: 1085  name: Con la declaración del arreglo que sigue, ¿cuál de las sentencias es incorrecta? long trece[12] = { 1, 5, 20L, 35}; 
+::Con la declaración del arreglo que sigue, ¿cuál de las sentencias es incorrecta? long trece[12] \= \{ 1, 5, 20L, 35\};::Con la declaración del arreglo que sigue, ¿cuál de las sentencias es incorrecta? <br><code>long trece[12] \= \{ 1, 5, 20L, 35\};</code><br>{
+	~trece[1]++;# 
+	= trece[12]--;# 
+	~trece[1] \= trece[0];# 
+	~trece[11] \= 20L;# 
+}
+
+
+// question: 0  name: Switch category to $course$/Valor por defecto para TALLERC/Tipos de datos 
+$CATEGORY: $course$/Valor por defecto para TALLERC/Tipos de datos
+
+
+// question: 1130  name: Cuando existe una condición de overflow: 
+::Cuando existe una condición de overflow\:::Cuando existe una condición de <emph>overflow</emph>\:{
+	~El programa aborta con mensaje de error# 
+	~El programa es terminado por el subsistema de protección del sistema operativo# 
+	= El valor se trunca# 
+	~El valor se redondea# 
+	~La variable vuelve a cero# 
+}
+
+
+// question: 0  name: Switch category to $course$/Valor por defecto para TALLERC/Operadores 
+$CATEGORY: $course$/Valor por defecto para TALLERC/Operadores
+
+
+// question: 1029  name: Dada la declaración unsigned char a=1; la operación a  
+::Dada la declaración unsigned char a\=1; la operación a ::Dada la declaración <code>unsigned char a\=1;</code> la operación a <<\= a tiene como resultado{
+	~0# 
+	~1# 
+	= 2# 
+	~255# 
+	~127# 
+}
+
+
+// question: 0  name: Switch category to $course$/Valor por defecto para TALLERC/Variables 
+$CATEGORY: $course$/Valor por defecto para TALLERC/Variables
+
+
+// question: 1136  name: El alcance de una variable es 
+::El alcance de una variable es::El alcance de una variable es{
+	~El rango de valores que puede tomar# 
+	~El tiempo transcurrido entre su creación y su desaparición# 
+	= El conjunto de líneas de código desde donde es visible la variable# 
+}
+
+
+// question: 0  name: Switch category to $course$/Valor por defecto para TALLERC/Preprocesador 
+$CATEGORY: $course$/Valor por defecto para TALLERC/Preprocesador
+
+
+// question: 1092  name: El efecto de las directivas de preprocesador abarca 
+::El efecto de las directivas de preprocesador abarca::El efecto de las directivas de preprocesador abarca{
+	~La función donde están declaradas# 
+	= La unidad de traducción# 
+	~El proyecto de programación# 
+	~El bloque donde están declaradas# 
+}
+
+
+// question: 0  name: Switch category to $course$/Valor por defecto para TALLERC/Introducción 
+$CATEGORY: $course$/Valor por defecto para TALLERC/Introducción
+
+
+// question: 1036  name: El lenguaje C 
+::El lenguaje C::El lenguaje C{
+	~No realiza recolección de basura pero sí controles de tiempo de ejecución# 
+	~No realiza controles de tiempo de ejecución pero sí recolección de basura# 
+	~Realiza ambas cosas# 
+	= Ninguna de las dos cosas# 
+}
+
+
+// question: 1039  name: El lenguaje C pertenece al paradigma 
+::El lenguaje C pertenece al paradigma::El lenguaje C pertenece al paradigma{
+	~Lógico# 
+	= Procedural# 
+	~Funcional# 
+	~Orientado a objetos# 
+}
+
+
+// question: 1042  name: El mapa de memoria del programa comprende 
+::El mapa de memoria del programa comprende::El mapa de memoria del programa comprende{
+	~Dos regiones estáticas y dos dinámicas# 
+	~Cuatro regiones en total# 
+	~Regiones de texto, de datos estáticos, de heap y de stack# 
+	= Todo lo anterior# 
+}
+
+
+// question: 0  name: Switch category to $course$/Valor por defecto para TALLERC/Operadores 
+$CATEGORY: $course$/Valor por defecto para TALLERC/Operadores
+
+
+// question: 1018  name: El operador ^ en C significa 
+::El operador ^ en C significa::El operador ^ en C significa{
+	~exponenciación en base 10# 
+	~exponenciación en base <emph>e</emph># 
+	= or exclusivo de bits# 
+	~or lógico exclusivo# 
+}
+
+
+// question: 0  name: Switch category to $course$/Valor por defecto para TALLERC/Introducción 
+$CATEGORY: $course$/Valor por defecto para TALLERC/Introducción
+
+
+// question: 1038  name: El pasaje de argumentos a funciones en C se hace 
+::El pasaje de argumentos a funciones en C se hace::El pasaje de argumentos a funciones en C se hace{
+	= por valor# 
+	~por referencia# 
+	~por nombre# 
+}
+
+
+// question: 0  name: Switch category to $course$/Valor por defecto para TALLERC/Preprocesador 
+$CATEGORY: $course$/Valor por defecto para TALLERC/Preprocesador
+
+
+// question: 1090  name: El preprocesador facilita 
+::El preprocesador facilita::El preprocesador facilita{
+	~El mantenimiento# 
+	~La legibilidad# 
+	~La expresividad# 
+	= Todas las anteriores# 
+}
+
+
+// question: 1088  name: El preprocesador interviene 
+::El preprocesador interviene::El preprocesador interviene{
+	~Después de la compilación del código# 
+	= Antes de la compilación del código# 
+}
+
+
+// question: 1089  name: El preprocesador promueve 
+::El preprocesador promueve::El preprocesador promueve{
+	= La legibilidad# 
+	~La redundancia# 
+	~La rapidez de ejecución# 
+	~Todas las anteriores# 
+}
+
+
+// question: 0  name: Switch category to $course$/Valor por defecto para TALLERC/Introducción 
+$CATEGORY: $course$/Valor por defecto para TALLERC/Introducción
+
+
+// question: 1032  name: El principal objetivo de diseño de quienes crearon el C era 
+::El principal objetivo de diseño de quienes crearon el C era::El principal objetivo de diseño de quienes crearon el C era{
+	~Posibilidad de acceder a los recursos de hardware# 
+	~Portabilidad del compilador# 
+	~Eficiencia del código generado# 
+	= Todas las anteriores# 
+}
+
+
+// question: 0  name: Switch category to $course$/Valor por defecto para TALLERC/Preprocesador 
+$CATEGORY: $course$/Valor por defecto para TALLERC/Preprocesador
+
+
+// question: 1102  name: El problema de la expansión errónea de las macros se soluciona 
+::El problema de la expansión errónea de las macros se soluciona::El problema de la expansión errónea de las macros se soluciona{
+	~Rodeando los argumentos entre signos <># 
+	~Rodeando los argumentos con corchetes# 
+	~Poniendo la macro completa entre comillas# 
+	= Rodeando los argumentos con paréntesis# 
+}
+
+
+// question: 0  name: Switch category to $course$/Valor por defecto para TALLERC/Punteros 
+$CATEGORY: $course$/Valor por defecto para TALLERC/Punteros
+
+
+// question: 1115  name: El puntero nulo es igual a 
+::El puntero nulo es igual a::El puntero nulo es igual a{
+	~"0"# 
+	= (char *)0# 
+	~(char) "0"# 
+	~'0'# 
+}
+
+
+// question: 0  name: Switch category to $course$/Valor por defecto para TALLERC/Preprocesador 
+$CATEGORY: $course$/Valor por defecto para TALLERC/Preprocesador
+
+
+// question: 1101  name: El resultado de preprocesar la siguiente macro:  #define FUNCION(x) 3*x+1 aplicada al argumento 2+1 será 
+::El resultado de preprocesar la siguiente macro\:  \#define FUNCION(x) 3*x+1 aplicada al argumento 2+1 será::[html]El resultado de preprocesar la siguiente macro\: <br /> <br /><code>\#define FUNCION(x) 3*x+1</code><br /><br /> aplicada al argumento <emph>2+1</emph> será{
+	~3*3+1
+	= 3*2+1+1
+	~7
+	~8
+}
+
+
+// question: 0  name: Switch category to $course$/Valor por defecto para TALLERC/Punteros 
+$CATEGORY: $course$/Valor por defecto para TALLERC/Punteros
+
+
+// question: 1105  name: El sentido de la expresión &(*p) puede traducirse como 
+::El sentido de la expresión &(*p) puede traducirse como::El sentido de la expresión &(*p) puede traducirse como{
+	~La dirección de p# 
+	~Lo apuntado por p# 
+	~Lo apuntado por la dirección de p# 
+	= La dirección de lo apuntado por p# 
+}
+
+
+// question: 1103  name: El sentido de la expresión &p puede traducirse como 
+::El sentido de la expresión &p puede traducirse como::El sentido de la expresión &p puede traducirse como{
+	~Lo apuntado por p# 
+	= La dirección de p# 
+	~El arreglo comenzado por p# 
+	~*p# 
+	~La cadena apuntada por p# 
+}
+
+
+// question: 0  name: Switch category to $course$/Valor por defecto para TALLERC/Tipos de datos 
+$CATEGORY: $course$/Valor por defecto para TALLERC/Tipos de datos
+
+
+// question: 1126  name: El signo default de las variables de tipo int y de tipo char es, respectivamente, 
+::El signo default de las variables de tipo int y de tipo char es, respectivamente,::El signo default de las variables de tipo int y de tipo char es, respectivamente,{
+	~signed y unsigned# 
+	= signed y dependiente de la implementación# 
+	~unsigned y signed# 
+	~dependiente de la implementación y unsigned# 
+	~dependiente de la implementación en ambos casos# 
+}
+
+
+// question: 1121  name: El tipo de las expresiones 
+::El tipo de las expresiones::El tipo de las expresiones{
+	~Es asignado por el compilador# 
+	~Es asignado por el usuario# 
+	= Las dos anteriores# 
+	~Es asignado por el linkeditor# 
+	~No puede ser modificado por el usuario# 
+}
+
+
+// question: 0  name: Switch category to $course$/Valor por defecto para TALLERC/Introducción 
+$CATEGORY: $course$/Valor por defecto para TALLERC/Introducción
+
+
+// question: 1041  name: El utilitario make genera 
+::El utilitario make genera::El utilitario <emph>make</emph> genera{
+	~archivos objeto# 
+	~ejecutables# 
+	~bibliotecas# 
+	= todo lo anterior# 
+}
+
+
+// question: 0  name: Switch category to $course$/Valor por defecto para TALLERC/Tipos de datos 
+$CATEGORY: $course$/Valor por defecto para TALLERC/Tipos de datos
+
+
+// question: 1129  name: El valor máximo de un unsigned char suele estar en el orden de 
+::El valor máximo de un unsigned char suele estar en el orden de::El valor máximo de un unsigned char suele estar en el orden de{
+	~las decenas# 
+	= los cientos# 
+	~los miles# 
+	~las decenas de miles# 
+	~los millones# 
+}
+
+
+// question: 0  name: Switch category to $course$/Valor por defecto para TALLERC/Constantes 
+$CATEGORY: $course$/Valor por defecto para TALLERC/Constantes
+
+
+// question: 1069  name: Elija dos constantes correctamente escritas: 
+::Elija dos constantes correctamente escritas\:::Elija dos constantes correctamente escritas\:{
+	= 0xFFU y 0XABL# 
+	~0ABU y 010# 
+	~0x10 y -0dB# 
+	~Todas las anteriores# 
+}
+
+
+// question: 0  name: Switch category to $course$/Valor por defecto para TALLERC/Tipos de datos 
+$CATEGORY: $course$/Valor por defecto para TALLERC/Tipos de datos
+
+
+// question: 1127  name: En la declaración siguiente, ¿cuál es el tipo básico interpretado por el compilador?  unsigned short byte; 
+::En la declaración siguiente, ¿cuál es el tipo básico interpretado por el compilador?  unsigned short byte;::En la declaración siguiente, ¿cuál es el tipo básico interpretado por el compilador? <br> <br><code>unsigned short byte;</code><br>{
+	~char# 
+	= int# 
+	~long# 
+}
+
+
+// question: 0  name: Switch category to $course$/Valor por defecto para TALLERC/Operadores 
+$CATEGORY: $course$/Valor por defecto para TALLERC/Operadores
+
+
+// question: 1026  name: Indicar cuál de las expresiones tiene valor lógico falso: 
+::Indicar cuál de las expresiones tiene valor lógico falso\:::Indicar cuál de las expresiones tiene valor lógico falso\:{
+	~a \=\= a# 
+	~2 * a - a# 
+	= a \= 0# 
+	~1 !\= 0# 
+}
+
+
+// question: 0  name: Switch category to $course$/Valor por defecto para TALLERC/Introducción 
+$CATEGORY: $course$/Valor por defecto para TALLERC/Introducción
+
+
+// question: 1035  name: La Biblioteca Standard de C 
+::La Biblioteca Standard de C::La <emph>Biblioteca Standard</emph> de C{
+	~Provee funciones para todas las necesidades# 
+	~Está escrita por el usuario# 
+	= No provee funciones para todas las necesidades# 
+}
+
+
+// question: 0  name: Switch category to $course$/Valor por defecto para TALLERC/Constantes 
+$CATEGORY: $course$/Valor por defecto para TALLERC/Constantes
+
+
+// question: 1074  name: La cadena 'ABC0x25' es 
+::La cadena 'ABC0x25' es::La cadena 'ABC0x25' es{
+	~Una constante decimal# 
+	~Una constante hexadecimal# 
+	~Una constante string# 
+	~Una constante de carácter# 
+	= Ninguna de las anteriores# 
+}
+
+
+// question: 0  name: Switch category to $course$/Valor por defecto para TALLERC/Variables 
+$CATEGORY: $course$/Valor por defecto para TALLERC/Variables
+
+
+// question: 1145  name: La clase de almacenamiento por defecto de las variables externas es 
+::La clase de almacenamiento por defecto de las variables externas es::La clase de almacenamiento por defecto de las variables externas es{
+	~auto# 
+	= static# 
+	~register# 
+	~extern# 
+}
+
+
+// question: 1144  name: La clase de almacenamiento por defecto de las variables locales es 
+::La clase de almacenamiento por defecto de las variables locales es::La clase de almacenamiento por defecto de las variables locales es{
+	= auto# 
+	~static# 
+	~register# 
+	~extern# 
+}
+
+
+// question: 0  name: Switch category to $course$/Valor por defecto para TALLERC/Constantes 
+$CATEGORY: $course$/Valor por defecto para TALLERC/Constantes
+
+
+// question: 1071  name: La constante de carácter '0' en un sistema basado en ASCII tiene el valor decimal 
+::La constante de carácter '0' en un sistema basado en ASCII tiene el valor decimal::La constante de carácter '0' en un sistema basado en ASCII tiene el valor decimal{
+	~0# 
+	= 48# 
+	~"0"# 
+}
+
+
+// question: 1072  name: La constante de carácter '\0' en un sistema basado en ASCII tiene el valor decimal 
+::La constante de carácter '\0' en un sistema basado en ASCII tiene el valor decimal::La constante de carácter '\0' en un sistema basado en ASCII tiene el valor decimal{
+	= 0# 
+	~48# 
+	~"0"# 
+}
+
+
+// question: 1073  name: La constante string "A\103" se leerá una vez impresa como 
+::La constante string "A\103" se leerá una vez impresa como::La constante string "A\103" se leerá una vez impresa como{
+	~AA# 
+	~A103# 
+	~A\103# 
+	= A\103# 
+}
+
+
+// question: 0  name: Switch category to $course$/Valor por defecto para TALLERC/Variables 
+$CATEGORY: $course$/Valor por defecto para TALLERC/Variables
+
+
+// question: 1151  name: La declaración extern para una variable 
+::La declaración extern para una variable::La declaración extern para una variable{
+	~crea el objeto de datos correspondiente# 
+	~equivale a una definición de la variable# 
+	~indica la unidad de traducción donde está definida la variable# 
+	= solamente enuncia el tipo y nombre de la variable# 
+}
+
+
+// question: 0  name: Switch category to $course$/Valor por defecto para TALLERC/Preprocesador 
+$CATEGORY: $course$/Valor por defecto para TALLERC/Preprocesador
+
+
+// question: 1097  name: La directiva correcta para crear una macro que devuelva el doble de su argumento es 
+::La directiva correcta para crear una macro que devuelva el doble de su argumento es::[html]La directiva correcta para crear una macro que devuelva el doble de su argumento es{
+	~\#DOBLE(x) 2*x
+	~\#define DOBLE 2*x
+	= \#define DOBLE(x) 2*(x)# define DOBLE(x) 2*(x)
+	~\#define DOBLE(x) 2*(x);
+	~\#define DOBLE(x) 2 * (x)
+}
+
+
+// question: 0  name: Switch category to $course$/Valor por defecto para TALLERC/Punteros 
+$CATEGORY: $course$/Valor por defecto para TALLERC/Punteros
+
+
+// question: 1106  name: La expresión &(*p) equivale al valor de 
+::La expresión &(*p) equivale al valor de::La expresión &(*p) equivale al valor de{
+	~*p# 
+	~&p# 
+	= p# 
+}
+
+
+// question: 0  name: Switch category to $course$/Valor por defecto para TALLERC/Operadores 
+$CATEGORY: $course$/Valor por defecto para TALLERC/Operadores
+
+
+// question: 1030  name: La expresión (a == b) ? c : d vale 
+::La expresión (a \=\= b) ? c \: d vale::La expresión <code>(a \=\= b) ? c \: d</code> vale{
+	~a si a es igual a b# 
+	~b si c es distinto de d# 
+	~c si c es igual a d# 
+	= d si a es distinto de b# 
+}
+
+
+// question: 0  name: Switch category to $course$/Valor por defecto para TALLERC/Punteros 
+$CATEGORY: $course$/Valor por defecto para TALLERC/Punteros
+
+
+// question: 1107  name: La expresión *(&p) equivale al valor de 
+::La expresión *(&p) equivale al valor de::La expresión *(&p) equivale al valor de{
+	~*p# 
+	~&p# 
+	= p# 
+}
+
+
+// question: 1104  name: La expresión *p puede traducirse como 
+::La expresión *p puede traducirse como::La expresión *p puede traducirse como{
+	~Multiplicar por p# 
+	= Lo apuntado por p# 
+	~La dirección de p# 
+	~p# 
+}
+
+
+// question: 1113  name: La expresión g-f, si g y f son punteros a long, vale 
+::La expresión g-f, si g y f son punteros a long, vale::La expresión g-f, si g y f son punteros a long, vale{
+	~La cantidad de bytes entre las direcciones apuntadas por g y f# 
+	= La cantidad de longs que caben entre las direcciones apuntadas por g y f# 
+	~La diferencia entre los longs apuntados por g y por f# 
+	~Todas las anteriores# 
+	~Ninguna de las anteriores# 
+}
+
+
+// question: 1112  name: La expresión p-q, si p y q son punteros a char, vale 
+::La expresión p-q, si p y q son punteros a char, vale::La expresión p-q, si p y q son punteros a char, vale{
+	~La cantidad de bytes entre las direcciones apuntadas por p y q# 
+	~La diferencia entre las direcciones apuntadas por p y q# 
+	~La cantidad de bytes que hace falta desplazarse desde la dirección apuntada por p para llegar a la dirección apuntada por q# 
+	= Todas las anteriores# 
+	~Ninguna de las anteriores# 
+}
+
+
+// question: 0  name: Switch category to $course$/Valor por defecto para TALLERC/Operadores 
+$CATEGORY: $course$/Valor por defecto para TALLERC/Operadores
+
+
+// question: 1027  name: La operación a &= 0x07 equivale a: 
+::La operación a &\= 0x07 equivale a\:::La operación <code>a &\= 0x07</code> equivale a\:{
+	~dividir a por 7# 
+	~dividir a por 8# 
+	~tomar el resto de dividir a por 7# 
+	= tomar el resto de dividir a por 8# 
+	~restarle 8 a a# 
+	~restarle 7 a a# 
+}
+
+
+// question: 1028  name: La operación a >>= 2 equivale a: 
+::La operación a >>\= 2 equivale a\:::La operación <code>a >>\= 2</code> equivale a\:{
+	~dividir a por dos# 
+	= dividir a por cuatro# 
+	~multiplicar a por dos# 
+	~multiplicar a por cuatro# 
+}
+
+
+// question: 0  name: Switch category to $course$/Valor por defecto para TALLERC/Introducción 
+$CATEGORY: $course$/Valor por defecto para TALLERC/Introducción
+
+
+// question: 1033  name: La primera definición oficial del lenguaje fue dada por Kernighan y Ritchie en 
+::La primera definición oficial del lenguaje fue dada por Kernighan y Ritchie en::La primera definición oficial del lenguaje fue dada por Kernighan y Ritchie en{
+	~1975# 
+	= 1978# 
+	~1983# 
+	~1988# 
+}
+
+
+// question: 1043  name: La región de pila almacena 
+::La región de pila almacena::La región de pila almacena{
+	= las variables locales# 
+	~las variables estáticas# 
+	~las estructuras de datos dinámicas# 
+	~el código del programa# 
+}
+
+
+// question: 0  name: Switch category to $course$/Valor por defecto para TALLERC/Operadores 
+$CATEGORY: $course$/Valor por defecto para TALLERC/Operadores
+
+
+// question: 1022  name: La sentencia a = a % 2; puede escribirse también 
+::La sentencia a \= a % 2; puede escribirse también::La sentencia <code>a \= a % 2;</code> puede escribirse también{
+	~a%%;# 
+	= a %\= 2;# 
+	~a \=% 2;# 
+	~a%2;# 
+}
+
+
+// question: 1031  name: La sentencia printf("%d ", (1 != 2) ? 3 : 4); imprime: 
+::La sentencia printf("%d ", (1 !\= 2) ? 3 \: 4); imprime\:::[html]La sentencia <code><br /></code>\n<p style\="font-family\: courier new,courier,monospace;"><code>printf(&quot;%d&quot;, (1 !\= 2) ? 3 \: 4);</code></p> imprime\:{
+	~1
+	~2
+	= 3
+	~4
+}
+
+
+// question: 0  name: Switch category to $course$/Valor por defecto para TALLERC/Preprocesador 
+$CATEGORY: $course$/Valor por defecto para TALLERC/Preprocesador
+
+
+// question: 1100  name: Las directivas condicionales consideran un segmento de texto 
+::Las directivas condicionales consideran un segmento de texto::Las directivas condicionales consideran un segmento de texto{
+	~Sólo si la compilación resulta exitosa# 
+	= Sólo si la condición resulta exitosa# 
+}
+
+
+// question: 1091  name: Las directivas de preprocesador 
+::Las directivas de preprocesador::Las directivas de preprocesador{
+	~Están contenidas en el lenguaje C# 
+	~Son variables de texto# 
+	= No pertenecen al lenguaje C# 
+	~Son palabras reservadas# 
+	~Son funciones de C# 
+}
+
+
+// question: 0  name: Switch category to $course$/Valor por defecto para TALLERC/Introducción 
+$CATEGORY: $course$/Valor por defecto para TALLERC/Introducción
+
+
+// question: 1040  name: Las herramientas del ciclo de compilación comprenden 
+::Las herramientas del ciclo de compilación comprenden::Las herramientas del ciclo de compilación comprenden{
+	~compilador y linkeditor# 
+	= editor, compilador, linkeditor y bibliotecario# 
+	~compilador y biblioteca standard# 
+}
+
+
+// question: 1034  name: Las palabras reservadas de C son 
+::Las palabras reservadas de C son::Las palabras reservadas de C son{
+	~Muchas# 
+	= Pocas# 
+	~Exactamente las de entrada/salida# 
+	~Exactamente tantas como las de Pascal# 
+}
+
+
+// question: 0  name: Switch category to $course$/Valor por defecto para TALLERC/Variables 
+$CATEGORY: $course$/Valor por defecto para TALLERC/Variables
+
+
+// question: 1149  name: Las variables locales que "recuerdan la historia" son 
+::Las variables locales que "recuerdan la historia" son::Las variables locales que "recuerdan la historia" son{
+	~las declaradas auto# 
+	= las declaradas static# 
+	~las declaradas register# 
+	~ninguna de las anteriores# 
+}
+
+
+// question: 0  name: Switch category to $course$/Valor por defecto para TALLERC/Preprocesador 
+$CATEGORY: $course$/Valor por defecto para TALLERC/Preprocesador
+
+
+// question: 1093  name: Los headers 
+::Los headers::Los headers{
+	~Son escritos por el usuario# 
+	~Vienen con el compilador# 
+	= Todas las anteriores# 
+	~Ninguna de las anteriores# 
+}
+
+
+// question: 1094  name: Los headers que definen funciones 
+::Los headers que definen funciones::Los headers que definen funciones{
+	~Son recomendables# 
+	~Son imprescindibles# 
+	= No son recomendables# 
+	~Son recomendables pero no imprescindibles# 
+}
+
+
+// question: 0  name: Switch category to $course$/Valor por defecto para TALLERC/Introducción 
+$CATEGORY: $course$/Valor por defecto para TALLERC/Introducción
+
+
+// question: 1037  name: Los programas en C son portables porque 
+::Los programas en C son portables porque::Los programas en C son portables porque{
+	~Se lo dotó de control de tipos de datos# 
+	= Los tipos de datos no tienen un tamaño definido por el lenguaje# 
+	~Los tamaños de los tipos de datos son idénticos en todas las implementaciones# 
+	~Se lo basó en una única arquitectura# 
+}
+
+
+// question: 0  name: Switch category to $course$/Valor por defecto para TALLERC/Operadores 
+$CATEGORY: $course$/Valor por defecto para TALLERC/Operadores
+
+
+// question: 1024  name: Luego de ejecutar las sentencias a = 1; b = 0; if(a = b)   b = a; las variables a y b valen respectivamente 
+::Luego de ejecutar las sentencias a \= 1; b \= 0; if(a \= b)   b \= a; las variables a y b valen respectivamente::[html]Luego de ejecutar las sentencias <code><br />a \= 1; b \= 0; <br />if(a \= b)<br /> b \= a;</code> <br />las variables a y b valen respectivamente{
+	= 0 y 0
+	~0 y 2
+	~2 y 2
+	~ninguno de los anteriores
+}
+
+
+// question: 1023  name: Luego de ejecutar las sentencias a = 1; b = 2; if(a = b)   b = a; las variables a y b valen respectivamente 
+::Luego de ejecutar las sentencias a \= 1; b \= 2; if(a \= b)   b \= a; las variables a y b valen respectivamente::[html]Luego de ejecutar las sentencias <code><br />a \= 1; b \= 2; <br />if(a \= b)<br /> b \= a;</code> <br />las variables a y b valen respectivamente{
+	~1 y 1
+	~1 y 2
+	= 2 y 2
+	~ninguno de los anteriores
+}
+
+
+// question: 1020  name: Luego de ejecutar las sentencias c=1; a=++c; a y c valen respectivamente 
+::Luego de ejecutar las sentencias c\=1; a\=++c; a y c valen respectivamente::Luego de ejecutar las sentencias <code>c\=1; a\=++c;</code> a y c valen respectivamente{
+	~1 y 1# 
+	~1 y 2# 
+	= 2 y 2# 
+	~2 y 1# 
+	~ninguna de las anteriores# 
+}
+
+
+// question: 1021  name: Luego de ejecutar las sentencias c=1; a=--c; a += c++; a y c valen respectivamente 
+::Luego de ejecutar las sentencias c\=1; a\=--c; a +\= c++; a y c valen respectivamente::[html]Luego de ejecutar las sentencias <code><br />c\=1; a\=--c; a +\= c++;</code> <br />a y c valen respectivamente{
+	~1 y 1
+	~1 y 2
+	~2 y 2
+	~2 y 1
+	= ninguna de las anteriores
+}
+
+
+// question: 1019  name: Luego de ejecutar las sentencias c=1; a=c++; a y c valen respectivamente 
+::Luego de ejecutar las sentencias c\=1; a\=c++; a y c valen respectivamente::[html]Luego de ejecutar las sentencias <code><br />c\=1; a\=c++;</code> <br />a y c valen respectivamente{
+	~1 y 1
+	= 1 y 2
+	~2 y 2
+	~2 y 1
+	~ninguna de las anteriores
+}
+
+
+// question: 0  name: Switch category to $course$/Valor por defecto para TALLERC/Preprocesador 
+$CATEGORY: $course$/Valor por defecto para TALLERC/Preprocesador
+
+
+// question: 1099  name: Normalmente los headers contienen 
+::Normalmente los headers contienen::Normalmente los headers contienen{
+	= Declaraciones de variables y funciones# 
+	~Definiciones de variables y funciones# 
+	~Prototipos de directivas# 
+	~Inclusión de archivos fuente# 
+	~Todas las anteriores# 
+}
+
+
+// question: 0  name: Switch category to $course$/Valor por defecto para TALLERC/Tipos de datos 
+$CATEGORY: $course$/Valor por defecto para TALLERC/Tipos de datos
+
+
+// question: 1134  name: Si a es int y b es long, ¿cuál es el tipo de la expresión siguiente?a / b 
+::Si a es int y b es long, ¿cuál es el tipo de la expresión siguiente?a / b::Si a es int y b es long, ¿cuál es el tipo de la expresión siguiente?<br><code>a / b</code><br>{
+	= long# 
+	~int# 
+	~float# 
+}
+
+
+// question: 1135  name: Si a y b son char que tienen el máximo valor posible para los chars, el tipo de la expresión a * b es: 
+::Si a y b son char que tienen el máximo valor posible para los chars, el tipo de la expresión a * b es\:::Si a y b son char que tienen el máximo valor posible para los chars, el tipo de la expresión <br><code>a * b</code><br> es\:{
+	~unsigned char# 
+	~unsigned# 
+	~int# 
+	= char# 
+}
+
+
+// question: 1133  name: Si a y b son enteros, para obtener el valor de su cociente con decimales se debe escribir 
+::Si a y b son enteros, para obtener el valor de su cociente con decimales se debe escribir::Si a y b son enteros, para obtener el valor de su cociente con decimales se debe escribir{
+	~a % b;# 
+	~a / b;# 
+	= (float) a / b;# 
+	~float (a) / b;# 
+	~(float)(a / b);# 
+}
+
+
+// question: 0  name: Switch category to $course$/Valor por defecto para TALLERC/Variables 
+$CATEGORY: $course$/Valor por defecto para TALLERC/Variables
+
+
+// question: 1150  name: Si un objeto se declara static 
+::Si un objeto se declara static::Si un objeto se declara static{
+	~Se hace visible desde otras unidades de traducción# 
+	= Se impide que se vea desde otras unidades de traducción# 
+	~Se impide que se vea desde otras funciones que aquella donde se lo define# 
+}
+
+
+// question: 0  name: Switch category to $course$/Valor por defecto para TALLERC/Tipos de datos 
+$CATEGORY: $course$/Valor por defecto para TALLERC/Tipos de datos
+
+
+// question: 1131  name: Si un signed char vale 127 y se le suma 1: 
+::Si un signed char vale 127 y se le suma 1\:::Si un <emph>signed char</emph> vale 127 y se le suma 1\:{
+	~queda en 0# 
+	~queda en -127# 
+	~queda en 128# 
+	= queda en -128# 
+	~queda en -1# 
+}
+
+
+// question: 1132  name: Si un unsigned int vale 0 y se le resta 1, 
+::Si un unsigned int vale 0 y se le resta 1,::Si un unsigned int vale 0 y se le resta 1,{
+	~queda en 0# 
+	~queda en -1# 
+	= queda en el valor del máximo entero sin signo# 
+	~queda en 65535# 
+	~queda en 32768# 
+}
+
+
+// question: 0  name: Switch category to $course$/Valor por defecto para TALLERC/Variables 
+$CATEGORY: $course$/Valor por defecto para TALLERC/Variables
+
+
+// question: 1141  name: Si una función declara una variable local con el mismo nombre que una externa, los usos de esa variable dentro de la función se referirán a 
+::Si una función declara una variable local con el mismo nombre que una externa, los usos de esa variable dentro de la función se referirán a::Si una función declara una variable local con el mismo nombre que una externa, los usos de esa variable dentro de la función se referirán a{
+	= La variable local# 
+	~La variable externa# 
+	~Depende de la implementación# 
+}
+
+
+// question: 0  name: Switch category to $course$/Valor por defecto para TALLERC/Tipos de datos 
+$CATEGORY: $course$/Valor por defecto para TALLERC/Tipos de datos
+
+
+// question: 1119  name: Un objeto de datos es 
+::Un objeto de datos es::Un objeto de datos es{
+	~Un tipo de datos# 
+	~Un tipo de datos abstracto# 
+	~Una variable# 
+	= Un espacio de almacenamiento para contener valores# 
+}
+
+
+// question: 1120  name: Un objeto de datos es ocupado 
+::Un objeto de datos es ocupado::Un objeto de datos es ocupado{
+	~Al terminar la ejecución del programa# 
+	= Al calcular cada subexpresión# 
+	~Al inicio de cada función# 
+}
+
+
+// question: 0  name: Switch category to $course$/Valor por defecto para TALLERC/Constantes 
+$CATEGORY: $course$/Valor por defecto para TALLERC/Constantes
+
+
+// question: 1070  name: Una constante de carácter correctamente escrita entre las siguientes es: 
+::Una constante de carácter correctamente escrita entre las siguientes es\:::Una constante de carácter correctamente escrita entre las siguientes es\:{
+	~'0xAB'# 
+	~"A"# 
+	= 'a'# 
+	~265# 
+	~Todas las anteriores# 
+}
+
+
+// question: 0  name: Switch category to $course$/Valor por defecto para TALLERC/Variables 
+$CATEGORY: $course$/Valor por defecto para TALLERC/Variables
+
+
+// question: 1152  name: Una declaración extern puede corresponderse 
+::Una declaración extern puede corresponderse::Una declaración extern puede corresponderse{
+	= con una variable externa en otra unidad de traducción# 
+	~con una variable local en otra unidad de traducción# 
+	~ninguna de las anteriores# 
+}
+
+
+// question: 0  name: Switch category to $course$/Valor por defecto para TALLERC/Tipos de datos 
+$CATEGORY: $course$/Valor por defecto para TALLERC/Tipos de datos
+
+
+// question: 1125  name: Una declaración signed indica que la variable contendrá 
+::Una declaración signed indica que la variable contendrá::Una declaración <emph>signed</emph> indica que la variable contendrá{
+	~un número negativo o cero# 
+	~un número positivo o negativo# 
+	~un número no negativo# 
+	= un número negativo, positivo o cero# 
+}
+
+
+// question: 0  name: Switch category to $course$/Valor por defecto para TALLERC/Variables 
+$CATEGORY: $course$/Valor por defecto para TALLERC/Variables
+
+
+// question: 1153  name: Una declaración static puede corresponderse 
+::Una declaración static puede corresponderse::Una declaración static puede corresponderse{
+	~con una variable externa en otra unidad de traducción# 
+	~con una variable local en otra unidad de traducción# 
+	= ninguna de las anteriores# 
+}
+
+
+// question: 1148  name: Una variable con clase de almacenamiento auto 
+::Una variable con clase de almacenamiento auto::Una variable con clase de almacenamiento auto{
+	~se inicializa con ceros al inicio del programa# 
+	= no se inicializa y contiene basura# 
+	~se inicializa con ceros al ejecutarse la función donde se la define# 
+}
+
+
+// question: 1146  name: Una variable con clase de almacenamiento static 
+::Una variable con clase de almacenamiento static::Una variable con clase de almacenamiento static{
+	~se crea estáticamente al ejecutarse la función donde se la define# 
+	= se crea estáticamente al cargarse el programa en memoria# 
+	~se crea estáticamente al iniciarse la ejecución de main()# 
+}
+
+
+// question: 1147  name: Una variable con clase de almacenamiento static 
+::Una variable con clase de almacenamiento static::Una variable con clase de almacenamiento static{
+	= se inicializa con ceros al inicio del programa# 
+	~no se inicializa y contiene basura# 
+	~se inicializa con ceros al ejecutarse la función donde se la define# 
+}
+
+
+// question: 1154  name: Una variable const 
+::Una variable const::Una variable const{
+	~debe ser optimizada# 
+	~no debe ser optimizada# 
+	~puede ser modificada sólo por funciones en la misma unidad de traducción# 
+	= no puede ser modificada# 
+}
+
+
+// question: 1138  name: Una variable externa es aquella que aparece definida 
+::Una variable externa es aquella que aparece definida::Una variable externa es aquella que aparece definida{
+	~Fuera de una función pero dentro de una segunda función# 
+	~Fuera de un bloque# 
+	= Fuera de toda función# 
+	~Dentro de una función# 
+}
+
+
+// question: 1140  name: Una variable externa puede ser usada 
+::Una variable externa puede ser usada::Una variable externa puede ser usada{
+	~desde toda la unidad de traducción# 
+	~desde dentro de la función donde se la declara# 
+	= desde las funciones que aparecen con posterioridad a su declaración# 
+	~en todos los casos anteriores# 
+}
+
+
+// question: 1137  name: Una variable local es aquella que aparece definida 
+::Una variable local es aquella que aparece definida::Una variable local es aquella que aparece definida{
+	= Dentro de una función# 
+	~Fuera de una función# 
+	~Fuera de todas las funciones# 
+}
+
+
+// question: 1139  name: Una variable local puede ser usada 
+::Una variable local puede ser usada::Una variable local puede ser usada{
+	~desde toda la unidad de traducción# 
+	= desde dentro de la función donde se la declara# 
+	~desde las funciones que aparecen con posterioridad a su declaración# 
+	~en todos los casos anteriores# 
+}
+
+
+// question: 1142  name: Una variable local vive 
+::Una variable local vive::Una variable local vive{
+	~Durante toda la ejecución del programa# 
+	= Durante la ejecución de la función donde se la declara# 
+	~Durante la compilación del programa# 
+	~Durante la ejecución de las funciones que aparecen con posterioridad a su declaración# 
+}
+
+
+// question: 0  name: Switch category to $course$/Valor por defecto para TALLERC/Funciones 
+$CATEGORY: $course$/Valor por defecto para TALLERC/Funciones
+
+
+// question: 1055  name: ¿Con este prototipo, cuál es el parámetro cuyo tipo no es correcto en la invocación de la función?void fun1(long x, double y, int g, char h);fun2(500, 1.02e3, -12, 9); 
+::¿Con este prototipo, cuál es el parámetro cuyo tipo no es correcto en la invocación de la función?void fun1(long x, double y, int g, char h);fun2(500, 1.02e3, -12, 9);::¿Con este prototipo, cuál es el parámetro cuyo tipo no es correcto en la invocación de la función?<br><code>void fun1(long x, double y, int g, char h);<br>fun2(500, 1.02e3, -12, 9);</code><br>{
+	= x# 
+	~y# 
+	~g# 
+	~h# 
+}
+
+
+// question: 1056  name: ¿Con este prototipo, cuál es el parámetro cuyo tipo no es correcto en la invocación de la función?void fun2(char a, unsigned b, int c, double d);fun2('2', 100, 100, 100); 
+::¿Con este prototipo, cuál es el parámetro cuyo tipo no es correcto en la invocación de la función?void fun2(char a, unsigned b, int c, double d);fun2('2', 100, 100, 100);::¿Con este prototipo, cuál es el parámetro cuyo tipo no es correcto en la invocación de la función?<br><code>void fun2(char a, unsigned b, int c, double d);<br>fun2('2', 100, 100, 100);</code><br>{
+	~a# 
+	~b# 
+	~c# 
+	= d# 
+}
+
+
+// question: 1057  name: ¿Con quién está relacionado el problema en estas líneas?void fun3(int e, unsigned short f, long int g, signed char h);a = fun3(1, 1, 1, 1); 
+::¿Con quién está relacionado el problema en estas líneas?void fun3(int e, unsigned short f, long int g, signed char h);a \= fun3(1, 1, 1, 1);::¿Con quién está relacionado el problema en estas líneas?<br><code>void fun3(int e, unsigned short f, long int g, signed char h);<br>a \= fun3(1, 1, 1, 1);</code><br>{
+	~Con e# 
+	~Con f# 
+	~Con g# 
+	~Con h# 
+	= Con a# 
+}
+
+
+// question: 0  name: Switch category to $course$/Valor por defecto para TALLERC/Arreglos 
+$CATEGORY: $course$/Valor por defecto para TALLERC/Arreglos
+
+
+// question: 1087  name: ¿Cuál de estas declaraciones es la correcta? 
+::¿Cuál de estas declaraciones es la correcta?::¿Cuál de estas declaraciones es la correcta?{
+	= char palabra[]\=\{'n', 'u', 'e', 'v', 'o'\};# 
+	~char palabra \= \{'n', 'u', 'e', 'v', 'o'\};# 
+	~char palabra \= 'nuevo';# 
+	~char palabra[4] \= \{'n', 'u', 'e', 'v', 'o'\};# 
+}
+
+
+// question: 1086  name: ¿Cuál de estos segmentos de programa es incorrecto? 
+::¿Cuál de estos segmentos de programa es incorrecto?::¿Cuál de estos segmentos de programa es incorrecto?{
+	~int alfa[3]; alfa[2++] \= 8;# 
+	= int alfa[3]; alfa \= \{ 1, 2, 8 \};# 
+	~int alfa[3]; c \= alfa[0]++;# 
+	~int alfa[3]; alfa[1] \= alfa[2];# 
+}
+
+
+// question: 0  name: Switch category to $course$/Valor por defecto para TALLERC/Tipos de datos 
+$CATEGORY: $course$/Valor por defecto para TALLERC/Tipos de datos
+
+
+// question: 1124  name: ¿Cuál de las declaraciones siguientes es correcta? 
+::¿Cuál de las declaraciones siguientes es correcta?::¿Cuál de las declaraciones siguientes es correcta?{
+	= long size;# 
+	~double float a;# 
+	~unsigned long integer p;# 
+	~LONG alfa;# 
+}
+
+
+// question: 1123  name: ¿Cuál de las declaraciones siguientes es incorrecta? 
+::¿Cuál de las declaraciones siguientes es incorrecta?::¿Cuál de las declaraciones siguientes es incorrecta?{
+	~int i,j,k;# 
+	~char uvw;# 
+	= unsigned a, short b;# 
+	~unsigned long int integer;# 
+}
+
+
+// question: 1122  name: ¿Cuál de las declaraciones siguientes no es correcta? 
+::¿Cuál de las declaraciones siguientes no es correcta?::¿Cuál de las declaraciones siguientes <emph>no</emph> es correcta?{
+	~char byte;# 
+	~unsigned char integer;# 
+	= unsigned double a;# 
+	~long UNO;# 
+	~long int eme;# 
+}
+
+
+// question: 0  name: Switch category to $course$/Valor por defecto para TALLERC/Operadores 
+$CATEGORY: $course$/Valor por defecto para TALLERC/Operadores
+
+
+// question: 1025  name: ¿Cuál de las reglas no es válida? 
+::¿Cuál de las reglas no es válida?::¿Cuál de las reglas <emph>no es</emph> válida?{
+	~Toda expresión cuyo valor aritmético es 0 tiene valor lógico falso# 
+	~Toda expresión cuyo valor lógico es falso tiene valor aritmético 0# 
+	~Toda expresión cuyo valor aritmético es 1 tiene valor lógico verdadero# 
+	= Toda expresión cuyo valor lógico es verdadero tiene valor aritmético 1# 
+}
+
+
+// question: 0  name: Switch category to $course$/Valor por defecto para TALLERC/Arreglos 
+$CATEGORY: $course$/Valor por defecto para TALLERC/Arreglos
+
+
+// question: 1082  name: ¿Cuál es la declaración correcta para un arreglo de nueve caracteres? 
+::¿Cuál es la declaración correcta para un arreglo de nueve caracteres?::¿Cuál es la declaración correcta para un arreglo de nueve caracteres?{
+	~int chars[9];# 
+	~alfa\=char[9];# 
+	~char[9] alfa;# 
+	= char alfa[9];# 
+}
+
+
+// question: 0  name: Switch category to $course$/Valor por defecto para TALLERC/Preprocesador 
+$CATEGORY: $course$/Valor por defecto para TALLERC/Preprocesador
+
+
+// question: 1098  name: ¿Cuál es la directiva correcta para incluir un header llamado beta.h situado en el directorio donde se está realizando la compilación? 
+::¿Cuál es la directiva correcta para incluir un header llamado beta.h situado en el directorio donde se está realizando la compilación?::[html]¿Cuál es la directiva correcta para incluir un header llamado <emph>beta.h</emph> situado en el directorio donde se está realizando la compilación?{
+	~\#define <beta.h>
+	~\#include <beta.h>
+	= \#include "beta.h"# include &quot;beta.h&quot;
+}
+
+
+// question: 1095  name: ¿Cuál es la directiva de preprocesador correcta si queremos definir un símbolo ALFA con valor 1? 
+::¿Cuál es la directiva de preprocesador correcta si queremos definir un símbolo ALFA con valor 1?::[html]¿Cuál es la directiva de preprocesador correcta si queremos definir un símbolo ALFA con valor 1?{
+	~\#ALFA \= 1
+	~\#define ALFA \= 1
+	= \#define ALFA 1# define ALFA 1
+	~\#define 1 ALFA
+}
+
+
+// question: 1096  name: ¿Cuál es la directiva de preprocesador correcta si queremos incluir el header de biblioteca standard stdio.h? 
+::¿Cuál es la directiva de preprocesador correcta si queremos incluir el header de biblioteca standard stdio.h?::[html]¿Cuál es la directiva de preprocesador correcta si queremos incluir el header de biblioteca standard <emph>stdio.h</emph>?{
+	~\#include stdio.h
+	~\#include <stdio>
+	= \#include <stdio.h># include <stdio.h></stdio.h>
+	~Cualquiera de las anteriores
+}
+
+
+// question: 0  name: Switch category to $course$/Valor por defecto para TALLERC/Tipos de datos 
+$CATEGORY: $course$/Valor por defecto para TALLERC/Tipos de datos
+
+
+// question: 1128  name: ¿Cuál es la regla verdadera para los tamaños de los objetos de datos? 
+::¿Cuál es la regla verdadera para los tamaños de los objetos de datos?::¿Cuál es la regla verdadera para los tamaños de los objetos de datos?{
+	~Un long es mayor que un short# 
+	~Un int es menor que un long# 
+	~Un short no es menor que un long# 
+	= Un short no es mayor que un long# 
+}
+
+
+// question: 0  name: Switch category to $course$/Valor por defecto para TALLERC/Funciones 
+$CATEGORY: $course$/Valor por defecto para TALLERC/Funciones
+
+
+// question: 1053  name: ¿Cuál sería el prototipo más plausible para la función q() si su uso legal es como el siguiente?float p, r; int s;r = q(p,s) / 2; 
+::¿Cuál sería el prototipo más plausible para la función q() si su uso legal es como el siguiente?float p, r; int s;r \= q(p,s) / 2;::¿Cuál sería el prototipo más plausible para la función q() si su uso legal es como el siguiente?<br><code>float p, r; int s;<br>r \= q(p,s) / 2;</code><br>{
+	~r \= q(1, 2);# 
+	= float q(float x, int y);# 
+	~float q(int x, int y);# 
+	~int q(float x, float y);# 
+}
+
+
+// question: 1054  name: ¿Cuál sería el prototipo más plausible para la función t() si su uso legal es como el siguiente?double w;w=t(5e1, 2L); 
+::¿Cuál sería el prototipo más plausible para la función t() si su uso legal es como el siguiente?double w;w\=t(5e1, 2L);::¿Cuál sería el prototipo más plausible para la función t() si su uso legal es como el siguiente?<br><code>double w;<br>w\=t(5e1, 2L);</code><br>{
+	~long t();# 
+	~double t(int x, int y);# 
+	= double t(double x, long y);# 
+	~long t(double x, double y);# 
+}
+
+
+// question: 0  name: Switch category to $course$/Valor por defecto para TALLERC/Control 
+$CATEGORY: $course$/Valor por defecto para TALLERC/Control
+
+
+// question: 1066  name: ¿Cuántas X imprimen estas líneas?c=3; do { printf("X"); } while(--c); 
+::¿Cuántas X imprimen estas líneas?c\=3; do \{ printf("X"); \} while(--c);::[html]¿Cuántas X imprimen estas líneas?<code><br />c\=3; do \{ printf(&quot;X&quot;); \} while(--c);</code>{
+	~1
+	~2
+	= 3
+	~4
+}
+
+
+// question: 1065  name: ¿Cuántas X imprimen estas líneas?c=3; do { printf("X"); } while(c--); 
+::¿Cuántas X imprimen estas líneas?c\=3; do \{ printf("X"); \} while(c--);::[html]¿Cuántas X imprimen estas líneas?<br /><code>c\=3; do \{ printf(&quot;X&quot;); \} while(c--);</code>{
+	~1
+	~2
+	~3
+	= 4
+}
+
+
+// question: 1068  name: ¿Cuántas X imprimen estas líneas?c=3; while(--c) printf("X"); 
+::¿Cuántas X imprimen estas líneas?c\=3; while(--c) printf("X");::[html]¿Cuántas X imprimen estas líneas?<code><br />c\=3; <br />while(--c) <br /> printf(&quot;X&quot;); </code>{
+	~1
+	= 2
+	~3
+	~4
+}
+
+
+// question: 1067  name: ¿Cuántas X imprimen estas líneas?c=3; while(c--) printf("X"); 
+::¿Cuántas X imprimen estas líneas?c\=3; while(c--) printf("X");::[html]¿Cuántas X imprimen estas líneas?<br /><code>c\=3; <br />while(c--) <br /> printf(&quot;X&quot;); </code>{
+	~1
+	~2
+	= 3
+	~4
+}
+
+
+// question: 0  name: Switch category to $course$/Valor por defecto para TALLERC/Arreglos 
+$CATEGORY: $course$/Valor por defecto para TALLERC/Arreglos
+
+
+// question: 1083  name: ¿Cuántos elementos tiene este arreglo?  int trece[12] = { 1, 3, 5 }; 
+::¿Cuántos elementos tiene este arreglo?  int trece[12] \= \{ 1, 3, 5 \};::¿Cuántos elementos tiene este arreglo? <br><code> int trece[12] \= \{ 1, 3, 5 \};</code><br>{
+	~3# 
+	~11# 
+	= 12# 
+	~13# 
+}
+
+
+// question: 1084  name: ¿Cuántos elementos tiene este arreglo?  int trece[] = { 1, 3, 5 }; 
+::¿Cuántos elementos tiene este arreglo?  int trece[] \= \{ 1, 3, 5 \};::¿Cuántos elementos tiene este arreglo? <br><code> int trece[] \= \{ 1, 3, 5 \};</code><br>{
+	= 3# 
+	~11# 
+	~12# 
+	~13# 
+}
+
+
+// question: 1081  name: ¿Cuántos elementos tiene este arreglo? long trece[12]; 
+::¿Cuántos elementos tiene este arreglo? long trece[12];::¿Cuántos elementos tiene este arreglo? <br><code>long trece[12];</code><br>{
+	~11# 
+	= 12# 
+	~13# 
+}
+
+
+// question: 0  name: Switch category to $course$/Valor por defecto para TALLERC/Funciones 
+$CATEGORY: $course$/Valor por defecto para TALLERC/Funciones
+
+
+// question: 1051  name: ¿De qué tipo es la función siguiente?float z(int p, short q) {  double g=1;  float h=2;  return g;} 
+::¿De qué tipo es la función siguiente?float z(int p, short q) \{  double g\=1;  float h\=2;  return g;\}::¿De qué tipo es la función siguiente?<br><code>float z(int p, short q) \{<br>  double g\=1;<br>  float h\=2;<br>  return g;<br>\}{
+	~int# 
+	= float# 
+	~short# 
+	~double# 
+}
+
+
+// question: 1052  name: ¿Qué ocurre con el parámetro b en el cuerpo de la función siguiente?int fun(int a) {  a = 2 * b;  return b;  } 
+::¿Qué ocurre con el parámetro b en el cuerpo de la función siguiente?int fun(int a) \{  a \= 2 * b;  return b;  \}::¿Qué ocurre con el parámetro <emph>b</emph> en el cuerpo de la función siguiente?<br><code>int fun(int a) \{<br>  a \= 2 * b;<br>  return b;<br>  \}</code><br>{
+	~El código no compila porque falta declarar el parámetro b# 
+	~Se devuelve el valor de b que es basura por ser variable local# 
+	= Se devuelve b si b es una global declarada más arriba# 
+}
+
+
+// question: 0  name: Switch category to $course$/Valor por defecto para TALLERC/Control 
+$CATEGORY: $course$/Valor por defecto para TALLERC/Control
+
+
+// question: 1062  name: ¿Qué resultado final tiene la variable a si inicialmente a, c y d valen 1?switch(c) {  case 1: a=a+d;  case 2: a=a-d;} 
+::¿Qué resultado final tiene la variable a si inicialmente a, c y d valen 1?switch(c) \{  case 1\: a\=a+d;  case 2\: a\=a-d;\}::[html]¿Qué resultado final tiene la variable a si inicialmente a, c y d valen 1?<code><br />switch(c) \{<br /> case 1\: a\=a+d;<br /> case 2\: a\=a-d;<br />\}</code>{
+	= 1
+	~2
+	~3
+}
+
+
+// question: 1058  name: ¿Qué resultado final tiene la variable a?a=1;if(1)    a=2; 
+::¿Qué resultado final tiene la variable a?a\=1;if(1)    a\=2;::[html]¿Qué resultado final tiene la variable <emph>a</emph>?<code><br />a\=1;<br />if(1)<br /> a\=2;</code>{
+	~1
+	= 2
+	~ninguna de las anteriores
+}
+
+
+// question: 1060  name: ¿Qué resultado final tiene la variable a?a=1;if(b=0)    a=2; 
+::¿Qué resultado final tiene la variable a?a\=1;if(b\=0)    a\=2;::[html]¿Qué resultado final tiene la variable <emph>a</emph>?<code><br />a\=1;<br />if(b\=0)<br /> a\=2;</code>{
+	= 1
+	~2
+	~depende del valor de b
+	~ninguna de las anteriores
+}
+
+
+// question: 1059  name: ¿Qué resultado final tiene la variable a?a=1;if(b==2);    a=2; 
+::¿Qué resultado final tiene la variable a?a\=1;if(b\=\=2);    a\=2;::[html]¿Qué resultado final tiene la variable <emph>a</emph>?<br /><code>a\=1;<br />if(b\=\=2);<br /> a\=2;</code>{
+	~1
+	= 2
+	~depende del valor de b
+	~ninguna de las anteriores
+}
+
+
+// question: 1061  name: ¿Qué resultado final tiene la variable a?b=3;if(b==1)    a=2;else if(b==2) a=3; else a=4; 
+::¿Qué resultado final tiene la variable a?b\=3;if(b\=\=1)    a\=2;else if(b\=\=2) a\=3; else a\=4;::[html]¿Qué resultado final tiene la variable <emph>a</emph>?<code><br />b\=3;<br />if(b\=\=1)<br /> a\=2;else if(b\=\=2) a\=3; else a\=4;</code>{
+	~2
+	~3
+	= 4
+	~no está definido
+}
+
+
+// question: 1063  name: ¿Qué resultado final tiene la variable b si inicialmente b, c y d valen 1?switch(c) {  case 1: b=b+d;  case 2: b=b-d;  default:          b=0;} 
+::¿Qué resultado final tiene la variable b si inicialmente b, c y d valen 1?switch(c) \{  case 1\: b\=b+d;  case 2\: b\=b-d;  default\:          b\=0;\}::[html]¿Qué resultado final tiene la variable b si inicialmente b, c y d valen 1?<code><br />switch(c) \{<br /> case 1\: b\=b+d;<br /> case 2\: b\=b-d;<br /> default\:<br /> b\=0;<br />\}</code>{
+	= 0
+	~1
+	~2
+	~3
+}
+
+
+// question: 1064  name: ¿Qué resultado final tiene la variable c?c=1;for(i=0; i 
+::¿Qué resultado final tiene la variable c?c\=1;for(i\=0; i::[html]¿Qué resultado final tiene la variable c?<br /><code>c\=1;<br />for(i\=0; i&lt;5; i++);<br /> for(j\=0; j&lt;2; j++)<br /> c++;</code>{
+	~1
+	~2
+	= 3
+	~6
+	~13
+}
+
+

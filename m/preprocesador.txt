@@ -1,0 +1,103 @@
+El preprocesador interviene{
+~ Después de la compilación del código
+= Antes de la compilación del código
+}
+
+El preprocesador promueve{
+= La legibilidad
+~ La redundancia
+~ La rapidez de ejecución
+~ Todas las anteriores
+}
+
+El preprocesador facilita{
+~ El mantenimiento
+~ La legibilidad
+~ La expresividad
+= Todas las anteriores
+}
+
+Las directivas de preprocesador{
+~ Están contenidas en el lenguaje C
+~ Son variables de texto
+= No pertenecen al lenguaje C
+~ Son palabras reservadas
+~ Son funciones de C
+}
+
+El efecto de las directivas de preprocesador abarca{
+~ La función donde están declaradas
+= La unidad de traducción
+~ El proyecto de programación
+~ El bloque donde están declaradas
+}
+
+Los headers{
+~ Son escritos por el usuario
+~ Vienen con el compilador
+= Todas las anteriores
+~ Ninguna de las anteriores
+}
+
+Los headers que definen funciones{
+~ Son recomendables
+~ Son imprescindibles
+= No son recomendables
+~ Son recomendables pero no imprescindibles
+}
+
+¿Cuál es la directiva de preprocesador correcta si queremos definir un símbolo ALFA con valor 1?{
+~ #ALFA \= 1
+~ #define ALFA \= 1
+= #define ALFA 1
+~ #define 1 ALFA
+}
+
+¿Cuál es la directiva de preprocesador correcta si queremos incluir el header de biblioteca standard <emph>stdio.h</emph>?{
+~ #include stdio.h
+~ #include <stdio>
+= #include <stdio.h>
+~ Cualquiera de las anteriores
+}
+
+La directiva correcta para crear una macro que devuelva el doble de su argumento es{
+~ #DOBLE(x) 2*x
+~ #define DOBLE 2*x
+= #define DOBLE(x) 2*(x)
+~ #define DOBLE(x) 2*(x);
+~ #define DOBLE(x) 2 * (x)
+}
+
+¿Cuál es la directiva correcta para incluir un header llamado <emph>beta.h</emph> situado en el directorio donde se está realizando la compilación?{
+~ #define <beta.h>
+~ #include <beta.h>
+= #include "beta.h"
+}
+
+Normalmente los headers contienen{
+= Declaraciones de variables y funciones
+~ Definiciones de variables y funciones
+~ Prototipos de directivas
+~ Inclusión de archivos fuente
+~ Todas las anteriores
+}
+
+Las directivas condicionales consideran un segmento de texto{
+~ Sólo si la compilación resulta exitosa
+= Sólo si la condición resulta exitosa
+}
+
+El resultado de preprocesar la siguiente macro: <br> <br><code>#define FUNCION(x) 3*x+1</code><br> aplicada al argumento <emph>2+1</emph> será {
+~ 3*3+1
+= 3*2+1+1
+~ 7
+~ 8
+}
+
+El problema de la expansión errónea de las macros se soluciona {
+~ Rodeando los argumentos entre signos <>
+~ Rodeando los argumentos con corchetes
+~ Poniendo la macro completa entre comillas
+= Rodeando los argumentos con paréntesis
+}
+

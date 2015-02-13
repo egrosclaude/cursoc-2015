@@ -1,0 +1,124 @@
+El alcance de una variable es{
+~ El rango de valores que puede tomar
+~ El tiempo transcurrido entre su creación y su desaparición
+= El conjunto de líneas de código desde donde es visible la variable
+}
+
+Una variable local es aquella que aparece definida{
+= Dentro de una función
+~ Fuera de una función
+~ Fuera de todas las funciones
+}
+
+Una variable externa es aquella que aparece definida{
+~ Fuera de una función pero dentro de una segunda función
+~ Fuera de un bloque
+= Fuera de toda función
+~ Dentro de una función
+}
+
+Una variable local puede ser usada{
+~ desde toda la unidad de traducción
+= desde dentro de la función donde se la declara
+~ desde las funciones que aparecen con posterioridad a su declaración
+~ en todos los casos anteriores
+}
+
+Una variable externa puede ser usada{
+~ desde toda la unidad de traducción
+~ desde dentro de la función donde se la declara
+= desde las funciones que aparecen con posterioridad a su declaración
+~ en todos los casos anteriores
+}
+
+Si una función declara una variable local con el mismo nombre que una externa, los usos de esa variable dentro de la función se referirán a{
+= La variable local 
+~ La variable externa
+~ Depende de la implementación
+}
+
+Una variable local vive {
+~ Durante toda la ejecución del programa
+= Durante la ejecución de la función donde se la declara
+~ Durante la compilación del programa
+~ Durante la ejecución de las funciones que aparecen con posterioridad a su declaración
+}
+
+Cambiar la clase de almacenamiento de una variable implica afectar {
+= Cuándo aparece y desaparece
+~ El tamaño de los objetos de datos que contiene
+~ El ámbito de la variable dentro de la unidad de traducción
+~ Todo lo anterior
+}
+
+La clase de almacenamiento por defecto de las variables locales es{
+= auto
+~ static
+~ register
+~ extern
+}
+
+La clase de almacenamiento por defecto de las variables externas es{
+~ auto
+= static
+~ register
+~ extern
+}
+
+Una variable con clase de almacenamiento static {
+~ se crea estáticamente al ejecutarse la función donde se la define
+= se crea estáticamente al cargarse el programa en memoria
+~ se crea estáticamente al iniciarse la ejecución de main()
+}
+
+Una variable con clase de almacenamiento static {
+= se inicializa con ceros al inicio del programa
+~ no se inicializa y contiene basura
+~ se inicializa con ceros al ejecutarse la función donde se la define
+}
+
+Una variable con clase de almacenamiento auto{
+~ se inicializa con ceros al inicio del programa
+= no se inicializa y contiene basura
+~ se inicializa con ceros al ejecutarse la función donde se la define
+}
+
+Las variables locales que "recuerdan la historia" son{
+~ las declaradas auto
+= las declaradas static 
+~ las declaradas register
+~ ninguna de las anteriores
+}
+
+Si un objeto se declara static{
+~ Se hace visible desde otras unidades de traducción
+= Se impide que se vea desde otras unidades de traducción
+~ Se impide que se vea desde otras funciones que aquella donde se lo define
+}
+
+La declaración extern para una variable{
+~ crea el objeto de datos correspondiente
+~ equivale a una definición de la variable
+~ indica la unidad de traducción donde está definida la variable
+= solamente enuncia el tipo y nombre de la variable
+}
+
+Una declaración extern puede corresponderse{
+= con una variable externa en otra unidad de traducción
+~ con una variable local en otra unidad de traducción
+~ ninguna de las anteriores
+}
+
+Una declaración static puede corresponderse{
+~ con una variable externa en otra unidad de traducción
+~ con una variable local en otra unidad de traducción
+= ninguna de las anteriores
+}
+
+Una variable const {
+~ debe ser optimizada
+~ no debe ser optimizada
+~ puede ser modificada sólo por funciones en la misma unidad de traducción
+= no puede ser modificada
+}
+

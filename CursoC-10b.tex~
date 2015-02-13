@@ -289,6 +289,7 @@ printf("Mes: %s\n",mes[6]);
 En el caso particular de \textbf{estructuras o uniones referenciadas por punteros}, la
 notación para acceder a sus miembros cambia ligeramente, reemplazando el
 operador \quotes{punto} por \quotes{\lstinline{->}}.
+
 \begin{ejemplo}
 Accedemos a los miembros de la estructura \lstinline{persona} en forma directa:
 \begin{lstlisting}
@@ -380,6 +381,7 @@ En lugar de hacer que \lstinline{p} apunte a un objeto existente al momento de c
 solicitamos tanta memoria como sea necesaria para alojar un entero y ponemos a
 \lstinline{p} apuntando allí. Luego podemos hacer la asignación. Luego del uso se debe
 liberar la zona apuntada por \lstinline{p}.
+
 \begin{lstlisting}
 /* Correcto */
 int *p;
@@ -387,13 +389,29 @@ p = malloc(sizeof(int));
 *p = 8;
 free(p);
 \end{lstlisting}
-Para ser completamente correcto, el programa del ejemplo debería verificar que \lstinline{malloc()} no
+\end{ejemplo}
+
+\importante{
+Para ser completamente correcto, el programa del ejemplo anterior debería verificar que \lstinline{malloc()} no
 devuelva \textbf{NULL} por ser imposible satisfacer el requerimiento de memoria. El
 símbolo \lstinline{NULL} corresponde a la dirección 0, o, equivalentemente, al \textbf{puntero
 nulo}, y nunca es una dirección utilizable.
+}
+
+\begin{ejemplo}
+Mejoramos el ejemplo anterior verificando que \code{malloc()} devuelva memoria válida. 
+
+\begin{lstlisting}
+/* ¡Mejor! */
+int *p;
+if(p = (int *)malloc(sizeof(int))) {
+	*p = 8;
+	free(p);
+}
+\end{lstlisting}
+
+Aplicamos el operador \textbf{cast} al resultado de \code{malloc()} para que ambos miembros de la asignación sean consistentes.
 \end{ejemplo}
-
-
 
 
 \begin{ejemplo}

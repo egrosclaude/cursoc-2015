@@ -1,0 +1,81 @@
+El principal objetivo de diseño de quienes crearon el C era{
+~ Posibilidad de acceder a los recursos de hardware
+~ Portabilidad del compilador
+~ Eficiencia del código generado
+= Todas las anteriores
+}
+
+La primera definición oficial del lenguaje fue dada por Kernighan y Ritchie en{
+~ 1975
+= 1978
+~ 1983
+~ 1988
+}
+
+Las palabras reservadas de C son{
+~ Muchas
+= Pocas
+~ Exactamente las de entrada/salida
+~ Exactamente tantas como las de Pascal
+}
+
+La <emph>Biblioteca Standard</emph> de C{
+~ Provee funciones para todas las necesidades
+~ Está escrita por el usuario
+= No provee funciones para todas las necesidades
+}
+
+El lenguaje C{
+~ No realiza recolección de basura pero sí controles de tiempo de ejecución
+~ No realiza controles de tiempo de ejecución pero sí recolección de basura
+~ Realiza ambas cosas
+= Ninguna de las dos cosas
+}
+
+Los programas en C son portables porque{
+~ Se lo dotó de control de tipos de datos
+= Los tipos de datos no tienen un tamaño definido por el lenguaje
+~ Los tamaños de los tipos de datos son idénticos en todas las implementaciones
+~ Se lo basó en una única arquitectura
+}
+
+El pasaje de argumentos a funciones en C se hace{
+= por valor
+~ por referencia
+~ por nombre
+}
+
+El lenguaje C pertenece al paradigma{
+~ Lógico
+= Procedural
+~ Funcional
+~ Orientado a objetos
+}
+
+Las herramientas del ciclo de compilación comprenden{
+~ compilador y linkeditor
+= editor, compilador, linkeditor y bibliotecario
+~ compilador y biblioteca standard
+}
+
+El utilitario <emph>make</emph> genera{
+~ archivos objeto
+~ ejecutables
+~ bibliotecas
+= todo lo anterior
+}
+
+El mapa de memoria del programa comprende{
+~ Dos regiones estáticas y dos dinámicas
+~ Cuatro regiones en total
+~ Regiones de texto, de datos estáticos, de heap y de stack 
+= Todo lo anterior
+}
+
+La región de pila almacena{
+= las variables locales
+~ las variables estáticas
+~ las estructuras de datos dinámicas
+~ el código del programa
+}
+
