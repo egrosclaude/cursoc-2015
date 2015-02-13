@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.2.24)  13 FEB 2015 18:06
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.2.24)  13 FEB 2015 19:43
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1253,29 +1253,29 @@ number indent by parent (toc, 1):  18.06747pt
 text indent calculated (toc, 1): 30.4166pt
 number indent calculated (toc, 1): 18.06747pt
 number indent by \l@... (toc, 2):  41.37396pt
-text indent by \l@... (toc, 2):  34.84117pt
+text indent by \l@... (toc, 2):  74.0376pt
 number indent by parent (toc, 2):  48.48407pt
-text indent calculated (toc, 2): 34.84117pt
+text indent calculated (toc, 2): 74.0376pt
 number indent calculated (toc, 2): 46.74841pt
 number indent by \l@... (toc, 2):  41.37396pt
-text indent by \l@... (toc, 2):  34.84117pt
+text indent by \l@... (toc, 2):  74.0376pt
 number indent by parent (toc, 2):  48.48407pt
-text indent calculated (toc, 2): 34.84117pt
+text indent calculated (toc, 2): 74.0376pt
 number indent calculated (toc, 2): 46.74841pt
 number indent by \l@... (toc, 2):  41.37396pt
-text indent by \l@... (toc, 2):  34.84117pt
+text indent by \l@... (toc, 2):  74.0376pt
 number indent by parent (toc, 2):  48.48407pt
-text indent calculated (toc, 2): 34.84117pt
+text indent calculated (toc, 2): 74.0376pt
 number indent calculated (toc, 2): 46.74841pt
 number indent by \l@... (toc, 2):  41.37396pt
-text indent by \l@... (toc, 2):  34.84117pt
+text indent by \l@... (toc, 2):  74.0376pt
 number indent by parent (toc, 2):  48.48407pt
-text indent calculated (toc, 2): 34.84117pt
+text indent calculated (toc, 2): 74.0376pt
 number indent calculated (toc, 2): 46.74841pt
 number indent by \l@... (toc, 2):  41.37396pt
-text indent by \l@... (toc, 2):  34.84117pt
+text indent by \l@... (toc, 2):  74.0376pt
 number indent by parent (toc, 2):  48.48407pt
-text indent calculated (toc, 2): 34.84117pt
+text indent calculated (toc, 2): 74.0376pt
 number indent calculated (toc, 2): 46.74841pt
 number indent by \l@... (toc, 1):  16.33182pt
 text indent by \l@... (toc, 1):  30.48608pt
@@ -1288,21 +1288,21 @@ number indent by parent (toc, 1):  18.06747pt
 text indent calculated (toc, 1): 30.4166pt
 number indent calculated (toc, 1): 18.06747pt
 number indent by \l@... (toc, 2):  41.37396pt
-text indent by \l@... (toc, 2):  34.84117pt
+text indent by \l@... (toc, 2):  74.0376pt
 number indent by parent (toc, 2):  48.48407pt
-text indent calculated (toc, 2): 34.84117pt
+text indent calculated (toc, 2): 74.0376pt
 number indent calculated (toc, 2): 46.74841pt
 number indent by \l@... (toc, 2):  41.37396pt
-text indent by \l@... (toc, 2):  34.84117pt
+text indent by \l@... (toc, 2):  74.0376pt
 number indent by parent (toc, 2):  48.48407pt
-text indent calculated (toc, 2): 34.84117pt
+text indent calculated (toc, 2): 74.0376pt
 number indent calculated (toc, 2): 46.74841pt
 LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <10.95> not available
 (Font)              Font shape `T1/lmss/m/sl' tried instead on input line 12.
 number indent by \l@... (toc, 2):  41.37396pt
-text indent by \l@... (toc, 2):  34.84117pt
+text indent by \l@... (toc, 2):  74.0376pt
 number indent by parent (toc, 2):  48.48407pt
-text indent calculated (toc, 2): 34.84117pt
+text indent calculated (toc, 2): 74.0376pt
 number indent calculated (toc, 2): 46.74841pt
 number indent by \l@... (toc, 1):  16.33182pt
 text indent by \l@... (toc, 1):  30.48608pt
@@ -1310,74 +1310,19 @@ number indent by parent (toc, 1):  18.06747pt
 text indent calculated (toc, 1): 30.4166pt
 number indent calculated (toc, 1): 18.06747pt
 number indent by \l@... (toc, 2):  41.37396pt
-text indent by \l@... (toc, 2):  34.84117pt
+text indent by \l@... (toc, 2):  74.0376pt
 number indent by parent (toc, 2):  48.48407pt
-text indent calculated (toc, 2): 34.84117pt
+text indent calculated (toc, 2): 74.0376pt
 number indent calculated (toc, 2): 46.74841pt
 number indent by \l@... (toc, 2):  41.37396pt
-text indent by \l@... (toc, 2):  34.84117pt
+text indent by \l@... (toc, 2):  74.0376pt
 number indent by parent (toc, 2):  48.48407pt
-text indent calculated (toc, 2): 34.84117pt
+text indent calculated (toc, 2): 74.0376pt
 number indent calculated (toc, 2): 46.74841pt
 number indent by \l@... (toc, 2):  41.37396pt
-text indent by \l@... (toc, 2):  34.84117pt
+text indent by \l@... (toc, 2):  74.0376pt
 number indent by parent (toc, 2):  48.48407pt
-text indent calculated (toc, 2): 34.84117pt
-number indent calculated (toc, 2): 46.74841pt
-number indent by \l@... (toc, 1):  16.33182pt
-text indent by \l@... (toc, 1):  30.48608pt
-number indent by parent (toc, 1):  18.06747pt
-text indent calculated (toc, 1): 30.4166pt
-number indent calculated (toc, 1): 18.06747pt
-number indent by \l@... (toc, 1):  16.33182pt
-text indent by \l@... (toc, 1):  30.48608pt
-number indent by parent (toc, 1):  18.06747pt
-text indent calculated (toc, 1): 30.4166pt
-number indent calculated (toc, 1): 18.06747pt
-number indent by \l@... (toc, 1):  16.33182pt
-text indent by \l@... (toc, 1):  30.48608pt
-number indent by parent (toc, 1):  18.06747pt
-text indent calculated (toc, 1): 30.4166pt
-number indent calculated (toc, 1): 18.06747pt
-number indent by \l@... (toc, 2):  41.37396pt
-text indent by \l@... (toc, 2):  34.84117pt
-number indent by parent (toc, 2):  48.48407pt
-text indent calculated (toc, 2): 34.84117pt
-number indent calculated (toc, 2): 46.74841pt
-number indent by \l@... (toc, 0):  0.0pt
-text indent by \l@... (toc, 0):  16.33182pt
-number indent by parent (toc, 0):  0.0pt
-text indent calculated (toc, 0): 18.06747pt
-number indent calculated (toc, 0): 0.0pt
-number indent by \l@... (toc, 1):  16.33182pt
-text indent by \l@... (toc, 1):  30.48608pt
-number indent by parent (toc, 1):  18.06747pt
-text indent calculated (toc, 1): 30.4166pt
-number indent calculated (toc, 1): 18.06747pt
-number indent by \l@... (toc, 2):  41.37396pt
-text indent by \l@... (toc, 2):  34.84117pt
-number indent by parent (toc, 2):  48.48407pt
-text indent calculated (toc, 2): 34.84117pt
-number indent calculated (toc, 2): 46.74841pt
-number indent by \l@... (toc, 2):  41.37396pt
-text indent by \l@... (toc, 2):  34.84117pt
-number indent by parent (toc, 2):  48.48407pt
-text indent calculated (toc, 2): 34.84117pt
-number indent calculated (toc, 2): 46.74841pt
-number indent by \l@... (toc, 1):  16.33182pt
-text indent by \l@... (toc, 1):  30.48608pt
-number indent by parent (toc, 1):  18.06747pt
-text indent calculated (toc, 1): 30.4166pt
-number indent calculated (toc, 1): 18.06747pt
-number indent by \l@... (toc, 1):  16.33182pt
-text indent by \l@... (toc, 1):  30.48608pt
-number indent by parent (toc, 1):  18.06747pt
-text indent calculated (toc, 1): 30.4166pt
-number indent calculated (toc, 1): 18.06747pt
-number indent by \l@... (toc, 2):  41.37396pt
-text indent by \l@... (toc, 2):  34.84117pt
-number indent by parent (toc, 2):  48.48407pt
-text indent calculated (toc, 2): 34.84117pt
+text indent calculated (toc, 2): 74.0376pt
 number indent calculated (toc, 2): 46.74841pt
 number indent by \l@... (toc, 1):  16.33182pt
 text indent by \l@... (toc, 1):  30.48608pt
@@ -1394,15 +1339,10 @@ text indent by \l@... (toc, 1):  30.48608pt
 number indent by parent (toc, 1):  18.06747pt
 text indent calculated (toc, 1): 30.4166pt
 number indent calculated (toc, 1): 18.06747pt
-number indent by \l@... (toc, 1):  16.33182pt
-text indent by \l@... (toc, 1):  30.48608pt
-number indent by parent (toc, 1):  18.06747pt
-text indent calculated (toc, 1): 30.4166pt
-number indent calculated (toc, 1): 18.06747pt
 number indent by \l@... (toc, 2):  41.37396pt
-text indent by \l@... (toc, 2):  34.84117pt
+text indent by \l@... (toc, 2):  74.0376pt
 number indent by parent (toc, 2):  48.48407pt
-text indent calculated (toc, 2): 34.84117pt
+text indent calculated (toc, 2): 74.0376pt
 number indent calculated (toc, 2): 46.74841pt
 number indent by \l@... (toc, 0):  0.0pt
 text indent by \l@... (toc, 0):  16.33182pt
@@ -1414,25 +1354,85 @@ text indent by \l@... (toc, 1):  30.48608pt
 number indent by parent (toc, 1):  18.06747pt
 text indent calculated (toc, 1): 30.4166pt
 number indent calculated (toc, 1): 18.06747pt
-number indent by \l@... (toc, 1):  16.33182pt
-text indent by \l@... (toc, 1):  30.48608pt
-number indent by parent (toc, 1):  18.06747pt
-text indent calculated (toc, 1): 30.4166pt
-number indent calculated (toc, 1): 18.06747pt
-number indent by \l@... (toc, 1):  16.33182pt
-text indent by \l@... (toc, 1):  30.48608pt
-number indent by parent (toc, 1):  18.06747pt
-text indent calculated (toc, 1): 30.4166pt
-number indent calculated (toc, 1): 18.06747pt
 number indent by \l@... (toc, 2):  41.37396pt
-text indent by \l@... (toc, 2):  34.84117pt
+text indent by \l@... (toc, 2):  74.0376pt
 number indent by parent (toc, 2):  48.48407pt
-text indent calculated (toc, 2): 34.84117pt
+text indent calculated (toc, 2): 74.0376pt
 number indent calculated (toc, 2): 46.74841pt
 number indent by \l@... (toc, 2):  41.37396pt
-text indent by \l@... (toc, 2):  34.84117pt
+text indent by \l@... (toc, 2):  74.0376pt
 number indent by parent (toc, 2):  48.48407pt
-text indent calculated (toc, 2): 34.84117pt
+text indent calculated (toc, 2): 74.0376pt
+number indent calculated (toc, 2): 46.74841pt
+number indent by \l@... (toc, 1):  16.33182pt
+text indent by \l@... (toc, 1):  30.48608pt
+number indent by parent (toc, 1):  18.06747pt
+text indent calculated (toc, 1): 30.4166pt
+number indent calculated (toc, 1): 18.06747pt
+number indent by \l@... (toc, 1):  16.33182pt
+text indent by \l@... (toc, 1):  30.48608pt
+number indent by parent (toc, 1):  18.06747pt
+text indent calculated (toc, 1): 30.4166pt
+number indent calculated (toc, 1): 18.06747pt
+number indent by \l@... (toc, 2):  41.37396pt
+text indent by \l@... (toc, 2):  74.0376pt
+number indent by parent (toc, 2):  48.48407pt
+text indent calculated (toc, 2): 74.0376pt
+number indent calculated (toc, 2): 46.74841pt
+number indent by \l@... (toc, 1):  16.33182pt
+text indent by \l@... (toc, 1):  30.48608pt
+number indent by parent (toc, 1):  18.06747pt
+text indent calculated (toc, 1): 30.4166pt
+number indent calculated (toc, 1): 18.06747pt
+number indent by \l@... (toc, 1):  16.33182pt
+text indent by \l@... (toc, 1):  30.48608pt
+number indent by parent (toc, 1):  18.06747pt
+text indent calculated (toc, 1): 30.4166pt
+number indent calculated (toc, 1): 18.06747pt
+number indent by \l@... (toc, 1):  16.33182pt
+text indent by \l@... (toc, 1):  30.48608pt
+number indent by parent (toc, 1):  18.06747pt
+text indent calculated (toc, 1): 30.4166pt
+number indent calculated (toc, 1): 18.06747pt
+number indent by \l@... (toc, 1):  16.33182pt
+text indent by \l@... (toc, 1):  30.48608pt
+number indent by parent (toc, 1):  18.06747pt
+text indent calculated (toc, 1): 30.4166pt
+number indent calculated (toc, 1): 18.06747pt
+number indent by \l@... (toc, 2):  41.37396pt
+text indent by \l@... (toc, 2):  74.0376pt
+number indent by parent (toc, 2):  48.48407pt
+text indent calculated (toc, 2): 74.0376pt
+number indent calculated (toc, 2): 46.74841pt
+number indent by \l@... (toc, 0):  0.0pt
+text indent by \l@... (toc, 0):  16.33182pt
+number indent by parent (toc, 0):  0.0pt
+text indent calculated (toc, 0): 18.06747pt
+number indent calculated (toc, 0): 0.0pt
+number indent by \l@... (toc, 1):  16.33182pt
+text indent by \l@... (toc, 1):  30.48608pt
+number indent by parent (toc, 1):  18.06747pt
+text indent calculated (toc, 1): 30.4166pt
+number indent calculated (toc, 1): 18.06747pt
+number indent by \l@... (toc, 1):  16.33182pt
+text indent by \l@... (toc, 1):  30.48608pt
+number indent by parent (toc, 1):  18.06747pt
+text indent calculated (toc, 1): 30.4166pt
+number indent calculated (toc, 1): 18.06747pt
+number indent by \l@... (toc, 1):  16.33182pt
+text indent by \l@... (toc, 1):  30.48608pt
+number indent by parent (toc, 1):  18.06747pt
+text indent calculated (toc, 1): 30.4166pt
+number indent calculated (toc, 1): 18.06747pt
+number indent by \l@... (toc, 2):  41.37396pt
+text indent by \l@... (toc, 2):  74.0376pt
+number indent by parent (toc, 2):  48.48407pt
+text indent calculated (toc, 2): 74.0376pt
+number indent calculated (toc, 2): 46.74841pt
+number indent by \l@... (toc, 2):  41.37396pt
+text indent by \l@... (toc, 2):  74.0376pt
+number indent by parent (toc, 2):  48.48407pt
+text indent calculated (toc, 2): 74.0376pt
 number indent calculated (toc, 2): 46.74841pt
 Package babel Info: Redefining spanish shorthand <<
 (babel)             in language  on input line 41.
@@ -1460,134 +1460,14 @@ Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 41.
 [3]
 number indent by \l@... (toc, 2):  41.37396pt
-text indent by \l@... (toc, 2):  34.84117pt
+text indent by \l@... (toc, 2):  74.0376pt
 number indent by parent (toc, 2):  48.48407pt
-text indent calculated (toc, 2): 34.84117pt
+text indent calculated (toc, 2): 74.0376pt
 number indent calculated (toc, 2): 46.74841pt
 number indent by \l@... (toc, 2):  41.37396pt
-text indent by \l@... (toc, 2):  34.84117pt
+text indent by \l@... (toc, 2):  74.0376pt
 number indent by parent (toc, 2):  48.48407pt
-text indent calculated (toc, 2): 34.84117pt
-number indent calculated (toc, 2): 46.74841pt
-number indent by \l@... (toc, 1):  16.33182pt
-text indent by \l@... (toc, 1):  30.48608pt
-number indent by parent (toc, 1):  18.06747pt
-text indent calculated (toc, 1): 30.4166pt
-number indent calculated (toc, 1): 18.06747pt
-number indent by \l@... (toc, 1):  16.33182pt
-text indent by \l@... (toc, 1):  30.48608pt
-number indent by parent (toc, 1):  18.06747pt
-text indent calculated (toc, 1): 30.4166pt
-number indent calculated (toc, 1): 18.06747pt
-number indent by \l@... (toc, 1):  16.33182pt
-text indent by \l@... (toc, 1):  30.48608pt
-number indent by parent (toc, 1):  18.06747pt
-text indent calculated (toc, 1): 30.4166pt
-number indent calculated (toc, 1): 18.06747pt
-number indent by \l@... (toc, 1):  16.33182pt
-text indent by \l@... (toc, 1):  30.48608pt
-number indent by parent (toc, 1):  18.06747pt
-text indent calculated (toc, 1): 30.4166pt
-number indent calculated (toc, 1): 18.06747pt
-number indent by \l@... (toc, 2):  41.37396pt
-text indent by \l@... (toc, 2):  34.84117pt
-number indent by parent (toc, 2):  48.48407pt
-text indent calculated (toc, 2): 34.84117pt
-number indent calculated (toc, 2): 46.74841pt
-number indent by \l@... (toc, 0):  0.0pt
-text indent by \l@... (toc, 0):  16.33182pt
-number indent by parent (toc, 0):  0.0pt
-text indent calculated (toc, 0): 18.06747pt
-number indent calculated (toc, 0): 0.0pt
-number indent by \l@... (toc, 1):  16.33182pt
-text indent by \l@... (toc, 1):  30.48608pt
-number indent by parent (toc, 1):  18.06747pt
-text indent calculated (toc, 1): 30.4166pt
-number indent calculated (toc, 1): 18.06747pt
-number indent by \l@... (toc, 2):  41.37396pt
-text indent by \l@... (toc, 2):  34.84117pt
-number indent by parent (toc, 2):  48.48407pt
-text indent calculated (toc, 2): 34.84117pt
-number indent calculated (toc, 2): 46.74841pt
-number indent by \l@... (toc, 2):  41.37396pt
-text indent by \l@... (toc, 2):  34.84117pt
-number indent by parent (toc, 2):  48.48407pt
-text indent calculated (toc, 2): 34.84117pt
-number indent calculated (toc, 2): 46.74841pt
-number indent by \l@... (toc, 2):  41.37396pt
-text indent by \l@... (toc, 2):  34.84117pt
-number indent by parent (toc, 2):  48.48407pt
-text indent calculated (toc, 2): 34.84117pt
-number indent calculated (toc, 2): 46.74841pt
-number indent by \l@... (toc, 2):  41.37396pt
-text indent by \l@... (toc, 2):  34.84117pt
-number indent by parent (toc, 2):  48.48407pt
-text indent calculated (toc, 2): 34.84117pt
-number indent calculated (toc, 2): 46.74841pt
-number indent by \l@... (toc, 1):  16.33182pt
-text indent by \l@... (toc, 1):  30.48608pt
-number indent by parent (toc, 1):  18.06747pt
-text indent calculated (toc, 1): 30.4166pt
-number indent calculated (toc, 1): 18.06747pt
-number indent by \l@... (toc, 2):  41.37396pt
-text indent by \l@... (toc, 2):  34.84117pt
-number indent by parent (toc, 2):  48.48407pt
-text indent calculated (toc, 2): 34.84117pt
-number indent calculated (toc, 2): 46.74841pt
-number indent by \l@... (toc, 1):  16.33182pt
-text indent by \l@... (toc, 1):  30.48608pt
-number indent by parent (toc, 1):  18.06747pt
-text indent calculated (toc, 1): 30.4166pt
-number indent calculated (toc, 1): 18.06747pt
-number indent by \l@... (toc, 2):  41.37396pt
-text indent by \l@... (toc, 2):  34.84117pt
-number indent by parent (toc, 2):  48.48407pt
-text indent calculated (toc, 2): 34.84117pt
-number indent calculated (toc, 2): 46.74841pt
-number indent by \l@... (toc, 1):  16.33182pt
-text indent by \l@... (toc, 1):  30.48608pt
-number indent by parent (toc, 1):  18.06747pt
-text indent calculated (toc, 1): 30.4166pt
-number indent calculated (toc, 1): 18.06747pt
-number indent by \l@... (toc, 1):  16.33182pt
-text indent by \l@... (toc, 1):  30.48608pt
-number indent by parent (toc, 1):  18.06747pt
-text indent calculated (toc, 1): 30.4166pt
-number indent calculated (toc, 1): 18.06747pt
-number indent by \l@... (toc, 1):  16.33182pt
-text indent by \l@... (toc, 1):  30.48608pt
-number indent by parent (toc, 1):  18.06747pt
-text indent calculated (toc, 1): 30.4166pt
-number indent calculated (toc, 1): 18.06747pt
-number indent by \l@... (toc, 2):  41.37396pt
-text indent by \l@... (toc, 2):  34.84117pt
-number indent by parent (toc, 2):  48.48407pt
-text indent calculated (toc, 2): 34.84117pt
-number indent calculated (toc, 2): 46.74841pt
-number indent by \l@... (toc, 0):  0.0pt
-text indent by \l@... (toc, 0):  16.33182pt
-number indent by parent (toc, 0):  0.0pt
-text indent calculated (toc, 0): 18.06747pt
-number indent calculated (toc, 0): 0.0pt
-number indent by \l@... (toc, 1):  16.33182pt
-text indent by \l@... (toc, 1):  30.48608pt
-number indent by parent (toc, 1):  18.06747pt
-text indent calculated (toc, 1): 30.4166pt
-number indent calculated (toc, 1): 18.06747pt
-number indent by \l@... (toc, 1):  16.33182pt
-text indent by \l@... (toc, 1):  30.48608pt
-number indent by parent (toc, 1):  18.06747pt
-text indent calculated (toc, 1): 30.4166pt
-number indent calculated (toc, 1): 18.06747pt
-number indent by \l@... (toc, 1):  16.33182pt
-text indent by \l@... (toc, 1):  30.48608pt
-number indent by parent (toc, 1):  18.06747pt
-text indent calculated (toc, 1): 30.4166pt
-number indent calculated (toc, 1): 18.06747pt
-number indent by \l@... (toc, 2):  41.37396pt
-text indent by \l@... (toc, 2):  34.84117pt
-number indent by parent (toc, 2):  48.48407pt
-text indent calculated (toc, 2): 34.84117pt
+text indent calculated (toc, 2): 74.0376pt
 number indent calculated (toc, 2): 46.74841pt
 number indent by \l@... (toc, 1):  16.33182pt
 text indent by \l@... (toc, 1):  30.48608pt
@@ -1609,15 +1489,10 @@ text indent by \l@... (toc, 1):  30.48608pt
 number indent by parent (toc, 1):  18.06747pt
 text indent calculated (toc, 1): 30.4166pt
 number indent calculated (toc, 1): 18.06747pt
-number indent by \l@... (toc, 1):  16.33182pt
-text indent by \l@... (toc, 1):  30.48608pt
-number indent by parent (toc, 1):  18.06747pt
-text indent calculated (toc, 1): 30.4166pt
-number indent calculated (toc, 1): 18.06747pt
 number indent by \l@... (toc, 2):  41.37396pt
-text indent by \l@... (toc, 2):  34.84117pt
+text indent by \l@... (toc, 2):  74.0376pt
 number indent by parent (toc, 2):  48.48407pt
-text indent calculated (toc, 2): 34.84117pt
+text indent calculated (toc, 2): 74.0376pt
 number indent calculated (toc, 2): 46.74841pt
 number indent by \l@... (toc, 0):  0.0pt
 text indent by \l@... (toc, 0):  16.33182pt
@@ -1630,9 +1505,134 @@ number indent by parent (toc, 1):  18.06747pt
 text indent calculated (toc, 1): 30.4166pt
 number indent calculated (toc, 1): 18.06747pt
 number indent by \l@... (toc, 2):  41.37396pt
-text indent by \l@... (toc, 2):  34.84117pt
+text indent by \l@... (toc, 2):  74.0376pt
 number indent by parent (toc, 2):  48.48407pt
-text indent calculated (toc, 2): 34.84117pt
+text indent calculated (toc, 2): 74.0376pt
+number indent calculated (toc, 2): 46.74841pt
+number indent by \l@... (toc, 2):  41.37396pt
+text indent by \l@... (toc, 2):  74.0376pt
+number indent by parent (toc, 2):  48.48407pt
+text indent calculated (toc, 2): 74.0376pt
+number indent calculated (toc, 2): 46.74841pt
+number indent by \l@... (toc, 2):  41.37396pt
+text indent by \l@... (toc, 2):  74.0376pt
+number indent by parent (toc, 2):  48.48407pt
+text indent calculated (toc, 2): 74.0376pt
+number indent calculated (toc, 2): 46.74841pt
+number indent by \l@... (toc, 2):  41.37396pt
+text indent by \l@... (toc, 2):  74.0376pt
+number indent by parent (toc, 2):  48.48407pt
+text indent calculated (toc, 2): 74.0376pt
+number indent calculated (toc, 2): 46.74841pt
+number indent by \l@... (toc, 1):  16.33182pt
+text indent by \l@... (toc, 1):  30.48608pt
+number indent by parent (toc, 1):  18.06747pt
+text indent calculated (toc, 1): 30.4166pt
+number indent calculated (toc, 1): 18.06747pt
+number indent by \l@... (toc, 2):  41.37396pt
+text indent by \l@... (toc, 2):  74.0376pt
+number indent by parent (toc, 2):  48.48407pt
+text indent calculated (toc, 2): 74.0376pt
+number indent calculated (toc, 2): 46.74841pt
+number indent by \l@... (toc, 1):  16.33182pt
+text indent by \l@... (toc, 1):  30.48608pt
+number indent by parent (toc, 1):  18.06747pt
+text indent calculated (toc, 1): 30.4166pt
+number indent calculated (toc, 1): 18.06747pt
+number indent by \l@... (toc, 2):  41.37396pt
+text indent by \l@... (toc, 2):  74.0376pt
+number indent by parent (toc, 2):  48.48407pt
+text indent calculated (toc, 2): 74.0376pt
+number indent calculated (toc, 2): 46.74841pt
+number indent by \l@... (toc, 1):  16.33182pt
+text indent by \l@... (toc, 1):  30.48608pt
+number indent by parent (toc, 1):  18.06747pt
+text indent calculated (toc, 1): 30.4166pt
+number indent calculated (toc, 1): 18.06747pt
+number indent by \l@... (toc, 1):  16.33182pt
+text indent by \l@... (toc, 1):  30.48608pt
+number indent by parent (toc, 1):  18.06747pt
+text indent calculated (toc, 1): 30.4166pt
+number indent calculated (toc, 1): 18.06747pt
+number indent by \l@... (toc, 1):  16.33182pt
+text indent by \l@... (toc, 1):  30.48608pt
+number indent by parent (toc, 1):  18.06747pt
+text indent calculated (toc, 1): 30.4166pt
+number indent calculated (toc, 1): 18.06747pt
+number indent by \l@... (toc, 2):  41.37396pt
+text indent by \l@... (toc, 2):  74.0376pt
+number indent by parent (toc, 2):  48.48407pt
+text indent calculated (toc, 2): 74.0376pt
+number indent calculated (toc, 2): 46.74841pt
+number indent by \l@... (toc, 0):  0.0pt
+text indent by \l@... (toc, 0):  16.33182pt
+number indent by parent (toc, 0):  0.0pt
+text indent calculated (toc, 0): 18.06747pt
+number indent calculated (toc, 0): 0.0pt
+number indent by \l@... (toc, 1):  16.33182pt
+text indent by \l@... (toc, 1):  30.48608pt
+number indent by parent (toc, 1):  18.06747pt
+text indent calculated (toc, 1): 30.4166pt
+number indent calculated (toc, 1): 18.06747pt
+number indent by \l@... (toc, 1):  16.33182pt
+text indent by \l@... (toc, 1):  30.48608pt
+number indent by parent (toc, 1):  18.06747pt
+text indent calculated (toc, 1): 30.4166pt
+number indent calculated (toc, 1): 18.06747pt
+number indent by \l@... (toc, 1):  16.33182pt
+text indent by \l@... (toc, 1):  30.48608pt
+number indent by parent (toc, 1):  18.06747pt
+text indent calculated (toc, 1): 30.4166pt
+number indent calculated (toc, 1): 18.06747pt
+number indent by \l@... (toc, 2):  41.37396pt
+text indent by \l@... (toc, 2):  74.0376pt
+number indent by parent (toc, 2):  48.48407pt
+text indent calculated (toc, 2): 74.0376pt
+number indent calculated (toc, 2): 46.74841pt
+number indent by \l@... (toc, 1):  16.33182pt
+text indent by \l@... (toc, 1):  30.48608pt
+number indent by parent (toc, 1):  18.06747pt
+text indent calculated (toc, 1): 30.4166pt
+number indent calculated (toc, 1): 18.06747pt
+number indent by \l@... (toc, 1):  16.33182pt
+text indent by \l@... (toc, 1):  30.48608pt
+number indent by parent (toc, 1):  18.06747pt
+text indent calculated (toc, 1): 30.4166pt
+number indent calculated (toc, 1): 18.06747pt
+number indent by \l@... (toc, 1):  16.33182pt
+text indent by \l@... (toc, 1):  30.48608pt
+number indent by parent (toc, 1):  18.06747pt
+text indent calculated (toc, 1): 30.4166pt
+number indent calculated (toc, 1): 18.06747pt
+number indent by \l@... (toc, 1):  16.33182pt
+text indent by \l@... (toc, 1):  30.48608pt
+number indent by parent (toc, 1):  18.06747pt
+text indent calculated (toc, 1): 30.4166pt
+number indent calculated (toc, 1): 18.06747pt
+number indent by \l@... (toc, 1):  16.33182pt
+text indent by \l@... (toc, 1):  30.48608pt
+number indent by parent (toc, 1):  18.06747pt
+text indent calculated (toc, 1): 30.4166pt
+number indent calculated (toc, 1): 18.06747pt
+number indent by \l@... (toc, 2):  41.37396pt
+text indent by \l@... (toc, 2):  74.0376pt
+number indent by parent (toc, 2):  48.48407pt
+text indent calculated (toc, 2): 74.0376pt
+number indent calculated (toc, 2): 46.74841pt
+number indent by \l@... (toc, 0):  0.0pt
+text indent by \l@... (toc, 0):  16.33182pt
+number indent by parent (toc, 0):  0.0pt
+text indent calculated (toc, 0): 18.06747pt
+number indent calculated (toc, 0): 0.0pt
+number indent by \l@... (toc, 1):  16.33182pt
+text indent by \l@... (toc, 1):  30.48608pt
+number indent by parent (toc, 1):  18.06747pt
+text indent calculated (toc, 1): 30.4166pt
+number indent calculated (toc, 1): 18.06747pt
+number indent by \l@... (toc, 2):  41.37396pt
+text indent by \l@... (toc, 2):  74.0376pt
+number indent by parent (toc, 2):  48.48407pt
+text indent calculated (toc, 2): 74.0376pt
 number indent calculated (toc, 2): 46.74841pt
 number indent by \l@... (toc, 1):  16.33182pt
 text indent by \l@... (toc, 1):  30.48608pt
@@ -1645,9 +1645,9 @@ number indent by parent (toc, 1):  18.06747pt
 text indent calculated (toc, 1): 30.4166pt
 number indent calculated (toc, 1): 18.06747pt
 number indent by \l@... (toc, 2):  41.37396pt
-text indent by \l@... (toc, 2):  34.84117pt
+text indent by \l@... (toc, 2):  74.0376pt
 number indent by parent (toc, 2):  48.48407pt
-text indent calculated (toc, 2): 34.84117pt
+text indent calculated (toc, 2): 74.0376pt
 number indent calculated (toc, 2): 46.74841pt
 number indent by \l@... (toc, 1):  16.33182pt
 text indent by \l@... (toc, 1):  30.48608pt
@@ -1660,19 +1660,19 @@ number indent by parent (toc, 1):  18.06747pt
 text indent calculated (toc, 1): 30.4166pt
 number indent calculated (toc, 1): 18.06747pt
 number indent by \l@... (toc, 2):  41.37396pt
-text indent by \l@... (toc, 2):  34.84117pt
+text indent by \l@... (toc, 2):  74.0376pt
 number indent by parent (toc, 2):  48.48407pt
-text indent calculated (toc, 2): 34.84117pt
+text indent calculated (toc, 2): 74.0376pt
 number indent calculated (toc, 2): 46.74841pt
 number indent by \l@... (toc, 2):  41.37396pt
-text indent by \l@... (toc, 2):  34.84117pt
+text indent by \l@... (toc, 2):  74.0376pt
 number indent by parent (toc, 2):  48.48407pt
-text indent calculated (toc, 2): 34.84117pt
+text indent calculated (toc, 2): 74.0376pt
 number indent calculated (toc, 2): 46.74841pt
 number indent by \l@... (toc, 2):  41.37396pt
-text indent by \l@... (toc, 2):  34.84117pt
+text indent by \l@... (toc, 2):  74.0376pt
 number indent by parent (toc, 2):  48.48407pt
-text indent calculated (toc, 2): 34.84117pt
+text indent calculated (toc, 2): 74.0376pt
 number indent calculated (toc, 2): 46.74841pt
 number indent by \l@... (toc, 1):  16.33182pt
 text indent by \l@... (toc, 1):  30.48608pt
@@ -1724,9 +1724,9 @@ number indent by parent (toc, 1):  18.06747pt
 text indent calculated (toc, 1): 30.4166pt
 number indent calculated (toc, 1): 18.06747pt
 number indent by \l@... (toc, 2):  41.37396pt
-text indent by \l@... (toc, 2):  34.84117pt
+text indent by \l@... (toc, 2):  74.0376pt
 number indent by parent (toc, 2):  48.48407pt
-text indent calculated (toc, 2): 34.84117pt
+text indent calculated (toc, 2): 74.0376pt
 number indent calculated (toc, 2): 46.74841pt
 number indent by \l@... (toc, 0):  0.0pt
 text indent by \l@... (toc, 0):  16.33182pt
@@ -1744,19 +1744,19 @@ number indent by parent (toc, 1):  18.06747pt
 text indent calculated (toc, 1): 30.4166pt
 number indent calculated (toc, 1): 18.06747pt
 number indent by \l@... (toc, 2):  41.37396pt
-text indent by \l@... (toc, 2):  34.84117pt
+text indent by \l@... (toc, 2):  74.0376pt
 number indent by parent (toc, 2):  48.48407pt
-text indent calculated (toc, 2): 34.84117pt
+text indent calculated (toc, 2): 74.0376pt
 number indent calculated (toc, 2): 46.74841pt
 number indent by \l@... (toc, 2):  41.37396pt
-text indent by \l@... (toc, 2):  34.84117pt
+text indent by \l@... (toc, 2):  74.0376pt
 number indent by parent (toc, 2):  48.48407pt
-text indent calculated (toc, 2): 34.84117pt
+text indent calculated (toc, 2): 74.0376pt
 number indent calculated (toc, 2): 46.74841pt
 number indent by \l@... (toc, 2):  41.37396pt
-text indent by \l@... (toc, 2):  34.84117pt
+text indent by \l@... (toc, 2):  74.0376pt
 number indent by parent (toc, 2):  48.48407pt
-text indent calculated (toc, 2): 34.84117pt
+text indent calculated (toc, 2): 74.0376pt
 number indent calculated (toc, 2): 46.74841pt
 number indent by \l@... (toc, 1):  16.33182pt
 text indent by \l@... (toc, 1):  30.48608pt
@@ -1769,24 +1769,24 @@ number indent by parent (toc, 1):  18.06747pt
 text indent calculated (toc, 1): 30.4166pt
 number indent calculated (toc, 1): 18.06747pt
 number indent by \l@... (toc, 2):  41.37396pt
-text indent by \l@... (toc, 2):  34.84117pt
+text indent by \l@... (toc, 2):  74.0376pt
 number indent by parent (toc, 2):  48.48407pt
-text indent calculated (toc, 2): 34.84117pt
+text indent calculated (toc, 2): 74.0376pt
 number indent calculated (toc, 2): 46.74841pt
 number indent by \l@... (toc, 2):  41.37396pt
-text indent by \l@... (toc, 2):  34.84117pt
+text indent by \l@... (toc, 2):  74.0376pt
 number indent by parent (toc, 2):  48.48407pt
-text indent calculated (toc, 2): 34.84117pt
+text indent calculated (toc, 2): 74.0376pt
 number indent calculated (toc, 2): 46.74841pt
 number indent by \l@... (toc, 2):  41.37396pt
-text indent by \l@... (toc, 2):  34.84117pt
+text indent by \l@... (toc, 2):  74.0376pt
 number indent by parent (toc, 2):  48.48407pt
-text indent calculated (toc, 2): 34.84117pt
+text indent calculated (toc, 2): 74.0376pt
 number indent calculated (toc, 2): 46.74841pt
 number indent by \l@... (toc, 2):  41.37396pt
-text indent by \l@... (toc, 2):  34.84117pt
+text indent by \l@... (toc, 2):  74.0376pt
 number indent by parent (toc, 2):  48.48407pt
-text indent calculated (toc, 2): 34.84117pt
+text indent calculated (toc, 2): 74.0376pt
 number indent calculated (toc, 2): 46.74841pt
 number indent by \l@... (toc, 1):  16.33182pt
 text indent by \l@... (toc, 1):  30.48608pt
@@ -1798,6 +1798,16 @@ text indent by \l@... (toc, 1):  30.48608pt
 number indent by parent (toc, 1):  18.06747pt
 text indent calculated (toc, 1): 30.4166pt
 number indent calculated (toc, 1): 18.06747pt
+number indent by \l@... (toc, 1):  16.33182pt
+text indent by \l@... (toc, 1):  30.48608pt
+number indent by parent (toc, 1):  18.06747pt
+text indent calculated (toc, 1): 30.4166pt
+number indent calculated (toc, 1): 18.06747pt
+number indent by \l@... (toc, 2):  41.37396pt
+text indent by \l@... (toc, 2):  74.0376pt
+number indent by parent (toc, 2):  48.48407pt
+text indent calculated (toc, 2): 74.0376pt
+number indent calculated (toc, 2): 46.74841pt
 number indent by \l@... (toc, 0):  0.0pt
 text indent by \l@... (toc, 0):  16.33182pt
 number indent by parent (toc, 0):  0.0pt
@@ -1834,9 +1844,9 @@ number indent by parent (toc, 1):  18.06747pt
 text indent calculated (toc, 1): 30.4166pt
 number indent calculated (toc, 1): 18.06747pt
 number indent by \l@... (toc, 2):  41.37396pt
-text indent by \l@... (toc, 2):  34.84117pt
+text indent by \l@... (toc, 2):  74.0376pt
 number indent by parent (toc, 2):  48.48407pt
-text indent calculated (toc, 2): 34.84117pt
+text indent calculated (toc, 2): 74.0376pt
 number indent calculated (toc, 2): 46.74841pt
 number indent by \l@... (toc, 0):  0.0pt
 text indent by \l@... (toc, 0):  16.33182pt
@@ -1849,39 +1859,14 @@ number indent by parent (toc, 1):  18.06747pt
 text indent calculated (toc, 1): 30.4166pt
 number indent calculated (toc, 1): 18.06747pt
 number indent by \l@... (toc, 2):  41.37396pt
-text indent by \l@... (toc, 2):  34.84117pt
+text indent by \l@... (toc, 2):  74.0376pt
 number indent by parent (toc, 2):  48.48407pt
-text indent calculated (toc, 2): 34.84117pt
+text indent calculated (toc, 2): 74.0376pt
 number indent calculated (toc, 2): 46.74841pt
 number indent by \l@... (toc, 2):  41.37396pt
-text indent by \l@... (toc, 2):  34.84117pt
+text indent by \l@... (toc, 2):  74.0376pt
 number indent by parent (toc, 2):  48.48407pt
-text indent calculated (toc, 2): 34.84117pt
-number indent calculated (toc, 2): 46.74841pt
-number indent by \l@... (toc, 1):  16.33182pt
-text indent by \l@... (toc, 1):  30.48608pt
-number indent by parent (toc, 1):  18.06747pt
-text indent calculated (toc, 1): 30.4166pt
-number indent calculated (toc, 1): 18.06747pt
-number indent by \l@... (toc, 1):  16.33182pt
-text indent by \l@... (toc, 1):  30.48608pt
-number indent by parent (toc, 1):  18.06747pt
-text indent calculated (toc, 1): 30.4166pt
-number indent calculated (toc, 1): 18.06747pt
-number indent by \l@... (toc, 2):  41.37396pt
-text indent by \l@... (toc, 2):  34.84117pt
-number indent by parent (toc, 2):  48.48407pt
-text indent calculated (toc, 2): 34.84117pt
-number indent calculated (toc, 2): 46.74841pt
-number indent by \l@... (toc, 2):  41.37396pt
-text indent by \l@... (toc, 2):  34.84117pt
-number indent by parent (toc, 2):  48.48407pt
-text indent calculated (toc, 2): 34.84117pt
-number indent calculated (toc, 2): 46.74841pt
-number indent by \l@... (toc, 2):  41.37396pt
-text indent by \l@... (toc, 2):  34.84117pt
-number indent by parent (toc, 2):  48.48407pt
-text indent calculated (toc, 2): 34.84117pt
+text indent calculated (toc, 2): 74.0376pt
 number indent calculated (toc, 2): 46.74841pt
 number indent by \l@... (toc, 1):  16.33182pt
 text indent by \l@... (toc, 1):  30.48608pt
@@ -1894,9 +1879,34 @@ number indent by parent (toc, 1):  18.06747pt
 text indent calculated (toc, 1): 30.4166pt
 number indent calculated (toc, 1): 18.06747pt
 number indent by \l@... (toc, 2):  41.37396pt
-text indent by \l@... (toc, 2):  34.84117pt
+text indent by \l@... (toc, 2):  74.0376pt
 number indent by parent (toc, 2):  48.48407pt
-text indent calculated (toc, 2): 34.84117pt
+text indent calculated (toc, 2): 74.0376pt
+number indent calculated (toc, 2): 46.74841pt
+number indent by \l@... (toc, 2):  41.37396pt
+text indent by \l@... (toc, 2):  74.0376pt
+number indent by parent (toc, 2):  48.48407pt
+text indent calculated (toc, 2): 74.0376pt
+number indent calculated (toc, 2): 46.74841pt
+number indent by \l@... (toc, 2):  41.37396pt
+text indent by \l@... (toc, 2):  74.0376pt
+number indent by parent (toc, 2):  48.48407pt
+text indent calculated (toc, 2): 74.0376pt
+number indent calculated (toc, 2): 46.74841pt
+number indent by \l@... (toc, 1):  16.33182pt
+text indent by \l@... (toc, 1):  30.48608pt
+number indent by parent (toc, 1):  18.06747pt
+text indent calculated (toc, 1): 30.4166pt
+number indent calculated (toc, 1): 18.06747pt
+number indent by \l@... (toc, 1):  16.33182pt
+text indent by \l@... (toc, 1):  30.48608pt
+number indent by parent (toc, 1):  18.06747pt
+text indent calculated (toc, 1): 30.4166pt
+number indent calculated (toc, 1): 18.06747pt
+number indent by \l@... (toc, 2):  41.37396pt
+text indent by \l@... (toc, 2):  74.0376pt
+number indent by parent (toc, 2):  48.48407pt
+text indent calculated (toc, 2): 74.0376pt
 number indent calculated (toc, 2): 46.74841pt
 number indent by \l@... (toc, 0):  0.0pt
 text indent by \l@... (toc, 0):  16.33182pt
@@ -1914,30 +1924,20 @@ number indent by parent (toc, 1):  18.06747pt
 text indent calculated (toc, 1): 30.4166pt
 number indent calculated (toc, 1): 18.06747pt
 number indent by \l@... (toc, 2):  41.37396pt
-text indent by \l@... (toc, 2):  34.84117pt
+text indent by \l@... (toc, 2):  74.0376pt
 number indent by parent (toc, 2):  48.48407pt
-text indent calculated (toc, 2): 34.84117pt
+text indent calculated (toc, 2): 74.0376pt
 number indent calculated (toc, 2): 46.74841pt
 number indent by \l@... (toc, 2):  41.37396pt
-text indent by \l@... (toc, 2):  34.84117pt
+text indent by \l@... (toc, 2):  74.0376pt
 number indent by parent (toc, 2):  48.48407pt
-text indent calculated (toc, 2): 34.84117pt
+text indent calculated (toc, 2): 74.0376pt
 number indent calculated (toc, 2): 46.74841pt
 number indent by \l@... (toc, 2):  41.37396pt
-text indent by \l@... (toc, 2):  34.84117pt
+text indent by \l@... (toc, 2):  74.0376pt
 number indent by parent (toc, 2):  48.48407pt
-text indent calculated (toc, 2): 34.84117pt
+text indent calculated (toc, 2): 74.0376pt
 number indent calculated (toc, 2): 46.74841pt
-number indent by \l@... (toc, 1):  16.33182pt
-text indent by \l@... (toc, 1):  30.48608pt
-number indent by parent (toc, 1):  18.06747pt
-text indent calculated (toc, 1): 30.4166pt
-number indent calculated (toc, 1): 18.06747pt
-number indent by \l@... (toc, 1):  16.33182pt
-text indent by \l@... (toc, 1):  30.48608pt
-number indent by parent (toc, 1):  18.06747pt
-text indent calculated (toc, 1): 30.4166pt
-number indent calculated (toc, 1): 18.06747pt
 number indent by \l@... (toc, 1):  16.33182pt
 text indent by \l@... (toc, 1):  30.48608pt
 number indent by parent (toc, 1):  18.06747pt
@@ -1987,20 +1987,30 @@ text indent by \l@... (toc, 1):  30.48608pt
 number indent by parent (toc, 1):  18.06747pt
 text indent calculated (toc, 1): 30.4166pt
 number indent calculated (toc, 1): 18.06747pt
+number indent by \l@... (toc, 1):  16.33182pt
+text indent by \l@... (toc, 1):  30.48608pt
+number indent by parent (toc, 1):  18.06747pt
+text indent calculated (toc, 1): 30.4166pt
+number indent calculated (toc, 1): 18.06747pt
+number indent by \l@... (toc, 1):  16.33182pt
+text indent by \l@... (toc, 1):  30.48608pt
+number indent by parent (toc, 1):  18.06747pt
+text indent calculated (toc, 1): 30.4166pt
+number indent calculated (toc, 1): 18.06747pt
 number indent by \l@... (toc, 2):  41.37396pt
-text indent by \l@... (toc, 2):  34.84117pt
+text indent by \l@... (toc, 2):  74.0376pt
 number indent by parent (toc, 2):  48.48407pt
-text indent calculated (toc, 2): 34.84117pt
+text indent calculated (toc, 2): 74.0376pt
 number indent calculated (toc, 2): 46.74841pt
 number indent by \l@... (toc, 2):  41.37396pt
-text indent by \l@... (toc, 2):  34.84117pt
+text indent by \l@... (toc, 2):  74.0376pt
 number indent by parent (toc, 2):  48.48407pt
-text indent calculated (toc, 2): 34.84117pt
+text indent calculated (toc, 2): 74.0376pt
 number indent calculated (toc, 2): 46.74841pt
 number indent by \l@... (toc, 2):  41.37396pt
-text indent by \l@... (toc, 2):  34.84117pt
+text indent by \l@... (toc, 2):  74.0376pt
 number indent by parent (toc, 2):  48.48407pt
-text indent calculated (toc, 2): 34.84117pt
+text indent calculated (toc, 2): 74.0376pt
 number indent calculated (toc, 2): 46.74841pt
 number indent by \l@... (toc, 1):  16.33182pt
 text indent by \l@... (toc, 1):  30.48608pt
@@ -2052,6 +2062,16 @@ text indent by \l@... (toc, 1):  30.48608pt
 number indent by parent (toc, 1):  18.06747pt
 text indent calculated (toc, 1): 30.4166pt
 number indent calculated (toc, 1): 18.06747pt
+number indent by \l@... (toc, 1):  16.33182pt
+text indent by \l@... (toc, 1):  30.48608pt
+number indent by parent (toc, 1):  18.06747pt
+text indent calculated (toc, 1): 30.4166pt
+number indent calculated (toc, 1): 18.06747pt
+number indent by \l@... (toc, 2):  41.37396pt
+text indent by \l@... (toc, 2):  74.0376pt
+number indent by parent (toc, 2):  48.48407pt
+text indent calculated (toc, 2): 74.0376pt
+number indent calculated (toc, 2): 46.74841pt
 number indent by \l@... (toc, 0):  0.0pt
 text indent by \l@... (toc, 0):  16.33182pt
 number indent by parent (toc, 0):  0.0pt
@@ -2118,14 +2138,14 @@ number indent by parent (toc, 1):  18.06747pt
 text indent calculated (toc, 1): 30.4166pt
 number indent calculated (toc, 1): 18.06747pt
 number indent by \l@... (toc, 2):  41.37396pt
-text indent by \l@... (toc, 2):  34.84117pt
+text indent by \l@... (toc, 2):  74.0376pt
 number indent by parent (toc, 2):  48.48407pt
-text indent calculated (toc, 2): 34.84117pt
+text indent calculated (toc, 2): 74.0376pt
 number indent calculated (toc, 2): 46.74841pt
 number indent by \l@... (toc, 2):  41.37396pt
-text indent by \l@... (toc, 2):  34.84117pt
+text indent by \l@... (toc, 2):  74.0376pt
 number indent by parent (toc, 2):  48.48407pt
-text indent calculated (toc, 2): 34.84117pt
+text indent calculated (toc, 2): 74.0376pt
 number indent calculated (toc, 2): 46.74841pt
 number indent by \l@... (toc, 1):  16.33182pt
 text indent by \l@... (toc, 1):  30.48608pt
@@ -2138,14 +2158,14 @@ number indent by parent (toc, 1):  18.06747pt
 text indent calculated (toc, 1): 30.4166pt
 number indent calculated (toc, 1): 18.06747pt
 number indent by \l@... (toc, 2):  41.37396pt
-text indent by \l@... (toc, 2):  34.84117pt
+text indent by \l@... (toc, 2):  74.0376pt
 number indent by parent (toc, 2):  48.48407pt
-text indent calculated (toc, 2): 34.84117pt
+text indent calculated (toc, 2): 74.0376pt
 number indent calculated (toc, 2): 46.74841pt
 number indent by \l@... (toc, 2):  41.37396pt
-text indent by \l@... (toc, 2):  34.84117pt
+text indent by \l@... (toc, 2):  74.0376pt
 number indent by parent (toc, 2):  48.48407pt
-text indent calculated (toc, 2): 34.84117pt
+text indent calculated (toc, 2): 74.0376pt
 number indent calculated (toc, 2): 46.74841pt
 number indent by \l@... (toc, 1):  16.33182pt
 text indent by \l@... (toc, 1):  30.48608pt
@@ -2182,53 +2202,50 @@ text indent by \l@... (toc, 1):  30.48608pt
 number indent by parent (toc, 1):  18.06747pt
 text indent calculated (toc, 1): 30.4166pt
 number indent calculated (toc, 1): 18.06747pt
-number indent by \l@... (toc, 1):  16.33182pt
-text indent by \l@... (toc, 1):  30.48608pt
-number indent by parent (toc, 1):  18.06747pt
-text indent calculated (toc, 1): 30.4166pt
-number indent calculated (toc, 1): 18.06747pt
-number indent by \l@... (toc, 0):  0.0pt
-text indent by \l@... (toc, 0):  16.33182pt
-number indent by parent (toc, 0):  0.0pt
-text indent calculated (toc, 0): 18.06747pt
-number indent calculated (toc, 0): 0.0pt
-number indent by \l@... (toc, 1):  16.33182pt
-text indent by \l@... (toc, 1):  30.48608pt
-number indent by parent (toc, 1):  18.06747pt
-text indent calculated (toc, 1): 30.4166pt
-number indent calculated (toc, 1): 18.06747pt
-
-Underfull \vbox (badness 2644) has occurred while \output is active []
-
-LaTeX Info: Redefining \. on input line 179.
-LaTeX Info: Redefining \% on input line 179.
-LaTeX Info: Redefining \. on input line 179.
-LaTeX Info: Redefining \% on input line 179.
+LaTeX Info: Redefining \. on input line 180.
+LaTeX Info: Redefining \% on input line 180.
+LaTeX Info: Redefining \. on input line 180.
+LaTeX Info: Redefining \% on input line 180.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 179.
+(babel)             in language  on input line 180.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 179.
+(babel)             in language  on input line 180.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 179.
+(babel)             in language  on input line 180.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 179.
+(babel)             in language  on input line 180.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 179.
+(babel)             in language  on input line 180.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 179.
+(babel)             in language  on input line 180.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 179.
+(babel)             in language  on input line 180.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 179.
+(babel)             in language  on input line 180.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 179.
+(babel)             in language  on input line 180.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 179.
+(babel)             in language  on input line 180.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 179.
+(babel)             in language  on input line 180.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 179.
- [6]
+(babel)             in language  on input line 180.
+[6]
+number indent by \l@... (toc, 1):  16.33182pt
+text indent by \l@... (toc, 1):  30.48608pt
+number indent by parent (toc, 1):  18.06747pt
+text indent calculated (toc, 1): 30.4166pt
+number indent calculated (toc, 1): 18.06747pt
+number indent by \l@... (toc, 0):  0.0pt
+text indent by \l@... (toc, 0):  16.33182pt
+number indent by parent (toc, 0):  0.0pt
+text indent calculated (toc, 0): 18.06747pt
+number indent calculated (toc, 0): 0.0pt
+number indent by \l@... (toc, 1):  16.33182pt
+text indent by \l@... (toc, 1):  30.48608pt
+number indent by parent (toc, 1):  18.06747pt
+text indent calculated (toc, 1): 30.4166pt
+number indent calculated (toc, 1): 18.06747pt
 number indent by \l@... (toc, 1):  16.33182pt
 text indent by \l@... (toc, 1):  30.48608pt
 number indent by parent (toc, 1):  18.06747pt
@@ -2492,14 +2509,14 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 142.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 142.
- <./img/kernighan.jpg, id=946, 31.317pt x 34.2078pt>
+ <./img/kernighan.jpg, id=964, 31.317pt x 34.2078pt>
 File: ./img/kernighan.jpg Graphic file (type jpg)
 
 <use ./img/kernighan.jpg>
 Package pdftex.def Info: ./img/kernighan.jpg used on input line 155.
 (pdftex.def)             Requested size: 97.89114pt x 112.94345pt.
 
-<./img/dennis_ritchie.jpg, id=947, 121.45375pt x 150.5625pt>
+<./img/dennis_ritchie.jpg, id=965, 121.45375pt x 150.5625pt>
 File: ./img/dennis_ritchie.jpg Graphic file (type jpg)
 
 <use ./img/dennis_ritchie.jpg>
@@ -2565,7 +2582,7 @@ to.pdf ./img/ciclo.eps>
 (epstopdf)             \includegraphics on input line 190.
 Package epstopdf Info: Output file is already uptodate.
 
-<./img/ciclo-eps-converted-to.pdf, id=954, 447.6725pt x 413.545pt>
+<./img/ciclo-eps-converted-to.pdf, id=972, 447.6725pt x 413.545pt>
 File: ./img/ciclo-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./img/ciclo-eps-converted-to.pdf>
@@ -2770,7 +2787,7 @@ nverted-to.pdf ./img/mapadememoria.eps>
 (epstopdf)             \includegraphics on input line 331.
 Package epstopdf Info: Output file is already uptodate.
 
-<./img/mapadememoria-eps-converted-to.pdf, id=984, 181.67876pt x 358.33875pt>
+<./img/mapadememoria-eps-converted-to.pdf, id=1002, 181.67876pt x 358.33875pt>
 File: ./img/mapadememoria-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./img/mapadememoria-eps-converted-to.pdf>
@@ -2806,7 +2823,7 @@ Package babel Info: Redefining spanish shorthand "!
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 340.
  [15 <./img/mapadememoria-eps-converted-to.pdf>] <./img/emblem-important.png, i
-d=992, 77.088pt x 77.088pt>
+d=1010, 77.088pt x 77.088pt>
 File: ./img/emblem-important.png Graphic file (type png)
 
 <use ./img/emblem-important.png>
@@ -3277,7 +3294,7 @@ Package epstopdf Info: Source file: <./img/ciclo-wmf.eps>
 ted-to.pdf ./img/ciclo-wmf.eps>
 (epstopdf)             \includegraphics on input line 8.
 Package epstopdf Info: Output file is already uptodate.
-<./img/ciclo-wmf-eps-converted-to.pdf, id=1049, 459.7175pt x 381.425pt>
+<./img/ciclo-wmf-eps-converted-to.pdf, id=1067, 459.7175pt x 381.425pt>
 File: ./img/ciclo-wmf-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./img/ciclo-wmf-eps-converted-to.pdf>
@@ -3348,7 +3365,7 @@ Package epstopdf Info: Source file: <./img/directivas.eps>
 rted-to.pdf ./img/directivas.eps>
 (epstopdf)             \includegraphics on input line 23.
 Package epstopdf Info: Output file is already uptodate.
-<./img/directivas-eps-converted-to.pdf, id=1060, 361.35pt x 405.515pt>
+<./img/directivas-eps-converted-to.pdf, id=1078, 361.35pt x 405.515pt>
 File: ./img/directivas-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./img/directivas-eps-converted-to.pdf>
@@ -5619,7 +5636,7 @@ Package epstopdf Info: Source file: <./img/stack1.eps>
 (epstopdf)             \includegraphics on input line 208.
 Package epstopdf Info: Output file is already uptodate.
 
-<./img/stack1-eps-converted-to.pdf, id=1605, 649.42625pt x 451.6875pt>
+<./img/stack1-eps-converted-to.pdf, id=1623, 649.42625pt x 451.6875pt>
 File: ./img/stack1-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./img/stack1-eps-converted-to.pdf>
@@ -5637,7 +5654,7 @@ Package epstopdf Info: Source file: <./img/stack2.eps>
 (epstopdf)             \includegraphics on input line 209.
 Package epstopdf Info: Output file is already uptodate.
 
-<./img/stack2-eps-converted-to.pdf, id=1606, 650.43pt x 545.03625pt>
+<./img/stack2-eps-converted-to.pdf, id=1624, 650.43pt x 545.03625pt>
 File: ./img/stack2-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./img/stack2-eps-converted-to.pdf>
@@ -7723,7 +7740,455 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 464.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 464.
- [81]) (./CursoC-8.tex
+ [81]
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 485.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 485.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 485.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 485.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 485.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 485.
+pdfTeX warning (ext4): destination with the same identifier (name{choice.1}) ha
+s been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.492 \choice
+              1.pdfTeX warning (ext4): destination with the same identifier (na
+me{choice.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.493 \correctchoice
+                     2.pdfTeX warning (ext4): destination with the same identif
+ier (name{choice.3}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.494 \choice
+              Ninguna de las anteriores.pdfTeX warning (ext4): destination with
+ the same identifier (name{choice.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.502 \choice
+              1.pdfTeX warning (ext4): destination with the same identifier (na
+me{choice.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.503 \correctchoice
+                     2.pdfTeX warning (ext4): destination with the same identif
+ier (name{choice.3}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.504 \choice
+              Ninguna de las anteriores.pdfTeX warning (ext4): destination with
+ the same identifier (name{choice.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.512 \choice
+              1.pdfTeX warning (ext4): destination with the same identifier (na
+me{choice.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.513 \choice
+              2.pdfTeX warning (ext4): destination with the same identifier (na
+me{choice.3}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.514 \correctchoice
+                     Depende del valor de b.pdfTeX warning (ext4): destination 
+with the same identifier (name{choice.4}) has been already used, duplicate igno
+red
+<to be read again> 
+                   \relax 
+l.515 \choice
+              Ninguna de las anteriores.pdfTeX warning (ext4): destination with
+ the same identifier (name{choice.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.523 \choice
+              1.pdfTeX warning (ext4): destination with the same identifier (na
+me{choice.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.524 \correctchoice
+                     2.pdfTeX warning (ext4): destination with the same identif
+ier (name{choice.3}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.525 \choice
+              Depende del valor de b.pdfTeX warning (ext4): destination with th
+e same identifier (name{choice.4}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.526 \choice
+              Ninguna de las anteriores.
+LaTeX Info: Redefining \. on input line 532.
+LaTeX Info: Redefining \% on input line 532.
+LaTeX Info: Redefining \. on input line 532.
+LaTeX Info: Redefining \% on input line 532.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 532.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 532.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 532.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 532.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 532.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 532.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 532.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 532.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 532.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 532.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 532.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 532.
+ [82]pdfTeX warning (ext4): destination with the same identifier (name{choice.1
+}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.534 \correctchoice
+                     1.pdfTeX warning (ext4): destination with the same identif
+ier (name{choice.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.535 \choice
+              2.pdfTeX warning (ext4): destination with the same identifier (na
+me{choice.3}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.536 \choice
+              Depende del valor de b.pdfTeX warning (ext4): destination with th
+e same identifier (name{choice.4}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.537 \choice
+              Ninguna de las anteriores.pdfTeX warning (ext4): destination with
+ the same identifier (name{choice.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.550 \choice
+              2.pdfTeX warning (ext4): destination with the same identifier (na
+me{choice.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.551 \choice
+              3.pdfTeX warning (ext4): destination with the same identifier (na
+me{choice.3}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.552 \correctchoice
+                     4.pdfTeX warning (ext4): destination with the same identif
+ier (name{choice.4}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.553 \choice
+              No está definido.pdfTeX warning (ext4): destination with the sam
+e identifier (name{choice.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.564 \choice
+              1.pdfTeX warning (ext4): destination with the same identifier (na
+me{choice.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.565 \correctchoice
+                     2.pdfTeX warning (ext4): destination with the same identif
+ier (name{choice.3}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.566 \choice
+              3.pdfTeX warning (ext4): destination with the same identifier (na
+me{choice.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.575 \correctchoice
+                     1.pdfTeX warning (ext4): destination with the same identif
+ier (name{choice.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.576 \choice
+              2.pdfTeX warning (ext4): destination with the same identifier (na
+me{choice.3}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.577 \choice
+              3.pdfTeX warning (ext4): destination with the same identifier (na
+me{choice.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.587 \correctchoice
+                     0pdfTeX warning (ext4): destination with the same identifi
+er (name{choice.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.588 \choice
+              1pdfTeX warning (ext4): destination with the same identifier (nam
+e{choice.3}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.589 \choice
+              2pdfTeX warning (ext4): destination with the same identifier (nam
+e{choice.4}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.590 \choice
+              3
+LaTeX Info: Redefining \. on input line 597.
+LaTeX Info: Redefining \% on input line 597.
+LaTeX Info: Redefining \. on input line 597.
+LaTeX Info: Redefining \% on input line 597.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 597.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 597.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 597.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 597.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 597.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 597.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 597.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 597.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 597.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 597.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 597.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 597.
+ [83]pdfTeX warning (ext4): destination with the same identifier (name{choice.1
+}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.602 \choice
+              0pdfTeX warning (ext4): destination with the same identifier (nam
+e{choice.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.603 \choice
+              1pdfTeX warning (ext4): destination with the same identifier (nam
+e{choice.3}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.604 \correctchoice
+                     2pdfTeX warning (ext4): destination with the same identifi
+er (name{choice.4}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.605 \choice
+              3pdfTeX warning (ext4): destination with the same identifier (nam
+e{choice.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.617 \correctchoice
+                     0pdfTeX warning (ext4): destination with the same identifi
+er (name{choice.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.618 \choice
+              1pdfTeX warning (ext4): destination with the same identifier (nam
+e{choice.3}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.619 \choice
+              2pdfTeX warning (ext4): destination with the same identifier (nam
+e{choice.4}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.620 \choice
+              3pdfTeX warning (ext4): destination with the same identifier (nam
+e{choice.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.629 \choice
+              1pdfTeX warning (ext4): destination with the same identifier (nam
+e{choice.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.630 \choice
+              2pdfTeX warning (ext4): destination with the same identifier (nam
+e{choice.3}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.631 \correctchoice
+                     3pdfTeX warning (ext4): destination with the same identifi
+er (name{choice.4}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.632 \choice
+              6pdfTeX warning (ext4): destination with the same identifier (nam
+e{choice.5}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.633 \choice
+              13pdfTeX warning (ext4): destination with the same identifier (na
+me{choice.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.642 \choice
+              1pdfTeX warning (ext4): destination with the same identifier (nam
+e{choice.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.643 \choice
+              2pdfTeX warning (ext4): destination with the same identifier (nam
+e{choice.3}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.644 \choice
+              3pdfTeX warning (ext4): destination with the same identifier (nam
+e{choice.4}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.645 \correctchoice
+                     4pdfTeX warning (ext4): destination with the same identifi
+er (name{choice.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.654 \choice
+              1pdfTeX warning (ext4): destination with the same identifier (nam
+e{choice.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.655 \choice
+              2pdfTeX warning (ext4): destination with the same identifier (nam
+e{choice.3}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.656 \correctchoice
+                     3pdfTeX warning (ext4): destination with the same identifi
+er (name{choice.4}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.657 \choice
+              4pdfTeX warning (ext4): destination with the same identifier (nam
+e{choice.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.665 \choice
+              1pdfTeX warning (ext4): destination with the same identifier (nam
+e{choice.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.666 \choice
+              2pdfTeX warning (ext4): destination with the same identifier (nam
+e{choice.3}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.667 \correctchoice
+                     3pdfTeX warning (ext4): destination with the same identifi
+er (name{choice.4}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.668 \choice
+              4
+LaTeX Info: Redefining \. on input line 670.
+LaTeX Info: Redefining \% on input line 670.
+LaTeX Info: Redefining \. on input line 670.
+LaTeX Info: Redefining \% on input line 670.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 670.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 670.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 670.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 670.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 670.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 670.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 670.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 670.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 670.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 670.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 670.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 670.
+ [84]pdfTeX warning (ext4): destination with the same identifier (name{choice.1
+}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.676 \choice
+              1pdfTeX warning (ext4): destination with the same identifier (nam
+e{choice.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.677 \correctchoice
+                     2pdfTeX warning (ext4): destination with the same identifi
+er (name{choice.3}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.678 \choice
+              3pdfTeX warning (ext4): destination with the same identifier (nam
+e{choice.4}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.679 \choice
+              4
+LaTeX Info: Redefining \. on input line 680.
+LaTeX Info: Redefining \% on input line 680.
+LaTeX Info: Redefining \. on input line 680.
+LaTeX Info: Redefining \% on input line 680.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 680.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 680.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 680.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 680.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 680.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 680.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 680.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 680.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 680.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 680.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 680.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 680.
+ [85]
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 680.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 680.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 680.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 680.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 680.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 680.
+) (./CursoC-8.tex
 LaTeX Info: Redefining \. on input line 5.
 LaTeX Info: Redefining \% on input line 5.
 LaTeX Info: Redefining \. on input line 5.
@@ -7752,7 +8217,7 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 5.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 5.
- [82]
+ [86]
 Cap\'{\i }tulo 8.
 Package babel Info: Redefining spanish shorthand <<
 (babel)             in language  on input line 5.
@@ -7802,7 +8267,7 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 56.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 56.
-[83
+[87
 
 ]
 Package babel Info: Redefining spanish shorthand <<
@@ -7845,7 +8310,7 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 123.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 123.
- [84]
+ [88]
 Package babel Info: Redefining spanish shorthand <<
 (babel)             in language  on input line 143.
 Package babel Info: Redefining spanish shorthand >>
@@ -7898,7 +8363,7 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 190.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 190.
- [85]
+ [89]
 Package babel Info: Redefining spanish shorthand <<
 (babel)             in language  on input line 200.
 Package babel Info: Redefining spanish shorthand >>
@@ -7939,7 +8404,7 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 246.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 246.
- [86]
+ [90]
 Package babel Info: Redefining spanish shorthand <<
 (babel)             in language  on input line 252.
 Package babel Info: Redefining spanish shorthand >>
@@ -8085,7 +8550,7 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 311.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 311.
- [87]pdfTeX warning (ext4): destination with the same identifier (name{choice.1
+ [91]pdfTeX warning (ext4): destination with the same identifier (name{choice.1
 }) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
@@ -8159,7 +8624,7 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 334.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 334.
- [88]
+ [92]
 Package babel Info: Redefining spanish shorthand <<
 (babel)             in language  on input line 334.
 Package babel Info: Redefining spanish shorthand >>
@@ -8201,7 +8666,7 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 4.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 4.
- [89]
+ [93]
 LaTeX Info: Redefining \. on input line 4.
 LaTeX Info: Redefining \% on input line 4.
 LaTeX Info: Redefining \. on input line 4.
@@ -8230,7 +8695,7 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 4.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 4.
- [90
+ [94
 
 ]
 Cap\'{\i }tulo 9.
@@ -8308,7 +8773,7 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 47.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 47.
-[91]
+[95]
 Package babel Info: Redefining spanish shorthand <<
 (babel)             in language  on input line 63.
 Package babel Info: Redefining spanish shorthand >>
@@ -8349,7 +8814,7 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 110.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 110.
- [92]
+ [96]
 File: ./img/emblem-important.png Graphic file (type png)
  <use ./img/emblem-important.png>
 Package pdftex.def Info: ./img/emblem-important.png used on input line 139.
@@ -8404,7 +8869,7 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 172.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 172.
-[93]
+[97]
 Package babel Info: Redefining spanish shorthand <<
 (babel)             in language  on input line 172.
 Package babel Info: Redefining spanish shorthand >>
@@ -8462,7 +8927,7 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 239.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 239.
-[94]
+[98]
 Package babel Info: Redefining spanish shorthand <<
 (babel)             in language  on input line 255.
 Package babel Info: Redefining spanish shorthand >>
@@ -8515,7 +8980,7 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 302.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 302.
- [95]
+ [99]
 Package babel Info: Redefining spanish shorthand <<
 (babel)             in language  on input line 334.
 Package babel Info: Redefining spanish shorthand >>
@@ -8556,7 +9021,7 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 365.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 365.
- [96]
+ [100]
 Package babel Info: Redefining spanish shorthand <<
 (babel)             in language  on input line 380.
 Package babel Info: Redefining spanish shorthand >>
@@ -8744,7 +9209,7 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 421.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 421.
-[97]
+[101]
 Package babel Info: Redefining spanish shorthand <<
 (babel)             in language  on input line 421.
 Package babel Info: Redefining spanish shorthand >>
@@ -8786,7 +9251,7 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 4.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 4.
- [98]
+ [102]
 Cap\'{\i }tulo 10.
 Package babel Info: Redefining spanish shorthand <<
 (babel)             in language  on input line 4.
@@ -8836,7 +9301,7 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 65.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 65.
-[99
+[103
 
 ]
 Package babel Info: Redefining spanish shorthand <<
@@ -8922,7 +9387,7 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 124.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 124.
-[100]
+[104]
 Package babel Info: Redefining spanish shorthand <<
 (babel)             in language  on input line 124.
 Package babel Info: Redefining spanish shorthand >>
@@ -8987,7 +9452,7 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 216.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 216.
- [101]
+ [105]
 LaTeX Font Info:    Try loading font information for TS1+lmss on input line 239
 .
  (/usr/share/texmf/tex/latex/lm/ts1lmss.fd
@@ -9021,7 +9486,7 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 271.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 271.
- [102]
+ [106]
 Package babel Info: Redefining spanish shorthand <<
 (babel)             in language  on input line 296.
 Package babel Info: Redefining spanish shorthand >>
@@ -9077,7 +9542,7 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 330.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 330.
-[103]
+[107]
 Package babel Info: Redefining spanish shorthand <<
 (babel)             in language  on input line 364.
 Package babel Info: Redefining spanish shorthand >>
@@ -9118,7 +9583,7 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 394.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 394.
- [104]
+ [108]
 Package babel Info: Redefining spanish shorthand <<
 (babel)             in language  on input line 408.
 Package babel Info: Redefining spanish shorthand >>
@@ -9159,7 +9624,7 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 457.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 457.
- [105]
+ [109]
 LaTeX Info: Redefining \. on input line 516.
 LaTeX Info: Redefining \% on input line 516.
 LaTeX Info: Redefining \. on input line 516.
@@ -9188,7 +9653,7 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 516.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 516.
- [106]) (./CursoC-10b.tex
+ [110]) (./CursoC-10b.tex
 Package babel Info: Redefining spanish shorthand <<
 (babel)             in language  on input line 6.
 Package babel Info: Redefining spanish shorthand >>
@@ -9260,7 +9725,7 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 61.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 61.
-[107]
+[111]
 Package babel Info: Redefining spanish shorthand <<
 (babel)             in language  on input line 71.
 Package babel Info: Redefining spanish shorthand >>
@@ -9301,7 +9766,7 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 136.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 136.
- [108]
+ [112]
 Package babel Info: Redefining spanish shorthand <<
 (babel)             in language  on input line 193.
 Package babel Info: Redefining spanish shorthand >>
@@ -9325,7 +9790,7 @@ erted-to.pdf ./img/indireccion.eps>
 (epstopdf)             \includegraphics on input line 200.
 Package epstopdf Info: Output file is already uptodate.
 
-<./img/indireccion-eps-converted-to.pdf, id=3050, 574.145pt x 349.305pt>
+<./img/indireccion-eps-converted-to.pdf, id=3188, 574.145pt x 349.305pt>
 File: ./img/indireccion-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./img/indireccion-eps-converted-to.pdf>
@@ -9374,7 +9839,7 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 225.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 225.
-[109]
+[113]
 LaTeX Info: Redefining \. on input line 258.
 LaTeX Info: Redefining \% on input line 258.
 LaTeX Info: Redefining \. on input line 258.
@@ -9403,7 +9868,7 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 258.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 258.
- [110 <./img/indireccion-eps-converted-to.pdf>]
+ [114 <./img/indireccion-eps-converted-to.pdf>]
 Package babel Info: Redefining spanish shorthand <<
 (babel)             in language  on input line 268.
 Package babel Info: Redefining spanish shorthand >>
@@ -9468,7 +9933,7 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 322.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 322.
- [111]
+ [115]
 Package babel Info: Redefining spanish shorthand <<
 (babel)             in language  on input line 336.
 Package babel Info: Redefining spanish shorthand >>
@@ -9521,7 +9986,7 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 385.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 385.
- [112]
+ [116]
 File: ./img/emblem-important.png Graphic file (type png)
 
 <use ./img/emblem-important.png>
@@ -9577,7 +10042,7 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 456.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 456.
-[113]
+[117]
 Package babel Info: Redefining spanish shorthand <<
 (babel)             in language  on input line 483.
 Package babel Info: Redefining spanish shorthand >>
@@ -9618,7 +10083,7 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 527.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 527.
- [114]
+ [118]
 Package babel Info: Redefining spanish shorthand <<
 (babel)             in language  on input line 549.
 Package babel Info: Redefining spanish shorthand >>
@@ -9671,7 +10136,7 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 593.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 593.
- [115]
+ [119]
 Package babel Info: Redefining spanish shorthand <<
 (babel)             in language  on input line 647.
 Package babel Info: Redefining spanish shorthand >>
@@ -9712,7 +10177,481 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 658.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 658.
- [116]) (./CursoC-11.tex
+ [120]
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 679.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 679.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 679.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 679.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 679.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 679.
+pdfTeX warning (ext4): destination with the same identifier (name{choice.1}) ha
+s been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.681 \choice
+              \quotes{lo apuntado por \code{p}}.pdfTeX warning (ext4): destinat
+ion with the same identifier (name{choice.2}) has been already used, duplicate 
+ignored
+<to be read again> 
+                   \relax 
+l.682 \correctchoice
+                     \quotes{la dirección de \code{p}}.pdfTeX warning (ext4): 
+destination with the same identifier (name{choice.3}) has been already used, du
+plicate ignored
+<to be read again> 
+                   \relax 
+l.683 \choice
+              \quotes{el arreglo comenzado por \code{p}}.pdfTeX warning (ext4):
+ destination with the same identifier (name{choice.4}) has been already used, d
+uplicate ignored
+<to be read again> 
+                   \relax 
+l.684 \choice
+              \code{*p}pdfTeX warning (ext4): destination with the same identif
+ier (name{choice.5}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.685 \choice
+              \quotes{a cadena apuntada por \code{p}}.pdfTeX warning (ext4): de
+stination with the same identifier (name{choice.1}) has been already used, dupl
+icate ignored
+<to be read again> 
+                   \relax 
+l.688 \choice
+              multiplicar \code{a} por \code{p}.pdfTeX warning (ext4): destinat
+ion with the same identifier (name{choice.2}) has been already used, duplicate 
+ignored
+<to be read again> 
+                   \relax 
+l.689 \correctchoice
+                     hacer \code{a} igual a lo apuntado por \code{p}.pdfTeX war
+ning (ext4): destination with the same identifier (name{choice.3}) has been alr
+eady used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.690 \choice
+              almacenar en \code{a} la dirección de \code{p}.pdfTeX warning (e
+xt4): destination with the same identifier (name{choice.4}) has been already us
+ed, duplicate ignored
+<to be read again> 
+                   \relax 
+l.691 \choice
+              \code{a = p}.pdfTeX warning (ext4): destination with the same ide
+ntifier (name{choice.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.694 \choice
+              la dirección de \code{p}.pdfTeX warning (ext4): destination with
+ the same identifier (name{choice.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.695 \choice
+              lo apuntado por \code{p}.pdfTeX warning (ext4): destination with 
+the same identifier (name{choice.3}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.696 \choice
+              lo apuntado por la dirección de \code{p}.pdfTeX warning (ext4): 
+destination with the same identifier (name{choice.4}) has been already used, du
+plicate ignored
+<to be read again> 
+                   \relax 
+l.697 \correctchoice
+                     la dirección de lo apuntado por \code{p}.pdfTeX warning (
+ext4): destination with the same identifier (name{choice.1}) has been already u
+sed, duplicate ignored
+<to be read again> 
+                   \relax 
+l.700 \choice
+              \code{*p}.pdfTeX warning (ext4): destination with the same identi
+fier (name{choice.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.701 \choice
+              \code{&p}.pdfTeX warning (ext4): destination with the same identi
+fier (name{choice.3}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.702 \correctchoice
+                     \code{p}.pdfTeX warning (ext4): destination with the same 
+identifier (name{choice.4}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.703 \choice
+              \code{p * p}.pdfTeX warning (ext4): destination with the same ide
+ntifier (name{choice.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.706 \choice
+              \code{*p}pdfTeX warning (ext4): destination with the same identif
+ier (name{choice.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.707 \choice
+              \code{&p}pdfTeX warning (ext4): destination with the same identif
+ier (name{choice.3}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.708 \correctchoice
+                     \code{p}pdfTeX warning (ext4): destination with the same i
+dentifier (name{choice.4}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.709 \choice
+              \code{p * p}.pdfTeX warning (ext4): destination with the same ide
+ntifier (name{choice.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.712 \choice
+              un carácter.pdfTeX warning (ext4): destination with the same ide
+ntifier (name{choice.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.713 \correctchoice
+                     un puntero a carácter.pdfTeX warning (ext4): destination 
+with the same identifier (name{choice.3}) has been already used, duplicate igno
+red
+<to be read again> 
+                   \relax 
+l.714 \choice
+              la dirección de un carácter.pdfTeX warning (ext4): destination 
+with the same identifier (name{choice.4}) has been already used, duplicate igno
+red
+<to be read again> 
+                   \relax 
+l.715 \choice
+              todas las anteriores.pdfTeX warning (ext4): destination with the 
+same identifier (name{choice.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.718 \correctchoice
+                     un carácter.pdfTeX warning (ext4): destination with the s
+ame identifier (name{choice.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.719 \choice
+              un puntero a carácter.pdfTeX warning (ext4): destination with th
+e same identifier (name{choice.3}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.720 \choice
+              la dirección de un carácter.pdfTeX warning (ext4): destination 
+with the same identifier (name{choice.4}) has been already used, duplicate igno
+red
+<to be read again> 
+                   \relax 
+l.721 \choice
+              todas las anteriores.pdfTeX warning (ext4): destination with the 
+same identifier (name{choice.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.724 \choice
+              un puntero.pdfTeX warning (ext4): destination with the same ident
+ifier (name{choice.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.725 \correctchoice
+                     equivalente a la dirección de \code{j}.pdfTeX warning (ex
+t4): destination with the same identifier (name{choice.3}) has been already use
+d, duplicate ignored
+<to be read again> 
+                   \relax 
+l.726 \choice
+              equivalente a lo apuntado por \code{j}.pdfTeX warning (ext4): des
+tination with the same identifier (name{choice.4}) has been already used, dupli
+cate ignored
+<to be read again> 
+                   \relax 
+l.727 \choice
+              un arreglo.
+LaTeX Info: Redefining \. on input line 729.
+LaTeX Info: Redefining \% on input line 729.
+LaTeX Info: Redefining \. on input line 729.
+LaTeX Info: Redefining \% on input line 729.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 729.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 729.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 729.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 729.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 729.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 729.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 729.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 729.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 729.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 729.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 729.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 729.
+ [121]pdfTeX warning (ext4): destination with the same identifier (name{choice.
+1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.730 \choice
+              un puntero.pdfTeX warning (ext4): destination with the same ident
+ifier (name{choice.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.731 \choice
+              equivalente a la dirección de j.pdfTeX warning (ext4): destinati
+on with the same identifier (name{choice.3}) has been already used, duplicate i
+gnored
+<to be read again> 
+                   \relax 
+l.732 \correctchoice
+                     equivalente a lo apuntado por j.pdfTeX warning (ext4): des
+tination with the same identifier (name{choice.4}) has been already used, dupli
+cate ignored
+<to be read again> 
+                   \relax 
+l.733 \choice
+              un arreglo.pdfTeX warning (ext4): destination with the same ident
+ifier (name{choice.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.736 \choice
+              la cantidad de bytes entre las direcciones apuntadas por \code...
+pdfTeX warning (ext4): destination with the same identifier (name{choice.2}) ha
+s been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.737 \choice
+              la diferencia entre las direcciones apuntadas por \code{p} y \...
+pdfTeX warning (ext4): destination with the same identifier (name{choice.3}) ha
+s been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.738 \choice
+              la cantidad de bytes que hace falta desplazarse desde la direc...
+pdfTeX warning (ext4): destination with the same identifier (name{choice.4}) ha
+s been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.739 \correctchoice
+                     Todas las anteriores.pdfTeX warning (ext4): destination wi
+th the same identifier (name{choice.5}) has been already used, duplicate ignore
+d
+<to be read again> 
+                   \relax 
+l.740 \choice
+              Ninguna de las anteriores.pdfTeX warning (ext4): destination with
+ the same identifier (name{choice.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.743 \choice
+              La cantidad de bytes entre las direcciones apuntadas por \code...
+pdfTeX warning (ext4): destination with the same identifier (name{choice.2}) ha
+s been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.744 \correctchoice
+                     La cantidad de longs que caben entre las direcciones ap...
+pdfTeX warning (ext4): destination with the same identifier (name{choice.3}) ha
+s been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.745 \choice
+              La diferencia entre los \code{long}s apuntados por \code{g} y ...
+pdfTeX warning (ext4): destination with the same identifier (name{choice.4}) ha
+s been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.746 \choice
+              Todas las anteriores.pdfTeX warning (ext4): destination with the 
+same identifier (name{choice.5}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.747 \choice
+              Ninguna de las anteriores.pdfTeX warning (ext4): destination with
+ the same identifier (name{choice.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.750 \choice
+              un arreglo.pdfTeX warning (ext4): destination with the same ident
+ifier (name{choice.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.751 \choice
+              un puntero a una cadena terminada en \lstinline{"0"}.pdfTeX warni
+ng (ext4): destination with the same identifier (name{choice.3}) has been alrea
+dy used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.752 \correctchoice
+                     un puntero a una cadena terminada en \code{'\\0'}.pdfTeX w
+arning (ext4): destination with the same identifier (name{choice.4}) has been a
+lready used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.753 \choice
+              un puntero a un carácter \code{'\\0'}.pdfTeX warning (ext4): des
+tination with the same identifier (name{choice.5}) has been already used, dupli
+cate ignored
+<to be read again> 
+                   \relax 
+l.754 \choice
+              un puntero nulo.pdfTeX warning (ext4): destination with the same 
+identifier (name{choice.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.757 \choice
+              \lstinline{"0"}.pdfTeX warning (ext4): destination with the same 
+identifier (name{choice.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.758 \correctchoice
+                     \code{(char *)0}.pdfTeX warning (ext4): destination with t
+he same identifier (name{choice.3}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.759 \choice
+              \code{(char) "0"}.pdfTeX warning (ext4): destination with the sam
+e identifier (name{choice.4}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.760 \choice
+              \code{'0'}.pdfTeX warning (ext4): destination with the same ident
+ifier (name{choice.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.763 \correctchoice
+                     la dirección de la cadena \lstinline{"beta"}.pdfTeX warni
+ng (ext4): destination with the same identifier (name{choice.2}) has been alrea
+dy used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.764 \choice
+              la dirección de la cadena \lstinline{"alfa"}.pdfTeX warning (ext
+4): destination with the same identifier (name{choice.3}) has been already used
+, duplicate ignored
+<to be read again> 
+                   \relax 
+l.765 \choice
+              la letra 'l' dentro de la cadena \lstinline{"alfa"}.pdfTeX warnin
+g (ext4): destination with the same identifier (name{choice.4}) has been alread
+y used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.766 \choice
+              la letra 'b' dentro de la cadena \lstinline{"beta"}.pdfTeX warnin
+g (ext4): destination with the same identifier (name{choice.5}) has been alread
+y used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.767 \choice
+              Ninguna de las anteriores.pdfTeX warning (ext4): destination with
+ the same identifier (name{choice.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.770 \choice
+              la dirección de la cadena \lstinline{"beta"}.pdfTeX warning (ext
+4): destination with the same identifier (name{choice.2}) has been already used
+, duplicate ignored
+<to be read again> 
+                   \relax 
+l.771 \choice
+              la dirección de la cadena \lstinline{"alfa"}.pdfTeX warning (ext
+4): destination with the same identifier (name{choice.3}) has been already used
+, duplicate ignored
+<to be read again> 
+                   \relax 
+l.772 \choice
+              la letra 'l' dentro de la cadena \lstinline{"alfa"}.pdfTeX warnin
+g (ext4): destination with the same identifier (name{choice.4}) has been alread
+y used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.773 \correctchoice
+                     la letra 'b' dentro de la cadena \lstinline{"beta"}.pdfTeX
+ warning (ext4): destination with the same identifier (name{choice.5}) has been
+ already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.774 \choice
+              Ninguna de las anteriores.pdfTeX warning (ext4): destination with
+ the same identifier (name{choice.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.777 \choice
+              \code{a[1][2]}.pdfTeX warning (ext4): destination with the same i
+dentifier (name{choice.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.778 \choice
+              \code{*(a[1]+2)}.pdfTeX warning (ext4): destination with the same
+ identifier (name{choice.3}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.779 \choice
+              \code{*(*(a+1)+2)}.pdfTeX warning (ext4): destination with the sa
+me identifier (name{choice.4}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.780 \correctchoice
+                     Todas las anteriores.pdfTeX warning (ext4): destination wi
+th the same identifier (name{choice.5}) has been already used, duplicate ignore
+d
+<to be read again> 
+                   \relax 
+l.781 \choice
+              Ninguna de las anteriores.
+LaTeX Info: Redefining \. on input line 783.
+LaTeX Info: Redefining \% on input line 783.
+LaTeX Info: Redefining \. on input line 783.
+LaTeX Info: Redefining \% on input line 783.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 783.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 783.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 783.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 783.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 783.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 783.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 783.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 783.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 783.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 783.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 783.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 783.
+ [122]
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 783.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 783.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 783.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 783.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 783.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 783.
+) (./CursoC-11.tex
 LaTeX Info: Redefining \. on input line 4.
 LaTeX Info: Redefining \% on input line 4.
 LaTeX Info: Redefining \. on input line 4.
@@ -9741,7 +10680,7 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 4.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 4.
- [117]
+ [123]
 LaTeX Info: Redefining \. on input line 4.
 LaTeX Info: Redefining \% on input line 4.
 LaTeX Info: Redefining \. on input line 4.
@@ -9770,7 +10709,7 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 4.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 4.
- [118
+ [124
 
 ]
 Cap\'{\i }tulo 11.
@@ -9822,7 +10761,7 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 63.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 63.
-[119]
+[125]
 Package babel Info: Redefining spanish shorthand <<
 (babel)             in language  on input line 64.
 Package babel Info: Redefining spanish shorthand >>
@@ -9889,7 +10828,7 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 130.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 130.
-[120]
+[126]
 Package babel Info: Redefining spanish shorthand <<
 (babel)             in language  on input line 131.
 Package babel Info: Redefining spanish shorthand >>
@@ -9944,7 +10883,7 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 181.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 181.
-[121]
+[127]
 Package babel Info: Redefining spanish shorthand <<
 (babel)             in language  on input line 181.
 Package babel Info: Redefining spanish shorthand >>
@@ -9985,7 +10924,7 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 215.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 215.
- [122]
+ [128]
 Cap\'{\i }tulo 12.
 Package babel Info: Redefining spanish shorthand <<
 (babel)             in language  on input line 215.
@@ -10035,7 +10974,7 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 274.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 274.
-[123
+[129
 
 ]
 Package babel Info: Redefining spanish shorthand <<
@@ -10078,7 +11017,7 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 352.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 352.
- [124]
+ [130]
 Package babel Info: Redefining spanish shorthand <<
 (babel)             in language  on input line 352.
 Package babel Info: Redefining spanish shorthand >>
@@ -10143,7 +11082,7 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 410.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 410.
- [125]
+ [131]
 Package babel Info: Redefining spanish shorthand <<
 (babel)             in language  on input line 419.
 Package babel Info: Redefining spanish shorthand >>
@@ -10196,7 +11135,7 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 475.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 475.
- [126]
+ [132]
 Package babel Info: Redefining spanish shorthand <<
 (babel)             in language  on input line 480.
 Package babel Info: Redefining spanish shorthand >>
@@ -10261,7 +11200,7 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 627.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 627.
- [127]
+ [133]
 
 Package hyperref Warning: The anchor of a bookmark and its parent's must not
 (hyperref)                be the same. Added a new anchor on input line 629.
@@ -10306,7 +11245,7 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 716.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 716.
-[128]
+[134]
 LaTeX Info: Redefining \. on input line 823.
 LaTeX Info: Redefining \% on input line 823.
 LaTeX Info: Redefining \. on input line 823.
@@ -10335,7 +11274,7 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 823.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 823.
- [129]
+ [135]
 Package babel Info: Redefining spanish shorthand <<
 (babel)             in language  on input line 827.
 Package babel Info: Redefining spanish shorthand >>
@@ -10388,7 +11327,7 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 884.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 884.
- [130]) (./CursoC-12.tex
+ [136]) (./CursoC-12.tex
 LaTeX Info: Redefining \. on input line 5.
 LaTeX Info: Redefining \% on input line 5.
 LaTeX Info: Redefining \. on input line 5.
@@ -10417,7 +11356,7 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 5.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 5.
- [131]
+ [137]
 LaTeX Info: Redefining \. on input line 5.
 LaTeX Info: Redefining \% on input line 5.
 LaTeX Info: Redefining \. on input line 5.
@@ -10446,7 +11385,7 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 5.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 5.
- [132
+ [138
 
 ]
 Cap\'{\i }tulo 13.
@@ -10498,7 +11437,7 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 60.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 60.
-[133]
+[139]
 Package babel Info: Redefining spanish shorthand <<
 (babel)             in language  on input line 75.
 Package babel Info: Redefining spanish shorthand >>
@@ -10551,7 +11490,7 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 123.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 123.
- [134]
+ [140]
 Package babel Info: Redefining spanish shorthand <<
 (babel)             in language  on input line 149.
 Package babel Info: Redefining spanish shorthand >>
@@ -10604,7 +11543,7 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 189.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 189.
- [135]
+ [141]
 LaTeX Info: Redefining \. on input line 252.
 LaTeX Info: Redefining \% on input line 252.
 LaTeX Info: Redefining \. on input line 252.
@@ -10633,7 +11572,7 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 252.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 252.
- [136]
+ [142]
 Package babel Info: Redefining spanish shorthand <<
 (babel)             in language  on input line 260.
 Package babel Info: Redefining spanish shorthand >>
@@ -10674,7 +11613,7 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 299.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 299.
- [137]) (./CursoC-13.tex
+ [143]) (./CursoC-13.tex
 LaTeX Info: Redefining \. on input line 5.
 LaTeX Info: Redefining \% on input line 5.
 LaTeX Info: Redefining \. on input line 5.
@@ -10703,7 +11642,7 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 5.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 5.
- [138]
+ [144]
 Cap\'{\i }tulo 14.
 Package babel Info: Redefining spanish shorthand <<
 (babel)             in language  on input line 5.
@@ -10765,7 +11704,7 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 113.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 113.
-[139
+[145
 
 ]
 LaTeX Info: Redefining \. on input line 113.
@@ -10796,7 +11735,7 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 113.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 113.
- [140]
+ [146]
 Package babel Info: Redefining spanish shorthand <<
 (babel)             in language  on input line 137.
 Package babel Info: Redefining spanish shorthand >>
@@ -10837,7 +11776,7 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 174.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 174.
- [141]
+ [147]
 Package babel Info: Redefining spanish shorthand <<
 (babel)             in language  on input line 174.
 Package babel Info: Redefining spanish shorthand >>
@@ -10890,7 +11829,7 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 229.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 229.
- [142]
+ [148]
 File: ./img/emblem-important.png Graphic file (type png)
  <use ./img/emblem-important.png>
 Package pdftex.def Info: ./img/emblem-important.png used on input line 235.
@@ -10945,7 +11884,7 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 302.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 302.
-[143]
+[149]
 Package babel Info: Redefining spanish shorthand <<
 (babel)             in language  on input line 309.
 Package babel Info: Redefining spanish shorthand >>
@@ -11000,7 +11939,7 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 52.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 52.
- [144]
+ [150]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 52.
  (./CursoC-main.aux
 LaTeX Info: Redefining \. on input line 24.
@@ -11009,7 +11948,7 @@ LaTeX Info: Redefining \% on input line 24.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 52.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 52.
 Package rerunfilecheck Info: File `CursoC-main.out' has not changed.
-(rerunfilecheck)             Checksum: 6F725F1E11555DD8D4C2FC266EED851B;12869.
+(rerunfilecheck)             Checksum: EE02019DE87890D40631F31621DB7623;13182.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
@@ -11017,10 +11956,10 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 52.
  ) 
 Here is how much of TeX's memory you used:
- 23578 strings out of 494925
- 368460 string characters out of 6178544
- 503472 words of memory out of 5000000
- 23855 multiletter control sequences out of 15000+600000
+ 23706 strings out of 494925
+ 370208 string characters out of 6178544
+ 503476 words of memory out of 5000000
+ 23857 multiletter control sequences out of 15000+600000
  99283 words of font info for 89 fonts, out of 8000000 for 9000
  62 hyphenation exceptions out of 8191
  55i,17n,92p,1086b,2235s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -11042,10 +11981,10 @@ ts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy9.pfb
 e1/public/lm/lmtko10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt10.pfb></u
 sr/share/texmf/fonts/type1/public/lm/lmtt9.pfb></usr/share/texlive/texmf-dist/f
 onts/type1/public/amsfonts/symbols/msam7.pfb>
-Output written on CursoC-main.pdf (144 pages, 1209601 bytes).
+Output written on CursoC-main.pdf (150 pages, 1218446 bytes).
 PDF statistics:
- 4393 PDF objects out of 5155 (max. 8388607)
- 4169 compressed objects within 42 object streams
- 2491 named destinations out of 2984 (max. 500000)
- 1499 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 4583 PDF objects out of 5155 (max. 8388607)
+ 4351 compressed objects within 44 object streams
+ 2617 named destinations out of 2984 (max. 500000)
+ 1531 words of extra memory for PDF output out of 10000 (max. 10000000)
 

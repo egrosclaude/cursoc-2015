@@ -675,3 +675,109 @@ arreglo de punteros a carácter.
 \end{enumerate}
 
 %TODO Ejercicios_Adicionales Ejercicios_Avanzados
+
+\begin{preguntas}
+\question La expresión \code{&p} puede traducirse como
+\choice \quotes{lo apuntado por \code{p}}.
+\correctchoice \quotes{la dirección de \code{p}}.
+\choice \quotes{el arreglo comenzado por \code{p}}.
+\choice \code{*p}
+\choice \quotes{a cadena apuntada por \code{p}}.
+
+\question La expresión \code{a = *p} es equivalente a
+\choice multiplicar \code{a} por \code{p}.
+\correctchoice hacer \code{a} igual a lo apuntado por \code{p}.
+\choice almacenar en \code{a} la dirección de \code{p}.
+\choice \code{a = p}.
+
+\question La expresión \code{&(*p)} es equivalente a
+\choice la dirección de \code{p}.
+\choice lo apuntado por \code{p}.
+\choice lo apuntado por la dirección de \code{p}.
+\correctchoice la dirección de lo apuntado por \code{p}.
+
+\question La expresión \code{&(*p)} equivale al valor de 
+\choice \code{*p}.
+\choice \code{&p}.
+\correctchoice \code{p}.
+\choice \code{p * p}.
+
+\question La expresión \code{*(&p)} equivale al valor de 
+\choice \code{*p}
+\choice \code{&p}
+\correctchoice \code{p}
+\choice \code{p * p}.
+
+\question Con la declaración \code{char *k;}, la variable \code{k} será
+\choice un carácter.
+\correctchoice un puntero a carácter.
+\choice la dirección de un carácter.
+\choice todas las anteriores.
+
+\question Con la declaración \code{char k;}, la variable \code{k} será
+\correctchoice un carácter. 
+\choice un puntero a carácter.
+\choice la dirección de un carácter.
+\choice todas las anteriores.
+
+\question Con la declaración \code{int j;}, la expresión \code{&j} será
+\choice un puntero.
+\correctchoice equivalente a la dirección de \code{j}.
+\choice equivalente a lo apuntado por \code{j}.
+\choice un arreglo.
+
+\question Con la declaración \code{int *j;}, la expresión \code{*j} será
+\choice un puntero.
+\choice equivalente a la dirección de j.
+\correctchoice equivalente a lo apuntado por j.
+\choice un arreglo.
+
+\question La expresión \code{p-q}, si \code{p} y \code{q} son punteros a \code{char}, vale
+\choice la cantidad de bytes entre las direcciones apuntadas por \code{p} y \code{q}.
+\choice la diferencia entre las direcciones apuntadas por \code{p} y \code{q}.
+\choice la cantidad de bytes que hace falta desplazarse desde la dirección apuntada por \code{p} para llegar a la dirección apuntada por \code{q}.
+\correctchoice Todas las anteriores.
+\choice Ninguna de las anteriores.
+
+\question La expresión \code{g-f}, si \code{g} y \code{f} son punteros a \code{long}, vale
+\choice La cantidad de bytes entre las direcciones apuntadas por \code{g} y \code{f}.
+\correctchoice La cantidad de longs que caben entre las direcciones apuntadas por \code{g} y \code{f}.
+\choice La diferencia entre los \code{long}s apuntados por \code{g} y por \code{f}.
+\choice Todas las anteriores.
+\choice Ninguna de las anteriores.
+
+\question Con la declaración \code{char *s = "abcdef";} construimos
+\choice un arreglo.
+\choice un puntero a una cadena terminada en \lstinline{"0"}.
+\correctchoice un puntero a una cadena terminada en \code{'\\0'}.
+\choice un puntero a un carácter \code{'\\0'}.
+\choice un puntero nulo.
+
+\question El puntero nulo es igual a
+\choice \lstinline{"0"}.
+\correctchoice \code{(char *)0}.
+\choice \code{(char) "0"}.
+\choice \code{'0'}.
+
+\question Con la declaración \code{char *a[] = \{"alfa", "beta", "gamma" \};}, se tiene que \code{a[1]} equivale a:
+\correctchoice la dirección de la cadena \lstinline{"beta"}.
+\choice la dirección de la cadena \lstinline{"alfa"}.
+\choice la letra 'l' dentro de la cadena \lstinline{"alfa"}.
+\choice la letra 'b' dentro de la cadena \lstinline{"beta"}.
+\choice Ninguna de las anteriores.
+
+\question Con la declaración \code{char *a[] = \{"alfa", "beta", "gamma" \};} se tiene que \code{*a[1]} equivale a:
+\choice la dirección de la cadena \lstinline{"beta"}.
+\choice la dirección de la cadena \lstinline{"alfa"}.
+\choice la letra 'l' dentro de la cadena \lstinline{"alfa"}.
+\correctchoice la letra 'b' dentro de la cadena \lstinline{"beta"}.
+\choice Ninguna de las anteriores.
+
+\question Con la declaración \code{char *a[] = \{"alfa", "beta", "gamma" \};}, la letra \code{'t'} dentro de la cadena \lstinline{"beta"} se puede escribir como:
+\choice \code{a[1][2]}.
+\choice \code{*(a[1]+2)}.
+\choice \code{*(*(a+1)+2)}.
+\correctchoice Todas las anteriores.
+\choice Ninguna de las anteriores.
+
+\end{preguntas}

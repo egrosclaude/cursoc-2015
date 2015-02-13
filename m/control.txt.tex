@@ -1,75 +1,130 @@
 
-\question ¿Qué resultado final tiene la variable <emph>a</emph>?<br><code>a\=1;<br>if(1)<br>    a\=2;</code><br>
-\correctchoice 1;<br>if(1)<br>    a\=2;</code><br>{
-\choice 1
-\correctchoice 2
-\choice ninguna de las anteriores
+\question ¿Qué resultado final tiene la variable \code{a}?
+\begin{lstlisting}
+a = 1; 
+if(1)
+	a = 2;
+\end{lstlisting}
+\choice 1.
+\correctchoice 2.
+\choice Ninguna de las anteriores.
 
-\question ¿Qué resultado final tiene la variable <emph>a</emph>?<br><code>a\=1;<br>if(b\=\=2);<br>    a\=2;</code><br>
-\correctchoice 1;<br>if(b\=\=2);<br>    a\=2;</code><br>{
-\choice 1
-\correctchoice 2
-\choice depende del valor de b
-\choice ninguna de las anteriores
+\question ¿Qué resultado final tiene la variable \code{a}?
+\begin{lstlisting}
+a = 1;
+if(b == 2);
+	a = 2;
+\end{lstlisting}
+\choice 1.
+\correctchoice 2.
+\choice Depende del valor de b.
+\choice Ninguna de las anteriores.
 
-\question ¿Qué resultado final tiene la variable <emph>a</emph>?<br><code>a\=1;<br>if(b\=0)<br>    a\=2;</code><br>
-\correctchoice 1;<br>if(b\=0)<br>    a\=2;</code><br>{
-\correctchoice 1
-\choice 2
-\choice depende del valor de b
-\choice ninguna de las anteriores
+\question ¿Qué resultado final tiene la variable \code{a}?
+\begin{lstlisting}
+a = 1;
+if(b = 0)
+    a=2;
+\end{lstlisting}
+\correctchoice 1.
+\choice 2.
+\choice Depende del valor de b.
+\choice Ninguna de las anteriores.
 
-\question ¿Qué resultado final tiene la variable <emph>a</emph>?<br><code>b\=3;<br>if(b\=\=1)<br>    a\=2;else if(b\=\=2) a\=3; else a\=4;</code><br>
-\correctchoice 3;<br>if(b\=\=1)<br>    a\=2;else if(b\=\=2) a\=3; else a\=4;</code><br>{
-\choice 2 
-\choice 3
-\correctchoice 4
-\choice no está definido
+\question ¿Qué resultado final tiene la variable \code{a}?
+\begin{lstlisting}
+b = 3;
+if(b == 1)
+	a=2;
+else 
+	if(b == 2)
+	 	a=3; 
+	else 
+		a=4;
+\end{lstlisting}
+\choice 2. 
+\choice 3.
+\correctchoice 4.
+\choice No está definido.
 
-\question ¿Qué resultado final tiene la variable a si inicialmente a, c y d valen 1?<br><code>switch(c) \
-\correctchoice a+d;<br>  case 2: a\=a-d;<br>\}</code><br>{
-\correctchoice 1
-\choice 2
-\choice 3
+\question ¿Qué resultado final tiene la variable \code{a} si inicialmente a, c y d valen 1?
+\begin{lstlisting}
+switch(c) {
+	case 1: a = a+d;  
+	case 2: a = a-d;
+}
+\end{lstlisting}
+\correctchoice 1.
+\choice 2.
+\choice 3.
 
-\question ¿Qué resultado final tiene la variable b si inicialmente b, c y d valen 1?<br><code>switch(c) \
-\correctchoice b+d;<br>  case 2: b\=b-d;<br>  default:<br>          b\=0;<br>\}</code><br>{
+\question ¿Qué resultado final tiene la variable b si inicialmente b, c y d valen 1?
+\begin{lstlisting}
+switch(c) {
+	case 1: b = b+d;
+	case 2: b = b-d;
+	default: b = 0;
+}
+\end{lstlisting}
 \correctchoice 0
 \choice 1
 \choice 2
 \choice 3
 
-\question ¿Qué resultado final tiene la variable c?<br><code>c\=1;<br>for(i\=0; i<5; i++);<br>  for(j\=0; j<2; j++)<br>    c++;</code><br>
-\correctchoice 1;<br>for(i\=0; i<5; i++);<br>  for(j\=0; j<2; j++)<br>    c++;</code><br>{
+\question ¿Qué resultado final tiene la variable c?
+\begin{lstlisting}
+c = 1;
+for(i=0; i<5; i++);
+	for(j=0; j<2; j++)    
+		c++;
+\end{lstlisting}
 \choice 1
 \choice 2
 \correctchoice 3
 \choice 6
 \choice 13
 
-\question ¿Cuántas X imprimen estas líneas?<br><code>c\=3; do \
-\correctchoice 3; do \{ printf("X"); \} while(c--);</code><br>{
+\question ¿Cuántas X imprimen estas líneas?
+\begin{lstlisting}
+c = 3; 
+do {
+	printf("X");
+} while(c--);
+\end{lstlisting}
 \choice 1
 \choice 2
 \choice 3
 \correctchoice 4
 
-\question ¿Cuántas X imprimen estas líneas?<br><code>c\=3; do \
-\correctchoice 3; do \{ printf("X"); \} while(--c);</code><br>{
+\question ¿Cuántas X imprimen estas líneas?
+\begin{lstlisting}
+c = 3; 
+do { 
+	printf("X"); 
+} while(--c);
+\end{lstlisting}
 \choice 1
 \choice 2
 \correctchoice 3
 \choice 4
 
-\question ¿Cuántas X imprimen estas líneas?<br><code>c\=3; while(c--) printf("X"); </code><br>
-\correctchoice 3; while(c--) printf("X"); </code><br>{
+\question ¿Cuántas X imprimen estas líneas?
+\begin{lstlisting}
+c = 3; 
+while(c--) 
+	printf("X"); 
+\end{lstlisting}
 \choice 1
 \choice 2
 \correctchoice 3
 \choice 4
 
-\question ¿Cuántas X imprimen estas líneas?<br><code>c\=3; while(--c) printf("X"); </code><br>
-\correctchoice 3; while(--c) printf("X"); </code><br>{
+\question ¿Cuántas X imprimen estas líneas?
+\begin{lstlisting}
+c = 3; 
+while(--c) 
+	printf("X");
+\end{lstlisting}
 \choice 1
 \correctchoice 2
 \choice 3

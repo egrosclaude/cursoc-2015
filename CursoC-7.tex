@@ -481,3 +481,200 @@ sí mismos y por la unidad).
 \item Escribir las sentencias para calcular el factorial de un entero.
 \end{enumerate}
 %TODO Ejercicios_Adicionales Ejercicios_Avanzados
+
+\begin{preguntas}
+\question ¿Qué resultado final tiene la variable \code{a}?
+\begin{lstlisting}
+a = 1; 
+if(a == 1)
+	a = 2;
+\end{lstlisting}
+\choice 1.
+\correctchoice 2.
+\choice Ninguna de las anteriores.
+
+\question ¿Qué resultado final tiene la variable \code{a}?
+\begin{lstlisting}
+a = 1; 
+if(3)
+	a = 2;
+\end{lstlisting}
+\choice 1.
+\correctchoice 2.
+\choice Ninguna de las anteriores.
+
+\question ¿Qué resultado final tiene la variable \code{a}?
+\begin{lstlisting}
+a = 1;
+if(b == 2)
+	a = 2;
+\end{lstlisting}
+\choice 1.
+\choice 2.
+\correctchoice Depende del valor de b.
+\choice Ninguna de las anteriores.
+
+\question ¿Qué resultado final tiene la variable \code{a}?
+\begin{lstlisting}
+a = 1;
+if(b == 2);
+	a = 2;
+\end{lstlisting}
+\choice 1.
+\correctchoice 2.
+\choice Depende del valor de b.
+\choice Ninguna de las anteriores.
+
+\question ¿Qué resultado final tiene la variable \code{a}?
+\begin{lstlisting}
+a = 1;
+if(b = 0)
+    a=2;
+\end{lstlisting}
+\correctchoice 1.
+\choice 2.
+\choice Depende del valor de b.
+\choice Ninguna de las anteriores.
+
+\question ¿Qué resultado final tiene la variable \code{a}?
+\begin{lstlisting}
+b = 3;
+if(b == 1)
+	a=2;
+else 
+	if(b == 2)
+	 	a=3; 
+	else 
+		a=4;
+\end{lstlisting}
+\choice 2. 
+\choice 3.
+\correctchoice 4.
+\choice No está definido.
+
+\question ¿Qué resultado final tiene la variable \code{a} si inicialmente a, c y d valen 1?
+\begin{lstlisting}
+switch(c) {
+	case 1: a = a+d;  
+		    break;
+	case 2: a = a-d;
+			break;
+}
+\end{lstlisting}
+\choice 1.
+\correctchoice 2.
+\choice 3.
+
+\question ¿Qué resultado final tiene la variable \code{a} si inicialmente a, c y d valen 1?
+\begin{lstlisting}
+switch(c) {
+	case 1: a = a+d;  
+	case 2: a = a-d;
+}
+\end{lstlisting}
+\correctchoice 1.
+\choice 2.
+\choice 3.
+
+\question ¿Qué resultado final tiene la variable \code{b} si inicialmente b, c y d valen 1?
+\begin{lstlisting}
+switch(c) {
+	case 1: b = b+d;
+	case 2: b = b-d;
+	default: b = 0;
+}
+\end{lstlisting}
+\correctchoice 0
+\choice 1
+\choice 2
+\choice 3
+
+\question ¿Qué resultado final tiene la variable \code{b} si inicialmente b, c y d valen 1?
+\begin{lstlisting}
+switch(c) {
+	case 1: b = b+d;
+			break;
+	case 2: b = b-d;
+			break;
+	default: b = 0;
+}
+\end{lstlisting}
+\choice 0
+\choice 1
+\correctchoice 2
+\choice 3
+
+\question ¿Qué resultado final tiene la variable \code{b} si inicialmente b, c y d valen 3?
+\begin{lstlisting}
+switch(c) {
+	case 1: b = b+d;
+			break;
+	case 2: b = b-d;
+			break;
+	default: b = 0;
+}
+\end{lstlisting}
+\correctchoice 0
+\choice 1
+\choice 2
+\choice 3
+
+\question ¿Qué resultado final tiene la variable \code{c}?
+\begin{lstlisting}
+c = 1;
+for(i=0; i<5; i++);
+	for(j=0; j<2; j++)    
+		c++;
+\end{lstlisting}
+\choice 1
+\choice 2
+\correctchoice 3
+\choice 6
+\choice 13
+
+\question ¿Cuántas X imprimen estas líneas?
+\begin{lstlisting}
+c = 3; 
+do {
+	printf("X");
+} while(c--);
+\end{lstlisting}
+\choice 1
+\choice 2
+\choice 3
+\correctchoice 4
+
+\question ¿Cuántas X imprimen estas líneas?
+\begin{lstlisting}
+c = 3; 
+do { 
+	printf("X"); 
+} while(--c);
+\end{lstlisting}
+\choice 1
+\choice 2
+\correctchoice 3
+\choice 4
+
+\question ¿Cuántas X imprimen estas líneas?
+\begin{lstlisting}
+c = 3; 
+while(c--) 
+	printf("X"); 
+\end{lstlisting}
+\choice 1
+\choice 2
+\correctchoice 3
+\choice 4
+
+\question ¿Cuántas X imprimen estas líneas?
+\begin{lstlisting}
+c = 3; 
+while(--c) 
+	printf("X");
+\end{lstlisting}
+\choice 1
+\correctchoice 2
+\choice 3
+\choice 4
+\end{preguntas}

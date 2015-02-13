@@ -100,86 +100,90 @@
 \contentsline {subsection}{Sentencia return}{80}{lstnumber.-144.8}
 \contentsline {section}{\numberline {7.5}Observaciones}{80}{section.7.5}
 \contentsline {section}{\numberline {7.6}Ejercicios}{81}{section.7.6}
-\contentsline {chapter}{\numberline {8}Funciones}{83}{chapter.8}
-\contentsline {section}{\numberline {8.1}Declaraci\IeC {\'o}n y definici\IeC {\'o}n de funciones}{83}{section.8.1}
-\contentsline {section}{\numberline {8.2}Prototipos de funciones}{84}{section.8.2}
-\contentsline {section}{\numberline {8.3}Redeclaraci\IeC {\'o}n de funciones}{85}{section.8.3}
-\contentsline {section}{\numberline {8.4}Recursividad}{86}{section.8.4}
-\contentsline {section}{\numberline {8.5}Ejercicios}{86}{section.8.5}
-\contentsline {section}{\numberline {8.6}Preguntas para el Cap\IeC {\'\i }tulo 8}{87}{section.8.6}
-\contentsline {subsection}{Respuestas al Cap\IeC {\'\i }tulo 8}{89}{choice.5}
-\contentsline {chapter}{\numberline {9}Variables estructuradas}{91}{chapter.9}
-\contentsline {section}{\numberline {9.1}Arreglos}{91}{section.9.1}
-\contentsline {subsection}{Inicializaci\IeC {\'o}n de arreglos}{92}{lstnumber.-182.3}
-\contentsline {subsection}{Errores frecuentes con arreglos}{92}{lstnumber.-185.1}
-\contentsline {section}{\numberline {9.2}Arreglos multidimensionales}{93}{section.9.2}
-\contentsline {section}{\numberline {9.3}Estructuras y uniones}{94}{section.9.3}
-\contentsline {subsection}{Estructuras}{94}{section*.26}
-\contentsline {subsection}{Uniones}{95}{lstnumber.-197.11}
-\contentsline {subsection}{Campos de bits}{95}{lstnumber.-199.3}
-\contentsline {section}{\numberline {9.4}Ejercicios}{96}{section.9.4}
-\contentsline {section}{\numberline {9.5}Preguntas para el Cap\IeC {\'\i }tulo 9}{97}{section.9.5}
-\contentsline {subsection}{Respuestas al Cap\IeC {\'\i }tulo 9}{98}{choice.4}
-\contentsline {chapter}{\numberline {10}Apuntadores y Direcciones}{99}{chapter.10}
-\contentsline {section}{\numberline {10.1}Operadores especiales}{99}{section.10.1}
-\contentsline {section}{\numberline {10.2}Aritm\IeC {\'e}tica de punteros}{100}{section.10.2}
-\contentsline {subsection}{Asignaci\IeC {\'o}n entre punteros}{100}{section*.27}
-\contentsline {subsection}{Suma de enteros a punteros}{100}{section*.27}
-\contentsline {subsection}{Resta de punteros}{101}{section*.27}
-\contentsline {section}{\numberline {10.3}Punteros y arreglos}{101}{section.10.3}
-\contentsline {section}{\numberline {10.4}Punteros y cadenas de texto}{102}{section.10.4}
-\contentsline {section}{\numberline {10.5}Pasaje por referencia}{103}{section.10.5}
-\contentsline {section}{\numberline {10.6}Punteros y argumentos de funciones}{104}{section.10.6}
-\contentsline {section}{\numberline {10.7}Ejercicios}{105}{section.10.7}
-\contentsline {section}{\numberline {10.8}Errores m\IeC {\'a}s frecuentes}{107}{section.10.8}
-\contentsline {subsection}{Punteros sin inicializar}{107}{section*.28}
-\contentsline {subsection}{Confundir punteros con arreglos}{108}{lstnumber.-238.5}
-\contentsline {subsection}{No analizar el nivel de indirecci\IeC {\'o}n}{109}{lstnumber.-246.3}
-\contentsline {section}{\numberline {10.9}Arreglos de punteros}{111}{section.10.9}
-\contentsline {section}{\numberline {10.10}Estructuras referenciadas por punteros}{111}{section.10.10}
-\contentsline {section}{\numberline {10.11}Estructuras de datos recursivas}{111}{section.10.11}
-\contentsline {section}{\numberline {10.12}Construcci\IeC {\'o}n de tipos}{112}{section.10.12}
-\contentsline {section}{\numberline {10.13}Asignaci\IeC {\'o}n din\IeC {\'a}mica de memoria}{112}{section.10.13}
-\contentsline {section}{\numberline {10.14}Punteros a funciones}{113}{section.10.14}
-\contentsline {section}{\numberline {10.15}Aplicaci\IeC {\'o}n de punteros a funciones}{114}{section.10.15}
-\contentsline {section}{\numberline {10.16}Punteros a punteros}{115}{section.10.16}
-\contentsline {section}{\numberline {10.17}Una herramienta: gets()}{115}{section.10.17}
-\contentsline {section}{\numberline {10.18}Ejercicios}{116}{section.10.18}
-\contentsline {chapter}{\numberline {11}Entrada/Salida Standard}{119}{chapter.11}
-\contentsline {section}{\numberline {11.1}Funciones de E/S Standard}{119}{section.11.1}
-\contentsline {section}{\numberline {11.2}E/S standard de caracteres}{120}{section.11.2}
-\contentsline {section}{\numberline {11.3}E/S standard de l\IeC {\'\i }neas}{120}{section.11.3}
-\contentsline {section}{\numberline {11.4}E/S standard con formato}{121}{section.11.4}
-\contentsline {section}{\numberline {11.5}E/S standard sobre strings}{122}{section.11.5}
-\contentsline {chapter}{\numberline {12}E/S sobre archivos}{123}{chapter.12}
-\contentsline {section}{\numberline {12.1}Est\IeC {\'a}ndares ANSI y POSIX}{123}{section.12.1}
-\contentsline {section}{\numberline {12.2}Funciones ANSI C de E/S sobre archivos}{124}{section.12.2}
-\contentsline {section}{\numberline {12.3}Funciones ANSI C de caracteres sobre archivos}{125}{section.12.3}
-\contentsline {section}{\numberline {12.4}Funciones ANSI C de l\IeC {\'\i }neas sobre archivos}{125}{section.12.4}
-\contentsline {section}{\numberline {12.5}Funciones ANSI C con formato sobre archivos}{125}{section.12.5}
-\contentsline {section}{\numberline {12.6}Funciones ANSI C de acceso directo}{126}{section.12.6}
-\contentsline {subsection}{Constantes de posicionamiento}{127}{lstnumber.-288.10}
-\contentsline {subsection}{Sincronizaci\IeC {\'o}n de E/S}{127}{lstnumber.-288.10}
-\contentsline {section}{\numberline {12.7}Resumen de funciones ANSI C de E/S}{127}{section.12.7}
-\contentsline {section}{\numberline {12.8}Funciones POSIX de E/S sobre archivos}{128}{section.12.8}
-\contentsline {subsection}{Apertura de archivos}{128}{section*.33}
-\contentsline {subsubsection}{Flags}{128}{section*.33}
-\contentsline {subsubsection}{Permisos de los archivos}{129}{lstnumber.-312.15}
-\contentsline {subsection}{Posicionamiento en archivos}{130}{lstnumber.-325.1}
-\contentsline {section}{\numberline {12.9}Ejercicios}{130}{section.12.9}
-\contentsline {chapter}{\numberline {13}Comunicaci\IeC {\'o}n con el ambiente}{133}{chapter.13}
-\contentsline {section}{\numberline {13.1}Redirecci\IeC {\'o}n y piping}{133}{section.13.1}
-\contentsline {section}{\numberline {13.2}Variables de ambiente}{134}{section.13.2}
-\contentsline {section}{\numberline {13.3}Argumentos de ejecuci\IeC {\'o}n}{134}{section.13.3}
-\contentsline {section}{\numberline {13.4}Salida del programa}{135}{section.13.4}
-\contentsline {section}{\numberline {13.5}Opciones}{136}{section.13.5}
-\contentsline {section}{\numberline {13.6}Ejercicios}{137}{section.13.6}
-\contentsline {chapter}{\numberline {14}La Biblioteca Standard}{139}{chapter.14}
-\contentsline {section}{\numberline {14.1}Cadenas o strings}{139}{section.14.1}
-\contentsline {section}{\numberline {14.2}Listas de argumentos variables}{139}{section.14.2}
-\contentsline {section}{\numberline {14.3}Tratamiento de errores}{141}{section.14.3}
-\contentsline {section}{\numberline {14.4}Funciones de fecha y hora}{142}{section.14.4}
-\contentsline {section}{\numberline {14.5}Funciones matem\IeC {\'a}ticas}{142}{section.14.5}
-\contentsline {section}{\numberline {14.6}Funciones utilitarias}{143}{section.14.6}
-\contentsline {section}{\numberline {14.7}Clasificaci\IeC {\'o}n de caracteres}{144}{section.14.7}
-\contentsline {section}{\numberline {14.8}Ejercicios}{144}{section.14.8}
+\contentsline {section}{\numberline {7.7}Preguntas para el Cap\IeC {\'\i }tulo 7}{82}{section.7.7}
+\contentsline {subsection}{Respuestas al Cap\IeC {\'\i }tulo 7}{86}{choice.4}
+\contentsline {chapter}{\numberline {8}Funciones}{87}{chapter.8}
+\contentsline {section}{\numberline {8.1}Declaraci\IeC {\'o}n y definici\IeC {\'o}n de funciones}{87}{section.8.1}
+\contentsline {section}{\numberline {8.2}Prototipos de funciones}{88}{section.8.2}
+\contentsline {section}{\numberline {8.3}Redeclaraci\IeC {\'o}n de funciones}{89}{section.8.3}
+\contentsline {section}{\numberline {8.4}Recursividad}{90}{section.8.4}
+\contentsline {section}{\numberline {8.5}Ejercicios}{90}{section.8.5}
+\contentsline {section}{\numberline {8.6}Preguntas para el Cap\IeC {\'\i }tulo 8}{91}{section.8.6}
+\contentsline {subsection}{Respuestas al Cap\IeC {\'\i }tulo 8}{93}{choice.5}
+\contentsline {chapter}{\numberline {9}Variables estructuradas}{95}{chapter.9}
+\contentsline {section}{\numberline {9.1}Arreglos}{95}{section.9.1}
+\contentsline {subsection}{Inicializaci\IeC {\'o}n de arreglos}{96}{lstnumber.-198.3}
+\contentsline {subsection}{Errores frecuentes con arreglos}{96}{lstnumber.-201.1}
+\contentsline {section}{\numberline {9.2}Arreglos multidimensionales}{97}{section.9.2}
+\contentsline {section}{\numberline {9.3}Estructuras y uniones}{98}{section.9.3}
+\contentsline {subsection}{Estructuras}{98}{section*.26}
+\contentsline {subsection}{Uniones}{99}{lstnumber.-213.11}
+\contentsline {subsection}{Campos de bits}{99}{lstnumber.-215.3}
+\contentsline {section}{\numberline {9.4}Ejercicios}{100}{section.9.4}
+\contentsline {section}{\numberline {9.5}Preguntas para el Cap\IeC {\'\i }tulo 9}{101}{section.9.5}
+\contentsline {subsection}{Respuestas al Cap\IeC {\'\i }tulo 9}{102}{choice.4}
+\contentsline {chapter}{\numberline {10}Apuntadores y Direcciones}{103}{chapter.10}
+\contentsline {section}{\numberline {10.1}Operadores especiales}{103}{section.10.1}
+\contentsline {section}{\numberline {10.2}Aritm\IeC {\'e}tica de punteros}{104}{section.10.2}
+\contentsline {subsection}{Asignaci\IeC {\'o}n entre punteros}{104}{section*.27}
+\contentsline {subsection}{Suma de enteros a punteros}{104}{section*.27}
+\contentsline {subsection}{Resta de punteros}{105}{section*.27}
+\contentsline {section}{\numberline {10.3}Punteros y arreglos}{105}{section.10.3}
+\contentsline {section}{\numberline {10.4}Punteros y cadenas de texto}{106}{section.10.4}
+\contentsline {section}{\numberline {10.5}Pasaje por referencia}{107}{section.10.5}
+\contentsline {section}{\numberline {10.6}Punteros y argumentos de funciones}{108}{section.10.6}
+\contentsline {section}{\numberline {10.7}Ejercicios}{109}{section.10.7}
+\contentsline {section}{\numberline {10.8}Errores m\IeC {\'a}s frecuentes}{111}{section.10.8}
+\contentsline {subsection}{Punteros sin inicializar}{111}{section*.28}
+\contentsline {subsection}{Confundir punteros con arreglos}{112}{lstnumber.-254.5}
+\contentsline {subsection}{No analizar el nivel de indirecci\IeC {\'o}n}{113}{lstnumber.-262.3}
+\contentsline {section}{\numberline {10.9}Arreglos de punteros}{115}{section.10.9}
+\contentsline {section}{\numberline {10.10}Estructuras referenciadas por punteros}{115}{section.10.10}
+\contentsline {section}{\numberline {10.11}Estructuras de datos recursivas}{115}{section.10.11}
+\contentsline {section}{\numberline {10.12}Construcci\IeC {\'o}n de tipos}{116}{section.10.12}
+\contentsline {section}{\numberline {10.13}Asignaci\IeC {\'o}n din\IeC {\'a}mica de memoria}{116}{section.10.13}
+\contentsline {section}{\numberline {10.14}Punteros a funciones}{117}{section.10.14}
+\contentsline {section}{\numberline {10.15}Aplicaci\IeC {\'o}n de punteros a funciones}{118}{section.10.15}
+\contentsline {section}{\numberline {10.16}Punteros a punteros}{119}{section.10.16}
+\contentsline {section}{\numberline {10.17}Una herramienta: gets()}{119}{section.10.17}
+\contentsline {section}{\numberline {10.18}Ejercicios}{120}{section.10.18}
+\contentsline {section}{\numberline {10.19}Preguntas para el Cap\IeC {\'\i }tulo 10}{121}{section.10.19}
+\contentsline {subsection}{Respuestas al Cap\IeC {\'\i }tulo 10}{123}{choice.5}
+\contentsline {chapter}{\numberline {11}Entrada/Salida Standard}{125}{chapter.11}
+\contentsline {section}{\numberline {11.1}Funciones de E/S Standard}{125}{section.11.1}
+\contentsline {section}{\numberline {11.2}E/S standard de caracteres}{126}{section.11.2}
+\contentsline {section}{\numberline {11.3}E/S standard de l\IeC {\'\i }neas}{126}{section.11.3}
+\contentsline {section}{\numberline {11.4}E/S standard con formato}{127}{section.11.4}
+\contentsline {section}{\numberline {11.5}E/S standard sobre strings}{128}{section.11.5}
+\contentsline {chapter}{\numberline {12}E/S sobre archivos}{129}{chapter.12}
+\contentsline {section}{\numberline {12.1}Est\IeC {\'a}ndares ANSI y POSIX}{129}{section.12.1}
+\contentsline {section}{\numberline {12.2}Funciones ANSI C de E/S sobre archivos}{130}{section.12.2}
+\contentsline {section}{\numberline {12.3}Funciones ANSI C de caracteres sobre archivos}{131}{section.12.3}
+\contentsline {section}{\numberline {12.4}Funciones ANSI C de l\IeC {\'\i }neas sobre archivos}{131}{section.12.4}
+\contentsline {section}{\numberline {12.5}Funciones ANSI C con formato sobre archivos}{131}{section.12.5}
+\contentsline {section}{\numberline {12.6}Funciones ANSI C de acceso directo}{132}{section.12.6}
+\contentsline {subsection}{Constantes de posicionamiento}{133}{lstnumber.-304.10}
+\contentsline {subsection}{Sincronizaci\IeC {\'o}n de E/S}{133}{lstnumber.-304.10}
+\contentsline {section}{\numberline {12.7}Resumen de funciones ANSI C de E/S}{133}{section.12.7}
+\contentsline {section}{\numberline {12.8}Funciones POSIX de E/S sobre archivos}{134}{section.12.8}
+\contentsline {subsection}{Apertura de archivos}{134}{section*.33}
+\contentsline {subsubsection}{Flags}{134}{section*.33}
+\contentsline {subsubsection}{Permisos de los archivos}{135}{lstnumber.-328.15}
+\contentsline {subsection}{Posicionamiento en archivos}{136}{lstnumber.-341.1}
+\contentsline {section}{\numberline {12.9}Ejercicios}{136}{section.12.9}
+\contentsline {chapter}{\numberline {13}Comunicaci\IeC {\'o}n con el ambiente}{139}{chapter.13}
+\contentsline {section}{\numberline {13.1}Redirecci\IeC {\'o}n y piping}{139}{section.13.1}
+\contentsline {section}{\numberline {13.2}Variables de ambiente}{140}{section.13.2}
+\contentsline {section}{\numberline {13.3}Argumentos de ejecuci\IeC {\'o}n}{140}{section.13.3}
+\contentsline {section}{\numberline {13.4}Salida del programa}{141}{section.13.4}
+\contentsline {section}{\numberline {13.5}Opciones}{142}{section.13.5}
+\contentsline {section}{\numberline {13.6}Ejercicios}{143}{section.13.6}
+\contentsline {chapter}{\numberline {14}La Biblioteca Standard}{145}{chapter.14}
+\contentsline {section}{\numberline {14.1}Cadenas o strings}{145}{section.14.1}
+\contentsline {section}{\numberline {14.2}Listas de argumentos variables}{145}{section.14.2}
+\contentsline {section}{\numberline {14.3}Tratamiento de errores}{147}{section.14.3}
+\contentsline {section}{\numberline {14.4}Funciones de fecha y hora}{148}{section.14.4}
+\contentsline {section}{\numberline {14.5}Funciones matem\IeC {\'a}ticas}{148}{section.14.5}
+\contentsline {section}{\numberline {14.6}Funciones utilitarias}{149}{section.14.6}
+\contentsline {section}{\numberline {14.7}Clasificaci\IeC {\'o}n de caracteres}{150}{section.14.7}
+\contentsline {section}{\numberline {14.8}Ejercicios}{150}{section.14.8}
