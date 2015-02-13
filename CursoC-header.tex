@@ -27,7 +27,8 @@
 \usepackage[tocindentauto]{tocstyle}
 \usetocstyle{standard}
 
-% Listados
+% Caracteres nacionales en listados
+%----------------------------------------
 %\usepackage{listings}
 \usepackage{listingsutf8}
 \lstset{literate=
@@ -47,41 +48,13 @@
 }
 
 
-% Esto anduvo OK pero preferible newenvironment
-% \usepackage{amsthm} %load after amsmath
-% \newtheoremstyle{ejemplo}% hname
-% {11pt}% Space above
-% {3pt}% Space below
-% {\footnotesize}% Body font
-% {}% Indent amount
-% {\bfseries\color{bl}}% Theorem head font
-% {}% Punctuation after theorem head
-% {\newline}% Space after theorem head
-% {}% Theorem head spec (can be left empty, meaning ‘normal’)
-% %\newtheoremstyle{dotlessP}{}{}{\color{db}}{}{\color{db}\bfseries}{}{ }{}
-% \theoremstyle{ejemplo}
-% \newtheorem{ejemplo}{Ejemplo}[chapter]
-% 
-
-%EJEMPLO
+% EJEMPLO
+%----------------------------------------
 \newcounter{ejemplo}[section]
 %\newenvironment{ejemplo}{\stepcounter{ejemplo}\footnotesize{\bfseries\color{bl}{\noindent\\Ejemplo~\thechapter.\theejemplo}}\medskip\hrule\medskip\noindent}{\medskip}
 
 \newenvironment{ejemplo}[1][\unskip]{\stepcounter{ejemplo}\footnotesize{\bfseries\color{bl}{\noindent\\Ejemplo~\thechapter.\theejemplo #1}}\medskip\hrule\medskip\noindent}{\medskip}
 
-
-%\usepackage{changepage}
-%\usepackage{parskip}
-%\newenvironment{ejemplo}[1][\unskip]%
-%{\stepcounter{ejemplo}\footnotesize{\bfseries\color{bl}{\noindent\\Ejemplo~\thechapter.\theejemplo #1}}%
-%\setlength{\parskip}{0.6em}\hrule\setlength\parindent{0em}}{\par\medskip}
-
-
-% {\noindent\ignorespaces}%
-% {\par\noindent%
-% \ignorespacesafterend}
-% 
-%{\stepcounter{ejemplo}\footnotesize{\noindent\bfseries\color{bl}{\\Ejemplo~\thechapter.\theejemplo}}\medskip\hrule\medskip\noindent}{\\\rule{15ex}{0.1pt}\hspace{\stretch{1}}\color{black}}%
 
 \usepackage{multicol}
 \definecolor{dkgreen}{rgb}{0,0.6,0}
@@ -90,25 +63,6 @@
 \definecolor{lstbackground}{rgb}{0.95,0.95,0.95}
 \definecolor{white}{rgb}{100,100,100}
 
-
-% \lstset{frame=tb,
-% 	backgroundcolor=\color{lstbackground},
-%   language=Bash,
-%   aboveskip=3mm,
-%   belowskip=3mm,
-%   showstringspaces=false,
-%   columns=flexible,
-%   basicstyle={\small\ttfamily},
-%   numbers=none,
-%   numberstyle=\tiny\color{gray},
-%   keywordstyle=\color{blue},
-%   %commentstyle=\color{dkgreen},
-%   stringstyle=\color{mauve},
-%   breaklines=true,
-%   breakatwhitespace=true,
-%   extendedchars=true,
-%   tabsize=3
-% }
 \lstset{
   backgroundcolor=\color{lstbackground},
 % language=Bash,
@@ -130,20 +84,6 @@
   tabsize=4
 }
 
-% \lstnewenvironment{lstinlinecell}
-%   	{\lstset{
-% 	  aboveskip=3mm,
-% 	  belowskip=3mm,
-% 	  showstringspaces=false,
-% 	  columns=flexible,
-% 	  basicstyle={\small\ttfamily},
-% 	  numbers=none,
-% 	  breaklines=true,
-% 	  breakatwhitespace=true,
-% 	  tabsize=4
-% 	  }
-% 	} {}
-% 
 
 \lstnewenvironment{mylistings}
   {\lstset{language=C++,
@@ -162,25 +102,9 @@
 
 
 \usepackage[font=small,skip=1cm]{caption}
-
-%\DeclareCaptionFont{black}{ \color{black} }
-%\DeclareCaptionFormat{listing}{
-%  \colorbox[cmyk]{0.93, 0.95, 0.95,0.01 }{
-%    \parbox{\textwidth}{\hspace{15pt}#1#2#3}
-%  }
-%}
-%\captionsetup[lstlisting]{ format=listing, labelfont=black, textfont=black, singlelinecheck=false, margin=0pt, font={bf,footnotesize} }
-%\captionsetup[lstlisting]{format=plain, font={footnotesize}}
-%\captionsetup[figure]{format=plain,font={footnotesize}}
-% ...
-
-
-%\renewcommand{\lstlistingname}{Code}
 \usepackage{verbatim}
 
-%\addto\captionsspanish {%
-%	\def\appendixname{Apéndices}
-%}
+
 % Outline numbering
 \setcounter{secnumdepth}{1}
 % Reset section numbering between parts
@@ -237,8 +161,8 @@
 \pagestyle{fancy}
 
 
-%%--------------------------------------
 % F O N T S 
+%--------------------------------------
 % \usepackage{dejavu}
 %\usepackage{librebaskerville}
 %\usepackage{sans}
@@ -252,54 +176,6 @@
 \usepackage{lmodern}
 \renewcommand*\familydefault{\sfdefault} %% Only if the base font of the document is to be sans serif
 
-
-%% LaTeX Preamble - Font choices
-%% Each block selects new math, roman (serif), sans serif, and typewriter fonts.
-%% Delete or comment out all but one to make your choice.
-
-% Fourier for math | Utopia (scaled) for rm | Helvetica for ss | Latin Modern for tt
-%\usepackage{fourier} % math & rm
-%\usepackage[scaled=0.875]{helvet} % ss
-%\renewcommand{\ttdefault}{lmtt} %tt
-
-% Latin Modern (similar to CM with more characters)
-%\usepackage{lmodern} % math, rm, ss, tt
-%\usepackage[T1]{fontenc}
-
-% Palatino for rm and math | Helvetica for ss | Courier for tt
-%\usepackage{mathpazo} % math & rm
-%\linespread{1.05}        % Palatino needs more leading (space between lines)
-%\usepackage[scaled]{helvet} % ss
-%\usepackage{courier} % tt
-%\normalfont
-%\usepackage[T1]{fontenc}
-
-% Euler for math | Palatino for rm | Helvetica for ss | Courier for tt
-%\renewcommand{\rmdefault}{ppl} % rm
-%\linespread{1.05}        % Palatino needs more leading
-%\usepackage[scaled]{helvet} % ss
-%\usepackage{courier} % tt
-%\usepackage{euler} % math
-%\usepackage{eulervm} % a better implementation of the euler package (not in gwTeX)
-
-%\normalfont
-%\usepackage[T1]{fontenc}
-
-% Times for rm and math | Helvetica for ss | Courier for tt
-%\usepackage{mathptmx} % rm & math
-%\usepackage[scaled=0.90]{helvet} % ss
-%\usepackage{courier} % tt
-%\normalfont
-%\usepackage[T1]{fontenc}
-
-% !! COMMERICAL FONT !! Lucida Bright (w/expert package)
-%\usepackage[T1]{fontenc}
-%\usepackage[expert,vargreek,altbullet]{lucidabr}
-
-%% END Font choices
-%%---------------------------------------------
-% \renewcommand*\familydefault{\sfdefault}
-% \pagestyle{Standard}
 \usepackage{mdframed}
 
 
@@ -320,17 +196,16 @@
 \revisar{\today, \currenttime  -  Material en preparación, se ruega no imprimir mientras aparezca esta nota}
 }
 
-
-
-
 \newcommand{\nota}[1]{}
 \newcommand{\nonota}[1]{#1}
 \newcommand{\quotes}[1]{``#1''}
 \newcommand{\shade}[1]{\textcolor{black!50}{#1}}
 
+% FIGURA
 % ancho opcional, por defecto 15cm
 % \figura{copyleft}{Símbolo de Copyleft}{copyleft.png}
 % \figura[6]{copyleft}{Símbolo de Copyleft}{copyleft.png}
+%-----------------------------------------------------------------
 \newcommand{\figura}[4][15]{
  \begin{figure}[htb] 
  \centering 
@@ -341,8 +216,9 @@
 }
 
 
-
+% TABLAS
 % tabla{label}{caption}{columns}{contents}
+%-----------------------------------------------------------------
 \newcommand{\tabla}[4]{
  \begin{table} 
  \centering 
@@ -371,6 +247,8 @@
 
 \usepackage{float}
 
+% Recuadro importante
+%-----------------------------------------------------------------
 \newcommand{\importante}[1]{
 \bigskip
 \noindent
@@ -389,32 +267,91 @@
 \bigskip
 }
 
-% \newenvironment{importantex}[1][]{
-% \noindent
-% \begin{minipage}[c]{\linewidth}
-% 	\rule{\linewidth}{0.1pt}
-% 	\\{ }\\
-%      	\begin{minipage}[h]{0.10\linewidth}
-%         	$\vcenter{\hbox{\includegraphics[width=0.5\linewidth]{./img/emblem-important.png}}}$
-%      	\end{minipage}
-%      	\begin{minipage}[h]{0.80\linewidth}\footnotesize
-% {#1}
-%      	\end{minipage}
-%     \\{ }\\
-% 	\rule{\linewidth}{0.1pt}
-% \end{minipage}
-% \bigskip
-% }
-% 
 
 \newcommand{\code}[1]{\lstinline$#1$}
 
-%\usepackage{C}
-%\clearpage\clearpage\setcounter{page}{1}\pagestyle{HTML}
 
 % Titulos
+%-----------------------------------------------------------------
 \usepackage{titlesec}
 \titleformat{\section}
   {\normalfont\Large\bfseries\color{bl}}{\thesection}{1em}{}[{\titlerule[0.8pt]}]
 
-%\allsectionsfont{\color{bl}\scshape\selectfont}
+
+
+
+
+% Multiple choice
+%-----------------------------------------------------------------
+
+\newcounter{question}
+\newif\ifinchoices
+\inchoicesfalse
+\newenvironment{questions}{%
+  \list{\thequestion.}%
+  {%
+    \usecounter{question}%
+    \def\question{\inchoicesfalse\item}%
+    \settowidth{\leftmargin}{10.\hskip\labelsep}%
+    \labelwidth\leftmargin\advance\labelwidth-\labelsep
+  }%
+}
+{%
+  \endlist
+}%
+
+\newcounter{choice}
+\renewcommand\thechoice{\Alph{choice}}
+\newcommand\choicelabel{\thechoice.}
+\def\choice{%
+  \ifinchoices
+    % Do nothing
+  \else
+    \startchoices
+  \fi
+  \refstepcounter{choice}%
+  \ifnum\value{choice}>1\relax
+  \penalty -50\hskip 1em plus 1em\relax
+  \fi
+  \choicelabel
+  \nobreak\enskip
+}% choice
+\def\CorrectChoice{%
+  \choice
+  \addanswer{\thequestion}{\thechoice}%
+}
+\let\correctchoice\CorrectChoice
+
+\newcommand{\startchoices}{%
+  \inchoicestrue
+  \setcounter{choice}{0}%
+  \par % Uncomment this to have choices always start a new line
+  % If we're continuing the paragraph containing the question,
+  % then leave a bit of space before the first choice:
+  \ifvmode\else\enskip\fi
+}%
+
+\newbox\allanswers
+\setbox\allanswers=\hbox{}
+\newcommand{\addanswer}[2]{%
+  \global\setbox\allanswers=\hbox{\unhbox\allanswers #1.~#2\quad}%
+}
+\newcommand{\showanswers}{%
+  % \vfill
+%   \begin{center}
+%     Answers
+%   \end{center}
+   \noindent\unhbox\allanswers
+}
+
+\newenvironment{preguntas}{%
+	\section{Preguntas para el Capítulo \thechapter}
+	\begin{questions}
+}{%
+	\end{questions}
+	\newpage
+	\subsection{Respuestas al Capítulo \thechapter}
+	\showanswers
+}%
+
+

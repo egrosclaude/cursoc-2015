@@ -1,46 +1,79 @@
 
-\question ¿De qué tipo es la función siguiente?<br><code>float z(int p, short q) \
-\correctchoice 1;<br>  float h\=2;<br>  return g;<br>\}{
-\choice int
-\correctchoice float
-\choice short
-\choice double
+\question ¿De qué tipo es la función siguiente?\\
+\begin{lstlisting}
+float z(int p, short q) {
+	double g=1;
+	float h=2;
+	return g;
+}
+\end{lstlisting}
+\choice \texttt{int}
+\correctchoice \texttt{float}
+\choice \texttt{short}
+\choice \texttt{double}
 
-\question ¿Qué ocurre con el parámetro <emph>b</emph> en el cuerpo de la función siguiente?<br><code>int fun(int a) \
-\correctchoice 2 * b;<br>  return b;<br>  \}</code><br>{
-\choice El código no compila porque falta declarar el parámetro b
-\choice Se devuelve el valor de b que es basura por ser variable local
-\correctchoice Se devuelve b si b es una global declarada más arriba
+\question ¿Qué ocurre con el parámetro \texttt{b} en el cuerpo de la función siguiente?
+\begin{lstlisting}
+int fun(int a) {
+	a = 2 * b;
+	return b;
+}
+\end{lstlisting} 
+\choice El código no compila porque falta declarar el parámetro b.
+\choice Se devuelve el valor de b que es basura por ser variable local.
+\correctchoice Se devuelve el valor b siempre que b sea una global declarada más arriba.
 
-\question ¿Cuál sería el prototipo más plausible para la función q() si su uso legal es como el siguiente?<br><code>float p, r; int s;<br>r \= q(p,s) / 2;</code><br>
-\correctchoice q(p,s) / 2;</code><br>{
-\choice r \= q(1, 2);
-\correctchoice q(1, 2);
-\correctchoice float q(float x, int y);
-\choice float q(int x, int y);
-\choice int q(float x, float y);
+\question ¿Cuál sería el prototipo más plausible para la función \code{q()} si su uso legal es como el siguiente?
+\begin{lstlisting}
+float p, r; 
+int s;
+r = q(p,s) / 2;	
+\end{lstlisting}
+\correctchoice \texttt{float q(float x, int y);}
+\choice \texttt{float q(int x, int y);}
+\choice \texttt{int q(float x, float y);}
 
-\question ¿Cuál sería el prototipo más plausible para la función t() si su uso legal es como el siguiente?<br><code>double w;<br>w\=t(5e1, 2L);</code><br>
-\correctchoice t(5e1, 2L);</code><br>{
-\choice long t();
-\choice double t(int x, int y);
-\correctchoice double t(double x, long y);
-\choice long t(double x, double y);
+\question ¿Cuál sería el prototipo más plausible para la función \code{t()} si su uso legal es como el siguiente
+\begin{lstlisting}
+double w;
+w = t(5e1, 2L);
+\end{lstlisting}
+\choice \texttt{long t();}
+\choice \texttt{double t(int x, int y);}
+\correctchoice \texttt{double t(double x, long y);}
+\choice \texttt{long t(double x, double y);}
 
-\question ¿Con este prototipo, cuál es el parámetro cuyo tipo no es correcto en la invocación de la función?<br><code>void fun1(long x, double y, int g, char h);<br>fun2(500, 1.02e3, -12, 9);</code><br>
+\question Con el prototipo:
+\begin{lstlisting}
+void fun1(long x, double y, int g, char h);
+\end{lstlisting}
+¿Cuál es el parámetro cuyo tipo \textbf{no es} correcto en la invocación de la función?
+\begin{lstlisting}
+fun1(500, 1.02e3, -12, 9);
+\end{lstlisting}
 \correctchoice x
 \choice y
 \choice g
 \choice h
 
-\question ¿Con este prototipo, cuál es el parámetro cuyo tipo no es correcto en la invocación de la función?<br><code>void fun2(char a, unsigned b, int c, double d);<br>fun2('2', 100, 100, 100);</code><br>
+\question Con el prototipo:
+\begin{lstlisting}
+void fun2(char a, unsigned b, int c, double d);
+\end{lstlisting}
+¿Cuál es el parámetro cuyo tipo \textbf{no es} correcto en la invocación de la función?
+\begin{lstlisting}
+fun2('2', 100, 100, 100);
+\end{lstlisting}
 \choice a
 \choice b
 \choice c
 \correctchoice d
 
-\question ¿Con quién está relacionado el problema en estas líneas?<br><code>void fun3(int e, unsigned short f, long int g, signed char h);<br>a \= fun3(1, 1, 1, 1);</code><br>
-\correctchoice fun3(1, 1, 1, 1);</code><br>{
+\question ¿Con quién está relacionado el problema en estas líneas?
+\begin{lstlisting}
+void fun3(int e, unsigned short f, long int g, signed char h);
+a = fun3(1, 1, 1, 1);
+\end{lstlisting}
 \choice Con e
 \choice Con f
 \choice Con g

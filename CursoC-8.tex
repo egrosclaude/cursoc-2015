@@ -246,3 +246,89 @@ diga el otro argumento. Escribir un programa para probar la función.
 \end{enumerate}
 
 %TODO Ejercicios_Adicionales Ejercicios_Avanzados
+
+
+
+\begin{preguntas}
+\question ¿De qué tipo es la función siguiente?
+\begin{lstlisting}
+float z(int p, short q) {
+	double g=1;
+	float h=2;
+	return g;
+}
+\end{lstlisting}
+\choice \code{int}
+\correctchoice \code{float}
+\choice \code{short}
+\choice \code{double}
+
+\question ¿Qué ocurre con el parámetro \code{b} en el cuerpo de la función siguiente?
+\begin{lstlisting}
+int fun(int a) {
+	a = 2 * b;
+	return b;
+}
+\end{lstlisting} 
+\choice El código no compila porque falta declarar el parámetro b.
+\choice Se devuelve el valor de b que es basura por ser variable local.
+\correctchoice Se devuelve el valor b siempre que b sea una global declarada más arriba.
+
+\question ¿Cuál sería el prototipo más plausible para la función \code{q()} si su uso legal es como el siguiente?
+\begin{lstlisting}
+float p, r; 
+int s;
+r = q(p,s) / 2;	
+\end{lstlisting}
+\correctchoice \code{float q(float x, int y);}
+\choice \code{float q(int x, int y);}
+\choice \code{int q(float x, float y);}
+
+\question ¿Cuál sería el prototipo más plausible para la función \code{t()} si su uso legal es como el siguiente?
+\begin{lstlisting}
+double w;
+w = t(5e1, 2L);
+\end{lstlisting}
+\choice \code{long t();}
+\choice \code{double t(int x, int y);}
+\correctchoice \code{double t(double x, long y);}
+\choice \code{long t(double x, double y);}
+
+\question Con el prototipo:
+\begin{lstlisting}
+void fun1(long x, double y, int g, char h);
+\end{lstlisting}
+¿Cuál es el parámetro cuyo tipo \textbf{no es} correcto en la invocación de la función?
+\begin{lstlisting}
+fun1(500, 1.02e3, -12, 9);
+\end{lstlisting}
+\correctchoice x
+\choice y
+\choice g
+\choice h
+
+\question Con el prototipo:
+\begin{lstlisting}
+void fun2(char a, unsigned b, int c, double d);
+\end{lstlisting}
+¿Cuál es el parámetro cuyo tipo \textbf{no es} correcto en la invocación de la función?
+\begin{lstlisting}
+fun2('2', 100, 100, 100);
+\end{lstlisting}
+\choice a
+\choice b
+\choice c
+\correctchoice d
+
+\question ¿Con quién está relacionado el problema en estas líneas?
+\begin{lstlisting}
+void fun3(int e, unsigned short f, long int g, signed char h);
+a = fun3(1, 1, 1, 1);
+\end{lstlisting}
+\choice Con e
+\choice Con f
+\choice Con g
+\choice Con h
+\correctchoice Con a
+
+\end{preguntas}

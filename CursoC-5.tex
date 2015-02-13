@@ -840,3 +840,117 @@ main()
 \caption{Conjuntos de fuentes y propiedad de liga}
 \label{tab:fuentes}
 \end{table}
+
+\begin{preguntas}
+
+\question El alcance de una variable es
+\choice el rango de valores que puede tomar.
+\choice el tiempo transcurrido entre su creación y su desaparición.
+\correctchoice el conjunto de líneas de código desde donde es visible la variable.
+
+\question Una variable local es aquella que aparece definida
+\correctchoice dentro de una función.
+\choice fuera de una función.
+\choice fuera de todas las funciones.
+
+\question Una variable externa es aquella que aparece definida
+\choice fuera de una función pero dentro de una segunda función.
+\choice fuera de un bloque.
+\correctchoice fuera de toda función.
+\choice dentro de una función.
+
+\question Una variable local puede ser usada
+\choice desde toda la unidad de traducción.
+\correctchoice desde dentro de la función donde se la declara.
+\choice desde las funciones que aparecen con posterioridad a su declaración.
+\choice en todos los casos anteriores.
+
+\question Una variable externa puede ser usada
+\choice desde toda la unidad de traducción.
+\choice desde dentro de la función donde se la declara.
+\correctchoice desde las funciones que aparecen con posterioridad a su declaración.
+\choice en todos los casos anteriores.
+
+\question Si una función declara una variable local con el mismo nombre que una externa, los usos de esa variable dentro de la función se referirán a
+\correctchoice la variable local.
+\choice la variable externa.
+\choice depende de la implementación.
+
+\question Una variable local vive durante
+\choice toda la ejecución del programa.
+\correctchoice la ejecución de la función donde se la declara.
+\choice la compilación del programa.
+\choice la ejecución de las funciones que aparecen con posterioridad a su declaración
+
+\question Cambiar la clase de almacenamiento de una variable implica afectar 
+\correctchoice cuándo aparece y desaparece.
+\choice el tamaño de los objetos de datos que contiene.
+\choice el ámbito de la variable dentro de la unidad de traducción.
+\choice todo lo anterior.
+
+\question La clase de almacenamiento por defecto de las variables locales es
+\correctchoice \code{auto}.
+\choice \code{static}.
+\choice \code{register}.
+\choice \code{extern}.
+
+\question La clase de almacenamiento por defecto de las variables externas es
+\choice \code{auto}.
+\correctchoice \code{static}.
+\choice \code{register}.
+\choice \code{extern}.
+
+\question Una variable con clase de almacenamiento \code{static} 
+\choice se crea estáticamente al ejecutarse la función donde se la define.
+\correctchoice se crea estáticamente al cargarse el programa en memoria.
+\choice se crea estáticamente al iniciarse la ejecución de \code{main()}.
+
+\question Una variable con clase de almacenamiento \code{static} 
+\correctchoice se inicializa con ceros al inicio del programa.
+\choice no se inicializa y contiene basura.
+\choice se inicializa con ceros al ejecutarse la función donde se la define.
+
+\question Una variable con clase de almacenamiento \code{auto}
+\choice se inicializa con ceros al inicio del programa.
+\correctchoice no se inicializa y contiene basura.
+\choice se inicializa con ceros al ejecutarse la función donde se la define.
+
+\question Las variables locales que \quotes{recuerdan la historia} son
+\choice las declaradas \code{auto}.
+\correctchoice las declaradas \code{static}.
+\choice las declaradas \code{register}.
+\choice ninguna de las anteriores.
+
+\question Si un objeto se declara \code{static}
+\choice se hace visible desde otras unidades de traducción.
+\correctchoice se impide que se vea desde otras unidades de traducción.
+\choice se impide que se vea desde otras funciones que aquella donde se lo define.
+
+\question La declaración \code{extern} para una variable
+\choice crea el objeto de datos correspondiente.
+\choice equivale a una definición de la variable.
+\choice indica la unidad de traducción donde está definida la variable.
+\correctchoice solamente enuncia el tipo y nombre de la variable.
+
+\question Una declaración \code{extern} puede corresponderse
+\correctchoice con una variable externa en otra unidad de traducción.
+\choice con una variable local en otra unidad de traducción.
+\choice ninguna de las anteriores.
+
+\question Una declaración \code{static} puede corresponderse
+\choice con una variable externa en otra unidad de traducción.
+\choice con una variable local en otra unidad de traducción.
+\correctchoice ninguna de las anteriores.
+
+\question Una variable \code{const} 
+\choice debe ser optimizada.
+\choice no debe ser optimizada.
+\choice puede ser modificada sólo por funciones en la misma unidad de traducción.
+\correctchoice no puede ser modificada.
+
+\question Una variable \code{volatile} 
+\choice debe ser optimizada.
+\correctchoice no debe ser optimizada.
+\choice puede ser modificada sólo por funciones en la misma unidad de traducción.
+\choice no puede ser modificada.
+\end{preguntas}

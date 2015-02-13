@@ -1,0 +1,46 @@
+
+\question ¿Cuántos elementos tiene este arreglo? <br><code>long trece[12];</code><br>
+\choice 11
+\correctchoice 12
+\choice 13
+
+\question ¿Cuál es la declaración correcta para un arreglo de nueve caracteres?
+\choice int chars[9];
+\choice alfa\=char[9];
+\correctchoice char[9];
+\choice char[9] alfa;
+\correctchoice char alfa[9];
+
+\question ¿Cuántos elementos tiene este arreglo? <br><code> int trece[12] \= \
+\correctchoice \{ 1, 3, 5 \};</code><br>{
+\choice 3
+\choice 11
+\correctchoice 12
+\choice 13
+
+\question ¿Cuántos elementos tiene este arreglo? <br><code> int trece[] \= \
+\correctchoice \{ 1, 3, 5 \};</code><br>{
+\correctchoice 3
+\choice 11
+\choice 12
+\choice 13
+
+\question Con la declaración del arreglo que sigue, ¿cuál de las sentencias es incorrecta? <br><code>long trece[12] \= \
+\correctchoice \{ 1, 5, 20L, 35\};</code><br>{
+\choice trece[1]++;
+\correctchoice trece[12]--;
+\choice trece[1] \= trece[0];
+\correctchoice trece[0];
+\choice trece[11] \= 20L;
+\correctchoice 20L;
+
+\question ¿Cuál de estos segmentos de programa es incorrecto?
+\choice int alfa[3]; alfa[2++] \= 8;
+\correctchoice 8;
+
+\question = int alfa[3]; alfa \= \
+\correctchoice int alfa[3]; alfa \= \{ 1, 2, 8 \};
+\choice int alfa[3]; c \= alfa[0]++;
+\correctchoice alfa[0]++;
+\choice int alfa[3]; alfa[1] \= alfa[2];
+\correctchoice alfa[2];
